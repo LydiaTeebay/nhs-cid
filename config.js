@@ -17,7 +17,7 @@ module.exports = {
     useAutoStoreData: 'true',
 
     // Enable or disable built-in docs and examples.
-    useDocumentation: 'true',
+    useDocumentation: 'false',
 
     // Force HTTP to redirect to HTTPs on production
     useHttps: 'true',
@@ -40,7 +40,7 @@ module.exports = {
     },
     css: {
       // src: srcPath + 'scss/**/[!_]*.scss',
-      src: [srcPath + 'scss/app/**/*.scss', srcPath + 'scss/nhsuk/**/*.scss'],
+      src: [srcPath + 'scss/app/*.scss', srcPath + 'scss/nhsuk/*.scss'],
       dest: destPath
     }
   }
