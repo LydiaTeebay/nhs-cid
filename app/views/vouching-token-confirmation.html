@@ -1,0 +1,39 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Offline Vouching Identity Service{{serviceName}}{% endblock %}
+
+{% block body %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Are you satified that the patient in front of you is the actual patient?</legend></h1>
+
+        {% import "partials/components/callout.html" as callout %}
+        {{ callout.pattern('Attention','You are accepting the responsibility that you know the person in front of you. This information will be recorded for audit purposes','attention') }}
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="vouching-token-delivery-method">
+            Yes
+          </label>
+        </div>
+        
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-process-cancelled">
+            No
+          </label>
+        </div>
+      </fieldset>
+
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}
