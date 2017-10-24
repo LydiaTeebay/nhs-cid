@@ -4,14 +4,21 @@
 
 const fs = require('fs')
 const path = require('path')
+const express = require('express')
+const app = express.Router()
 const files = fs.readdirSync(path.resolve(__dirname, 'routes'))
 
 const routes = files.map((file) => {
   return require(path.resolve(__dirname, 'routes', file.replace('.js', '')))
 })
 
-module.exports = function (router, hbs) {
+module.exports = function (router, njk) {
   routes.forEach(function (route) {
-    route(router, hbs)
+    route(router, njk)
   })
 }
+
+app.all('/', function (req, res, next) {
+  console.log('Accessing the secret section ...')
+  next() // pass control to the next handler
+})

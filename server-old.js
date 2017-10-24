@@ -7,13 +7,15 @@ require('dotenv').config()
  */
 const express = require('express')
 const path = require('path')
-const expressNunjucks = require('express-nunjucks')
-const favicon = require('serve-favicon')
+const handlebars = require('express-handlebars')
 const logger = require('morgan')
-const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+// const debug = require('debug')('nhsuk-prototype-kit:server')
+// const http = require('http')
 const chalk = require('chalk')
 const browserSync = require('browser-sync')
+const favicon = require('serve-favicon')
 
 /**
  * Config
@@ -34,9 +36,9 @@ const useAuth = process.env.USE_AUTH || config.useAuth.toLowerCase()
 env = env.toLowerCase()
 
 const router = express.Router()
-const routes = require('./app/routes.js')
-const app = express()
-const isDev = app.get('env') === 'development';
+const routes = require('./app/routes')
+
+let app = express()
 
 // Authenticate against the environment-provided credentials, if running
 // the app in production
@@ -44,7 +46,16 @@ if (env === 'production' && useAuth === 'true') {
   app.use(utils.productionAuth(username, password))
 }
 
-// set view engine to nunjucks
+// set view engine to handlebars
+const hbs = handlebars.create({
+  extname: '.hbs',
+  defaultLayout: 'nhsuk_layout',
+  layoutsDir: 'app/views/layouts',
+  partialsDir: 'app/views/partials'
+})
+app.engine('.hbs', hbs.engine)
+app.set('view engine', '.hbs')
+
 app.set('views', path.join(__dirname, 'app', 'views'))
 
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
@@ -54,19 +65,28 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-const njk = expressNunjucks(app)
-
-app.get('/', (req, res) => {
-  res.render('index')
-console.log('jajajajajaj')
+// Strip .html and .htm if provided
+app.get(/\.html?$/i, function (req, res) {
+  var path = req.path
+  var parts = path.split('.')
+  parts.pop()
+  path = parts.join('.')
+  res.redirect(path)
 })
 
 // Auto render any view that exists
 
-routes(router, njk)
-// app.use('/', router)
+routes(router, hbs)
+app.use('/', router)
 
-
+// Strip .html and .htm if provided
+app.get(/\.html?$/i, function (req, res) {
+  var path = req.path
+  var parts = path.split('.')
+  parts.pop()
+  path = parts.join('.')
+  res.redirect(path)
+})
 
 // Auto render any view that exists
 

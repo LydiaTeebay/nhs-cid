@@ -1,7 +1,7 @@
 const session = require('express-session')
 const validator = require('express-validator')
 
-module.exports = function (app, hbs) {
+module.exports = function (app, njk) {
   app.use(
     '/',
     session({
@@ -19,7 +19,7 @@ module.exports = function (app, hbs) {
   })
 
   const checkTemplateExists = req => templates => {
-    if (!templates[`${req.params.prototype}.hbs`]) throw new Error(`Prototype template '${req.params.prototype}.hbs' not found`)
+    if (!templates[`${req.params.prototype}.html`]) throw new Error(`Prototype template '${req.params.prototype}.html' not found`)
   }
 
   const generateInput = req => () => {
@@ -52,7 +52,7 @@ module.exports = function (app, hbs) {
   }
 
   app.all('/:prototype(*)', (req, res, next) => {
-    hbs.getTemplates('app/views')
+    njk.getTemplates('app/views')
        .then(checkTemplateExists(req))
        .then(generateInput(req))
        .then(validateRequest(req))
