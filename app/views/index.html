@@ -1,0 +1,17 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Prototypes{% endblock %}
+
+{% block body %}
+
+  {% import "partials/components/local-header.html" as localHeader %}
+  {{ localHeader.pattern('Prototypes') }}
+
+<p>List of prototypes:</p>
+<ul>
+  <li>Generate a token of trust for a patient to access online medical records</li>
+  <li>Remove token access for a patients identity</li>
+</ul>
+
+<a href="vouching-1" class="button">Start</a>
+
+{% endblock %}

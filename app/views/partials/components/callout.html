@@ -1,0 +1,8 @@
+{% macro pattern(title='Callout Title', text='Callout text', modifier='attention') %}
+  <div class="callout callout--{{modifier}}">
+    <h2>{{ title }}</h2>
+    <p>
+      {{ text }}
+    </p>
+</div>
+{% endmacro %}
