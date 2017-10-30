@@ -1,3 +1,5 @@
+@import "../nhsuk/environment/settings/colours";
+
 // Add your custom CSS here
 
 $leading: 16px;
@@ -459,4 +461,12 @@ p.help-links {
 
 .form-hint {
   clear: both;
+}
+
+// text box read only state
+
+input {
+  &[readonly] {
+    border: 2px solid $grey-3;
+  }
 }

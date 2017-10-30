@@ -4,31 +4,30 @@
 {% block body %}
 
 {% import "partials/components/callout.html" as callout %}
-  {{ callout.pattern('Attention','By using this service you are accepting the responsibility that you know the person in front of you. This information will be recorded for audit purposes.','attention') }}
+  {{ callout.pattern('Attention','By using this service you are accepting responsibility that you know the person in front of you. This information will be recorded for audit purposes.','attention') }}
 
-  <form>
+  <form method="GET">
+
     <div class="form-group">
       <fieldset class="">
         <h1><legend>Do you understand your responsibility and are happy to vouch for this person?</legend></h1>
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="vouching-2">
+            <input id="radio-inline-1" type=radio name=redirect value="vouching-2">
             Yes
           </label>
         </div>
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-id-1">
+            <input id="radio-inline-2" type=radio name=redirect value="vouching-id-1">
             No
           </label>
         </div>
       </fieldset>
     </div>
-    <div class="form-group">
-      <a class="button" href="#" id="continue">Continue</a>
-    </div>
+    <input class="button" type=submit value=Submit>
   </form>
 
 {% endblock %}
