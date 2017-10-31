@@ -1,5 +1,5 @@
 {% extends 'layouts/nhsuk_layout.html' %}
-{% block page_title %}Offline Vouching Identity Service{{serviceName}}{% endblock %}
+{% block page_title %}Patient ID Verification Service{% endblock %}
 
 {% block body %}
 
@@ -9,8 +9,7 @@
       <fieldset class="">
         <h1><legend>Are you satisfied that the patient in front of you is the actual patient?</legend></h1>
 
-        {% import "partials/components/callout.html" as callout %}
-        {{ callout.pattern('Attention','You are accepting responsibility that you know the person in front of you. This information will be recorded for audit purposes','info') }}
+        {% include 'partials/vouching-disclaimer.html'%}
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
@@ -21,7 +20,7 @@
         
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-process-cancelled">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-3">
             No
           </label>
         </div>

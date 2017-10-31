@@ -1,15 +1,15 @@
 {% extends 'layouts/nhsuk_layout.html' %}
-{% block page_title %}Offline Vouching Identity Service{{serviceName}}{% endblock %}
+{% block page_title %}Patient ID Verification Service{% endblock %}
 
 {% block body %}
 
   {% import "partials/components/local-header.html" as localHeader %}
-  {{ localHeader.pattern('Offline Vouching Identity Service','This service is for clinicians.') }}
+  {{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians.') }}
 
 <p>Use this service to:</p>
 <ul>
-  <li>Generate a token of trust for a patient to access online medical records</li>
-  <li>Remove token access for a patient's identity</li>
+  <li>Generate an NHS token code for a patient to access online medical records</li>
+  <!--<li>Remove token access for a patient's identity</li>-->
 </ul>
 
 <a href="vouching-nhs-no" class="button">Start</a>
