@@ -4,10 +4,13 @@ const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
 const config = require('../config').gulp
 
+const utils = require('../lib/utils.js')
+
 gulp.task('server', function () {
   nodemon({
-    script: './server',
-    ext: 'js, json',
+    script: './server.js',
+    ext: 'js json html',
+    env: { 'NODE_ENV': 'development' },
     ignore: [config.paths.public + '*',
       config.paths.assets + '*',
       config.paths.nodeModules + '*']
