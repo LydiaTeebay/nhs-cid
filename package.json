@@ -2,13 +2,21 @@
   "name": "nhsuk-prototype-kit",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhsuk/nhsuk-prototype-kit.git"
+  },
   "scripts": {
     "start": "node start.js",
     "debug": "node --inspect server.js",
     "setup": "npm install && npm start",
-    "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs'",
+    "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.html' 'assets/scripts/**/*.js'",
     "test": "npm run lint",
     "test-pa11y": "node tests/pa11y/pa11y.js"
+  },
+  "engines": {
+    "node": "8.4.0",
+    "npm": "5.5.1"
   },
   "standard": {
     "plugins": [
@@ -29,7 +37,7 @@
     "cssnano": "^3.10.0",
     "debug": "^2.6.9",
     "dotenv": "^4.0.0",
-    "express": "^4.15.5",
+    "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "express-hbs": "^1.0.4",
     "express-nunjucks": "^2.2.3",

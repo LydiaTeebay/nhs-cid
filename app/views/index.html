@@ -3,17 +3,18 @@
 
 {% block body %}
 
-  {% import "partials/components/local-header.html" as localHeader %}
-  {{ localHeader.pattern('Prototypes') }}
+<h2>Prototypes</h2>
 
-<p>List of prototypes:</p>
-<ul>
-  <li>Generate a token of trust for a patient to access online medical records</li>
-  <li>Remove token access for a patients identity</li>
-</ul>
+<h2>Prototypes</h2>
 
-<a class="button" href="create-account/create-2">Full journey</a>
+<dl>
+  <dt><a href="vouching-service-start">Patient ID Verification Service</a></dt>
+  <dd>Used by clinicians to generate NHS token codes</dd>
+  <dt><a href="create-account/create-2">Create account</a></dt>
+<dd>Customer journey to create a new NHS account(profile)</dd>
+</dl>
 
-<a href="vouching-1" class="button">Start</a>
+
+
 
 {% endblock %}

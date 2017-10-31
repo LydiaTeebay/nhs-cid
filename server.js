@@ -7,7 +7,9 @@ require('dotenv').config()
  */
 const express = require('express')
 const path = require('path')
+const nunjucks = require('nunjucks')
 const expressNunjucks = require('express-nunjucks')
+const app = express()
 const favicon = require('serve-favicon')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
@@ -34,9 +36,9 @@ const useAuth = process.env.USE_AUTH || config.useAuth.toLowerCase()
 env = env.toLowerCase()
 
 const router = express.Router()
-const routes = require('./app/routes.js')
-const app = express()
-const isDev = app.get('env') === 'development';
+const routes = require('./app/routes')
+
+const isDev = app.get('env') === 'development'
 
 // Authenticate against the environment-provided credentials, if running
 // the app in production
@@ -45,6 +47,7 @@ if (env === 'production' && useAuth === 'true') {
 }
 
 // set view engine to nunjucks
+
 app.set('views', path.join(__dirname, 'app', 'views'))
 
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
@@ -54,19 +57,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-const njk = expressNunjucks(app)
-
-app.get('/', (req, res) => {
-  res.render('index')
-console.log('jajajajajaj')
-})
-
 // Auto render any view that exists
 
+const njk = expressNunjucks(app, {
+  watch: true,
+  noCache: true,
+  loader: nunjucks.FileSystemLoader
+})
+
 routes(router, njk)
-// app.use('/', router)
-
-
+app.use('/', router)
 
 // Auto render any view that exists
 
@@ -78,6 +78,7 @@ app.get(/^\/([^.]+)$/, function (req, res) {
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found')
+  console.log('error')
   err.status = 404
   next(err)
 })
@@ -108,7 +109,8 @@ utils.findAvailablePort(app, function (port) {
         ghostmode: false,
         open: false,
         notify: false,
-        logLevel: 'error'
+        logLevel: 'error',
+        reloadDelay: 1000
       })
     })
   }
