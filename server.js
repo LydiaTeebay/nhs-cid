@@ -7,6 +7,7 @@ require('dotenv').config()
  */
 const express = require('express')
 const path = require('path')
+const nunjucks = require('nunjucks')
 const expressNunjucks = require('express-nunjucks')
 const app = express()
 const favicon = require('serve-favicon')
@@ -15,7 +16,6 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const chalk = require('chalk')
 const browserSync = require('browser-sync')
-const bs = require("browser-sync").create()
 
 /**
  * Config
@@ -59,7 +59,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Auto render any view that exists
 
-const njk = expressNunjucks(app)
+const njk = expressNunjucks(app, {
+  watch: true,
+  noCache: true,
+  loader: nunjucks.FileSystemLoader
+})
 
 routes(router, njk)
 app.use('/', router)
