@@ -461,6 +461,7 @@ p.help-links {
 
 .form-hint {
   clear: both;
+  color: $grey-2;
 }
 
 // text box read only state
@@ -469,4 +470,8 @@ input {
   &[readonly] {
     border: 2px solid $grey-3;
   }
+}
+
+.local-header {
+  margin: 0 !important;
 }
