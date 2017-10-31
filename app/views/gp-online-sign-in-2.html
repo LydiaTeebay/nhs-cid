@@ -1,0 +1,40 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Offline Vouching Identity Service{{serviceName}}{% endblock %}
+
+{% block body %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Do you do any of the following?</legend></h1>
+        
+        <ul>
+        <li>Book online GP appointment</li>
+        <li>Order repeat prescriptions</li>
+        </ul>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="gp-online-providers">
+            Yes
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="nhs-create-account-1">
+            No
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}
