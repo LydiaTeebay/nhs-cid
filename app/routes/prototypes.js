@@ -51,15 +51,15 @@ module.exports = function (app, njk) {
     res.render(req.params.prototype, input)
   }
 
-  app.all('/:prototype(*)', (req, res, next) => {
-    njk.getTemplates('app/views')
-       .then(checkTemplateExists(req))
-       .then(generateInput(req))
-       .then(validateRequest(req))
-       .then(redirectOrRender(req, res))
-       .catch(ex => {
-         console.log(ex)
-         next()
-       })
-  })
+  // app.all('/:prototype(*)', (req, res, next) => {
+  //   njk.getTemplates('app/views')
+  //      .then(checkTemplateExists(req))
+  //      .then(generateInput(req))
+  //      .then(validateRequest(req))
+  //      .then(redirectOrRender(req, res))
+  //      .catch(ex => {
+  //        console.log(ex)
+  //        next()
+  //      })
+  // })
 }
