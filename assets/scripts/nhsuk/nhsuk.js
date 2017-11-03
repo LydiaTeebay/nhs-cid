@@ -17,6 +17,14 @@
     )
   }
 
+  function checkboxSelectionManager (ev) {
+    forEachElement(ev.currentTarget, 'input[type=checkbox]',
+      function (checkbox) {
+        checkbox.parentNode.classList[checkbox.checked ? 'add' : 'remove']('is-selected')
+      }
+    )
+  }
+
   // Synchronises the is-focused class on a radio button's label to the
   // focus state of the wrapped radio button. Attach as the focusin and
   // focusout handler to the container element for a set of radio buttons.
@@ -29,6 +37,56 @@
         radio.parentNode.classList[hasFocus ? 'add' : 'remove']('is-focused')
       }
     )
+  }
+
+  function checkboxFocusStateManager (ev) {
+    forEachElement(ev.currentTarget, 'input[type=checkbox]',
+      function (checkbox) {
+        const hasFocus = document.activeElement === checkbox
+        checkbox.parentNode.classList[hasFocus ? 'add' : 'remove']('is-focused')
+        // handleCheckboxContent()
+      }
+    )
+  }
+
+  // Show toggled content for control
+  function showToggledContent ($control, $content) {
+    // Show content
+    if ($content.hasClass('js-hidden')) {
+      $content.removeClass('js-hidden')
+      $content.attr('aria-hidden', 'false')
+
+      // If the controlling input, update aria-expanded
+      if ($control.attr('aria-controls')) {
+        $control.attr('aria-expanded', 'true')
+      }
+    }
+  }
+
+  // Hide toggled content for control
+  function hideToggledContent ($control, $content) {
+    $content = $content || getToggledContent($control)
+
+    // Hide content
+    if (!$content.hasClass('js-hidden')) {
+      $content.addClass('js-hidden')
+      $content.attr('aria-hidden', 'true')
+
+      // If the controlling input, update aria-expanded
+      if ($control.attr('aria-controls')) {
+        $control.attr('aria-expanded', 'false')
+      }
+    }
+  }
+
+  // Handle checkbox show/hide
+  function handleCheckboxContent ($control, $content) {
+    // Show checkbox content
+    if ($control.is(':checked')) {
+      showToggledContent($control, $content)
+    } else { // Hide checkbox content
+      hideToggledContent($control, $content)
+    }
   }
 
   // Set up all the component handlers when the DOM loads
@@ -44,6 +102,15 @@
         container.addEventListener('change', radioSelectionManager)
         container.addEventListener('focusin', radioFocusStateManager)
         container.addEventListener('focusout', radioFocusStateManager)
+      }
+    )
+
+    // Attach checkboxSelectionManager to all checkbox containers
+    forEachElement(document, '.multiple-choice--checkbox',
+      function (container) {
+        container.addEventListener('click', checkboxSelectionManager)
+        container.addEventListener('focusin', checkboxFocusStateManager)
+        container.addEventListener('focusout', checkboxFocusStateManager)
       }
     )
   })
