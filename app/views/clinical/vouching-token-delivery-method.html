@@ -7,33 +7,22 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Select the patient's preferred method of receiving their token</legend></h1>
-        
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="vouching-token-email">
-            Email
-          </label>
-        </div>
-        
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-token-phone">
-            Text message
-          </label>
+        <h1><legend>Select the patient's preferred methods for receiving their instuctions</legend></h1>
+
+        <div class="multiple-choice " data-target="qanda-2">
+          <input aria-controls="qanda-2" id="qanda-2a" name="qanda-2a" type="checkbox" value="Yes" class="multiple-choice__input ">
+          <label for="qanda-2a">Email</label>
         </div>
 
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-3">
-            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="vouching-token-print">
-            In person
-          </label>
+        <div class="multiple-choice " data-target="qanda-2">
+          <input aria-controls="qanda-2" id="qanda-2a" name="qanda-2a" type="checkbox" value="Yes" class="multiple-choice__input ">
+          <label for="qanda-2a">Text</label>
         </div>
 
       </fieldset>
     </div>
     <div class="form-group">
-      <a class="button" href="#" id="continue">Continue</a>
+      <a class="button" href="vouching-token-delivered" id="">Continue</a>
     </div>
     
   </form>
