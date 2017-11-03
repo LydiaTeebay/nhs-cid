@@ -12,8 +12,18 @@
 
     <fieldset class="">
 
+      {% if reason == "strength" %}
+
       {% import "partials/components/callout.html" as callout %}
       {{ callout.pattern('Attention','Your relationship with the patient isn\'t strong enough for you to vouch for them.','info') }}
+
+
+      {% elif reason == "notsatisfied" %}
+
+      {% import "partials/components/callout.html" as callout2 %}
+      {{ callout2.pattern('Attention','You have chosen not to \'person vouch\' for your patient. You may however still verify their identity.','info') }}
+
+      {% endif %}
 
       <h2><legend>How would you like to verify your patient's identity?</legend></h2>
 
@@ -26,7 +36,7 @@
 
       <div>
         <label class="block-label selection-button-radio" for="radio-inline-2">
-          <input id="radio-inline-2" type=radio name=radio-inline-group value="vouching-qanda-1">
+          <input id="radio-inline-2" type=radio name=radio-inline-group value="vouching-qanda-intro">
           Question the patient about their clinical record
         </label>
       </div>
