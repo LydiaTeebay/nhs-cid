@@ -7,27 +7,30 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Which GP Online system do you use?</legend></h1>
-        
+      <h3>Access NHS Online Services</h3>
+        <h1><legend>Which GP Online website/app do you use?</legend></h1>
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="gp-online-sign-in-3">
-            Emis
-          </label>
-        </div>
-        
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="gp-online-sign-in-3">
-            Evergreen
-          </label>
+          <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-access-1" />
+          Evergreen
+            {% import "partials/components/system.html" as callout %}
+            {{ callout.pattern('Patient Access','https://www.nhs.uk/NHSEngland/online-services/PublishingImages/logos/evergreen-life-logo.png','Extra info goes here') }}
+         </label>
         </div>
 
+        <div>
+        <label class="block-label selection-button-radio" for="radio-inline-2">
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="systm-one-1" />
+            SystmOnline
+            {% import "partials/components/system.html" as callout %}
+            {{ callout.pattern('SystMOne','https://www.nhs.uk/NHSEngland/online-services/PublishingImages/logos/systmonline-logo.png','Extra info goes here') }}
+         </label>
+        </div>
     </div>
     <div class="form-group">
       <a class="button" href="#" id="continue">Continue</a>
     </div>
-    <a href="">I'm not sure, please help me find it</a>
+    <a href="gp-1b">I'm not sure, help me find it</a>
   </form>
 </div>
 
