@@ -6,17 +6,12 @@
 <div class="first-item">
   <form>
     <div class="form-group">
-      <h1><legend>Are you satisfied that the patient knows enough about their clinical record for you to vouch for their identity?</legend></h1>
 
       <fieldset class="">
 
-        <div class="callout callout--attention">
-          <h2>Attention</h2>
-          <p>
-            You are accepting the responsibility that you know the person in front of you
-          </p>
-          <p>This information will be recorded for audit purposes</p>
-        </div>
+        <h1><legend>Are you satisfied that the patient knows enough about their clinical record for you to vouch for their identity?</legend></h1>
+
+        {% include 'partials/vouching-disclaimer.html'%}
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
@@ -32,6 +27,7 @@
           </label>
         </div>
       </fieldset>
+
 
     </div>
     <div class="form-group">
