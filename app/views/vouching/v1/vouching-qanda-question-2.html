@@ -1,0 +1,42 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Patient ID Verification Service{% endblock %}
+
+{% block body %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+
+      <span class="section-header">Patient Q&A's</span>
+
+      <h1 class="">
+        <legend>
+          <span class="heading-secondary">Question 2 of 3</span>
+          Are you allergic or sensitive to anything?
+        </legend>
+      </h1>
+      <fieldset>
+
+        <div class="multiple-choice " data-target="qanda-2">
+          <input aria-controls="qanda-2" id="qanda-2a" name="qanda-2a" type="checkbox" value="Yes" class="multiple-choice__input ">
+          <label for="qanda-2a">Yes</label>
+        </div>
+
+        <div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="qanda-2">
+          <label class="form-label" for="qanda-2b">What is it?</label>
+          <input class="form-control" type="text" id="qanda-2b" name="qanda-2b">
+        </div>
+
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+      <a class="button" href="vouching-qanda-question-3" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock %}

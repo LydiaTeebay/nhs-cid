@@ -1,0 +1,36 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Patient ID Verification Service{% endblock %}
+
+{% block body %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>The instructions have been sent to the patient.</legend></h1>
+        <h3>Please inform the patient to complete the verification process.
+        </h3>
+
+        <div class="callout callout--info">
+          <h3>Instructions to complete the process:</h3>
+          <ul>
+            <li>Go to <a href="http://www.healthhelpnow-nhs.net">www.healthhelpnow-nhs.net</a></li>
+            <li>Create an account with NHS Verify or NHS account</li>
+            <li>Enter the token you’ve been given</li>
+            <li>Follow the on screen instructions</li>
+          </ul>
+        </div>
+
+        <h3>Print instructions if they are required by the patient</h3>
+        <a href="javascript:window.print()" class="button">Print instructions</a>
+        
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a class="button" href="vouching-service-start" id="continue">Start again</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}

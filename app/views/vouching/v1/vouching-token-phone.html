@@ -1,0 +1,31 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Patient ID Verification Service{% endblock %}
+
+{% block body %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Enter the patient's mobile number</legend></h1>
+        
+        <div class="form-group">
+          <label class="form-label" for="field1">Mobile number</label>
+          <input class="form-control" id="field1" name="field1" type="text">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="field1">Confirm mobile number</label>
+          <input class="form-control" id="field1" name="field1" type="text">
+        </div>
+        
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a class="button" href="vouching-token-delivered" id="continue">Send text message</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}
