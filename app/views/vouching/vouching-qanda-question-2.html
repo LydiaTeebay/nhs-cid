@@ -8,7 +8,7 @@
   <form>
     <div class="form-group">
 
-      <span class="section-header">Patient Q&A's</span>
+      <span class="section-header">Patient Q&As</span>
 
       <h1 class="">
         <legend>
@@ -18,21 +18,31 @@
       </h1>
       <fieldset>
 
-        <div class="multiple-choice " data-target="qanda-2">
-          <input aria-controls="qanda-2" id="qanda-2a" name="qanda-2a" type="checkbox" value="Yes" class="multiple-choice__input ">
-          <label for="qanda-2a">Yes</label>
+        <!--<div class="multiple-choice " data-target="qanda-2">-->
+          <!--<input aria-controls="qanda-2" id="qanda-2a" name="qanda-2a" type="checkbox" value="Yes" class="multiple-choice__input ">-->
+          <!--<label for="qanda-2a">Yes</label>-->
+        <!--</div>-->
+
+        <div class="multiple-choice" data-target="delivery-text">
+          <input aria-controls="qanda-2" id="radio-inline-1" type="radio" name="radio-inline-group" value="yes">
+          <label class="block-label" for="radio-inline-1">Yes</label>
         </div>
 
         <div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="qanda-2">
-          <label class="form-label" for="qanda-2b">What is it?</label>
+          <label class="form-label" for="qanda-2b">Details</label>
           <input class="form-control" type="text" id="qanda-2b" name="qanda-2b">
+        </div>
+
+        <div class="multiple-choice" data-target="delivery-text">
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+          <label class="block-label" for="radio-inline-2">No</label>
         </div>
 
       </fieldset>
     </div>
 
     <div class="form-group">
-      <a class="button" href="vouching-qanda-question-3" id="continue">Continue</a>
+      <a class="button" href="vouching-qanda-question-3" id="">Continue</a>
     </div>
 
   </form>

@@ -7,8 +7,15 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Vouching process cancelled</legend></h1>
-        <h2>blah blah blah....</h2>
+        <h1><legend>The vouching process has been cancelled</legend></h1>
+
+        {% import "partials/components/callout.html" as callout %}
+        {{ callout.pattern('This is because:','<ul>
+        <li>The patient cannot be vouched for in person</li>
+        <li>The patient has no photo ID</li>
+        <li>The patient\'s answers to the Q&As aren\'t strong enough</li>
+      </ul>','info') }}
+
       </fieldset>
     </div>
     <div class="form-group">
