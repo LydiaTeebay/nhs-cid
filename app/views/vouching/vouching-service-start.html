@@ -4,12 +4,13 @@
 {% block body %}
 
   {% import "partials/components/local-header.html" as localHeader %}
-  {{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians.') }}
+  {{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians') }}
 
 <p>Use this service to:</p>
 <ul>
-  <li>Send an NHS Email to a patient to access online medical records</li>
-  <!--<li>Remove token access for a patient's identity</li>-->
+  <li>Verify a patient's identity</li>
+  <li>Send an email to a patient that allows access to online services</li>
+
 </ul>
 
 <a href="vouching-nhs-no" class="button">Start</a>
