@@ -8,7 +8,7 @@
   <form>
     <div class="form-group">
 
-      <span class="section-header">Patient Q&A's</span>
+      <span class="section-header">Patient Q&As</span>
 
       <h1 class="">
         <legend>
@@ -19,9 +19,10 @@
       <fieldset>
 
         <div class="multiple-choice" data-target="qanda-3">
-          <input aria-controls="qanda-3" id="qanda-3a" name="qanda-3a" type="checkbox" value="Yes" class="multiple-choice__input">
-          <label for="qanda-3a">Yes</label>
+          <input aria-controls="qanda-3" id="radio-inline-1" type="radio" name="radio-inline-group" value="yes">
+          <label class="block-label" for="radio-inline-1">Yes</label>
         </div>
+
 
         <div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="qanda-3">
 
@@ -34,6 +35,11 @@
           <label class="form-label" for="qanda-3c">How many times do you need to take it?</label>
           <input class="form-control" type="text" id="qanda-3c" name="qanda-3c">
 
+        </div>
+
+        <div class="multiple-choice">
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="yes">
+          <label class="block-label" for="radio-inline-2">No</label>
         </div>
 
       </fieldset>
