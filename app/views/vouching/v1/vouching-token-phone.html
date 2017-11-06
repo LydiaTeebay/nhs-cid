@@ -1,5 +1,5 @@
 {% extends 'layouts/nhsuk_layout.html' %}
-{% block page_title %}Patient ID Verification Service{% endblock %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
 
 {% block body %}
 
@@ -7,15 +7,15 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Enter the patient's mobile number</legend></h1>
+        <h1><legend>Please enter the patient's mobile phone number</legend></h1>
         
         <div class="form-group">
-          <label class="form-label" for="field1">Mobile number</label>
+          <label class="form-label" for="field1">mobile phone number</label>
           <input class="form-control" id="field1" name="field1" type="text">
         </div>
         
         <div class="form-group">
-          <label class="form-label" for="field1">Confirm mobile number</label>
+          <label class="form-label" for="field1">Confirm mobile phone number</label>
           <input class="form-control" id="field1" name="field1" type="text">
         </div>
         
@@ -29,3 +29,5 @@
 </div>
 
 {% endblock %}
+
+{% block footer %}{% endblock %}

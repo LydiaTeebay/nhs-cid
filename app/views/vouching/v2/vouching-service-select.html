@@ -1,5 +1,5 @@
 {% extends 'layouts/nhsuk_layout.html' %}
-{% block page_title %}Offline Vouching Identity Service{% endblock %}
+{% block page_title %}Patient ID Verification Service{% endblock %}
 
 {% block body %}
 
@@ -15,12 +15,14 @@
     <!--</strong>-->
   <!--</div>-->
 
+  {% if serviceAccess < 2 %}
+
   <div class="callout callout--attention">
     <h2>Attention</h2>
-    <p>By using this service you are accepting the responsibility that you know the person in front of you.</p>
-    <p>This information will be recorded for audit purposes.</p>
+    <p>You do not have permission to view this page</p>.</p>
   </div>
 
+  {% else %}
 
   <!--<hr>-->
   <form>
@@ -50,8 +52,9 @@
 
 
   </form>
+
+  {% endif %}
+
 </div>
 
 {% endblock %}
-
-{% block footer %}{% endblock %}
