@@ -1,5 +1,5 @@
 {% extends 'layouts/nhsuk_layout_2_3-stacked.html' %}
-{% block page_title %}Offline Vouching Identity Service{% endblock %}
+{% block page_title %}Access Your Medical Record{% endblock %}
 
 {% block body %}
 
@@ -13,17 +13,25 @@
 {% block rightcol %}{% endblock %}
 
 {% block leftHalf %}
-
-<h3>Continue with NHS</h3>
-<p>If you already have GP Online credientials select this option.</p>
-<a href="#" class="button">Continue with NHS</a>
-
+<div style="border-right: 3px solid #dddddd; padding-right: 15px;">
+	<h3>Continue with NHS</h3>
+	<p>Select this option if you:</p>
+	<ul>
+		<li>have GP Online login details</li>
+		<li>already have an NHS account</li>
+		<li>want to create a new NHS account</li>
+	</ul>
+	<a href="create-2" class="button">Continue with NHS</a>
+	<p><img src="/images/logotype-nhs-colour__reverse.png" alt="NHS"></p>
+</div>
 {% endblock %}
 
 {% block rightHalf %}
-
-<h3>Continue with Verify</h3>
-<p>If you already have a GOV.UK Verify account select this option.</p>
-<a href="#" class="button">Continue with GOV.UK Verify</a>
-
+<div>
+	<h3>Continue with GOV.UK Verify</h3>
+	<p>If you already have a GOV.UK Verify account select this option.</p>
+	<p>You can also create a new GOV.UK Verify account which will take about 10 minutes. You can access other government services securely wherever you see the GOV.UK Verify logo.</p>
+	<a href="http://govuk-verify-loa1.herokuapp.com/intro?requestId=leeds-person-held-record&userLOA=0" class="button">Continue with GOV.UK Verify</a>
+	<p><img src="/images/verify.png" alt="GOV UK Verify"></p>
+</div>
 {% endblock %}
