@@ -472,7 +472,7 @@ p.help-links {
 
 // text box read only state
 
-input {
+input, textarea {
   &[readonly] {
     border: 2px solid $grey-3;
   }
