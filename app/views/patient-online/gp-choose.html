@@ -3,21 +3,34 @@
 
 {% block body %}
 
-<h1><legend>Sign in or create an NHS account</legend></h1>
+<h3>Access Your Medical Record</h3>
 
-<p>Some copy</p>
+<h1><legend>Sign in using your GP Online letter or details</legend></h1>
+
+<p>In order to sign in using GP Online you will need either the letter that you used to register for GP Online or your GP Online sign in details</p>
 
 {% endblock %}
 {% block rightcol %}{% endblock %}
 
 {% block leftHalf %}
-
-Letter
-<a class="button" href="/patient-online/gp-signin-linkage-key">Letter</a>
+<div style="border-right: 3px solid #dddddd; padding-right: 15px;">
+	<h3>GP Online Letter</h3>
+	<p>Select this option if you:</p>
+	<ul>
+		<li>have the letter and registered using it</li>
+		<li>it contains information such as Linkage Key/Access ID</li>
+	</ul>
+	<a href="" class="button">Continue with GP Online Letter</a>
+	<!--<p><img src="/images/logotype-nhs-colour__reverse.png" alt="NHS"></p>-->
+</div>
 {% endblock %}
 
 {% block rightHalf %}
-
-GP Online Details
-<a class="button" href="/patient-online/gp-systems">Details</a>
+<div>
+	<h3>GP Online Details</h3>
+  <p>Use any of the following - Patient Access, Evergreen Life, Patient Knows Best, SystemOnline, Wiggly Amps, Patient Online, DIMEC, iPlato or ECHO</p>
+	<p>Know your sign in details for your GP Online service</p>
+	<a href="" class="button">Continue with GP Online Details</a>
+	<!--<p><img src="/images/verify.png" alt="GOV UK Verify"></p>-->
+</div>
 {% endblock %}
