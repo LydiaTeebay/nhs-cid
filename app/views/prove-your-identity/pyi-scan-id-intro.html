@@ -1,45 +1,104 @@
-{% extends 'layouts/nhsuk_layout.html' %}
+{% extends 'layouts/grids/grid-1.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 
-{% block body %}
-
-<div class="first-item">
+{% block content %}
 
   <span class="section-header">Submitting your documents</span>
 
-	<h1 class="heading-large">Photographing your identity document</h1>
+	{# Part 1 - take a pic of your document #}
 
-	<div class="grid-row">
+	<div id="scan-id-1">
 
-		<div class="column-two-thirds">
+		<h1 class="heading-large"><span class="heading-secondary">Step 1 of 4 </span>Photographing your photo ID document</h1>
 
-				<img src="/images/diagram-doc-scan.png" alt="" class="image-centre" height="146" width="146">
+		<div class="callout callout--info">
+			<h3>Instructions to complete the process:</h3>
 
-			<div class="inner-block">
+			<img src="/images/diagram-doc-scan.png" alt="" class="image-right" height="146" width="146">
 
-
-					<div class="callout callout--info">
-						<h3>Instructions to complete the process:</h3>
-						<ul>
-							<li>Place your document in good lighting, preferably daylight.</li>
-							<li>Hold the camera straight above the document.</li>
-							<li>Avoid light reflecting on the document.</li>
-							<li>Make sure all information is visible.</li>
-						</ul>
-					</div>
-
-					<div class="form-group">
-						<a href="pyi-scan-id" class="button">Continue</a>
-					</div>
-
-				</div>
-
+			<ul>
+				<li>Place your document in good lighting, preferably daylight.</li>
+				<li>Hold the camera straight above the document.</li>
+				<li>Avoid light reflecting on the document.</li>
+				<li>Make sure all information is visible.</li>
+			</ul>
 		</div>
 
-	</div>	
+		<form>
+			<div class="form-group">
+				<label for="id-document" class="camera-button button">Open your camera
+					<input type="file" id="id-document" accept="image/*" capture="environment">
+				</label>
+			</div>
+		</form>
 
-</div>
+	</div>
+
+	{# Part 2 - Review your document photo #}
+
+
+	<div id="scan-id-2" style="display:none">
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 4 </span>Review your photo ID document</h1>
+
+		<div class="callout callout--info">
+			<!--<h3>Review your Photo</h3>-->
+			<div id="scan-id-preview">
+				<img id="uploaded-id" src="#" alt="your image" style="max-width:400px;height:auto;"/>
+
+			</div>
+		</div>
+
+		<div class="form-group">
+			<a class="button" href="#" id="submit-id-button">Submit document photo</a>
+			<a href="scan-id" >Retake</a>
+		</div>
+
+	</div>
+
+	{# Part 3 - take a selfie video #}
+	<div id="scan-id-3" style="display:none">
+		<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Creating a selfie video</h1>
+
+		<div class="callout callout--info">
+			<h3>Instructions to complete the process:</h3>
+
+			<img src="/images/diagram-doc-scan.png" alt="" class="image-right" height="146" width="146">
+
+			<ul>
+				<li>Use the front-facing camera</li>
+				<li>Make sure your whole face is visible.</li>
+				<li>Move your face from side to side</li>
+			</ul>
+		</div>
+
+		<form>
+			<div class="form-group">
+				<label for="id-selfie" class="camera-button button">Open your camera
+					<input type="file" id="id-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+				</label>
+			</div>
+		</form>
+
+	</div>
+
+	{# Part 4 - Review your selfie video #}
+
+	<div id="scan-id-4" style="display:none">
+
+		<h1 class="heading-large"><span class="heading-secondary">Step 4 of 4 </span>Reviewing your video selfie</h1>
+
+		<div class="callout callout--info">
+			<div id="scan-video-preview" style="display:none">
+				<video id="uploaded-video" width="320" height="240" controls style="max-width:400px;height:auto;">
+					<source src="#" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<a class="button" href="pyi-scan-id-uploading" id="submit-video-button">Submit selfie video</a>
+			<a href="scan-id" >Retake</a>
+		</div>
 
 {% endblock %}
-
-

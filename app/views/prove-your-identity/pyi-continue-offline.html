@@ -1,9 +1,8 @@
-{% extends 'layouts/nhsuk_layout.html' %}
+{% extends 'layouts/grids/grid-1.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 
-{% block body %}
+{% block content %}
 
-<div class="first-item">
   <form>
     <div class="form-group">
       <fieldset class="">
@@ -12,13 +11,13 @@
         {% if reason == "device" %}
 
         {% import "partials/components/callout.html" as callout %}
-        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a way to take a selfie video of yourself.','info') }}
+        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a way to take a selfie video of yourself.','alert') }}
 
 
         {% elif reason == "documents" %}
 
-        {% import "partials/components/callout.html" as callout2 %}
-        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a valid photo ID.','info') }}
+        {% import "partials/components/callout.html" as callout %}
+        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a valid photo ID.','alert') }}
 
         {% endif %}
 
@@ -59,6 +58,5 @@
     </div>
 
   </form>
-</div>
 
 {% endblock %}

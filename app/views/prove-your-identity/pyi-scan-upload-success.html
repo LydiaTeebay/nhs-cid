@@ -1,32 +1,41 @@
-{% extends 'layouts/nhsuk_layout.html' %}
+{% extends 'layouts/grids/grid-1.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
 
 {% block body %}
 
-<main id="content" role="main">
-
-
+	<span class="section-header">Submitting your documents</span>
 	<h1 class="heading-large">We’ve received your identity documents and selfie</h1>
 
-	<div class="grid-row">
 
-		<div class="column-two-thirds">
-
-			
-
-				<div class="inner-block">
-				
-					<p>Please go back to your webpage for instructions to complete your registration</p>
+	<div class="callout callout--info">
+		<h3>It can take around 2 hours to confirm your identity</h3>
+	</div>
 
 
+	<form>
+		<div class="form-group">
+			<fieldset class="">
+				<h3><legend><strong>We can let know when it's done</strong></legend></h3>
+
+				<div class="multiple-choice">
+					<input id="qanda-2a" name="qanda-2a" type="checkbox" value="sms" class="multiple-choice__input ">
+					<label for="qanda-2a">Send me a text message</label>
 				</div>
 
+				<div class="multiple-choice">
+					<input id="qanda-2a" name="qanda-2a" type="checkbox" value="email" class="multiple-choice__input ">
+					<label for="qanda-2a">Send me an email</label>
+				</div>
 
+			</fieldset>
+		</div>
+		<div class="form-group">
+			<a class="button" href="vouching-token-delivered" id="">Send request</a>
 		</div>
 
-	</div>	
+	</form>
 
-</main>
 {% endblock %}
 
 

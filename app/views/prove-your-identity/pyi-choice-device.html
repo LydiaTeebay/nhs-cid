@@ -1,9 +1,8 @@
-{% extends 'layouts/nhsuk_layout.html' %}
+{% extends 'layouts/grids/grid-1.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 
-{% block body %}
+{% block content %}
 
-<div class="first-item">
   <form>
     <div class="form-group">
       <fieldset class="">
@@ -19,8 +18,8 @@
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-id-3">
-            No, but I can use one now
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="pyi-continue-later">
+            No, but I can use one later
           </label>
         </div>
 
@@ -39,6 +38,5 @@
     </div>
 
   </form>
-</div>
 
 {% endblock %}

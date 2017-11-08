@@ -4,6 +4,13 @@
       <a href="/" class="global-header__link">
         <img src="/images/logotype-nhs-mono.png" alt="NHS">
       </a>
+
+      {% if signedin %}
+        <div style="float: right;" class="menu-links">
+          <p style="padding: 0; margin: 0;"><a href="/account/dashboard">Dashboard</a> | <a href="/account">Account</a> | <a href="/">Sign out</a></p>
+        </div>
+      {% endif %}
+
     </div>
   </div>
 </header>

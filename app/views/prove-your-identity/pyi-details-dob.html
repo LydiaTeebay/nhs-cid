@@ -1,9 +1,8 @@
-{% extends 'layouts/nhsuk_layout.html' %}
+{% extends 'layouts/grids/grid-1.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 
-{% block body %}
+{% block content %}
 
-<div class="first-item">
   <form>
     <div class="form-group">
 
@@ -18,15 +17,15 @@
         <div class="form-group -date">
           <div class="form-date-field">
             <label for="dob-day">Day</label>
-            <input type="text" id="dob-day" name="dob-day" value="" class="day" maxlength="2">
+            <input type="number" id="dob-day" name="dob-day" value="" class="day" maxlength="2">
           </div>
           <div class="form-date-field">
             <label for="dob-month">Month</label>
-            <input type="text" id="dob-month" name="dob-month" value="" class="month" maxlength="2">
+            <input type="number" id="dob-month" name="dob-month" value="" class="month" maxlength="2">
           </div>
           <div class="form-date-field">
             <label for="dob-year">Year</label>
-            <input type="text" id="dob-year" name="dob-year" value="" class="year" maxlength="4">
+            <input type="number" id="dob-year" name="dob-year" value="" class="year" maxlength="4">
           </div>
         </div>
       </fieldset>
@@ -38,6 +37,5 @@
       <a class="button" href="pyi-details-address" id="continue">Continue</a>
     </div>
   </form>
-</div>
 
 {% endblock %}
