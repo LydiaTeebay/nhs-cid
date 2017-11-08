@@ -1,0 +1,36 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+
+{% block body %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+
+      <span class="section-header">About you</span>
+
+        <h1><legend>What's your full name?</legend></h1>
+
+        <div class="form-group">
+          <label class="form-label" for="field1">First name</label>
+          <input class="form-control" id="field1" name="field1" type="text" value="">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field2">Middle names</label>
+          <input class="form-control" id="field2" name="field2" type="text" value="">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field3">Last name</label>
+          <input class="form-control" id="field3" name="field3" type="text" value="">
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <a class="button" href="pyi-details-dob" id="continue">Continue</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

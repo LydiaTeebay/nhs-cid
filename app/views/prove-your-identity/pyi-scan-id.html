@@ -1,0 +1,86 @@
+{% extends 'layouts/nhsuk_layout.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+
+{% block body %}
+
+<div class="first-item">
+
+<span class="section-header">Submitting your documents</span>
+
+
+
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<div class="inner-block">
+				<div id="scan-id-1">
+
+
+					<h1 class="heading-large">Photograph your identity document</h1>
+					<form>
+						<div class="form-group">
+                    		<label for="id-document" class="camera-button">Take a photo of your document
+							<input type="file" id="id-document" accept="image/*" capture="camera" >
+							</label>
+						</div>
+
+						<div id="scan-id-preview" style="display:none">
+							<h2 class="heading-small">Document preview</h2>
+							<img id="uploaded-id" src="#" alt="your image" style="width:100%;height:auto;"/>
+						</div>
+
+						<div class="form-group">
+							<a id="scan-id-button" href="#" class="button" disabled="disabled">Continue</a>
+						</div>
+					</form>
+				</div>
+
+				<div id="scan-id-2" style="display:none"> 
+					<h1 class="heading-large">Take a selfie</h1>
+					<form>
+						<div class="form-group">
+							<label for="photo-document" class="camera-button">Take a selfie
+							<input type="file" id="photo-document" accept="image/*" capture="camera" >
+							</label>
+						</div>
+							
+						<div id="scan-photo-preview"  style="display:none">
+							<h2 class="heading-small">Selfie preview</h2>
+							<img id="uploaded-photo" src="#" alt="your image" style="width:100%;height:auto;"/>
+						</div>
+	
+						<div class="form-group">
+							<a id="scan-photo-button" href="#" class="button" disabled="disabled">Continue</a>
+						</div>
+					</form>
+				</div>
+
+				<div id="scan-id-3" style="display:none">
+						<h1 class="heading-large">Review your document and selfie</h1>
+						<p>Please check:</p>
+					<ul class="list list-bullet">
+						<li>the photos are clear</li>
+						<li>there are no reflections</li>
+						<li>all details are visible</li>
+					</ul>
+					
+					<div class="form-group">
+						<h2 class="heading-small">Your document preview</p>
+						<img id="id-review" src="#" alt="your image" style="width:90%;height:auto;" />
+						<h2 class="heading-small">Your selfie preview</p>
+						<img id="photo-review" src="#" alt="your image" style="width:90%;height:auto;" />
+					</div>
+					
+													
+					<div class="form-group">
+						<a href="pyi-scan-id-uploading" class="button">Confirm</a>
+						<a href="scan-id" >Retake</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
