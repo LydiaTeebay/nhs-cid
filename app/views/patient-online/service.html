@@ -1,16 +1,14 @@
 {% extends 'layouts/nhsuk_layout_2_3.html' %}
-{% block page_title %}Your Medical Record{% endblock %}
+{% block page_title %}Access your medical record{% endblock %}
 
 {% block body %}
 
 {% import "partials/components/local-header.html" as localHeader %}
   {{ localHeader.pattern('Access your medical record',' ') }}
 
-<h1>Welcome to your medical record</h1>
+<p>Welcome to your medical record</p>
 <ul>
-  <li><a href="#">Medical history</a></li>
-  <li><a href="#">Medication</a></li>
-  <li><a href="#">Appointments</a></li>
+  <!--<li>Remove token access for a patient's identity</li>-->
 </ul>
 
 <a href="create-1" class="button">Start</a>
