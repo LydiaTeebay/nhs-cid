@@ -1,0 +1,21 @@
+{% extends 'layouts/grids/grid-1.html' %}
+{% block page_title %}Your NHS Account{% endblock %}
+{% set signedin = 'true' %}
+{% set alert = {'cookies':'true','notlive':'false'} %}
+
+{% block content %}
+
+{% block alert %}{% endblock %}
+
+<div>
+  <h1>Your NHS account</h1>
+  <h3 id="conditions" class="heading-large">Personal details</h3>
+  <p><b>Email:</b><br>johnmaurice93@hotmail.com</p>
+  <h3 id="conditions" class="heading-large">Password</h3>
+  <p><a href="account/two-step-code-password">Change password</a></p>
+</div>
+{% endblock %}
+
+{% block rightcol %}{% endblock %}
+
+
