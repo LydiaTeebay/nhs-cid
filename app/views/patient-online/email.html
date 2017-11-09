@@ -1,10 +1,8 @@
-{% extends 'layouts/layout_email.html' %}
+{% extends 'layouts/grids/grid-email.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
 
-{% block page_title %}NHS account{{serviceName}}{% endblock %}
-
-
-
-{% block body %}
+{% block content %}
 
 <div class="first-item" style="padding-bottom: 250px;" >
   <h1>Validate your email address</h1>
