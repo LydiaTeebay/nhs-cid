@@ -14,8 +14,12 @@
 </head>
 
 <body>
+
   {% include 'partials/service-alert.html' %}
-  {% include 'partials/global_header.html'%}
+
+  {% if not hidehead %}
+    {% include 'partials/global_header.html'%}
+  {% endif %}
 
   <main id="content" role="main">
 
