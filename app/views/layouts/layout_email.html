@@ -37,8 +37,17 @@
         <div class="grid-row" style="border: 1px solid #425563; background: #fff;">
           
           <div class="column--three-quarters">
-            {% include '_includes/masthead.html' %}
-            {% block content %}{% endblock %}
+            <header role="banner">
+              <div class="global-header">
+                <div class="global-header__inner">
+                  <a href="./" class="global-header__link">
+                    <img src="/images/nhs-logotype-blue.svg" alt="NHS">
+                  </a>
+
+                </div>
+              </div>
+            </header>
+            {% block body %}{% endblock %}
           </div>
 
         </div>
