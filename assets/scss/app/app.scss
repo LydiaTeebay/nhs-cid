@@ -186,6 +186,15 @@ span.section-header {
   width: 100%;
 }
 
+.selection-button-radio-inline {
+  display: inline-block;
+  padding-right: 2em;
+  margin-top: 0;
+  &:last-of-type {
+    padding-right: 0em;
+  }
+}
+
 .block-label.selection-button-radio::before {
   content: "";
   border: 3px solid #005EB8;
@@ -580,7 +589,8 @@ $_radio-spacing: ($_element-size - $_radio-size) / 2;
       opacity: 0;
     }
     [type=checkbox] + label,
-    [type=radio] + label {
+    [type=radio] + label,
+    {
       //position: auto;
     }
     [type=checkbox] + label::before {
@@ -638,6 +648,10 @@ $_radio-spacing: ($_element-size - $_radio-size) / 2;
       margin: 0 0 32px
     }
 
+  }
+
+  &.multiple-choice--inline {
+    display: inline-block;
   }
 }
 
