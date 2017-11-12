@@ -2,6 +2,8 @@
 
 {% block body %}
 
+  {% block topRow %}{% endblock %}
+
   <div class="grid-row">
     <div class="column--two-thirds">
       {% block content %}{% endblock %}
@@ -11,13 +13,15 @@
     </div>
   </div>
 
-  <div class="grid-row">
-    <div class="column--one-half">
-      {% block leftHalf %}{% endblock leftHalf %}
+  {% if leftHalf or rightHalf %}
+    <div class="grid-row">
+      <div class="column--one-half">
+        {% block leftHalf %}{% endblock leftHalf %}
+      </div>
+      <div class="column--one-half">
+        {% block rightHalf %}{% endblock rightHalf %}
+      </div>
     </div>
-    <div class="column--one-half">
-      {% block rightHalf %}{% endblock rightHalf %}
-    </div>
-  </div>
+  {% endif %}
 
 {% endblock %}
