@@ -8,7 +8,7 @@ module.exports = function (router) {
       return
     }
     // re-render the page along with the parameter
-    res.render('/create-account/two-step-thanks', {vouch: vouched}, function(err, html) {
+    res.render('create-account/two-step-thanks', {vouch: vouched}, function(err, html) {
       res.send(html)
     })
   })
