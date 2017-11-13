@@ -1,4 +1,4 @@
-{% extends '../nhsuk_layout.html' %}
+{% extends 'layouts/nhsuk_layout.html' %}
 
 {% block body %}
 
@@ -13,15 +13,13 @@
     </div>
   </div>
 
-  {% if leftHalf or rightHalf %}
-    <div class="grid-row">
-      <div class="column--one-half">
-        {% block leftHalf %}{% endblock leftHalf %}
-      </div>
-      <div class="column--one-half">
-        {% block rightHalf %}{% endblock rightHalf %}
-      </div>
+  <div class="grid-row">
+    <div class="column--one-half">
+      {% block leftHalf %}{% endblock %}
     </div>
-  {% endif %}
+    <div class="column--one-half">
+      {% block rightHalf %}{% endblock %}
+    </div>
+  </div>
 
 {% endblock %}

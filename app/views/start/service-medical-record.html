@@ -1,18 +1,20 @@
-{% extends 'layouts/nhsuk_layout_2_3.html' %}
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
 {% block page_title %}Access your medical record{% endblock %}
 
-{% block body %}
 
-{% import "partials/components/local-header.html" as localHeader %}
-  {{ localHeader.pattern('Access your medical record',' ') }}
+{% block topRow %}
+  {% import "partials/components/local-header.html" as localHeader %}
+  {{ localHeader.pattern('Access your medical record','') }}
+{% endblock %}
+
+{% block content %}
 
 <p>Use this service to:</p>
 <ul>
   <li>Get access to your medical record</li>
-  <!--<li>Remove token access for a patient's identity</li>-->
 </ul>
 
-<a href="create-1" class="button">Start</a>
+<a href="/create-account/create-1?service=record" class="button">Start</a>
 
 {% endblock %}
 {% block rightcol %}{% endblock %}

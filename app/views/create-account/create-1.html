@@ -1,15 +1,20 @@
-{% extends 'layouts/nhsuk_layout_2_3-stacked.html' %}
-{% block page_title %}Access your medical record{% endblock %}
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% block page_title %}Sign in or create an account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
 
-{% block body %}
+{# work out where to send users #}
+{% if vouch %}
+	{% set params = "?vouch=" + vouch %}
+{% endif %}
 
-<h3>Access your medical record</h3>
+{% block content %}
 
-<h1><legend>Sign in or create an NHS account</legend></h1>
+<h1><legend>Sign in or create an account</legend></h1>
 
 <p>To access your medical record you need an NHS account. You can create an NHS account using your existing GP Online details or by creating a new NHS account. Alternatively you can create an NHS account using your GOV.UK Verify details if you have an account with them already.</p>
 
 {% endblock %}
+
 {% block rightcol %}{% endblock %}
 
 {% block leftHalf %}
@@ -21,7 +26,7 @@
 		<li>already have an NHS account</li>
 		<li>want to create a new NHS account</li>
 	</ul>
-	<a href="create-2" class="button">Continue with NHS</a>
+	<a href="create-2{{ params }}" class="button">Continue with NHS</a>
 	<p><img src="/images/logotype-nhs-colour__reverse.png" alt="NHS"></p>
 </div>
 {% endblock %}
@@ -34,7 +39,7 @@
 		<li>already have a GOV.UK Verify account</li>
 	</ul>
 	<p>You can also create a new GOV.UK Verify account which will take about 10 minutes. You can access other government services securely wherever you see the GOV.UK Verify logo.</p>
-	<a href="http://govuk-verify-loa1.herokuapp.com/intro?requestId=leeds-person-held-record&userLOA=0" class="button">Continue with GOV.UK Verify</a>
+	<a href="https://govuk-verify-loa1.herokuapp.com/sign-in?userLOA=1&requestId=leeds-person-held-record" class="button">Continue with GOV.UK Verify</a>
 	<p><img src="/images/verify.png" alt="GOV UK Verify"></p>
 </div>
 {% endblock %}

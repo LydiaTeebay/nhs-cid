@@ -1,8 +1,8 @@
-{% extends 'layouts/nhsuk_layout_2_3.html' %}
+{% extends 'layouts/grids/grid-2-1.html' %}
+{% block page_title %}Create an NHS Account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
 
-{% block page_title %}Create an NHS Account{{serviceName}}{% endblock %}
-
-{% block body %}
+{% block content %}
 
 <div class="first-item">
 
@@ -19,5 +19,3 @@
 </div>
 
 {% endblock %}
-
-{% block footer %}{% endblock %}

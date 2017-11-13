@@ -1,8 +1,9 @@
-{% extends 'layouts/nhsuk_layout_2_3.html' %}
+{% extends 'layouts/grids/grid-2-1.html' %}
+{% block page_title %}Access your medical record {{serviceName}}{% endblock %}
+{% set signedin = '' %}
 
-{% block page_title %}Create an NHS account{{serviceName}}{% endblock %}
+{% block content %}
 
-{% block body %}
 
 <div class="first-item">
   <form>

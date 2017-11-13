@@ -1,10 +1,13 @@
-{% extends 'layouts/nhsuk_layout_2_3.html' %}
-{% block page_title %}Access your medical record{% endblock %}
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% block page_title %}Access your medical record {{serviceName}}{% endblock %}
+{% set signedin = '' %}
 
-{% block body %}
-
-{% import "partials/components/local-header.html" as localHeader %}
+{% block topRow %}
+  {% import "partials/components/local-header.html" as localHeader %}
   {{ localHeader.pattern('Access your medical record',' ') }}
+{% endblock %}
+
+{% block content %}
 
 <p>Use this service to:</p>
 <ul>
@@ -15,4 +18,5 @@
 <a href="create-1" class="button">Start</a>
 
 {% endblock %}
+
 {% block rightcol %}{% endblock %}

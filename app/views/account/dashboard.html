@@ -1,7 +1,21 @@
-{% extends 'layouts/grids/grid-2-1.html' %}
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
 {% block page_title %}Your NHS Account{% endblock %}
 {% set signedin = 'true' %}
 {% set alert = {'cookies':'true','notlive':'false'} %}
+
+{# work out where to send users #}
+{% if vouch %}
+{% set params = "?vouch=" + vouch %}
+{% endif %}
+
+{% block topRow %}
+  {% if vouch == "yes" %}
+
+  {% import "partials/components/callout.html" as callout %}
+  {{ callout.pattern('Congratulations','You now have an NHS account.','info') }}
+
+  {% endif %}
+{% endblock %}
 
 {% block content %}
 <div>

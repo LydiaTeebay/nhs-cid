@@ -1,8 +1,9 @@
-{% extends 'layouts/nhsuk_layout_2_3.html' %}
+{% extends 'layouts/grids/grid-2-1.html' %}
+{% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set dest = '' %}
 
-{% block page_title %}Create an NHS Account{{serviceName}}{% endblock %}
-
-{% block body %}
+{% block content %}
 
 <div class="first-item">
 
@@ -14,12 +15,10 @@
     <p>If you haven't received the email check your spam folder or <a href="resent-email">click here to send another one</a>.</p>
     <p>You have 48 hours to validate your email before the link is deactivated.</p>
 
-<p><a href="/patient-online/your-medical-record">Validate Email address</a></p>
+    <p><a href="/emails/email-validate{{dest}}">Validate Email address</a></p>
 
   </div>
     
 </div>
 
 {% endblock %}
-
-{% block footer %}{% endblock %}

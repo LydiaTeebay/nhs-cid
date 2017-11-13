@@ -1,0 +1,27 @@
+{% extends 'layouts/grids/grid-2-1.html' %}
+{% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{% block content %}
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+
+        <h1 class="heading-large">Security code</h1>
+
+        <h2 class="heading-xlarge"><legend>Thank you</legend></h2>
+
+        <p>Your NHS account is now secured with your phone <br>07779 000333.</p>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a href="/account/dashboard{{ params }}" class="button" id="continue">Continue</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}
+

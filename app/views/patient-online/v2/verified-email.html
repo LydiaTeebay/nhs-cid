@@ -1,8 +1,8 @@
-{% extends 'layouts/nhsuk_layout_2_3.html' %}
+{% extends 'layouts/grids/grid-2-1.html' %}
+{% block page_title %}Sign in to your NHS account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
 
-{% block page_title %}Create an NHS Account{{serviceName}}{% endblock %}
-
-{% block body %}
+{% block content %}
 
 <div class="first-item">
   <form>
@@ -24,9 +24,9 @@
       </div>
 
     </div>
-    <a class="button" href="account/dashboard">Login</a>
+    <a class="button" href="/account/dashboard">Login</a>
 
-    <p><a href="forgotten-password">Forgotten your password?</a></p>
+    <p><a href="/create-account/forgotten-password">Forgotten your password?</a></p>
   </form>
 </div>
 
