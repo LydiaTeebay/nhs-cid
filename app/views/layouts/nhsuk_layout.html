@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/app.css">
 </head>
 
-<body>
+<body class="{{ bodyClass }}">
 
   {% include 'partials/service-alert.html' %}
 
@@ -28,7 +28,9 @@
     </div>
   </main>
 
-  {% include 'partials/global_footer.html' %}
+  {% if not hidehead %}
+    {% include 'partials/global_footer.html' %}
+  {% endif %}
 
   <script src="/scripts/jquery-1.12.4.min.js"></script>
   <script src="/show-hide-content.js"></script>

@@ -102,7 +102,12 @@
 
 		<form>
 			<div class="form-group">
-				<label for="id-selfie" class="camera-button button">Open your camera
+				<label for="id-selfie" class="camera-button button">
+          {% if mobile %}
+          Open your camera
+          {% else %}
+          Upload a video
+          {% endif %}
 					<input type="file" id="id-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
 				</label>
 			</div>
