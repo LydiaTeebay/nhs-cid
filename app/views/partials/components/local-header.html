@@ -1,5 +1,6 @@
-{% macro pattern(title='Header Title', text='Header text') %}
-<div class="local-header">
+{% macro pattern(title='Header Title', text='Header text', modifier='') %}
+{# available modifiers 'success', 'failure' #}
+<div class="local-header local-header--{{modifier}}">
   <h1 class="local-header__title">{{ title }}</h1>
   <div class="local-header__intro">
   {% if text %}<div class="reading-width">

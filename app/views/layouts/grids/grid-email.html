@@ -2,9 +2,9 @@
 
 {% block body %}
 
-<div class="grid-row" style="border: 1px solid #425563; background: #fff;">
+<div class="grid-row">
 
-  <div class="column--three-quarters">
+  <div class="">
     <header role="banner">
       <div class="global-header">
         <div class="global-header__inner">
@@ -16,6 +16,25 @@
       </div>
     </header>
     {% block content %}{% endblock %}
+    <footer role="contentinfo">
+      <div class="global-footer">
+        <div class="global-footer__inner">
+          <div>
+
+            <h2 class="util-visuallyhidden">Support links</h2>
+            <ul class="link-list">
+              <li>
+                <a href="https://beta.nhs.uk/help/clinical-assurance">Clinical assurance</a>
+              </li>
+              <li>
+                <a href="https://beta.nhs.uk/help/cookies">Cookies</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
 </div>

@@ -17,6 +17,7 @@ const cookieParser = require('cookie-parser')
 const chalk = require('chalk')
 const browserSync = require('browser-sync')
 const useragent = require('express-useragent')
+const serveIndex = require('serve-index')
 
 /**
  * Config
@@ -75,8 +76,11 @@ app.use('/', router)
 // App folder routes get priority
 app.get(/^\/([^.]+)$/, function (req, res) {
   utils.matchRoutes(req, res)
-
 })
+
+//
+app.use('/directory', serveIndex(path.join(__dirname, 'public')))
+app.use('/directory', express.static(path.join(__dirname, 'public')))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
