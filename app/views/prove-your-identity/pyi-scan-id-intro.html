@@ -9,7 +9,11 @@
 
 	<div id="scan-id-1">
 
-		<h1 class="heading-large"><span class="heading-secondary">Step 1 of 4</span>Photographing your photo ID</h1>
+		{% if mobile %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 2</span>Photographing your photo ID</h1>
+		{% else %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 4</span>Photographing your photo ID</h1>
+		{% endif %}
 
 		<div class="callout callout--info">
 			<h3>Instructions to complete the process:</h3>
@@ -20,13 +24,21 @@
 				<li>Place your ID in good lighting, preferably daylight</li>
 				<li>Hold the camera straight above the ID</li>
 				<li>Avoid light reflecting on the ID</li>
+				{% if mobile %}
+				<li>Review the photo immediately after taking it</li>
+				{% endif %}
 				<li>Make sure all information is visible</li>
 			</ul>
 		</div>
 
 		<form>
 			<div class="form-group">
-				<label for="id-document" class="camera-button button">Open your camera
+				<label for="id-document" class="camera-button button">
+          {% if mobile %}
+          Open your camera
+          {% else %}
+          Upload a photo
+          {% endif %}
 					<input type="file" id="id-document" accept="image/*" capture="environment">
 				</label>
 			</div>
@@ -56,18 +68,35 @@
 	</div>
 
 	{# Part 3 - take a selfie video #}
+
 	<div id="scan-id-3" style="display:none">
-		<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Create a selfie video</h1>
+
+    {% if mobile %}
+      {% block topRow %}
+        {% import "partials/components/callout.html" as callout %}
+        {{ callout.pattern('','You have submitted your photo ID.','warning') }}
+      {% endblock %}
+    {% endif %}
+
+
+		{% if mobile %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2 </span>Create a selfie video</h1>
+		{% else %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Create a selfie video</h1>
+		{% endif %}
 
 		<div class="callout callout--info">
 			<h3>Instructions to complete the process:</h3>
 
-			<img src="/images/diagram-doc-scan.png" alt="" class="image-right" height="146" width="146">
+			<img src="/images/selfie-scan.png" alt="" class="image-right" height="146" width="146">
 
 			<ul>
 				<li>Use the front-facing camera</li>
 				<li>Make sure your whole face is visible</li>
 				<li>Move your face from side to side</li>
+				{% if mobile %}
+				<li>Review the video immediately after taking it</li>
+				{% endif %}
 			</ul>
 		</div>
 
@@ -97,7 +126,7 @@
 		</div>
 
 		<div class="form-group">
-			<a class="button" href="pyi-scan-id-uploading" id="submit-video-button">Submit selfie video</a>
+			<a class="button" href="pyi-scan-id-uploading{{ params }}" id="submit-video-button">Submit selfie video</a>
 			<a href="scan-id" >Retake</a>
 		</div>
 

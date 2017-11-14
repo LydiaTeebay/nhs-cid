@@ -16,6 +16,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const chalk = require('chalk')
 const browserSync = require('browser-sync')
+const useragent = require('express-useragent')
 
 /**
  * Config
@@ -56,6 +57,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(useragent.express())
 
 // Auto render any view that exists
 
@@ -73,6 +75,7 @@ app.use('/', router)
 // App folder routes get priority
 app.get(/^\/([^.]+)$/, function (req, res) {
   utils.matchRoutes(req, res)
+
 })
 
 // catch 404 and forward to error handler

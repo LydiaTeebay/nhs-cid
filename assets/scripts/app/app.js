@@ -6,14 +6,24 @@ function readURL(input, idType) {
 
     reader.onload = function (e) {
       if (idType == "id") {
+
         $("#scan-id-1").css("display", "none")
         $("#scan-id-2").css("display", "block")
+
+        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          $("#scan-id-2").css("display", "none")
+          $("#scan-id-3").css("display", "block")
+          document.body.scrollTop = document.documentElement.scrollTop = 0
+        }
         $('#uploaded-id').attr('src', e.target.result)
       }
       if (idType == "video") {
         $("#scan-id-3").css("display", "none")
         $("#scan-id-4").css("display", "block")
         $('#uploaded-video>source').attr('src', e.target.result)
+        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          $(location).attr('href', 'pyi-scan-id-uploading')
+        }
       }
     }
     reader.readAsDataURL(input.files[0])
