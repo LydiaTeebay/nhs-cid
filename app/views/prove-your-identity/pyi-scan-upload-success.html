@@ -1,22 +1,32 @@
-{% extends 'layouts/grids/grid-1.html' %}
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 {% set signedin = 'true' %}
 
-{% block body %}
 
-	<span class="section-header">Submitting your evidence</span>
-	<h1 class="heading-large">We have received your photo ID and selfie video</h1>
+{% block topRow %}
+{% import "partials/components/local-header.html" as localHeader %}
+{{ localHeader.pattern('Your evidence has been received','We have received your photo ID and selfie video','success') }}
+{% endblock %}
 
+{% block content %}
+	<h1 class="heading-large">What happens next?</h1>
 
-	<div class="callout callout--info">
-		<h3>It can take around 2 hours to confirm your identity</h3>
-	</div>
+	<ul class="list--chevron">
+		<li>Somebody will check your photo ID and selfie video</li>
+		<li>This usually takes less than 60 minutes if submitted in working hours</li>
+		<li>Once verification is complete we will notify you</li>
+		<li>We will contact you if we need any further information</li>
+	</ul>
+
+	<!--<div class="callout callout&#45;&#45;info">-->
+		<!--<h3>It can take around 2 hours to confirm your identity</h3>-->
+	<!--</div>-->
 
 
 	<form>
 		<div class="form-group">
 			<fieldset class="">
-				<h3><legend><strong>We can let you know when it's done via</strong></legend></h3>
+				<h3><legend><strong>How would you like to be notified?</strong></legend></h3>
 
 				<div class="multiple-choice">
 					<input id="qanda-2a" name="qanda-2a" type="checkbox" value="sms" class="multiple-choice__input ">
@@ -31,7 +41,7 @@
 			</fieldset>
 		</div>
 		<div class="form-group">
-			<a class="button" href="/account/dashboard" id="">Send request</a>
+			<a class="button" href="/account/dashboard" id="">Continue</a>
 		</div>
 
 	</form>
