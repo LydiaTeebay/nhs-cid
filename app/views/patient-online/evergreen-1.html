@@ -3,31 +3,32 @@
 {% set signedin = '' %}
 
 {% block content %}
-
-
 <div class="first-item">
   <form>
     <div class="form-group">
       <fieldset class="">
       <h3>Access your hospital results</h3>
-        <h1><legend>Log in to your NHS account</legend></h1>
-
+        <h1><legend>Log in using your Evergreen details</legend></h1>
+        
         <div class="form-group">
-          <label class="form-label" for="field1">Email</label>
+          <label class="form-label" for="field1">Username</label>
           <input class="form-control" id="field1" name="field1" type="text">
         </div>
-
         <div class="form-group">
-          <label class="form-label" for="field1">Password</label>
-          <input class="form-control" id="field1" name="field1" type="text">
+          <label class="form-label" for="field2">Password</label>
+          <input class="form-control" id="field2" name="field2" type="text">
         </div>
 
       </fieldset>
+
     </div>
     <div class="form-group">
-      <a class="button" href="your-medical-record" id="continue">Log in</a>
+      <a class="button" href="/patient-online/your-medical-record" id="continue">Log in</a>
     </div>
-    <p><a href="/patient-online/create-acc">I don't have an NHS account</a></p>
+    <br />
+    <a href="evergreen-2">I can't remember my Evergreen log in in details</a>
+    <!--<a href="" >Forgotten my User ID</a>
+    <a href="" >Forgotten my password</a>-->
   </form>
 </div>
 

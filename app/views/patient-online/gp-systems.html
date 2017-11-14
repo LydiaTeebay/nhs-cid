@@ -1,5 +1,5 @@
 {% extends 'layouts/grids/grid-2-1.html' %}
-{% block page_title %}Access your medical record {{serviceName}}{% endblock %}
+{% block page_title %}Access your hospital results {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {% block content %}
@@ -8,23 +8,32 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-      <h3>Access your medical record</h3>
-        <h1><legend>Which GP Online website/app do you use?</legend></h1>
+      <h3>Access your hospital results</h3>
+        <h1><legend>Which GP website/app do you use?</legend></h1>
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
           <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-access-1" />
-          Evergreen
+          Patient Access
             {% import "partials/components/system.html" as callout %}
-            {{ callout.pattern('Patient Access','https://www.nhs.uk/NHSEngland/online-services/PublishingImages/logos/evergreen-life-logo.png','Extra info goes here') }}
+            {{ callout.pattern('Patient Access','~/../../images/Patient-Access-logo-system.png','Extra info goes here') }}
          </label>
         </div>
 
         <div>
         <label class="block-label selection-button-radio" for="radio-inline-2">
           <input id="radio-inline-2" type="radio" name="radio-inline-group" value="systm-one-1" />
-            SystmOnline
+            SystmOne
             {% import "partials/components/system.html" as callout %}
-            {{ callout.pattern('SystMOne','https://www.nhs.uk/NHSEngland/online-services/PublishingImages/logos/systmonline-logo.png','Extra info goes here') }}
+            {{ callout.pattern('SystmOne','https://www.nhs.uk/NHSEngland/online-services/PublishingImages/logos/systmonline-logo.png','Extra info goes here') }}
+         </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+          <input id="radio-inline-3" type="radio" name="radio-inline-group" value="evergreen-1" />
+          Evergreen
+            {% import "partials/components/system.html" as callout %}
+            {{ callout.pattern('Evergreen','https://www.nhs.uk/NHSEngland/online-services/PublishingImages/logos/evergreen-life-logo.png','Extra info goes here') }}
          </label>
         </div>
     </div>
