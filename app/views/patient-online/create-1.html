@@ -4,30 +4,69 @@
 
 {% block content %}
 
-<h3>Access your medical record</h3>
+<div class="first-item">
+<form>
+	<div class="form-group">
+		<h3>Access your hospital results</h3>
+		<h1><legend>Log in or sign up</legend></h1>
 
-<h1><legend>Sign in or create an NHS account</legend></h1>
+		<a href="/patient-online/patient-access-1" class="button button--secondary" style="padding: 12px; text-align: left; background-color: #d5571d; color: white">
+			<img style="width: 50px; float:left;" src="/images/logo-patient-access.png" width="54" height="54" />
+  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
+				<h3 style="margin-top: 0;">Patient Access</h3>
+			</div>
+		</a>
 
-<p>To access your medical record you need an NHS account. You can create an NHS account using your existing GP Online details or by creating a new NHS account. Alternatively you can create an NHS account using your GOV.UK Verify details if you have an account with them already.</p>
+		<a href="/patient-online/systm-one-1" class="button button--secondary" style="padding: 12px; text-align: left; background-color: rgb(0, 109, 178); color: white">
+			<img style="width: 50px; float:left;" src="/images/logo-systmone.png" width="54" height="54" />
+  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
+				<h3 style="margin-top: 0;">SystmOne</h3>
+			</div>
+		</a>
 
-{% endblock %}
-{% block rightcol %}{% endblock %}
+		<a href="/create-account/verify" class="button button--secondary" style="padding: 12px; text-align: left">
+			<img style="width: 50px; float:left;" src="/images/logo-verify.png" width="54" height="54" />
+  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
+				<h3 style="margin-top: 0;">GOV.UK Verify</h3>
+			</div>
+		</a>
 
-{% block leftHalf %}
-<div style="border-right: 3px solid #dddddd; padding-right: 15px;">
+		<a href="" class="button button--secondary" style="padding: 12px; text-align: left; background-color: #005eb8; color: white">
+			<img style="width: 50px; float:left;" src="/images/nhs-logotype-white.svg" width="54" height="54" />
+  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Sign up with</p>
+				<h3 style="margin-top: 0;">Email</h3>
+			</div>
+		</a>
+
+
+
+
+
+		<p><a href="/patient-online/gp-systems">Show all</a></p>
+		<hr />
+		<p>Already have an account? <a href="/patient-online/create-2">Log in</a></p>
+	</div>
+</form>
+</div>
+
+<!--
+<div>
 	<h3>Continue with NHS</h3>
 	<p>Select this option if you:</p>
 	<ul>
 		<li>have GP Online login details</li>
-		<li>already have an NHS account</li>
+		<li>already  have an NHS account</li>
 		<li>want to create a new NHS account</li>
 	</ul>
 	<a href="create-2" class="button">Continue with NHS</a>
 	<p><img src="/images/logotype-nhs-colour__reverse.png" alt="NHS"></p>
 </div>
-{% endblock %}
-
-{% block rightHalf %}
+-->
+<!--
 <div>
 	<h3>Continue with GOV.UK Verify</h3>
 	<p>Select this option if you:</p>
@@ -38,4 +77,5 @@
 	<a href="http://govuk-verify-loa1.herokuapp.com/intro?requestId=leeds-person-held-record&userLOA=0" class="button">Continue with GOV.UK Verify</a>
 	<p><img src="/images/verify.png" alt="GOV UK Verify"></p>
 </div>
+-->
 {% endblock %}
