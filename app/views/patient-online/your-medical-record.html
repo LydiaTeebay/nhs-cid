@@ -1,16 +1,15 @@
 {% extends 'layouts/nhsuk_layout_2_3.html' %}
-{% block page_title %}Your Hospital Record{% endblock %}
+{% block page_title %}Your Hospital Results{% endblock %}
 
 {% block body %}
 
 {% import "partials/components/local-header.html" as localHeader %}
-  {{ localHeader.pattern('Your hospital record',' ') }}
+  {{ localHeader.pattern('Your hospital results',' ') }}
 
-<h1>Welcome to your hospital record</h1>
+<h1>Welcome to your hospital results</h1>
 <ul>
-  <li><a href="#">Hospital record</a></li>
+  <li><a href="#">Hospital results</a></li>
   <li><a href="#">Blood tests</a></li>
-  <li><a href="#">Test results</a></li>
 </ul>
 
 <a href="create-1" class="button">Start</a>
