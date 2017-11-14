@@ -17,11 +17,15 @@
       {% import "partials/components/callout.html" as callout %}
       {{ callout.pattern('Attention','Your relationship with the patient isn\'t strong enough for you to vouch for them.','info') }}
 
-
       {% elif reason == "notsatisfied" %}
 
       {% import "partials/components/callout.html" as callout2 %}
       {{ callout2.pattern('Attention','You have chosen not to \'person vouch\' for your patient. You may however still verify their identity.','info') }}
+
+      {% elif reason == "id" %}
+
+      {% import "partials/components/callout.html" as callout2 %}
+      {{ callout2.pattern('Attention','The photo ID may not be reliable but you may however still verify their identity.','info') }}
 
       {% endif %}
 
