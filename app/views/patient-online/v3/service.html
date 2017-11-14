@@ -1,0 +1,22 @@
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% block page_title %}Access your medical record {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+
+{% block topRow %}
+{% import "partials/components/local-header.html" as localHeader %}
+{{ localHeader.pattern('Access your medical record',' ') }}
+{% endblock %}
+
+
+{% block content %}
+
+<p>Welcome to your medical record</p>
+<ul>
+  <!--<li>Remove token access for a patient's identity</li>-->
+</ul>
+
+<a href="create-1" class="button">Start</a>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
