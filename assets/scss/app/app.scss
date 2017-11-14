@@ -715,6 +715,23 @@ label.camera-button input[accept*="video/*"] {
 }
 
 
+@media (min-width: 641px) {
+    .button--secondary {
+      width: 66%;
+
+      + .button {
+        margin-left: 0;
+        margin-top: 16px;
+      }
+  }
+}
+  
+
+@media (max-width: 640px) {
+  .page-section {
+    padding-top:16px;
+  }
+}
 .list--check li::before {
   background: transparent;
   border: solid;
