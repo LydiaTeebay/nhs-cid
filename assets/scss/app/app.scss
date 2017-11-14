@@ -1,6 +1,7 @@
 @import "../nhsuk/environment/settings/_index.scss";
 @import "../nhsuk/environment/tools/functions/_index.scss";
 @import "../nhsuk/environment/tools/mixins/_index.scss";
+@import "../nhsuk/environment/generic/_index.scss";
 
 // Add your custom CSS here
 
@@ -19,6 +20,23 @@ h1, h1>legend {
 
 .page-section {
   padding: 65px 0;
+}
+
+.body-email {
+  padding: 1em 0;
+  .page-section {
+    max-width: 600px;
+    padding: 0 16px;
+    border: 1px solid #425563;
+    background: #fff;
+    .grid-row {
+      margin: 1em 0 0;
+    }
+  }
+  .global-footer {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
 }
 
 p.small, li.small {
@@ -693,3 +711,80 @@ label.camera-button input[accept*="image/*"],
 label.camera-button input[accept*="video/*"] {
   display: none;
 }
+
+
+.list--check li::before {
+  background: transparent;
+  border: solid;
+  border-color: $green;
+  border-width: 0 0 5px 5px;
+  height: 12px;
+  top: 7px;
+  transform: rotate(-45deg);
+  width: 22px;
+}
+
+.list--cross li {
+  &::before,
+  &::after {
+    background: $red;
+    height: 5px;
+    top: 12px;
+    transform: rotate(45deg);
+    width: 24px;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+// new local header variations
+
+.local-header--success,
+.local-header--failure {
+  //background-color: $green;
+  $_list-padding: $default-spacing-unit * 2;
+  .local-header__title {
+    position: relative;
+    padding-left: 1.5em;
+    &::before,
+    &::after {
+      content: "";
+      left: 0;
+      top: 0;
+      position: absolute;
+      zoom: 1;
+    }
+    &::before {
+      background: transparent;
+      border: solid;
+      border-color: $white;
+      border-width: 0 0 8px 8px;
+      height: 18px;
+      top: 0.7em;
+      transform: rotate(-45deg);
+      width: 30px;
+    }
+  }
+}
+
+.local-header--failure {
+  $_list-padding: $default-spacing-unit * 2;
+  .local-header__title {
+    position: relative;
+    &::before,
+    &::after {
+      background: $white;
+      height: 10px;
+      top: 0.9em;
+      transform: rotate(45deg);
+      width: 36px;
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
