@@ -2,11 +2,22 @@
 {% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
+{# work out where to send users #}
+{% if vouch %}
+{% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName %}
+{% elif service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
+
 {% block content %}
 <div class="first-item">
   <form>
     <div class="form-group">
       <fieldset class="inline">
+
+        {% if serviceName %}
+        <span class="section-header">{{ serviceName }}</span>
+        {% endif %}
 
         <h1 class="heading-large">Security code</h1>
 

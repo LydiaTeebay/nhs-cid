@@ -1,0 +1,20 @@
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% block page_title %}Access your hospital results{% endblock %}
+{% set signedin = 'true' %}
+
+
+{% block topRow %}
+  {% import "partials/components/local-header.html" as localHeader %}
+  {{ localHeader.pattern('Access your hospital results',' ') }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Welcome to your hospital results</h1>
+<ul>
+  <li><a href="#">Blood test results</a></li>
+</ul>
+
+{% endblock %}
+
+{% block rightcol %}{% endblock %}

@@ -2,12 +2,21 @@
 {% block page_title %}Create an NHS account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
+
 {% block content %}
 
 <div class="first-item">
   <form>
 
     <div class="form-group">
+
+      {% if serviceName %}
+      <span class="section-header">{{ serviceName }}</span>
+      {% endif %}
 
       <h1>Create an NHS account</h1>
       <div class="form-group">
@@ -32,7 +41,7 @@
       </div>
 
     </div>
-    <a class="button" href="check-email">Continue</a>
+    <a class="button" href="check-email{{ params }}">Continue</a>
   </form>
 </div>
 

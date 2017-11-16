@@ -1,18 +1,21 @@
 {% extends 'layouts/grids/grid-email.html' %}
 {% block page_title %}NHS account{% endblock %}
 {% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
 
 {% block content %}
-
-<div class="first-item" style="padding-bottom: 250px;" >
+<div class="first-item" style="padding-bottom: 100px;" >
   <h1>Validate your email address</h1>
   <p>Before you can use your NHS account you need to validate your email address.</p>
 
   <p>If you didn't create an NHS account using this email address please ignore this email and we will delete the NHS account after 48 hours.</p>
-  <p><a class="button" href="/create-account/verified-email?">Validate my email</a></p>
-  <p>Or verify using this link:<br><a href="/create-account/verified-email">http://www.nhs.uk/account/08y23rh0934k</a></p>
+  <p><a class="button" href="/create-account/verified-email{{ params }}">Validate my email</a></p>
+  <p>Or copy and paste this link:<br><a href="/create-account/verified-email{{ params }}">http://www.nhs.uk/account/08y23rh0934k</a></p>
 </div>
 
 {% endblock %}
-
-{% block footer %}{% endblock %}

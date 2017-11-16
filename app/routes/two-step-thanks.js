@@ -7,8 +7,11 @@ module.exports = function (router) {
       res.redirect('/create-account/set-password?vouch=yes')
       return
     }
+    var theReason = req.param('reason')
+    var service = req.param('service')
+    var serviceName = req.param('serviceName')
     // re-render the page along with the parameter
-    res.render('create-account/two-step-thanks', {vouch: vouched}, function(err, html) {
+    res.render('create-account/two-step-thanks', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
       res.send(html)
     })
   })

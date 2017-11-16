@@ -1,0 +1,24 @@
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% block page_title %}Access your hospital results{% endblock %}
+
+{% set service = "results" %}
+{% set serviceName = "Access%20your%20hospital%20results" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block topRow %}
+  {% import "partials/components/local-header.html" as localHeader %}
+  {{ localHeader.pattern('Access your hospital results','') }}
+{% endblock %}
+
+{% block content %}
+
+<p>Use this service to:</p>
+<ul>
+  <li>Get access to your hospital results</li>
+  <li>Get access to blood tests</li>
+</ul>
+
+<a href="/create-account/sign-on{{ params }}" class="button">Start</a>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

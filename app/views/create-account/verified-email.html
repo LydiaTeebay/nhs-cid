@@ -2,6 +2,11 @@
 {% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
+
 {% block content %}
 
 <div class="first-item">
@@ -24,9 +29,9 @@
       </div>
 
     </div>
-    <a class="button" href="two-step">Login</a>
+    <a class="button" href="two-step{{ params }}">Login</a>
 
-    <p><a href="forgotten-password">Forgotten your password?</a></p>
+    <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
   </form>
 </div>
 
