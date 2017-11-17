@@ -1,0 +1,62 @@
+{% extends 'layouts/grids/grid-1.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Unable to prove your identity online</legend></h1>
+
+        {% if reason == "device" %}
+
+        {% import "partials/components/callout.html" as callout %}
+        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without being able to take a selfie video.','alert') }}
+
+
+        {% elif reason == "documents" %}
+
+        {% import "partials/components/callout.html" as callout %}
+        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a valid photo ID.','alert') }}
+
+        {% endif %}
+
+        <h2><legend>Where do you want to go to prove your identity?</legend></h2>
+
+        <div class="">
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="pyi-choice-device">
+            GP practice or NHS office
+          </label>
+
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-id-3">
+            Job Centre
+          </label>
+
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="pyi-continue-offline">
+            Council office
+          </label>
+
+          <label class="block-label selection-button-radio" for="radio-inline-4">
+            <input id="radio-inline-4" type="radio" name="radio-inline-group" value="pyi-continue-offline">
+            Citizen Advice
+          </label>
+
+          <label class="block-label selection-button-radio" for="radio-inline-5">
+            <input id="radio-inline-5" type="radio" name="radio-inline-group" value="pyi-continue-offline">
+            None of these
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+{% endblock %}

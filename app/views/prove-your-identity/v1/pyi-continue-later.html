@@ -1,0 +1,42 @@
+{% extends 'layouts/grids/grid-1.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+
+        <span class="section-header">About you</span>
+        <h1><legend>Continue your identity verification later</legend></h1>
+
+        <h2><legend><strong>How do you wish to proceed?</strong></legend></h2>
+
+        <div class="">
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="pyi-choice-device">
+            Text me the link and I'll continue later
+          </label>
+
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-id-3">
+            Email me the link and I'll continue later
+          </label>
+
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="pyi-continue-offline">
+            I'd prefer to verify my identity another way
+          </label>
+
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+{% endblock %}
