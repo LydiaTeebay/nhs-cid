@@ -1,12 +1,12 @@
 module.exports = function (router) {
-  router.get('/create-account/login-nhs', function (req, res) {
+  router.get('/emails/email-forgotten-password', function (req, res) {
     // pull in the url parameters
+    var theReason = req.param('reason')
     var vouched = req.param('vouch')
     var service = req.param('service')
     var serviceName = req.param('serviceName')
-    var passwordChange = req.param('passwordChange')
     // re-render the page along with the parameter
-    res.render('create-account/login-nhs', {vouch: vouched, passwordChange: passwordChange, service: service, serviceName: serviceName}, function(err, html) {
+    res.render('emails/email-forgotten-password', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
       res.send(html)
     })
   })

@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-2-1.html' %}
+{% extends 'layouts/grids/grid-2-1-stacked.html' %}
 {% block page_title %}Sign in to your NHS account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
@@ -8,6 +8,14 @@
 {% elif service %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 {% endif %}
+
+{% block topRow %}
+{% if passwordChange == "yes" %}
+{% import "partials/components/callout.html" as callout %}
+{{ callout.pattern('Your password has been reset','','attention') }}
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 
@@ -37,6 +45,7 @@
     <div class="form-group">
       <a class="button" href="two-step-code-login{{ params }}" id="continue">Continue</a>
     </div>
+    <p><a href="forgotten-password{{ params }}">I can't remember my NHS account login details</a></p>
     <p><a href="create-acc{{ params }}">I don't have an NHS account</a></p>
   </form>
 </div>
