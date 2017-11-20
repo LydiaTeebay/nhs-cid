@@ -1,5 +1,5 @@
 {% extends 'layouts/grids/grid-2-1.html' %}
-{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
+{% block page_title %}Access your hospital results {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {% block content %}
@@ -8,19 +8,16 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h3>View your hospital record</h3>
-        <h1><legend>Recover your Patient Access log in details</legend></h1>
-        
+        <h3>Access your hospital results</h3>
+        <h1><legend>Recover your SystmOne log in details</legend></h1>
         <div class="form-group">
           <label class="form-label" for="field1">Email</label>
           <input class="form-control" id="field1" name="field1" type="text">
         </div>
-
       </fieldset>
-
     </div>
     <div class="form-group">
-      <a class="button" href="patient-access-1" id="continue">Continue</a>
+      <a class="button" href="systm-one-1" id="continue">Continue</a>
     </div>
     </form>
 </div>

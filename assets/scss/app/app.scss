@@ -720,7 +720,7 @@ label.camera-button input[accept*="video/*"] {
 }
 
 .button--systm-one {
-  @include button(rgb(0, 109, 178));
+  @include button($grey-4);
 }
 
 .button--verify {
