@@ -10,7 +10,7 @@
 {% if service == "results" %}
 
 {% import "partials/components/callout.html" as callout %}
-{{ callout.pattern('Attention','The service you are trying to access requires that you prove your identity first.','warning') }}
+{{ callout.pattern('Attention','The service you are trying to access requires that you prove your identity first.','attention') }}
 
 {% endif %}
 {% endblock %}
@@ -22,9 +22,9 @@
 
       <!--<span class="section-header">About you</span>-->
 
-        <h1><legend>Proving your identity</legend></h1>
+      <h1><legend>Proving your identity</legend></h1>
       <p>To prove your identity online, you will need:</p>
-      <ul>
+      <ul class="list--chevron">
         <li>Photo ID, for example a valid passport, photocard driving licence or identity card</li>
         <li>A camera to take a photo of your ID and video of yourself</li>
       </ul>
