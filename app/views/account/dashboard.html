@@ -10,15 +10,16 @@
 
 {% block topRow %}
   {% if vouch == "yes" %}
-
-  {% import "partials/components/callout.html" as callout %}
-  {{ callout.pattern('Congratulations','You now have an NHS account.','info') }}
-
-{% elif later == "yes" %}
-{% import "partials/components/callout.html" as callout %}
-{{ callout.pattern('message sent','','attention') }}
-
+    {% import "partials/components/callout.html" as callout %}
+    {{ callout.pattern('Congratulations','Your NHS account has been linked up to your medical record.','attention') }}
+  {% elif vouchNew == "yes" %}
+    {% import "partials/components/callout.html" as callout %}
+    {{ callout.pattern('Congratulations','You now have an NHS account.','attention') }}
+  {% elif later == "yes" %}
+    {% import "partials/components/callout.html" as callout %}
+    {{ callout.pattern('message sent','','attention') }}
   {% endif %}
+
 {% endblock %}
 
 {% block content %}
