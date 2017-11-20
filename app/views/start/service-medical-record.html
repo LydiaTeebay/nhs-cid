@@ -1,6 +1,9 @@
 {% extends 'layouts/grids/grid-2-1-stacked.html' %}
 {% block page_title %}Access your medical record{% endblock %}
 
+{% set service = "results" %}
+{% set serviceName = "Access%20your%20medical%20record" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block topRow %}
   {% import "partials/components/local-header.html" as localHeader %}
@@ -14,7 +17,7 @@
   <li>Get access to your medical record</li>
 </ul>
 
-<a href="/create-account/sign-on?service=record" class="button">Start</a>
+<a href="/create-account/sign-on{{ params }}" class="button">Start</a>
 
 {% endblock %}
 {% block rightcol %}{% endblock %}
