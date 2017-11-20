@@ -14,6 +14,10 @@
   {% import "partials/components/callout.html" as callout %}
   {{ callout.pattern('Congratulations','You now have an NHS account.','info') }}
 
+{% elif later == "yes" %}
+{% import "partials/components/callout.html" as callout %}
+{{ callout.pattern('message sent','','attention') }}
+
   {% endif %}
 {% endblock %}
 
