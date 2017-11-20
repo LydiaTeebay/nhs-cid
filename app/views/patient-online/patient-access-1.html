@@ -2,13 +2,22 @@
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
+{# work out where to send users #}
+{% if vouch %}
+{% set params = "?vouch=" + vouch %}
+{% elif service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
+
 {% block content %}
 
 <div class="first-item">
   <form>
     <div class="form-group">
       <fieldset class="">
-      <h3>View your hospital record</h3>
+      {% if serviceName %}
+        <span class="section-header">{{ serviceName }}</span>
+        {% endif %}
         <h1><legend>Log in using your Patient Access details</legend></h1>
         
         <div class="form-group">
