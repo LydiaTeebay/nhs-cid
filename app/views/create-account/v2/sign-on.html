@@ -1,0 +1,62 @@
+{% extends 'layouts/grids/grid-2-1.html' %}
+{% block page_title %}Access your hospital results | {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
+
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+
+      {% if serviceName %}
+      <span class="section-header">{{ serviceName }}</span>
+      {% endif %}
+
+      <h1><legend>Log in or sign up</legend></h1>
+
+      <a href="/patient-online/patient-access-1{{ params }}" class="button button--patient-access" style="padding: 12px; text-align: left; color: white">
+        <img style="width: 50px; float:left;" src="/images/logo-patient-access.png" width="54" height="54" />
+        <div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+          <p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
+          <h3 style="margin-top: 0;">Patient Access</h3>
+        </div>
+      </a>
+
+      <a href="/patient-online/systm-one-1{{ params }}" class="button button--systm-one" style="padding: 12px; text-align: left; color: white">
+        <img style="width: 50px; float:left;" src="/images/logo-systmone.png" width="54" height="54" />
+        <div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+          <p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
+          <h3 style="margin-top: 0;">SystmOne</h3>
+        </div>
+      </a>
+
+      <a href="https://govuk-verify-loa1.herokuapp.com/sign-in{{ params }}" class="button button--verify" style="padding: 12px; text-align: left">
+        <img style="width: 50px; float:left;" src="/images/logo-verify.png" width="54" height="54" />
+        <div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+          <p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
+          <h3 style="margin-top: 0;">GOV.UK Verify</h3>
+        </div>
+      </a>
+
+      <a href="login-nhs{{ params }}" class="button button--email" style="padding: 12px; text-align: left; color: white">
+        <img style="width: 50px; float:left;" src="/images/nhs-logotype-white.svg" width="54" height="54" />
+        <div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+          <p style="font-size: 16px; line-height: 22px" class="font-xsmall">Log in with</p>
+          <h3 style="margin-top: 0;">Email</h3>
+        </div>
+      </a>
+
+      <p><a href="/patient-online/gp-systems">Show all</a></p>
+      <hr />
+      <p>Don't have an account? <a href="create-acc{{ params }}">sign up</a></p>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

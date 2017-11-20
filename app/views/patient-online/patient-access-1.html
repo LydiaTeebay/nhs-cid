@@ -1,5 +1,5 @@
 {% extends 'layouts/grids/grid-2-1.html' %}
-{% block page_title %}Access your hospital results {{serviceName}}{% endblock %}
+{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {% block content %}
@@ -8,7 +8,7 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-      <h3>Access your hospital results</h3>
+      <h3>View your hospital record</h3>
         <h1><legend>Log in using your Patient Access details</legend></h1>
         
         <div class="form-group">
@@ -24,7 +24,7 @@
 
     </div>
     <div class="form-group">
-      <a class="button" href="/patient-online/your-medical-record" id="continue">Log in</a>
+      <a class="button" href="/patient-online/two-step-code" id="continue">Log in</a>
     </div>
     <br />
     <a href="patient-access-2">I can't remember my Patient Access log in details</a>

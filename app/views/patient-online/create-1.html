@@ -1,5 +1,5 @@
 {% extends 'layouts/grids/grid-2-1.html' %}
-{% block page_title %}Access your hospital results {{serviceName}}{% endblock %}
+{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {% block content %}
@@ -7,75 +7,51 @@
 <div class="first-item">
 <form>
 	<div class="form-group">
-		<h3>Access your hospital results</h3>
+		<h3>View your hospital record</h3>
 		<h1><legend>Log in or sign up</legend></h1>
 
-		<a href="/patient-online/patient-access-1" class="button button--patient-access" style="padding: 12px; text-align: left; color: white">
-			<img style="width: 50px; float:left;" src="/images/logo-patient-access.png" width="54" height="54" />
-  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
-			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
-				<h3 style="margin-top: 0;">Patient Access</h3>
-			</div>
-		</a>
-
-		<a href="/patient-online/systm-one-1" class="button button--systm-one" style="padding: 12px; text-align: left; color: white">
-			<img style="width: 50px; float:left;" src="/images/logo-systmone.png" width="54" height="54" />
-  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
-			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
-				<h3 style="margin-top: 0;">SystmOne</h3>
-			</div>
-		</a>
-
-		<a href="https://govuk-verify-loa1.herokuapp.com/sign-in?userLOA=1&requestId=leeds-person-held-record" class="button button--verify" style="padding: 12px; text-align: left">
-			<img style="width: 50px; float:left;" src="/images/logo-verify.png" width="54" height="54" />
-  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
-			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
-				<h3 style="margin-top: 0;">GOV.UK Verify</h3>
-			</div>
-		</a>
-
 		<a href="/patient-online/create-acc" class="button button--email" style="padding: 12px; text-align: left; color: white">
-			<img style="width: 50px; float:left;" src="/images/nhs-logotype-white.svg" width="54" height="54" />
-  			<div style="width: calc(100% - 66px); float: left; margin-top:0; margin-left: 16px">
+			<div style="width: calc(100% - 116px); float: left; margin-top:0;">
 			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Sign up with</p>
 				<h3 style="margin-top: 0;">Email</h3>
 			</div>
+			<img style="width: 100px; float:right; margin-top:0;" src="/images/nhs-logotype-white.svg" width="54" height="54" />
 		</a>
-
-
-
-
-
-		<p><a href="/patient-online/gp-systems">Show all</a></p>
+		<p>Already have an account? <a href="/patient-online/create-2">Login</a></p>
 		<hr />
-		<p>Already have an NHS account? <a href="/patient-online/create-2">Log in</a></p>
+		<p>If you are registered with your GP surgery for online services</p>
+		<a href="/patient-online/systm-one-1" class="button button--systm-one" style="padding: 12px; text-align: left;">
+			<div style="width: calc(100% - 66px);margin-top:0;">
+			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Login with</p>
+			</div>
+			<img style="margin-top:0; height: 40px; float: right" src="/images/systmonline_logo-trans.png" />
+		</a>
+		<a href="/patient-online/patient-access-1" class="button button--patient-access" style="padding: 12px; text-align: left; color: white">
+			<div style="width: calc(100% - 66px); margin-top:0;">
+			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Login with</p>
+			</div>
+			<img style="margin-top:0; height: 40px; float: right" src="/images/patient-access-logo-trans.png" />
+		</a>
+		<p><a href="/patient-online/gp-systems">Login with other GP online services</a></p>
+		<hr />
+		<a href="https://govuk-verify-loa1.herokuapp.com/sign-in?userLOA=1&requestId=leeds-person-held-record" class="button button--verify" style="padding: 12px; text-align: left">
+			<div style="width: calc(100% - 66px); float: left; margin-top:0;">
+			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
+				<h3 style="margin-top: 0;">GOV.UK Verify</h3>
+			</div>
+			<img style="width: 50px; float:right; margin-top:0;" src="/images/logo-verify.png" width="54" height="54" />
+		</a>
+		<details class="" role="group">
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+        <span class="details__summary">What is GOV.UK Verify?</span>
+      </summary>
+      <div id="details-content-0" aria-hidden="true">
+        <p>GOV.UK Verify is an identity service that allows you to login where ever you see the GOV.UK Verify logo.</p>
+		<p>You can sign up for a GOV.UK Verify account now or login to view your hospital record using your GOV.UK Verify credentials</p>
+      </div>
+    </details>
 	</div>
 </form>
 </div>
 
-<!--
-<div>
-	<h3>Continue with NHS</h3>
-	<p>Select this option if you:</p>
-	<ul>
-		<li>have GP Online login details</li>
-		<li>already  have an NHS account</li>
-		<li>want to create a new NHS account</li>
-	</ul>
-	<a href="create-2" class="button">Continue with NHS</a>
-	<p><img src="/images/logotype-nhs-colour__reverse.png" alt="NHS"></p>
-</div>
--->
-<!--
-<div>
-	<h3>Continue with GOV.UK Verify</h3>
-	<p>Select this option if you:</p>
-	<ul>
-		<li>already have a GOV.UK Verify account</li>
-	</ul>
-	<p>You can also create a new GOV.UK Verify account which will take about 10 minutes. You can access other government services securely wherever you see the GOV.UK Verify logo.</p>
-	<a href="http://govuk-verify-loa1.herokuapp.com/intro?requestId=leeds-person-held-record&userLOA=0" class="button">Continue with GOV.UK Verify</a>
-	<p><img src="/images/verify.png" alt="GOV UK Verify"></p>
-</div>
--->
 {% endblock %}

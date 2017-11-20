@@ -1,0 +1,32 @@
+{% extends 'layouts/grids/grid-2-1.html' %}
+{% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+
+    {% if serviceName %}
+    <span class="section-header">{{ serviceName }}</span>
+    {% endif %}
+
+    <h1>Validate your email</h1>
+
+    <p>We need to validate your email address. Please check your email.</p>
+    <p>If you haven't received the email check your spam folder or <a href="resent-email{{ params }}">click here to send another one</a>.</p>
+    <p>You have 48 hours to validate your email before the link is deactivated.</p>
+
+    <p><a href="/emails/email-validate{{ params }}">Validate Email address</a></p>
+
+  </div>
+    
+</div>
+
+{% endblock %}
