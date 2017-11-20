@@ -1,12 +1,13 @@
 {% extends 'layouts/grids/grid-2-1.html' %}
-{% block page_title %}Access your hospital results | {{serviceName}}{% endblock %}
+{% block page_title %}Log in or sign up | NHS UK | {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {# work out where to send users #}
 {% if service %}
   {% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% elif vouch %}
+	{% set params = "?vouch=" + vouch %}
 {% endif %}
-
 
 {% block content %}
 
@@ -50,7 +51,7 @@
 		<p><a href="/patient-online/gp-systems{{ params }}">Login with other GP online services</a></p>
 		<hr />
 
-		<a href="https://govuk-verify-loa1.herokuapp.com/sign-in{{ params }}" class="button button--verify" style="padding: 12px; text-align: left">
+		<a href="https://govuk-verify-loa1.herokuapp.com/intro{{ params }}" class="button button--verify" style="padding: 12px; text-align: left">
 			<div style="width: calc(100% - 66px); float: left; margin-top:0;">
 			  	<p style="font-size: 16px; line-height: 22px" class="font-xsmall">Continue with</p>
 				<h3 style="margin-top: 0;">GOV.UK Verify</h3>

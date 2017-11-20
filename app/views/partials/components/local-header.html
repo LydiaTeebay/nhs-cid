@@ -4,7 +4,7 @@
   <h1 class="local-header__title">{{ title }}</h1>
   <div class="local-header__intro">
   {% if text %}<div class="reading-width">
-      <p>{{ text }}</p>
+      <p>{{ text|safe }}</p>
     </div>{% endif %}
   </div>
 </div>
