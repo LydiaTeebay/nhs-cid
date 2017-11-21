@@ -825,3 +825,53 @@ label.camera-button input[accept*="video/*"] {
   }
 }
 
+// TODO: share this back to NHS UK
+// intructions pattern
+
+.intructions {
+  background-color: $blue;
+  padding: 16px;
+  color: $white;
+
+  .heading-large {
+    color: $white;
+  }
+
+  .heading-secondary {
+    color: rgba($white, 0.8);
+  }
+
+  @media (min-width: 600px) {
+    padding: 32px;
+  }
+}
+
+.instructions--image {
+  //max-width: auto!important;
+  margin: 1em auto;
+  display: block;
+  text-align: center;
+  height: auto;
+  @media (min-width: 600px) {
+    float: right;
+    margin-top: -3em;
+  }
+}
+
+.list--intructions {
+
+  $_list-padding: $default-spacing-unit * 2;
+  padding-left: $_list-padding;
+  li {
+    padding: 0 0 1em 0;
+  }
+  @media (min-width: 600px) {
+    p {
+      max-width: 50%;
+    }
+  }
+}
+
+.button--back-white {
+    @include button($blue);
+}

@@ -7,49 +7,48 @@
 
 	{# Part 1 - take a pic of your document #}
 
-	<div id="scan-id-1">
+	<section class="intructions" id="scan-id-1">
 
 		{% if mobile %}
 			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 2</span>Photographing your photo ID</h1>
 		{% else %}
-			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 4</span>Photographing your photo ID</h1>
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 4</span>Upload your photo ID</h1>
 		{% endif %}
 
-		<div class="callout callout--info">
-			<h3>Instructions to complete the process:</h3>
+		<!--<img src="/images/diagram-doc-scan.png" alt="" class="image-right" height="146" width="146">-->
 
-			<img src="/images/diagram-doc-scan.png" alt="" class="image-right" height="146" width="146">
-
-			<ul>
-				<li>Place your ID in good lighting, preferably daylight</li>
-				<li>Hold the camera straight above the ID</li>
-				<li>Avoid light reflecting on the ID</li>
-				{% if mobile %}
-				<li>Review the photo immediately after taking it</li>
-				{% endif %}
-				<li>Make sure all information is visible</li>
-			</ul>
-		</div>
-
+		<ol class="list--intructions">
+			<li><p>Place your ID in good lighting, preferably daylight</p>
+				<img class="instructions--image" src="/images/prove-id-photo-1@2x.png" height="110" width="277"/>
+			</li>
+			<li><p>Hold the camera straight above the ID</p></li>
+			<li><p>Avoid light reflecting on the ID</p></li>
+			{% if mobile %}
+			<li><p>Review the photo immediately after taking it</p></li>
+			{% endif %}
+			<li><p>Make sure all information is visible</p>
+				<img class="instructions--image" src="/images/prove-id-photo-2@2x.png" height="164" width="274"/>
+			</li>
+		</ol>
 		<form>
 			<div class="form-group">
 				<label for="id-document" class="camera-button button">
-          {% if mobile %}
-          Open your camera
-          {% else %}
-          Upload a photo
-          {% endif %}
+				  {% if mobile %}
+				  Open your camera
+				  {% else %}
+				  Upload a photo
+				  {% endif %}
 					<input type="file" id="id-document" accept="image/*" capture="environment">
 				</label>
 			</div>
 		</form>
 
-	</div>
+	</section>
 
 	{# Part 2 - Review your document photo #}
 
 
-	<div id="scan-id-2" style="display:none">
+	<section  class="intructions" id="scan-id-2" style="display:none">
 		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 4 </span>Review your photo ID</h1>
 
 		<div class="callout callout--info">
@@ -61,15 +60,15 @@
 		</div>
 
 		<div class="form-group">
-			<a class="button" href="#" id="submit-id-button">Submit ID photo</a>
-			<a href="scan-id" >Retake</a>
+			<a class="button" href="#" id="submit-id-button">Submit ID photo</a>&nbsp;
+			<a class="button--back-white" href="#" id="submit-id-back-button">Go back</a>
 		</div>
 
-	</div>
+	</section>
 
 	{# Part 3 - take a selfie video #}
 
-	<div id="scan-id-3" style="display:none">
+	<section class="intructions" id="scan-id-3" style="display:none">
 
     {% if mobile %}
       {% block topRow %}
@@ -82,23 +81,23 @@
 		{% if mobile %}
 			<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2 </span>Create a selfie video</h1>
 		{% else %}
-			<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Create a selfie video</h1>
+			<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Upload a selfie video</h1>
 		{% endif %}
 
-		<div class="callout callout--info">
-			<h3>Instructions to complete the process:</h3>
+		<ol class="list--intructions">
+			{% if mobile %}
+			<li><p>Use the front-facing camera</p>
+			</li>
+			{% endif %}
+			<li><p>Make sure your whole face is visible</p><img class="instructions--image" src="/images/prove-id-selfie-ani@2x.gif" height="238" width="425"/></li>
+			<li><p>Move your head slowly up and down</p>
+				</li>
+			<li>The video only needs to be about 2-3 seconds long</li>
 
-			<img src="/images/selfie-scan.png" alt="" class="image-right" height="146" width="146">
-
-			<ul>
-				<li>Use the front-facing camera</li>
-				<li>Make sure your whole face is visible</li>
-				<li>Move your face from side to side</li>
-				{% if mobile %}
-				<li>Review the video immediately after taking it</li>
-				{% endif %}
-			</ul>
-		</div>
+			{% if mobile %}
+			<li><p>Review the video immediately after taking it</p></li>
+			{% endif %}
+		</ol>
 
 		<form>
 			<div class="form-group">
@@ -110,14 +109,17 @@
           {% endif %}
 					<input type="file" id="id-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
 				</label>
+
+				&nbsp;
+				<a class="button--back-white" href="#" id="create-video-back-button">Go back</a>
 			</div>
 		</form>
 
-	</div>
+	</section>
 
 	{# Part 4 - Review your selfie video #}
 
-	<div id="scan-id-4" style="display:none">
+	<section class="intructions" id="scan-id-4" style="display:none">
 
 		<h1 class="heading-large"><span class="heading-secondary">Step 4 of 4 </span>Review your selfie video</h1>
 
@@ -131,8 +133,11 @@
 		</div>
 
 		<div class="form-group">
-			<a class="button" href="pyi-scan-id-uploading{{ params }}" id="submit-video-button">Submit selfie video</a>
-			<a href="scan-id" >Retake</a>
+			<a class="button" href="pyi-scan-id-uploading{{ params }}" id="submit-video-button">Submit selfie video</a>&nbsp;
+			<a class="button--back-white" href="#" id="submit-video-back-button">Go back</a>
+
 		</div>
+
+	</section>
 
 {% endblock %}
