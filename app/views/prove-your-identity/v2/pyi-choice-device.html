@@ -1,0 +1,41 @@
+{% extends 'layouts/grids/grid-1.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% block content %}
+
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <span class="section-header">About you</span>
+        <h1><legend>Are you using a smartphone or tablet that has a camera capable of recording video?</legend></h1>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="pyi-scan-id-intro">
+            Yes, I am using one now
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="pyi-continue-later">
+            No, but I can use one later
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="pyi-continue-offline?reason=device">
+            No
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+{% endblock %}
