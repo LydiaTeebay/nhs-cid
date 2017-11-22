@@ -1,11 +1,19 @@
-@import "../nhsuk/environment/settings/_index.scss";
-@import "../nhsuk/environment/tools/functions/_index.scss";
-@import "../nhsuk/environment/tools/mixins/_index.scss";
-@import "../nhsuk/environment/generic/_index.scss";
-@import "../nhsuk/environment/tools/mixins/button";
+// @import "../nhsuk/environment/settings/_index.scss"; // can't import the index file as this brings in the fonts twice
+@import "../nhsuk/environment/settings/colours";
+@import "../nhsuk/environment/settings/globals";
+@import "../nhsuk/environment/settings/layout";
+@import "../nhsuk/environment/settings/typography";
+@import "../nhsuk/environment/tools/functions/index";
+@import "../nhsuk/environment/tools/mixins/index";
+@import "../nhsuk/environment/generic/utilities";
+
+
+// pull in NHSUK application overrides
+@import "heading";
 
 // Add your custom CSS here
 
+/*
 $leading: 16px;
 $pure-white: #fff;
 
@@ -501,8 +509,13 @@ p.help-links {
   text-align: center;
 }
 
+
+
+*/
+
+
 .form-date-field {
-  margin-top: 0!important;
+  margin-top: 0 !important;
 }
 
 .form-hint {
@@ -512,7 +525,8 @@ p.help-links {
 
 // text box read only state
 
-input, textarea {
+input,
+textarea {
   &[readonly] {
     border: 2px solid $grey-3;
   }
@@ -563,9 +577,6 @@ input, textarea {
   input:last-of-type {
     margin: 0;
   }
-
-
-
 }
 
 $_border-colour: $grey-2;
@@ -586,9 +597,7 @@ $_radio-spacing: ($_element-size - $_radio-size) / 2;
   @include clearfix;
 
   .js-enabled & {
-
     //padding: 0 0 0 0;
-
     label {
       cursor: pointer;
       padding-top: 7px;
@@ -610,7 +619,7 @@ $_radio-spacing: ($_element-size - $_radio-size) / 2;
       opacity: 0;
     }
     [type=checkbox] + label,
-    [type=radio] + label,
+    [type=radio] + label
     {
       //position: auto;
     }

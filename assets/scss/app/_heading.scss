@@ -1,0 +1,5 @@
+// NHSUK typography overrides
+h1,
+h1>legend {
+  @include bold-font(36);
+}
