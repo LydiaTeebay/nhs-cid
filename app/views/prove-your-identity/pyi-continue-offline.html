@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-1.html' %}
+{% extends '_layouts/_grids/_grid-1.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 
 {% block content %}
@@ -10,13 +10,13 @@
 
         {% if reason == "device" %}
 
-        {% import "partials/components/callout.html" as callout %}
+        {% import "_partials/_components/_callout.html" as callout %}
         {{ callout.pattern('Attention','You won\'t be able to prove your identity online without being able to take a selfie video.','alert') }}
 
 
         {% elif reason == "documents" %}
 
-        {% import "partials/components/callout.html" as callout %}
+        {% import "_partials/_components/_callout.html" as callout %}
         {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a valid photo ID.','alert') }}
 
         {% endif %}

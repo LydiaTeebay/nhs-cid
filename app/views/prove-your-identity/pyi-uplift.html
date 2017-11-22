@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 
 {# work out where to send users #}
@@ -9,7 +9,7 @@
 {% block topRow %}
 {% if service == "results" %}
 
-{% import "partials/components/callout.html" as callout %}
+{% import "_partials/_components/_callout.html" as callout %}
 {{ callout.pattern('Attention','The service you are trying to access requires that you prove your identity first.','attention') }}
 
 {% endif %}

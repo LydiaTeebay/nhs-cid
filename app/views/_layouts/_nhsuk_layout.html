@@ -15,11 +15,11 @@
 
 <body class="{{ bodyClass }}">
 
-  {% include 'partials/service-alert.html' %}
+  {% include '_partials/_service-alert.html' %}
 
   {# slightly different design for emails #}
   {% if not hidehead %}
-    {% include 'partials/global_header.html'%}
+    {% include '_partials/_global_header.html'%}
   {% endif %}
 
   <main id="content" role="main">
@@ -30,7 +30,7 @@
   </main>
 
   {% if not hidehead %}
-    {% include 'partials/global_footer.html' %}
+    {% include '_partials/_global_footer.html' %}
   {% endif %}
 
   <script src="/scripts/jquery-1.12.4.min.js"></script>

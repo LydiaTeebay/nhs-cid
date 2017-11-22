@@ -1,9 +1,9 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Access your hospital results {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {% block topRow %}
-  {% import "partials/components/local-header.html" as localHeader %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('Access your hospital results',' ') }}
 {% endblock %}
 

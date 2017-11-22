@@ -1,22 +1,24 @@
-{% extends '../nhsuk_layout.html' %}
+{% extends '_layouts/_nhsuk_layout.html' %}
 
 {% block body %}
 
+  {% block topRow %}{% endblock %}
+
   <div class="grid-row">
-    <div class="column--one-third">
+    <div class="column--two-thirds">
       {% block content %}{% endblock %}
     </div>
-    <div class="column--two-thirds">
+    <div class="column--one-third">
       {% block rightcol %}{% endblock %}
     </div>
   </div>
 
   <div class="grid-row">
     <div class="column--one-half">
-      {% block leftHalf %}{% endblock leftHalf %}
+      {% block leftHalf %}{% endblock %}
     </div>
     <div class="column--one-half">
-      {% block rightHalf %}{% endblock rightHalf %}
+      {% block rightHalf %}{% endblock %}
     </div>
   </div>
 

@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Your NHS Account{% endblock %}
 {% set signedin = 'true' %}
 {% set alert = {'cookies':'true','notlive':'false'} %}
@@ -10,13 +10,13 @@
 
 {% block topRow %}
   {% if vouch == "yes" %}
-    {% import "partials/components/callout.html" as callout %}
+    {% import "_partials/_components/_callout.html" as callout %}
     {{ callout.pattern('Congratulations','Your NHS account has been linked up to your medical record.','attention') }}
   {% elif vouchNew == "yes" %}
-    {% import "partials/components/callout.html" as callout %}
+    {% import "_partials/_components/_callout.html" as callout %}
     {{ callout.pattern('Congratulations','You now have an NHS account.','attention') }}
   {% elif later == "yes" %}
-    {% import "partials/components/callout.html" as callout %}
+    {% import "_partials/_components/_callout.html" as callout %}
     {{ callout.pattern('message sent','','attention') }}
   {% endif %}
 

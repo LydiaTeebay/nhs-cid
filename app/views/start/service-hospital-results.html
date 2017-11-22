@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}View your hospital record{% endblock %}
 
 {% set service = "results" %}
@@ -6,7 +6,7 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block topRow %}
-  {% import "partials/components/local-header.html" as localHeader %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('View your hospital record','') }}
 {% endblock %}
 

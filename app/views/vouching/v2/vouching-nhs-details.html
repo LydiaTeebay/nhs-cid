@@ -1,7 +1,7 @@
-{% extends 'layouts/nhsuk_layout.html' %}
-{% block page_title %}Patient ID Verification Service{% endblock %}
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
 
-{% block body %}
+{% block content %}
 
 <div class="first-item">
   <form>
@@ -10,7 +10,7 @@
 
         <h1><legend>Patient's details</legend></h1>
 
-      {% import "partials/components/callout.html" as callout %}
+      {% import "_partials/_components/_callout.html" as callout %}
       {{ callout.pattern('NHS number: 214 265 8075','Check the following details are correct.','info') }}
 
         <div class="form-group">

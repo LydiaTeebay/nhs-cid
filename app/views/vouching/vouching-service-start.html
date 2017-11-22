@@ -1,9 +1,9 @@
-{% extends 'layouts/nhsuk_layout.html' %}
-{% block page_title %}Patient ID Verification Service{% endblock %}
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
 
-{% block body %}
+{% block content %}
 
-  {% import "partials/components/local-header.html" as localHeader %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians') }}
 
 <p>Use this service to:</p>

@@ -50,8 +50,8 @@ if (env === 'production' && useAuth === 'true') {
 const hbs = handlebars.create({
   extname: '.hbs',
   defaultLayout: 'nhsuk_layout',
-  layoutsDir: 'app/views/layouts',
-  partialsDir: 'app/views/partials'
+  layoutsDir: 'app/views/_layouts',
+  partialsDir: 'app/views/_partials'
 })
 app.engine('.hbs', hbs.engine)
 app.set('view engine', '.hbs')

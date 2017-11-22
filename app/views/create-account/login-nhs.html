@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Sign in to your NHS account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
@@ -13,10 +13,10 @@
 
 {% block topRow %}
 {% if passwordChange == "yes" %}
-{% import "partials/components/callout.html" as callout %}
+{% import "_partials/_components/_callout.html" as callout %}
 {{ callout.pattern('Your password has been reset.','','attention') }}
 {% elif emailValid == "yes" %}
-{% import "partials/components/callout.html" as callout %}
+{% import "_partials/_components/_callout.html" as callout %}
 {{ callout.pattern('Your email address has been validated.','','attention') }}
 {% endif %}
 

@@ -1,10 +1,10 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 {% set signedin = 'true' %}
 
 
 {% block topRow %}
-{% import "partials/components/local-header.html" as localHeader %}
+{% import "_partials/_components/_local-header.html" as localHeader %}
 {{ localHeader.pattern('Your evidence has been received','Somebody will check your photo ID and selfie video.<br>This usually takes 1 hour. ','success') }}
 {% endblock %}
 

@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-1.html' %}
+{% extends '_layouts/_grids/_grid-1.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 
 {% block body %}
@@ -243,15 +243,15 @@
         <section class="nhsuk-component">
           <h2 id="callouts">Callouts</h2>
           <div class="example">
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Default','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Info','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','info') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Attention','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','attention') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Warning','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','warning') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Alert','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','alert') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Severe','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','severe') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Error','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','error') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Muted','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','muted') }}
-            {% import "partials/components/callout.html" as callout %}{{ callout.pattern('Compact','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','compact') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Default','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Info','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','info') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Attention','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','attention') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Warning','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','warning') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Alert','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','alert') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Severe','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','severe') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Error','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','error') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Muted','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','muted') }}
+            {% import "_partials/_components/_callout.html" as callout %}{{ callout.pattern('Compact','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure','compact') }}
           </div>
         </section>
 
@@ -260,7 +260,7 @@
         <section class="nhsuk-component">
           <h2 id="local-header">Local Header</h2>
           <div class="example">
-            {% import "partials/components/local-header.html" as localHeader %}
+            {% import "_partials/_components/_local-header.html" as localHeader %}
             {{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians') }}
           </div>
         </section>
