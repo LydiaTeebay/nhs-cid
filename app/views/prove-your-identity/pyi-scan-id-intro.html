@@ -3,6 +3,13 @@
 
 {% block content %}
 
+{#
+{% if mobile %}
+{% import "partials/components/callout.html" as callout %}
+{{ callout.pattern('','You have submitted your photo ID.','warning') }}
+{% endif %}
+#}
+
   <span class="section-header">Submitting your evidence</span>
 
 	{# Part 1 - take a pic of your document #}
@@ -70,12 +77,7 @@
 
 	<section class="intructions" id="scan-id-3" style="display:none">
 
-    {% if mobile %}
-      {% block topRow %}
-        {% import "partials/components/callout.html" as callout %}
-        {{ callout.pattern('','You have submitted your photo ID.','warning') }}
-      {% endblock %}
-    {% endif %}
+
 
 
 		{% if mobile %}
