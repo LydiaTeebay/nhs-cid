@@ -22,7 +22,9 @@
     {% include '_partials/_global_header.html'%}
   {% endif %}
 
-  <main id="content" role="main">
+  <main id="content" role="main" tab-index="-1">
+
+    {% block header %}{% endblock %}
 
     <div class="page-section">
       {% block body %}{% endblock %}

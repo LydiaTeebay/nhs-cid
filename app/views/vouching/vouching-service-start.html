@@ -1,10 +1,12 @@
-{% extends '_layouts/_grids/_grid-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}Offline Vouching Identity Service{% endblock %}
 
-{% block content %}
+{% block header %}
+{% import "_partials/_components/_local-header.html" as localHeader %}
+{{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians') }}
+{% endblock %}
 
-  {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians') }}
+{% block content %}
 
 <p>Use this service to:</p>
 <ul>

@@ -2,7 +2,7 @@
 {% block page_title %}Citizen ID Prototypes{% endblock %}
 
 
-{% block topRow %}
+{% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('Citizen ID Prototypes','') }}
 {% endblock %}
@@ -18,19 +18,19 @@
     <hr>
 
     <dt><a href="create-account/sign-on">Create account</a></dt>
-    <dd>Customer journey to create a new NHS account
+    <dd>Customer journey to log in or sign up for a new NHS account
     <p style="font-size: smaller">Historial versions - <a href="create-account/v1/create-1">2 columns (14/11/17)</a> | <a href="create-account/v2/sign-on">User testing (15/11/17)</a></p></dd>
     
     <hr>
 
     <dt><a href="patient-online/start">Access your hospital results using POL</a></dt>
-    <dd>Customer journey to create a new NHS profile using their POL credentials
+    <dd>Customer journey using POL credentials to log in
     <p style="font-size: smaller">Historial versions - <a href="patient-online/v1/start">Token codes (03/11/17)</a> | <a href="patient-online/v2/start">User testing (8/11/17)</a> | <a href="patient-online/v3/start">User testing (15/11/17)</a></p></dd>
 
     <hr>
 
     <dt><a href="prove-your-identity/pyi-uplift">Prove your Identity</a></dt>
-    <dd>Online journey for physical comparison
+    <dd>Online journey for uplifting accounts and physical comparison without an app
     <p style="font-size: smaller">Historial versions - <a href="prove-your-identity/v1/pyi-details-name">User testing (15/11/17)</a> | <a href="prove-your-identity/v2/pyi-details-name">User testing (21/11/17)</a> |</p></dd>
   </dl>
 

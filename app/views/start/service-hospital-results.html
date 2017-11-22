@@ -5,7 +5,7 @@
 {% set serviceName = "View%20your%20hospital%20record" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
-{% block topRow %}
+{% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('View your hospital record','') }}
 {% endblock %}

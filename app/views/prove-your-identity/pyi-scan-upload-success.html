@@ -3,13 +3,13 @@
 {% set signedin = 'true' %}
 
 
-{% block topRow %}
+{% block header %}
 {% import "_partials/_components/_local-header.html" as localHeader %}
 {{ localHeader.pattern('Your evidence has been received','Somebody will check your photo ID and selfie video.<br>This usually takes 1 hour. ','success') }}
 {% endblock %}
 
 {% block content %}
-	<h1 class="heading-large">What happens next?</h1>
+	<h2 class="heading-large">What happens next?</h2>
 
 	<ul class="list--chevron">
 		<!--<li>Somebody will check your photo ID and selfie video</li>-->

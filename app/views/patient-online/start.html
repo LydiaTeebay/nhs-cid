@@ -2,7 +2,7 @@
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
-{% block topRow %}
+{% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('View your hospital record',' ') }}
 {% endblock %}
