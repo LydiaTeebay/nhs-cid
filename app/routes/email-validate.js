@@ -3,11 +3,12 @@ module.exports = function (router) {
     // pull in the url parameters
     var theReason = req.param('reason')
     var passwordChange = req.param('passwordChange')
+    var newUser = req.param('newUser')
     var vouched = req.param('vouch')
     var service = req.param('service')
     var serviceName = req.param('serviceName')
     // re-render the page along with the parameter
-    res.render('emails/email-validate', {reason: theReason, passwordChange: passwordChange, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
+    res.render('emails/email-validate', {reason: theReason, passwordChange: passwordChange, newUser: newUser, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
       res.send(html)
     })
   })

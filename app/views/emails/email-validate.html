@@ -5,9 +5,11 @@
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser %}
 {% elif vouch %}
-  {% set params = "?vouch=" + vouch + "&passwordChange=" + passwordChange %}
+  {% set params = "?vouch=" + vouch %}
+{% elif newUser %}
+  {% set params = "?newUser=" + newUser %}
 {% endif %}
 
 {% block content %}

@@ -7,6 +7,8 @@
 {% set params = "?vouch=" + vouch %}
 {% elif service %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser %}
 {% endif %}
 
 {% block topRow %}
@@ -46,7 +48,11 @@
       </fieldset>
     </div>
     <div class="form-group">
+      {% if newUser == "yes" %}
+      <a class="button" href="two-step{{ params }}" id="continue">Continue</a>
+      {% else %}
       <a class="button" href="two-step-code-login{{ params }}" id="continue">Continue</a>
+      {% endif %}
     </div>
     <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
     <p><a href="create-acc{{ params }}">I don't have an NHS account</a></p>

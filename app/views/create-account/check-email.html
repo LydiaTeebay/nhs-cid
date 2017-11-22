@@ -1,12 +1,15 @@
 {% extends 'layouts/grids/grid-2-1.html' %}
 {% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
+{% set newUser = 'yes' %}
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser%}
 {% elif vouch %}
-{% set params = "?vouch=" + vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser %}
 {% endif %}
 
 {% block content %}
