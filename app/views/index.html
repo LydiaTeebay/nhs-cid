@@ -1,47 +1,73 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-1-1-1-stacked.html' %}
 {% block page_title %}Citizen ID Prototypes{% endblock %}
-
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('Citizen ID Prototypes','') }}
 {% endblock %}
 
+
 {% block content %}
+<a href="start" class="button">Journeys start here</a>
+
+<hr>
+
+<h3>Useful links</h3>
+<ul class="list--chevron">
+  <!--<li><a href="start">Journey start pages</a></li>-->
+  <li><a href="account">Account / Dashboard pages</a></li>
+  <li><a href="patterns">NHS UK design patterns</a></li>
+</ul>
+
+<hr>
+{% endblock %}
+
+{% block middlecol %}
 
   <dl>
+    <dt><a href="create-account/sign-on">Create account</a></dt>
+    <dd>Customer journey to log in or sign up for a new NHS account
+      <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+        <a href="create-account/v2/sign-on">15 Nov '17 - User testing</a><br>
+        <a href="create-account/v1/create-1">14 Nov '17 - 2 columns</a>
+      </p></dd>
+
+    <hr>
 
     <dt><a href="vouching/vouching-service-start">Patient ID Verification Service</a></dt>
     <dd>Used by clinicians for offline vouching services
-      <p style="font-size: smaller">Historial versions - <a href="vouching/v1/index">London hack (18/10/17)</a> | <a href="vouching/v2/vouching-service-start">Token codes (3/11/17)</a> | </p></dd>
+      <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+        <a href="vouching/v2/vouching-service-start">3 Nov '17 - Token codes</a><br>
+        <a href="vouching/v1/index">18 Oct '17 - London hack </a>
+      </p></dd>
 
     <hr>
-
-    <dt><a href="create-account/sign-on">Create account</a></dt>
-    <dd>Customer journey to log in or sign up for a new NHS account
-    <p style="font-size: smaller">Historial versions - <a href="create-account/v1/create-1">2 columns (14/11/17)</a> | <a href="create-account/v2/sign-on">User testing (15/11/17)</a></p></dd>
-    
-    <hr>
-
-    <dt><a href="patient-online/start">Access your hospital results using POL</a></dt>
-    <dd>Customer journey using POL credentials to log in
-    <p style="font-size: smaller">Historial versions - <a href="patient-online/v1/start">Token codes (03/11/17)</a> | <a href="patient-online/v2/start">User testing (8/11/17)</a> | <a href="patient-online/v3/start">User testing (15/11/17)</a></p></dd>
-
-    <hr>
-
-    <dt><a href="prove-your-identity/pyi-uplift">Prove your Identity</a></dt>
-    <dd>Online journey for uplifting accounts and physical comparison without an app
-    <p style="font-size: smaller">Historial versions - <a href="prove-your-identity/v1/pyi-details-name">User testing (15/11/17)</a> | <a href="prove-your-identity/v2/pyi-details-name">User testing (21/11/17)</a> |</p></dd>
   </dl>
 
 {% endblock %}
 
-
 {% block rightcol %}
-  <h3>Useful links</h3>
-  <ul class="list--chevron">
-    <li><a href="start">Journey start pages</li>
-    <li><a href="account">NHS account page</li>
-    <li><a href="patterns">NHS UK design patterns</li>
-  </ul>
+
+<dl>
+  <dt><a href="patient-online/start">Access your hospital results using POL</a></dt>
+  <dd>Customer journey using POL credentials to log in
+    <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+      <a href="patient-online/v3/start">15 Nov '17 - User testing</a><br>
+      <a href="patient-online/v2/start">08 Nov '17 - User testing</a><br>
+      <a href="patient-online/v1/start">03 Nov '17 - Token codes</a>
+    </p></dd>
+
+  <hr>
+
+  <dt><a href="prove-your-identity/pyi-uplift">Prove your Identity</a></dt>
+  <dd>Online journey for uplifting accounts and physical comparison without an app
+    <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+      <a href="prove-your-identity/v2/pyi-details-name">21 Nov '17 - User testing</a><br>
+      <a href="prove-your-identity/v1/pyi-details-name">15 Nov '17 - User testing</a>
+      </p></dd>
+
+  <hr>
+</dl>
+
 {% endblock %}
+
