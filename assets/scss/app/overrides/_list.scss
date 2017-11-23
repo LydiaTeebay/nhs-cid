@@ -1,0 +1,14 @@
+// NHSUK list overrides
+
+.list--intructions {
+  $_list-padding: $default-spacing-unit * 2;
+  padding-left: $_list-padding;
+  li {
+    padding: 0 0 1em 0;
+  }
+  @media (min-width: 600px) {
+    p {
+      max-width: 50%;
+    }
+  }
+}

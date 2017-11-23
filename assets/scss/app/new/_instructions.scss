@@ -1,0 +1,41 @@
+
+// TODO: maybe share this back to NHS UK
+// intructions pattern
+
+.intructions {
+  background-color: $blue;
+  padding: 16px;
+  color: $white;
+
+  .heading-large {
+    color: $white;
+  }
+
+  .heading-secondary {
+    color: rgba($white, .8);
+  }
+
+  @media (min-width: 600px) {
+    padding: 32px;
+  }
+}
+
+.instructions--image {
+  margin: 1em auto;
+  display: block;
+  text-align: center;
+  height: auto;
+  @media (min-width: 600px) {
+    float: right;
+    margin-top: -3em;
+  }
+}
+
+.instructions--image--small {
+  margin: 1.6em auto;
+  display: block;
+  @media (min-width: 500px) {
+    float: right;
+    margin: 1.6em 0 0 2em;
+  }
+}

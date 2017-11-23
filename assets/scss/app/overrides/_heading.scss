@@ -1,0 +1,19 @@
+// NHSUK typography overrides
+
+h1,
+h1>legend {
+  @include bold-font(36);
+}
+
+// step numbers
+.heading-secondary {
+  padding-top: 4px;
+  padding-bottom: 6px;
+  font-size: 24px;
+  line-height: 1.11111;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  color: #6f777b;
+}

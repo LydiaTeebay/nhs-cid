@@ -1,0 +1,15 @@
+// fix the lobotomized owl
+
+.page-section {
+  //padding-top: 65px;
+  //padding-bottom: 65px;
+  @media (max-width: 640px) {
+    padding-top: 16px;
+  }
+}
+
+.section-header {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+}

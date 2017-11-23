@@ -1,0 +1,23 @@
+// camera upload styling
+
+label.camera-button {
+  display: inline-block;
+  margin: 1em 0;
+  border: 2px solid #666;
+  background-color: #007f3b;
+  padding: 12px 24px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+// Look like a clicked/depressed button
+label.camera-button:active {
+  border-color: #CCC #EEE #EEE #CCC;
+}
+
+// This is the part that actually hides the 'Choose file' text box for camera inputs
+label.camera-button input[accept*="image/*"],
+label.camera-button input[accept*="video/*"] {
+  display: none;
+}

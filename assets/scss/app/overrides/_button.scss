@@ -1,0 +1,42 @@
+// NHSUK button overrides
+
+
+// back button when on a blue bg
+.button--back-white {
+  @include button($blue);
+}
+
+// New login buttons
+.button--patient-access {
+  @include button(#d5571d);
+}
+
+.button--systm-one {
+  @include button($grey-4);
+}
+
+.button--systm-one--dark {
+  @include button(rgb(0, 109, 178));
+}
+
+.button--verify {
+  @include button($grey-4);
+}
+
+.button--email {
+  @include button(#005eb8);
+}
+
+@media (min-width: 641px) {
+  .button--patient-access,
+  .button--systm-one,
+  .button--systm-one--dark,
+  .button--verify,
+  .button--email {
+    width: 66%;
+    + .button {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+  }
+}
