@@ -2,10 +2,6 @@
 {% block page_title %}Prove your Identity Service{% endblock %}
 {% set signedin = 'true' %}
 
-
-{% block top %}
-
-
 {% block content %}
 
 {#
@@ -17,7 +13,9 @@
 
   <span class="section-header">Submitting your evidence</span>
 
+
 	{# Part 1 - take a pic of your document #}
+
 
 	<section class="intructions" id="scan-id-1">
 
@@ -57,6 +55,7 @@
 
 	</section>
 
+
 	{# Part 2 - Review your document photo #}
 
 
@@ -78,12 +77,11 @@
 
 	</section>
 
+
 	{# Part 3 - take a selfie video #}
 
+
 	<section class="intructions" id="scan-id-3" style="display:none">
-
-
-
 
 		{% if mobile %}
 			<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2 </span>Create a selfie video</h1>
@@ -124,7 +122,9 @@
 
 	</section>
 
+
 	{# Part 4 - Review your selfie video #}
+
 
 	<section class="intructions" id="scan-id-4" style="display:none">
 
