@@ -305,8 +305,7 @@ $_radio-spacing: ($_element-size - $_radio-size) / 2;
       opacity: 0;
     }
     [type=checkbox] + label,
-    [type=radio] + label
-    {
+    [type=radio] + label {
       //position: auto;
     }
     [type=checkbox] + label::before {
