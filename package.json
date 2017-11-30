@@ -21,7 +21,7 @@
   },
   "engines": {
     "node": "8.7.0",
-    "npm": "5.5.1"
+    "npm": "5.5.2"
   },
   "standard": {
     "plugins": [
@@ -44,40 +44,37 @@
     "cssnext": "^1.8.4",
     "debug": "^2.6.9",
     "dotenv": "^4.0.0",
+    "eslint-plugin-html": "^3.2.1",
     "express": "~4.16.2",
     "express-handlebars": "^3.0.0",
     "express-hbs": "^1.0.4",
+    "express-nunjucks": "^2.2.3",
     "express-session": "^1.15.5",
+    "express-useragent": "^1.0.8",
     "express-validator": "^4.3.0",
-    "gulp-postcss": "^7.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.1",
-    "marked": "^0.3.6",
-    "morgan": "~1.8.1",
-    "prompt": "^1.0.0",
-    "require-dir": "^0.3.2",
-    "serve-favicon": "~2.4.5",
-    "standard": "^10.0.3",
-    "stylelint": "^8.2.0"
-    "per-env": "^1.0.2",
-
-    "cssnano": "^3.10.0",
-    "cssnext": "^1.8.4",
-    "eslint-plugin-html": "^3.2.1",
     "frontend-library": "git://github.com/nhsuk/frontend-library.git#0.7.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-postcss": "^7.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
+    "marked": "^0.3.6",
+    "morgan": "~1.8.1",
+    "nunjucks": "^3.0.1",
+    "per-env": "^1.0.2",
     "postcss-cssnext": "^3.0.2",
     "postcss-reporter": "^5.0.0",
+    "postcss-sass": "^0.2.0",
     "postcss-scss": "^1.0.2",
+    "prompt": "^1.0.0",
+    "require-dir": "^0.3.2",
     "run-sequence": "^2.2.0",
-    "standard": "*",
-    "stylelint": "^8.1.1"
+    "serve-favicon": "~2.4.5",
+    "standard": "^10.0.3",
+    "stylelint": "^8.3.1"
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
-    "pa11y": "^5.0.0-beta.2",
+    "pa11y": "^5.0.0-beta.3",
     "pa11y-reporter-html": "^1.0.0"
+  }
 }
