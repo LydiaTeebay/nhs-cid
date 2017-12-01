@@ -5,11 +5,11 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser%}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
 {% elif vouch %}
-{% set params = "?vouch=" + vouch + "&newUser=" + newUser %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&mobileNum=" + mobileNum %}
 {% elif newUser %}
-{% set params = "?newUser=" + newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
 {% endif %}
 
 {% block content %}
@@ -22,13 +22,25 @@
     <span class="section-header">{{ serviceName }}</span>
     {% endif %}
 
-    <h1>Validate your email</h1>
 
-    <p>We need to validate your email address. Please check your email.</p>
-    <p>If you haven't received the email check your spam folder or <a href="resent-email{{ params }}">click here to send another one</a>.</p>
-    <p>You have 48 hours to validate your email before the link is deactivated.</p>
+    {% if terms %}
+      <h1>Check your email</h1>
+    {% else %}
+      <h1>Validate your email</h1>
+    {% endif %}
+
+    {% if terms %}
+    <p>An email has been sent to {{ emailAddress }}</p>
+    <p>Click the link in the <a href="/emails/email-validate{{ params }}">email</a> to continue your registration.</p>
+    {% else %}
+      <p>We need to validate your email address. Please check your email.</p>
+      <p>If you haven't received the email check your spam folder or <a href="resent-email{{ params }}">click here to send another one</a>.</p>
+      <p>You have 48 hours to validate your email before the link is deactivated.</p>
 
     <p><a href="/emails/email-validate{{ params }}">Validate Email address</a></p>
+    {% endif %}
+
+
 
   </div>
     

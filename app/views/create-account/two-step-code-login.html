@@ -15,17 +15,29 @@
     <div class="form-group">
       <fieldset class="inline">
         {% if serviceName %}
+        {% if serviceName == 'undefined' %}
+        {% else %}
         <span class="section-header">{{ serviceName }}</span>
         {% endif %}
+        {% endif %}
 
+        {% if terms %}
+        <h1>Check your phone</h1>
+        {% else %}
+        <h1>Security code</h1>
+        {% endif %}
 
-        <h1 class="heading-large">Security code</h1>
-
+        {% if terms %}
+        <p>We've sent you a text message with a security code to {{ mobileNum }}.</p>
+        {% else %}
         <h2 class="heading-xlarge"><legend>Enter security code</legend></h2>
-
         <p>We have sent a security code to your phone</p>
-        
+        {% endif %}
+
         <div class="form-group">
+        {% if terms %}
+          <label class="form-label" for="code">Text message code</label>
+        {% endif %}
           <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
         </div>
 
@@ -34,6 +46,8 @@
     <div class="form-group">
       <a href="/account/dashboard{{ params }}" class="button">Continue</a>
     </div>
+
+    <p><a href="#">Not received a text message?</a></p>
     
   </form>
 </div>
