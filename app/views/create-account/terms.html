@@ -1,0 +1,95 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Terms and Conditions {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <div class="form-group">
+
+        <h1>NHS Digital Website Terms and Conditions</h1>
+
+        <div class="list--counter">
+            <ol>
+                <li><h2>About these terms</h2>
+                    <ol>
+                        <li>Please read these terms and conditions carefully before you start to use this website (being https://digital.nhs.uk/ and all sections and pages). You may access and use this website if you agree to be legally bound by these terms and conditions set out here. If you do not agree to be legally bound by these terms and conditions please do not access and/or use this website.</li>
+                        <li>Where indicated, additional terms and conditions apply to specific sections (for example http://www.content.digital.nhs.uk/).</li>
+                        <li>References in these terms and conditions to “NHS Digital”, “we”, “our” and “us” are references to the Health and Social Care Information Centre, a non-departmental public body established under primary legislation and known as NHS Digital. The entire contents of this website, and the individual articles, items, media files and assets published are owned by NHS Digital, unless otherwise indicated. </li>
+                        <li>This website is intended for use only by people who live in the United Kingdom. References to ‘the NHS’ mean ‘the NHS in England’ unless otherwise stated. Services and arrangements may differ elsewhere in the UK.</li>
+                        <li><p>If you have any queries in respect of your use of this website please contact us at: enquiries@nhsdigital.nhs.uk or</p>
+                            <p></p>NHS Digital<br>
+                            1 Trevelyan Square<br>
+                            Boar Lane<br>
+                            Leeds<br>
+                            West Yorkshire<br>
+                            LS1 6AE</p>
+                        </li>
+                        <li>We may make changes to these terms and conditions, the terms and conditions applicable to any specific sub-site, the privacy and cookies policy and any other policies applicable to your use of this website, at any time. Your continuing use of this website constitutes your acceptance of and agreement to any such changed terms and conditions and policies.</li>
+                        <li>To the extent that we are practically able to do so, we may terminate your access to any part of this website at any time without notice if you breach any of these terms and conditions. </li>
+                    </ol>
+                </li>
+                <li><h2>Accessibility and browsers</h2>
+                    <ol>
+                        <li>NHS Digital aims to make this website and the material provided accessible to as many people as possible. This website is designed to work with the latest versions of Microsoft Edge, Google Chrome and Apple Safari, and uses standards which should work on the majority of browsers in use.  We offer no warranty for this website working in any particular browser or configuration. Please note that you may see inconsistencies in the presentation of pages if you are using an older or deprecated version of a browser. Read further information on the accessibility of this website.</li>
+                        <li></li>
+                    </ol>
+                </li>
+                <li><h2>Information about you and your visits to this website</h2>
+                    <ol>
+                        <li>NHS Digital processes information about you in accordance with our privacy and cookies policy. By using this website, you consent to such processing and you warrant that all data provided by you is accurate.</li>
+                    </ol>
+                </li>
+                <li><h2>Freedom of Information</h2>
+                    <ol>
+                        <li>The data rights and responsibilities of NHS Digital, its staff and of patients is governed by the Freedom of Information Act 2000 and the Data Protection Act 1998. For policy and other information see Freedom of Information.</li>
+                    </ol>
+                </li>
+                <li><h2>Registering to use this website</h2>
+                    <ol>
+                        <li>5.1	In order to access certain content, systems or interactive features on this website you may be asked to choose, or be provided with, a password or other log in details to access parts of this website. As a minimum, passwords you set for use with this website must have a level of complexity which ensures they cannot be easily guessed by hackers or malicious software.  They should:
+                            <ul>
+                                <li>be at least twelve characters long;</li>
+                                <li>not contain your user name, real name, or organisation name;</li>
+                                <li>not appear in the list of top 10,000 passwords;</li>
+                                <li>not use sequential key characters on the keyboard (e.g. qwerty, asdfg, 12345)</li>
+                            </ul>
+                        </li>
+                        <li>In line with Government best practice, we recommend using the ‘three random words’ approach, which uses three or more randomly chosen words like ‘saloonbadgertree’ or ‘coffeetrainfish’.  These words should be random, and not related personally to you (so not involving a favourite thing, holiday, relative). Passwords must not under any circumstances be shared with anyone.</li>
+                        <li>You may terminate your account registration using the relevant link in your account pages. This will clear any personal information you have saved. Subscriptions to our emails can be terminated using the ‘Unsubscribe’ links provided in the emails.</li>
+                    </ol>
+                </li>
+
+                <li><h2>Prohibited Uses of this Website</h2>
+                    <ol>
+                        <li>You may use this website only for lawful purposes. You may not use this website
+                            <ul>
+                                <li>be at least twelve characters long;</li>
+                                <li>not contain your user name, real name, or organisation name;</li>
+                                <li>not appear in the list of top 10,000 passwords;</li>
+                                <li>not use sequential key characters on the keyboard (e.g. qwerty, asdfg, 12345)</li>
+                            </ul>
+                        </li>
+                        <li>In line with Government best practice, we recommend using the ‘three random words’ approach, which uses three or more randomly chosen words like ‘saloonbadgertree’ or ‘coffeetrainfish’.  These words should be random, and not related personally to you (so not involving a favourite thing, holiday, relative). Passwords must not under any circumstances be shared with anyone.</li>
+                        <li>You may terminate your account registration using the relevant link in your account pages. This will clear any personal information you have saved. Subscriptions to our emails can be terminated using the ‘Unsubscribe’ links provided in the emails.</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
