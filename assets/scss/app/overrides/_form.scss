@@ -1,0 +1,378 @@
+// NHS Form overrides
+
+// TODO rewrite HTML to use NHSUK classes and we should be able to get rid of all this
+
+input[type='text'],
+input[type='number'],
+input[type='password'],
+input[type='email'],
+input[type='tel'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 16px 0 32px 0;
+  padding: 8px;
+  border: 2px solid #005EB8;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@media (min-width: 500px) {
+  input[type='text'],
+  input[type='number'],
+  input[type='password'],
+  input[type='email'],
+  input[type='tel'] {
+    width: 75%;
+  }
+}
+
+input[type='text']:focus,
+input[type='number']:focus,
+input[type='password']:focus,
+input[type='email']:focus,
+input[type='tel']:focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 5px #F7E214;
+  -moz-box-shadow: 0 0 0 5px #F7E214;
+  box-shadow: 0 0 0 5px #F7E214;
+}
+
+input[type='text'].-small,
+input[type='number'].-small,
+input[type='password'].-small,
+input[type='email'].-small,
+input[type='tel'].-small {
+  width: 8em;
+}
+
+input[type='text'].code,
+input[type='number'].code,
+input[type='password'].code,
+input[type='email'].code,
+input[type='tel'].code {
+  width: 50%;
+}
+
+.-date div {
+  float: left;
+  padding-right: 1em;
+}
+
+.-date .day,
+.-date .month {
+  width: 3em;
+  &[type=number] {
+    font-size:1.6em;
+    width: 3em;
+  }
+}
+
+.-date .year {
+  width: 4em;
+  &[type=number] {
+    font-size:1.6em;
+    width: 4.2em;
+  }
+}
+
+.error-summary {
+  margin: 32px 0;
+}
+
+.error-summary > div {
+  float: left;
+  border-top: 2px solid #D81E05;
+  background-color: #fbe9e6;
+  padding: 0 32px;
+  color: #a61704;
+}
+
+.error-summary a {
+  color: #a61704;
+}
+
+.error-hint {
+  display: block;
+  color: #D81E05;
+}
+
+.form-group.-errors {
+  border-left: 4px solid #D81E05;
+  padding-left: 20px;
+}
+
+.form-group.-errors input,
+.form-group.-errors textarea {
+  border-color: #D81E05;
+  border-width: 4px;
+}
+
+
+
+// radio check styles //
+
+.block-label {
+  display: block;
+  //position: relative;
+  width: auto;
+  padding: 7px 0 7px 50px;
+  margin: 16px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+@media (min-width: 500px) {
+  .block-label {
+    float: left;
+    clear: both;
+  }
+}
+
+.block-label input {
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+}
+
+.block-label input {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.block-label.selection-button-radio {
+  position: relative;
+  width: 100%;
+}
+
+.selection-button-radio-inline {
+  display: inline-block;
+  padding-right: 2em;
+  margin-top: 0;
+  &:last-of-type {
+    padding-right: 0em;
+  }
+}
+
+.block-label.selection-button-radio::before {
+  content: "";
+  border: 3px solid #005EB8;
+  border-radius: 50%;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.block-label.selection-button-radio::after {
+  content: "";
+  border-radius: 50%;
+  background: currentColor;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.block-label.selection-button-checkbox::before {
+  content: "";
+  border: 3px solid #005EB8;
+  background: #fff;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.block-label.selection-button-checkbox::after {
+  content: "";
+  border: solid;
+  border-width: 0 0 5px 5px;
+  background: transparent;
+  width: 17px;
+  height: 7px;
+  position: absolute;
+  top: 11px;
+  left: 9px;
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.block-label.selection-button-radio.focused::before, .block-label.selection-button-checkbox.focused::before {
+  -webkit-box-shadow: 0 0 0 5px #F7E214;
+  -moz-box-shadow: 0 0 0 5px #F7E214;
+  box-shadow: 0 0 0 5px #F7E214;
+}
+
+.block-label.selection-button-radio.selected::after, .block-label.selection-button-checkbox.selected::after {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+.inline div {
+  display: inline-block;
+  margin-right: 50px;
+}
+
+// end radio check styles //
+
+
+.form-date-field {
+  margin-top: 0 !important;
+}
+
+.form-hint {
+  clear: both;
+  color: $grey-2;
+}
+
+input,
+textarea {
+  &[readonly] {
+    border: 2px solid $grey-3;
+  }
+}
+
+
+$_border-colour: $grey-2;
+$_border-width: 2px;
+$_element-size: 38px;
+$_radio-size: 20px;
+$_radio-spacing: ($_element-size - $_radio-size) / 2;
+
+
+.multiple-choice {
+  display: block;
+  float: none;
+  clear: left;
+  position: relative;
+  padding: 0 0 0 0px;
+  margin-bottom: 10px;
+
+  @include clearfix;
+
+  .js-enabled & {
+    //padding: 0 0 0 0;
+    label {
+      cursor: pointer;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      padding-left: 0;
+      margin: 0;
+    }
+    input {
+      position: absolute;
+      cursor: pointer;
+      left: 0;
+      top: 0;
+      width: 38px;
+      height: 38px;
+      z-index: 1;
+      margin: 0;
+      zoom: 1;
+      filter: alpha(opacity=0);
+      opacity: 0;
+    }
+    [type=checkbox] + label,
+    [type=radio] + label
+    {
+      //position: auto;
+    }
+    [type=checkbox] + label::before {
+      background: $white;
+      border: $_border-width solid $_border-colour;
+      content: "";
+      height: $_element-size;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $_element-size;
+    }
+
+    [type=checkbox] + label::after {
+      background: transparent;
+      border: solid;
+      border-width: 0 0 5px 5px;
+      content: "";
+      filter: alpha(opacity=0);
+      height: 12px;
+      left: 8px;
+      opacity: 0;
+      position: absolute;
+      top: 10px;
+      transform: rotate(-45deg);
+      width: 22px;
+      zoom: 1;
+    }
+    [type=radio] + label::before {
+      content: "";
+      border: 3px solid #005eb8;
+      border-radius: 50%;
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      left: 0
+    }
+    [type=radio] + label::after {
+      content: "";
+      border-radius: 50%;
+      background: currentColor;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      zoom: 1;
+      filter: alpha(opacity=0);
+      opacity: 0
+    }
+
+    + .panel {
+      margin: 0 0 32px
+    }
+
+  }
+
+  &.multiple-choice--inline {
+    display: inline-block;
+  }
+}
+
+.js-enabled .multiple-choice input:checked + label::after {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}

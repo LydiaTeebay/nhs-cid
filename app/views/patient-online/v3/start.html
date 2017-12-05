@@ -1,9 +1,9 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Access your hospital results {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {% block topRow %}
-  {% import "partials/components/local-header.html" as localHeader %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
   {{ localHeader.pattern('Access your hospital results',' ') }}
 {% endblock %}
 
@@ -11,8 +11,8 @@
 
 <p>Use this service to:</p>
 <ul>
-  <li style="margin-left: 32px">Get access to your hospital results</li>
-  <li style="margin-left: 32px">Get access to blood tests</li>
+  <li>Get access to your hospital results</li>
+  <li>Get access to blood tests</li>
 </ul>
 
 <a href="create-1" class="button">Start</a>

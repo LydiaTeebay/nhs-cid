@@ -3,10 +3,21 @@ module.exports = function (router) {
     // pull in the url parameters
     var vouched = req.param('vouch')
     var service = req.param('service')
+    var newUser = req.param('newUser')
     var serviceName = req.param('serviceName')
+    var passwordChange = req.param('passwordChange')
+    var terms = req.param('terms')
+    var emailAddress = req.param('emailAddress')
+    var mobileNum = req.param('mobileNum')
     // re-render the page along with the parameter
-    res.render('create-account/login-nhs', {vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
-      res.send(html)
-    })
+
+    if (terms === 'yes') {
+      res.redirect('/create-account/two-step-code-login?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched)
+      return
+    } else {
+      res.render('create-account/login-nhs', {vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms }, function(err, html) {
+          res.send(html)
+      })
+    }
   })
 }

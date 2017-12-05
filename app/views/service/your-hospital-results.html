@@ -1,18 +1,17 @@
-{% extends 'layouts/grids/grid-2-1-stacked.html' %}
-{% block page_title %}Access your hospital results{% endblock %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access your hospital record{% endblock %}
 {% set signedin = 'true' %}
 
-
-{% block topRow %}
-  {% import "partials/components/local-header.html" as localHeader %}
-  {{ localHeader.pattern('Access your hospital results',' ') }}
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Access your hospital record',' ') }}
 {% endblock %}
 
 {% block content %}
 
-<h1>Welcome to your hospital results</h1>
+<h1>Welcome to your hospital record</h1>
 <ul>
-  <li><a href="#">Blood test results</a></li>
+  <li><a href="#">Your blood test results</a></li>
 </ul>
 
 {% endblock %}

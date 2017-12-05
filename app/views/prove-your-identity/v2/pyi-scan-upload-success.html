@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+
+{% block topRow %}
+{% import "_partials/_components/_local-header.html" as localHeader %}
+{{ localHeader.pattern('Your evidence has been received','Somebody will check your photo ID and selfie video.<br>This usually takes 1 hour. ','success') }}
+{% endblock %}
+
+{% block content %}
+	<h1 class="heading-large">What happens next?</h1>
+
+	<ul class="list--chevron">
+		<!--<li>Somebody will check your photo ID and selfie video</li>-->
+		<!--<li>This usually takes less than 60 minutes if submitted in working hours</li>-->
+		<li>Once verification is complete we will notify you by both email and text message</li>
+		<li>We will contact you if we need any further information</li>
+	</ul>
+
+	<div class="form-group">
+		<a class="button" href="/account/dashboard" id="">Go to your dashboard</a>
+	</div>
+
+{% endblock %}
+
+

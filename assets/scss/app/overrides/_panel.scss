@@ -1,0 +1,26 @@
+// NHSUK panel overrides
+
+.panel-border-narrow {
+  float: left;
+  width: 100%;
+  clear: both;
+  border-left-style: solid;
+  border-color: #bfc1c3;
+  background-color: transparent;
+  padding: 0.88947em;
+  padding-bottom: 0;
+  margin-bottom: 36px;
+  border-left-width: 5px;
+  &.js-hidden {
+    display: none;
+    visibility: hidden;
+  }
+  &:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  input:last-of-type {
+    margin: 0;
+  }
+}

@@ -1,0 +1,31 @@
+{% extends '_layouts/_nhsuk_layout.html' %}
+
+{% block body %}
+
+{% block topRow %}{% endblock %}
+
+  <div class="grid-row">
+    <div class="column--one-third">
+      {% block content %}{% endblock %}
+    </div>
+    <div class="column--one-third">
+      {% block middlecol %}{% endblock %}
+    </div>
+    <div class="column--one-third">
+      {% block rightcol %}{% endblock %}
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column--one-third">
+      {% block lowercontent %}{% endblock %}
+    </div>
+    <div class="column--one-third">
+      {% block lowermiddlecol %}{% endblock %}
+    </div>
+    <div class="column--one-third">
+      {% block lowerrightcol %}{% endblock %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -42,8 +42,34 @@ $("#submit-id-button").on("click", function(e) {
   document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+// submit back button action
+$("#submit-id-back-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-2").css("display","none")
+    $("#scan-id-1").css("display","block")
+    document.getElementById("id-document").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// create back button action
+$("#create-video-back-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-3").css("display","none")
+    $("#scan-id-2").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 $("#id-selfie").change(function(){
   readURL(this, "video")
+})
+
+// submit back button action
+$("#submit-video-back-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-4").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.getElementById("id-selfie").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
 $(document).ready(function () {

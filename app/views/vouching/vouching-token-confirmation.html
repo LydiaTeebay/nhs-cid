@@ -1,16 +1,16 @@
-{% extends 'layouts/nhsuk_layout.html' %}
-{% block page_title %}Patient ID Verification Service{% endblock %}
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
 
-{% block body %}
+{% block content %}
 
 <div class="first-item">
+  <h1><legend>Are you satisfied that the patient in front of you is the actual patient?</legend></h1>
   <form>
     <div class="form-group">
+
+      {% include '_partials/_vouching-disclaimer.html'%}
+
       <fieldset class="">
-        <h1><legend>Are you satisfied that the patient in front of you is the actual patient?</legend></h1>
-
-        {% include 'partials/vouching-disclaimer.html'%}
-
         <div class="selection-button-radio-inline">
           <label class="block-label selection-button-radio" for="radio-inline-1">
             <input id="radio-inline-1" type="radio" name="radio-inline-group" value="vouching-token-delivered">

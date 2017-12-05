@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
@@ -17,7 +17,7 @@
         {% if serviceName %}
         <span class="section-header">{{ serviceName }}</span>
         {% endif %}
-        <h1><legend>Recover your SystmOnline log in details</legend></h1>
+        <h1><legend>Recover your SystmOnline login details</legend></h1>
         <div class="form-group">
           <label class="form-label" for="field1">Email</label>
           <input class="form-control" id="field1" name="field1" type="text">

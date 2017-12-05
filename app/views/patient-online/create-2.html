@@ -1,4 +1,4 @@
-{% extends 'layouts/grids/grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
@@ -27,7 +27,7 @@
     <div class="form-group">
       <a class="button" href="your-medical-record" id="continue">Log in</a>
     </div>
-    <p><a href="/patient-online/create-acc">I don't have an NHS account</a></p>
+    <p><a href="create-acc">I don't have an NHS account</a></p>
   </form>
 </div>
 

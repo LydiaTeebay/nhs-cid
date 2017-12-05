@@ -1,5 +1,23 @@
-{% extends 'layouts/grids/grid-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+  {% if reason == "device" %}
+
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('Attention','You won\'t be able to prove your identity online without being able to take a selfie video.','warning') }}
+
+
+  {% elif reason == "documents" %}
+
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a valid photo ID.','warning') }}
+
+  {% endif %}
+
+{% endblock %}
 
 {% block content %}
 
@@ -8,29 +26,16 @@
       <fieldset class="">
         <h1><legend>Unable to prove your identity online</legend></h1>
 
-        {% if reason == "device" %}
-
-        {% import "partials/components/callout.html" as callout %}
-        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without being able to take a selfie video.','alert') }}
-
-
-        {% elif reason == "documents" %}
-
-        {% import "partials/components/callout.html" as callout %}
-        {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a valid photo ID.','alert') }}
-
-        {% endif %}
-
         <h2><legend>Where do you want to go to prove your identity?</legend></h2>
 
         <div class="">
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="pyi-choice-device">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="pyi-continue-offline">
             GP practice or NHS office
           </label>
 
           <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-id-3">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="pyi-continue-offline">
             Job Centre
           </label>
 

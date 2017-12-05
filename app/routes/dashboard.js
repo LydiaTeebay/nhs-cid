@@ -8,7 +8,7 @@ module.exports = function (router) {
     var serviceName = req.param('serviceName')
     // redirect to uplift page
     if (service === 'results' || service === 'record') {
-      res.redirect('/prove-your-identity/pyi-uplift?service=results')
+      res.redirect('/prove-your-identity/pyi-uplift?service=' + service + "&serviceName=" + serviceName)
       return
     }
 
