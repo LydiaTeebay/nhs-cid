@@ -1,0 +1,53 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Create an NHS account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set terms = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&terms=" + terms %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&terms=" + terms %}
+{% else %}
+  {% set params = "?terms=" + terms %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+  <form action="create-acc-terms{{ params }}" method="POST">
+
+    <div class="form-group">
+
+      {% if serviceName %}
+      <span class="section-header">{{ serviceName }}</span>
+      {% endif %}
+
+      <h1>Create an NHS account</h1>
+      <div class="form-group">
+        <label class="form-label" for="emailAddress">Email Address</label>
+        <input class="form-control" id="emailAddress" name="emailAddress" type="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="mobileNum">Mobile number</label>
+        <span class="form-label__hint">We'll send you a security code by text message</span>
+        <input class="form-control" id="mobileNum" name="mobileNum" type="tel">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field3">Password</label>
+        <span class="form-label__hint">At least 8 characters. At least 1 capital letter.</span>
+
+        <input class="form-control" id="field3" name="field3" type="password">
+      </div>
+
+      <p class="small">We will collect and store your information in a secure way. We use your personal information in accordance with the site's privacy policy and terms and conditions. We will not disclose your personal information to any third parties without obtaining your consent.</p>
+      <p class="small"><a href="terms{{ params }}">Read the Terms and Conditions</a></p>
+    </div>
+    <button class="button" href="check-email{{ params }}">I agree to Terms. Create Account</button>
+  </form>
+  <p>Already have an NHS account? <a href="login-nhs">Log in</a></p>
+</div>
+
+{% endblock %}

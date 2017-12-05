@@ -1,0 +1,43 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <span class="section-header">About you</span>
+        <h1><legend>Do you have a valid passport, photocard driving licence or identity card?</legend></h1>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="pyi-choice-device">
+            Yes, I have it with me now
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="pyi-continue-later">
+            Yes, but I don't have it with me
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="pyi-continue-offline?reason=documents">
+            No
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+{% endblock %}

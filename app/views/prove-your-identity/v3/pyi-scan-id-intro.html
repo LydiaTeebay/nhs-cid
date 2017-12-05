@@ -1,0 +1,150 @@
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+{#
+{% if mobile %}
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','You have submitted your photo ID.','warning') }}
+{% endif %}
+#}
+
+  <span class="section-header">Submitting your evidence</span>
+
+
+	{# Part 1 - take a pic of your document #}
+
+
+	<section class="intructions" id="scan-id-1">
+
+		{% if mobile %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 2</span>Photographing your photo ID</h1>
+		{% else %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 4</span>Upload your photo ID</h1>
+		{% endif %}
+
+		<!--<img src="/images/diagram-doc-scan.png" alt="" class="image-right" height="146" width="146">-->
+
+		<ol class="list--intructions">
+			<li><p>Place your ID in good lighting, preferably daylight</p>
+				<img class="instructions--image" src="/images/prove-id-photo-1@2x.png" height="110" width="277"/>
+			</li>
+			<li><p>Hold the camera straight above the ID</p></li>
+			<li><p>Avoid light reflecting on the ID</p></li>
+			{% if mobile %}
+			<li><p>Review the photo immediately after taking it</p></li>
+			{% endif %}
+			<li><p>Make sure all information is visible</p>
+				<img class="instructions--image" src="/images/prove-id-photo-2@2x.png" height="164" width="274"/>
+			</li>
+		</ol>
+		<form>
+			<div class="form-group">
+				<label for="id-document" class="camera-button button">
+				  {% if mobile %}
+				  Open your camera
+				  {% else %}
+				  Upload a photo
+				  {% endif %}
+					<input type="file" id="id-document" accept="image/*" capture="environment">
+				</label>
+			</div>
+		</form>
+
+	</section>
+
+
+	{# Part 2 - Review your document photo #}
+
+
+	<section  class="intructions" id="scan-id-2" style="display:none">
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 4 </span>Review your photo ID</h1>
+
+		<div class="callout callout--info">
+			<!--<h3>Review your Photo</h3>-->
+			<div id="scan-id-preview">
+				<img id="uploaded-id" src="#" alt="your image" style="max-width:400px;height:auto;"/>
+
+			</div>
+		</div>
+
+		<div class="form-group">
+			<a class="button" href="#" id="submit-id-button">Submit ID photo</a>&nbsp;
+			<a class="button--back-white" href="#" id="submit-id-back-button">Go back</a>
+		</div>
+
+	</section>
+
+
+	{# Part 3 - take a selfie video #}
+
+
+	<section class="intructions" id="scan-id-3" style="display:none">
+
+		{% if mobile %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2 </span>Create a selfie video</h1>
+		{% else %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Upload a selfie video</h1>
+		{% endif %}
+
+		<ol class="list--intructions">
+			{% if mobile %}
+			<li><p>Use the front-facing camera</p>
+			</li>
+			{% endif %}
+			<li><p>Make sure your whole face is visible</p><img class="instructions--image" src="/images/prove-id-selfie-ani@2x.gif" height="238" width="425"/></li>
+			<li><p>Move your head slowly up and down</p>
+				</li>
+			<li>The video only needs to be about 2-3 seconds long</li>
+
+			{% if mobile %}
+			<li><p>Review the video immediately after taking it</p></li>
+			{% endif %}
+		</ol>
+
+		<form>
+			<div class="form-group">
+				<label for="id-selfie" class="camera-button button">
+          {% if mobile %}
+          Open your camera
+          {% else %}
+          Upload a video
+          {% endif %}
+					<input type="file" id="id-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+				</label>
+
+				&nbsp;
+				<a class="button--back-white" href="#" id="create-video-back-button">Go back</a>
+			</div>
+		</form>
+
+	</section>
+
+
+	{# Part 4 - Review your selfie video #}
+
+
+	<section class="intructions" id="scan-id-4" style="display:none">
+
+		<h1 class="heading-large"><span class="heading-secondary">Step 4 of 4 </span>Review your selfie video</h1>
+
+		<div class="callout callout--info">
+			<div id="scan-video-preview">
+				<video id="uploaded-video" width="320" height="240" controls autoplay loop muted style="max-width:400px;height:auto;">
+					<source src="#" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<a class="button" href="pyi-scan-id-uploading{{ params }}" id="submit-video-button">Submit selfie video</a>&nbsp;
+			<a class="button--back-white" href="#" id="submit-video-back-button">Go back</a>
+
+		</div>
+
+	</section>
+
+{% endblock %}
