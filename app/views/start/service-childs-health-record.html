@@ -1,0 +1,25 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}View your childs health record{% endblock %}
+
+{% set service = "results" %}
+{% set serviceName = "View%20your%20childs%20health%20record " %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('View your childs health record','') }}
+{% endblock %}
+
+{% block content %}
+
+<p>Use this service to:</p>
+<ul>
+  <li>View your childs health record</li>
+  <li>View your height and weight</li>
+  <li>some other things</li>
+</ul>
+
+<a href="/create-account/sign-on{{ params }}" class="button">Start</a>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
