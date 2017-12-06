@@ -42,6 +42,11 @@ const routes = require('./app/routes')
 
 const isDev = app.get('env') === 'development'
 
+
+// notify integration
+let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'
+const NotifyClient = require('notifications-node-client').NotifyClient, notifyClient = new NotifyClient(apiKey)
+
 // Authenticate against the environment-provided credentials, if running
 // the app in production
 if (env === 'production' && useAuth === 'true') {
