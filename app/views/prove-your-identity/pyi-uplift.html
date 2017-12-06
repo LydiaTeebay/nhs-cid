@@ -11,7 +11,7 @@
 {% if service == "results" or service == "record"%}
 
 {% import "_partials/_components/_callout.html" as callout %}
-{{ callout.pattern('To access this service we will need to verify you identity','It will only take a couple of minutes','attention') }}
+{{ callout.pattern('To access this service we need to verify your identity','It will only take a couple of minutes','attention') }}
 
 {% endif %}
 {% endblock %}
@@ -26,9 +26,9 @@
       <div class="panel">
         <div class="panel__content panel__content--half">
           <h3>Step 1 - About you</h3>
-          <p>We need some details about you</p>
+          <p>We need the following details:</p>
           <ul class="list--chevron">
-            <li>Full Name</li>
+            <li>Full name</li>
             <li>Date of birth</li>
             <li>Address</li>
           </ul>
@@ -40,10 +40,10 @@
         </div>
         <div class="panel__content panel__content--half">
           <h3>Step 2 - Physical Comparison</h3>
-          <p>We need your photos to make sure it is really you.</p>
+          <p>You will need the following:</p>
           <ul class="list--chevron">
-            <li>Take a picture of your photo ID</li>
-            <li>Take a video selfie of yourself</li>
+            <li>Picture of your photo ID</li>
+            <li>Short video selfie</li>
           </ul>
         </div>
       </div>
