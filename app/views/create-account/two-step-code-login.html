@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
@@ -8,6 +8,13 @@
 {% elif service %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 {% endif %}
+
+{% block topRow %}
+  {% if resend == "yes" %}
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','Your security code has been resent.','attention') }}
+  {% endif %}
+{% endblock %}
 
 {% block content %}
 <div class="first-item">
@@ -46,8 +53,7 @@
     <div class="form-group">
       <a href="/account/dashboard{{ params }}" class="button">Continue</a>
     </div>
-
-    <p><a href="#">Not received a text message?</a></p>
+<p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&terms=yes&resend=yes">you can resend it</a>.</p>
     
   </form>
 </div>

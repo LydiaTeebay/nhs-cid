@@ -6,9 +6,10 @@ module.exports = function (router) {
     var service = req.param('service')
     var serviceName = req.param('serviceName')
     var terms = req.param('terms')
+    var resend = req.param('resend')
     var mobileNum = req.param('mobileNum')
     // re-render the page along with the parameter
-    res.render('create-account/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, mobileNum: mobileNum }, function(err, html) {
+    res.render('create-account/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum }, function(err, html) {
       res.send(html)
     })
   })
