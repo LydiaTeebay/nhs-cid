@@ -1,20 +1,20 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Welcome to your childs health records{% endblock %}
+{% block page_title %}Welcome to your Personal Child Health Record (PCHR){% endblock %}
 {% set signedin = 'true' %}
 
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Access your childs health record',' ') }}
+  {{ localHeader.pattern("Your Personal Child Health Record (PCHR)",' ') }}
 {% endblock %}
 
 {% block content %}
 
-<h1>Welcome to your childs health record</h1>
 <ul>
-  <li><a href="#">Your childs weight</a></li>
-  <li><a href="#">Your childs height</a></li>
-  <li><a href="#">something eredbook related</a></li>
+  <li><a href="#">Book an immunisation</a></li>
+  <li><a href="#">Book a routine review</a></li>
+  <li><a href="#">Update your child's growth progress</a></li>
+  <li><a href="#">Update your child's details</a></li>
 </ul>
 
 {% endblock %}
