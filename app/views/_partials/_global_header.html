@@ -1,14 +1,37 @@
 <header role="banner">
-  <div class="global-header">
-    <div class="global-header__inner">
+  <div class="global-header with-proposition">
+    <div class="global-header__inner header-wrapper">
       <a href="/" class="global-header__link">
         <img src="/images/logotype-nhs-mono.png" alt="NHS">
       </a>
 
+
+    <div class="header-proposition">
+      <div class="content">
+        <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+        <nav id="proposition-menu">
+          <a href="/" id="proposition-name">{{ serviceName }}</a>
+          <ul id="proposition-links">
+            <li><a href="https://www.gov.uk/service-manual/service-standard">Dashboard</a></li>
+            <li><a href="https://www.gov.uk/service-toolkit">Account</a></li>
+            <li><a href="https://www.gov.uk/service-manual">Sign out</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+      {% if serviceName %}
+      <!--
+      <span class="section-header">{{ serviceName }}</span>
+      -->
+      {% endif %}
+
       {% if signedin %}
+      <!--
         <div style="float: right;" class="menu-links">
           <p style="padding: 0; margin: 0;"><a href="/account/dashboard">Dashboard</a> | <a href="/account">Account</a> | <a href="/">Sign out</a></p>
         </div>
+        -->
       {% endif %}
 
     </div>
