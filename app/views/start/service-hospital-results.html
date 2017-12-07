@@ -1,6 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}View your hospital record{% endblock %}
 
+{% set isServiceStart = 'true' %}
 {% set service = "results" %}
 {% set serviceName = "View%20your%20hospital%20record" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
