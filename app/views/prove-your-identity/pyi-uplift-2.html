@@ -11,7 +11,7 @@
 {% if service == "results" or service == "record"%}
 
 {% import "_partials/_components/_callout.html" as callout %}
-{{ callout.pattern('To access this service we need to verify your identity','It will only take a couple of minutes','attention') }}
+{{ callout.pattern('To access this service we need to verify your identity','It will only take a couple of minutes','warning') }}
 
 {% endif %}
 {% endblock %}
@@ -26,7 +26,12 @@
       <div class="panel">
         <div class="panel__content panel__content--half">
           <h3>Step 1 - About you</h3>
+
+          {% if verify %}
+          <p>These details were provided by verify:</p>
+          {% else %}
           <p>We need the following details:</p>
+          {% endif %}
           <ul class="list--check">
             <li>Full name</li>
             <li>Date of birth</li>
