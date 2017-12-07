@@ -3,7 +3,7 @@
 {% set signedin = 'true' %}
 
 {% block topRow %}
-	{% if changetomobile %}
+	{% if changetomobile === "yes" %}
 		{% import "_partials/_components/_callout.html" as callout %}
 		{{ callout.pattern('','We have sent a secure link to 07*** ***645.<br>It may take a few minutes to arrive.<br>Complete the remaining steps on your phone','warning') }}
 	{% endif %}
@@ -28,12 +28,13 @@
 
 		{% if not mobile %}
 		<h3>Upload on your mobile</h3>
-		<p><a href="pyi-scan-id-intro?changetomobile=yes" style="color: white" class="button">Securely continue Physical Comparison on your mobile.</a><br>&nbsp;</p>
+		<p><a href="pyi-scan-id-intro-mob?changetomobile=yes" style="color: white" class="button">Securely continue Physical Comparison on your mobile.</a><br>&nbsp;</p>
 		<h3>Upload from your computer</h3>
 		{% endif %}
 
 
 		<ol class="list--intructions">
+
 			{% if mobile %}
 				<li><p>Avoid light reflecting on the ID</p></li>
 				<li><p>Place your ID in good lighting, preferably daylight</p>
@@ -51,8 +52,9 @@
 			{% endif %}
 		</ol>
 
-		{% if not mobile %}
-		<label for="id-document" class=" button button--back-white">
+		{% if mobile %}
+		{% else %}
+		<label for="id-document" class="camera-button button camera-button--blue">
 			Upload a file from your computer
 			<input type="file" id="id-document" accept="image/*" capture="environment">
 		</label>
@@ -79,10 +81,8 @@
 		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 4 </span>Review your photo ID</h1>
 
 		<div class="callout callout--info">
-			<!--<h3>Review your Photo</h3>-->
 			<div id="scan-id-preview">
 				<img id="uploaded-id" src="#" alt="your image" style="max-width:400px;height:auto;"/>
-
 			</div>
 		</div>
 
@@ -103,12 +103,9 @@
 			<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2 </span>Create a video selfie</h1>
 		{% else %}
 			<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Upload a video selfie</h1>
-		{% endif %}
-
-		{% if not mobile %}
-		<h3>Upload on your mobile</h3>
-		<p><a href="pyi-scan-id-intro?changetomobile=yes" style="color: white" class="button">Securely continue Physical Comparison on your mobile.</a><br>&nbsp;</p>
-		<h3>Upload from your computer</h3>
+			<h3>Upload on your mobile</h3>
+			<p><a href="pyi-scan-id-intro?changetomobile=yes" style="color: white" class="button">Securely continue Physical Comparison on your mobile.</a><br>&nbsp;</p>
+			<h3>Upload from your computer</h3>
 		{% endif %}
 
 		<ol class="list--intructions">
@@ -126,8 +123,9 @@
 			{% endif %}
 		</ol>
 
-		{% if not mobile %}
-		<label for="id-selfie" class="button button--back-white">
+		{% if mobile %}
+		{% else %}
+		<label for="id-selfie" class="button camera-button camera-button--blue">
 			Upload a video file from your computer
 			<input type="file" id="id-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
 		</label>
@@ -170,7 +168,6 @@
 		<div class="form-group">
 			<a class="button" href="pyi-scan-id-uploading{{ params }}" id="submit-video-button">Submit video selfie</a>&nbsp;
 			<a class="button--back-white" href="#" id="submit-video-back-button">Go back</a>
-
 		</div>
 
 	</section>
