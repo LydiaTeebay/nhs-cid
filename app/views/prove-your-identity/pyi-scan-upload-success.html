@@ -4,16 +4,20 @@
 
 {% block header %}
 {% import "_partials/_components/_local-header.html" as localHeader %}
-{{ localHeader.pattern('Your evidence has been received','Somebody will check your photo ID and selfie video.<br>This usually takes 1 hour. ','success') }}
+{{ localHeader.pattern('Your evidence has been received','Somebody will check your photo ID and video selfie.<br>This usually takes 1 hour. ','success') }}
 {% endblock %}
 
 {% block content %}
 	<h2 class="heading-large">What happens next?</h2>
 
-	<ul class="list--chevron">
-		<li>Once verification is complete we will notify you by both email and text message</li>
-		<li>We will contact you if we need any further information</li>
-	</ul>
+	<div class="reading-width">
+
+		<ul class="list--chevron">
+			<li>Once verification is complete we will notify you by both email and text message</li>
+			<li>We will contact you if we need any further information</li>
+		</ul>
+
+	</div>
 
 	<div class="form-group">
 		<a class="button" href="/account/dashboard" id="">Go to your dashboard</a>

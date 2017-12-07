@@ -1,0 +1,23 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Welcome to your Personal Child Health Record (PCHR){% endblock %}
+{% set signedin = 'true' %}
+
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern("Your Personal Child Health Record (PCHR)",' ') }}
+{% endblock %}
+
+{% block content %}
+
+<ul>
+  <li><a href="#">Book an immunisation</a></li>
+  <li><a href="#">Book a routine review</a></li>
+  <li><a href="#">Update your child's growth progress</a></li>
+  <li><a href="#">Update your child's details</a></li>
+  <li><a href="#">Grant access to your Personal Child Health Record</a></li>
+</ul>
+
+{% endblock %}
+
+{% block rightcol %}{% endblock %}

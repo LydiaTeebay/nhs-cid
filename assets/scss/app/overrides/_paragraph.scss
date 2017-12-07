@@ -8,3 +8,7 @@ li.small {
 p.small {
   line-height: 1.2em;
 }
+
+.reading-width {
+  @include reading-width();
+}
