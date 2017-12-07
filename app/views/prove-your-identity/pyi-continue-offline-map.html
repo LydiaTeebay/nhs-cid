@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
 {% block page_title %}Prove your Identity Service{% endblock %}
 {% set signedin = 'true' %}
 
@@ -21,17 +21,13 @@
 
 {% block content %}
 
-<h1><legend>Unable to prove your identity online</legend></h1>
 
-  <form>
-    <div class="form-group">
-    <p>There are a number of places you can prove your identity in person.</p>
+ <h1><legend>Find a place to prove your identity</legend></h1>
 
-    </div>
-    <div class="form-group">
-      <a class="button" href="pyi-continue-offline-map" id="">Find a place to prove your identity</a>
-    </div>
-
-  </form>
+{% if mobile %}
+<img src="/images/map-mobile@2x.png" width="281" style="width: 100%;" />
+{% else %}
+<img src="/images/map-desktop@2x.png" width="960" style="width: 100%;"/>
+{% endif %}
 
 {% endblock %}
