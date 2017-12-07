@@ -4,6 +4,8 @@
 // back button when on a blue bg
 .button--back-white {
   @include button($blue);
+  border: 2px solid rgba(#1a5095,1);
+  margin-top: 0.5em !important;
 }
 
 // New login buttons

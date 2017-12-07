@@ -9,6 +9,11 @@ label.camera-button {
   color: #fff;
   font-size: 20px;
   line-height: 32px;
+  &.camera-button--blue {
+    @include button($blue);
+    border: 2px solid rgba(#1a5095,1);
+    margin-top: 0.5em !important;
+  }
 }
 
 // Look like a clicked/depressed button

@@ -1,5 +1,15 @@
 // NHSUK panel overrides
 
+.panel {
+  @include clearfix;
+  background-color: $grey-5;
+  display: block;
+  width: 100%;
+  @include media(tablet) {
+    display: table;
+  }
+}
+
 .panel-border-narrow {
   float: left;
   width: 100%;
@@ -22,5 +32,26 @@
 
   input:last-of-type {
     margin: 0;
+  }
+}
+
+.panel__content--half {
+  border: solid $grey-4;
+  border-width: 4px 0 0;
+
+  @include media(tablet) {
+    border-width: 0 0 0 4px;
+    display: table-cell;
+    max-width: 50%;
+
+    @include ie-lte(7) {
+      border-width: 4px 0 0;
+      display: block;
+      width: auto;
+    }
+  }
+
+  + * {
+    margin-top: 0;
   }
 }
