@@ -1,0 +1,36 @@
+<h3>Create an NHS account</h3>
+
+<div class="first-item">
+    <form>
+
+        <div class="form-group">
+
+            <div class="form-group">
+                <label class="form-label" for="emailAddress">Email Address</label>
+                <input class="form-control" id="emailAddress" name="emailAddress" type="email">
+            </div>
+
+            <!--<div class="form-group">-->
+                <!--<label class="form-label" for="mobileNum">Mobile number</label>-->
+                <!--<span class="form-label__hint">We'll send you a security code by text message</span>-->
+                <!--<input class="form-control" id="mobileNum" name="mobileNum" type="tel">-->
+            <!--</div>-->
+
+            <div class="form-group">
+                <label class="form-label" for="field3">Password</label>
+                <span class="form-label__hint">At least 8 characters. At least 1 capital letter.</span>
+
+                <input class="form-control" id="field3" name="field3" type="password">
+            </div>
+
+            <h4>Information Security</h4>
+            <p class="small" style="margin-top: 16px;">We will collect and store your information in a secure way. We use your personal information in accordance with the site's <a href="#">privacy policy</a> and <a href="terms{{ params }}">terms and conditions</a>. We will not disclose your personal information to any third parties without obtaining your consent.</p>
+            <!--<p class="small" style="margin-top: 16px;"><a href="terms{{ params }}">Read the Terms and Conditions</a></p>-->
+        </div>
+
+        <div class="form-group">
+         <a class="button" href="service-childs-health-record?sidebar=verify-email">I agree to Terms. Create Account</a>
+        </div>
+    </form>
+    <p>Already have an NHS account? <a href="service-childs-health-record">Log in</a></p>
+</div>

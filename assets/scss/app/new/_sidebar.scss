@@ -1,0 +1,24 @@
+.sidebar {
+  background-color: #f0f4f5;
+  padding: 32px;
+  margin-top: 0!important;
+
+  & input[type=email],
+  input[type=number],
+  input[type=password],
+  input[type=tel],
+  input[type=text] {
+    width: 100%;
+  }
+
+  .button {
+    margin-top: 0!important;
+  }
+}
+
+.sidebar-callout {
+  background-color: $yellow-10;
+  border: solid $yellow-50;
+  border-width: $baseline-grid-unit 0;
+  padding: 16px 32px;
+}

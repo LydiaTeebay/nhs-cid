@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-2.html' %}
 {% block page_title %}View your Personal Child Health Record{% endblock %}
 
 {% set isServiceStart = 'true' %}
@@ -20,7 +20,35 @@
   <li>manage your child's immunisation schedule</li>
 </ul>
 
-<a href="/create-account/sign-on{{ params }}" class="button">Start</a>
+<!--<a href="/create-account/sign-on{{ params }}" class="button">Start</a>-->
 
 {% endblock %}
-{% block rightcol %}{% endblock %}
+{% block rightcol %}
+{% if message %}
+<div class="sidebar-callout">
+  {% if message === "email-resent" %}
+  <p>We have sent you an email to reset your password</p>
+  {% elif message === "text-resent" %}
+  <p>We have sent a new authorisation code</p>
+  {% endif%}
+</div>
+{% endif%}
+
+<div class="sidebar">
+  {% if sidebar === "create-new" %}
+    {% include "create-account/_partials/_create-new-account.html" %}
+  {% elif sidebar === "2fa" %}
+    {% include "create-account/_partials/_log-in-2fa.html" %}
+  {% elif sidebar === "forgot-pass" %}
+    {% include "create-account/_partials/_log-in-forgot-pass.html" %}
+  {% elif sidebar === "verify-email" %}
+    {% include "create-account/_partials/_verify-email.html" %}
+  {% elif sidebar === "set-mobile" %}
+    {% include "create-account/_partials/_set-mobile.html" %}
+  {% elif sidebar === "2fa-new" %}
+    {% include "create-account/_partials/_create-account-2fa.html" %}
+  {% else %}
+    {% include "create-account/_partials/_log-in.html" %}
+  {% endif %}
+</div>
+{% endblock %}

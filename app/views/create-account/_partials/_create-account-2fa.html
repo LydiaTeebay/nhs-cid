@@ -1,0 +1,22 @@
+{% set service = "results" %}
+{% set serviceName = "view%20your%20Personal%20Child%20Health%20Record%20" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+<h3>Check your phone</h3>
+
+<div class="first-item">
+    <form>
+        <div class="form-group">
+            <fieldset class="inline">
+                <p>We've sent you a text message with a security code.</p>
+                <div class="form-group">
+                    <label class="form-label" for="code">Text message code</label>
+                    <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+                </div>
+            </fieldset>
+        </div>
+            <a href="/account/dashboard{{ params }}" class="button">Continue</a>
+        <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="service-childs-health-record?sidebar=2fa-new&message=text-resent">you can resend it</a>.</p>
+
+    </form>
+</div>
