@@ -1,0 +1,24 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access your medical record{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "record" %}
+{% set serviceName = "Access%20your%20medical%20record" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Access your medical record','') }}
+{% endblock %}
+
+{% block content %}
+
+<p>Use this service to:</p>
+<ul>
+  <li>Get access to your medical record</li>
+</ul>
+
+<a href="/create-account/sign-on{{ params }}" class="button">Start</a>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
