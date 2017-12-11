@@ -10,15 +10,23 @@
 
 // New login buttons
 .button--patient-access {
-  @include button(#d5571d);
+  @include button(#cb784f);
+  box-shadow: none;
 }
 
 .button--systm-one {
   @include button($grey-4);
+  box-shadow: none;
 }
 
 .button--systm-one--dark {
   @include button(rgb(0, 109, 178));
+  box-shadow: none;
+}
+
+.button--systm-one--light {
+  @include button($white);
+  box-shadow: none;
 }
 
 .button--verify {
