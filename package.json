@@ -60,6 +60,7 @@
     "notifications-node-client": "^4.1.0",
     "nunjucks": "^3.0.1",
     "nunjucks-date-filter": "^0.1.1",
+    "onfido-sdk-ui": "^2.1.0",
     "pa11y": "^5.0.0-beta.2",
     "pa11y-reporter-html": "^1.0.0",
     "postcss-cssnext": "^3.0.2",

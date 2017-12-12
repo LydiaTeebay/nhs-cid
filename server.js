@@ -18,6 +18,7 @@ const chalk = require('chalk')
 const browserSync = require('browser-sync')
 const useragent = require('express-useragent')
 const serveIndex = require('serve-index')
+const Onfido = require('onfido-sdk-ui')
 
 /**
  * Config
