@@ -22,6 +22,19 @@
 
 <!--<a href="/create-account/sign-on{{ params }}" class="button">Start</a>-->
 
+
+<!--<button class="button" type="button" id="modal_open">Start</button>-->
+
+
+<div class="modal-overlay" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
+  <div class="modal-content" id="modal_holder" role="document">
+    {% include "create-account/_partials/_create-new-account.html" %}
+    <button class="btn-close" id="modal_close" type="button" aria-label="close">
+      &times;
+    </button>
+  </div> <!-- end .modal-content -->
+</div> <!-- end .modal-overlay -->
+
 {% endblock %}
 {% block rightcol %}
 {% if message %}
