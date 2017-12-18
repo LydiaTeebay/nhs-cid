@@ -18,7 +18,6 @@ const chalk = require('chalk')
 const browserSync = require('browser-sync')
 const useragent = require('express-useragent')
 const serveIndex = require('serve-index')
-const Onfido = require('onfido-sdk-ui')
 
 /**
  * Config
@@ -42,7 +41,6 @@ const router = express.Router()
 const routes = require('./app/routes')
 
 const isDev = app.get('env') === 'development'
-
 
 // notify integration
 let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'

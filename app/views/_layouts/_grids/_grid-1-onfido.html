@@ -1,7 +1,7 @@
 {% extends '_layouts/_nhsuk_layout.html' %}
 
 {% block scripts %}
-<script src="/onfido.js"></script>
+<script src="/onfido.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -9,6 +9,81 @@
 {% block topRow %}{% endblock %}
 
 <div class="first-item">
+  <script type="text/javascript">var options = window.location.search.slice(1)
+      .split('&')
+      .reduce(function _reduce (/*Object*/ a, /*String*/ b) {
+          b = b.split('=');
+          a[b[0]] = decodeURIComponent(b[1]);
+          return a;
+      }, {});
+  var useModal = options.useModal === "true"
+  if (!useModal){
+      document.getElementById("onfido-button").style.visibility = "hidden";
+  }
+
+  window.onload = function() {
+      if (options.async === "false") {
+          getToken(createSDK)
+      }
+      else if (options.link_id)
+          window.onfidoOut = Onfido.init({mobileFlow: true})
+      else {
+          createSDK(null)
+          getToken(injectToken)
+      }
+  }
+
+  var steps = [
+      {
+          type:'welcome',
+          options:{
+              title:'Open your new bank account',
+              descriptions: [
+                  'To open a bank account, we will need to verify your identity.',
+                  'It will only take a couple of minutes.'
+              ]
+          }
+      },
+      {
+          type:'document',
+          options:{
+              useWebcam: options.useWebcam === "true"
+          }
+      },
+      'face',
+      'complete'
+  ]
+
+  var createSDK = function(token) {
+      window.onfidoOut = Onfido.init({
+          token: token,
+          useModal: useModal,
+          buttonId: 'onfido-button',
+          onComplete: function() {
+              /*callback for when */ console.log("everything is complete")
+          },
+          steps: steps
+      })
+  }
+
+  var injectToken = function(token) {
+      window.onfidoOut.setOptions({token: token})
+  }
+
+  var getToken = function(onSuccess) {
+      var url = 'https://token-factory.onfido.com/sdk_token'
+      var request = new XMLHttpRequest()
+      request.open('GET', url, true)
+      request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+              var data = JSON.parse(request.responseText)
+              // Only log the applicant ID in development - it is sensitive data
+              console.log("Applicant ID: " + data.applicant_id)
+              onSuccess(data.message)
+          }
+      }
+      request.send()
+  }</script>
   {% block content %}{% endblock %}
 </div>
 

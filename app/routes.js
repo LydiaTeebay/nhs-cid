@@ -14,7 +14,7 @@ const routes = files.map((file) => {
 
 module.exports = function (router, njk) {
   routes.forEach(function (route) {
-    route(router, njk)
+    // route(router, njk)
   })
 }
 

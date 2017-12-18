@@ -1,35 +1,24 @@
-var Onfido = require('onfido-sdk-ui');
+// onfido integration
 
-window.onload = function() {
-    var url = location.protocol+"//"+location.hostname+":8090/jwt"
-    var request = new XMLHttpRequest()
-    request.open('GET', url, true)
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 400) {
-            var data = JSON.parse(request.responseText)
-            window.onfidoOut = Onfido.init({
-                useModal: false,
-                token: data.token,
-                onComplete: function() {
-                    // callback for when everything is complete
-                    console.log("Everything is complete");
-                },
-                steps: [
-                    {
-                        type:'welcome',
-                        options:{
-                            title:'Open your new bank account'
-                        }
-                    },
-                    'document',
-                    'face',
-                    'complete'
-                ]
-            });
-        }
-    }
-    request.send()
-};
+const Onfido = require('onfido-sdk-ui')
 
-
-require("./app.css")
+Onfido.init({
+    useModal: false,
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjoiNllTSVROd3ZadUxqZGxsKzdZL1lsOGIxQWtIZnVNWlRleVdlZVdQcEF1K2Q5WEtad2NkMXRmVVBxZDVSXG5ZWk5QQTRiakVUVWcwRmJYOUNkMWpuN2l6UlVnTzhDbGFPOC9ueHNGRnlObjllZWlZazZkelZyVk1IZE5cbmFQcFZOb3dSXG4iLCJ1dWlkIjoiQWNDNFV0b1FaR2ciLCJleHAiOjE1MTMxODkxNDh9.v3eXYSjiQf_fY5F-dbtd9od-x3hAcgERStcU2Sh68P4',
+    onComplete: function() {
+        // callback for when everything is complete
+        console.log("Everything is complete")
+    },
+    steps: [
+        {
+            type:'welcome',
+            options:{
+                title:'Prove your identity',
+                nextButton:'Start'
+            }
+        },
+        'document',
+        'face',
+        'complete'
+    ]
+})
