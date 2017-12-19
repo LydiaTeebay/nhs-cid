@@ -73,9 +73,14 @@
   &.phase-tag-pending {
     background-color:orange;
   }
-  &.phase-tag-verified {
+  &.phase-tag-verified, &.phase-tag-active {
     background-color: green;
   }
+  &.phase-tag-revoked {
+    background-color: red;
+  }
+
+
   
 }
 
