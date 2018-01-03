@@ -1,0 +1,72 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access your medical record{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "record" %}
+{% set serviceName = "Access%20your%20medical%20record" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Access eRedbook','') }}
+{% endblock %}
+
+{% block content %}
+
+<p>Use this service to:</p>
+<ul>
+  <li>Get access to your eRedbook</li>
+</ul>
+
+<p>To access this service you need to prove your identity. You'll only ever need to do this once.</p>
+
+<section class="prove-id">
+	<h2>Prove your identity</h2>
+
+	<div class="task complete">
+		<img src="/images/number-01.png">
+
+		<h3>Give details about you</h3>
+		<div class="status">
+			<span class="complete">APPROVED</span>
+		</div>
+		<a href="#" class="button">START</a>
+		<div class="tick">
+			<img src="/images/tick-complete.png">
+		</div>
+
+	</div>
+
+	<div class="task incomplete">
+		<img src="/images/number-02.png">
+
+		<h3>Upload ID documentation</h3>
+		<div class="status">
+			<span class="todo">TO DO</span>
+		</div>
+		<a href="#" class="button">START</a>
+
+		<p>Before you start you will need <strong>one</strong> of the following:</p>
+		<ul>
+			<li>Passport</li>
+			<li>Driver's license</li>
+		</ul>
+	</div>
+
+	<div class="task incomplete">
+		<img src="/images/number-03.png">
+
+		<h3>Submit a video selfie</h3>
+		<div class="status">
+			<span class="todo">TO DO</span>
+		</div>
+		<a href="#" class="button">START</a>
+
+		<p>This helps us match your face with your photo ID.</p>
+	</div>
+</section>
+
+<!-- <a href="/create-account/sign-on{{ params }}" class="button">Start</a> -->
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
