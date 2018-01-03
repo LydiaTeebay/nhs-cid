@@ -9,14 +9,14 @@
   </ul>
   <h3>Patients</h3>
     <ul>
-        <li><a href="/token-manager-v2/token-manager-token-add">Add patient</a></li>
-        <li><a href="">Revoke patient access</a></li>
+        <li><a href="/token-manager-v2/token-manager-token-add">Add a patient</a></li>
+        <!--<li><a href="">Revoke patient access</a></li>-->
         <li><a href="token-manager-view-all-tokens">View all patients</a></li>
     </ul>
   <h3>Clinicians</h3>
     <ul>
-        <li><a href="">Add clinician</a></li>
-        <li><a href="">Revoke clinician</a></li>
+        <li><a href="">Add a clinician</a></li>
+        <!--<li><a href="">Revoke a clinician</a></li>-->
         <li><a href="token-manager-view-all-clinicians"><strong>View all clinicians</strong></a></li>
     </ul>
 
@@ -24,8 +24,8 @@
 {% endblock %}
 
 {% block rightcol %}
-
-<h3 style="position: relative"><span id="token-title">All</span> clinicians you manage
+<h3>View all clinicians</h3>
+<h1 style="position: relative"><span id="token-title">All</span> clinicians
   <span style="right: 0; bottom: 0; position: absolute; font-size: 14pt">Filter:
     <select id="selectStatus">
       <option>All</option>
@@ -33,7 +33,7 @@
       <option>Revoked</option>
     </select>
   </span>
-</h3>
+</h1>
 
 <table class="clinicianTable">
   <!--<caption>Clinicians you manage</caption>-->

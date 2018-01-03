@@ -1,25 +1,42 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-1-2.html' %}
 {% block page_title %}Token Manager{% endblock %}
 
 {% block content %}
 
-<div class="callout callout--severe">
-  <h3>Revoke Token 123</h3>
-  <p>Alex Hills will no longer be able to acces services</p>
+  <ul>
+    <li><a href="/token-manager-v2/token-manager-index">Home</a></li>
+  </ul>
+  <h3>Patients</h3>
+    <ul>
+        <li><a href="/token-manager-v2/token-manager-token-add">Add a patient</a></li>
+        <!--<li><a href="">Revoke patient access</a></li>-->
+        <li><a href="token-manager-view-all-tokens">View all patients</a></li>
+    </ul>
+  <h3>Clinicians</h3>
+    <ul>
+        <li><a href="">Add a clinician</a></li>
+        <!--<li><a href="">Revoke a clinician</a></li>-->
+        <li><a href="token-manager-view-all-clinicians">View all clinicians</a></li>
+    </ul>
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="callout callout--warning">
+  <h3>Revoke access to Alex Hills</h3>
+  <p>Alex Hills will no longer be able to access services</p>
 </div>
 
+<h3>Are you sure you want to revoke access from Alex Hills?</h3>
 
-
-<h3>Are you sure you want to revoke token 123?</h3>
-
-<div class="form-line">
- <label for="input-with-support" class="form-label">
-   Password
-   <span class="form-label__hint" id="hintId">We need to make sure it's you</span>
-  </label>
-  <input type="password" name="input-with-support" id="input-with-support" class="form-textbox" aria-describedby="hintId">
+<form>
+<div class="form-group">
+  <label class="form-label" for="input-with-support">Enter your password</label>
+  <span class="form-label__hint" id="hintId">We need to make sure it's you</span>
+  <input type="password" name="input-with-support" id="input-with-support" class="form-control form-textbox" aria-describedby="hintId">
 </div>
-
-<a href="" class="button button--cancel">Yes, I want to revoke token</a>
-<p><a href="">I've changed my mind</a></p>
+</form>
+<a href="token-manager-token-removed" class="button">Yes, I want to revoke access</a>
+<p><a href="token-manager-index">I've changed my mind</a></p>
 {% endblock %}
