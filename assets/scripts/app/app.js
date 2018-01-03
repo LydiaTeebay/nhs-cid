@@ -72,6 +72,37 @@ $("#submit-video-back-button").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+$("#selectAll").on("click", function(e) {
+  if (e.target.checked) {
+    inputs = $(".token-check").prop('checked', true);
+  } else {
+    inputs = $(".token-check").prop('checked', false);
+  }
+})
+
+$("#selectStatus").on("change", function(e) {
+  var filterType = e.target.options[e.target.selectedIndex].value;
+  $("#token-title").text(filterType);
+  var table = $("table")[0].className;
+  var tableStatusCol = ($("table")[0].className === "tokenTable") ? 5 : 3;
+  var tokenRows = $(".token-row");
+
+  for(var i = 0; i < tokenRows.length; i++) {
+
+    var currentTokenStatus = tokenRows[i].children[tableStatusCol].children[0].innerHTML;
+
+    if (filterType !== "All") {
+      if (currentTokenStatus.toLowerCase() === filterType.toLowerCase()) {
+        tokenRows[i].style.display = "table-row";
+      } else {
+        tokenRows[i].style.display = "none";
+      }
+    } else {
+      tokenRows[i].style.display = "table-row";
+  }
+}
+})
+
 $(document).ready(function () {
   // Turn off jQuery animation
   jQuery.fx.off = true
