@@ -8,35 +8,35 @@
 <ul>
   <li><a href="/token-manager-v2/token-manager-index"><strong>Home</strong></a></li>
 </ul>
-  <h3>Patients</h3>
-    <ul>
-        <li><a href="/token-manager-v2/token-manager-token-add">Add a patient</a></li>
-        <!--<li><a href="">Revoke patient access</a></li>-->
-        <li><a href="token-manager-view-all-tokens">View all patients</a></li>
-    </ul>
-  <h3>Clinicians</h3>
-    <ul>
-        <li><a href="">Add a clinician</a></li>
-        <!--<li><a href="">Revoke a clinician</a></li>-->
-        <li><a href="token-manager-view-all-clinicians">View all clinicians</a></li>
-    </ul>
+<h3>Patients</h3>
+<ul>
+  <li><a href="/token-manager-v2/token-manager-token-add">Add a patient</a></li>
+  <!--<li><a href="">Revoke patient access</a></li>-->
+  <li><a href="token-manager-view-all-tokens">View all patients</a></li>
+</ul>
+<h3>Clinicians</h3>
+<ul>
+  <li><a href="">Add a clinician</a></li>
+  <!--<li><a href="">Revoke a clinician</a></li>-->
+  <li><a href="token-manager-view-all-clinicians">View all clinicians</a></li>
+</ul>
 
 {% endblock %}
 
 {% block rightcol %}
 
 <h3>Manage access for patients</h3>
-<br />
-<div class="data">
-  <span class="data-item bold-xxlarge">293482</span>
-  <span class="data-item bold-xsmall">Total Tokens Issued</span>
+<h1>Dashboard</h1>
+<div class="data-container">
+  <div class="data">
+    <span class="data-item bold-xsmall">Patients Authorised</span>
+    <span class="data-item bold-xxlarge">4829</span>
+  </div>
+  <div class="data">
+    <span class="data-item bold-xsmall">Patients authorised by you</span>
+    <span class="data-item bold-xxlarge">273</span>
+  </div>
 </div>
-<div class="data">
-  <span class="data-item bold-xxlarge">273</span>
-  <span class="data-item bold-xsmall">Tokens issued by you</span>
-</div>
-<!--<hr />
-<h3>Actions</h3>-->
 
 <a class="button" href="/token-manager-v2/token-manager-token-add">Add a patient</a>
 

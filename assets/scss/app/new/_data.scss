@@ -1,5 +1,25 @@
-.data {
-    margin-bottom: 0;
+.data-container {
+
+    margin-top: 0;
+
+    .data {
+        background-color: #005eb8;
+        width: calc(50% - 32px);
+        margin: 16px;
+        color: white;
+        padding:16px 16px 16px 16px;
+        float: left;
+    
+        
+    }
+    
+
+    .data:first-child {
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
 }
 
 @media (min-width: 641px) {
