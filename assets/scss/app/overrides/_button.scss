@@ -10,15 +10,23 @@
 
 // New login buttons
 .button--patient-access {
-  @include button(#d5571d);
+  @include button(#cb784f);
+  box-shadow: none;
 }
 
 .button--systm-one {
   @include button($grey-4);
+  box-shadow: none;
 }
 
 .button--systm-one--dark {
   @include button(rgb(0, 109, 178));
+  box-shadow: none;
+}
+
+.button--systm-one--light {
+  @include button($white);
+  box-shadow: none;
 }
 
 .button--verify {
@@ -41,4 +49,9 @@
       margin-top: 16px;
     }
   }
+}
+
+#onfido-button,
+button.onfido-sdk-ui-Theme-btn.onfido-sdk-ui-Theme-btn-centered.onfido-sdk-ui-Theme-btn-primary {
+  @include button($green);
 }

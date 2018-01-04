@@ -1,0 +1,61 @@
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% endif %}
+
+{% block topRow %}
+{% if service == "results" or service == "record"%}
+
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('To access this service we need to verify your identity','It will only take a couple of minutes','warning') }}
+
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+
+      <h1><legend>Proving your identity</legend></h1>
+
+      <div class="panel">
+        <div class="panel__content panel__content--half">
+          <h3>Step 1 - About you</h3>
+
+          {% if verify %}
+          <p>These details were provided by Verify:</p>
+          {% else %}
+          <p>We need the following details:</p>
+          {% endif %}
+          <ul class="list--check">
+            <li>Full name</li>
+            <li>Date of birth</li>
+            <li>Address</li>
+          </ul>
+          <p><a href="pyi-details-name">Edit these details</a></p>
+        </div>
+        <div class="panel__content panel__content--half">
+          <h3>Step 2 - Physical Comparison</h3>
+          <p>You will need the following:</p>
+          <ul class="list--chevron">
+            <li>Picture of your photo ID</li>
+            <li>Short video selfie</li>
+          </ul>
+
+          <div class="form-group">
+            <a class="button" href="pyi-scan-id-intro?changetomobile=no" id="">Continue</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p><a href="pyi-continue-offline">I won't be able to prove my identity online</a></p>
+  </form>
+
+{% endblock %}

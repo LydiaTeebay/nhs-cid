@@ -29,4 +29,32 @@ module.exports = function (router) {
         }
         res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
     })
+
+    router.get('/create-account/v3/create-acc-terms', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v3/two-step-code?vouch=yes')
+            return
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v3/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/v3/create-acc-terms', function (req, res) {
+        var emailAddress = req.body.emailAddress
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v3/two-step-code?vouch=yes')
+            return
+        }
+        res.redirect('/create-account/v3/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
+    })
 }

@@ -1,0 +1,177 @@
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+{% block topRow %}
+	{% if changetomobile === "yes" %}
+		{% import "_partials/_components/_callout.html" as callout %}
+		{{ callout.pattern('','We have sent a secure link to 07*** ***645.<br>It may take a few minutes to arrive.<br>Complete the remaining steps on your phone','warning') }}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+  <span class="section-header">Physical Comparison</span>
+
+
+	{# Part 1 - take a pic of your document #}
+
+
+	<section class="intructions" id="scan-id-1">
+
+		{% if mobile %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 2</span>Photographing your photo ID</h1>
+		{% else %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 4</span>Upload your photo ID</h1>
+		{% endif %}
+
+		<!--<img src="/images/diagram-doc-scan.png" alt="" class="image-right" height="146" width="146">-->
+
+		{% if not mobile %}
+		<h3>Upload on your mobile</h3>
+		<p><a href="pyi-scan-id-intro-mob?changetomobile=yes" style="color: white" class="button">Securely continue Physical Comparison on your mobile.</a><br>&nbsp;</p>
+		<h3>Upload from your computer</h3>
+		{% endif %}
+
+
+		<ol class="list--intructions">
+
+			{% if mobile %}
+				<li><p>Avoid light reflecting on the ID</p></li>
+				<li><p>Place your ID in good lighting, preferably daylight</p>
+					<img class="instructions--image" src="/images/prove-id-photo-1@2x.png" height="110" width="277"/>
+				</li>
+				<li><p>Hold the camera straight above the ID</p></li>
+				<li><p>Review the photo immediately after taking it</p></li>
+				<li><p>Make sure all information is visible</p>
+					<img class="instructions--image" src="/images/prove-id-photo-2@2x.png" height="164" width="274"/>
+				</li>
+			{% else %}
+			<li><p>Ensure the photo is free of glare and reflections</p></li>
+			<li><p>Ensure all details are clear and readable</p>
+			</li>
+			{% endif %}
+		</ol>
+
+		{% if mobile %}
+		{% else %}
+		<label for="id-document" class="camera-button button camera-button--blue">
+			Upload a file from your computer
+			<input type="file" id="id-document" accept="image/*" capture="environment">
+		</label>
+		{% endif %}
+
+		{% if mobile %}
+		<form>
+			<div class="form-group">
+				<label for="id-document" class="camera-button button">
+					Open your camera
+					<input type="file" id="id-document" accept="image/*" capture="environment">
+				</label>
+			</div>
+		</form>
+		{% endif %}
+
+	</section>
+
+
+	{# Part 2 - Review your document photo #}
+
+
+	<section  class="intructions" id="scan-id-2" style="display:none">
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 4 </span>Review your photo ID</h1>
+
+		<div class="callout callout--info">
+			<div id="scan-id-preview">
+				<img id="uploaded-id" src="#" alt="your image" style="max-width:400px;height:auto;"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<a class="button" href="#" id="submit-id-button">Submit ID photo</a>&nbsp;
+			<a class="button--back-white" href="#" id="submit-id-back-button">Go back</a>
+		</div>
+
+	</section>
+
+
+	{# Part 3 - take a selfie video #}
+
+
+	<section class="intructions" id="scan-id-3" style="display:none">
+
+		{% if mobile %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2 </span>Create a video selfie</h1>
+		{% else %}
+			<h1 class="heading-large"><span class="heading-secondary">Step 3 of 4 </span>Upload a video selfie</h1>
+			<h3>Upload on your mobile</h3>
+			<p><a href="pyi-scan-id-intro-mob?changetomobile=yes" style="color: white" class="button">Securely continue Physical Comparison on your mobile.</a><br>&nbsp;</p>
+			<h3>Upload from your computer</h3>
+		{% endif %}
+
+		<ol class="list--intructions">
+			{% if mobile %}
+			<li><p>Use the front-facing camera</p>
+			</li>
+			{% endif %}
+			<li><p>Make sure your whole face is visible</p><img class="instructions--image" src="/images/prove-id-selfie-ani@2x.gif" height="200" width="357"/></li>
+			<li><p>Move your head slowly up and down</p>
+				</li>
+			<li>The video only needs to be about 2-3 seconds long</li>
+
+			{% if mobile %}
+			<li><p>Review the video immediately after taking it</p></li>
+			{% endif %}
+		</ol>
+
+		{% if mobile %}
+		{% else %}
+		<label for="id-selfie" class="button camera-button camera-button--blue">
+			Upload a video file from your computer
+			<input type="file" id="id-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+		</label>
+		{% endif %}
+
+		{% if mobile %}
+		<form>
+			<div class="form-group">
+				<label for="id-selfie" class="camera-button button">
+					Open your camera
+					<input type="file" id="id-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+				</label>
+			</div>
+		</form>
+		{% endif %}
+
+		<div class="form-group">
+			<p><a class="button--back-white" href="#" id="create-video-back-button">Go back</a></p>
+		</div>
+
+	</section>
+
+
+	{# Part 4 - Review your video selfie  #}
+
+
+	<section class="intructions" id="scan-id-4" style="display:none">
+
+		<h1 class="heading-large"><span class="heading-secondary">Step 4 of 4 </span>Review your video selfie</h1>
+
+		<div class="callout callout--info">
+			<div id="scan-video-preview">
+				<video id="uploaded-video" width="320" height="240" controls autoplay loop muted style="max-width:400px;height:auto;">
+					<source src="#" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<a class="button" href="pyi-scan-id-uploading{{ params }}" id="submit-video-button">Submit video selfie</a>&nbsp;
+			<a class="button--back-white" href="#" id="submit-video-back-button">Go back</a>
+		</div>
+
+	</section>
+
+<p><a href="pyi-continue-offline">I would prefer to prove my identity another way</a></p>
+
+{% endblock %}
