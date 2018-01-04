@@ -6,20 +6,79 @@
 {% endblock %}
 
 {% block content %}
-  <span class="section-header">Physical Comparison</span>
+<script type="text/javascript">
+
+    var url = "https://token-factory.onfido.com/sdk_token"
+    var request = new XMLHttpRequest()
+    request.open('GET', url, true)
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText)
+
+            Onfido.init({
+                useModal: true,
+                token: data.message,
+                onComplete: function(data) {
+                    // callback for when everything is complete
+                    console.log("everything is complete")
+                },
+                steps: [
+                    // {
+                    //     type:'welcome',
+                    //     options:{
+                    //         title:'',
+                    //         descriptions: [
+                    //             'To access this service, we will need to verify your identity.',
+                    //             'It will only take a couple of minutes.',
+                    //             'You will need to take a photo of your ID Document and a selfie photo.'
+                    //         ],
+                    //         nextButton:'Continue'
+                    //     }
+                    // },
+                    'document',
+                    'face',
+                    'complete'
+                ]
+            })
+        }
+    }
+    request.send()
+</script>
 
 
-	{# Part 1 - take a pic of your document #}
+<h1><legend>Proving your identity</legend></h1>
 
+<div class="panel">
+	<div class="panel__content panel__content--half">
+		<h3>Step 1 - About you</h3>
 
-	<section class="intructions" id="scan-id-1">
+		{% if verify %}
+		<p>These details were provided by Verify:</p>
+		{% else %}
+		<p>We need the following details:</p>
+		{% endif %}
+		<ul class="list--check">
+			<li>Full name</li>
+			<li>Date of birth</li>
+			<li>Address</li>
+		</ul>
+		<p><a href="pyi-details-name">Edit these details</a></p>
+	</div>
+	<div class="panel__content panel__content--half">
+		<h3>Step 2 - Identity verification</h3>
+		<p>To access this service, we will need to verify your identity.</p>
+		<p>It will only take a couple of minutes.</p>
+		<p>You will need to take a photo of your ID document and a selfie photo.</p>
 
-		<button id='onfido-button' disabled>Verify identity</button>
+		<button id='onfido-button' disabled>Continue</button>
+
+		<p><a href="pyi-continue-offline">I would prefer to prove my identity another way</a></p>
 
 		<div id="onfido-mount"></div>
 
-	</section>
+	</div>
+</div>
 
-<p><a href="pyi-continue-offline">I would prefer to prove my identity another way</a></p>
+
 
 {% endblock %}

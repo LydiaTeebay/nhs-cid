@@ -4,7 +4,7 @@ const Onfido = require('onfido-sdk-ui')
 
 Onfido.init({
     useModal: false,
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjoiNllTSVROd3ZadUxqZGxsKzdZL1lsOGIxQWtIZnVNWlRleVdlZVdQcEF1K2Q5WEtad2NkMXRmVVBxZDVSXG5ZWk5QQTRiakVUVWcwRmJYOUNkMWpuN2l6UlVnTzhDbGFPOC9ueHNGRnlObjllZWlZazZkelZyVk1IZE5cbmFQcFZOb3dSXG4iLCJ1dWlkIjoiQWNDNFV0b1FaR2ciLCJleHAiOjE1MTMxODkxNDh9.v3eXYSjiQf_fY5F-dbtd9od-x3hAcgERStcU2Sh68P4',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjoiNllTSVROd3ZadUxqZGxsKzdZL1lsOGIxQWtIZnVNWlRleVdlZVdQcEF1K2Q5WEtad2NkMXRmVVBxZDVSXG5ZWk5QRy9sa2wvRHF3ZU0xblg3K2NmZDQ2b1J0ZDRMVFV5V0lidDBDVmlORFgraDA2TmF5YW9GMlcxY09cbmNXT1dPa2poXG4iLCJ1dWlkIjoiQWNDNFV0b1FaR2ciLCJleHAiOjE1MTQ5MDM1ODJ9.-urIOZtzkRs65_VSoDxREjA3kCX5BkP5N7bWolIcSWk"',
     onComplete: function() {
         // callback for when everything is complete
         console.log("Everything is complete")

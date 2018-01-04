@@ -6,13 +6,13 @@ const assetsLocation = path.join(config.paths.nodeModules, 'onfido-sdk-ui', 'dis
 const runSequence = require('run-sequence')
 
 gulp.task('move-onfido-styles', () => {
-  return gulp.src(path.join(assetsLocation, 'onfido.css'))
+  return gulp.src(path.join(assetsLocation, 'style.css'))
     .pipe(gulp.dest(path.join(config.paths.assets, 'scss/onfido')))
 })
 
 gulp.task('move-onfido-scripts', () => {
-  return gulp.src(path.join(srcPath, 'onfido.min.js'))
-    .pipe(gulp.dest(path.join(config.paths.public, 'scripts/app')))
+  return gulp.src(path.join(assetsLocation, 'onfido.min.js'))
+    .pipe(gulp.dest(path.join(config.paths.assets, 'scripts/app')))
 })
 
 gulp.task('move-onfido-assets', function (done) {
@@ -21,4 +21,5 @@ gulp.task('move-onfido-assets', function (done) {
     'move-onfido-scripts',
      done
    )
+    console.log("moved onfido stuff")
 })

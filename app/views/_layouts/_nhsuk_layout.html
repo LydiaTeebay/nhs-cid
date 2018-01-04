@@ -16,9 +16,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="format-detection" content="telephone=no">
 
-
+  {% block extrastyles %}{% endblock %}
   <link rel="stylesheet" href="/nhsuk.css">
   <link rel="stylesheet" href="/app.css">
+
 </head>
 
 <body class="{{ bodyClass }}">
@@ -49,7 +50,7 @@
   <script src="/nhsuk.js"></script>
   <script src="/scripts/selection-buttons.js"></script>
   <script src="/scripts/smooth-scroll.js"></script>
-  {% block scripts %}{% endblock %}
+  {% block extrascripts %}{% endblock %}
 </body>
 
 </html>
