@@ -1,108 +1,43 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-1-2.html' %}
 {% block page_title %}Token Manager{% endblock %}
 
+
 {% block content %}
-
 {% set serviceName = "token%20of%20trust%20manager" %}
-<h3>What do you want to do?</h3>
-<a href="/vouching/vouching-nhs-no?serviceName=generate%20a%20new%20token" class="button" id="">Generate a new token</a>
-<a href="#" class="button button--secondary">Add a clinician</a>
 
-<hr />
-
-<h3>View latest tokens you issued</h3>
-
-<table>
-  <!--<caption>3 Tokens issued by you</caption>-->
-  <thead>
-    <tr>
-      <th><input type="checkbox" /></th>
-      <th>Token</a>
-      <th>Patient</th>
-      <th>NHS No.</th>
-      <th>Issue Date</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><input type="checkbox" /></td>
-      <td><a href="token-manager-token">123</a></td>
-      <td>Alex Hills</td>
-      <td>3409823439</td>
-      <td>21st Sept 2017</td>
-      <td><small class="phase-tag phase-tag-active">ACTIVE</small></td>
-      <td><a href="token-manager-token">edit</a></td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" /></td>
-      <td><a href="token-manager-token">234</a></td>
-      <td>Christopher Williams</td>
-      <td>3389290290</td>
-      <td>21st Sept 2017</td>
-      <td><small class="phase-tag phase-tag-pending">PENDING</small></td>
-      <td><a href="token-manager-token">edit</a></td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" /></td>
-      <td><a href="token-manager-token">345</a></td>
-      <td>Sarah Wilkinson</td>
-      <td>98230498234</td>
-      <td>21st Sept 2017</td>
-      <td><small class="phase-tag phase-tag-revoked">REVOKED</small></td>
-      <td><a href="token-manager-token">edit</a></td>
-    </tr>
-  </tbody>
-</table>
-<a class="button" href="">View all tokens</a>
-<p><a href="">Remove all selected tokens</a></p>
-<hr />
-
-<h3>View clinicians you manage</h3>
-
-<table>
-  <!--<caption>Clinicians you manage</caption>-->
-  <thead>
-    <tr>
-      <th>Clinician</th>
-      <th>RA No.</th>
-      <th>Tokens Issued</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="token-manager-clinician">Gemma Davis</a></td>
-      <td>46563434</td>
-      <td>23</td>
-      <td><small class="phase-tag phase-tag-active">ACTIVE</small></td>
-      <td><a href="token-manager-clinician">edit</a></td>
-    </tr>
-    <tr>
-      <td><a href="token-manager-clinician">John Smith</a></td>
-      <td>32309903</td>
-      <td>520</td>
-      <td><small class="phase-tag phase-tag-revoked">REVOKED</small></td>
-      <td><a href="token-manager-clinician">edit</a></td>
-    </tr>
-  </tbody>
-</table>
-<p><a href="#">Add a new clinician</a></p>
-
+<ul>
+  <li><a href="token-manager-index"><strong>Home</strong></a></li>
+</ul>
+<h3>Patients</h3>
+<ul>
+  <li><a href="token-manager-token-add">Add a patient</a></li>
+  <!--<li><a href="">Revoke patient access</a></li>-->
+  <li><a href="token-manager-view-all-tokens">View all patients</a></li>
+</ul>
+<h3>Clinicians</h3>
+<ul>
+  <li><a href="">Add a clinician</a></li>
+  <!--<li><a href="">Revoke a clinician</a></li>-->
+  <li><a href="token-manager-view-all-clinicians">View all clinicians</a></li>
+</ul>
 
 {% endblock %}
 
 {% block rightcol %}
-<!--
-<div class="data">
-  <span class="data-item bold-xxlarge">293482</span>
-  <span class="data-item bold-xsmall">Total Tokens Issued</span>
+
+<h3>Manage access for patients</h3>
+<h1>Dashboard</h1>
+<div class="data-container">
+  <div class="data">
+    <span class="data-item bold-xsmall">Patients Authorised</span>
+    <span class="data-item bold-xxlarge">4829</span>
+  </div>
+  <div class="data">
+    <span class="data-item bold-xsmall">Patients authorised by you</span>
+    <span class="data-item bold-xxlarge">273</span>
+  </div>
 </div>
-<div class="data">
-  <span class="data-item bold-xxlarge">273</span>
-  <span class="data-item bold-xsmall">Tokens issued by you</span>
-</div>
--->
+
+<a class="button" href="token-manager-token-add">Add a patient</a>
+
 {% endblock %}

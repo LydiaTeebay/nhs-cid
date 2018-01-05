@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Token Manager{% endblock %}
+
+{% block content %}
+
+<div>
+  <h1 id="conditions" class="heading-large">Token 123 details</h1>
+  
+  <h3 id="conditions" class="heading-large">Personal details</h3>
+  <p><b>Patient:</b><br>Alex Hills</p>
+  <p><b>NHS No.:</b><br>3409823439</p>
+  <p><b>Email:</b><br>ahill85@gmail.com</p>
+  <p><b>Contact No.:</b><br>073372382823</p>
+  
+  
+</div>
+
+{% endblock %}
+
+
+{% block rightcol %}
+<div class="sidebar">
+  <h3>Token details</h3>
+  <p><b>Token No:</b><br>123 <small class="phase-tag phase-tag-active">ACTIVE</small></p>
+  <p><b>Issue Date:</b><br>21st Sept 2017</p>
+  <p><b>Active Date:</b><br>22nd Sept 2017</p>
+  
+  <!--<p><a href="">Resend token</a></p>-->
+  <p><a href="token-manager-token-revoke" class="button button--cancel">Revoke token</a></p>
+  
+</div>
+
+{% endblock %}
