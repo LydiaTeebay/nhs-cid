@@ -1,0 +1,39 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+
+        <h1><legend>Continue your identity verification later</legend></h1>
+
+        <h2><legend><strong>We will send you a link where you can finish the verification process. How do you wish to receive it?</strong></legend></h2>
+
+        <div class="">
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="pyi-choice-device">
+            Text message
+          </label>
+
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-id-3">
+            Email
+          </label>
+
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="/account/dashboard?later=yes" id="continue">Submit and return to dashboard</a>
+    </div>
+
+    <p><a href="pyi-continue-offline">I won't be able to prove my identity online</a></p>
+
+  </form>
+
+{% endblock %}

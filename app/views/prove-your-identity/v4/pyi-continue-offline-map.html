@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
+{% block page_title %}Prove your Identity Service{% endblock %}
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+  {% if reason == "device" %}
+
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('Attention','You won\'t be able to prove your identity online without being able to take a selfie video.','warning') }}
+
+
+  {% elif reason == "documents" %}
+
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('Attention','You won\'t be able to prove your identity online without a valid photo ID.','warning') }}
+
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+
+ <h1><legend>Find a place to prove your identity</legend></h1>
+
+{% if mobile %}
+<img src="/images/map-mobile@2x.png" width="281" style="width: 100%;" />
+{% else %}
+<img src="/images/map-desktop@2x.png" width="960" style="width: 100%;"/>
+{% endif %}
+
+{% endblock %}

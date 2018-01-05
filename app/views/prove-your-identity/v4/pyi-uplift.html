@@ -8,6 +8,12 @@
 {% endif %}
 
 {% block topRow %}
+{% if service == "results" or service == "record"%}
+
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('To ' + serviceName + '  we need to verify your identity','It will only take a couple of minutes','attention') }}
+
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -33,10 +39,12 @@
 
         </div>
         <div class="panel__content panel__content--half">
-          <h3>Step 2 - Identity verification</h3>
-            <p>To access this service, we will need to verify your identity.</p>
-            <p>It will only take a couple of minutes.</p>
-            <p>You will need to take a photo of your ID document and a selfie photo.</p>
+          <h3>Step 2 - Physical Comparison</h3>
+          <p>You will need the following:</p>
+          <ul class="list--chevron">
+            <li>Picture of your photo ID</li>
+            <li>Short video selfie</li>
+          </ul>
         </div>
       </div>
 
