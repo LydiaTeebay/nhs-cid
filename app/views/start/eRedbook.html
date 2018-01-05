@@ -2785,8 +2785,14 @@ a {
 	
                     <label for="SignInHyperLink" id="SignInLabel">Already set up your eRedbook?</label>
 
-                    <a id="SignInHyperLink" href="https://www.eredbook.org.uk/parental/login/signin">Sign in</a>
+                    <a id="modal_create" href="#">Login</a>
                 
+
+
+
+
+
+
 </div>
                 <div class="clear"></div>
                 
@@ -2795,11 +2801,21 @@ a {
         </div>
     </div>
 
-    
-    
+
 
     <div id="main">
         
+    
+    <div class="modal-overlay" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
+  <div class="modal-content" id="modal_holder" role="document">
+    {% include "create-account/_partials/_create-new-account.html" %}
+    <button class="btn-close" id="modal_close" type="button" aria-label="close">
+      &times;
+    </button>
+  </div> <!-- end .modal-content -->
+</div> <!-- end .modal-overlay -->
+
+
     <div class="whiteTopNav">
         <ul>
             <li><a href="https://undefined/">Home<div class="selectedWhiteNav"></div></a></li>
@@ -2990,6 +3006,8 @@ a {
     C135.4,56.9,122.6,45.2,107.2,45.2z M107.1,87.1c-8.6,0-14.7-6.4-14.8-15.4c0-9.5,6-16.2,14.7-16.2c9.7,0,18,7,18.1,15.3
     C125.1,79.9,117.2,87.1,107.1,87.1z"></path>
 </svg>
-Feedback</div><div id="us_report_button_description" style="text-indent: -99999px; display: block; position: absolute; width: 0px; height: 0px; color: transparent; overflow: hidden; top: -999999px; left: -999999px;">Send a screenshot with your annotations.</div></body></html>
+Feedback</div><div id="us_report_button_description" style="text-indent: -99999px; display: block; position: absolute; width: 0px; height: 0px; color: transparent; overflow: hidden; top: -999999px; left: -999999px;">Send a screenshot with your annotations.</div>
+
+</body></html>
 
 {% endblock %}
