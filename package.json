@@ -31,7 +31,6 @@
     "basic-auth": "^1.1.0",
     "body-parser": "~1.17.1",
     "browser-sync": "^2.18.13",
-    "browserify": "^14.5.0",
     "chalk": "^2.3.0",
     "consolidate": "^0.14.5",
     "cookie-parser": "~1.4.3",
@@ -47,7 +46,7 @@
     "express-nunjucks": "^2.2.3",
     "express-session": "^1.15.5",
     "express-useragent": "^1.0.8",
-    "express-validator": "^4.1.1",
+    "express-validator": "^4.3.0",
     "frontend-library": "git://github.com/nhsuk/frontend-library.git#0.6.0",
     "gulp": "3.9.1",
     "gulp-nodemon": "^2.2.1",
@@ -62,7 +61,7 @@
     "nunjucks": "^3.0.1",
     "nunjucks-date-filter": "^0.1.1",
     "onfido-sdk-ui": "^2.1.0",
-    "pa11y": "^5.0.0-beta.2",
+    "pa11y": "^5.0.0-beta.3",
     "pa11y-reporter-html": "^1.0.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-reporter": "^5.0.0",
@@ -72,6 +71,6 @@
     "run-sequence": "^2.2.0",
     "serve-favicon": "^2.4.5",
     "standard": "^10.0.3",
-    "stylelint": "^8.2.0"
+    "stylelint": "^8.3.1"
   }
 }

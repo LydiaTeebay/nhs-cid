@@ -1,0 +1,39 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+{% set signedin = 'true' %}
+ 
+{% block content %}
+
+  <form>
+    <div class="form-group">
+
+      <span class="section-header">Access eRedbook</span>
+
+        <h1><legend>Who do you want to add to your eRedbook?</legend></h1>
+
+      <fieldset>
+        <div class="child-import">
+          <label class="block-label selection-button-checkbox" for="radio-inline-1">
+            <input id="radio-inline-1" type="checkbox" name="radio-inline-group" value="Eric Isaacs">
+            Name: <b>Eric Isaacs</b> <span>DOB: 17/10/2017</span>
+          </label>
+        </div>
+        <div class="child-import">
+          <label class="block-label selection-button-checkbox" for="radio-inline-2">
+            <input id="radio-inline-2" type="checkbox" name="radio-inline-group" value="Jamie Isaacs">
+            Name: <b>Jamie Isaacs</b> <span>DOB: 02/01/2018</span>
+          </label>
+        </div>
+      </fieldset>
+
+    </div>
+
+
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Add to eRedbook</a>
+    </div>
+    <div class="form-group">
+      <p>My child isn't listed. <a href="#">Add new child</a></p>
+  </form>
+
+{% endblock %}
