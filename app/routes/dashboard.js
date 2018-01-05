@@ -16,7 +16,7 @@ module.exports = function (router) {
       return
     }
     if (service === 'record') {
-        res.redirect('/prove-your-identity/v2/pyi-uplift?service=' + service + "&serviceName=" + serviceName)
+        res.redirect('/prove-your-identity/v1/pyi-uplift?service=' + service + "&serviceName=" + serviceName)
         return
     }
     // re-render the page along with the parameter
