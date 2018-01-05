@@ -8,7 +8,7 @@
 {% endif %}
 
 {% block topRow %}
-{% if service == "results" or service == "record"%}
+{% if service == "results" or service == "childrecord"%}
 
 {% import "_partials/_components/_callout.html" as callout %}
 {{ callout.pattern('To ' + serviceName + '  we need to verify your identity','It will only take a couple of minutes','attention') }}
