@@ -103,11 +103,10 @@ $("#selectStatus").on("change", function(e) {
 }
 })
 
-$("#SignInHyperLink").on("click", function(e) {
+$("#modal-create-acc").on("click", function(e){
   e.preventDefault();
-  console.log("eRedBook clicked");
+  window.parent.document.location.href = e.target.href;
 })
-
 
 // helper function to place modal window as the first child
 // of the #page node
@@ -115,8 +114,6 @@ var m = document.getElementById('modal_window'),
     p = document.getElementById('content')
 
 function swap () {
-  //console.log(p);
-  //console.log(m);
   if (m !== null && p !== null) {
     p.parentNode.insertBefore(m, p) 
   }
