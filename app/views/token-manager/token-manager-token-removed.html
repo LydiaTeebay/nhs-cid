@@ -1,39 +1,32 @@
 {% extends '_layouts/_grids/_grid-1-2.html' %}
 {% block page_title %}Token Manager{% endblock %}
-{% set signedin = 'true' %}
-
 
 {% block content %}
-{% set serviceName = "token%20of%20trust%20manager" %}
 
   <ul>
-    <li><a href="/token-manager-v2/token-manager-index">Home</a></li>
+    <li><a href="token-manager-index">Home</a></li>
   </ul>
   <h3>Patients</h3>
     <ul>
-        <li><a href="/token-manager-v2/token-manager-token-add">Add a patient</a></li>
+        <li><a href="token-manager-token-add">Add a patient</a></li>
         <!--<li><a href="">Revoke patient access</a></li>-->
         <li><a href="token-manager-view-all-tokens">View all patients</a></li>
     </ul>
   <h3>Clinicians</h3>
     <ul>
         <li><a href="">Add a clinician</a></li>
-       <!-- <li><a href="">Revoke a clinician</a></li>-->
+        <!--<li><a href="">Revoke a clinician</a></li>-->
         <li><a href="token-manager-view-all-clinicians">View all clinicians</a></li>
     </ul>
 
 {% endblock %}
 
-
 {% block rightcol %}
-<h3>Revoke a clinician</h3>
 
 <div class="callout callout--attention">
-  <h3>Clinician revoked</h3>
-  <p>Gemma Davis will no longer be able to authorise patients</p>
-  <p>5 patients will be moved into a bucket/thing/holding pen</p>
+  <h3>Alex Hills has been revoked access</h3>
+  <p>Alex Hills will be notified by email</p>
 </div>
 
 <a href="token-manager-index" class="button">Continue</a>
 {% endblock %}
-

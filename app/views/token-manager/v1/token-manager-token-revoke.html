@@ -1,0 +1,25 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Token Manager{% endblock %}
+
+{% block content %}
+
+<div class="callout callout--severe">
+  <h3>Revoke Token 123</h3>
+  <p>Alex Hills will no longer be able to acces services</p>
+</div>
+
+
+
+<h3>Are you sure you want to revoke token 123?</h3>
+
+<div class="form-line">
+ <label for="input-with-support" class="form-label">
+   Password
+   <span class="form-label__hint" id="hintId">We need to make sure it's you</span>
+  </label>
+  <input type="password" name="input-with-support" id="input-with-support" class="form-textbox" aria-describedby="hintId">
+</div>
+
+<a href="" class="button button--cancel">Yes, I want to revoke token</a>
+<p><a href="">I've changed my mind</a></p>
+{% endblock %}
