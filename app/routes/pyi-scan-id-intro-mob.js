@@ -8,8 +8,8 @@ module.exports = function (router) {
     router.get('/prove-your-identity/pyi-scan-id-intro-mob', function (req, res) {
         var changetomobile = req.param('changetomobile')
         // is the user on a mobile device?
-        var mobileNum = "07402833373"
-        // var mobileNum = "07980802645"
+        // var mobileNum = "07402833373"
+        var mobileNum = "07980802645"
         // send text message
         if (changetomobile === 'yes') {
             console.log("sending text")
