@@ -9,7 +9,8 @@
  saved date: Tue Dec 05 2017 16:00:50 GMT+0000 (GMT) 
 --><!--<![endif]--><head id="Head1"><title>
 	eRedbook
-</title><link href="https://www.googletagmanager.com" rel="preconnect" crossorigin=""><link href="https://www.google-analytics.com" rel="preconnect" crossorigin=""><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><meta id="VersionHtmlMeta" name="Version" content="2.2.8.6"><meta name="viewport" content="width=1000"><style rel="stylesheet" data-href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/smoothness/jquery-ui.css">/*! jQuery UI - v1.10.3 - 2013-05-03
+</title><link href="https://www.googletagmanager.com" rel="preconnect" crossorigin=""><link href="https://www.google-analytics.com" rel="preconnect" crossorigin=""><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><meta id="VersionHtmlMeta" name="Version" content="2.2.8.6"><meta name="viewport" content="width=1000">
+<style rel="stylesheet" data-href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/smoothness/jquery-ui.css">/*! jQuery UI - v1.10.3 - 2013-05-03
 * http://jqueryui.com
 * Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css
 * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana%2CArial%2Csans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=cccccc&bgTextureHeader=highlight_soft&bgImgOpacityHeader=75&borderColorHeader=aaaaaa&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=flat&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=e6e6e6&bgTextureDefault=glass&bgImgOpacityDefault=75&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=888888&bgColorHover=dadada&bgTextureHover=glass&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=ffffff&bgTextureActive=glass&bgImgOpacityActive=65&borderColorActive=aaaaaa&fcActive=212121&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=glass&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=glass&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
@@ -2807,8 +2808,10 @@ a {
         
     
     <div class="modal-overlay" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
-  <div class="modal-content" id="modal_holder" role="document">
-    {% include "create-account/_partials/_create-new-account.html" %}
+  <div class="modal-content" id="modal_holder" role="document" style="width: 75%; height:80%; background-color:white; overflow: hidden">
+  <iframe style="width:100%; height:100%; border: none" src="{{ rootUrl }}/create-account/login-nhs">
+   <!-- {% include "create-account/_partials/_create-new-account.html" %}-->
+    </iframe>
     <button class="btn-close" id="modal_close" type="button" aria-label="close">
       &times;
     </button>
