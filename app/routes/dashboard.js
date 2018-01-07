@@ -19,6 +19,10 @@ module.exports = function (router) {
         res.redirect('/prove-your-identity/v1/pyi-uplift?service=' + service + "&serviceName=" + serviceName)
         return
     }
+      if (service === 'eredbook') {
+          res.redirect('/service-access/service-access-eredbook-02?service=' + service + "&serviceName=" + serviceName)
+          return
+      }
     // re-render the page along with the parameter
     res.render('account/dashboard', {vouch: vouched, vouchNew: vouchNew, service: service, serviceName: serviceName, later: later}, function(err, html) {
       res.send(html)
