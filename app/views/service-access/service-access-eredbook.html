@@ -2,8 +2,8 @@
 {% block page_title %}Access eRedbook{% endblock %}
 
 {% set isServiceStart = 'true' %}
-{% set service = "record" %}
-{% set serviceName = "Access%20your%20medical%20record" %}
+{% set service = "eredbook" %}
+{% set serviceName = "Access%20eRedbook" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block header %}
@@ -13,56 +13,36 @@
 
 {% block content %}
 
-<p>Use this service to:</p>
-<ul>
-  <li>Get access to your eRedbook</li>
-</ul>
-
-<p>To access this service you need to prove your identity. You'll only ever need to do this once.</p>
+<p>To access this service you need to create an NHS account and then allow us to verify your identity. You'll only ever need to do this once.</p>
 
 <section class="prove-id">
-	<h2>Prove your identity</h2>
+	<h2>Steps</h2>
 
-	<div class="task incomplete">
-		<img src="/images/number-01.png">
-
-		<h3>Give details about you</h3>
-		<div class="status">
-			<span class="todo">TO DO</span>
-		</div>
-		<a href="#" class="button">START</a>
-	</div>
-
-	<div class="task incomplete">
-		<img src="/images/number-02.png">
-
-		<h3>Upload ID documentation</h3>
-		<div class="status">
-			<span class="todo">TO DO</span>
-		</div>
-		<a href="#" class="button">START</a>
-
-		<p>Before you start you will need <strong>one</strong> of the following:</p>
-		<ul>
-			<li>Passport</li>
-			<li>Driver's license</li>
-		</ul>
-	</div>
-	
-	<div class="task incomplete">
-		<img src="/images/number-03.png">
-
-		<h3>Submit a video selfie</h3>
-		<div class="status">
-			<span class="todo">TO DO</span>
-		</div>
-		<a href="#" class="button">START</a>
-
-		<p>This helps us match your face with your photo ID.</p>
-	</div>
+	<ol class="step-list">
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Create an NHS account</h3>
+			<a href="/create-account/create-acc-terms{{ params }}" class="step-list__item__status button">Start</a>
+			</h3>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Give details about yourself</h3>
+			<!--<a href="#" class="step-list__item__status__text">Completed</a>-->
+			</h3>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Enter your photo document ID number</h3>
+			</h3>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Submit a video selfie</h3>
+			</h3>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Accept access to your dependants records</h3>
+			</h3>
+		</li>
+	</ol>
 </section>
-
-<!-- <a href="/create-account/sign-on{{ params }}" class="button">Start</a> -->
 
 {% endblock %}
 {% block rightcol %}{% endblock %}

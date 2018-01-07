@@ -44,6 +44,8 @@
     float: left;
     margin: 0 30px 0 16px;
   }
+
+  @include clearfix;
 }
 
 .sidebar-button--pa {
