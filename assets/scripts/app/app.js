@@ -108,6 +108,13 @@ $("#modal-create-acc").on("click", function(e){
   window.parent.document.location.href = e.target.href;
 })
 
+
+$("#modalLoginComplete").on("click", function(e){
+  e.preventDefault();
+  window.parent.document.location.href = e.target.href;
+})
+
+
 // helper function to place modal window as the first child
 // of the #page node
 var m = document.getElementById('modal_window'),
