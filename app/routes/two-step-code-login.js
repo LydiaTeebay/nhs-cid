@@ -14,6 +14,7 @@ module.exports = function (router) {
     var terms = req.param('terms')
     var resend = req.param('resend')
     var mobileNum = req.param('mobileNum')
+    var emailAddress = req.param('emailAddress')
     var pinCode = Math.floor(1000 + Math.random() * 9000)
     var personalisation = {
         'pincode': pinCode
@@ -29,7 +30,7 @@ module.exports = function (router) {
     .catch(err => console.error(err))
     }
     // re-render the page along with the parameter
-    res.render('create-account/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum }, function(err, html) {
+    res.render('create-account/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress }, function(err, html) {
       res.send(html)
     })
   })
@@ -62,7 +63,6 @@ module.exports = function (router) {
             res.send(html)
         })
     })
-
 
     router.get('/create-account/v3/two-step-code-login', function (req, res) {
         // pull in the url parameters
