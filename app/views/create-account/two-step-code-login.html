@@ -44,10 +44,16 @@
       </fieldset>
     </div>
     <div class="form-group">
+      {% if terms %}
+      <a id="modalLoginComplete" href="/service-access/service-access-eredbook-02" class="button">Continue</a>
+      {% else %}
       <a id="modalLoginComplete" href="/end/your-childs-health-record" class="button">Continue</a>
+      {% endif %}
     </div>
 <!--<p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&terms=yes&resend=yes">you can resend it</a>.</p>-->
- <mark>not able to resend and keep the callout...needs looking at</mark>
+    {% if not terms %}
+    <mark>not able to resend and keep the callout...needs looking at</mark>
+    {% endif %}
  <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}">you can resend it</a>.</p>
    
   </form>
