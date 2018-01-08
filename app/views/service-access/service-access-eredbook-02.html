@@ -6,35 +6,35 @@
 {% set serviceName = "Access%20eRedbook" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Access eRedbook','') }}
+{% endblock %}
+
 {% block content %}
 
 <section class="prove-id">
-	<h2>Steps</h2>
 
 	<ol class="step-list">
 		<li class="step-list__item">
 			<h3 class="step-list__item--task">Create an NHS account</h3>
 			<a href="#" class="step-list__item__status__text">Completed</a>
-			</h3>
 		</li>
 		<li class="step-list__item">
-			<h3 class="step-list__item--task">Give details about yourself</h3>
+			<h3 class="step-list__item--task">Your NHS number</h3>
 			<a href="/create-account/create-acc-terms{{ params }}" class="step-list__item__status button">Start</a>
-			<p>We will </p>
-			</h3>
-		</li>
-		<!--<li class="step-list__item">-->
-			<!--<h3 class="step-list__item&#45;&#45;task">Enter your photo document ID number</h3>-->
-			<!--</h3>-->
-		<!--</li>-->
-		<li class="step-list__item">
-			<h3 class="step-list__item--task">Verify your identity</h3>
-			<p>You'll need to send us a picture of yourself</p>
-			</h3>
+			<p>If you don't have your NHS number we will ask for some basic information about yourself</p>
 		</li>
 		<li class="step-list__item">
-			<h3 class="step-list__item--task">Accept access to your dependants records</h3>
-			</h3>
+			<h3 class="step-list__item--task">Photo ID document details</h3>
+			<!-- <p>You will need either your passport number or driving licence number</p> -->
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Submit a video selfie</h3>
+			<!-- <p>This helps us match your face with your photo ID</p> -->
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Add children to your eRedbook</h3>
 		</li>
 	</ol>
 </section>
