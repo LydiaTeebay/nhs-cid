@@ -4,7 +4,7 @@
 {% set isServiceStart = 'true' %}
 {% set service = "eredbook" %}
 {% set serviceName = "Access%20eRedbook" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAdress=" + emailAdress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
@@ -32,7 +32,7 @@
 		</li>
 		<li class="step-list__item">
 			<h3 class="step-list__item--task">Submit a video selfie</h3>
-			<a href="/create-account/create-acc-terms{{ params }}" class="step-list__item__status button">Start</a>
+			<a href="/service-access/service-access-video-selfie{{ params }}" class="step-list__item__status button">Start</a>
 			<p>This helps us match your face with your photo ID</p>
 		</li>
 		<li class="step-list__item">
