@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% extends '_layouts/_iframe_layout.html' %}
 {% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
@@ -16,7 +16,19 @@
   {% endif %}
 {% endblock %}
 
-{% block content %}
+{% block body %}
+
+<style>
+.page-section {
+    padding: 0 16px 16px 16px;
+}
+
+input.form-control {
+    margin-top: 0;
+    margin-bottom:16px;
+}
+</style>
+
 <div class="first-item">
   <form>
     <div class="form-group">
@@ -35,9 +47,7 @@
         {% endif %}
 
         <div class="form-group">
-        {% if terms %}
           <label class="form-label" for="code">Text message code</label>
-        {% endif %}
           <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
         </div>
 
