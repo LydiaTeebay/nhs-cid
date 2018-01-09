@@ -17,6 +17,7 @@
 
     var url = "https://token-factory.onfido.com/sdk_token"
     var request = new XMLHttpRequest()
+    var redirect = "service-access-eredbook-05{{ params }}"
     request.open('GET', url, true)
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
@@ -28,6 +29,7 @@
                 onComplete: function(data) {
                     // callback for when everything is complete
                     console.log("everything is complete")
+                    window.location.href = redirect
                 },
                 steps: [
                     // {
@@ -65,6 +67,24 @@
 
 <div id="onfido-mount"></div>
 
+</div>
+
+<div><h1 class="onfido-sdk-ui-Theme-title">Great, that’s everything we need</h1>
+    <div class="onfido-sdk-ui-Theme-thickWrapper"><p
+            class="onfido-sdk-ui-Theme-center onfido-sdk-ui-CrossDeviceSubmit-submessage">We’re now ready to verify your
+        identity</p>
+        <ul class="onfido-sdk-ui-CrossDeviceSubmit-uploadList">
+            <li><span class="onfido-sdk-ui-Theme-icon onfido-sdk-ui-CrossDeviceSubmit-icon"></span><span
+                    class="onfido-sdk-ui-CrossDeviceSubmit-listText">Document uploaded</span></li>
+            <li><span class="onfido-sdk-ui-Theme-icon onfido-sdk-ui-CrossDeviceSubmit-icon"></span><span
+                    class="onfido-sdk-ui-CrossDeviceSubmit-listText">Selfie uploaded</span></li>
+        </ul>
+        <div>
+            <button class="onfido-sdk-ui-Theme-btn onfido-sdk-ui-Theme-btn-primary onfido-sdk-ui-Theme-btn-centered">
+                Submit verification
+            </button>
+        </div>
+    </div>
 </div>
 
 
