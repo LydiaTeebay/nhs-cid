@@ -1,10 +1,7 @@
-{% extends '_layouts/_grids/_grid-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Access eRedbook{% endblock %}
 
-{% set isServiceStart = 'true' %}
-{% set service = "record" %}
-{% set serviceName = "Access%20your%20medical%20record" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block content %}
 
@@ -96,7 +93,7 @@
     </div>
 
     <div class="form-group">
-      <a class="button" href="service-access-eredbook-03" id="continue">Continue</a>
+      <a class="button" href="service-access-eredbook-03{{ params }}" id="continue">Continue</a>
     </div>
 
   </form>
