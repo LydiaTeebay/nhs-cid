@@ -25,18 +25,18 @@
         {% if terms %}
         <h1>Check your phone</h1>
         {% else %}
-        <h1>Security code</h1>
+        <h1>Check your phone</h1>
         {% endif %}
 
         {% if terms %}
-        <p>We've sent you a text message with a security code to {{ mobileNum }}.</p>
+        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
         {% else %}
-        <h2 class="heading-xlarge"><legend>Enter security code</legend></h2>
-        <p>We have sent a security code to your phone</p>
+        <!--<h2 class="heading-xlarge"><legend>Enter security code</legend></h2>-->
+        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
         {% endif %}
 
         <div class="form-group">
-          <label class="form-label" for="code">Text message code</label>
+          <label class="form-label" for="code">Security code</label>
           <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
         </div>
 
@@ -45,7 +45,7 @@
     <div class="form-group">
       <a id="modalLoginComplete" href="/service-access/service-access-eredbook-02{{ params }}" class="button">Continue</a>
     </div>
-    <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-pincode{{ params }}&resend=yes">you can resend it</a>.</p>
+    <p class="">Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="two-step-code-pincode{{ params }}&resend=yes">you can resend it</a>.</p>
 
   </form>
 </div>
