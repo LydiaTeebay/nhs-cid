@@ -5,3 +5,14 @@
     top: 10%;
   }
 }
+
+.rrui__input-label, .rrui__input:not(.rrui__input--multiline) {
+  margin: 0;
+  display: block;
+  width: 100%;
+  padding: 2px;
+  border: none;
+  font-family: inherit;
+  line-height: inherit;
+
+}
