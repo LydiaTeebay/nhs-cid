@@ -3,18 +3,9 @@
 {% set signedin = '' %}
 
 {# work out where to send users #}
-{% if vouch %}
-{% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName%}
-{% elif service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
-{% endif %}
 
-{% block topRow %}
-  {% if resend == "yes" %}
-    {% import "_partials/_components/_callout.html" as callout %}
-    {{ callout.pattern('','Your security code has been resent.','attention') }}
-  {% endif %}
-{% endblock %}
+
+
 
 {% block body %}
 
@@ -31,7 +22,12 @@ input.form-control {
     margin-bottom:16px;
 }
 </style>
-
+<!--
+{% if resend == "yes" %}
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','Your security code has been resent.','attention') }}
+  {% endif %}
+-->
 <div class="first-item">
   <form>
     <div class="form-group">
@@ -58,16 +54,15 @@ input.form-control {
     </div>
     <div class="form-group">
       {% if terms %}
-      <a id="modalLoginComplete" href="/service-access/service-access-eredbook-02" class="button">Continue</a>
+      <a id="modalLoginComplete" href="https://eredbook-uat.azurewebsites.net/london " class="button">Continue</a>
       {% else %}
-      <a id="modalLoginComplete" href="/end/your-childs-health-record" class="button">Continue</a>
+      <a id="modalLoginComplete" href="https://eredbook-uat.azurewebsites.net/london " class="button">Continue</a>
       {% endif %}
     </div>
 <!--<p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&terms=yes&resend=yes">you can resend it</a>.</p>-->
     {% if not terms %}
-    <mark>not able to resend and keep the callout...needs looking at</mark>
     {% endif %}
- <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}">you can resend it</a>.</p>
+ <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}?resend=yes&mobileNum=07403473169">you can resend it</a>.</p>
    
   </form>
 </div>

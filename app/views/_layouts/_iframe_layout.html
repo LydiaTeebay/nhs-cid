@@ -2,8 +2,17 @@
 <link rel="stylesheet" href="/app.css">
 {% include '_partials/_global_header_modal.html'%}
 {% block header %}
-
+<style>
+.callout {
+    padding: 8px 16px 8px 32px;
+}
+</style>
 {% endblock %}
+{% if resend == "yes" %}
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','Your security code has been resent.','warning') }}
+  {% endif %}
+
 <div class="page-section">
 {% block body %}{% endblock %}
 </div>
