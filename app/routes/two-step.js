@@ -19,7 +19,7 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var vouched = req.param('vouch')
-        res.redirect('/create-account/two-step-code-login?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
+        res.redirect('/create-account/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
     })
     router.get('/create-account/v4/two-step', function (req, res) {
         // pull in the url parameters
