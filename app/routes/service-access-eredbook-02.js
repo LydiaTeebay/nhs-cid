@@ -1,5 +1,5 @@
 module.exports = function (router) {
-    router.get('/service-access-eredbook', function (req, res) {
+    router.get('/service-access-eredbook-02', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -7,7 +7,7 @@ module.exports = function (router) {
         var mobileNum = req.param('mobileNum')
         var emailAddress = req.param('emailAddress')
         // re-render the page along with the parameter
-        res.render('service-access-eredbook', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+        res.render('service-access-eredbook-02', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
             res.send(html)
         })
     })

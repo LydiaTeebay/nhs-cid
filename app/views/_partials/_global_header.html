@@ -8,7 +8,7 @@
   float: left;
   width: calc(100% - 95px);
   text-align: left;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 @media screen and (max-width: 640px) {
@@ -22,7 +22,7 @@
 @media screen and (min-width: 641px) {
 
   .global-header__service {
-    width: calc(66% - 95px);
+    width: calc(66% - 125px);
   }
 
   .menu-links {
@@ -30,7 +30,7 @@
   }
 
   .global-header__service + .menu-links {
-    width: calc(33% - 95px);
+    width: calc(33% - 10px);
   }
 }
 </style>
@@ -43,8 +43,8 @@
       </a>
 
       {% if isServiceStart !== 'true' %}
-        {% if (serviceName) and (signedin !== 'true') %}
-          <h4 class="global-header__service">{{ serviceName }}</h4>
+        {% if (serviceName) %}
+          <h4 class="global-header__service">{{ serviceName|safe }}</h4>
         {% endif %}
       {% endif %}
 

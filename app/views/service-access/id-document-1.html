@@ -1,0 +1,48 @@
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "record" %}
+{% set serviceName = "Access%20your%20medical%20record" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Which photo ID do you want to use?</legend></h1>
+        
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="id-document-2">
+            UK Passport
+          </label>
+        </div>
+        
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="id-document-3">
+            UK Driving Licence
+          </label>
+        </div>
+
+        <!-- <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="vouching-qanda-intro">
+            Neither of these
+          </label>
+        </div> -->
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}
