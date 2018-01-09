@@ -150,8 +150,6 @@ swap();
       lastFocus,
       i
 
-console.log(mOverlay);
-
   // wrap all this and check the modal is on the page first
   if (mOverlay !== null) {
     // Let's open the modal
