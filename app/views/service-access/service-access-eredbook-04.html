@@ -1,10 +1,11 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Access eRedbook{% endblock %}
 
+{% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
 {% set service = "eredbook" %}
 {% set serviceName = "Access%20eRedbook" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAdress=" + emailAdress + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
