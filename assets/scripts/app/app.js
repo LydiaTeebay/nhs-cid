@@ -108,6 +108,10 @@ $("#modal-create-acc").on("click", function(e){
   window.parent.document.location.href = e.target.href;
 })
 
+$('#modal-verify').on('click', function(e) {
+  e.preventDefault();
+  window.parent.document.location.href = e.currentTarget.href;
+})
 
 $("#modalLoginComplete").on("click", function(e){
   e.preventDefault();
@@ -137,6 +141,7 @@ swap();
   var mOverlay = getId('modal_window'),
       mOpen = getId('modal_open'),
       mCreate = getId('modal_create'),
+      mCreate2 = getId('modal_create2'), 
       mClose = getId('modal_close'),
       modal = getId('modal_holder'),
       emailField = getId('emailAddress'),
@@ -193,7 +198,8 @@ console.log(mOverlay);
 
     // open modal by btn click/hit
     // mOpen.addEventListener('click', modalShow)
-    mCreate.addEventListener('click', modalShow, false)
+    mCreate.addEventListener('click', modalShow, false);
+    mCreate2.addEventListener('click', modalShow, false);
 
     // close modal by btn click/hit
     mClose.addEventListener('click', modalClose)
