@@ -2,9 +2,7 @@
 {% block page_title %}Access eRedbook - Prove your Identity{% endblock %}
 {% set signedin = 'true' %}
 
-{% set service = "eredbook" %}
-{% set serviceName = "Access eRedbook" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAdress=" + emailAdress + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
 {% endblock %}
@@ -17,6 +15,7 @@
 
     var url = "https://token-factory.onfido.com/sdk_token"
     var request = new XMLHttpRequest()
+    var redirect = "service-access-eredbook-05{{ params }}"
     request.open('GET', url, true)
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
@@ -28,6 +27,7 @@
                 onComplete: function(data) {
                     // callback for when everything is complete
                     console.log("everything is complete")
+                    window.location.href = redirect
                 },
                 steps: [
                     // {
@@ -67,8 +67,6 @@
 <p><a href="/prove-your-identity/pyi-continue-offline">I would prefer to prove my identity another way</a></p>
 
 <div id="onfido-mount"></div>
-
-</div>
 
 
 
