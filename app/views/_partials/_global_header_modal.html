@@ -1,0 +1,72 @@
+<style>
+.btn-close {
+  color: white;
+}
+
+.global-header {
+  background-color: #005eb8;
+}
+
+.global-header__link {
+  float: left;
+  width: 95px;
+  background-image: url("../images/logotype-nhs-colour.png");
+}
+
+.global-header__service {
+  float: left;
+  width: calc(100% - 95px);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 640px) {
+  h4.global-header__service {
+    font-size: 16px;
+    line-height: 18px;
+    }
+  
+}
+
+@media screen and (min-width: 641px) {
+
+  .global-header__service {
+    width: calc(66% - 95px);
+  }
+
+  .menu-links {
+    width: calc(100% - 95px);
+  }
+
+  .global-header__service + .menu-links {
+    width: calc(33% - 95px);
+  }
+
+  .global-header__link {
+    background-image: url("../images/logotype-nhs-colour.png");
+  }
+}
+</style>
+
+<header role="banner">
+  <div class="global-header">
+    <div class="global-header__inner">
+      <a href="/" class="global-header__link">
+        <img src="/images/logotype-nhs-colour.png" alt="NHS">
+      </a>
+
+      {% if isServiceStart !== 'true' %}
+        {% if (serviceName) and (signedin !== 'true') %}
+          <h4 class="global-header__service">{{ serviceName }}</h4>
+        {% endif %}
+      {% endif %}
+
+      {% if signedin %}
+        <div style="float: right;" class="menu-links">
+          <p style="padding: 0; margin: 0; text-align: right;"><a href="/account/dashboard">Dashboard</a> | <a href="/account">Account</a> | <a href="/">Sign out</a></p>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</header>
