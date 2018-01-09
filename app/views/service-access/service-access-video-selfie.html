@@ -2,9 +2,7 @@
 {% block page_title %}Access eRedbook - Prove your Identity{% endblock %}
 {% set signedin = 'true' %}
 
-{% set service = "eredbook" %}
-{% set serviceName = "Access eRedbook" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAdress=" + emailAdress + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
 {% endblock %}
@@ -66,26 +64,6 @@
 <p><a href="/prove-your-identity/pyi-continue-offline">I would prefer to prove my identity another way</a></p>
 
 <div id="onfido-mount"></div>
-
-</div>
-
-<div><h1 class="onfido-sdk-ui-Theme-title">Great, that’s everything we need</h1>
-    <div class="onfido-sdk-ui-Theme-thickWrapper"><p
-            class="onfido-sdk-ui-Theme-center onfido-sdk-ui-CrossDeviceSubmit-submessage">We’re now ready to verify your
-        identity</p>
-        <ul class="onfido-sdk-ui-CrossDeviceSubmit-uploadList">
-            <li><span class="onfido-sdk-ui-Theme-icon onfido-sdk-ui-CrossDeviceSubmit-icon"></span><span
-                    class="onfido-sdk-ui-CrossDeviceSubmit-listText">Document uploaded</span></li>
-            <li><span class="onfido-sdk-ui-Theme-icon onfido-sdk-ui-CrossDeviceSubmit-icon"></span><span
-                    class="onfido-sdk-ui-CrossDeviceSubmit-listText">Selfie uploaded</span></li>
-        </ul>
-        <div>
-            <button class="onfido-sdk-ui-Theme-btn onfido-sdk-ui-Theme-btn-primary onfido-sdk-ui-Theme-btn-centered">
-                Submit verification
-            </button>
-        </div>
-    </div>
-</div>
 
 
 
