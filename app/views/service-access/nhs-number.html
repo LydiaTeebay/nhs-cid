@@ -1,0 +1,98 @@
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "record" %}
+{% set serviceName = "Access%20your%20medical%20record" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+
+      <h1 class="">
+        <legend>
+          Do you know your NHS number?
+        </legend>
+      </h1>
+      <fieldset>
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice" data-target="nhs-yes">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="yes">
+            <label for="radio-inline-1">Yes</label>
+          </div>
+        </div>
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice" data-target="nhs-no">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="no">
+            <label for="radio-inline-2">No</label>
+          </div>
+        </div>
+
+
+        <div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="nhs-yes">
+
+          <div class="form-group">
+            <label class="form-label" for="field4">NHS Number</label>
+            <span class="form-label__hint">Example: 485 777 3456</span>
+            <input class="form-control code" id="field4" name="field4" type="text">
+          </div>
+
+        </div>
+
+        <div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="nhs-no">
+
+          <div class="form-group">
+
+            <label class="form-label" for="firstname">First name</label>
+            <input class="form-control code" type="text" id="firstname" name="firstname">
+
+            <label class="form-label" for="lastname">Last Name</label>
+            <input class="form-control code" type="text" id="lastname" name="lastname">
+
+            <label class="form-label" for="postcode">Postcode</label>
+            <span class="form-label__hint">This must be the same postcode that you are registered with you GP</span>
+            <input class="form-control code" type="text" id="postcode" name="postcode">
+
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend class="form-label">
+                Date of birth
+              </legend>
+              <span class="form-label__hint">For example, '01 04 1980'</span>
+              <div class="form-group -date">
+                <div class="form-date-field">
+                  <label for="dob-day">Day</label>
+                  <input type="number" id="dob-day" name="dob-day" value="" class="day" maxlength="2">
+                </div>
+                <div class="form-date-field">
+                  <label for="dob-month">Month</label>
+                  <input type="number" id="dob-month" name="dob-month" value="" class="month" maxlength="2">
+                </div>
+                <div class="form-date-field">
+                  <label for="dob-year">Year</label>
+                  <input type="number" id="dob-year" name="dob-year" value="" class="year" maxlength="4">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        </div>
+
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+      <a class="button" href="service-access-eredbook-03" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock %}
