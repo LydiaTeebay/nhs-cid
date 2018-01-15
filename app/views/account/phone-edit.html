@@ -25,12 +25,17 @@
 {% block rightcol %}
 
 <div class="first-item">
+	<h2>Enter new phone number</h2>
 
-	<h2>Phone number</h2>
+	<p>We need to validate your phone number to make your account more secure.</p>
 
-	<p>07*** ***123 <span class="step-list__item__status__text" style="float: none; padding-left: 15px;"> 2 FACTOR VERIFIED</span></p> 
+	<div class="form-group">	
 
-	<a class="button" href="phone-edit">Edit phone number</a>
+		<label class="form-label" for="new-phone">New phone number</label>
+		<input class="form-control" id="new-phone" name="field2" type="number">
+	</div>
+
+	<a class="button" href="phone-code">Continue</a>
 
 </div>
 

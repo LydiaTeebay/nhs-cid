@@ -23,14 +23,26 @@
 {% endblock %}
 
 {% block rightcol %}
+<div class="callout callout--attention">
+	<p>Your security code has been resent.</p>
+</div>
 
 <div class="first-item">
 
-	<h2>Phone number</h2>
+	<h2>Check your phone</h2>
 
-	<p>07*** ***123 <span class="step-list__item__status__text" style="float: none; padding-left: 15px;"> 2 FACTOR VERIFIED</span></p> 
+	<p>We've sent you a message with a security code to 077*** ***123.</p>
 
-	<a class="button" href="phone-edit">Edit phone number</a>
+	<fieldset class="inline">
+		<div class="form-group">
+	        <label class="form-label" for="code">Security code</label>
+	        <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+	    </div>
+	</fieldset>
+	<a class="button" href="phone">Continue</a>
+
+
+	<p>Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="phone-resend">you can resend it</a>.</p>
 
 </div>
 
