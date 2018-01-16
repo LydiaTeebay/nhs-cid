@@ -21,7 +21,7 @@
 
   {% if service === "eredbook2" %}
   <p><a class="button" href="/create-account/login-nhs{{ params }}">Validate my email</a></p>
-  {% if service === "eredbook" %}
+  {% elif service === "eredbook" %}
   <p><a class="button" href="/create-account/v5/login-nhs{{ params }}">Validate my email</a></p>
   {% elif service === "results" %}
   <p><a class="button" href="/create-account/v4/login-nhs{{ params }}">Validate my email</a></p>

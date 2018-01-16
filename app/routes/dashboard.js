@@ -13,7 +13,7 @@ module.exports = function (router) {
         return
     }
     if (service === 'eredbook') {
-        res.redirect('/service-access/service-access-eredbook-02?service=' + service + "&serviceName=" + serviceName)
+        res.redirect('/service-access/v1/service-access-eredbook-02?service=' + service + "&serviceName=" + serviceName)
         return
     }
     if (service === 'childrecord' || service === 'results') {

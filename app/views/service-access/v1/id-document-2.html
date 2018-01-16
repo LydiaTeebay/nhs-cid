@@ -1,0 +1,44 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Enter your passport number</legend></h1>
+
+        <div class="form-group">
+          <label class="form-label" for="field1" style="display: none;">Enter your passport number</label>
+          <span class="form-hint">Example: 485 777 3456</span>
+          <input class="form-control" id="field1" name="field2" type="text">
+        </div>
+        <!--<h2 id="reveal">What is the passport number</h2>-->
+        <details class="" role="group">
+          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">Where is the passport number?</span>
+          </summary>
+
+          <div id="details-content-0" aria-hidden="false" class="callout callout--info callout--friendly">
+            <div class="reading-width">
+              <p><img src="/images/passport.jpg" width="260" alt="Photo of a passport" /></p>
+            </div>
+          </div>
+
+        </details>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="service-access-eredbook-04{{ params }}" id="continue">Continue</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}

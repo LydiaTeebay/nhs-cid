@@ -3,8 +3,6 @@
 
 {% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
-{% set service = "eredbook" %}
-{% set serviceName = "Access%20eRedbook" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
@@ -28,13 +26,12 @@
 		</li>
 		<li class="step-list__item">
 			<h3 class="step-list__item--task">Photo ID document details</h3>
-			<a href="#" class="step-list__item__status__text">Completed</a>
-			<!-- <p>You will need either your passport number or driving licence number</p> -->
+			<a href="id-document-1{{ params }}" class="step-list__item__status button">Start</a>
+			<p>You will need either your passport number or driving licence number.</p>
 		</li>
 		<li class="step-list__item">
 			<h3 class="step-list__item--task">Submit a video selfie</h3>
-			<a href="service-access-video-selfie{{ params }}" class="step-list__item__status button">Start</a>
-			<p>We need this to match your face with your photo ID</p>
+			<!-- <p>This helps us match your face with your photo ID</p> -->
 		</li>
 		<li class="step-list__item">
 			<h3 class="step-list__item--task">Add children to your eRedbook</h3>
