@@ -8,6 +8,10 @@ module.exports = function (router) {
     var serviceName = req.param('serviceName')
     // redirect to uplift page
 
+    if (service === 'eredbook2') {
+        res.redirect('/service-access/service-access-eredbook-02?service=' + service + "&serviceName=" + serviceName)
+        return
+    }
     if (service === 'eredbook') {
         res.redirect('/service-access/service-access-eredbook-02?service=' + service + "&serviceName=" + serviceName)
         return
@@ -16,10 +20,6 @@ module.exports = function (router) {
       res.redirect('/prove-your-identity/v4/pyi-uplift?service=' + service + "&serviceName=" + serviceName)
       return
     }
-    // if (service === 'results') {
-    //   res.redirect('/prove-your-identity/v4/pyi-uplift?service=' + service + "&serviceName=" + serviceName)
-    //   return
-    // }
     if (service === 'record') {
         res.redirect('/prove-your-identity/v3/pyi-uplift?service=' + service + "&serviceName=" + serviceName)
         return

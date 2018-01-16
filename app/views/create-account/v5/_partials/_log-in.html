@@ -1,0 +1,40 @@
+
+<h3>Log in to your NHS account</h3>
+
+<div class="first-item">
+    <form>
+        <div class="form-group">
+            <fieldset class="">
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Email</label>
+                    <input class="form-control2" id="field1" name="field1" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Password</label>
+                    <input class="form-control" id="field1" name="field1" type="password">
+                </div>
+
+            </fieldset>
+        </div>
+
+        <a class="button" href="service-childs-health-record?sidebar=2fa" id="continue">Continue</a>
+
+        <p><a id="modal_create" href="service-childs-health-record?sidebar=create-new">Create a new NHS account</a></p>
+
+        <p><a href="service-childs-health-record?sidebar=forgot-pass">Forgotten your password?</a></p>
+
+        <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin-bottom: 40px;">
+          <span style="font-size: 18px; background-color: #f0f4f5; padding: 0 10px;">Or</span>
+        </div>
+
+
+        <div class="sidebar-button sidebar-button--gv">
+            <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">
+                <img src="/images/logo-verify@2x.png" width="60" />
+                <p style="font-size: 16px; line-height: 22px; color: #000;" class="font-xsmall">Log in to your NHS account with <strong>GOV.UK Verify</strong></p>
+            </a>
+        </div>
+    </form>
+</div>
