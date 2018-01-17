@@ -35,28 +35,28 @@ input.form-control {
         {% if terms %}
         <h1>Check your phone</h1>
         {% else %}
-        <h1>Security code</h1>
+        <h1>Enter security code</h1>
         {% endif %}
 
         {% if terms %}
         <p>We've sent you a text message with a security code to {{ mobileNum }}.</p>
         {% else %}
-        <h2 class="heading-xlarge"><legend>Enter security code</legend></h2>
+        <!--<h2 class="heading-xlarge"><legend>Enter security code</legend></h2>-->
         <p>We have sent a security code to your phone</p>
         {% endif %}
 
         <div class="form-group">
-          <label class="form-label" for="code">Text message code</label>
-          <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+          <label class="form-label" for="code">Security code</label>
+          <input autocomplete="off" type="tel" class="form-control" name="code" id="securityCode" value="" class="code">
         </div>
 
       </fieldset>
     </div>
     <div class="form-group">
       {% if terms %}
-      <a id="modalLoginComplete" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button">Continue</a>
+      <a id="securitycodeContinue" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button button--disabled">Continue</a>
       {% else %}
-      <a id="modalLoginComplete" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button">Continue</a>
+      <a id="securitycodeContinue" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button button--disabled">Continue</a>
       {% endif %}
     </div>
 <!--<p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&terms=yes&resend=yes">you can resend it</a>.</p>-->

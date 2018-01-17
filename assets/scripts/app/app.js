@@ -118,6 +118,14 @@ $("#modalLoginComplete").on("click", function(e){
   window.parent.document.location.href = e.target.href;
 })
 
+$("#securityCode").on("input", function(e) {
+  if (e.currentTarget.value.length == 4) {
+    $("#securitycodeContinue").removeClass('button--disabled');
+  } else {
+    $("#securitycodeContinue").addClass('button--disabled');
+  }
+})
+
 
 // helper function to place modal window as the first child
 // of the #page node

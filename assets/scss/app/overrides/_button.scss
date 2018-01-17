@@ -37,6 +37,12 @@
   @include button(#005eb8);
 }
 
+.button--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 @media (min-width: 641px) {
   .button--patient-access,
   .button--systm-one,
