@@ -9,7 +9,8 @@
  saved date: Tue Dec 05 2017 16:00:50 GMT+0000 (GMT) 
 --><!--<![endif]--><head id="Head1"><title>
 	eRedbook
-</title><link href="https://www.googletagmanager.com" rel="preconnect" crossorigin=""><link href="https://www.google-analytics.com" rel="preconnect" crossorigin=""><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><meta id="VersionHtmlMeta" name="Version" content="2.2.8.6"><meta name="viewport" content="width=1000"><style rel="stylesheet" data-href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/smoothness/jquery-ui.css">/*! jQuery UI - v1.10.3 - 2013-05-03
+</title><link href="https://www.googletagmanager.com" rel="preconnect" crossorigin=""><link href="https://www.google-analytics.com" rel="preconnect" crossorigin=""><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><meta id="VersionHtmlMeta" name="Version" content="2.2.8.6"><meta name="viewport" content="width=1000">
+<style rel="stylesheet" data-href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/smoothness/jquery-ui.css">/*! jQuery UI - v1.10.3 - 2013-05-03
 * http://jqueryui.com
 * Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css
 * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana%2CArial%2Csans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=cccccc&bgTextureHeader=highlight_soft&bgImgOpacityHeader=75&borderColorHeader=aaaaaa&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=flat&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=e6e6e6&bgTextureDefault=glass&bgImgOpacityDefault=75&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=888888&bgColorHover=dadada&bgTextureHover=glass&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=ffffff&bgTextureActive=glass&bgImgOpacityActive=65&borderColorActive=aaaaaa&fcActive=212121&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=glass&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=glass&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
@@ -2785,8 +2786,14 @@ a {
 	
                     <label for="SignInHyperLink" id="SignInLabel">Already set up your eRedbook?</label>
 
-                    <a id="SignInHyperLink" href="https://www.eredbook.org.uk/parental/login/signin">Sign in</a>
+                    <a id="modal_create" href="#">Sign in</a>
                 
+
+
+
+
+
+
 </div>
                 <div class="clear"></div>
                 
@@ -2795,11 +2802,24 @@ a {
         </div>
     </div>
 
-    
-    
+
 
     <div id="main">
         
+
+    
+    <div class="modal-overlay" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
+  <div class="modal-content" id="modal_holder" role="document" style="width: 75%; height:85%; background-color:white; overflow: hidden; padding: 0">
+  <iframe style="width:100%; height:100%; border: none" src="{{ rootUrl }}/create-account/v5/login-nhs">
+   <!-- {% include "create-account/_partials/_create-new-account.html" %}-->
+    </iframe>    
+    <button class="btn-close" id="modal_close" type="button" aria-label="close" style="color: white; right: 8px; top: -28px;">
+      &times;
+    </button>
+  </div> <!-- end .modal-content -->
+</div> <!-- end .modal-overlay -->
+
+
     <div class="whiteTopNav">
         <ul>
             <li><a href="https://undefined/">Home<div class="selectedWhiteNav"></div></a></li>
@@ -2836,31 +2856,26 @@ a {
             </div>
             <div class="signUpBox clear">
                 <div>
-                    
-
-                    <div id="MainContentPlaceHolder_MainContentPlaceHolder_RegisterPanel">
+                    <div id="MainContentPlaceHolder_MainContentPlaceHolder_OrgLandingPanel">
 	
                         <div class="tac">
+
                             <div>
-                                <h2>
-                                    Join the eRedbook trial!</h2>
-                            </div>
-                            <div>
-                                <p>
-                                    If you are interested in participating in the trial and/or being kept up to date with the latest eRedbook developments, please let us know via our 'Contact' form.
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="inYourRegion">
-                                <p class="tac">
-                                    <a id="MainContentPlaceHolder_MainContentPlaceHolder_ContactUsHyperlink" class="notifyMe" href="http://www.eredbook.org/contact">Contact us</a>
-                                    
-                                </p>
+                                <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$MainContentPlaceHolder$OrgIDHF" id="MainContentPlaceHolder_MainContentPlaceHolder_OrgIDHF" value="321e2d1e-2ddb-473f-8f30-6b7fa50d8701">
+                                <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$MainContentPlaceHolder$ICodeHF" id="MainContentPlaceHolder_MainContentPlaceHolder_ICodeHF">
+                                <div class="registerBtn">
+                                    <a id="modal_create2" href="" style="line-height:2.5em" class="erbSubmitButton2">Create your eRedbook</a>
+                                    <!--<input type="submit" name="ctl00$ctl00$MainContentPlaceHolder$MainContentPlaceHolder$OrganisationButton" value="Create your eRedbook" id="MainContentPlaceHolder_MainContentPlaceHolder_OrganisationButton" class="erbSubmitButton2">-->
+                                </div>
+                                <p>eRedbook helps you manage your child's early years.</p><p>Your information is stored securely in Microsoft HealthVault.</p>
                             </div>
                         </div>
                     
 </div>
+
+                    
+                </div>
+            </div>
                 </div>
             </div>
         </div>
@@ -2990,6 +3005,8 @@ a {
     C135.4,56.9,122.6,45.2,107.2,45.2z M107.1,87.1c-8.6,0-14.7-6.4-14.8-15.4c0-9.5,6-16.2,14.7-16.2c9.7,0,18,7,18.1,15.3
     C125.1,79.9,117.2,87.1,107.1,87.1z"></path>
 </svg>
-Feedback</div><div id="us_report_button_description" style="text-indent: -99999px; display: block; position: absolute; width: 0px; height: 0px; color: transparent; overflow: hidden; top: -999999px; left: -999999px;">Send a screenshot with your annotations.</div></body></html>
+Feedback</div><div id="us_report_button_description" style="text-indent: -99999px; display: block; position: absolute; width: 0px; height: 0px; color: transparent; overflow: hidden; top: -999999px; left: -999999px;">Send a screenshot with your annotations.</div>
+
+</body></html>
 
 {% endblock %}
