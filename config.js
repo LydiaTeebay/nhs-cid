@@ -40,7 +40,7 @@ module.exports = {
     },
     css: {
       // src: srcPath + 'scss/**/[!_]*.scss',
-      src: [srcPath + 'scss/app/**/*.scss', srcPath + 'scss/nhsuk/**/*.scss'],
+      src: [srcPath + 'scss/app/**/*.scss', srcPath + 'scss/nhsuk/**/*.scss', srcPath + 'scss/onfido/**/*'],
       dest: destPath
     },
     scripts: {

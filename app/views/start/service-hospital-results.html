@@ -1,14 +1,14 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}View your hospital record{% endblock %}
+{% block page_title %}View your hospital results{% endblock %}
 
 {% set isServiceStart = 'true' %}
 {% set service = "results" %}
-{% set serviceName = "View%20your%20hospital%20record" %}
+{% set serviceName = "View%20your%20hospital%20results" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('View your hospital record','') }}
+  {{ localHeader.pattern('View your hospital results','') }}
 {% endblock %}
 
 {% block content %}

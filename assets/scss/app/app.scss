@@ -17,12 +17,18 @@
 @import "overrides/local-header";
 @import "overrides/panel";
 @import "overrides/list";
+@import "overrides/step-list";
 
 // Pull in new styles
 @import "new/instructions";
 @import "new/email";
 @import "new/camera";
 @import "new/sidebar";
+@import "new/modal";
+@import "new/data";
+@import "new/onfido";
+@import "new/service-access";
+@import "new/delegate";
+@import "new/account";
 
 // Add your custom CSS here
-

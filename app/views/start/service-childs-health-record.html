@@ -2,8 +2,8 @@
 {% block page_title %}View your Personal Child Health Record{% endblock %}
 
 {% set isServiceStart = 'true' %}
-{% set service = "results" %}
-{% set serviceName = "view%20your%20Personal%20Child%20Health%20Record%20" %}
+{% set service = "childrecord" %}
+{% set serviceName = "View%20your%20Personal%20Child%20Health%20Record%20" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block header %}
@@ -20,9 +20,9 @@
   <li>manage your child's immunisation schedule</li>
 </ul>
 
-<!--<a href="/create-account/sign-on{{ params }}" class="button">Start</a>-->
 
 {% endblock %}
+
 {% block rightcol %}
 {% if message %}
 <div class="sidebar-callout">
@@ -36,17 +36,17 @@
 
 <div class="sidebar">
   {% if sidebar === "create-new" %}
-    {% include "create-account/_partials/_create-new-account.html" %}
+    {% include "create-account/v4/_partials/_create-new-account.html" %}
   {% elif sidebar === "2fa" %}
-    {% include "create-account/_partials/_log-in-2fa.html" %}
+    {% include "create-account/v4/_partials/_log-in-2fa.html" %}
   {% elif sidebar === "forgot-pass" %}
-    {% include "create-account/_partials/_log-in-forgot-pass.html" %}
+    {% include "create-account/v4/_partials/_log-in-forgot-pass.html" %}
   {% elif sidebar === "verify-email" %}
-    {% include "create-account/_partials/_verify-email.html" %}
+    {% include "create-account/v4/_partials/_verify-email.html" %}
   {% elif sidebar === "set-mobile" %}
-    {% include "create-account/_partials/_set-mobile.html" %}
+    {% include "create-account/v4/_partials/_set-mobile.html" %}
   {% elif sidebar === "2fa-new" %}
-    {% include "create-account/_partials/_create-account-2fa.html" %}
+    {% include "create-account/v4/_partials/_create-account-2fa.html" %}
   {% else %}
     {% include "create-account/_partials/_log-in.html" %}
   {% endif %}

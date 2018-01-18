@@ -1,0 +1,24 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+{% set signedin = 'true' %}
+{% set isServiceStart = 'false' %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+
+      <h1>You have shared access to Rosie Dymond's eRedbook</h1>
+
+      <p>An email has been sent to johndymond@email.com inviting them to view Rosie Dymond's eRedbook.</p>
+      <p>You will need to tell them the password in order for them to get access.</p>
+
+    </div>
+
+
+    <div class="form-group">
+      <a class="button" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" id="continue">Return to eRedbook</a>
+    </div>
+  </form>
+
+{% endblock %}

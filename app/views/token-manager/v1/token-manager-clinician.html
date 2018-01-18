@@ -1,0 +1,74 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Token Manager{% endblock %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+<!--<table>
+
+      <td>Gemma Davis</td>
+      <td>46563434</td>
+      <td>23</td>
+      <td><small class="phase-tag phase-tag-active">ACTIVE</small></td>
+      <td><a href="">edit</a></td>
+
+-->
+<table>
+  <caption>3 Tokens issued by Gemma Davis</caption>
+  <thead>
+    <tr>
+      <th><input type="checkbox" /></th>
+      <th>Token</a>
+      <th>Patient</th>
+      <th>NHS No.</th>
+      <th>Issue Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td><a href="token-manager-token">123</a></td>
+      <td>Alex Hills</td>
+      <td>3409823439</td>
+      <td>21st Sept 2017</td>
+      <td><small class="phase-tag phase-tag-active">ACTIVE</small></td>
+      <td><a href="token-manager-token">edit</a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td><a href="token-manager-token">234</a></td>
+      <td>Christopher Williams</td>
+      <td>3389290290</td>
+      <td>21st Sept 2017</td>
+      <td><small class="phase-tag phase-tag-pending">PENDING</small></td>
+      <td><a href="token-manager-token">edit</a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td><a href="token-manager-token">345</a></td>
+      <td>Sarah Wilkinson</td>
+      <td>98230498234</td>
+      <td>21st Sept 2017</td>
+      <td><small class="phase-tag phase-tag-revoked">REVOKED</small></td>
+      <td><a href="token-manager-token">edit</a></td>
+    </tr>
+  </tbody>
+</table>
+<p><a href="">Remove all selected tokens</a></p>
+
+{% endblock %}
+
+{% block rightcol %}
+<div class="sidebar">
+  <h3>Clinician details</h3>
+  <p><b>Clinician:</b><br>Gemma Davis <small class="phase-tag phase-tag-active">ACTIVE</small></p>
+  <p><b>ID:</b><br>46563434</p>
+  <p><b>Tokens issued:</b><br>23</p>
+
+  <p><a href="token-manager-clinician-revoke" class="button button--cancel">Revoke Access</a></p>
+  
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/nhsuk.css">
+<link rel="stylesheet" href="/app.css">
+{% include '_partials/_global_header_modal.html'%}
+{% block header %}
+<style>
+.callout {
+    padding: 8px 16px 8px 32px;
+}
+</style>
+{% endblock %}
+{% if resend == "yes" %}
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','Your security code has been resent.','warning') }}
+  {% endif %}
+
+<div class="page-section">
+{% block body %}{% endblock %}
+</div>
+<script src="/scripts/jquery-1.12.4.min.js"></script>
+<script src="/show-hide-content.js"></script>
+<script src="/app.js"></script> 

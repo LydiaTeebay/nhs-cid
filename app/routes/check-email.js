@@ -33,7 +33,64 @@ module.exports = function (router) {
       res.send(html)
     })
   })
+    router.get('/create-account/v5/check-email', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
 
+        // send email message
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason
+        var personalisation = {
+            'email_address': emailAddress,
+            'params': params
+        }
+        if (emailAddress !== '' || emailAddress !== 'undefined') {
+            notifyClient
+                .sendEmail(templateId, emailAddress, {
+                    personalisation: personalisation
+                })
+                .then(response => console.log(response)
+        ).catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v5/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.get('/create-account/v4/check-email', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+
+        // send email message
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason
+        var personalisation = {
+            'email_address': emailAddress,
+            'params': params
+        }
+        if (emailAddress !== '' || emailAddress !== 'undefined') {
+            notifyClient
+                .sendEmail(templateId, emailAddress, {
+                    personalisation: personalisation
+                })
+                .then(response => console.log(response)
+        ).catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v4/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+            res.send(html)
+        })
+    })
     router.get('/create-account/v3/check-email', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')
@@ -60,6 +117,35 @@ module.exports = function (router) {
         }
         // re-render the page along with the parameter
         res.render('create-account/v3/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.get('/create-account/v2/check-email', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+
+        // send email message
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason
+        var personalisation = {
+            'email_address': emailAddress,
+            'params': params
+        }
+        if (emailAddress !== '' || emailAddress !== 'undefined') {
+            notifyClient
+                .sendEmail(templateId, emailAddress, {
+                    personalisation: personalisation
+                })
+                .then(response => console.log(response)
+        ).catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v2/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
             res.send(html)
         })
     })

@@ -37,6 +37,12 @@
   @include button(#005eb8);
 }
 
+.button--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 @media (min-width: 641px) {
   .button--patient-access,
   .button--systm-one,
@@ -49,4 +55,9 @@
       margin-top: 16px;
     }
   }
+}
+
+#onfido-button,
+button.onfido-sdk-ui-Theme-btn.onfido-sdk-ui-Theme-btn-centered.onfido-sdk-ui-Theme-btn-primary {
+  @include button($green);
 }

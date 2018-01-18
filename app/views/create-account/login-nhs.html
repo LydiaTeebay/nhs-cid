@@ -1,57 +1,60 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Sign in to your NHS account {{serviceName}}{% endblock %}
+{% extends '_layouts/_iframe_layout.html' %}
+{% block page_title %}Sign in to your NHS account {{serviceName}}
+{% endblock %}
 {% set signedin = '' %}
 
-{# work out where to send users #}
-{% if vouch %}
-{% set params = "?vouch=" + vouch %}
-{% elif service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
-{% elif newUser %}
-{% set params = "?newUser=" + newUser %}
-{% endif %}
+{% block body %}
 
-{% block topRow %}
-{% if passwordChange == "yes" %}
-{% import "_partials/_components/_callout.html" as callout %}
-{{ callout.pattern('Your password has been reset.','','attention') }}
-{% elif emailValid == "yes" %}
-{% import "_partials/_components/_callout.html" as callout %}
-{{ callout.pattern('Your email address has been validated.','','attention') }}
-{% endif %}
+<style>
+.global-header__inner {
+  padding-left: 16px;
+}
+.page-section {
+    padding: 0 16px 16px 16px;
+}
 
-{% endblock %}
-
-{% block content %}
+input.form-control {
+    margin-top: 0;
+    margin-bottom:16px;
+}
+</style>
 
 <div class="first-item">
-  <form>
-    <div class="form-group">
-      <fieldset class="">
-        <h1><legend>Log in to your NHS account</legend></h1>
-
+   <form>
         <div class="form-group">
-          <label class="form-label" for="field1">Email</label>
-          <input class="form-control" id="field1" name="field1" type="text">
+            <fieldset class="">
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Email</label>
+                    <input class="form-control" id="field1" name="field1" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Password</label>
+                    <input class="form-control" id="field2" name="field2" type="password">
+                </div>
+
+            </fieldset>
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="field2">Password</label>
-          <input class="form-control" id="field2" name="field2" type="password">
+        <a class="button" href="two-step-code-login?mobileNum=07403473169" id="continue">Continue</a>
+
+        <p><a id="modal-create-acc" href="/service-access/service-access-eredbook">Create a new NHS account</a></p>
+
+        <p><a href="forgotten-password">Forgotten your password?</a></p>
+
+        <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin-bottom: 40px;">
+          <span style="font-size: 18px; background-color: #ffffff; padding: 0 10px;">Or</span>
         </div>
 
-      </fieldset>
-    </div>
-    <div class="form-group">
-      {% if newUser == "yes" %}
-      <a class="button" href="two-step{{ params }}" id="continue">Continue</a>
-      {% else %}
-      <a class="button" href="two-step-code-login{{ params }}" id="continue">Continue</a>
-      {% endif %}
-    </div>
-    <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
-    <p><a href="create-acc-terms{{ params }}">I don't have an NHS account</a></p>
-  </form>
+
+        <div class="sidebar-button sidebar-button--gv">
+            <a id="modal-verify" href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">
+                <img src="/images/logo-verify@2x.png" width="60" />
+                <p style="font-size: 16px; line-height: 22px; color: #000;" class="font-xsmall">Log in to your NHS account with <strong>GOV.UK Verify</strong></p>
+            </a>
+        </div>
+    </form>
 </div>
 
 {% endblock %}
