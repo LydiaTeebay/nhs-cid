@@ -126,6 +126,12 @@ $("#securityCode").on("input", function(e) {
   }
 })
 
+$("#securitycodeContinue").on("click", function(e) {
+  if (e.currentTarget.href == "https://eredbook-uat.azurewebsites.net/parental/Inbox") {
+    window.parent.document.location.href = e.target.href;
+  }
+})
+
 
 // helper function to place modal window as the first child
 // of the #page node
