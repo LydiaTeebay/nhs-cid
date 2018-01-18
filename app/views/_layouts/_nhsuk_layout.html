@@ -45,12 +45,13 @@
   {% endif %}
 
   <script src="/scripts/jquery-1.12.4.min.js"></script>
+  {% block extrascripts %}{% endblock %}
   <script src="/show-hide-content.js"></script>
   <script src="/app.js"></script> 
   <script src="/nhsuk.js"></script>
   <script src="/scripts/selection-buttons.js"></script>
   <script src="/scripts/smooth-scroll.js"></script>
-  {% block extrascripts %}{% endblock %}
+
 </body>
 
 </html>
