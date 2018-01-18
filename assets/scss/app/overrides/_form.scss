@@ -54,6 +54,16 @@ input[type='tel'].-small {
   width: 8em;
 }
 
+@media (min-width: 500px) {
+  input[type='text'].postcode,
+  input[type='number'].postcode,
+  input[type='password'].postcode,
+  input[type='email'].postcode,
+  input[type='tel'].postcode {
+    width: 30%;
+  }
+}
+
 input[type='text'].code,
 input[type='number'].code,
 input[type='password'].code,
