@@ -1,22 +1,10 @@
-{% extends '_layouts/_iframe_layout.html' %}
-{% set signedin = '' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+{% set signedin = 'true' %}
+{% set isServiceStart = 'false' %}
 
-{% block body %}
+{% block content %}
 
-<style>
-.global-header__inner {
-  padding-left: 16px;
-}
-.page-section {
-    padding: 0 16px 16px 16px;
-}
-
-input.form-control {
-    margin-top: 0;
-    margin-bottom:16px;
-}
-</style>
-<p><a href="/create-account/two-step-code-login"><- back</a></p>
   <form>
     <div class="form-group">
 
@@ -41,7 +29,7 @@ input.form-control {
 
 
     <div class="form-group">
-      <a class="button" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" id="securitycodeContinue">Add to eRedbook account</a>
+      <a class="button" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" id="continue">Add to eRedbook account</a>
     </div>
     <!-- <div class="form-group">
       <p>My child isn't listed. <a href="#">Add new child</a></p>

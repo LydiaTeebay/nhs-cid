@@ -127,6 +127,7 @@ $("#securityCode").on("input", function(e) {
 })
 
 $("#securitycodeContinue").on("click", function(e) {
+  //console.log(e.target.href);
   if (e.currentTarget.href == "https://eredbook-uat.azurewebsites.net/parental/Inbox") {
     window.parent.document.location.href = e.target.href;
   }
