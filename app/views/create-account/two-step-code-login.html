@@ -2,11 +2,6 @@
 {% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
-{# work out where to send users #}
-
-
-
-
 {% block body %}
 
 <style>
@@ -54,17 +49,22 @@ input.form-control {
 
       </fieldset>
     </div>
+
+<!-- https://eredbook-uat.azurewebsites.net/parental/Inbox -->
+
     <div class="form-group">
       {% if terms %}
-      <a id="securitycodeContinue" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button button--disabled">Continue</a>
+      <!--<a id="securitycodeContinue" href="/eredbook/erb-child-import{{ params }}&mobileNum=07403473169" class="button button--disabled">Continue</a>-->
+      <a id="" href="/eredbook/erb-child-import?mobileNum=07403473169" class="button">Continue</a>
       {% else %}
-      <a id="securitycodeContinue" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button button--disabled">Continue</a>
+      <!--<a id="securitycodeContinue" href="/eredbook/erb-child-import{{ params }}&mobileNum=07403473169" class="button button--disabled">Continue</a>-->
+      <a id="" href="/eredbook/erb-child-import?mobileNum=07403473169" class="button">Continue</a>
       {% endif %}
     </div>
 <!--<p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&terms=yes&resend=yes">you can resend it</a>.</p>-->
     {% if not terms %}
     {% endif %}
- <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}?resend=yes&mobileNum=07403473169">you can resend it</a>.</p>
+ <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}?resend=yes">you can resend it</a>.</p>
    
   </form>
 </div>
