@@ -2,20 +2,25 @@
 {% block page_title %}Access eRedbook{% endblock %}
 
 {% set signedin = 'true' %}
+{% set verified = 'true' %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
 
 {% block header %}
-	{% set message = 'This could take up to 24 hours.<br><br>We will <a href=/emails/email-identity-verified' + params + '>email</a> you when we have made the necessary checks.' %}
-  {% import "_partials/_components/_local-header.html" as localHeader %}
-{{ localHeader.pattern('Thank you! We are now verifying your identity', message|safe) }}
+<div class="local-header">
+	<h1 class="local-header__title">Thank you! We are now verifying your identity</h1>
+	<div class="local-header__intro">
+		<div class="reading-width">
+			<p>This could take up to 24 hours.<br><br>We will <a href="/emails/email-identity-verified{{ params }}">email</a> you when we have made the necessary checks.</p>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
 
 {% block content %}
 
 <section class="prove-id">
-
-	<p><a href="{{ params }}">{{ params }}</a></p>
 
 	<ol class="step-list">
 		<li class="step-list__item">

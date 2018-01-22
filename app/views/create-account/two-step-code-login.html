@@ -1,6 +1,6 @@
 {% extends '_layouts/_iframe_layout.html' %}
 {% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&resend=" + resend %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&resend=" + resend + "&verified=" + verified %}
 
 {% block body %}
 
@@ -46,10 +46,12 @@ input.form-control {
     </div>
 
     <div class="form-group">
-      {% if terms %}
+      {% if verified !== 'undefined' %}
       <a id="securitycodeContinue" href="/eredbook/erb-child-import{{ params }}" class="button button--disabled">Continue</a>
+      {% elif terms %}
+
       {% else %}
-      <a id="securitycodeContinue" href="/eredbook/erb-child-import{{ params }}" class="button button--disabled">Continue</a>
+      <a id="securitycodeContinue" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button button--disabled">Continue</a>
       {% endif %}
     </div>
     {% if not terms %}

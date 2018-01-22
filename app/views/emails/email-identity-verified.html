@@ -5,7 +5,7 @@
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
 {% endif %}
 
 {% block content %}

@@ -1,11 +1,6 @@
 ﻿{% extends '_layouts/_blank_layout.html' %}
 
-
-{% if service %}
-{% set signedin = 'true' %}
-{% endif %}
-
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&signedin=" + signedin %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
 
 {% block body %}
 

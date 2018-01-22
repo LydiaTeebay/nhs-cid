@@ -9,13 +9,14 @@ module.exports = function (router) {
     var terms = req.param('terms')
     var emailAddress = req.param('emailAddress')
     var mobileNum = req.param('mobileNum')
+    var verified = req.param('verified')
     // re-render the page along with the parameter
 
     if (terms === 'yes') {
-      res.redirect('/create-account/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched)
+      res.redirect('/create-account/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified)
       return
     } else {
-      res.render('create-account/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms }, function(err, html) {
+      res.render('create-account/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified }, function(err, html) {
           res.send(html)
       })
     }
