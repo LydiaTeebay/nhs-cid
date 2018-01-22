@@ -48,14 +48,10 @@ input.form-control {
     <div class="form-group">
       {% if verified !== 'undefined' %}
       <a id="securitycodeContinue" href="/eredbook/erb-child-import{{ params }}" class="button button--disabled">Continue</a>
-      {% elif terms %}
-
       {% else %}
       <a id="securitycodeContinue" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" class="button button--disabled">Continue</a>
       {% endif %}
     </div>
-    {% if not terms %}
-    {% endif %}
     <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login?resend=yes">you can resend it</a>.</p>
   </form>
 </div>
