@@ -2,14 +2,12 @@
 {% block page_title %}Access eRedbook{% endblock %}
 
 {% set signedin = 'true' %}
-{% set isServiceStart = 'true' %}
-{% set service = "eredbook" %}
-{% set serviceName = "Access%20eRedbook" %}
+<!--{% set isServiceStart = 'true' %}-->
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Access eRedbook','') }}
+  {{ localHeader.pattern(serviceName,'') }}
 {% endblock %}
 
 {% block content %}

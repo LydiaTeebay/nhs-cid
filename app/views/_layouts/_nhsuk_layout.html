@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="{{ bodyClass }}">
+<body class="{{ bodyClass }}" {{ dataAtt|safe }}>
 
   {% include '_partials/_service-alert.html' %}
 

@@ -3,6 +3,7 @@
 {% set signedin = 'true' %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+{% set dataAtt = 'data-num="' + mobileNum + '"' %}
 
 {% block header %}
 {% endblock %}
@@ -16,7 +17,7 @@
 
     var url = "https://token-factory.onfido.com/sdk_token"
     var request = new XMLHttpRequest()
-    var redirect = "service-access-eredbook-05{{ params }}"
+    var redirect = "service-access-eredbook-06{{ params }}"
     request.open('GET', url, true)
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
@@ -43,7 +44,7 @@
                     //         nextButton:'Continue'
                     //     }
                     // },
-                    // 'document',
+                    'document',
                     'face'
                     // 'complete'
                 ]

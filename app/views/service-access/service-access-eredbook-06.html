@@ -2,19 +2,20 @@
 {% block page_title %}Access eRedbook{% endblock %}
 
 {% set signedin = 'true' %}
-{% set isServiceStart = 'true' %}
-{% set service = "eredbook" %}
-{% set serviceName = "Access%20eRedbook" %}
+
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
+	{% set message = 'This normally takes between 5 and 20 minutes.<br><br>We will <a href=/emails/email-identity-verified' + params + '>email</a> you when we have made the necessary checks.' %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Access eRedbook','') }}
+{{ localHeader.pattern('Thank you! We are now verifying your identity', message|safe) }}
 {% endblock %}
 
 {% block content %}
 
 <section class="prove-id">
+
+	<p><a href="{{ params }}">{{ params }}</a></p>
 
 	<ol class="step-list">
 		<li class="step-list__item">
@@ -33,7 +34,7 @@
 			<h3 class="step-list__item--task">Submit a video selfie</h3>
 			<span class="step-list__item__status__text">Completed</span>
 		</li>
-		<a href="/emails/email-identity-verified{{params}}">Temp link to email</a>
+		<!--<a href="/emails/email-identity-verified{{params}}">Temp link to email</a>-->
 		<!-- <li class="step-list__item">
 			<h3 class="step-list__item--task">Add children to your eRedbook</h3>
 			<a href="/eRedbook/erb-child-import{{ params }}" class="step-list__item__status button">Start</a>
