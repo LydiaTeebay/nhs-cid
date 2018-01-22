@@ -3,9 +3,40 @@
 {% set signedin = '' %}
 {% set terms = 'yes' %}
 
-
-
 {% block content %}
+
+<style>
+
+.sidebar-button {
+  border-radius: 0;
+  padding: 25px 15px;
+}
+
+.sidebar-button--gv {
+    background-color: #005ea5;
+    border: 0;
+    width: 100%
+}
+
+.sidebar-button--gv a {
+    background: #fff;
+    color: #005ea5;
+    font-weight: bold;
+    margin: 35px 15px 15px 0;
+    box-shadow: 0 2px 0 #003618;
+    font-size: 1em;
+    line-height: 1.25;
+    text-decoration: none;
+    padding: .526315em .789473em .263157em;
+    display: block;
+    text-align: center;
+}
+
+.sidebar-button p {
+  font-size: 18px;
+}
+
+</style>
 
 <div class="first-item">
   <form>
@@ -38,10 +69,10 @@
 {% block rightcol %}
 
 <div class="sidebar-button sidebar-button--gv">
-    <a href="https://nhs-cid-verify.herokuapp.com/intro">
-      <img src="/images/logo-verify@2x.png" width="60" />
-      <p style="font-size: 16px; line-height: 22px; color: #000;" class="font-xsmall">Create an NHS account with <br><strong>GOV.UK Verify</strong></p>
-    </a>
+    
+      <img src="/images/non-gov-verify-logo.png" width="80" />
+      <p style="font-family: "nta", Arial, sans-serif; font-weight: 400; text-transform: none; font-size: 18px;" class="font-xsmall">Create an NHS account with <br><strong>VERIFY</strong></p>
+      <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">Create a GOV.UK Verify account</a>
   </div>
 
   <details class="" role="group">
