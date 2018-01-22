@@ -31,8 +31,8 @@ input.form-control {
             Name: <b>{{ child1name }}</b> <span>AGE: {{ child1age }}</span>
           </label>
         </div>
-        {% endif %}
 
+        {% else %}
         <div class="child-import">
           <label class="block-label selection-button-checkbox" for="radio-inline-1">
             <input id="radio-inline-1" type="checkbox" name="radio-inline-group" value="Rosie Dymond">
@@ -45,6 +45,9 @@ input.form-control {
             Name: <b>Fox Dymond</b> <span>DOB: 01/11/2016</span>
           </label>
         </div>
+        {% endif %}
+
+          
       </fieldset>
 
     </div>
