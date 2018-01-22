@@ -6,7 +6,7 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
 
 {% block header %}
-	{% set message = 'This normally takes between 5 and 20 minutes.<br><br>We will <a href=/emails/email-identity-verified' + params + '>email</a> you when we have made the necessary checks.' %}
+	{% set message = 'This could take up to 24 hours.<br><br>We will <a href=/emails/email-identity-verified' + params + '>email</a> you when we have made the necessary checks.' %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
 {{ localHeader.pattern('Thank you! We are now verifying your identity', message|safe) }}
 {% endblock %}
