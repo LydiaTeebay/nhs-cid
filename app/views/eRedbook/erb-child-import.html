@@ -23,6 +23,16 @@ input.form-control {
         <h1><legend>Add children to your eRedbook account?</legend></h1>
 
       <fieldset>
+
+        {% if child1name %}
+        <div class="child-import">
+          <label class="block-label selection-button-checkbox" for="radio-inline-1">
+            <input id="radio-inline-1" type="checkbox" name="radio-inline-group" value="{{ child1name }}">
+            Name: <b>{{ child1name }}</b> <span>AGE: {{ child1age }}</span>
+          </label>
+        </div>
+        {% endif %}
+
         <div class="child-import">
           <label class="block-label selection-button-checkbox" for="radio-inline-1">
             <input id="radio-inline-1" type="checkbox" name="radio-inline-group" value="Rosie Dymond">
