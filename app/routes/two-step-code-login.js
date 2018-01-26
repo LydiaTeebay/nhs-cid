@@ -1,4 +1,7 @@
+require('dotenv').config()
+
 // notify integration
+// let apiKey = process.env.NOTIFY_APIKEY
 let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'
 let templateId = '4b003bbb-b94f-43db-abee-d407f0e9300d'
 let smsSender = '8e63067f-0698-45d5-ac59-946c2089c058'
