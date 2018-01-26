@@ -9,7 +9,7 @@ module.exports = function (router) {
     // redirect to uplift page
 
     if (service === 'eredbook2') {
-        res.redirect('/service-access/service-access-eredbook-02?service=' + service + "&serviceName=" + serviceName)
+        res.redirect('/service-access/v2/service-access-eredbook-02?service=' + service + "&serviceName=" + serviceName)
         return
     }
     if (service === 'eredbook') {
