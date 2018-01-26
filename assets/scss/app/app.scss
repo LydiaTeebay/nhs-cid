@@ -18,6 +18,7 @@
 @import "overrides/panel";
 @import "overrides/list";
 @import "overrides/step-list";
+@import "overrides/error";
 
 // Pull in new styles
 @import "new/instructions";
@@ -30,5 +31,6 @@
 @import "new/service-access";
 @import "new/delegate";
 @import "new/account";
+@import "new/form-validation";
 
 // Add your custom CSS here
