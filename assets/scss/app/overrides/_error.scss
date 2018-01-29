@@ -3,22 +3,15 @@
 }
 
 .error-message {
-
   display: none;
-
 }
 
 .error-message-active {
-
   display: block;
-
-
 }
 
 .form-row-error-active {
-
   .error-label {
-
     padding-bottom: 0px;
     background-image: url(/images/red-exclamation.png);
     background-repeat: no-repeat;
@@ -30,34 +23,27 @@
   }
 
   .error-label-checkbox {
-
     padding-left: 70px;
     background-position-x: 1%;
-
     @include media(mobile) {
-
       background-position-x: 1.5%;
     }
   }
-
 }
 
 .error-text {
-
   color: $red;
   font-weight: 600;
-
+  line-height: 2em;
 }
 
 // Form input error
 
 .input-has-error {
-
   border: 5px solid $red;
 }
 
 .checkbox-has-error + label::before  {
-
   border-color: $red;
 }
 

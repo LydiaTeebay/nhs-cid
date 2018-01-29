@@ -20,6 +20,12 @@
 @import "overrides/step-list";
 @import "overrides/error";
 
+
+// Pull in old prototype styles
+// classes not needed in production
+@import "old/task";
+
+
 // Pull in new styles
 @import "new/instructions";
 @import "new/email";
@@ -29,6 +35,7 @@
 @import "new/data";
 @import "new/onfido";
 @import "new/service-access";
+@import "new/child-import";
 @import "new/delegate";
 @import "new/account";
 @import "new/form-validation";

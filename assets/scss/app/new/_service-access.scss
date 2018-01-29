@@ -1,215 +1,146 @@
-
 // TODO: maybe share this back to NHS UK
 // start page pattern
 
-.prove-id {
-  //border-bottom: 1px solid $blue;
+$_step-width: $baseline-grid-unit * 8;
+
+.service-access__wrapper {
   padding-bottom: 20px;
 }
 
-.task {
-  width: 100%;
-  border-top: 1px solid $blue;
-
-  img {
-    display: inline-block;
-    }
-
-  h3 {
-    display: inline-block;
-    margin-top: 10px;
-    padding-left: 10px;
-    padding-top: 4px;
-    width: 50%;
-  }
-
-  div.status {
-    display: inline-block;
-    width: 25%;
-
-    span {
-      display: inline-block;
-      border-radius: 2px;
-      padding: 2px;
-      color: #fff;
-      font-weight: bold;
-      font-size: 0.8em;
-    }
-
-    span.todo {
-      background-color: $blue;
-    }
-
-    span.awaiting {
-      background-color: $yellow;
-    }
-
-    span.rejected {
-      background-color: $red;
-    }
-
-    span.complete {
-      background-color: $green;
-    }
-
-  }
-
-  a.button {
-    margin-top: 10px;
-    line-height: 20px;
-    position: relative;
-    right: 0;
-  }
-
-  div.tick {
-    width: 15%;
-    display: inline-block;
-    text-align: right;
-  }
-
+.service-access {
+  @include core-font(16);
+  counter-reset: li;
+  padding: $baseline-grid-unit 0;
+  list-style: none;
 }
 
-.task.complete, .task.pending {
+.service-access__item {
+  position: relative;
+  border-bottom: 1px solid $blue;
+  border-left: 0;
+  margin: 0!important;
+  padding: $default-spacing-unit $gutter*1.5;
+  padding-right: $gutter*.5;
+  @include clearfix;
 
-  a.button, p, ul {
+  // style the numbers
+  &:before {
+    background-color: $nhs-blue;
+    color: $white;
+    display: inline-block;
+    top: $default-spacing-unit;
+    left: $gutter*.25;
+    border-radius: 50%;
+    content: counter(li);
+    counter-increment: li;
+    height: $_step-width;
+    line-height: $_step-width;
+    position: absolute;
+    text-align: center;
+    width: $_step-width;
+  }
+
+  &.active {
+    background-color: $grey-5;
+  }
+  &.completed {
+    &:before {
+      background-color: $white;
+      color: $grey-2;
+      border: 2px solid $grey-2;
+      font-weight: bold;
+      line-height: 28px;
+    }
+  }
+
+  @include media(tablet) {
+    padding-top: $default-spacing-unit;
+    padding-left: $gutter*2;
+    &:before {
+      top: $default-spacing-unit;
+      left: $gutter*.5;
+    }
+  }
+}
+
+.service-access__item__title {
+  display: inline-block;
+  vertical-align: top;
+  .completed & {
+    color: $grey-2;
+  }
+
+  @include media(tablet) {
+    width: 70%;
+  }
+}
+
+.service-access__item__desc {
+  display: inline-block;
+  margin-top: 0;
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: .5em;
+  }
+
+  .completed & {
     display: none;
   }
 
-
-}
-
-.child-import label span{ 
-    display: block;
-    font-size: 0.8em;
-    margin-top: 4px;
-}
-.child-import .block-label.selection-button-checkbox:before {
-  top: 13px
-}
-.child-import .block-label.selection-button-checkbox:after {
-  top: 24px;
-}
-
-
-
-.list--counter{
-
-  ol {
-    list-style-type: none;
-    counter-reset: item;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    line-height: 22px;
-
-    h2, p, blockquote {
-      font-size: 16px;
-      line-height: 22px;
-      margin: 1em 0;
-    }
-    ul {
-      font-size: 16px;
-      line-height: 22px;
-    }
-  }
-
-  ol > li {
-    display: table;
-    counter-increment: item;
-    margin-bottom: 1em;
-    font-weight: bold;
-  }
-
-  ol > li:before {
-    content: counters(item, ".") ". ";
-    display: table-cell;
-    padding-right: 0.6em;
-  }
-
-  li ol > li {
-    margin: 0 0 1em 0;
-    font-weight: normal;
-  }
-
-  li ol > li:before {
-    content: counters(item, ".") " ";
-  }
-}
-
-
-
-// gds stuff
-
-// Task list pattern
-
-// Override column width for tablet and up
-.column-minimum {
   @include media(tablet) {
-    min-width: 600px;
+    width: 70%;
+    margin-left: 0;
   }
 }
 
-// Spacing to the left of the task list
-$task-list-indent: 35px;
-
-.task-list {
-  margin-top: $gutter;
-  @include media(tablet) {
-    margin-top: ($gutter * 2);
-  }
-}
-
-
-.task-list-section {
-  display: table;
-
-  //@include bold-24;
-  padding-bottom: ($gutter / 6);
-}
-
-.task-list-section-number {
-  display: table-cell;
-  padding-right: ($gutter / 6);
-
-  @include media(tablet) {
-    min-width: $task-list-indent;
-    padding-right: 0;
-  }
-}
-
-
-.task-list-items {
-  margin-bottom: $gutter;
-  @include media(tablet) {
-    margin-bottom: ($gutter * 2);
-  }
-
-  @include media(tablet) {
-    padding-left: $task-list-indent;
-  }
-}
-
-.task-list-item {
-  border-bottom: 1px solid $_border-colour;
-  padding-top: $gutter;
-  padding-bottom: $gutter;
-  //@extend %contain-floats;
-}
-
-.task-list-item:first-child {
-  border-top: 1px solid $_border-colour;
-}
-
-
-.task-name {
-  width: 66%;
-  float: left;
-}
-
-.task-completed {
-  //@include phase-tag;
-
+.service-access__item__button {
+  display: inline-block;
   float: right;
-  margin-right: 0;
-  padding-top: 3px;
+  line-height: 20px;
+  margin-top: 1em;
+  @include media(tablet) {
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+
+// completed text
+.service-access__item__status {
+  position: relative;
+  //color: $grey-2;
+  &::before,
+  &::after {
+    content: "";
+    right: $gutter*-0.75;
+    top: 0.15em;
+    position: absolute;
+    zoom: 1;
+  }
+  &::before {
+    background: transparent;
+    border: solid;
+    border-color: $green;
+    border-width: 0 0 4px 4px;
+    height: 9px;
+    //top: .7em;
+    transform: rotate(-45deg);
+    width: 15px;
+  }
+
+  @include media(tablet) {
+    &::before,
+    &::after {
+      display: none;
+    }
+    display: inline-block;
+    float: right;
+    background-color: $nhs-blue;
+    color: $white;
+    margin: 0;
+    padding: 3px 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+    //font-weight: bold;
+  }
 }

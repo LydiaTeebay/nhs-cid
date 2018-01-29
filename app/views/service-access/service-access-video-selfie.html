@@ -1,92 +1,42 @@
-{% extends '_layouts/_grids/_grid-1-onfido.html' %}
-{% block page_title %}Access eRedbook - Prove your Identity{% endblock %}
-{% set signedin = 'true' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
 
+{% set signedin = 'true' %}
+<!--{% set isServiceStart = 'true' %}-->
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
-{% set dataAtt = 'data-num="' + mobileNum + '"' %}
 
 {% block header %}
-{% endblock %}
-
-{% block topRow %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern(serviceName,'') }}
 {% endblock %}
 
 {% block content %}
-<script src="/onfido.min.js"></script>
-<script type="text/javascript">
 
-    var url = "https://token-factory.onfido.com/sdk_token"
-    var request = new XMLHttpRequest()
-    var redirect = "service-access-eredbook-06{{ params|safe }}"
-    request.open('GET', url, true)
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 400) {
-            var data = JSON.parse(request.responseText)
+<section class="prove-id">
 
-            Onfido.init({
-                useModal: true,
-                token: data.message,
-                onComplete: function(data) {
-                    // callback for when everything is complete
-                    // console.log("everything is complete")
-                    window.location.href = redirect
-                },
-                steps: [
-                    // {
-                    //     type:'welcome',
-                    //     options:{
-                    //         title:'',
-                    //         descriptions: [
-                    //             'To access this service, we will need to verify your identity.',
-                    //             'It will only take a couple of minutes.',
-                    //             'You will need to take a photo of your ID Document and a selfie photo.'
-                    //         ],
-                    //         nextButton:'Continue'
-                    //     }
-                    // },
-                    // 'document',
-                    'face'
-                    // 'complete'
-                ]
-            })
-            var observer = new MutationObserver(function(mutations) {
-                // whenever something changes in the DOM try and populate the text field
-                mutations.forEach(function(mutation) {
-                    document.getElementsByClassName('react-phone-number-input__phone')[0].value = $('#body').data('num')
-                })
-            })
-
-            var observerConfig = {
-                childList: true
-            }
-
-            // Listen to all changes to body and child nodes
-            var targetNode = document.body
-            observer.observe(targetNode, observerConfig)
-
-            // Let's add a sample node to see what the MutationRecord looks like
-            document.body.setAttribute('id', 'body')
-        }
-    }
-    request.send()
-</script>
-
-
-<h1>Record a video selfie</h1>
-
-<p>When you record your video selfie, move your head slowly from side to side for no more than 5 seconds.</p>
-
-<!--
-<p>To access this service, we will need to verify your identity.</p>
-<p>It will only take a couple of minutes.</p>
-<p>You will need to take a photo of yourself using your webcam or your mobile phone.</p>
--->
-<button id='onfido-button' disabled>Continue</button>
-
-<p><a href="/prove-your-identity/pyi-continue-offline{{ params }}">I would prefer to prove my identity another way</a></p>
-
-<div id="onfido-mount"></div>
-
-
+	<ol class="step-list">
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Create an NHS account</h3>
+			<span class="step-list__item__status__text">Completed</span>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Your NHS number</h3>
+			<span class="step-list__item__status__text">Completed</span>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Photo ID document details</h3>
+			<span class="step-list__item__status__text">Completed</span>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Submit a video selfie</h3>
+			<a href="service-access-video-selfie{{ params }}" class="step-list__item__status button">Start</a>
+			<p>For security reasons we need this to match you with your photo ID.</p>
+		</li>
+		<!-- <li class="step-list__item">
+			<h3 class="step-list__item--task">Add children to your eRedbook</h3>
+		</li> -->
+	</ol>
+</section>
 
 {% endblock %}
+{% block rightcol %}{% endblock %}

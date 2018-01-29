@@ -1,0 +1,117 @@
+
+.prove-id {
+  //border-bottom: 1px solid $blue;
+  padding-bottom: 20px;
+}
+
+.task {
+  width: 100%;
+  border-top: 1px solid $blue;
+
+  img {
+    display: inline-block;
+  }
+
+  h3 {
+    display: inline-block;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    width: 50%;
+  }
+
+  div.status {
+    display: inline-block;
+    width: 25%;
+
+    span {
+      display: inline-block;
+      border-radius: 2px;
+      padding: 2px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.8em;
+    }
+
+    span.todo {
+      background-color: $blue;
+    }
+
+    span.awaiting {
+      background-color: $yellow;
+    }
+
+    span.rejected {
+      background-color: $red;
+    }
+
+    span.complete {
+      background-color: $green;
+    }
+
+  }
+
+  a.button {
+    margin-top: 10px;
+    line-height: 20px;
+    position: relative;
+    right: 0;
+  }
+
+  div.tick {
+    width: 15%;
+    display: inline-block;
+    text-align: right;
+  }
+
+}
+
+.task.complete, .task.pending {
+  a.button, p, ul {
+    display: none;
+  }
+}
+
+.list--counter {
+
+  ol {
+    list-style-type: none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 22px;
+
+    h2, p, blockquote {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 1em 0;
+    }
+    ul {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  ol > li {
+    display: table;
+    counter-increment: item;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+
+  ol > li:before {
+    content: counters(item, ".") ". ";
+    display: table-cell;
+    padding-right: 0.6em;
+  }
+
+  li ol > li {
+    margin: 0 0 1em 0;
+    font-weight: normal;
+  }
+
+  li ol > li:before {
+    content: counters(item, ".") " ";
+  }
+}

@@ -1,0 +1,51 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+
+{% set signedin = 'true' %}
+{% set isServiceStart = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern(serviceName,'') }}
+{% endblock %}
+
+{% block content %}
+
+<section class="service-access__wrapper">
+
+	<ol class="service-access">
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Create an NHS account</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your phone.</p>
+				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Your NHS number</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your NHS number.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item active">
+			<h3 class="step-list__item__title">Photo ID document details</h3>
+			<div class="service-access__item__desc">
+				<p>You will need either your passport number or driving licence number.</p>
+			</div>
+			<a href="service-access-id-document-1{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Submit a video selfie</h3>
+			<div class="service-access__item__desc">
+				<p>For security reasons we need this to match your face with your photo ID.</p>
+			</div>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
