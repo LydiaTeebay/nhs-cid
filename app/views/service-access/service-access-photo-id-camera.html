@@ -1,0 +1,36 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType %}
+
+{% block content %}
+
+
+<div class="first-item">
+  <form>
+    <fieldset class="">
+      <legend for="radio-inline-group">
+        <h1 style="padding-bottom: 0;">
+          Take a photo of your {{ idType }}
+        </h1>
+      </legend>
+      <p>Please ensure:</p>
+      <ul class="list list-bullet">
+        <li>the whole document is visible</li>
+        <li>you hold the camera straight above the document</li>
+        <li>the details are clear and readable</li>
+        <li>there are no reflections</li>
+      </ul>
+    <div class="form-group">
+      <label for="id-document" class="camera-button">Open Camera
+        <input type="file" id="id-document" accept="image/*" capture="camera" >
+      </label>
+    </div>
+
+    </fieldset>
+
+  </form>
+</div>
+
+{% endblock %}

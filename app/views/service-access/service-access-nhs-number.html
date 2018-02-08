@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access eRedbook{% endblock %}
+{% block page_title %}Access {{ serviceName }} - What is your NHS number?{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
@@ -15,7 +15,7 @@
 
         <label for="nhs_number">
           <h1 class="">
-            What is your NHS number?
+            Your NHS number
           </h1>
         </label>
 
@@ -25,10 +25,8 @@
             <!--<label class="form-label" for="nhs_number">Your NHS Number</label>-->
             <!-- <span class="form-label__hint">Example: 485 777 3456</span> -->
 
-            {% if formerror === "invalid" %}
+            {% if formerror %}
               <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">Please enter a valid NHS number</span>
-            {% elif formerror === "empty" %}
-              <span class="error error-message error-text error-label error-message-active" id="nhs-number-error">Please enter your NHS number</span>
             {% endif %}
 
             <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
@@ -45,15 +43,7 @@
           <a class="button" href="service-access-photo-id{{ params }}">Continue</a>
         </div>
 
-
-        <details class="" role="group">
-          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="false">
-            <span class="details__summary"><span style="font-size: 20px;">I don't know my NHS number</span></span>
-          </summary>
-          <div id="details-content-0" aria-hidden="true">
-            <p>Unfortunately, you will be unable to use this service. You can find your NHS number on prescriptions, letters or by contacting your GP's surgery.</p>
-          </div>
-        </details>
+        <p><a href="service-access-offline">I don't know my NHS number</a></p>
 
       </fieldset>
 

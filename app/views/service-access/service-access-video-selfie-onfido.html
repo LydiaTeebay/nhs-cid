@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-onfido.html' %}
-{% block page_title %}Access eRedbook - Prove your Identity{% endblock %}
+{% block page_title %}Access {{ serviceName }}{% endblock %}
 {% set signedin = 'true' %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
