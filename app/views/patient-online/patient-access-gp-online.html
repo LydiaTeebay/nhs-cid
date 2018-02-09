@@ -1,0 +1,50 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Do you use your GPs' Online service?</legend></h1>
+
+        <details class="" role="group">
+          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">What is GP Online?</span>
+          </summary>
+          <div class="details__content" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+            <p>Patient Access, Evergreen, SystmOnline</p>
+            <img src="" alt="Patient Access" width="200" height="200">
+            <img src="" alt="Evergreeen" width="200" height="200">
+            <img src="" alt="SystmOnline" width="200" height="200">
+            <p>GP Online services allow you to book appointments online, order repeat prescriptions and access your GP medical record</p>
+            </div>
+          </div>
+        </details>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-access-gp-lookup">
+            Yes
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="../service-access/service-access-offline">
+            No
+          </label>
+        </div>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

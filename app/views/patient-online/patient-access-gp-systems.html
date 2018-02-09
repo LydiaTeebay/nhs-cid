@@ -1,0 +1,75 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>GP Online System service providers</legend></h1>
+        
+        <p>Below are a list of GP Online service providers</p>
+        
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1" style="padding-top:3px">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-access-gp-systems-help-pa">
+              <div class="results__details results__details--nearby" style="margin-top: 0;">
+                <h3 class="results__name">
+                <a href="https://systmonline.tpp-uk.com/Login?PracticeId=B86050">Patient Access</a>
+                </h3>
+               
+                <br />
+                <!--<section class="callout callout--info callout--compact"><p>This surgery uses Patient Access</p></section>-->
+                <!--<a href="" class="button">Continue with Patient Access</a>-->
+                <hr />
+              </div>
+          </label>
+        </div>
+
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2" style="padding-top:3px">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="patient-access-gp-systems-help-so">
+            <div class="results__details results__details--nearby" style="margin-top: 0;">
+                <h3 class="results__name">
+                <a href="https://systmonline.tpp-uk.com/Login?PracticeId=B86050">SystmOnline</a>
+                </h3>
+               
+                <br />
+                <!--<section class="callout callout--info callout--compact"><p>This surgery uses Patient Access</p></section>-->
+                <!--<a href="" class="button">Continue with Patient Access</a>-->
+                <hr />
+            </div>
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3" style="padding-top:3px">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-access-gp-systems-help-ev">
+            <div class="results__details results__details--nearby" style="margin-top: 0;">
+                <h3 class="results__name">
+                <a href="https://systmonline.tpp-uk.com/Login?PracticeId=B86050">Evergreen</a>
+                </h3>
+               
+                <br />
+                <!--<section class="callout callout--info callout--compact"><p>This surgery uses Patient Access</p></section>-->
+                <!--<a href="" class="button">Continue with Patient Access</a>-->
+                <hr />
+            </div>
+          </label>
+        </div>
+
+    </div>
+    
+    <div class="form-group">
+      <a href="#" class="button" id="continue">Continue</a>
+    </div>
+
+
+  </form>
+</div>
+
+{% endblock %}

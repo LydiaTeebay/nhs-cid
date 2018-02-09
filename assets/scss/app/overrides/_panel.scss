@@ -52,6 +52,31 @@
     }
   }
 
+
+  
+  + * {
+    margin-top: 0;
+  }
+}
+
+.panel__content--third {
+  border: solid $grey-4;
+  border-width: 4px 0 0;
+
+  @include media(tablet) {
+    border-width: 0 0 0 4px;
+    display: table-cell;
+    max-width: 33.33%;
+
+    @include ie-lte(7) {
+      border-width: 4px 0 0;
+      display: block;
+      width: auto;
+    }
+  }
+
+
+  
   + * {
     margin-top: 0;
   }

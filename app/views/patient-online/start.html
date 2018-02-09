@@ -1,0 +1,96 @@
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
+{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{% block content %}
+<h1>Have you been sent your GP Online service details?</h1>
+
+
+
+<section class="nhsuk-component">
+  <!--<h2 id="panels">Panels</h2>
+  <div class="example">
+    <div class="panel">
+      <h3 class="panel__header">Panel header</h3>
+      <div class="panel__content">
+        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      </div>
+      <div class="panel__footer">
+        <p>Panel footer (supporting text)</p>
+      </div>
+    </div>
+-->
+    <div class="panel">
+      <div class="panel__content panel__content--third">
+        <img src="" width="200" height="200">
+        <h3>Text</h3>
+      </div>
+      <div class="panel__content panel__content--third">
+        <img src="" width="200" height="200">
+        <h3>E-mail</h3>
+      </div>
+      <div class="panel__content panel__content--third">
+        <img src="" width="200" height="200">
+        <h3>Letter</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ul>
+<li>text</li>
+<li>Email</li>
+<li>Letter</li>
+</ul>
+<details class="" role="group">
+  <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+    <span class="details__summary">How do I get my GP Online services details?</span>
+  </summary>
+  <div class="details__content" id="details-content-0" aria-hidden="false">
+    <div class="reading-width">
+      <p>Phone the GP, do something else</p>
+    </div>
+  </div>
+</details>
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          
+        </legend>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-access-linkage-key">
+            Yes, I've got my details
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="patient-access-gp-lookup">
+            No
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-access-gp-online">
+            I'm not sure
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+
+  </form>
+</div>
+
+{% endblock %}
