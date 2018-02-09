@@ -8,29 +8,59 @@
 
 
 <div class="first-item">
-  <form>
-    <fieldset class="">
-      <legend for="radio-inline-group">
+
+      <section class="" id="scan-id-1">
+
+        <form>
+          <fieldset class="">
+            <legend for="radio-inline-group">
+              <h1 style="padding-bottom: 0;">
+                Take a photo of your {{ idType }}
+              </h1>
+            </legend>
+
+            <p>Please ensure:</p>
+            <ul class="list list-bullet">
+              <li>the whole document is visible</li>
+              <li>you hold the camera straight above the document</li>
+              <li>the details are clear and readable</li>
+              <li>there are no reflections</li>
+            </ul>
+            <div class="form-group">
+
+              <label for="document" class="camera-button">Open Camera
+                <input type="file" id="document" accept="image/*" capture="environment">
+              </label>
+
+            </div>
+
+          </fieldset>
+
+        </form>
+
+      </section>
+
+      <section  class="" id="scan-id-3" style="display:none">
+
         <h1 style="padding-bottom: 0;">
-          Take a photo of your {{ idType }}
+          Review the photo of your {{ idType }}
         </h1>
-      </legend>
-      <p>Please ensure:</p>
-      <ul class="list list-bullet">
-        <li>the whole document is visible</li>
-        <li>you hold the camera straight above the document</li>
-        <li>the details are clear and readable</li>
-        <li>there are no reflections</li>
-      </ul>
-    <div class="form-group">
-      <label for="id-document" class="camera-button">Open Camera
-        <input type="file" id="id-document" accept="image/*" capture="camera" >
-      </label>
-    </div>
 
-    </fieldset>
+        <div class="reading-width">
+          <div id="scan-id-preview">
+            <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
+          </div>
+        </div>
 
-  </form>
+        <div class="form-group">
+          <a class="button" href="service-access-video-selfie{{ params }}" id="">Submit photo</a>&nbsp
+          <p><a href="#" id="submit-document-back-button">Take again</a></p>
+        </div>
+
+      </section>
+
+
+
 </div>
 
 {% endblock %}

@@ -20,10 +20,16 @@ module.exports = function (router) {
         var idType = req.body.idType
         var service = req.param('service')
         var serviceName = req.param('serviceName')
+        var isMobile = req.useragent.isMobile
 
         if (idType === 'passport' || idType === 'driving licence') {
-            res.redirect('/service-access/service-access-photo-id-camera?emailAddress=' + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType)
-            return
+            if (isMobile) {
+                res.redirect('/service-access/service-access-photo-id-camera?emailAddress=' + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType)
+                return
+            } else {
+                res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType)
+                return
+            }
         }
         res.redirect('/service-access/service-access-offline?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType)
     })
