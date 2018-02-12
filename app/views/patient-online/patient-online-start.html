@@ -1,36 +1,32 @@
+
 {% extends '_layouts/_grids/_grid-1-stacked.html' %}
-{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
-{% set signedin = '' %}
+{% block page_title %}View your medical record {{serviceName}}{% endblock %}
+
+{% set params = "?serviceName=" + serviceName %}
 
 {% block content %}
-<h1>Have you been sent your GP Online service details?</h1>
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
-
+<h1>Have you been sent your GP Online details?</h1>
 
 <section class="nhsuk-component">
-  <!--<h2 id="panels">Panels</h2>
-  <div class="example">
-    <div class="panel">
-      <h3 class="panel__header">Panel header</h3>
-      <div class="panel__content">
-        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      </div>
-      <div class="panel__footer">
-        <p>Panel footer (supporting text)</p>
-      </div>
-    </div>
--->
     <div class="panel" style="text-align: center">
       <div class="panel__content panel__content--third">
-        <img src="" width="200" height="200">
+        <div style="margin-top: 0px; margin: auto; width:200px; height: 100px;">
+          <i class="fas fa-5x fa-mobile"></i>
+        </div>
         <h3>Text</h3>
       </div>
       <div class="panel__content panel__content--third">
-        <img src="" width="200" height="200">
+        <div style="margin-top: 0px; margin: auto; width:200px; height: 100px;">
+          <i class="fas fa-5x fa-envelope"></i>
+        </div>
         <h3>E-mail</h3>
       </div>
       <div class="panel__content panel__content--third">
-        <img src="" width="200" height="200">
+        <div style="margin-top: 0px; margin: auto; width:200px; height: 100px;">
+          <i class="fas fa-5x fa-newspaper"></i>
+        </div>
         <h3>Letter</h3>
       </div>
     </div>
@@ -43,7 +39,7 @@
   </summary>
   <div class="details__content" id="details-content-0" aria-hidden="false">
     <div class="reading-width">
-      <p>Phone the GP, do something else</p>
+      <p>Contact your GP surgery and ask for details</p>
     </div>
   </div>
 </details>
@@ -58,21 +54,21 @@
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-access-linkage-key">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-linkage-key{{ params }}">
             Yes, I've got my details
           </label>
         </div>
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="patient-access-gp-lookup">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="patient-online-gp-lookup{{ params }}">
             No
           </label>
         </div>
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-3">
-            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-access-gp-online">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-online-gp-online{{ params }}">
             I'm not sure
           </label>
         </div>
