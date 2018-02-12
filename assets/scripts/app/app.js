@@ -5,6 +5,12 @@ function readURL(input, idType) {
     var reader = new FileReader()
 
     reader.onload = function (e) {
+        if (idType == "doc") {
+
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-3").css("display", "block")
+            $('#uploaded-id').attr('src', e.target.result)
+        }
       if (idType == "id") {
 
         $("#scan-id-1").css("display", "none")
@@ -25,6 +31,11 @@ function readURL(input, idType) {
           $(location).attr('href', 'pyi-scan-id-uploading')
         }
       }
+      if (idType == "selfie") {
+          $("#scan-id-3").css("display", "none")
+          $("#scan-id-4").css("display", "block")
+          $('#uploaded-video>source').attr('src', e.target.result)
+      }
     }
     reader.readAsDataURL(input.files[0])
   }
@@ -34,12 +45,33 @@ $("#id-document").change(function(){
   readURL(this, "id")
 })
 
+$("#document").change(function(){
+    readURL(this, "doc")
+})
+
 // submit photo button action
 $("#submit-id-button").on("click", function(e) {
   e.preventDefault()
   $("#scan-id-2").css("display","none")
   $("#scan-id-3").css("display","block")
   document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit photo button action
+$("#submit-document-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-1").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit photo button action
+$("#submit-document-back-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-3").css("display","none")
+    $("#scan-id-1").css("display","block")
+    document.getElementById("id-document").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
 // submit back button action
@@ -61,6 +93,10 @@ $("#create-video-back-button").on("click", function(e) {
 
 $("#id-selfie").change(function(){
   readURL(this, "video")
+})
+
+$("#selfie").change(function(){
+    readURL(this, "selfie")
 })
 
 // submit back button action
