@@ -20,8 +20,6 @@
   <p>If you didn't create an NHS account using this email address please ignore this email and we will delete the NHS account after 48 hours.</p>
 
 
-  {% if service === "access-record" %}
-  <p><a class="button" href="/create-account/login-nhs-create{{ params }}">Validate my email</a></p>
   {% if service === "nhsonline" %}
   <p><a class="button" href="/create-account/login-nhs{{ params }}">Validate my email</a></p>
   {% elif service === "eredbook2" %}
