@@ -1,0 +1,63 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern(serviceName,'') }}
+{% endblock %}
+
+{% block content %}
+<style>
+.create {
+	background-color: #f0f4f5;
+	border-left: 4px solid #d8dde0;
+	padding: 15px;
+}
+</style>
+
+<p>In order to access this service you must have an NHS account.</p>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
+
+{% block leftHalf %}
+<section class="login">
+	<fieldset class="">
+	    <h2 style="font-size: 26px">Log in to your NHS account</h2>
+
+	    <div class="form-group">
+	      	<label class="form-label" for="field1">Email</label>
+	      	<input class="form-control" id="field1" name="field1" type="text">
+	    </div>
+
+	    <div class="form-group">
+	      	<label class="form-label" for="field2">Password</label>
+	      	<input class="form-control" id="field2" name="field2" type="password">
+	    </div>
+	    <a class="button" href="/create-account/two-step-code-login{{ params }}" id="continue">Continue</a>
+	</fieldset>
+
+	    
+
+	<p><a href="forgotten-password">Forgotten your password?</a></p>
+</section>
+
+{% endblock %}
+
+{% block rightHalf %}
+
+<section class="create">
+	<h2 style="font-size: 26px">Create an NHS account</h2>
+	<p>If you do not have an NHS account you can create one quickly here.</p>
+	<p class="small">You will need:</p>
+	<ul>
+		<li class="small">An email address you have access to</li>
+		<li class="small">A mobile phone you have access to</li>
+	</ul>
+	<p><a class="button" href="/create-account/create-acc-terms{{ params }}">Create an NHS account</a></p>
+</section>
+
+{% endblock %}
