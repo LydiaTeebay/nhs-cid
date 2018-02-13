@@ -1,7 +1,8 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access eRedbook{% endblock %}
+{% block page_title %}{{serviceName}}{% endblock %}
 
 {% set isServiceStart = 'true' %}
+{% set service = "access-results" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block header %}
