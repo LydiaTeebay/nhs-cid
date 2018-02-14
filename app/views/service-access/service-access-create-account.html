@@ -17,6 +17,14 @@
 	border-left: 4px solid #d8dde0;
 	padding: 15px;
 }
+
+.verify-note {
+	background: #f0f4f5 url('/images/govuk-verify-transparent.svg') no-repeat 10px 9px;
+	background-size: 15%;
+	border-left: 4px solid #d8dde0;
+	padding: 15px 15px 15px 100px;
+	margin-top: 5px;
+}
 </style>
 
 <p>In order to access this service you must have an NHS account.</p>
@@ -29,7 +37,11 @@
 	<fieldset class="">
 	    <h2 style="font-size: 26px">Log in to your NHS account</h2>
 
-	    <div class="form-group">
+	    <div class="verify-note">
+	    	<p class="small">If you created your NHS account through <strong>GOV.UK Verify</strong> you can <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">sign in here</a>.</p>
+		</div>
+
+	    <div class="form-group" style="margin-top: 16px;">
 	      	<label class="form-label" for="field1">Email</label>
 	      	<input class="form-control" id="field1" name="field1" type="text">
 	    </div>
@@ -38,7 +50,7 @@
 	      	<label class="form-label" for="field2">Password</label>
 	      	<input class="form-control" id="field2" name="field2" type="password">
 	    </div>
-	    <a class="button" href="/create-account/two-step-code-login{{ params }}" id="continue">Continue</a>
+	    <a class="button" href="/create-account/two-step-code-login{{ params }}" id="continue" style="margin-top: 0;">Continue</a>
 	</fieldset>
 
 	    
