@@ -7,12 +7,13 @@
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Congratulations! You now have an NHS account','You can now use this to access multiple services across the NHS','success') }}
+  {{ localHeader.pattern('Congratulations, you now have an NHS account','You can use this to access other services across the NHS','success') }}
 {% endblock %}
 
 {% block content %}
 
 <p>To access your medical record we now need to connect to your GP.</p>
+<p><a href="/patient-online/patient-online-help">Find out how to register with your GP for online services.</a></p>
 
 <section class="service-access-wrapper">
 
@@ -21,6 +22,7 @@
 			<h3 class="service-access__item__title">Connect to your GP</h3>
 			<div class="service-access__item__desc">
 				<p>You will need the information that your GP gave you when you first connected to online services with your GP.</p>
+
 			</div>
 			<a href="/patient-online/patient-online-start?serviceName=Access%20your%20medical%20record" class="service-access__item__button button">Start</a>
 		</li>
