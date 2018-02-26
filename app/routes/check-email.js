@@ -13,9 +13,10 @@ module.exports = function (router) {
     var terms = req.param('terms')
     var emailAddress = req.param('emailAddress')
     var mobileNum = req.param('mobileNum')
+    var hidehead = req.param('hidehead')
 
     // send email message
-    var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason
+    var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason + '&hidehead=' + hidehead
     var personalisation = {
         'email_address': emailAddress,
         'params': params
@@ -29,7 +30,7 @@ module.exports = function (router) {
             ).catch(err => console.error(err))
     }
     // re-render the page along with the parameter
-    res.render('create-account/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+    res.render('create-account/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead }, function(err, html) {
       res.send(html)
     })
   })

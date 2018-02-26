@@ -3,7 +3,7 @@
 
 {% set isServiceStart = 'true' %}
 {% set service = "access-results" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}

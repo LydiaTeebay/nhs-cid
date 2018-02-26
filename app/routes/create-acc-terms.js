@@ -7,13 +7,15 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+
 
         if (vouched === 'yes') {
             res.redirect('/create-account/two-step-code?vouch=yes')
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
+        res.render('create-account/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead }, function(err, html) {
             res.send(html)
         })
     })
@@ -23,11 +25,13 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+
         if (vouched === 'yes') {
             res.redirect('/create-account/two-step-code?vouch=yes')
             return
         }
-        res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
+        res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
     })
 
     router.get('/create-account/v6/create-acc-terms', function (req, res) {
