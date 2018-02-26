@@ -3,7 +3,7 @@ module.exports = function (router) {
     //var service = req.param('service')
     var serviceName = req.param('serviceName');
     var hidehead = req.param('hidehead');
-    res.render('patient-online/patient-online-gp-systems-emis', { serviceName: serviceName, webView: webView }, function(err, html) {
+    res.render('patient-online/patient-online-gp-systems-emis', { serviceName: serviceName, hidehead: hidehead }, function(err, html) {
       res.send(html)
     })
   })
