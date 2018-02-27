@@ -7,4 +7,12 @@ module.exports = function (router) {
       res.send(html)
     })
   })
+
+  router.get('/patient-online/v5/patient-online-gp-lookup', function (req, res) {
+    //var service = req.param('service')
+    var serviceName = req.param('serviceName')
+    res.render('patient-online/v5/patient-online-gp-lookup', { serviceName: serviceName }, function(err, html) {
+      res.send(html)
+    })
+  })
 }

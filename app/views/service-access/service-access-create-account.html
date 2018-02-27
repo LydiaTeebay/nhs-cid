@@ -2,8 +2,11 @@
 {% block page_title %}{{serviceName}}{% endblock %}
 
 {% set isServiceStart = 'true' %}
-{% set service = "access-results" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
+{% if service  %}
+
+{% endif %}
+{% set service = "accessresults" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
