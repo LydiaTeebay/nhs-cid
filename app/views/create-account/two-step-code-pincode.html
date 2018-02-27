@@ -4,9 +4,9 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 {% elif vouch %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum%}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead  %}
 {% endif %}
 
 {% block topRow %}
@@ -46,7 +46,7 @@
       {% if service === "nhsonline" %}
       <a id="securitycodeContinue" href="/service-access/service-access-nhs{{ params }}" class="button button--disabled">Continue</a>
       {% else %}
-      <a id="securitycodeContinue" href="/service-access/service-access-nhs-acc?serviceName=Access%20your%20medical%20record" class="button button--disabled">Continue</a>
+      <a id="securitycodeContinue" href="/service-access/service-access-nhs-acc{{ params }}" class="button button--disabled">Continue</a>
       {% endif %}
     </div>
     <p class="">Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="two-step-code-pincode{{ params }}&resend=yes">you can resend it</a>.</p>

@@ -6,7 +6,7 @@
 
 {% endif %}
 {% set service = "accessresults" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}

@@ -3,7 +3,7 @@
 
 {% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
@@ -34,7 +34,7 @@
 			<div class="service-access__item__desc">
 				<p>You will need the registration details that your GP surgery gave you.</p>
 			</div>
-			<a href="/patient-online/patient-online-start?serviceName=Access%20your%20medical%20record" class="service-access__item__button button">Start</a>
+			<a href="/patient-online/patient-online-start{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 	</ol>
 

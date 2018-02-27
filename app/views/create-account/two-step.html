@@ -4,9 +4,9 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% elif vouch %}
-{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% endif %}
 
 {% block content %}
