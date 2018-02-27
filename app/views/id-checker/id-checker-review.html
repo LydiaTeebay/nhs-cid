@@ -1,0 +1,350 @@
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}NHS Identity Verifications and Matching Service{% endblock %}
+
+{% set service = "idchecker" %}
+{% set serviceName = "Identity Verifications and Matching Service" %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+<div class="panel">
+    <div class="panel__content panel__content--half">
+        <h3>NHS Number</h3>
+        <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly>
+    </div>
+    <div class="panel__content panel__content--half">
+        <h3>PDS trace results</h3>
+        <p class="small" id="loader"><img src="/images/ajax-loader.gif" style="width: 30px" alt="loading">&nbsp; Running trace</p>
+        <table id="trace" style="display:none;-webkit-animation-delay: 5s;-moz-animation-delay: 5s;animation-delay: 5s;">
+            <tr>
+                <td>First Name:</td>
+                <td>Joe</td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td>Blogs</td>
+            </tr>
+            <tr>
+                <td>Date of birth:</td>
+                <td>9th February, 1979</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel__content panel__content--half">
+        <h3>Identity document</h3>
+        <div class="reading-width">
+            <p><img src="/images/passport_redacted.jpg" style="width: 100%;" alt="Image of a photo driving licence"/></p>
+        </div>
+
+    </div>
+    <div class="panel__content panel__content--half">
+
+        <div class="qa-questions-group" id="document" data-complete="false">
+
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Does the Name and DOB on the PDS trace match those on the Photo ID?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0">Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1">No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <!--<div class="qa-questions-question" data-answered="false">-->
+                <!--<p class="qa-questions-question-text"><span class="qa-questions-question-text-no">Q2 </span>Does the face on the submitted Photo ID match the one from Home Office or DVLA database?</p>-->
+                <!--<div class="qa-questions-answer-group multiple-choice__container">-->
+                    <!--<label class="qa-questions-answer multiple-choice multiple-choice&#45;&#45;inline multiple-choice&#45;&#45;radio" aria-checked="false" >-->
+                        <!--<input type="radio" id="2" name="a-2" class="multiple-choice__input" tabindex="2">Yes-->
+                        <!--<div class="qa-questions-answer-radio-indicator"></div>-->
+                    <!--</label>-->
+                    <!--<label class="qa-questions-answer multiple-choice multiple-choice&#45;&#45;inline multiple-choice&#45;&#45;radio" aria-checked="false">-->
+                        <!--<input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="3">No-->
+                        <!--<div class="qa-questions-answer-radio-indicator"></div>-->
+                    <!--</label>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel__content panel__content--half">
+        <h3>Video selfie</h3>
+        <video id="uploaded-video" controls style="width:100%;height:auto;">
+            <source src="/images/img_3612.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+    <div class="panel__content panel__content--half">
+
+        <div class="qa-questions-group" id="selfie" data-complete="false">
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Does the submitted video clearly show it's the same person as pictured in the identity document?</p>
+                <div class="qa-questions-answer-group multiple-choice__container">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="2" name="b-1" class="multiple-choice__input" tabindex="2">Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="3" name="b-1" class="multiple-choice__input" tabindex="3">No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Are the 4 numbers read out 4506?</p>
+                <div class="qa-questions-answer-group multiple-choice__container">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="4" name="b-2" class="multiple-choice__input" tabindex="4">Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="5" name="b-2" class="multiple-choice__input" tabindex="5">No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="">
+            <button id="approveBtn" class="button button--approve" style="display: none;">Approve</button>
+        </div>
+        <div class="">
+            <button id="declineBtn" class="button button--decline" style="display: none;">Decline</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    setTimeout(function(){
+        document.getElementById('trace').style.display = "block";
+    }, 4000)
+    setTimeout(function(){
+        document.getElementById('loader').style.display = "none";
+    }, 4000)
+
+    // hide or show the buttons based on selections
+    // localStorage.removeItem("idchecker")
+    addEventListeners()
+    resetAllSections()
+    questionsComplete = false;
+
+    var processClick = function(e) {
+        // update local storage straight away
+        updateStorageFromElements()
+
+        // for aesthetic purposes we wrap the inputs in labels and use them for extra styling
+        // first unset all the aria-checked attributes in an answer group
+        var labels = e.parentNode.parentNode.getElementsByClassName('qa-questions-answer')
+        for (i = 0; i < labels.length; i++) {
+            labels[i].setAttribute('aria-checked', false)
+        }
+        // then check only the selected one
+        e.parentNode.setAttribute('aria-checked', true)
+
+        // on smaller viewports help the user by scrolling the page inbetween clicks
+        // grab the viewport width
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+        if (w <= 1024) {
+            scrollTo(e.parentNode)
+        }
+
+        // a click will trigger the showing and hiding of question groups
+        // get the section the click was in and pass it into a function
+        var section = e.parentNode.parentNode.parentNode.parentNode
+        checkSectionComplete(section)
+        // show the solutions if all the questions are answered
+        if (questionsComplete == true) {
+            // updateSolutions()
+        }
+    }
+
+
+    // run through all sections checking for completeness
+    function resetAllSections() {
+        // get an array of all the question groups
+        var questionGroups = document.getElementsByClassName('qa-questions-group')
+        // lets hold the completion state of each section in an array
+        for (i = 0; i < questionGroups.length; i++) {
+            // reset attributes
+            questionGroups[i].setAttribute('data-complete', false)
+            // get array of all the answer groups
+            var questions = questionGroups[i].getElementsByClassName('qa-questions-question')
+            // loop through all the question groups
+            for (j = 0; j < questions.length; j++) {
+                // get array of the labels
+                var answers = questionGroups[i].getElementsByClassName('qa-questions-answer')
+                // loop through answers
+                for (k = 0; k < answers.length; k++) {
+                    answers[k].setAttribute('aria-checked', false)
+                    // get the individual inputs
+                    var inputs = answers[k].getElementsByTagName('input')
+                    // loop through all the inputs and uncheck them
+                    for (l = 0; l < inputs.length; l++) {
+                        inputs[l].checked = false
+                    }
+                }
+            }
+        }
+    }
+
+    function addEventListeners() {
+        var inputs = document.getElementsByTagName('input')
+        for (i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('click', function(){
+                processClick(this)
+            })
+        }
+    }
+
+    function updateElementsFromStorage() {
+        var idCheck = JSON.parse(localStorage['idchecker'])
+        for (i = 0; i < idCheck.length; i++) {
+            if (idCheck[i]) {
+                var input = document.getElementById(i)
+                input.setAttribute('checked', 'checked')
+                input.parentNode.setAttribute('aria-checked', true)
+            }
+        }
+        // check each section for completion
+        checkAllSections()
+    }
+
+    function updateStorageFromElements() {
+        var idCheck = []
+        var inputs = document.getElementsByTagName('input')
+        for (i = 0; i < inputs.length; i++) {
+            var inputId = inputs[i].getAttribute('id')
+            idCheck[inputId] = inputs[i].checked
+        }
+        localStorage.setItem('idchecker', JSON.stringify(idCheck))
+    }
+
+    function checkSectionComplete(section) {
+        // get an array of all the question subgroups
+        var questions = section.getElementsByClassName('qa-questions-question')
+        var sectionComplete = true
+        for (i = 0; i < questions.length; i++) {
+            var inputs = questions[i].getElementsByTagName('input')
+            var questionComplete = false
+            for (j = 0; j < inputs.length; j++) {
+                if (inputs[j].checked) {
+                    questionComplete = true
+                }
+            }
+            if (false == questionComplete) {
+                sectionComplete = false
+            }
+        }
+        if (sectionComplete) {
+            section.setAttribute('data-complete', true)
+            unlockNextSection(section)
+            return true
+        }
+    }
+
+    function unlockNextSection(section) {
+        var id = section.getAttribute('id')
+        var sections = []
+        var groups = document.getElementsByClassName('qa-questions-group')
+        for (i = 0; i < groups.length; i++) {
+            sections[i] = groups[i].getAttribute('id')
+        }
+        // work out what the next section is
+        var currentSectionPosition = sections.indexOf(id)
+        var nextSectionPosition = currentSectionPosition + 1
+
+        // If all of the sections are complete trigger the solutions
+        if (nextSectionPosition >= sections.length) {
+            // Set globally scoped variable
+            questionsComplete = true
+            updateSolutions()
+            // find the answers
+            var solution = document.getElementById('qa-solution')
+            // Scroll down to answers
+            scrollTo(solution)
+        }
+        else {
+            var nextSection = sections[nextSectionPosition]
+            // get the next section object
+            nextSection = document.getElementById(nextSection)
+            scrollTo(nextSection)
+            nextSection.setAttribute('aria-hidden', false)
+
+            // enable radio buttons
+            var nextRadios = nextSection.getElementsByTagName('input')
+            for (j = 0; j < nextRadios.length; j++) {
+                nextRadios[j].removeAttribute('disabled')
+            }
+        }
+    }
+
+    function updateSolutions() {
+        // pull in the answer array
+        var idCheck = JSON.parse(localStorage['idchecker'])
+
+        if (idCheck[0] == true && idCheck[2] == true && idCheck[4] == true){
+            console.log(idCheck)
+            document.getElementById('approveBtn').style.display = "block";
+            document.getElementById('declineBtn').style.display = "none";
+        } else{
+            document.getElementById('approveBtn').style.display = "none";
+            document.getElementById('declineBtn').style.display = "block";
+        }
+    }
+
+    // run through all sections checking for completeness
+    function checkAllSections() {
+        // get an array of all the question groups
+        var questionGroups = document.getElementsByClassName('qa-questions-group')
+        // lets hold the completion state of each section in an array
+        var allComplete = []
+        for (i = 0; i < questionGroups.length; i++) {
+            // get array of all the answer groups
+            var questions = questionGroups[i].getElementsByClassName('qa-questions-question')
+            var sectionComplete = true
+            // loop through all the question groups
+            for (j = 0; j < questions.length; j++) {
+                var inputs = questions[j].getElementsByTagName('input')
+                var questionComplete = false
+                // loop through all the inputs
+                for (k = 0; k < inputs.length; k++) {
+                    if (inputs[k].checked) {
+                        questionComplete = true
+                    }
+                }
+                if (false == questionComplete) {
+                    sectionComplete = false
+                }
+            }
+            if (sectionComplete) {
+                questionGroups[i].setAttribute('data-complete', true)
+                allComplete[i] = true
+                // unset disabled state of the radio buttons
+                var sectionRadios = questionGroups[i].getElementsByTagName('input')
+                for (m = 0; m < sectionRadios.length; m++) {
+                    sectionRadios[m].removeAttribute('disabled')
+                }
+            } else {
+                // unlock next section if not all are unlocked
+                var nextSectionPosition = questionGroups[i-1]
+                unlockNextSection(nextSectionPosition)
+            }
+        }
+        // if all sections are complete go to the solutions
+        if (allComplete.length == questionGroups.length) {
+            questionsComplete = true
+        }
+    }
+</script>
+
+{% endblock %}

@@ -37,6 +37,51 @@
   @include button(#005eb8);
 }
 
+.button--approve,
+.button--decline {
+  @include button($green);
+  position: relative;
+  padding: ($baseline-grid-unit * 6) ($baseline-grid-unit * 12);
+  padding-left: ($baseline-grid-unit * 16);
+  &::before,
+  &::after {
+    content: "";
+    left: 0;
+    top: 0;
+    position: absolute;
+    zoom: 1;
+  }
+  &::before {
+    background: transparent;
+    border: solid;
+    border-color: $white;
+    border-width: 0 0 8px 8px;
+    height: 18px;
+    top: 1.3em;
+    left: 1.1em;
+    transform: rotate(-45deg);
+    width: 30px;
+  }
+}
+
+.button--decline {
+  @include button($red);
+  padding: ($baseline-grid-unit * 6) ($baseline-grid-unit * 12);
+  padding-left: ($baseline-grid-unit * 17);
+  &::before,
+  &::after {
+    background: $white;
+    height: 10px;
+    top: 1.8em;
+    left: 1em;
+    transform: rotate(45deg);
+    width: 36px;
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
 .button--disabled {
   opacity: 0.5;
   pointer-events: none;
@@ -55,6 +100,10 @@
       margin-top: 16px;
     }
   }
+}
+
+.button--clippy {
+
 }
 
 #onfido-button,
