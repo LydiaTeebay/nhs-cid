@@ -10,6 +10,19 @@ module.exports = function (router) {
             res.send(html)
         })
     })
+
+    router.get('/create-account/v7/two-step-code', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        // re-render the page along with the parameter
+        res.render('create-account/v7/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/v6/two-step-code', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')

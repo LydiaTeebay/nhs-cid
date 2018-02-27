@@ -2,7 +2,10 @@
 {% block page_title %}{{serviceName}}{% endblock %}
 
 {% set isServiceStart = 'true' %}
-{% set service = "access-results" %}
+{% if service  %}
+
+{% endif %}
+{% set service = "accessresults" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block header %}

@@ -1,0 +1,20 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - What is your NHS number?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+
+{% block content %}
+
+<div class="first-item">
+  <h1 class="">
+    Sorry you cannot continue
+  </h1>
+
+  <p>You are unable to use this service as you are not registered for GP online services. You can register by contacting your GP surgery and filling in the registration form.</p>
+
+  <p><a href="javascript:history.go(-1)">Go back</a></p>
+
+</div>
+
+{% endblock %}

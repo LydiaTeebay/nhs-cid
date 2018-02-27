@@ -11,4 +11,17 @@ module.exports = function (router) {
             res.send(html)
         })
     })
+
+    router.get('/service-access/v3/service-access-photo-id', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = req.param('emailAddress')
+        // re-render the page along with the parameter
+        res.render('service-access/v3/service-access-photo-id', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+            res.send(html)
+        })
+    })
 }
