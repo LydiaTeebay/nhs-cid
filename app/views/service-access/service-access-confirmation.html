@@ -1,0 +1,45 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Confirm submission of your evidence{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+
+{% block content %}
+
+<section class="prove-id">
+
+	<h1>Proving your identity</h1>
+
+	<p>You have now gathered the required evidence to prove your identity.</p>
+
+	<ol class="service-access">
+		<!--<li class="service-access__item completed">-->
+			<!--<h3 class="service-access__item__title">Create an NHS account</h3>-->
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>You will need your phone.</p>-->
+				<!--<p>Your NHS account will allow you to sign into multiple health services in the future.</p>-->
+			<!--</div>-->
+			<!--<span class="service-access__item__status">Completed</span>-->
+		<!--</li>-->
+		<li class="service-access__item ">
+			<p class="h3 service-access__item__title">Your NHS number</p>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item">
+			<p class="h3 service-access__item__title">Photo ID document</p>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item">
+			<p class="h3 service-access__item__title">Video selfie</p>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+	</ol>
+
+	<a href="service-access-complete{{ params }}" class="button">Submit evidence</a>
+	<p>Do we need some sort of legal disclaimer here.</p>
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

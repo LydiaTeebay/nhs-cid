@@ -28,8 +28,8 @@
             </ul>
             <div class="form-group">
 
-              <label for="document" class="camera-button">Open Camera
-                <input type="file" id="document" accept="image/*" capture="environment">
+              <label for="photo-id-document" class="camera-button">Open Camera
+                <input type="file" id="photo-id-document" accept="image/*" capture="environment">
               </label>
 
             </div>
@@ -40,7 +40,32 @@
 
       </section>
 
-      <section  class="" id="scan-id-3" style="display:none">
+  <section  class="" id="scan-id-3" style="display:none">
+
+    <h1 style="padding-bottom: 0;">
+      Uploading your photo
+    </h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-pie-chart" data-percent="0">
+          <div class="ppc-progress">
+            <div class="ppc-progress-fill"></div>
+          </div>
+          <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+              <span>%</span>
+            </div>
+          </div>
+        </div>
+
+        <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
+      </div>
+    </div>
+
+  </section>
+
+      <section  class="" id="scan-id-5" style="display:none">
 
         <h1 style="padding-bottom: 0;">
           Review the photo of your {{ idType }}
@@ -53,7 +78,7 @@
         </div>
 
         <div class="form-group">
-          <a class="button" href="service-access-video-selfie{{ params }}" id="">Submit photo</a>&nbsp
+          <a class="button" href="service-access-video-selfie{{ params }}" id="">Use this photo</a>
           <p><a href="#" id="submit-document-back-button">Take again</a></p>
         </div>
 

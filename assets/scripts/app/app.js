@@ -1,5 +1,38 @@
 // Add your custom Javascript here
 
+function activateLoader(speed) {
+    // console.log("activate")
+    var progressbar = $('#progress_bar')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = progressbar.val()
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate)
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-4").css("display", "block")
+            $("#scan-id-5").css("display", "block")
+        }
+    }
+    var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function readURL(input, idType) {
   if (input.files && input.files[0]) {
     var reader = new FileReader()
@@ -36,6 +69,20 @@ function readURL(input, idType) {
           $("#scan-id-4").css("display", "block")
           $('#uploaded-video>source').attr('src', e.target.result)
       }
+        if (idType == "photoId") {
+
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-3").css("display", "block")
+            $('#uploaded-id').attr('src', e.target.result)
+            activateLoader(2)
+        }
+        if (idType == "videoSelfie") {
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-3").css("display", "block")
+            $('#uploaded-video>source').attr('src', e.target.result)
+            activateLoader(10)
+        }
+
     }
     reader.readAsDataURL(input.files[0])
   }
@@ -44,6 +91,12 @@ function readURL(input, idType) {
 $("#id-document").change(function(){
   readURL(this, "id")
 })
+
+$("#photo-id-document").change(function(){
+    readURL(this, "photoId")
+})
+
+
 
 $("#document").change(function(){
     readURL(this, "doc")
@@ -97,6 +150,10 @@ $("#id-selfie").change(function(){
 
 $("#selfie").change(function(){
     readURL(this, "selfie")
+})
+
+$("#video-selfie").change(function(){
+    readURL(this, "videoSelfie")
 })
 
 // submit back button action
@@ -233,7 +290,7 @@ swap();
     // Shift + Tab will allow backup to the top of the modal,
     // and then stop.
     function focusRestrict ( event ) {
-      if ( modalOpen && !modal.contains( event.target ) ) {
+      if (modalOpen && !modal.contains( event.target ) ) {
           event.stopPropagation()
           modal.focus()
       }

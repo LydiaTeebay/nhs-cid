@@ -9,7 +9,7 @@
 
 <div class="first-item">
 
-  <section class="" id="scan-id-3">
+  <section class="" id="scan-id-1">
 
     <form>
       <fieldset class="">
@@ -30,8 +30,8 @@
         </ul>
         <div class="form-group">
 
-          <label for="selfie" class="camera-button">Open Camera
-            <input type="file" id="selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+          <label for="video-selfie" class="camera-button">Open Camera
+            <input type="file" id="video-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
           </label>
 
         </div>
@@ -39,6 +39,31 @@
       </fieldset>
 
     </form>
+
+  </section>
+
+  <section class="" id="scan-id-3" style="display:none">
+
+    <h1 style="padding-bottom: 0;">
+      Uploading your video
+    </h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-pie-chart" data-percent="0">
+          <div class="ppc-progress">
+            <div class="ppc-progress-fill"></div>
+          </div>
+          <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+              <span>%</span>
+            </div>
+          </div>
+        </div>
+
+        <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
+      </div>
+    </div>
 
   </section>
 
@@ -58,7 +83,7 @@
     </div>
 
     <div class="form-group">
-      <a class="button" href="service-access-complete{{ params }}" id="">Submit video</a>&nbsp
+      <a class="button" href="service-access-confirmation{{ params }}" id="">Use this video</a>&nbsp
       <p><a href="#" id="submit-video-back-button">Take again</a></p>
     </div>
 

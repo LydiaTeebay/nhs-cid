@@ -24,6 +24,10 @@
       transform: rotate(-45deg);
       width: 30px;
     }
+    &::active::before {
+      height: 100%;
+      top: 0;
+    }
   }
 }
 

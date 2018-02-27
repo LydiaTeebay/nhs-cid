@@ -64,14 +64,16 @@ $_step-width: $baseline-grid-unit * 8;
 }
 
 .service-access__item__title {
-  display: inline-block;
+
   vertical-align: top;
+  display: block;
   .completed & {
     color: $grey-2;
   }
 
   @include media(tablet) {
     width: 70%;
+    display: inline-block;
   }
 }
 
