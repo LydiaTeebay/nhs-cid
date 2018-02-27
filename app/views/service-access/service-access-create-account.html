@@ -2,8 +2,11 @@
 {% block page_title %}{{serviceName}}{% endblock %}
 
 {% set isServiceStart = 'true' %}
-{% set service = "access-results" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% if service  %}
+
+{% endif %}
+{% set service = "accessresults" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
@@ -27,7 +30,7 @@
 }
 </style>
 
-<p>In order to access this service you must have an NHS account.</p>
+<p>To access this service you must have an NHS account.</p>
 
 {% endblock %}
 {% block rightcol %}{% endblock %}
@@ -64,11 +67,11 @@
 
 <section class="create">
 	<h2 style="font-size: 26px">Create an NHS account</h2>
-	<p>If you do not have an NHS account you can create one quickly here.</p>
+	<p>If you do not have an NHS account you can create one here.</p>
 	<p class="small">You will need:</p>
 	<ul>
-		<li class="small">An email address you have access to</li>
-		<li class="small">A mobile phone you have access to</li>
+		<li class="small">an email address you have access to</li>
+		<li class="small">a mobile phone you have access to</li>
 	</ul>
 	<p><a class="button" href="/create-account/create-acc-terms{{ params }}">Create an NHS account</a></p>
 </section>

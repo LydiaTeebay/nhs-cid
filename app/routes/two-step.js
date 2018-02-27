@@ -7,8 +7,9 @@ module.exports = function (router) {
     var serviceName = req.param('serviceName')
     var terms = req.param('terms')
     var emailAddress = req.param('emailAddress')
+    var hidehead = req.param('hidehead')
     // re-render the page along with the parameter
-    res.render('create-account/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress }, function(err, html) {
+    res.render('create-account/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, hidehead: hidehead }, function(err, html) {
       res.send(html)
     })
   })
@@ -19,8 +20,32 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var vouched = req.param('vouch')
-        res.redirect('/create-account/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
+        var hidehead = req.param('hidehead')
+        res.redirect('/create-account/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
     })
+
+    router.get('/create-account/v7/two-step', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        // re-render the page along with the parameter
+        res.render('create-account/v7/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress }, function(err, html) {
+          res.send(html)
+        })
+      })
+        router.post('/create-account/v7/two-step', function (req, res) {
+            console.log("post")
+            var emailAddress = req.param('emailAddress')
+            var mobileNum = req.body.mobileNum
+            var service = req.param('service')
+            var serviceName = req.param('serviceName')
+            var vouched = req.param('vouch')
+            res.redirect('/create-account/v7/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
+        })
 
     router.get('/create-account/v6/two-step', function (req, res) {
         // pull in the url parameters

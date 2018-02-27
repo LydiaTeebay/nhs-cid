@@ -1,0 +1,114 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Create an NHS account {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set terms = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch %}
+{% endif %}
+
+{% block content %}
+
+<style>
+
+.sidebar-button {
+  border-radius: 0;
+  padding: 25px 15px;
+}
+
+.sidebar-button--gv {
+    background-color: #005ea5;
+    border: 0;
+    width: 100%
+}
+
+.sidebar-button--gv a {
+    background: #fff;
+    color: #005ea5;
+    font-weight: bold;
+    margin: 35px 15px 15px 0;
+    box-shadow: 0 2px 0 #003618;
+    font-size: 1em;
+    line-height: 1.25;
+    text-decoration: none;
+    padding: .526315em .789473em .263157em;
+    display: block;
+    text-align: center;
+}
+
+.sidebar-button p {
+  font-size: 18px;
+}
+
+.sidebar-button:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+.verify-note {
+  background: #f0f4f5 url('/images/govuk-verify-transparent.svg') no-repeat 10px 9px;
+  background-size: 11.5%;
+  border-left: 4px solid #d8dde0;
+  padding: 15px 15px 15px 100px;
+  margin-top: 16px;
+}
+
+</style>
+
+<div class="first-item">
+  <form action="create-acc-terms{{ params }}" method="POST">
+
+    <div class="form-group">
+      <h1>Create an NHS account</h1>
+
+      <div class="verify-note">
+        <p class="small">You can create an NHS account using <strong>GOV.UK Verify</strong>. To register with <strong>GOV.UK Verify</strong> for an NHS account you can <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">sign up here</a>.</p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="emailAddress">Email address</label>
+        <input class="form-control" id="emailAddress" name="emailAddress" type="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field3">Create a password</label>
+        <span class="form-label__hint">At least 8 characters. At least 1 capital letter.</span>
+
+        <input class="form-control" id="field3" name="field3" type="password">
+      </div>
+
+      <h4>Information Security</h4>
+      <p class="small" style="margin-top: 16px;">We will collect and store your information in a secure way. We use your personal information in accordance with the site's <a href="#">privacy policy</a> and <a href="terms{{ params }}">terms and conditions</a>.</p>
+      <p class="small">We will not disclose your personal information to any third parties without obtaining your consent.</p>
+      <!--<p class="small" style="margin-top: 16px;"><a href="terms{{ params }}">Read the Terms and Conditions</a></p>-->
+    </div>
+    <button class="button" href="check-email{{ params }}&terms=yes">I agree to Terms. Create Account</button>
+  </form>
+
+</div>
+
+{% endblock %}
+
+{% block rightcol %}
+
+<!-- <div class="sidebar-button sidebar-button--gv">
+    
+      <img src="/images/non-gov-verify-logo.png" width="80" />
+      <p style="font-family: "nta", Arial, sans-serif; font-weight: 400; text-transform: none; font-size: 18px;" class="font-xsmall">Create an NHS account with <br><strong>VERIFY</strong></p>
+      <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">Create a GOV.UK Verify account</a>
+  </div>
+
+  <details class="" role="group">
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+      <span class="details__summary"><span style="font-size: 16px;">What is GOV.UK Verify?</span></span>
+    </summary>
+    <div id="details-content-0" aria-hidden="true">
+      <p class="small">GOV.UK Verify is an identity service that allows you to login where ever you see the GOV.UK Verify logo.</p>
+      <p class="small">You can sign up for a GOV.UK Verify account now or log to a service using your GOV.UK Verify credentials</p>
+    </div>
+  </details> -->
+  
+{% endblock %}

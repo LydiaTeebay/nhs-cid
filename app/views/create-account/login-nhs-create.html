@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Sign in to your NHS account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Log in to your NHS account</legend></h1>
+        <h1><legend>Sign in to your NHS account</legend></h1>
 
         <div class="form-group">
           <label class="form-label" for="field1">Email</label>
@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
 
-      <a class="button" href="two-step" id="continue">Continue</a>
+      <a class="button" href="two-step{{ params }}" id="continue">Continue</a>
 
     </div>
     <p><a href="forgotten-password">Forgotten your password?</a></p>

@@ -2,6 +2,7 @@
 {% block page_title %}Welcome to your medical record{% endblock %}
 {% set signedin = 'true' %}
 
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}

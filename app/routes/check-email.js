@@ -13,9 +13,10 @@ module.exports = function (router) {
     var terms = req.param('terms')
     var emailAddress = req.param('emailAddress')
     var mobileNum = req.param('mobileNum')
+    var hidehead = req.param('hidehead')
 
     // send email message
-    var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason
+    var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason + '&hidehead=' + hidehead
     var personalisation = {
         'email_address': emailAddress,
         'params': params
@@ -29,7 +30,7 @@ module.exports = function (router) {
             ).catch(err => console.error(err))
     }
     // re-render the page along with the parameter
-    res.render('create-account/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+    res.render('create-account/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead }, function(err, html) {
       res.send(html)
     })
   })
@@ -60,16 +61,44 @@ module.exports = function (router) {
         }
         */
         // re-render the page along with the parameter
-console.log('is this even working?!?!?');
+        console.log('is this even working?!?!?');
 
         res.render('create-account/grant-access/check-email', {}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/create-account/v6/grant-access/check-email', function (req, res) {
+    router.get('/create-account/v7/check-email', function (req, res) {
         // pull in the url parameters
-        /*
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+    
+        // send email message
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason
+        var personalisation = {
+            'email_address': emailAddress,
+            'params': params
+        }
+        if (emailAddress !== '' || emailAddress !== 'undefined') {
+            notifyClient
+                .sendEmail(templateId, emailAddress, {
+                    personalisation: personalisation
+                })
+                .then(response => console.log(response)
+                ).catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v7/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+          res.send(html)
+        })
+      })
+
+    router.get('/create-account/v7/grant-access/check-email', function (req, res) {
         var theReason = req.param('reason')
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -90,12 +119,16 @@ console.log('is this even working?!?!?');
                     personalisation: personalisation
                 })
                 .then(response => console.log(response)
-        ).catch(err => console.error(err))
+                ).catch(err => console.error(err))
         }
-        */
         // re-render the page along with the parameter
-        console.log('is this even working?!?!?');
+        res.render('create-account/v7/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum }, function(err, html) {
+            res.send(html)
+        })
+    })
 
+    router.get('/create-account/v6/grant-access/check-email', function (req, res) {
+        console.log('is this even working?!?!?');
         res.render('create-account/v6/grant-access/check-email', {}, function(err, html) {
             res.send(html)
         })

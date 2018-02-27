@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName %}
+{% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Enter your GP Online service details</legend></h1>
+        <h1><legend>Enter your online GP registration details</legend></h1>
         <div class="form-group">
           <label class="form-label" for="field2">Account Linkage Key</label>
           <span class="form-label__hint">This may also be Access Code</span>
@@ -27,9 +27,9 @@
         </div>
     </div>
     <div class="form-group">
-      <a class="button" href="../end/your-medical-record" id="continue">Continue</a>
+      <a class="button" href="../end/your-medical-record{{ params }}" id="continue">Continue</a>
     </div>
-    <p><a href="">I don't have those details</a></p>
+    <p><a href="patient-online-gp-lookup">I don't have those details, help me find them</a></p>
   </form>
 </div>
 

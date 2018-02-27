@@ -5,9 +5,9 @@
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
 {% elif vouch %}
-  {% set params = "?vouch=" + vouch %}
+  {% set params = "?vouch=" + vouch + "&hidehead=" + hidehead %}
 {% endif %}
 
 {% block content %}
@@ -81,7 +81,8 @@
       </div>
 
       <h4>Information Security</h4>
-      <p class="small" style="margin-top: 16px;">We will collect and store your information in a secure way. We use your personal information in accordance with the site's <a href="#">privacy policy</a> and <a href="terms{{ params }}">terms and conditions</a>. We will not disclose your personal information to any third parties without obtaining your consent.</p>
+      <p class="small" style="margin-top: 16px;">We will collect and store your information in a secure way. We use your personal information in accordance with the site's <a href="#">privacy policy</a> and <a href="terms{{ params }}">terms and conditions</a>.</p>
+      <p class="small">We will not disclose your personal information to any third parties without obtaining your consent.</p>
       <!--<p class="small" style="margin-top: 16px;"><a href="terms{{ params }}">Read the Terms and Conditions</a></p>-->
     </div>
     <button class="button" href="check-email{{ params }}&terms=yes">I agree to Terms. Create Account</button>

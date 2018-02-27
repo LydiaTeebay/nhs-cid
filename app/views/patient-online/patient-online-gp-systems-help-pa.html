@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName %}
+{% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
 {% block content %}
 
@@ -9,8 +9,8 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Finding your GP Online details on Patient Access</legend></h1>
-        <p>Follow the steps below to find your details.</p>
+        <h1><legend>You can find your online GP registration details on Patient Access</legend></h1>
+        <p>Follow the steps below.</p>
         
         <ol>
           <li>Go to <a href="">Patient Access</a> and login</li>
