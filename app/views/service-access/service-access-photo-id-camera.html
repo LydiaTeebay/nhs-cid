@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror %}
 
 {% block content %}
 
@@ -65,24 +65,35 @@
 
   </section>
 
-      <section  class="" id="scan-id-5" style="display:none">
+    <div  class="" id="scan-id-5" style="display:none">
 
-        <h1 style="padding-bottom: 0;">
-          Review the photo of your {{ idType }}
-        </h1>
+      <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
 
-        <div class="reading-width">
-          <div id="scan-id-preview">
-            <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
-          </div>
+      {% if formerror !== 'undefined' %}
+      <div id="nhs-number" class="has-error form-row-error-active">
+        <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">No face detected</span>
+      </div>
+      {% endif %}
+
+      <div class="reading-width">
+        <div id="scan-id-preview" {% if formerror !== 'undefined' %} style="border: 3px solid red"{% endif %}>
+          <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
         </div>
+      </div>
 
-        <div class="form-group">
-          <a class="button" href="service-access-video-selfie{{ params }}" id="">Use this photo</a>
-          <p><a href="#" id="submit-document-back-button">Take again</a></p>
-        </div>
+      <div class="form-group">
+        {% if formerror == 'undefined' %}
+        <a class="button" href="service-access-video-selfie{{ params }}" id="">Use this photo</a>
+        {% else %}
+        <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Retake photo</a>
+        {% endif %}
 
-      </section>
+        {% if formerror == 'undefined' %}
+        <p><a href="#" id="submit-document-back-button">Take again</a></p>
+        {% endif %}
+      </div>
+
+    </section>
 
 
 

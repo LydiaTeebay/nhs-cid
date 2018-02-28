@@ -22,16 +22,20 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var isMobile = req.useragent.isMobile
 
+        if (idType === 'driving licence') {
+            var formerror = 'noface'
+        }
+
         if (idType === 'passport' || idType === 'driving licence') {
             if (isMobile) {
-                res.redirect('/service-access/service-access-photo-id-camera?emailAddress=' + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType)
+                res.redirect('/service-access/service-access-photo-id-camera?emailAddress=' + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
                 return
             } else {
-                res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType)
+                res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
                 return
             }
         }
-        res.redirect('/service-access/service-access-offline?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType)
+        res.redirect('/service-access/service-access-offline?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
     })
     
     router.get('/service-access/v3/service-access-photo-id-type', function (req, res) {
