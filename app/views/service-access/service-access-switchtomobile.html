@@ -24,7 +24,7 @@
         <div class="form-group">
           <label class="form-label" for="mob_number">Mobile number</label>
 
-          {% if formerror %}
+          {% if formerror == 'invalid' %}
           <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">Please enter a valid mobile number</span>
           {% endif %}
 
