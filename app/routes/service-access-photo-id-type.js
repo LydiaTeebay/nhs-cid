@@ -35,7 +35,7 @@ module.exports = function (router) {
                 return
             }
         }
-        res.redirect('/service-access/service-access-offline?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
+        res.redirect('/service-access/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
     })
     
     router.get('/service-access/v3/service-access-photo-id-type', function (req, res) {
