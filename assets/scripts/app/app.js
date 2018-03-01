@@ -115,7 +115,7 @@ function readURL(input, idType) {
             $("#scan-id-1").css("display", "none")
             $("#scan-id-3").css("display", "block")
             $('#uploaded-video>source').attr('src', e.target.result)
-            activateLoader(10)
+            activateLoader(1)
         }
 
     }
@@ -173,6 +173,16 @@ $("#submit-id-back-button").on("click", function(e) {
 
 // submit back button action
 $("#submit-photoId-back-button").on("click", function(e) {
+    e.preventDefault()
+    reactivateLoader(2)
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit back button action
+$("#video-selfie-back-button").on("click", function(e) {
     e.preventDefault()
     reactivateLoader(2)
     $("#scan-id-5").css("display","none")
