@@ -23,7 +23,10 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
 
         if (idType === 'driving licence') {
-            var formerror = 'noface'
+            var formerror = 'invalid'
+        }
+        if (idType === 'passport') {
+            var formerror = 'undefined'
         }
 
         if (idType === 'passport' || idType === 'driving licence') {

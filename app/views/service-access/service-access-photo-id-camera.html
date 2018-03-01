@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror  %}
 
 {% block content %}
 
@@ -65,37 +65,66 @@
 
   </section>
 
-    <div  class="" id="scan-id-5" style="display:none">
+  {% if formerror !== 'invalid' %}
+  <section class="" id="scan-id-5" style="display:none">
 
-      <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
+    <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
 
-      {% if formerror !== 'undefined' %}
-      <div id="nhs-number" class="has-error form-row-error-active">
-        <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">No face detected</span>
+    <div class="reading-width">
+      <div id="scan-id-preview">
+        <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
       </div>
-      {% endif %}
+    </div>
 
-      <div class="reading-width">
-        <div id="scan-id-preview" {% if formerror !== 'undefined' %} style="border: 3px solid red"{% endif %}>
-          <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
-        </div>
-      </div>
+    <div class="form-group">
+      <a class="button" href="service-access-video-selfie{{ params }}" id="">Use this photo</a>
 
-      <div class="form-group">
-        {% if formerror == 'undefined' %}
-        <a class="button" href="service-access-video-selfie{{ params }}" id="">Use this photo</a>
-        {% else %}
-        <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Retake photo</a>
-        {% endif %}
+      <p><a href="service-access-photo-id-camera{{ params }}" id="">Take again</a></p>
+    </div>
 
-        {% if formerror == 'undefined' %}
-        <p><a href="#" id="submit-document-back-button">Take again</a></p>
-        {% endif %}
-      </div>
-
-    </section>
+  </section>
+{% endif %}
 
 
+{% if formerror !== 'undefined' %}
+  <section  class="" id="scan-id-6" style="display:none">
+
+    <h1 style="padding-bottom: 0;">Upload error</h1>
+
+    {% if formerror !== 'undefined' %}
+    <div id="nhs-number" class="has-error form-row-error-active">
+      <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your photo.</span>
+    </div>
+    {% endif %}
+
+    <div class="form-group">
+      <a class="button" href="" id="submit-photoId-back-button">Retry upload</a>
+      <p><a href="service-access-photo-id-camera{{ params }}" id="">Re-take photo</a></p>
+
+    </div>
+
+  </section>
+{% endif %}
+
+<section class="" id="scan-id-7" style="display:none">
+
+  <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
+
+  <div id="nhs-number" class="has-error form-row-error-active">
+    <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">No face detected</span>
+  </div>
+
+  <div class="reading-width">
+    <div id="scan-id-preview" style="border: 3px solid red">
+    <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Retake photo</a>
+
+  </div>
+</section>
 
 </div>
 

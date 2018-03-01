@@ -24,11 +24,44 @@ function activateLoader(speed) {
         if (value == max) {
             clearInterval(animate)
             $("#scan-id-3").css("display", "none")
-            $("#scan-id-4").css("display", "block")
             $("#scan-id-5").css("display", "block")
+            $("#scan-id-6").css("display", "block")
         }
     }
     var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
+function reactivateLoader(speed) {
+    // console.log("activate")
+    var progressbar = $('#progress_bar')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate2)
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-7").css("display", "block")
+            // $("#scan-id-5").css("display", "block")
+        }
+    }
+    var animate2 = setInterval(function() {
         loading()
     }, time)
 }
@@ -133,6 +166,16 @@ $("#submit-id-back-button").on("click", function(e) {
     $("#scan-id-2").css("display","none")
     $("#scan-id-1").css("display","block")
     document.getElementById("id-document").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit back button action
+$("#submit-photoId-back-button").on("click", function(e) {
+    e.preventDefault()
+    reactivateLoader(2)
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
