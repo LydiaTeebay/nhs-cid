@@ -9,7 +9,10 @@
 
 <div class="first-item">
 
-    <form action="service-access-switchtomobile{{ params }}" method="POST">
+  <p><a href="javascript:history.go(-1)">Go back</a></p>
+
+
+  <form action="service-access-switchtomobile{{ params }}" method="POST">
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
@@ -24,8 +27,11 @@
         <div class="form-group">
           <label class="form-label" for="mob_number">Mobile number</label>
 
-          {% if formerror == 'invalid' %}
-          <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">Please enter a valid mobile number</span>
+          {% if formerror == 'notaphone' %}
+          <div id="mobile-num" class="has-error form-row-error-active">
+            <span class="error error-message error-label error-text error-message-active" id="mobile-number-error">Please enter a valid mobile number</span>
+          </div>
+
           {% endif %}
 
           <input class="form-control code" id="mob_number" name="mob_number" value="{{ mobileNum }}" type="text">
