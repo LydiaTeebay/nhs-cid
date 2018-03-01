@@ -27,9 +27,10 @@
   {% include '_partials/_service-alert.html' %}
 
   {# slightly different design for emails #}
-  {% if not hidehead %}
-    {% include '_partials/_global_header.html'%}
-  {% endif %}
+    {% if not hidehead === "true" or not hidehead or hidehead === "undefined" %}
+      {% include '_partials/_global_header.html'%}
+    {% endif %}
+
 
   <main id="content" role="main" tab-index="-1">
 
@@ -40,9 +41,11 @@
     </div>
   </main>
 
-  {% if not hidehead %}
-    {% include '_partials/_global_footer.html' %}
-  {% endif %}
+
+    {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
+      {% include '_partials/_global_footer.html' %}
+    {% endif %}
+
 
   <script src="/scripts/jquery-1.12.4.min.js"></script>
   {% block extrascripts %}{% endblock %}
