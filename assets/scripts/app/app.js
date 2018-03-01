@@ -35,6 +35,8 @@ function activateLoader(speed) {
 
 function reactivateLoader(speed) {
     // console.log("activate")
+    var $ppc = $('.progress-pie-chart')
+    $ppc.removeClass('gt-50')
     var progressbar = $('#progress_bar')
     max = progressbar.attr('max')
     time = (1000 / max) * speed
