@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-1.html' %}
 {% block page_title %}NHS Identity Verification and Matching Service{% endblock %}
 
 {% set service = "idchecker" %}
@@ -8,21 +8,35 @@
 {% block content %}
 
 <h1>Dashboard</h1>
-<div class="data-container">
-  <div class="data">
-    <span class="data-item bold">Pending</span>
-    <span class="data-item bold-xxlarge">15</span>
+
+<div class="grid-row">
+  <div class="column--one-third">
+    <div class="idcheck-dash">
+      <span class="data-item bold">Pending</span>
+      <span class="data-item bold-xxlarge">15</span>
+    </div>
   </div>
-  <div class="data">
-    <span class="data-item bold">In progress</span>
-    <span class="data-item bold-xxlarge">4</span>
+  <div class="column--one-third">
+    <div class="idcheck-dash {% if state === 'inprogress' %}u-inprogress{% endif %}">
+      <span class="data-item bold">In progress</span>
+      <span class="data-item bold-xxlarge">2</span>
+    </div>
+  </div>
+  <div class="column--one-third">
+    <div class="idcheck-dash">
+      <span class="data-item bold">Complete today</span>
+      <span class="data-item bold-xxlarge">8</span>
+    </div>
   </div>
 </div>
 
 {% if state === 'inprogress' %}
-  <a class="button" href="id-checker-review">Continue with verification</a>
+<p>You still have a verification in progress</p>
+<a class="button" href="id-checker-review">Continue verification</a>
+<p><a href="id-checker-dashboard">Abort</a></p>
 {% else %}
-  <a class="button" href="id-checker-review">Start next verification</a>
+<a class="button" href="id-checker-review">Start next verification</a>
 {% endif%}
+
 
 {% endblock %}

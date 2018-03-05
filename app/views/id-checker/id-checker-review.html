@@ -15,6 +15,12 @@
     <div class="panel__content panel__content--half">
         <h3>PDS trace results</h3>
         <p class="small" id="loader"><img src="/images/ajax-loader.gif" style="width: 30px" alt="loading">&nbsp; Running trace</p>
+        {% if state === 'noresult' %}
+            <p id="trace" style="display:none;-webkit-animation-delay: 5s;-moz-animation-delay: 5s;animation-delay: 5s;">The submitted NHS number did not return a PDS result.</p>
+        {% elif state === 'timeout' %}
+
+        {% else %}
+
         <table id="trace" style="display:none;-webkit-animation-delay: 5s;-moz-animation-delay: 5s;animation-delay: 5s;">
             <tr>
                 <td>First Name:</td>
@@ -29,6 +35,7 @@
                 <td>9th February, 1979</td>
             </tr>
         </table>
+        {% endif %}
     </div>
 </div>
 

@@ -36,3 +36,14 @@
 .idcheck-image-img {
   margin: 0;
 }
+
+// dashboard
+
+.idcheck-dash {
+  background-color: $nhs-blue;
+  color: white;
+  padding:16px;
+  &.u-inprogress {
+    background-color: $green;
+  }
+}
