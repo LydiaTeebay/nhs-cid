@@ -281,6 +281,13 @@ $("#securitycodeContinue").on("click", function(e) {
   }
 })
 
+// expand ID document image in ID checker
+$(".idcheck-image-expand-button").on("click", function(e) {
+    e.preventDefault()
+    console.log("clicked")
+    $( e.target ).closest(".panel").children().toggleClass( "expanded" )
+    $( e.target ).toggleClass( "expanded" )
+})
 
 // helper function to place modal window as the first child
 // of the #page node

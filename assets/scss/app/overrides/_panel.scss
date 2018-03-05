@@ -51,11 +51,18 @@
       width: auto;
     }
   }
-
-
-  
   + * {
     margin-top: 0;
+  }
+
+  &.expanded {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    &:last-of-type {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 }
 
