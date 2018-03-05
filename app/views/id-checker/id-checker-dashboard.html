@@ -1,21 +1,28 @@
 {% extends '_layouts/_grids/_grid-2-1.html' %}
-{% block page_title %}ID Checker{% endblock %}
+{% block page_title %}NHS Identity Verification and Matching Service{% endblock %}
+
+{% set service = "idchecker" %}
+{% set serviceName = "Identity Verification and Matching Service" %}
+{% set signedin = '' %}
 
 {% block content %}
 
-<h3>ID Checker</h3>
 <h1>Dashboard</h1>
 <div class="data-container">
   <div class="data">
-    <span class="data-item bold-xsmall">Users awaiting ID authorisation</span>
+    <span class="data-item bold">Pending</span>
     <span class="data-item bold-xxlarge">15</span>
   </div>
   <div class="data">
-    <span class="data-item bold-xsmall">Users approved today</span>
+    <span class="data-item bold">In progress</span>
     <span class="data-item bold-xxlarge">4</span>
   </div>
 </div>
 
-<a class="button" href="id-checker-review">Continue with next user</a>
+{% if state === 'inprogress' %}
+  <a class="button" href="id-checker-review">Continue with verification</a>
+{% else %}
+  <a class="button" href="id-checker-review">Start next verification</a>
+{% endif%}
 
 {% endblock %}
