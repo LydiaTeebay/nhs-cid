@@ -381,11 +381,11 @@ swap();
 
     // open modal by btn click/hit
     // mOpen.addEventListener('click', modalShow)
-    mCreate.addEventListener('click', modalShow, false);
-    mCreate2.addEventListener('click', modalShow, false);
+    mCreate.addEventListener('click', modalShow, false)
+    mCreate2.addEventListener('click', modalShow, false)
     mCreate3.addEventListener('click', function(e) {
       e.preventDefault();
-      window.parent.document.location.href = e.target.href;
+      window.parent.document.location.href = e.target.href
     });
     // close modal by btn click/hit
     mClose.addEventListener('click', modalClose)
