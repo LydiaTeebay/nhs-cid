@@ -84,13 +84,21 @@
     </div>
 </div>
 
-<div class="panel">
+<div class="panel" style="display: block;">
     <div class="panel__content panel__content--half">
         <h3>Video selfie</h3>
-        <video id="uploaded-video" controls style="width:100%;height:auto;">
-            <source src="/images/img_3612.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="idcheck-media">
+            <div class="idcheck-video">
+                <div class="idcheck-video-paired"><a href="#" class="idcheck-video-paired-button">Show document</a></div>
+                <video id="uploaded-video" controls style="width:100%;height:auto;">
+                    <source src="/images/img_3612.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="idcheck-image" style="display: none;">
+                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a passport"/>
+            </div>
+        </div>
 
     </div>
     <div class="panel__content panel__content--half">

@@ -4,7 +4,40 @@
   position: relative;
 }
 
+.idcheck-video {
+  position: relative;
+  #uploaded-video {
+    margin: 0;
+  }
+  .expanded & {
+    max-width: 30%;
+  }
+}
+
+.idcheck-media {
+  position: relative;
+  display: table;
+
+}
+
+.expanded .idcheck-media .idcheck-video,
+.expanded .idcheck-media .idcheck-image {
+  display: table-cell !important;
+  vertical-align: top;
+  width: 29%;
+}
+.expanded .idcheck-media .idcheck-image {
+  padding-left: 1em;
+  width: 71%;
+}
+
 .idcheck-image-expand {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.idcheck-video-paired {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -33,6 +66,18 @@
   }
 }
 
+.idcheck-video-paired-button {
+  position: relative;
+  display: block;
+  background-color: #fff;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: all 0.5s;
+  text-decoration: none;
+  padding: 0.25em 0.5em;
+}
+
 .idcheck-image-img {
   margin: 0;
 }
@@ -42,7 +87,7 @@
 .idcheck-dash {
   background-color: $nhs-blue;
   color: white;
-  padding:16px;
+  padding: 16px;
   &.u-inprogress {
     background-color: $green;
   }
