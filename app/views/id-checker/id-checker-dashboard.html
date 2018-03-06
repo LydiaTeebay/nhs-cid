@@ -12,32 +12,58 @@
 <div class="grid-row">
   <div class="column--one-third">
     <div class="idcheck-dash">
-      <span class="data-item bold">Pending</span>
-      {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
-      <span class="data-item bold-xxlarge">14</span>
-      {% else %}
-      <span class="data-item bold-xxlarge">15</span>
-      {% endif%}
+      <p class="idcheck-dash-heading">Pending</p>
+
+      <div class="idcheck-dash-details">
+
+        {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
+        <div class="idcheck-dash-number bold-xxlarge">14</div>
+        {% else %}
+        <div class="idcheck-dash-number bold-xxlarge">15</div>
+        {% endif%}
+
+        {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
+        <div class="idcheck-dash-desc">First: 15 minutes ago <br>Last: 2 hours ago</div>
+        {% else %}
+        <div class="idcheck-dash-desc">First: 2 minutes ago <br>Last: 2 hours ago</div>
+        {% endif%}
+      </div>
     </div>
   </div>
   <div class="column--one-third">
     <div class="idcheck-dash {% if state === 'inprogress' %}u-inprogress{% endif %}">
-      <span class="data-item bold">In progress</span>
-      {% if state === 'inprogress' %}
-      <span class="data-item bold-xxlarge">2</span>
-      {% else %}
-      <span class="data-item bold-xxlarge">1</span>
-      {% endif%}
+      <p class="idcheck-dash-heading">In progress</p>
+      <div class="idcheck-dash-details">
+        {% if state === 'inprogress' %}
+        <span class="idcheck-dash-number bold-xxlarge">2</span>
+        {% else %}
+        <span class="idcheck-dash-number bold-xxlarge">1</span>
+        {% endif%}
+
+        <div class="idcheck-dash-desc">Logged in RA's: 2</div>
+      </div>
     </div>
   </div>
   <div class="column--one-third">
     <div class="idcheck-dash">
-      <span class="data-item bold">Complete today</span>
-      {% if state === 'declined' or state === 'approved' %}
-      <span class="data-item bold-xxlarge">9</span>
-      {% else %}
-      <span class="data-item bold-xxlarge">8</span>
-      {% endif %}
+      <p class="idcheck-dash-heading">Complete today by you</p>
+
+      <div class="idcheck-dash-details">
+
+        {% if state === 'declined' or state === 'approved' %}
+        <div class="idcheck-dash-number bold-xxlarge">9</div>
+        {% else %}
+        <div class="idcheck-dash-number bold-xxlarge">8</div>
+        {% endif %}
+
+        {% if state === 'declined' %}
+        <div class="idcheck-dash-desc">Approved: 6 <br>Declined: 3</div>
+        {% elif state === 'approved' %}
+        <div class="idcheck-dash-desc">Approved: 7 <br>Declined: 2</div>
+        {% else %}
+        <div class="idcheck-dash-desc">Approved: 6 <br>Declined: 2</div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>

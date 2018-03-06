@@ -92,3 +92,26 @@
     background-color: $green;
   }
 }
+
+.idcheck-dash-heading {
+  margin-bottom: 1em;
+}
+
+.idcheck-dash-details {
+  display: table;
+  margin: 0;
+}
+
+.idcheck-dash-number {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.idcheck-dash-desc {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 0.3em;
+  padding-left: 1em;
+  line-height: 1.5em;
+
+}
