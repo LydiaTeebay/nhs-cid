@@ -57,11 +57,11 @@
             <div class="qa-questions-question" data-answered="false">
                 <p class="qa-questions-question-text">Does the Name and DOB on the PDS trace match those on the Photo ID?</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="0" aria-checked="false">
                         <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0">Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="1" aria-checked="false">
                         <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1">No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
@@ -145,18 +145,39 @@
 
 <script type="text/javascript">
 
-    setTimeout(function(){
-        document.getElementById('trace').style.display = "block";
-    }, 4000)
-    setTimeout(function(){
-        document.getElementById('loader').style.display = "none";
-    }, 4000)
+
 
     // hide or show the buttons based on selections
     // localStorage.removeItem("idchecker")
     addEventListeners()
     resetAllSections()
     questionsComplete = false
+
+
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    var state = getParameterByName('state')
+
+    setTimeout(function(){
+        document.getElementById('trace').style.display = "block";
+        if (state === 'noresult') {
+            console.log("hello")
+            $('label[for="1"]').click()
+        }
+    }, 4000)
+    setTimeout(function(){
+        document.getElementById('loader').style.display = "none";
+    }, 4000)
+
 
     var processClick = function(e) {
         // update local storage straight away
