@@ -145,15 +145,11 @@
 
 <script type="text/javascript">
 
-
-
     // hide or show the buttons based on selections
     // localStorage.removeItem("idchecker")
     addEventListeners()
     resetAllSections()
     questionsComplete = false
-
-
 
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
@@ -177,7 +173,6 @@
     setTimeout(function(){
         document.getElementById('loader').style.display = "none";
     }, 4000)
-
 
     var processClick = function(e) {
         // update local storage straight away

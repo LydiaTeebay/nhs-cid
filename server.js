@@ -29,18 +29,19 @@ const config = require('./config.js').app
  */
 const utils = require('./lib/utils.js')
 
-let username = process.env.USERNAME
-let password = process.env.PASSWORD
+
+
+let username = process.env.AUTH_USERNAME || process.env.USERNAME
+let password = process.env.AUTH_PASSWORD || process.env.PASSWORD
 let env = process.env.NODE_ENV || 'development'
 const useBrowserSync = config.useBrowserSync.toLowerCase()
 const useAuth = process.env.USE_AUTH || config.useAuth.toLowerCase()
-
 env = env.toLowerCase()
 
 const router = express.Router()
 const routes = require('./app/routes')
 
-const isDev = app.get('env') === 'development'
+// const isDev = app.get('env') === 'development'
 
 // notify integration
 let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'
