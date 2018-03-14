@@ -155,11 +155,11 @@ function showPrep() {
     document.getElementById('scan-id-3').style.display = "block";
     setTimeout(function(){
         playButton.click();
-    }, 1000)
+    }, 2000)
 }
 
 function showUploader() {
-    uploadLoader(6);
+    uploadLoader(2);
     document.getElementById("progressbar-heading").innerHTML = "Uploading your video";
     document.getElementById('scan-id-5').style.display = "none";
     document.getElementById('scan-id-3').style.display = "block";
