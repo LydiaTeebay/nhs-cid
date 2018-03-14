@@ -44,7 +44,11 @@ if (!isSecureOrigin) {
 
 var constraints = {
     audio: true,
-    video: true
+    video: {
+        width: 320,
+        height:240,
+        frameRate: {ideal: 20, min:10}
+    }
 };
 
 function handleSuccess(stream) {
@@ -99,7 +103,7 @@ function toggleRecording() {
 
 function startRecording() {
     recordedBlobs = [];
-    var options = {mimeType: 'video/webm;codecs=vp9'};
+    var options = {mimeType: 'video/mp4'};
     if (!MediaRecorder.isTypeSupported(options.mimeType)) {
         console.log(options.mimeType + ' is not Supported');
         options = {mimeType: 'video/webm;codecs=vp8'};
