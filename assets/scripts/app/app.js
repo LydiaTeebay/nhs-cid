@@ -25,9 +25,13 @@ function activateLoader(speed) {
 
         if (value == max) {
             clearInterval(animate)
+            // window.parent.document.location.href = "service-access-video-selfie"
+            $('#continueButton').click()
             $("#scan-id-3").css("display", "none")
             $("#scan-id-5").css("display", "block")
-            $("#scan-id-6").css("display", "block")
+            $("#scan-id-6").css("display", "none")
+            // $("#scan-id-7").css("display", "block")
+
         }
     }
     var animate = setInterval(function() {
@@ -94,7 +98,8 @@ function uploadLoader(speed) {
 
         if (value == max) {
             clearInterval(animate2)
-            window.parent.document.location.href = "service-access-confirmation"
+            // window.parent.document.location.href = "service-access-confirmation"
+            $('#confirmButton').click()
                 $("#scan-id-3").css("display", "none")
             $("#scan-id-7").css("display", "block")
             // $("#scan-id-5").css("display", "block")
@@ -144,15 +149,15 @@ function readURL(input, idType) {
         if (idType == "photoId") {
 
             $("#scan-id-1").css("display", "none")
-            $("#scan-id-3").css("display", "block")
+            $("#scan-id-5").css("display", "block")
             $('#uploaded-id').attr('src', e.target.result)
-            activateLoader(2)
+            // activateLoader(2)
         }
         if (idType == "videoSelfie") {
             $("#scan-id-1").css("display", "none")
             $("#scan-id-3").css("display", "block")
             $('#uploaded-video>source').attr('src', e.target.result)
-            activateLoader(1)
+            activateLoader(2)
         }
 
     }
@@ -208,6 +213,17 @@ $("#submit-id-back-button").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+
+// submit button action
+$("#submit-photoId-button").on("click", function(e) {
+    e.preventDefault()
+    activateLoader(2)
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 // submit back button action
 $("#submit-photoId-back-button").on("click", function(e) {
     e.preventDefault()
@@ -221,7 +237,7 @@ $("#submit-photoId-back-button").on("click", function(e) {
 // submit back button action
 $("#video-selfie-back-button").on("click", function(e) {
     e.preventDefault()
-    reactivateLoader(2)
+    reactivateLoader(1)
     $("#scan-id-5").css("display","none")
     $("#scan-id-6").css("display","none")
     $("#scan-id-3").css("display","block")
