@@ -23,6 +23,16 @@ $_step-width: $baseline-grid-unit * 8;
   padding-right: $gutter*.5;
   @include clearfix;
 
+  &.hide-number {
+    &:before {
+      content: none;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
   // style the numbers
   &:before {
     background-color: $nhs-blue;
@@ -64,7 +74,6 @@ $_step-width: $baseline-grid-unit * 8;
 }
 
 .service-access__item__title {
-
   vertical-align: top;
   display: block;
   .completed & {
@@ -74,6 +83,29 @@ $_step-width: $baseline-grid-unit * 8;
   @include media(tablet) {
     width: 70%;
     display: inline-block;
+  }
+
+  &.ticked {
+    position: relative;
+    //color: $grey-2;
+    &::before,
+    &::after {
+      content: "";
+      left: $gutter*-1.25;
+      top: 0.15em;
+      position: absolute;
+      zoom: 1;
+    }
+    &::before {
+      background: transparent;
+      border: solid;
+      border-color: $green;
+      border-width: 0 0 6px 6px;
+      height: 14px;
+      //top: .7em;
+      transform: rotate(-45deg);
+      width: 22px;
+    }
   }
 }
 
