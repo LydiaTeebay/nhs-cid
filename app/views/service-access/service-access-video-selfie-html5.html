@@ -22,7 +22,7 @@
         <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
             <div class="camera-preview-feed">
-                <video id="gum" muted playsinline autoplay></video>
+                <video id="gum" muted autoplay></video>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
 
         <div class="reading-width">
             <div id="scan-video-preview">
-                <video id="recorded" controls="false" autoplay="autoplay" loop playsinline style="width:100%;height:auto;"></video>
+                <video id="recorded" controls="" autoplay style="width:100%;height:auto;"></video>
             </div>
             <div class="camera-instructions">
                 <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
@@ -87,7 +87,7 @@
     </section>
 
     <button id="download" disabled style="visibility:hidden;">Download</button>
-    <button id="play" disabled style="visibility:hidden">Play</button>
+    <button id="play" disabled >Play</button>
     <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';" >Continue</button>
 
 </div>

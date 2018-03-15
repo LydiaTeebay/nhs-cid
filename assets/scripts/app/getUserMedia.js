@@ -159,6 +159,7 @@ function showPrep() {
 }
 
 function showUploader() {
+    mute();
     uploadLoader(2);
     document.getElementById("progressbar-heading").innerHTML = "Uploading your video";
     document.getElementById('scan-id-5').style.display = "none";
@@ -166,10 +167,10 @@ function showUploader() {
 }
 
 function resetVideo() {
+    mute();
     console.log("reset");
     document.getElementById('scan-id-5').style.display = "none";
     document.getElementById('camera-container').style.display = "block";
-    mute();
 }
 
 function mute() {
