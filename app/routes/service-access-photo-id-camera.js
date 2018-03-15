@@ -9,10 +9,11 @@ module.exports = function (router) {
         var formerror = req.param('formerror')
         var idType = req.param('idType')
         var changetomobile = req.param('changetomobile')
+        var hidehead = req.param('hidehead')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/service-access-photo-id-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile }, function(err, html) {
+        res.render('service-access/service-access-photo-id-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, hidehead: hidehead }, function(err, html) {
             res.send(html)
         })
     })

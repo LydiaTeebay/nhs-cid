@@ -8,6 +8,7 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var changetomobile = req.param('changetomobile')
+        var hidehead = req.param('hidehead')
         var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
@@ -17,7 +18,7 @@ module.exports = function (router) {
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/service-access-video-selfie-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode }, function(err, html) {
+        res.render('service-access/service-access-video-selfie-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead }, function(err, html) {
             res.send(html)
         })
     })
