@@ -8,6 +8,15 @@ module.exports = function (router) {
     })
   })
 
+  router.get('/patient-online/v7/patient-online-gp-lookup', function (req, res) {
+    //var service = req.param('service')
+    var serviceName = req.param('serviceName');
+    var hidehead = req.param('hidehead');
+    res.render('patient-online/v7/patient-online-gp-lookup', { serviceName: serviceName, hidehead: hidehead }, function(err, html) {
+      res.send(html)
+    })
+  })
+
   router.get('/patient-online/v6/patient-online-gp-lookup', function (req, res) {
     //var service = req.param('service')
     var serviceName = req.param('serviceName');

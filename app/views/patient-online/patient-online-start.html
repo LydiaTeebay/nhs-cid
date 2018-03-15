@@ -10,60 +10,87 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Have you received a registration letter from your GP surgery?</legend></h1>
-        <p>You may have received this if you signed up for your GP surgery online services</p>
-        <section class="nhsuk-component">
-          <!--
-          <div class="panel" style="text-align: center">
-            <div class="panel__content panel__content--third">
-              <div style="padding-top: 15px; margin: auto; width:200px; height: 100px;">
-                <i class="fas fa-5x fa-mobile"></i>
-              </div>
-              <h3>Text</h3>
-            </div>
-            <div class="panel__content panel__content--third">
-              <div style="padding-top: 15px; margin: auto; width:200px; height: 100px;">
-                <i class="fas fa-5x fa-envelope"></i>
-              </div>
-              <h3>E-mail</h3>
-            </div>
-            <div class="panel__content panel__content--third">
-              <div style="padding-top: 15px; margin: auto; width:200px; height: 100px;">
-                <i class="fas fa-5x fa-newspaper"></i>
-              </div>
-              <h3>Letter</h3>
+        <h1><legend>Access health services<!--: step by step--></legend></h1>
+        <p>Check what you need to do to access health services.</p>
+        <main id="content" role="main" class="content ">
+      
+
+<ol class="service-access">
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Create an NHS account</h3>
+			<div class="service-access__item__desc">
+      <details class="" role="group">
+          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary"><small>Show</small></span>
+          </summary>
+          <div class="details__content" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+            <p>An NHS Acount is reusable on many online health and social services.</p>
+            <p><a href="">What is an NHS account?</a></p>
+            <p><a href="">Login</a></p>
+            <p><a href="">Create an NHS account</a></p>
             </div>
           </div>
-          -->
-        </section>
+        </details>
+			</div>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Register for GP Online services</h3>
+			<div class="service-access__item__desc">
+      <details class="" role="group">
+          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary"><small>Show</small></span>
+          </summary>
+          <div class="details__content" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+            <p>GP Online services allow you to book GP appointments, repeat prescriptions and more.</p>
+            <p><a href="">What is GP Online?</a></p>
+            <p><a href="">Register for GP Online services</a></p>
+            <p><a href="">What services are available</a></p>
+            </div>
+          </div>
+        </details>
+			</div>
+		</li>
+    <li class="service-access__item">
+			<h3 class="service-access__item__title">Get your GP Online services registration details</h3>
+			<div class="service-access__item__desc">
+      <details class="" role="group">
+          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary"><small>Show</small></span>
+          </summary>
+          <div class="details__content" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+            <p>If you have used GP online services then you will have been given a letter.</p>
+            <p><a href="">What does it look like?</a></p>
+            <p><a href="">I've lost my registration details</a></p>
+            </div>
+          </div>
+        </details>
+			</div>
+		</li>
+    <li class="service-access__item" style="border-bottom: none">
+			<h3 class="service-access__item__title">Link your NHS Account to GP Online services</h3>
+			<div class="service-access__item__desc">
+      <details class="" role="group">
+          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary"><small>Show</small></span>
+          </summary>
+          <div class="details__content" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+            <p>You will need the GP Online registration letter to complete this action.</p>
+            <p><a href="">Enter GP Online registration details</a></p>
+            </div>
+          </div>
+        </details>
+			</div>
+		</li>
+	</ol>
 
-        <mark>show example of the letter here</mark>
+  </div>
+</div>
 
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-linkage-key{{ params }}">
-            Yes
-          </label>
-        </div>
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="patient-online-gp-systems{{ params }}">
-            Yes but lost it
-          </label>
-        </div>
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-3">
-            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-online-gp-online{{ params }}">
-            No
-          </label>
-        </div>
-        
-      </fieldset>
-    </div>
-    <div class="form-group">
-      <a class="button" href="#" id="continue">Continue</a>
-    </div>
-   <!-- <p><a href="">I don't have those details</a></p>-->
+
   </form>
 </div>
 
