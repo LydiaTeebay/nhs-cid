@@ -1,0 +1,11 @@
+.child-import label span{
+  display: block;
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+.child-import .block-label.selection-button-checkbox:before {
+  top: 13px
+}
+.child-import .block-label.selection-button-checkbox:after {
+  top: 24px;
+}

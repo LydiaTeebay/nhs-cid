@@ -1,0 +1,128 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form action="nhs-number{{ params }}" method="POST">
+    <div class="form-group">
+
+      <fieldset>
+
+        <legend>
+          <h1 class="">
+            Do you know your NHS number?
+          </h1>
+        </legend>
+
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice" data-target="nhs-yes">
+            <input id="radio-inline-1" type="radio" name="radioinlinegroup" value="yes">
+            <label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
+          </div>
+        </div>
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice" data-target="nhs-no">
+            <input id="radio-inline-2" type="radio" name="radioinlinegroup" value="no">
+            <label for="radio-inline-2"class="block-label" style="position: static;">No</label>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <div class="error error-summary callout callout--error error-message error-message-active" role="alert" tabindex="-1">
+        <h2 class="h3" id="error-summary">Please resolve the following errors:</h2>
+        <ul class="link-list" id="link-to-errors">
+          <li id="first-name-error-link"><a href="#nhs-number">NHS number is missing</a></li></ul>
+      </div>
+
+        <div aria-hidden="true" aria-expanded="false" class=" js-hidden" id="nhs-yes" style="margin: 0;">
+          <div class="panel panel-border-narrow">
+
+            <div id="nhs-number" class="has-error form-row-error-active">
+
+              <div class="form-group">
+
+                <label for="nhs-number" class="form-label error-label">NHS Number</label>
+                <!-- <span class="form-label__hint">Example: 485 777 3456</span> -->
+
+                <span class="error error-message error-text error-message-active" id="nhs-number-error">Please enter your NHS number</span>
+
+                <input autocomplete="off" type="number" name="nhs-number" value="" class="-small form-control">
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="callout callout--info callout--compact">
+            <p>NHS numbers are 10 digits long, for example <strong>943 476 5919</strong>.<br>Find it on prescriptions or on doctor/hospital letters..</p>
+          </div>
+
+        </div>
+
+        <div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="nhs-no" style="margin: 0 0 32px;">
+
+          <div class="form-group">
+
+            <label class="form-label" for="firstname">First name</label>
+            <input class="form-control" type="text" id="firstname" name="firstname">
+
+            <label class="form-label" for="lastname">Last name</label>
+            <input class="form-control " type="text" id="lastname" name="lastname">
+
+            <label class="form-label" for="postcode">Postcode</label>
+            <span style="padding-bottom: 10px; margin-top: 10px; display: block;">This must be the same postcode that is registered with your GP</span>
+            <input class="form-control postcode" type="text" id="postcode" name="postcode">
+
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend class="form-label">
+                Date of birth
+              </legend>
+              <span class="form-label__hint" style="margin-top: 10px;">For example, '31 4 1980'</span>
+              <div class="form-group -date" style="margin-top: 10px;">
+                <div class="form-date-field">
+                  <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
+                  <input type="number" id="dob-day" name="dob-day" pattern="[0-9]" value="" class="day" maxlength="2" min="1" max="31">
+                </div>
+                <div class="form-date-field">
+                  <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
+                  <input type="number" id="dob-month" name="dob-month" pattern="[0-9]" value="" class="month" maxlength="2" min="1" max="12">
+                </div>
+                <div class="form-date-field">
+                  <label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>
+                  <input type="number" id="dob-year" name="dob-year" pattern="[0-9]" value="" class="year" maxlength="4" min="1900" max="2018">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="form-group">
+      <!--<a class="button" href="service-access-eredbook-03{{ params }}" id="continue">Continue</a>-->
+      <button class="button" href="nhs-number{{ params }}">Continue</button>
+    </div>
+
+
+  </form>
+
+</div>
+
+{% endblock %}

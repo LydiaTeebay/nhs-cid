@@ -1,7 +1,7 @@
 {% extends '_layouts/_nhsuk_layout.html' %}
 
 {% block extrascripts %}
-<!--<script src="/onfido.min.js"></script>-->
+<script src="/onfido.min.js"></script>
 {% endblock %}
 
 {% block extrastyles %}
@@ -12,13 +12,6 @@
 
 {% block topRow %}{% endblock %}
 
-<div class="grid-row">
-  <div class="column--two-thirds">
-    {% block content %}{% endblock %}
-    <div class="column--one-thirds">
-      {% block rightcol %}{% endblock %}
-    </div>
-  </div>
-</div>
+{% block content %}{% endblock %}
 
 {% endblock %}

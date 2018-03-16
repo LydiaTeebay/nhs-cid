@@ -1,0 +1,137 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+      <section class="" id="scan-id-1">
+
+        <p><a class="" href="service-access-photo-id-type{{ params }}">Go back</a></p>
+
+        <form>
+          <fieldset class="">
+            <legend for="radio-inline-group">
+              <h1 style="padding-bottom: 0;">
+                Take a photo of your {{ idType }}
+              </h1>
+            </legend>
+
+            <p>You need to make sure:</p>
+            <ul class="list list-bullet">
+              <li>the whole document is visible</li>
+              <li>you hold the camera straight above the document</li>
+              <li>the details are clear and readable</li>
+              <li>there are no reflections</li>
+            </ul>
+            <div class="form-group">
+
+              <label for="photo-id-document" class="camera-button">Open camera
+                <input type="file" id="photo-id-document" accept="image/*" capture="environment">
+              </label>
+
+            </div>
+
+          </fieldset>
+
+        </form>
+
+      </section>
+
+  <section  class="" id="scan-id-3" style="display:none">
+
+    <h1 style="padding-bottom: 0;">
+      Uploading your photo
+    </h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-pie-chart" data-percent="0">
+          <div class="ppc-progress">
+            <div class="ppc-progress-fill"></div>
+          </div>
+          <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+              <span>%</span>
+            </div>
+          </div>
+        </div>
+
+        <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
+      </div>
+    </div>
+
+  </section>
+
+  {% if formerror !== 'invalid' %}
+  <section class="" id="scan-id-5" style="display:none">
+
+    <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
+
+    <div class="reading-width">
+      <div id="scan-id-preview">
+        <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <a class="button" href="" id="submit-photoId-button">Submit this photo</a>
+
+      <p><a href="service-access-photo-id-camera{{ params }}" id="">Cancel</a></p>
+    </div>
+
+  </section>
+{% endif %}
+
+
+{% if formerror !== 'undefined' %}
+  <section  class="" id="scan-id-6" style="display:none">
+
+    <h1 style="padding-bottom: 0;">Upload error</h1>
+
+    {% if formerror !== 'undefined' %}
+    <div id="nhs-number" class="has-error form-row-error-active">
+      <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your photo.</span>
+    </div>
+    {% endif %}
+
+    <div class="form-group">
+      <a class="button" href="" id="submit-photoId-back-button">Retry upload</a>
+      <p><a href="service-access-photo-id-camera{{ params }}" id="">Cancel</a></p>
+
+    </div>
+
+  </section>
+{% endif %}
+
+<section class="" id="scan-id-7" style="display:none">
+
+  <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
+
+  <div id="nhs-number" class="has-error form-row-error-active">
+    <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">No face detected</span>
+  </div>
+
+  <div class="reading-width">
+    <div id="scan-id-preview" style="border: 3px solid red">
+    <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Retake photo</a>
+
+  </div>
+</section>
+
+
+
+    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie{{ params }}';" >Continue</button>
+
+</div>
+
+{% endblock %}

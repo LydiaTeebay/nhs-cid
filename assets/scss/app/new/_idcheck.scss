@@ -1,0 +1,117 @@
+// id check styles
+
+.idcheck-image {
+  position: relative;
+}
+
+.idcheck-video {
+  position: relative;
+  #uploaded-video {
+    margin: 0;
+  }
+  .expanded & {
+    max-width: 30%;
+  }
+}
+
+.idcheck-media {
+  position: relative;
+  display: table;
+
+}
+
+.expanded .idcheck-media .idcheck-video,
+.expanded .idcheck-media .idcheck-image {
+  display: table-cell !important;
+  vertical-align: top;
+  width: 29%;
+}
+.expanded .idcheck-media .idcheck-image {
+  padding-left: 1em;
+  width: 71%;
+}
+
+.idcheck-image-expand {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.idcheck-video-paired {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.idcheck-image-expand-button {
+  position: relative;
+  display: block;
+  text-indent: -9999px;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  background-image: url('/images/expand.svg');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: all 0.5s;
+  &:hover {
+    width: 60px;
+    height: 60px;
+    background-size: 35px;
+  }
+
+  &.expanded {
+    background-image: url('/images/reduce.svg');
+  }
+}
+
+.idcheck-video-paired-button {
+  position: relative;
+  display: block;
+  background-color: #fff;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: all 0.5s;
+  text-decoration: none;
+  padding: 0.25em 0.5em;
+}
+
+.idcheck-image-img {
+  margin: 0;
+}
+
+// dashboard
+
+.idcheck-dash {
+  background-color: $nhs-blue;
+  color: white;
+  padding: 16px;
+  &.u-inprogress {
+    background-color: $green;
+  }
+}
+
+.idcheck-dash-heading {
+  margin-bottom: 1em;
+}
+
+.idcheck-dash-details {
+  display: table;
+  margin: 0;
+}
+
+.idcheck-dash-number {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.idcheck-dash-desc {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 0.3em;
+  padding-left: 1em;
+  line-height: 1.5em;
+
+}

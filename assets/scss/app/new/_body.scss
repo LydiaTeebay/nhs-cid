@@ -1,0 +1,24 @@
+// give some styling to emails
+
+.body-email {
+  padding: 1em 0;
+  background-color: $grey-3;
+  .page-section {
+    max-width: 600px;
+    padding: 0 32px;
+    border: 1px solid #425563;
+    box-shadow: 2px 2px 8px $grey-1;
+    background: #fff;
+    .grid-row {
+      margin: 1em 0 0;
+    }
+  }
+  .global-footer {
+    margin: 0 -32px;
+    padding: 0 32px;
+  }
+}
+
+.body-webview {
+  background-color: $white;
+}

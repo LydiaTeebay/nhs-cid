@@ -1,10 +1,126 @@
 // Add your custom Javascript here
 
+function activateLoader(speed) {
+    // console.log("activate")
+    var progressbar = $('#progress_bar')
+    var $ppc = $('.progress-pie-chart')
+    $ppc.removeClass('gt-50')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate)
+            // window.parent.document.location.href = "service-access-video-selfie"
+            $('#continueButton').click()
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-5").css("display", "block")
+            $("#scan-id-6").css("display", "none")
+            // $("#scan-id-7").css("display", "block")
+
+        }
+    }
+    var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
+function reactivateLoader(speed) {
+    // console.log("activate")
+    var $ppc = $('.progress-pie-chart')
+    $ppc.removeClass('gt-50')
+    var progressbar = $('#progress_bar')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate2)
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-7").css("display", "block")
+            // $("#scan-id-5").css("display", "block")
+        }
+    }
+    var animate2 = setInterval(function() {
+        loading()
+    }, time)
+}
+
+function uploadLoader(speed) {
+    var $ppc = $('.progress-pie-chart')
+    $ppc.removeClass('gt-50')
+    var progressbar = $('#progress_bar')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate2)
+            // window.parent.document.location.href = "service-access-confirmation"
+            $('#confirmButton').click()
+                $("#scan-id-3").css("display", "none")
+            $("#scan-id-7").css("display", "block")
+            // $("#scan-id-5").css("display", "block")
+        }
+    }
+    var animate2 = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function readURL(input, idType) {
   if (input.files && input.files[0]) {
     var reader = new FileReader()
 
     reader.onload = function (e) {
+        if (idType == "doc") {
+
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-3").css("display", "block")
+            $('#uploaded-id').attr('src', e.target.result)
+        }
       if (idType == "id") {
 
         $("#scan-id-1").css("display", "none")
@@ -25,6 +141,25 @@ function readURL(input, idType) {
           $(location).attr('href', 'pyi-scan-id-uploading')
         }
       }
+      if (idType == "selfie") {
+          $("#scan-id-3").css("display", "none")
+          $("#scan-id-4").css("display", "block")
+          $('#uploaded-video>source').attr('src', e.target.result)
+      }
+        if (idType == "photoId") {
+
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-5").css("display", "block")
+            $('#uploaded-id').attr('src', e.target.result)
+            // activateLoader(2)
+        }
+        if (idType == "videoSelfie") {
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-3").css("display", "block")
+            $('#uploaded-video>source').attr('src', e.target.result)
+            activateLoader(2)
+        }
+
     }
     reader.readAsDataURL(input.files[0])
   }
@@ -32,6 +167,16 @@ function readURL(input, idType) {
 
 $("#id-document").change(function(){
   readURL(this, "id")
+})
+
+$("#photo-id-document").change(function(){
+    readURL(this, "photoId")
+})
+
+
+
+$("#document").change(function(){
+    readURL(this, "doc")
 })
 
 // submit photo button action
@@ -42,12 +187,60 @@ $("#submit-id-button").on("click", function(e) {
   document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+// submit photo button action
+$("#submit-document-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-1").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit photo button action
+$("#submit-document-back-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-3").css("display","none")
+    $("#scan-id-1").css("display","block")
+    document.getElementById("id-document").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 // submit back button action
 $("#submit-id-back-button").on("click", function(e) {
     e.preventDefault()
     $("#scan-id-2").css("display","none")
     $("#scan-id-1").css("display","block")
     document.getElementById("id-document").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+
+// submit button action
+$("#submit-photoId-button").on("click", function(e) {
+    e.preventDefault()
+    activateLoader(2)
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit back button action
+$("#submit-photoId-back-button").on("click", function(e) {
+    e.preventDefault()
+    reactivateLoader(2)
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit back button action
+$("#video-selfie-back-button").on("click", function(e) {
+    e.preventDefault()
+    reactivateLoader(1)
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
@@ -61,6 +254,14 @@ $("#create-video-back-button").on("click", function(e) {
 
 $("#id-selfie").change(function(){
   readURL(this, "video")
+})
+
+$("#selfie").change(function(){
+    readURL(this, "selfie")
+})
+
+$("#video-selfie").change(function(){
+    readURL(this, "videoSelfie")
 })
 
 // submit back button action
@@ -126,6 +327,34 @@ $("#securityCode").on("input", function(e) {
   }
 })
 
+$("#securitycodeContinue").on("click", function(e) {
+  //console.log(e.target.href);
+  if (e.currentTarget.href == "https://eredbook-uat.azurewebsites.net/parental/Inbox") {
+    window.parent.document.location.href = e.target.href;
+  }
+})
+
+// expand ID document image in ID checker
+$(".idcheck-image-expand-button").on("click", function(e) {
+    e.preventDefault()
+    $( e.target ).closest(".panel").children().toggleClass( "expanded" )
+    $( e.target ).toggleClass( "expanded" )
+})
+
+// expand ID document image in ID checker
+$(".idcheck-video-paired-button").on("click", function(e) {
+    e.preventDefault()
+
+    if ($( e.target ).closest(".panel").children().hasClass('expanded')) {
+        $( e.target ).closest(".panel").children().toggleClass( "expanded" )
+        $( e.target ).closest(".idcheck-media").children('.idcheck-image').hide()
+        $( e.target ).text( "Show document" )
+    } else {
+        $( e.target ).closest(".panel").children().toggleClass( "expanded" )
+        $( e.target ).closest(".idcheck-media").children('.idcheck-image').show()
+        $( e.target ).text( "Hide document" )
+    }
+})
 
 // helper function to place modal window as the first child
 // of the #page node
@@ -190,7 +419,7 @@ swap();
     // Shift + Tab will allow backup to the top of the modal,
     // and then stop.
     function focusRestrict ( event ) {
-      if ( modalOpen && !modal.contains( event.target ) ) {
+      if (modalOpen && !modal.contains( event.target ) ) {
           event.stopPropagation()
           modal.focus()
       }
@@ -205,11 +434,11 @@ swap();
 
     // open modal by btn click/hit
     // mOpen.addEventListener('click', modalShow)
-    mCreate.addEventListener('click', modalShow, false);
-    mCreate2.addEventListener('click', modalShow, false);
+    mCreate.addEventListener('click', modalShow, false)
+    mCreate2.addEventListener('click', modalShow, false)
     mCreate3.addEventListener('click', function(e) {
       e.preventDefault();
-      window.parent.document.location.href = e.target.href;
+      window.parent.document.location.href = e.target.href
     });
     // close modal by btn click/hit
     mClose.addEventListener('click', modalClose)

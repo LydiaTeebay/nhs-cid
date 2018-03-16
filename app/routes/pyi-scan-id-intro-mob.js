@@ -8,8 +8,7 @@ module.exports = function (router) {
     router.get('/prove-your-identity/pyi-scan-id-intro-mob', function (req, res) {
         var changetomobile = req.param('changetomobile')
         // is the user on a mobile device?
-        // var mobileNum = "07846679319"
-        var mobileNum = "07980802645"
+        // var mobileNum = "XXXXXXXXXXX"
         // send text message
         if (changetomobile === 'yes') {
             console.log("sending text")
@@ -25,8 +24,7 @@ module.exports = function (router) {
     router.get('/prove-your-identity/v4/pyi-scan-id-intro-mob', function (req, res) {
         var changetomobile = req.param('changetomobile')
         // is the user on a mobile device?
-        var mobileNum = "07846679319"
-        // var mobileNum = "07980802645"
+        // var mobileNum = "XXXXXXXXXXX"
         // send text message
         if (changetomobile === 'yes') {
             console.log("sending text")

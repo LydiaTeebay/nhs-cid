@@ -6,7 +6,8 @@
   }
 }
 
-.rrui__input-label, .rrui__input:not(.rrui__input--multiline) {
+.rrui__input-label,
+.rrui__input:not(.rrui__input--multiline) {
   margin: 0;
   display: block;
   width: 100%;
@@ -14,5 +15,8 @@
   border: none;
   font-family: inherit;
   line-height: inherit;
+}
 
+.onfido-sdk-ui-Uploader-dropzone {
+  // display: none;
 }

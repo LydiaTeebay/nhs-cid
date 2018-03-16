@@ -1,5 +1,7 @@
 ﻿{% extends '_layouts/_blank_layout.html' %}
 
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+
 {% block body %}
 
 <!DOCTYPE html>
@@ -10,6 +12,28 @@
 --><!--<![endif]--><head id="Head1"><title>
 	eRedbook
 </title><link href="https://www.googletagmanager.com" rel="preconnect" crossorigin=""><link href="https://www.google-analytics.com" rel="preconnect" crossorigin=""><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><meta id="VersionHtmlMeta" name="Version" content="2.2.8.6"><meta name="viewport" content="width=1000">
+<style>
+.ered-create-button {
+
+    background: linear-gradient(#CF0307, red);
+    background: linear-gradient(red, #CF0307);
+    border: 1px solid #8b0504;
+    padding: 15px 15px 15px 15px;
+    display: block;
+    float: right;
+    font-size: 1.09em;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 1px #d6d6d6;
+}
+
+.ered-create-button:hover {
+    text-decoration: none;
+    background: linear-gradient(#CF0307, red);
+}
+</style>
+
 <style rel="stylesheet" data-href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/smoothness/jquery-ui.css">/*! jQuery UI - v1.10.3 - 2013-05-03
 * http://jqueryui.com
 * Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css
@@ -1929,7 +1953,7 @@ select:focus,
     background-color:#fff;
     border: 1px solid #ADADAD;
     width:300px;
-    padding:25px 30px 10px 40px;
+    padding:25px 35px 10px 35px;
 }
 .homepageNews {
     margin-bottom: 20px;
@@ -2806,7 +2830,7 @@ a {
     
     <div class="modal-overlay" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
   <div class="modal-content" id="modal_holder" role="document" style="width: 75%; height:85%; background-color:white; overflow: hidden; padding: 0">
-  <iframe style="width:100%; height:100%; border: none" src="{{ rootUrl }}/create-account/login-nhs">
+  <iframe style="width:100%; height:100%; border: none" src="{{ rootUrl }}/create-account/v6/login-nhs{{ params }}">
    <!-- {% include "create-account/_partials/_create-new-account.html" %}-->
     </iframe>    
     <button class="btn-close" id="modal_close" type="button" aria-label="close" style="color: white; right: 8px; top: -28px;">
@@ -2859,11 +2883,28 @@ a {
                             <div>
                                 <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$MainContentPlaceHolder$OrgIDHF" id="MainContentPlaceHolder_MainContentPlaceHolder_OrgIDHF" value="321e2d1e-2ddb-473f-8f30-6b7fa50d8701">
                                 <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$MainContentPlaceHolder$ICodeHF" id="MainContentPlaceHolder_MainContentPlaceHolder_ICodeHF">
-                                <div class="registerBtn">
+                                
+                                <a id="modal_create3" href="/service-access/v2/service-access-eredbook" class="ered-create-button">Create your eRedbook account</a>
+                                
+                                <!--<div class="registerBtn">
                                     <a id="modal_create3" href="/service-access/service-access-eredbook" style="line-height:2.5em" class="erbSubmitButton2">Create your eRedbook</a>
-                                    <!--<input type="submit" name="ctl00$ctl00$MainContentPlaceHolder$MainContentPlaceHolder$OrganisationButton" value="Create your eRedbook" id="MainContentPlaceHolder_MainContentPlaceHolder_OrganisationButton" class="erbSubmitButton2">-->
+                                    
+                                    <input type="submit" name="ctl00$ctl00$MainContentPlaceHolder$MainContentPlaceHolder$OrganisationButton" value="Create your eRedbook" id="MainContentPlaceHolder_MainContentPlaceHolder_OrganisationButton" class="erbSubmitButton2">
+                                </div>-->
+                                
+                                <!--<p>eRedbook helps you manage your child's early years.</p>-->
+                                
+                                <div style="line-height: 1.55em">
+                                    <a style="width: 96px; float: left; margin-top: 22px" href="/" class="global-header__link">
+                                        <img src="/images/logotype-nhs-colour__reverse.png" alt="NHS">
+                                    </a>
+                                    <p style="line-height: 1.55em; width: 200px; float: left; margin-top: 16px">Your information is held securely by the NHS</p>
+
+                                    <p style="line-height: 1.55em; clear: both">You can access other health services with the same NHS account</p>
                                 </div>
-                                <p>eRedbook helps you manage your child's early years.</p><p>Your information is stored securely in Microsoft HealthVault.</p>
+                                
+                                
+                                
                             </div>
                         </div>
                     

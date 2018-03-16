@@ -1,3 +1,6 @@
+// now not being overriden
+// using .service-access instead
+
 $_step-width: $baseline-grid-unit * 8;
 
 .step-list__item {
@@ -13,7 +16,7 @@ $_step-width: $baseline-grid-unit * 8;
     color: $white;
     display: inline-block;
     top: -1px;
-    left: 0px;
+    left: 0;
   }
 
   @include clearfix;
@@ -21,8 +24,19 @@ $_step-width: $baseline-grid-unit * 8;
 
 .step-list__item--task {
   display: inline-block;
-  width: 70%;
+  //width: 70%;
   vertical-align: top;
+  @include media(tablet) {
+    width: 70%;
+
+  }
+}
+
+.step-list__item--desc {
+  margin-left: $gutter*-2;
+  @include media(tablet) {
+    margin-left: 0;
+  }
 }
 
 .step-list__item__status {
@@ -52,6 +66,8 @@ $_step-width: $baseline-grid-unit * 8;
     color: $white;
   }
 }
+
+// Old style - no not use
 .step-list__item__status__text.pending {
   background-color: $yellow;
 }

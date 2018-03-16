@@ -18,17 +18,28 @@
 @import "overrides/panel";
 @import "overrides/list";
 @import "overrides/step-list";
+@import "overrides/error";
+
+
+// Pull in old prototype styles
+// classes not needed in production
+@import "old/task";
+
 
 // Pull in new styles
 @import "new/instructions";
-@import "new/email";
+@import "new/body";
 @import "new/camera";
 @import "new/sidebar";
 @import "new/modal";
 @import "new/data";
 @import "new/onfido";
 @import "new/service-access";
+@import "new/child-import";
 @import "new/delegate";
 @import "new/account";
+@import "new/form-validation";
+@import "new/uploader";
+@import "new/idcheck";
 
 // Add your custom CSS here

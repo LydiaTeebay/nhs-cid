@@ -5,6 +5,16 @@ h1>legend {
   @include bold-font(36);
 }
 
+legend {
+  display: block;
+}
+legend>h1 {
+  padding-bottom: 16px;
+  @include media(tablet) {
+    padding-bottom: 32px;
+  }
+}
+
 // step numbers
 .heading-secondary {
   padding-top: 4px;
@@ -16,4 +26,10 @@ h1>legend {
   text-transform: none;
   display: block;
   color: #6f777b;
+}
+
+h3,
+.h3 {
+  font-size: 24px;
+  line-height: 32px;
 }
