@@ -22,9 +22,10 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var isMobile = req.useragent.isMobile
+        var hidehead = req.param('hidehead')
 
         if (idType === 'driving licence') {
-            var formerror = 'invalid'
+            // var formerror = 'invalid'
         }
         if (idType === 'passport') {
             var formerror = 'undefined'
@@ -32,16 +33,15 @@ module.exports = function (router) {
 
         if (idType === 'passport' || idType === 'driving licence') {
             if (isMobile) {
-                res.redirect('/service-access/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
+                res.redirect('/service-access/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
                 return
             } else {
-                res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
+                res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
                 return
             }
         }
-        res.redirect('/service-access/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
+        res.redirect('/service-access/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
     })
-    
     router.get('/service-access/v3/service-access-photo-id-type', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')

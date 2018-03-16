@@ -12,6 +12,7 @@
 
 {% block content %}
 
+{% if service !== 'nhsonline' %}
 <style>
 
 .sidebar-button {
@@ -57,16 +58,21 @@
 }
 
 </style>
+{% endif %}
 
 <div class="first-item">
+
+  <h1>Create an NHS account</h1>
+
   <form action="create-acc-terms{{ params }}" method="POST">
 
     <div class="form-group">
-      <h1>Create an NHS account</h1>
 
+      {% if service !== 'nhsonline' %}
       <div class="verify-note">
         <p class="small">You can create an NHS account using <strong>GOV.UK Verify</strong>. To register with <strong>GOV.UK Verify</strong> for an NHS account you can <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">sign up here</a>.</p>
       </div>
+      {% endif %}
 
       <div class="form-group">
         <label class="form-label" for="emailAddress">Email address</label>

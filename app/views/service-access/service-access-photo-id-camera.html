@@ -10,8 +10,10 @@
 <div class="first-item">
 
       <section class="" id="scan-id-1">
-        <p><a class="" href="service-access-photo-id-type{{ params }}">Go back</a></p>
 
+        {% if hidehead !== 'true' %}
+        <p><a class="" href="service-access-photo-id-type{{ params }}">Go back</a></p>
+        {% endif %}
 
         <form>
           <fieldset class="">
