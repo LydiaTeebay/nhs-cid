@@ -67,7 +67,6 @@
 
   </section>
 
-  {% if formerror !== 'invalid' %}
   <section class="" id="scan-id-5" style="display:none">
 
     <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
@@ -85,19 +84,15 @@
     </div>
 
   </section>
-{% endif %}
 
 
-{% if formerror !== 'undefined' %}
   <section  class="" id="scan-id-6" style="display:none">
 
     <h1 style="padding-bottom: 0;">Upload error</h1>
 
-    {% if formerror !== 'undefined' %}
     <div id="nhs-number" class="has-error form-row-error-active">
       <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your photo.</span>
     </div>
-    {% endif %}
 
     <div class="form-group">
       <a class="button" href="" id="submit-photoId-back-button">Retry upload</a>
@@ -106,7 +101,6 @@
     </div>
 
   </section>
-{% endif %}
 
 <section class="" id="scan-id-7" style="display:none">
 
@@ -128,9 +122,11 @@
   </div>
 </section>
 
-
-
+  {% if formerror === 'invalid' %}
+    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie{{ params }}';">Continue</button>
+  {% else %}
     <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie{{ params }}';" >Continue</button>
+  {% endif %}
 
 </div>
 
