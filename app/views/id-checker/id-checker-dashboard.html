@@ -18,12 +18,16 @@
 
         {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
         <div class="idcheck-dash-number bold-xxlarge">14</div>
+        {% elif state === 'clear' %}
+        <div class="idcheck-dash-number bold-xxlarge">0</div>
         {% else %}
         <div class="idcheck-dash-number bold-xxlarge">15</div>
         {% endif%}
 
         {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
         <div class="idcheck-dash-desc">First: 15 minutes ago <br>Last: 2 hours ago</div>
+        {% elif state === 'clear' %}
+        
         {% else %}
         <div class="idcheck-dash-desc">First: 2 minutes ago <br>Last: 2 hours ago</div>
         {% endif%}
@@ -72,6 +76,8 @@
 <p>You still have a verification in progress</p>
 <a class="button" href="id-checker-review">Continue verification</a>
 <p><a href="id-checker-dashboard">Abort</a></p>
+{% elif state === 'clear' %}
+
 {% else %}
 <a class="button" href="id-checker-review">Start next verification</a>
 {% endif%}
