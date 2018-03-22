@@ -1,0 +1,433 @@
+/** MEDIA QUERY */
+/** IMPORTS */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i");
+@font-face {
+  font-family: "FrutigerLTW01-76BlackItalic";
+  src: url("fonts/FrutigerLTW01-76BlackItalic.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-76BlackItalic.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-76BlackItalic.woff2") format("woff2"), url("fonts/FrutigerLTW01-76BlackItalic.woff") format("woff"), url("fonts/FrutigerLTW01-76BlackItalic.ttf") format("truetype"), url("fonts/FrutigerLTW01-76BlackItalic.svg#24df08f2-b418-49de-8eca-745947092d72") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-65Bold";
+  src: url("fonts/FrutigerLTW01-65Bold.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-65Bold.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-65Bold.woff2") format("woff2"), url("fonts/FrutigerLTW01-65Bold.woff") format("woff"), url("fonts/FrutigerLTW01-65Bold.ttf") format("truetype"), url("fonts/FrutigerLTW01-65Bold.svg#eae74276-dd78-47e4-9b27-dac81c3411ca") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-45Light";
+  src: url("fonts/FrutigerLTW01-45Light.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-45Light.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-45Light.woff2") format("woff2"), url("fonts/FrutigerLTW01-45Light.woff") format("woff"), url("fonts/FrutigerLTW01-45Light.ttf") format("truetype"), url("fonts/FrutigerLTW01-45Light.svg#29f3ff8a-1719-4e25-a757-53ee1a1114a5") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-66BoldItalic";
+  src: url("fonts/FrutigerLTW01-66BoldItalic.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-66BoldItalic.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-66BoldItalic.woff2") format("woff2"), url("fonts/FrutigerLTW01-66BoldItalic.woff") format("woff"), url("fonts/FrutigerLTW01-66BoldItalic.ttf") format("truetype"), url("fonts/FrutigerLTW01-66BoldItalic.svg#8ad009ab-a7e5-4acb-8ca5-326d2a759924") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-55Roman";
+  src: url("fonts/FrutigerLTW01-55Roman.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-55Roman.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-55Roman.woff2") format("woff2"), url("fonts/FrutigerLTW01-55Roman.woff") format("woff"), url("fonts/FrutigerLTW01-55Roman.ttf") format("truetype"), url("fonts/FrutigerLTW01-55Roman.svg#7def0e34-f28d-434f-b2ec-472bde847115") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-95UltraBlack";
+  src: url("fonts/FrutigerLTW01-95UltraBlack.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-95UltraBlack.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-95UltraBlack.woff2") format("woff2"), url("fonts/FrutigerLTW01-95UltraBlack.woff") format("woff"), url("fonts/FrutigerLTW01-95UltraBlack.ttf") format("truetype"), url("fonts/FrutigerLTW01-95UltraBlack.svg#3b96d0b6-5de6-4fb0-9884-b645e55d01c4") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-56Italic";
+  src: url("fonts/FrutigerLTW01-56Italic.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-56Italic.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-56Italic.woff2") format("woff2"), url("fonts/FrutigerLTW01-56Italic.woff") format("woff"), url("fonts/FrutigerLTW01-56Italic.ttf") format("truetype"), url("fonts/FrutigerLTW01-56Italic.svg#141c0322-57c4-48ca-abb4-31688d659f7d") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-75Black";
+  src: url("fonts/FrutigerLTW01-75Black.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-75Black.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-75Black.woff2") format("woff2"), url("fonts/FrutigerLTW01-75Black.woff") format("woff"), url("fonts/FrutigerLTW01-75Black.ttf") format("truetype"), url("fonts/FrutigerLTW01-75Black.svg#1c437efb-925e-4bc5-96d0-c706bb400696") format("svg"); }
+@font-face {
+  font-family: "FrutigerLTW01-46LightItalic";
+  src: url("fonts/FrutigerLTW01-46LightItalic.eot?#iefix");
+  src: url("fonts/FrutigerLTW01-46LightItalic.eot?#iefix") format("eot"), url("fonts/FrutigerLTW01-46LightItalic.woff2") format("woff2"), url("fonts/FrutigerLTW01-46LightItalic.woff") format("woff"), url("fonts/FrutigerLTW01-46LightItalic.ttf") format("truetype"), url("fonts/FrutigerLTW01-46LightItalic.svg#cd75c3e3-c5b7-4a25-9498-cabe4e8a9076") format("svg"); }
+/** BUTTONS */
+button.button,
+a.button {
+  display: block;
+  font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  background-color: #005EB8;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 4px 0px 0px #003087;
+  margin-bottom: 20px;
+  outline: none;
+  transition: all ease 0.5s; }
+  button.button.green,
+  a.button.green {
+    background-color: #006747;
+    box-shadow: 0px 4px 0px 0px #004D34; }
+  button.button.grey,
+  a.button.grey {
+    background-color: #979797;
+    box-shadow: 0px 4px 0px 0px #4A4A4A; }
+  button.button.white,
+  a.button.white {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 0px 0px #979797;
+    color: #4A4A4A; }
+  button.button:active,
+  a.button:active {
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%); }
+  button.button.disabled,
+  a.button.disabled {
+    opacity: 0.5; }
+
+.float-buttons {
+  position: fixed;
+  bottom: 68px;
+  left: 0px;
+  right: 0px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 16px;
+  border-top: 1px #e8edee solid;
+  height: 80px; }
+
+/** APP */
+nav.menu {
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 70px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000; }
+  nav.menu ul {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 6px;
+    padding-right: 6px; }
+    nav.menu ul li {
+      flex-grow: 1;
+      text-align: center;
+      vertical-align: bottom;
+      list-style: none;
+      margin-top: 4px;
+      align-self: stretch;
+      justify-content: space-around;
+      display: flex;
+      flex-direction: column; }
+      nav.menu ul li svg {
+        display: block;
+        align-self: center;
+        flex-grow: 1;
+        margin-top: 6px;
+        margin-bottom: 3px; }
+      nav.menu ul li label {
+        display: block;
+        font-weight: normal;
+        font-size: 9px;
+        text-transform: uppercase;
+        line-height: 10px;
+        color: #4A4A4A;
+        display: block;
+        box-sizing: border-box;
+        align-self: flex-end;
+        text-align: center;
+        width: 100%;
+        margin-top: 6px; }
+    nav.menu ul li.active label {
+      display: block;
+      font-weight: normal;
+      font-size: 9px;
+      text-transform: uppercase;
+      line-height: 10px;
+      color: #005EB8; }
+
+/** WEB */
+body.web nav.menu {
+  display: none; }
+
+.panel {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  display: table;
+  transition: all ease 0.5s; }
+  .panel .panel-icon,
+  .panel .panel-content,
+  .panel .panel-selection {
+    transition: all ease 0.5s; }
+  .panel .panel-icon {
+    display: table-cell;
+    vertical-align: top;
+    width: 40px; }
+  .panel .panel-content {
+    display: table-cell;
+    vertical-align: top; }
+  .panel .panel-selection {
+    display: table-cell;
+    vertical-align: top;
+    width: 24px;
+    display: none; }
+
+.panel .checkbox,
+.form .checkbox {
+  border: 1px #979797 solid;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px; }
+  .panel .checkbox:active,
+  .form .checkbox:active {
+    border-color: #231F20; }
+  .panel .checkbox .checked,
+  .form .checkbox .checked {
+    margin-left: 4px;
+    margin-top: 6px;
+    display: none; }
+.panel h6,
+.form h6 {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 22px;
+  color: #4A4A4A;
+  padding-top: 16px; }
+.panel h5,
+.form h5 {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4A4A4A; }
+.panel p,
+.form p {
+  display: block;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4A4A4A; }
+.panel label,
+.form label {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4A4A4A;
+  padding-top: 16px; }
+.panel hr,
+.form hr {
+  height: 1px;
+  border: none;
+  background-color: #4A4A4A;
+  opacity: 0.2;
+  margin-bottom: 16px;
+  margin-top: 16px; }
+
+svg .menu_stroke {
+  fill: none;
+  stroke: #606060;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4px;
+  transition: all ease 0.5s; }
+svg .symptoms_middle {
+  fill: #606060; }
+svg .icon-account {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4px; }
+
+.active svg .menu_stroke {
+  stroke: #005EB8; }
+
+#btn_more.active svg .menu_stroke {
+  fill: #005EB8; }
+
+#btn_symptoms.active svg .active {
+  fill: #005EB8; }
+#btn_symptoms.active svg .symptoms_middle {
+  fill: #005EB8; }
+
+#btn_appointments.active svg .active {
+  fill: #005EB8; }
+
+#btn_prescriptions.active svg .active {
+  fill: #005EB8; }
+
+#btn_record.active svg .active {
+  fill: #005EB8; }
+#btn_record.active svg .white {
+  stroke: #ffffff; }
+
+#btn_more.active svg .active {
+  fill: #005EB8; }
+
+.section {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px; }
+  .section.about {
+    background-color: #ffffff; }
+    .section.about ul li {
+      font-family: Arial, sans-serif; }
+  .section.footer {
+    background-color: #005EB8; }
+    .section.footer ul li {
+      display: inline-block; }
+    .section.footer .nhs-logo-footer {
+      height: 22px;
+      display: inline-block; }
+    .section.footer .copyright {
+      display: block;
+      font-size: 16px;
+      line-height: 22px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      position: absolute;
+      right: 16px;
+      display: inline-block; }
+  .section .wrapper ul li {
+    list-style: none; }
+
+/** APP */
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #e8edee;
+  display: block;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4A4A4A;
+  font-family: "Roboto", Arial, sans-serif; }
+
+* {
+  padding: 0;
+  margin: 0; }
+
+header.home-header {
+  background: radial-gradient(#0072DF 0%, #0053A3 100%);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 260px;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+  header.home-header h1 {
+    display: block;
+    font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #ffffff; }
+  header.home-header h2 {
+    display: block;
+    font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    margin-bottom: 16px; }
+  header.home-header .symptom_banner {
+    text-align: center;
+    width: 100%;
+    vertical-align: bottom; }
+    header.home-header .symptom_banner button.button {
+      margin-bottom: 5px; }
+  header.home-header .nhso_logo {
+    margin-top: 0px; }
+  header.home-header .spacer {
+    width: 100%; }
+    header.home-header .spacer .account {
+      float: right; }
+
+header.logged {
+  bottom: 260px; }
+
+main.home-main {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 260px;
+  padding: 24px;
+  box-sizing: border-box; }
+  main.home-main .hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: #979797;
+    text-align: center;
+    height: 1.5em;
+    margin-bottom: 16px; }
+    main.home-main .hr-text:before {
+      content: '';
+      background: #979797;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px; }
+    main.home-main .hr-text:after {
+      content: attr(data-content);
+      position: relative;
+      display: inline-block;
+      color: black;
+      padding: 0 .5em;
+      line-height: 1.5em;
+      color: #818078;
+      background-color: #e8edee; }
+  main.home-main .patient label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 22px;
+    color: #4A4A4A;
+    padding-top: 0px; }
+  main.home-main .patient p {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #4A4A4A; }
+  main.home-main .patient h5 {
+    margin-top: 4px; }
+  main.home-main h1 {
+    display: block;
+    font-family: "FrutigerLTW01-65Bold", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    color: #4A4A4A;
+    font-size: 20px;
+    margin-bottom: 16px; }
+
+main.logged {
+  height: 260px;
+  overflow: auto; }
+
+footer {
+  display: none; }
+
+/** WEB */
+body.web {
+  font-family: Arial, sans-serif; }
+  body.web footer {
+    display: block; }
+
+/*# sourceMappingURL=home.css.map */

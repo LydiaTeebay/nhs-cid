@@ -45,6 +45,8 @@
     <div class="form-group">
       {% if service === "nhsonline" %}
       <a id="securitycodeContinue" href="/service-access/v3/service-access-nhs{{ params }}" class="button button--disabled">Continue</a>
+      {% elif service === "nhsonlinepol" %}
+      <a id="securitycodeContinue" href="/service-access/service-access-nhsonline-connect-gp{{ params }}" class="button button--disabled">Continue</a>
       {% else %}
       <a id="securitycodeContinue" href="/service-access/v3/service-access-nhs-acc?serviceName=Access%20your%20medical%20record" class="button button--disabled">Continue</a>
       {% endif %}

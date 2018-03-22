@@ -1,23 +1,45 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
-{% block page_title %}View your hospital record {{serviceName}}{% endblock %}
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
+{% block page_title %}View your medical record {{serviceName}}{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
 {% block content %}
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 <div class="first-item">
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>How to register for GP online services</legend></h1>
-        <ol>
-          <li>Go to your GP surgery and ask them for an online services registration letter</li>
-          <li><a href="patient-online-linkage-key{{ params }}">Enter your registration letter details</a></li>
-        </ol>
-
+        <h1><legend>Are you using online services with your GP surgery?</legend></h1>
+        <p>Online services such as booking appointments, ordering repeat prescriptions</p>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-start{{ params }}">
+            Yes
+          </label>
+        </div>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="patient-online-gp=online-register{{ params }}">
+            No
+          </label>
+        </div>
+        
+        
       </fieldset>
     </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+   <!-- <p><a href="">I don't have those details</a></p>-->
   </form>
 </div>
+
+
+
+
+
+
+  
 
 {% endblock %}

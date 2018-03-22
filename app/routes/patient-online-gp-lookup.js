@@ -8,8 +8,15 @@ module.exports = function (router) {
     })
   })
 
+  router.post('/patient-online/v7/patient-online-gp-lookup', function (req, res) {
+    var postcode = req.body.gpPostcode;
+    var search = req.body.gpName;
+    var serviceName = req.param('serviceName');
+    var hidehead = req.param('hidehead');
+    res.redirect('/patient-online/v7/patient-online-gp-results?serviceName=' + serviceName + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search)
+  })
+
   router.get('/patient-online/v7/patient-online-gp-lookup', function (req, res) {
-    //var service = req.param('service')
     var serviceName = req.param('serviceName');
     var hidehead = req.param('hidehead');
     res.render('patient-online/v7/patient-online-gp-lookup', { serviceName: serviceName, hidehead: hidehead }, function(err, html) {
