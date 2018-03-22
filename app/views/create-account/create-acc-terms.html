@@ -68,7 +68,7 @@
 
     <div class="form-group">
 
-      {% if service !== 'nhsonline' %}
+      {% if service !== 'nhsonline' and service !== 'nhsonlinepol' %}
       <div class="verify-note">
         <p class="small">You can create an NHS account using <strong>GOV.UK Verify</strong>. To register with <strong>GOV.UK Verify</strong> for an NHS account you can <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">sign up here</a>.</p>
       </div>
