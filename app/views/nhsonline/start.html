@@ -1,5 +1,6 @@
 {% extends '_layouts/_nhsonline_layout.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
+{% set hidehead = 'true' %}
 
 {% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
@@ -37,7 +38,7 @@
 		
 		<hr class="hr-text" data-content="OR">
 		
-		<a href="/service-access/service-access-nhsonline-create-account" class="button" id="btn_register">
+		<a href="/service-access/service-access-nhsonline-create-account{{ params }}" class="button" id="btn_register">
 			Create an NHS account
 		</a>
 	</main>
