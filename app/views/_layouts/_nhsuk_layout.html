@@ -1,5 +1,9 @@
+{% if hidehead == 'true' %}
+{% set htmlClass = 'body-webview' %}
+{% endif %}
+
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js {{ htmlClass }}" lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -21,6 +25,8 @@
   <link rel="stylesheet" href="/app.css">
 
 </head>
+
+
 
 <body class="{{ bodyClass }}" {{ dataAtt|safe }}>
 

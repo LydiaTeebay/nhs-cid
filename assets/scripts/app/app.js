@@ -159,7 +159,6 @@ function readURL(input, idType) {
             $('#uploaded-video>source').attr('src', e.target.result)
             activateLoader(2)
         }
-
     }
     reader.readAsDataURL(input.files[0])
   }
@@ -172,8 +171,6 @@ $("#id-document").change(function(){
 $("#photo-id-document").change(function(){
     readURL(this, "photoId")
 })
-
-
 
 $("#document").change(function(){
     readURL(this, "doc")
@@ -212,7 +209,6 @@ $("#submit-id-back-button").on("click", function(e) {
     document.getElementById("id-document").value = ''
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
-
 
 // submit button action
 $("#submit-photoId-button").on("click", function(e) {

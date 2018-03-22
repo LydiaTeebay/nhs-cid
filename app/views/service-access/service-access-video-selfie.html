@@ -7,23 +7,27 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&hidehead=" + hidehead  %}
 
 {% block header %}
+{% if hidehead !== 'true' %}
 {% import "_partials/_components/_local-header.html" as localHeader %}
 {{ localHeader.pattern(serviceName,'') }}
+{% endif %}
 {% endblock %}
 
 {% block content %}
 
 <section class="service-access-wrapper">
 
+	<h1>Proving your identity</h1>
+
 	<ol class="service-access">
-		<li class="service-access__item completed">
-			<h3 class="service-access__item__title">Create an NHS account</h3>
-			<div class="service-access__item__desc">
-				<p>You will need your phone.</p>
-				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
-			</div>
-			<span class="service-access__item__status">Completed</span>
-		</li>
+		<!--<li class="service-access__item completed">-->
+			<!--<h3 class="service-access__item__title">Create an NHS account</h3>-->
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>You will need your phone.</p>-->
+				<!--<p>Your NHS account will allow you to sign into multiple health services in the future.</p>-->
+			<!--</div>-->
+			<!--<span class="service-access__item__status">Completed</span>-->
+		<!--</li>-->
 		<li class="service-access__item completed">
 			<h3 class="service-access__item__title">Enter your NHS number</h3>
 			<div class="service-access__item__desc">

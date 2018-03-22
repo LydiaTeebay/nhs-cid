@@ -29,7 +29,7 @@
               <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">Please enter a valid NHS number</span>
             {% endif %}
 
-            <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
+            <input class="form-control code" id="nhs_number" pattern="[0-9]" maxlength="10" name="nhs_number" type="tel">
           </div>
 
         </div>
@@ -43,7 +43,11 @@
           <a class="button" href="service-access-photo-id{{ params }}">Continue</a>
         </div>
 
-        <p><a href="service-access-no-documents">I don't know my NHS number</a></p>
+        {% if service === 'nhsonline' %}
+          <p><a href="service-access-nhs-demographics{{ params }}">I don't know my NHS number</a></p>
+        {% else %}
+          <p><a href="service-access-no-documents{{ params }}">I don't know my NHS number</a></p>
+        {% endif %}
 
       </fieldset>
 

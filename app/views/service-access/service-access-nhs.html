@@ -5,9 +5,12 @@
 {% set isServiceStart = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 
+
 {% block header %}
-  {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern(serviceName,'') }}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
 {% endblock %}
 
 {% block content %}
