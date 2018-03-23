@@ -330,6 +330,21 @@ $("#securitycodeContinue").on("click", function(e) {
   }
 })
 
+$(".results__name a").on("click", function(e){
+    e.preventDefault();
+    let url = e.target.href;
+    
+    if (url.indexOf("systmonline") !== -1) {
+        window.parent.document.location.href = "/patient-online/patient-online-gp-system-tpp";
+    }
+    
+    if (url.indexOf('emisaccess') !== -1) {
+        window.parent.document.location.href = "/patient-online/patient-online-gp-system-emis";
+    }
+
+    return;
+  })
+
 // expand ID document image in ID checker
 $(".idcheck-image-expand-button").on("click", function(e) {
     e.preventDefault()

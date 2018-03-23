@@ -36,53 +36,8 @@ module.exports = function (router) {
     rp(options)
     .then(function ($) {
       // Process html like you would with jQuery...
-      String.prototype.replaceAll = function(f,r){return this.split(f).join(r);}
       data = $('.grid-row').html();
-
-      gpResults = data.replaceAll('</li>', '<hr style="margin-bottom: 32px" /></li>').replaceAll('https://systmonline.tpp-uk.com/Login', 'patient-online-gp-online').replaceAll('https://patient.emisaccess.co.uk/appointments/available','patient-online-gp-online');
-
-
-
-      var someObjArr = [];
-
-      $('.results__name').each(function(i, element){
-
-        //Get the text from cheerio.
-        var text = $(this).text();
-    
-        console.log($(this).text());
-        
-        //if undefined, create the object inside of our array.
-        if(someObjArr[i] == undefined){
-    
-            someObjArr[i] = {};
-        };
-    
-        //Update the name property of our object with the text value.
-        someObjArr[i].name = text;
-      });
-
-      $('.results__address').each(function(i, element){
-        var text = $(this).text();
-        console.log($(this).text());
-        if(someObjArr[i] == undefined){
-            someObjArr[i] = {};
-        };
-        someObjArr[i].address = text;
-      });
-
-      // also includes the distance ??
-      $('.results__address').each(function(i, element){
-        //Get the text from cheerio.
-        var text = $(this).text();
-        //console.log($(this).text());
-        if(someObjArr[i] == undefined){
-            someObjArr[i] = {};
-        };
-            someObjArr[i].address = text;
-      });
-
-      console.log(someObjArr);
+      gpResults = data;
       
       res.render('patient-online/v7/patient-online-gp-results', { serviceName: serviceName, hidehead: hidehead, postcode: postcode, search: search, gpResults: gpResults  }, function(err, html) {
         res.send(html)
