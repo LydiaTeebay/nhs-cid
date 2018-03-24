@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead %}
 
 {% block content %}
 
@@ -22,7 +22,8 @@
           </div>
         </details>
 
-        <div>
+        {% if system === 'tpp' %}
+          <div>
             <div class="results__details results__details--nearby" style="margin-top: 0;">
                 <h3 class="results__name">
                 <a href="https://systmonline.tpp-uk.com/2/help/help.html#ThirdPartyLinks">SystmOnline</a>
@@ -32,7 +33,22 @@
                 <br />
                 <hr />
             </div>
-        </div>
+          </div>
+        {% endif %}
+
+        {% if system === 'emis' %}
+          <div>
+            <div class="results__details results__details--nearby" style="margin-top: 0;">
+                <h3 class="results__name">
+                <a href="">Patient Access</a>
+                <br />
+                <img src="/images/system-patient-access.png" alt="PatientAccess" height="60">
+                </h3>
+                <br />
+                <hr />
+            </div>
+          </div>
+        {% endif %}
 
         <div>
             <div class="results__details results__details--nearby" style="margin-top: 0;">
