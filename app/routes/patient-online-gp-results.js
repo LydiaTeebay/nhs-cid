@@ -19,6 +19,7 @@ module.exports = function (router) {
     //var gpResults = "flaps";
     var postcode = req.param('postcode');
     var search = req.param('search');
+    var service = req.param('service');
     var serviceName = req.param('serviceName');
     var hidehead = req.param('hidehead');
 
@@ -39,7 +40,7 @@ module.exports = function (router) {
       data = $('.grid-row').html();
       gpResults = data;
       
-      res.render('patient-online/v7/patient-online-gp-results', { serviceName: serviceName, hidehead: hidehead, postcode: postcode, search: search, gpResults: gpResults  }, function(err, html) {
+      res.render('patient-online/v7/patient-online-gp-results', { serviceName: serviceName, service: service, hidehead: hidehead, postcode: postcode, search: search, gpResults: gpResults  }, function(err, html) {
         res.send(html)
       })
     })
