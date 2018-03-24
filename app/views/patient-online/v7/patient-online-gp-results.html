@@ -17,7 +17,7 @@
         {% elif search %}
           <p>We found these surgeries using {{search}}.</p>
         {% endif %}
-        <p>If your surgery is not here, check the postcode you have entered is right and <a href="patient-online-gp-lookup">search again</a>. You can also search by the name of your GP surgery.</p>
+        <p>If your surgery is not here, check the postcode you have entered is right and <a href="patient-online-gp-lookup{{ params }}">search again</a>. You can also search by the name of your GP surgery.</p>
         
         <h1>{{ gpResults|safe }}</h1>
 
