@@ -333,13 +333,14 @@ $("#securitycodeContinue").on("click", function(e) {
 $(".results__name a").on("click", function(e){
     e.preventDefault();
     let url = e.target.href;
-    
+    var query = window.location.href.slice(window.location.href.indexOf('?'));
+
     if (url.indexOf("systmonline") !== -1) {
-        window.parent.document.location.href = "/patient-online/patient-online-gp-system-tpp";
+        window.parent.document.location.href = "/patient-online/v7/patient-online-gp-online" + query + "&system=tpp";
     }
     
     if (url.indexOf('emisaccess') !== -1) {
-        window.parent.document.location.href = "/patient-online/patient-online-gp-system-emis";
+        window.parent.document.location.href = "/patient-online/v7/patient-online-gp-online" + query + "&system=emis";
     }
 
     return;
