@@ -176,6 +176,11 @@ $("#document").change(function(){
     readURL(this, "doc")
 })
 
+$("#linkage-key-loader").on("load", function() {
+    reactivateLoader(2);
+    console.log("is this firing!!");
+}) 
+
 // submit photo button action
 $("#submit-id-button").on("click", function(e) {
   e.preventDefault()
