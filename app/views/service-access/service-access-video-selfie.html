@@ -4,7 +4,7 @@
 {% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
 {% set formerror = 'undefined' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&hidehead=" + hidehead  %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge %}
 
 {% block header %}
 {% if hidehead !== 'true' %}
@@ -47,7 +47,7 @@
 			<div class="service-access__item__desc">
 				<p>For security reasons we need to match you to your photo ID.</p>
 			</div>
-			<a href="service-access-video-selfie-instructions{{ params }}" class="service-access__item__button button">Start</a>
+			<a href="service-access-video-selfie-instructions-2{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 	</ol>
 

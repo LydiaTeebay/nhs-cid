@@ -164,6 +164,35 @@ function readURL(input, idType) {
   }
 }
 
+function playSelectedFile(event) {
+    var URL = window.URL || window.webkitURL
+
+    var file = event.files[0]
+    var type = file.type
+    console.log(file)
+    console.log(file.type)
+    var videoNode = document.getElementById('uploaded-video')
+    var canPlay = videoNode.canPlayType(type)
+    if (canPlay === '') canPlay = 'no'
+    var isError = canPlay === 'no'
+
+    if (isError) {
+        return
+    }
+
+    var fileURL = URL.createObjectURL(file)
+    videoNode.src = fileURL
+
+    $("#scan-id-1").css("display", "none")
+    $("#scan-id-5").css("display", "block")
+
+    uploadLoader(2)
+}
+
+$("#video-selfie").change(function(){
+    playSelectedFile(this)
+})
+
 $("#id-document").change(function(){
   readURL(this, "id")
 })
@@ -220,6 +249,16 @@ $("#submit-photoId-button").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+// submit button action
+$("#submit-videoSelfie-button").on("click", function(e) {
+    e.preventDefault()
+    activateLoader(2)
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 // submit back button action
 $("#submit-photoId-back-button").on("click", function(e) {
     e.preventDefault()
@@ -254,10 +293,6 @@ $("#id-selfie").change(function(){
 
 $("#selfie").change(function(){
     readURL(this, "selfie")
-})
-
-$("#video-selfie").change(function(){
-    readURL(this, "videoSelfie")
 })
 
 // submit back button action

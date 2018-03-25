@@ -11,13 +11,13 @@
 
   <section class="" id="scan-id-1">
 
-    <p><a class="" href="service-access-video-selfie{{ params }}">Go back</a></p>
+    <p><a class="" href="service-access-video-selfie-instructions-2{{ params }}">Go back</a></p>
 
     <form>
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
-            Take a video selfie
+            Video selfie instructions
           </h1>
         </legend>
 
@@ -27,9 +27,21 @@
           <li>you use the front-facing camera</li>
           {% endif %}
           <li>your whole face is visible</li>
-          <li>you follow the instructions on screen</li>
-          <li>the video is at least 3 seconds long</li>
+          <li>the video is at least 3 seconds long<br>&nbsp;</li>
         </ul>
+
+        {% if challenge == 'words' %}
+        <div class="camera-instructions">
+          <div class="camera-instructions-text">Say these 2 words whilst recording your video selfie: </div>
+          <div class="camera-instructions-numbers"><b>Record Wagon</b></div>
+        </div>
+        {% else %}
+          <div class="camera-instructions">
+            <div class="camera-instructions-text">Say these numbers whilst recording your video selfie: </div>
+            <div class="camera-instructions-numbers">{{ pinCode }}</div>
+          </div>
+        {% endif %}
+
         <div class="form-group">
 
           <label for="video-selfie" class="camera-button">Open camera
@@ -69,39 +81,44 @@
 
   </section>
 
-
-  {% if formerror !== 'invalid' %}
   <section class="" id="scan-id-5" style="display:none">
 
     <h1 style="padding-bottom: 0;">Review your video selfie</h1>
 
     <div class="reading-width">
       <div id="scan-video-preview">
-        <video id="uploaded-video" controls autoplay loop muted style="width:100%;height:auto;">
+        <video id="uploaded-video" controls autoplay loop muted style="max-width:100%;max-height:400px;">
           <source src="#" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
     </div>
+    {% if challenge == 'words' %}
+    <div class="camera-instructions">
+      <div class="camera-instructions-text">Is the video clear and can you hear these 2 Words? </div>
+      <div class="camera-instructions-numbers"><b>Record Wagon</b></div>
+    </div>
+    {% else %}
+    <div class="camera-instructions">
+      <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
+      <div class="camera-instructions-numbers">{{ pinCode }}</div>
+    </div>
+    {% endif %}
 
     <div class="form-group">
-      <a class="button" href="service-access-confirmation{{ params }}" id="">Use this video</a>
+      <a class="button" href="" id="submit-videoSelfie-button">Use this video</a>
       <p><a href="service-access-video-selfie-camera{{ params }}" id="">Cancel</a></p>
     </div>
 
   </section>
-  {% endif %}
 
-  {% if formerror !== 'undefined' %}
   <section  class="" id="scan-id-6" style="display:none">
 
     <h1 style="padding-bottom: 0;">Upload error</h1>
 
-    {% if formerror !== 'undefined' %}
     <div id="nhs-number" class="has-error form-row-error-active">
       <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your video.</span>
     </div>
-    {% endif %}
 
     <div class="form-group">
       <a class="button" href="" id="video-selfie-back-button">Retry upload</a>
@@ -110,6 +127,11 @@
     </div>
 
   </section>
+
+  {% if formerror === 'invalid' %}
+  <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';">Continue</button>
+  {% else %}
+  <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';" >Continue</button>
   {% endif %}
 
 
