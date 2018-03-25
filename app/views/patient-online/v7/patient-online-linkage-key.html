@@ -12,7 +12,7 @@
         <h1><legend>Enter your registration letter details</legend></h1>
         <div class="form-group">
           {% if system === 'tpp' %}
-            <label class="form-label" for="field2">Account linkage passphrase</label>
+            <label class="form-label" for="field2">Account ID</label>
           {% endif %}
 
           {% if system === 'emis' %}
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
           {% if system === 'tpp' %}
-            <label class="form-label" for="field1">Account ID</label>
+            <label class="form-label" for="field1">Passphrase</label>
           {% endif %}
           
           {% if system === 'emis' %}
