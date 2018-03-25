@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-1-stacked.html' %}
 {% block page_title %}View your medical record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead %}
 
 {% block content %}
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -10,10 +10,17 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Do you have the letter for online services from your GP surgery?</legend></h1>
-        <p>You may of recieved a letter, text or email with online services registration details</p>
+        <h1><legend>Do you have a letter for online services from your GP surgery?</legend></h1>
+        <p>You may have received a letter, text or email with online services registration details.</p>
 
-        <img src="/images/registration-letter-1.png" height="200" style="border: 1px solid grey">
+        {% if system === 'tpp' %}
+          <img src="/images/registration-letter-1.png" height="200" style="border: 1px solid grey">
+        {% endif %}
+
+        {% if system === 'emis' %}
+          <img src="/images/registration-letter-2.png" height="200" style="border: 1px solid grey">
+        {% endif %}
+        
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
             <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-linkage-key{{ params }}">

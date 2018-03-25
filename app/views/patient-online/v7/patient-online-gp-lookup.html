@@ -1,9 +1,20 @@
 {% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead %}
+
+
+
+
 
 {% block content %}
+
+
+{% if emptysearch == "true" %}
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','Please enter GP surgery name, postcode or both.','warning') }}
+<br>
+{% endif %}
 
 <div class="first-item">
   <form action="patient-online-gp-lookup{{ params }}" method="POST">

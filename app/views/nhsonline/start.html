@@ -1,12 +1,13 @@
 {% extends '_layouts/_nhsonline_layout.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
+{% set hidehead = 'true' %}
 
 {% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
 {% block content %}
 
 
-	<header class="home-header" style="zoom: 2">
+	<header class="home-header">
 		<div class="spacer">
 		</div>
 		
@@ -28,7 +29,7 @@
 			</a>
 		</div>
 	</header>
-	<main class="home-main" style="zoom: 2">
+	<main class="home-main">
 		<h1>Want to book a GP appointment or order a repeat prescription?</h1>
 		
 		<a href="" class="button green" id="btn_login">
@@ -37,7 +38,7 @@
 		
 		<hr class="hr-text" data-content="OR">
 		
-		<a href="/service-access/service-access-nhsonline-create-account" class="button" id="btn_register">
+		<a href="/service-access/service-access-nhsonline-create-account{{ params }}" class="button" id="btn_register">
 			Create an NHS account
 		</a>
 	</main>

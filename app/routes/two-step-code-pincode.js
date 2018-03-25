@@ -38,6 +38,7 @@ module.exports = function (router) {
 
     router.get('/create-account/v7/two-step-code-pincode', function (req, res) {
         // pull in the url parameters
+        var hidehead = req.param('hidehead');
         var theReason = req.param('reason')
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -61,7 +62,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v7/two-step-code-pincode', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress }, function(err, html) {
+        res.render('create-account/v7/two-step-code-pincode', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead }, function(err, html) {
             res.send(html)
         })
     })

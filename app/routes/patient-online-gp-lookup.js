@@ -12,14 +12,22 @@ module.exports = function (router) {
     var postcode = req.body.gpPostcode;
     var search = req.body.gpName;
     var serviceName = req.param('serviceName');
+    var service = req.param('service');
     var hidehead = req.param('hidehead');
-    res.redirect('/patient-online/v7/patient-online-gp-results?serviceName=' + serviceName + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search)
+
+    if (postcode === "" && search === "") {
+      res.redirect('/patient-online/v7/patient-online-gp-lookup?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search + '&emptysearch=true')
+    } else {
+      res.redirect('/patient-online/v7/patient-online-gp-results?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search)
+    }
   })
 
   router.get('/patient-online/v7/patient-online-gp-lookup', function (req, res) {
     var serviceName = req.param('serviceName');
+    var service = req.param('service')
     var hidehead = req.param('hidehead');
-    res.render('patient-online/v7/patient-online-gp-lookup', { serviceName: serviceName, hidehead: hidehead }, function(err, html) {
+    var emptysearch = req.param('emptysearch');
+    res.render('patient-online/v7/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, emptysearch: emptysearch }, function(err, html) {
       res.send(html)
     })
   })

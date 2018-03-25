@@ -205,6 +205,11 @@ $("#document").change(function(){
     readURL(this, "doc")
 })
 
+$("#linkage-key-loader").on("load", function() {
+    reactivateLoader(2);
+    console.log("is this firing!!");
+}) 
+
 // submit photo button action
 $("#submit-id-button").on("click", function(e) {
   e.preventDefault()
@@ -364,6 +369,22 @@ $("#securitycodeContinue").on("click", function(e) {
     window.parent.document.location.href = e.target.href;
   }
 })
+
+$(".results__name a").on("click", function(e){
+    e.preventDefault();
+    let url = e.target.href;
+    var query = window.location.href.slice(window.location.href.indexOf('?'));
+
+    if (url.indexOf("systmonline") !== -1) {
+        window.parent.document.location.href = "/patient-online/v7/patient-online-gp-online" + query + "&system=tpp";
+    }
+    
+    if (url.indexOf('emisaccess') !== -1) {
+        window.parent.document.location.href = "/patient-online/v7/patient-online-gp-online" + query + "&system=emis";
+    }
+
+    return;
+  })
 
 // expand ID document image in ID checker
 $(".idcheck-image-expand-button").on("click", function(e) {
