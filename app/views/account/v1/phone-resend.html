@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Account - profile{% endblock %}
+{% block page_title %}Account - manage phone number{% endblock %}
 
 {% set signedin = 'true' %}
 
@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block content %}
+
+{% block alert %}{% endblock %}
 
 <div class="c-page-contents" style="">
 	<ul class="c-links__list js-page-nav-list">
@@ -21,31 +23,27 @@
 {% endblock %}
 
 {% block rightcol %}
-
-{% block alert %}{% endblock %}
+<div class="callout callout--attention">
+	<p>Your security code has been resent.</p>
+</div>
 
 <div class="first-item">
-  	<form>
-    	<div class="form-group">
 
-      		<h1>Change password</h1>
+	<h2>Check your phone</h2>
 
-          <div class="form-group">
-            <label class="form-label" for="field3">New password</label>
-            <span class="form-label__hint">At least 8 characters. At least 1 capital letter.</span>
+	<p>We've sent you a message with a security code to 077*** ***123.</p>
 
-            <input class="form-control" id="field3" name="field3" type="password">
-          </div>
+	<fieldset class="inline">
+		<div class="form-group">
+	        <label class="form-label" for="code">Security code</label>
+	        <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+	    </div>
+	</fieldset>
+	<a class="button" href="phone">Continue</a>
 
 
-      		<div class="form-group">
-        		<label class="form-label" for="field2">Retype password</label>
-        		<input class="form-control" id="field2" name="field2" type="password">
-      		</div>
+	<p>Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="phone-resend">you can resend it</a>.</p>
 
-    	</div>
-    	<a class="button" href="change-password-success">Change password</a>
- 	</form>
 </div>
 
 {% endblock %}

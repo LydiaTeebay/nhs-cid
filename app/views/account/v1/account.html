@@ -10,6 +10,8 @@
 
 {% block content %}
 
+{% block alert %}{% endblock %}
+
 <div class="c-page-contents" style="">
 	<ul class="c-links__list js-page-nav-list">
 		<li class="c-links__list"><a href="account" class="c-page-contents__link">Profile</a></li>
@@ -22,30 +24,16 @@
 
 {% block rightcol %}
 
-{% block alert %}{% endblock %}
-
 <div class="first-item">
-  	<form>
-    	<div class="form-group">
 
-      		<h1>Change password</h1>
+	<h2>Profile</h2>
 
-          <div class="form-group">
-            <label class="form-label" for="field3">New password</label>
-            <span class="form-label__hint">At least 8 characters. At least 1 capital letter.</span>
+	<p><b>Name</b>
+	<br/>Jonathan Liam Kingston</p>
 
-            <input class="form-control" id="field3" name="field3" type="password">
-          </div>
+	<p><b>Email</b>
+	<br/>jonthanlkingston@gmail.com</p>
 
-
-      		<div class="form-group">
-        		<label class="form-label" for="field2">Retype password</label>
-        		<input class="form-control" id="field2" name="field2" type="password">
-      		</div>
-
-    	</div>
-    	<a class="button" href="change-password-success">Change password</a>
- 	</form>
 </div>
 
 {% endblock %}
