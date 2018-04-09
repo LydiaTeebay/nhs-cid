@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1600px" height="900px" viewBox="0 0 1600 900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
-    <title>Combined Shape</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.4">
-        <path d="M0,0 L1600,0 L1600,900 L0,900 L0,0 Z M799.5,795 C964.909283,795 1099,640.538239 1099,450 C1099,259.461761 964.909283,105 799.5,105 C634.090717,105 500,259.461761 500,450 C500,640.538239 634.090717,795 799.5,795 Z" id="Combined-Shape" fill="#000000"></path>
-    </g>
-</svg>
+<svg height="900" viewBox="0 0 1600 900" width="1600" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" opacity=".498471"><path d="m0 0h1600v900h-1600zm799.5 795c165.409283 0 299.5-154.461761 299.5-345s-134.090717-345-299.5-345-299.5 154.461761-299.5 345 134.090717 345 299.5 345z" fill="#000" fill-rule="nonzero"/><path d="m799.5 795c165.409283 0 299.5-154.461761 299.5-345s-134.090717-345-299.5-345-299.5 154.461761-299.5 345 134.090717 345 299.5 345z" stroke="#fff" stroke-dasharray="15 10" stroke-width="4"/></g></svg>

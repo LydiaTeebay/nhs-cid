@@ -63,6 +63,22 @@ video#recorded {
   background-repeat: no-repeat;
   background-size: cover;
   z-index:300000;
+
+  &.passport {
+    background: transparent url("/images/cutout-passport.svg");
+    background-size: 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &.driving {
+    background: transparent url("/images/cutout-driving-licence.svg");
+    background-size: 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 .camera-preview-feed {
