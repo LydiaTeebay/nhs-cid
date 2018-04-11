@@ -130,10 +130,11 @@ $_step-width: $baseline-grid-unit * 8;
 
 .service-access__item__button {
   display: inline-block;
-  float: right;
+
   line-height: 20px;
   margin-top: 1em;
   @include media(tablet) {
+    float: right;
     margin-left: 0;
     margin-top: 0;
   }
