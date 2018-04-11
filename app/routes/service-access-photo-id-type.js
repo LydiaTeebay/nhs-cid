@@ -8,11 +8,24 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var idType = req.param('idType')
+        var isMobile = req.useragent.isMobile
+        var challenge = req.param('challenge')
         var hidehead = req.param('hidehead')
+        var changetomobile = 'true'
         // re-render the page along with the parameter
-        res.render('service-access/service-access-photo-id-type', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead }, function(err, html) {
-            res.send(html)
-        })
+
+        // redirect if can't do the video recording
+        if (isMobile) {
+            res.render('service-access/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge }, function(err, html) {
+                res.send(html)
+            })
+            return
+        } else {
+            res.render('service-access/service-access-switchtomobile', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenger: challenge, changetomobile: changetomobile }, function(err, html) {
+                res.send(html)
+            })
+            return
+        }
     })
     router.post('/service-access/service-access-photo-id-type', function (req, res) {
         // pull in the url parameters
@@ -28,12 +41,12 @@ module.exports = function (router) {
             // var formerror = 'invalid'
         }
         if (idType === 'passport') {
-            var formerror = 'undefined'
+            // var formerror = 'undefined'
         }
 
         if (idType === 'passport' || idType === 'driving licence') {
             if (isMobile) {
-                res.redirect('/service-access/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
+                res.redirect('/service-access/service-access-photo-id-instructions?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
                 return
             } else {
                 res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
