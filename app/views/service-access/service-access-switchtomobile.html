@@ -1,8 +1,8 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Continue identity verification on mobile{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&changetomobile=" + changetomobile %}
 
 {% block content %}
 
@@ -20,7 +20,7 @@
           </h1>
         </legend>
 
-        <p>You'll need to use your mobile to take photos of your {{ idType }}.</p>
+        <p>You'll need to use your mobile to take videos of your {{ idType }} and your face.</p>
         <p>We'll text you a one-time secure link to your mobile.</p>
 
 
@@ -38,7 +38,6 @@
         </div>
 
         <div class="form-group">
-          <!--<a class="button" href="service-access-eredbook-03{{ params }}" id="continue">Continue</a>-->
           <button class="button">Send Link</button>
         </div>
 

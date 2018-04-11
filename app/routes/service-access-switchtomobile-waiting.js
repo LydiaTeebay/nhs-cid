@@ -1,6 +1,6 @@
 // notify integration
 let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'
-let templateId = 'b3b25c49-aa73-4a10-875e-0c0d40dbf2c6'
+let templateId = '5414106b-6032-4fa2-ae19-50331bdf0791'
 let smsSender = '8e63067f-0698-45d5-ac59-946c2089c058'
 const NotifyClient = require('notifications-node-client').NotifyClient, notifyClient = new NotifyClient(apiKey)
 
@@ -20,14 +20,12 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
 
-        if (changetomobile === 'yes') {
-            // console.log("sending text")
-            notifyClient
-                .sendSms(templateId, mobileNum, {
+        // console.log("sending text")
+        notifyClient
+           .sendSms(templateId, mobileNum, {
                     smsSenderId: smsSender })
-                .then(response => console.log(response))
+           .then(response => console.log(response))
         .catch(err => console.error(err))
-        }
 
         res.render('service-access/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead }, function(err, html) {
             res.send(html)

@@ -1,9 +1,3 @@
-// notify integration
-let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'
-let templateId = 'b3b25c49-aa73-4a10-875e-0c0d40dbf2c6'
-let smsSender = '8e63067f-0698-45d5-ac59-946c2089c058'
-const NotifyClient = require('notifications-node-client').NotifyClient, notifyClient = new NotifyClient(apiKey)
-
 module.exports = function (router) {
     router.get('/service-access/service-access-switchtomobile', function (req, res) {
         // pull in the url parameters
@@ -26,7 +20,6 @@ module.exports = function (router) {
 
     router.post('/service-access/service-access-switchtomobile', function (req, res) {
         // pull in the url parameters
-        var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var mobileNum = req.body.mob_number
@@ -40,15 +33,7 @@ module.exports = function (router) {
             var formerror = 'invalid'
         }
         // re-render the page along with the parameter
-        if (changetomobile === 'yes') {
-            // console.log("sending text")
-            notifyClient
-                .sendSms(templateId, mobileNum, {
-                    smsSenderId: smsSender })
-                .then(response => console.log(response))
-        .catch(err => console.error(err))
-        }
-        res.redirect('/service-access/service-access-switchtomobile-waiting?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
+        res.redirect('/service-access/service-access-switchtomobile-waiting?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&changetomobile=' + changetomobile)
     })
 
     router.get('/service-access/v4/service-access-switchtomobile', function (req, res) {
