@@ -31,10 +31,17 @@
             </div>
         </div>
 
+        {% if challenge == 'words' %}
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Say these 2 words whilst recording your video selfie: </div>
+            <div class="camera-instructions-numbers"><b>measure perfect</b></div>
+        </div>
+        {% else %}
         <div class="camera-instructions">
             <div class="camera-instructions-text">Say these numbers whilst recording your video selfie: </div>
             <div class="camera-instructions-numbers">{{ pinCode }}</div>
         </div>
+        {% endif %}
 
         <div class="camera-record">
             <button id="record" class="button" disabled>Start recording</button>
@@ -77,10 +84,18 @@
             <div id="scan-video-preview">
                 <video id="recorded" controls="" autoplay loop style="width:100%;height:auto;"></video>
             </div>
+
+            {% if challenge == 'words' %}
+            <div class="camera-instructions">
+                <div class="camera-instructions-text">Is the video clear and can you hear these 2 Words? </div>
+                <div class="camera-instructions-numbers"><b>measure perfect</b></div>
+            </div>
+            {% else %}
             <div class="camera-instructions">
                 <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
                 <div class="camera-instructions-numbers">{{ pinCode }}</div>
             </div>
+            {% endif %}
         </div>
 
         <button class="button" id="submitvideo">Yes, submit this video</button>

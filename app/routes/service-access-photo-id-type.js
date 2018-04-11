@@ -21,7 +21,7 @@ module.exports = function (router) {
             })
             return
         } else {
-            res.render('service-access/service-access-switchtomobile', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenger: challenge, changetomobile: changetomobile }, function(err, html) {
+            res.render('service-access/service-access-switchtomobile', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge, changetomobile: changetomobile }, function(err, html) {
                 res.send(html)
             })
             return
@@ -36,6 +36,7 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var isMobile = req.useragent.isMobile
         var hidehead = req.param('hidehead')
+        var challenge = req.param('challenge')
 
         if (idType === 'driving licence') {
             // var formerror = 'invalid'
@@ -46,14 +47,14 @@ module.exports = function (router) {
 
         if (idType === 'passport' || idType === 'driving licence') {
             if (isMobile) {
-                res.redirect('/service-access/service-access-photo-id-instructions?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
+                res.redirect('/service-access/service-access-photo-id-instructions?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge )
                 return
             } else {
-                res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
+                res.redirect('/service-access/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge)
                 return
             }
         }
-        res.redirect('/service-access/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead)
+        res.redirect('/service-access/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge)
     })
 
     router.get('/service-access/v4/service-access-photo-id-type', function (req, res) {
