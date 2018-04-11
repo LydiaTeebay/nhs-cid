@@ -21,18 +21,18 @@
     <section id="camera-container">
 
         <div class="camera-instructions">
-            <div class="camera-instructions-text">Position your face in the oval</div>
+            <div class="camera-instructions-text">Position your {{ idType }} in the box</div>
         </div>
 
         <div class="camera-preview-wrapper">
-            <div class="camera-preview-overlay"></div>
+            <div class="camera-preview-overlay {{ idType }}"></div>
             <div class="camera-preview-feed">
                 <video id="gum" muted autoplay></video>
             </div>
         </div>
 
         <div class="camera-instructions">
-            <div class="camera-instructions-text">Say these numbers whilst recording your video selfie: </div>
+            <div class="camera-instructions-text">Say these numbers out loud whilst videoing your {{ idType }}: </div>
             <div class="camera-instructions-numbers">{{ pinCode }}</div>
         </div>
 
@@ -40,7 +40,7 @@
             <button id="record" class="button" disabled>Start recording</button>
         </div>
 
-        <p><a class="" href="service-access-video-selfie-instructions-2{{ params }}">Cancel</a></p>
+        <p><a class="" href="service-access-photo-id-instructions{{ params }}">Cancel</a></p>
 
         <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
     </section>
@@ -71,7 +71,7 @@
 
     <section class="preview-container" id="scan-id-5" style="display:none">
 
-        <h1 style="padding-bottom: 0;">Review the video selfie</h1>
+        <h1 style="padding-bottom: 0;">Review the video of your {{ idType }}</h1>
 
         <div class="reading-width">
             <div id="scan-video-preview">
@@ -87,13 +87,13 @@
 
 
 
-        <p><a href="#" id="retakevideo">Retake</a> or <a class="" href="service-access-video-selfie-instructions-2{{ params }}">Cancel</a></p>
+        <p><a href="#" id="retakevideo">Retake</a> or <a class="" href="service-access-photo-id-instructions{{ params }}">Cancel</a></p>
 
     </section>
 
-    <button id="download" disabled style="visibility:hidden;">Download</button>
+    <button id="download" disabled style="visibility: hidden;">Download</button>
     <button id="play" disabled style="visibility:hidden;">Play</button>
-    <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';" >Continue</button>
+    <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie-instructions-2{{ params }}';" >Continue</button>
 
 </div>
 

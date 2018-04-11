@@ -10,31 +10,29 @@
 
   <section class="" id="scan-id-1">
 
-    <!--<p><a class="" href="service-access-video-selfie{{ params }}">Go back</a></p>-->
+    <p><a class="" href="service-access-photo-id-type{{ params }}">Go back</a></p>
 
     <form>
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
-            <span class="heading-secondary">Step 2 of 2</span> Take a video selfie
+            <span class="heading-secondary">Step 1 of 2</span> Take a video of your {{ idType }}
           </h1>
         </legend>
 
-        <p>To ensure someone can't pretend to be you:</p>
         <ul class="list list-bullet">
-          <li>you will need to film yourself</li>
+          <li>you will need to film your {{ idType }}</li>
           <li>you will need to perform a simple action that involves speaking out loud</li>
         </ul>
+
         <div class="form-group">
-
           <script type="application/javascript">
-              if(window.MediaRecorder !== undefined) {
-                  document.write('<a href="service-access-video-selfie-html5{{ params }}" class="button camera-button">Continue</a>');
-              } else {
-                  document.write('<a href="service-access-video-selfie-camera{{ params }}" class="button camera-button">Continue</a>');
-              }
+            if(window.MediaRecorder !== undefined) {
+                document.write('<a href="service-access-photo-id-html5{{ params }}" class="button camera-button">Continue</a>');
+            } else {
+                document.write('<a href="service-access-photo-id-camera{{ params }}" class="button camera-button">Continue</a>');
+            }
           </script>
-
         </div>
 
       </fieldset>

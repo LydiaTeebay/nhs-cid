@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
@@ -9,124 +9,131 @@
 
 <div class="first-item">
 
-      <section class="" id="scan-id-1">
+    <section class="" id="scan-id-1">
 
-        <p><a class="" href="service-access-photo-id-type{{ params }}">Go back</a></p>
+        <p><a class="" href="service-access-photo-id-instructions{{ params }}">Go back</a></p>
 
         <form>
-          <fieldset class="">
-            <legend for="radio-inline-group">
-              <h1 style="padding-bottom: 0;">
-                Take a photo of your {{ idType }}
-              </h1>
-            </legend>
+            <fieldset class="">
+                <legend for="radio-inline-group">
+                    <h1 style="padding-bottom: 0;">
+                        <span style="text-transform: capitalize">{{ idType }}</span> video recording instructions
+                    </h1>
+                </legend>
 
-            <p>You need to make sure:</p>
-            <ul class="list list-bullet">
-              <li>the whole document is visible</li>
-              <li>you hold the camera straight above the document</li>
-              <li>the details are clear and readable</li>
-              <li>there are no reflections</li>
-            </ul>
-            <div class="form-group">
+                <p>Make sure:</p>
+                <ul class="list list-bullet">
+                    {% if mobile %}
+                    <li>you use the rear-facing camera</li>
+                    {% endif %}
+                    <li>the whole document is visible</li>
+                    <li>the video is at least 3 seconds long<br>&nbsp;</li>
+                </ul>
 
-              <label for="photo-id-document" class="camera-button">Open camera
-                <input type="file" id="photo-id-document" accept="image/*" capture="environment">
-              </label>
+                {% if challenge == 'words' %}
+                <div class="camera-instructions">
+                    <div class="camera-instructions-text">Say these 2 words whilst recording your {{ idType }}: </div>
+                    <div class="camera-instructions-numbers"><b>Record Wagon</b></div>
+                </div>
+                {% else %}
+                <div class="camera-instructions">
+                    <div class="camera-instructions-text">Say these numbers whilst recording your video selfie: </div>
+                    <div class="camera-instructions-numbers">{{ pinCode }}</div>
+                </div>
+                {% endif %}
 
-            </div>
+                <div class="form-group">
 
-          </fieldset>
+                    <label for="video-selfie" class="camera-button">Open camera
+                        <input type="file" id="video-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+                    </label>
+
+                </div>
+
+            </fieldset>
 
         </form>
 
-      </section>
+    </section>
 
-  <section  class="" id="scan-id-3" style="display:none">
+    <section class="" id="scan-id-3" style="display:none">
 
-    <h1 style="padding-bottom: 0;">
-      Uploading your photo
-    </h1>
+        <h1 style="padding-bottom: 0;">
+            Uploading your video
+        </h1>
 
-    <div class="bar_container">
-      <div id="main_container">
-        <div id="pbar" class="progress-pie-chart" data-percent="0">
-          <div class="ppc-progress">
-            <div class="ppc-progress-fill"></div>
-          </div>
-          <div class="ppc-percents">
-            <div class="pcc-percents-wrapper">
-              <span>%</span>
+        <div class="bar_container">
+            <div id="main_container">
+                <div id="pbar" class="progress-pie-chart" data-percent="0">
+                    <div class="ppc-progress">
+                        <div class="ppc-progress-fill"></div>
+                    </div>
+                    <div class="ppc-percents">
+                        <div class="pcc-percents-wrapper">
+                            <span>%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
             </div>
-          </div>
         </div>
 
-        <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
-      </div>
-    </div>
+    </section>
 
-  </section>
+    <section class="" id="scan-id-5" style="display:none">
 
-  <section class="" id="scan-id-5" style="display:none">
+        <h1 style="padding-bottom: 0;">Review your {{ idType }} video recording</h1>
 
-    <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
+        <div class="reading-width">
+            <div id="scan-video-preview">
+                <video id="uploaded-video" controls autoplay style="max-width:100%;max-height:400px;">
+                    <source src="#" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        {% if challenge == 'words' %}
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Is the video clear and can you hear these 2 Words? </div>
+            <div class="camera-instructions-numbers"><b>Record Wagon</b></div>
+        </div>
+        {% else %}
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
+            <div class="camera-instructions-numbers">{{ pinCode }}</div>
+        </div>
+        {% endif %}
 
-    <div class="reading-width">
-      <div id="scan-id-preview">
-        <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
-      </div>
-    </div>
+        <div class="form-group">
+            <a class="button" href="" id="submit-videoSelfie-button">Use this video</a>
+            <p><a href="service-access-video-selfie-camera{{ params }}" id="">Cancel</a></p>
+        </div>
 
-    <div class="form-group">
-      <a class="button" href="" id="submit-photoId-button">Submit this photo</a>
+    </section>
 
-      <p><a href="service-access-photo-id-camera{{ params }}" id="">Cancel</a></p>
-    </div>
+    <section  class="" id="scan-id-6" style="display:none">
 
-  </section>
+        <h1 style="padding-bottom: 0;">Upload error</h1>
 
+        <div id="nhs-number" class="has-error form-row-error-active">
+            <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your video.</span>
+        </div>
 
-  <section  class="" id="scan-id-6" style="display:none">
+        <div class="form-group">
+            <a class="button" href="" id="video-selfie-back-button">Retry upload</a>
+            <p><a href="service-access-video-selfie-camera{{ params }}" id="">Cancel</a></p>
 
-    <h1 style="padding-bottom: 0;">Upload error</h1>
+        </div>
 
-    <div id="nhs-number" class="has-error form-row-error-active">
-      <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your photo.</span>
-    </div>
+    </section>
 
-    <div class="form-group">
-      <a class="button" href="" id="submit-photoId-back-button">Retry upload</a>
-      <p><a href="service-access-photo-id-camera{{ params }}" id="">Cancel</a></p>
+    {% if formerror === 'invalid' %}
+    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie-instructions-2{{ params }}';">Continue</button>
+    {% else %}
+    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie-instructions-2{{ params }}';" >Continue</button>
+    {% endif %}
 
-    </div>
-
-  </section>
-
-<section class="" id="scan-id-7" style="display:none">
-
-  <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
-
-  <div id="nhs-number" class="has-error form-row-error-active">
-    <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">No face detected</span>
-  </div>
-
-  <div class="reading-width">
-    <div id="scan-id-preview" style="border: 3px solid red">
-    <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
-  </div>
-  </div>
-
-  <div class="form-group">
-    <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Retake photo</a>
-
-  </div>
-</section>
-
-  {% if formerror === 'invalid' %}
-    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie{{ params }}';">Continue</button>
-  {% else %}
-    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie{{ params }}';" >Continue</button>
-  {% endif %}
 
 </div>
 
