@@ -55,6 +55,7 @@ video#recorded {
 .camera-preview-wrapper {
   position: relative;
   overflow: hidden;
+  margin-top: 0!important;
 }
 
 .camera-preview-overlay {
@@ -95,6 +96,7 @@ video#recorded {
   background-color: #222222;
   padding: 16px;
   margin: 0;
+  width: 100%;
 }
 
 .camera-instructions-text {
@@ -139,6 +141,7 @@ button#download {
 }
 
 .camera-container {
+  position: relative;
   margin: 0 auto 0 auto;
   max-width: 40em;
   padding: 0;
