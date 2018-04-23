@@ -6,8 +6,8 @@
 {% set signedin = '' %}
 
 {% block content %}
-<p><a id="modal_create" class="smartcard" href="service-childs-health-record?sidebar=create-new">User enters Smartcard</a></p>
-<p>&nbsp;</p>
+<p><a id="modal_create" class="smartcard" href="#">User enters Smartcard</a></p>
+<p><a id="modal_create2" class="smartcard" href="#">Supervisor enters Smartcard</a></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-          <a class="button" href="id-checker-dashboard">Continue</a>
+          <a class="button" href="id-checker-dashboard?role=Supervisor">Continue</a>
         </div>
       </form>
     </div>
