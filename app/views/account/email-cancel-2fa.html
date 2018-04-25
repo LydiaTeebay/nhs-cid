@@ -1,0 +1,45 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Account - profile{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% endblock %}
+
+{% block content %}
+
+{% block alert %}{% endblock %}
+
+{% include '_partials/_components/_account-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+
+        <h1><legend>Cancel email change</legend></h1>
+
+        <p>We've sent you a message with a security code to 077*** ***123. Enter the code below to cancel the email change.</p>
+
+        <div class="form-group">
+          <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="">
+        </div>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a href="account-compromised" class="button">Continue</a>
+    </div>
+
+  </form>
+</div>
+
+{% endblock %}
+
+

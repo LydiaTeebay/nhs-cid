@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Account - profile{% endblock %}
+{% block page_title %}Account - manage phone number{% endblock %}
 
 {% set signedin = 'true' %}
 
@@ -19,11 +19,17 @@
 {% block rightcol %}
 
 <div class="first-item">
+	<h2>Enter new email address</h2>
 
-	<h2>Profile</h2>
+	<p>We need to validate your email address to make your account more secure.</p>
 
-	<p><b>Name</b>
-	<br/>Jonathan Liam Kingston</p> 
+	<div class="form-group">	
+
+		<label class="form-label" for="new-email">New email address</label>
+		<input class="form-control" id="new-email" name="field2" type="email">
+	</div>
+
+	<a class="button" href="email-go-validate">Continue</a>
 
 </div>
 

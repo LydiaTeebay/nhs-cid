@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Account - profile{% endblock %}
+{% block page_title %}Account - manage phone number{% endblock %}
 
 {% set signedin = 'true' %}
 
@@ -19,12 +19,11 @@
 {% block rightcol %}
 
 <div class="first-item">
+	<h2>Check your email</h2>
 
-	<h2>Profile</h2>
-
-	<p><b>Name</b>
-	<br/>Jonathan Liam Kingston</p> 
-
+	<p>We need to validate your email address. Please check your <a href="mail-validate">email</a>.</p>
+    <p>If you haven't received the email check your spam folder.</p>
+    <p>You have 48 hours to validate your email before the link is deactivated.</p>
 </div>
 
 {% endblock %}

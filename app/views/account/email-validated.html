@@ -1,0 +1,9 @@
+{% extends 'account/email.html' %}
+{% block page_title %}Your NHS Account{% endblock %}
+
+{% block alert %}
+
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('Your email address has been updated','','attention') }}
+
+{% endblock %}
