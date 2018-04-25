@@ -1,4 +1,4 @@
-<footer role="contentinfo">
+<footer role="contentinfo" style="position: relative;">
   <div class="global-footer">
     <div class="global-footer__inner">
       <div>
@@ -16,4 +16,22 @@
       </div>
     </div>
   </div>
+
+  {% if emailLink %}
+  <div class="proto-action">
+    <a href="email/{{ emailLink }}">
+      <div class="proto-action-icon">
+        email sent
+      </div>
+
+      <div class="proto-action-text">
+        Email sent: <br><b>{{ emailLink }}</b>
+      </div>
+    </a>
+  </div>
+
+
 </footer>
+
+
+{% endif %}

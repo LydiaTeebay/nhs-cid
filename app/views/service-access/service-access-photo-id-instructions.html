@@ -27,10 +27,20 @@
 
         <div class="form-group">
           <script type="application/javascript">
-            if(window.MediaRecorder !== undefined) {
-                document.write('<a href="service-access-photo-id-html5{{ params }}" class="button camera-button">Continue</a>');
+              if (navigator.mediaDevices.getUserMedia) {
+
+                  if(window.MediaRecorder !== undefined) {
+                      document.write('<a href="service-access-photo-id-html5{{ params }}" class="button camera-button">Continue</a>');
+                  } else {
+
+                      {% if mobile %}
+                        document.write('<a href="service-access-photo-id-camera{{ params }}" class="button camera-button">Continue</a>');
+                      {% else %}
+                        document.write('<a href="service-access-switchtomobile{{ params }}" class="button camera-button">Continue</a>');
+                      {% endif %}
+                  }
             } else {
-                document.write('<a href="service-access-photo-id-camera{{ params }}" class="button camera-button">Continue</a>');
+                document.write('<a href="service-access-switchtomobile{{ params }}" class="button camera-button">Continue</a>');
             }
           </script>
         </div>
