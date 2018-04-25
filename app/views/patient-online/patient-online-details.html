@@ -10,11 +10,20 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Are you using online services with your GP surgery?</legend></h1>
-        <p>These may include booking appointments or ordering repeat prescriptions.</p>
+        <h1><legend>Do you have the registration details from your GP for online services?</legend></h1>
+        <p>You may have received a letter, text or email with online services registration details.</p>
+
+        {% if system === 'tpp' %}
+          <img src="/images/linkage-key-letter-tpp.png" height="200" style="border: 1px solid grey">
+        {% endif %}
+
+        {% if system === 'emis' %}
+          <img src="/images/linkage-key-letter-emis.png" height="200" style="border: 1px solid grey">
+        {% endif %}
+        
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details{{ params }}">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="/service-access/service-access-pol-1{{ params }}">
             Yes
           </label>
         </div>
@@ -24,7 +33,12 @@
             No
           </label>
         </div>
-        
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-online-find-letter{{ params }}">
+            I don't Know
+          </label>
+        </div>
         
       </fieldset>
     </div>
