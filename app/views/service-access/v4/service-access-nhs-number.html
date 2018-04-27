@@ -43,7 +43,7 @@
           <a class="button" href="service-access-photo-id{{ params }}">Continue</a>
         </div>
 
-        {% if service === 'nhsonline' %}
+        {% if service === 'nhsonline' or service === 'nhsonline3'  %}
           <p><a href="service-access-nhs-demographics{{ params }}">I don't know my NHS number</a></p>
         {% else %}
           <p><a href="service-access-no-documents{{ params }}">I don't know my NHS number</a></p>
