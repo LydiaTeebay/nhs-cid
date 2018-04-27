@@ -12,7 +12,7 @@
   {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% endif %}
 
-{% if service === "nhsonline2" %}
+{% if service === "nhsonline2" or service === "nhsonline3" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=undefined" %}
 {% endif %}
 
@@ -23,7 +23,7 @@
 
   <p>If you didn't create an NHS account using this email address please ignore this email and we will delete the NHS account after 48 hours.</p>
 
-  {% if service === "nhsonlinepol" or service === "nhsonline2" %}
+  {% if service === "nhsonlinepol" or service === "nhsonline2" or service === "nhsonline3" %}
   <p><a class="button" href="/create-account/v7/two-step{{ params }}">Validate my email</a></p>
   {% else %}
   <p><a class="button" href="/create-account/v7/login-nhs-create{{ params }}">Validate my email</a></p>
