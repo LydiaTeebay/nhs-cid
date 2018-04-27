@@ -27,7 +27,7 @@
 
         <div class="form-group">
           <script type="application/javascript">
-              if (navigator.mediaDevices.getUserMedia) {
+              if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia) {
 
                   if(window.MediaRecorder !== undefined) {
                       document.write('<a href="service-access-photo-id-html5{{ params }}" class="button camera-button">Continue</a>');
