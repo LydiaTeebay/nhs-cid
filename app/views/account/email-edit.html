@@ -10,26 +10,26 @@
 
 {% block content %}
 
-{% include '_partials/_components/_account-menu.html' %}s
+{% block alert %}{% endblock %}
+
+{% include '_partials/_components/_account-menu.html' %}
 
 {% endblock %}
 
 {% block rightcol %}
 
-{% block alert %}{% endblock %}
-
 <div class="first-item">
-	<h2>Enter new phone number</h2>
+	<h2>Enter new email address</h2>
 
-	<p>We need to validate your phone number to make your account more secure.</p>
+	<p>We need to validate your email address to make your account more secure.</p>
 
 	<div class="form-group">	
 
-		<label class="form-label" for="new-phone">New phone number</label>
-		<input class="form-control" id="new-phone" name="field2" type="number">
+		<label class="form-label" for="new-email">New email address</label>
+		<input class="form-control" id="new-email" name="field2" type="email">
 	</div>
 
-	<a class="button" href="phone-code">Continue</a>
+	<a class="button" href="email-go-validate">Continue</a>
 
 </div>
 

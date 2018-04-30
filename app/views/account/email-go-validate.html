@@ -10,27 +10,20 @@
 
 {% block content %}
 
-{% include '_partials/_components/_account-menu.html' %}s
+{% block alert %}{% endblock %}
+
+{% include '_partials/_components/_account-menu.html' %}
 
 {% endblock %}
 
 {% block rightcol %}
 
-{% block alert %}{% endblock %}
-
 <div class="first-item">
-	<h2>Enter new phone number</h2>
+	<h2>Check your email</h2>
 
-	<p>We need to validate your phone number to make your account more secure.</p>
-
-	<div class="form-group">	
-
-		<label class="form-label" for="new-phone">New phone number</label>
-		<input class="form-control" id="new-phone" name="field2" type="number">
-	</div>
-
-	<a class="button" href="phone-code">Continue</a>
-
+	<p>We need to validate your email address. Please check your <a href="mail-validate">email</a>.</p>
+    <p>If you haven't received the email check your spam folder.</p>
+    <p>You have 48 hours to validate your email before the link is deactivated.</p>
 </div>
 
 {% endblock %}

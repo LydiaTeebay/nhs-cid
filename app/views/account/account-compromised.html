@@ -10,20 +10,27 @@
 
 {% block content %}
 
-{% block alert %}{% endblock %}
-
 {% include '_partials/_components/_account-menu.html' %}
 
 {% endblock %}
 
 {% block rightcol %}
 
+{% block alert %}{% endblock %}
+
 <div class="first-item">
 
-	<h2>Profile</h2>
+  <div class="form-group">
+    <h1><legend>Your account might be compromised</legend></h1>
 
-	<p><b>Name</b>
-	<br/>Jonathan Liam Kingston</p> 
+    <p>We recommend that you do the following:</p>
+    <ol>
+      <li>Change password</li>
+      <li>Make sure your phone has a lock screen</li>
+    </ol>
+    <p>If you have any more issues then please email <a href="mailto:support@nhs.net">support@nhs.net</a></p>
+
+  </div>
 
 </div>
 

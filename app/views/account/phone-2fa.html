@@ -10,30 +10,26 @@
 
 {% block content %}
 
+{% block alert %}{% endblock %}
+
 {% include '_partials/_components/_account-menu.html' %}
 
 {% endblock %}
 
 {% block rightcol %}
 
-{% block alert %}{% endblock %}
-
 <div class="first-item">
 
-	<h2>Check your phone</h2>
+	<h2>Check your email</h2>
 
-	<p>We've sent you a message with a security code to 077** ***123.</p>
+	<p>We've sent you a message with a security code to gh*****@***c.co</p>
 
 	<fieldset class="inline">
 		<div class="form-group">
-	        <label class="form-label" for="code">Security code</label>
 	        <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
 	    </div>
 	</fieldset>
-	<a class="button" href="phone">Continue</a>
-
-
-	<p>Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="phone-resend">you can resend it</a>.</p>
+	<a class="button" href="phone-edit">Continue</a>
 
 </div>
 
