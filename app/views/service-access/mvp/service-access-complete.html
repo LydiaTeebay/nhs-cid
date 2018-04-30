@@ -20,11 +20,7 @@
 
 {% block content %}
 
-{% if service === 'nhsonline' %}
-<a href="http://nhsonline.herokuapp.com/home.php" target="_parent" class="service-access__item__button button" style="margin-top:0; ">Go back to home</a>
-{% elif service === 'nhsonlinepol' %}
-<a href="end/nhsonline{{ params }}" target="_parent" class="service-access__item__button button" style="margin-top:0; ">Go back to home</a>
-{% endif %}
+<a href="end/mvp/nhsonline-dashboard{{ params }}" target="_parent" class="service-access__item__button button" style="margin-top:0; ">Go back to NHS App</a>
 
 {% endblock %}
 {% block rightcol %}{% endblock %}
