@@ -24,6 +24,31 @@ module.exports = function (router) {
         res.redirect('/create-account/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
     })
 
+    router.get('/create-account/mvp/two-step', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var hidehead = req.param('hidehead')
+        // re-render the page along with the parameter
+        res.render('create-account/mvp/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, hidehead: hidehead }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/two-step', function (req, res) {
+        console.log("post")
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        res.redirect('/create-account/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
+    })
+
     router.get('/create-account/v7/two-step', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')

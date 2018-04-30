@@ -34,6 +34,38 @@ module.exports = function (router) {
       res.send(html)
     })
   })
+
+    router.get('/create-account/mvp/check-email', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var hidehead = req.param('hidehead')
+
+        // send email message
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason + '&hidehead=' + hidehead
+        var personalisation = {
+            'email_address': emailAddress,
+            'params': params
+        }
+        if (emailAddress !== '' || emailAddress !== 'undefined') {
+            notifyClient
+                .sendEmail(templateId, emailAddress, {
+                    personalisation: personalisation
+                })
+                .then(response => console.log(response)
+        ).catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/mvp/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/grant-access/check-email', function (req, res) {
         // pull in the url parameters
         /*
