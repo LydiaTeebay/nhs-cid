@@ -38,7 +38,7 @@ module.exports = function (router) {
             res.send(html)
         })
     })
-    router.post('/create-account/two-step', function (req, res) {
+    router.post('/create-account/mvp/two-step', function (req, res) {
         console.log("post")
         var emailAddress = req.param('emailAddress')
         var mobileNum = req.body.mobileNum
@@ -46,7 +46,7 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var vouched = req.param('vouch')
         var hidehead = req.param('hidehead')
-        res.redirect('/create-account/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
+        res.redirect('/create-account/mvp/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
     })
 
     router.get('/create-account/v7/two-step', function (req, res) {

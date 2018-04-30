@@ -51,7 +51,7 @@ module.exports = function (router) {
             res.send(html)
         })
     })
-    router.post('/create-account/create-acc-terms', function (req, res) {
+    router.post('/create-account/mvp/create-acc-terms', function (req, res) {
         var emailAddress = req.body.emailAddress
         var mobileNum = req.body.mobileNum
         var service = req.param('service')

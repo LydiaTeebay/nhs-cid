@@ -43,8 +43,8 @@
       </fieldset>
     </div>
     <div class="form-group">
-      {% if service === "nhsonline2" %}
-      <a id="securitycodeContinue" href="/service-access/service-access-nhs{{ params }}" class="button">Continue</a>
+      {% if service === "nhsonline2" or service === "mvp" %}
+      <a id="securitycodeContinue" href="/service-access/mvp/service-access-nhs{{ params }}" class="button">Continue</a>
       {% elif service === "nhsonline" %}
       <a id="securitycodeContinue" href="/service-access/v4/service-access-stepup{{ params }}" class="button">Continue</a>
       {% else %}
