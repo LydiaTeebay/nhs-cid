@@ -6,11 +6,16 @@
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
 
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
+
 {% block content %}
 
-<section class="prove-id">
-
-	<h1>Proving your identity</h1>
+<section class="service-access-wrapper">
 
 	<p>You now have the required information to prove your identity.</p>
 

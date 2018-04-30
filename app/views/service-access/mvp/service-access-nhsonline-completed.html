@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Step 2: Your NHS Number{% endblock %}
+{% block page_title %}Access {{ serviceName }}{% endblock %}
 
 {% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
@@ -18,21 +18,13 @@
 <section class="service-access-wrapper">
 
 	<ol class="service-access">
-		<li class="service-access__item completed">
-			<h3 class="service-access__item__title">Create an NHS account</h3>
-			<div class="service-access__item__desc">
-				<p>You will need your phone.</p>
-				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
-			</div>
-			<span class="service-access__item__status">Completed</span>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Create an NHS account</p>
+			<!--<span class="service-access__item__status">Completed</span>-->
 		</li>
-		<li class="service-access__item active completed">
-			<h3 class="service-access__item__title">Enter your registration details</h3>
-			<div class="service-access__item__desc">
-				<p>You will need your online registration details.</p>
-				<p>These are the registration details you will of received from your GP surgery to access online services, eg book appointments.</p>
-			</div>
-			<span class="service-access__item__status">Completed</span>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Enter your registration details</p>
+			<!--<span class="service-access__item__status">Completed</span>-->
 		</li>
 	</ol>
 
