@@ -10,7 +10,7 @@ module.exports = function (router) {
     var hidehead = req.param('hidehead')
     var poluser = req.param('poluser')
     // re-render the page along with the parameter
-    res.render('create-account/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser }, function(err, html) {
+    res.render('create-account/two-step', { reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser }, function(err, html) {
       res.send(html)
     })
   })
