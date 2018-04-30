@@ -10,13 +10,14 @@ module.exports = function (router) {
     var emailAddress = req.param('emailAddress')
     var mobileNum = req.param('mobileNum')
     var verified = req.param('verified')
+    var poluser = req.param('poluser')
     // re-render the page along with the parameter
 
     if (terms === 'yes') {
-      res.redirect('/create-account/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified)
+      res.redirect('/create-account/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified + '&poluser=' + poluser)
       return
     } else {
-      res.render('create-account/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified }, function(err, html) {
+      res.render('create-account/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
           res.send(html)
       })
     }
@@ -33,13 +34,14 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var mobileNum = req.param('mobileNum')
         var verified = req.param('verified')
+        var poluser = req.param('poluser')
         // re-render the page along with the parameter
 
         if (terms === 'yes') {
-            res.redirect('/create-account/mvp/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified)
+            res.redirect('/create-account/mvp/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified + '&poluser=' + poluser)
             return
         } else {
-            res.render('create-account/mvp/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified }, function(err, html) {
+            res.render('create-account/mvp/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
                 res.send(html)
             })
         }

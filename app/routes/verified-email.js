@@ -5,8 +5,9 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
+        var poluser = req.param('poluser')
         // re-render the page along with the parameter
-        res.render('create-account/verified-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
+        res.render('create-account/verified-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, poluser: poluser }, function(err, html) {
             res.send(html)
         })
     })
@@ -17,8 +18,9 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
+        var poluser = req.param('poluser')
         // re-render the page along with the parameter
-        res.render('create-account/mvp/verified-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
+        res.render('create-account/mvp/verified-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, poluser: poluser }, function(err, html) {
             res.send(html)
         })
     })

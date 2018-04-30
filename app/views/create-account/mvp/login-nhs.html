@@ -2,7 +2,7 @@
 {% block page_title %}Sign in to your NHS account {{serviceName}}
 {% endblock %}
 {% set signedin = '' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
 
 {% block body %}
@@ -43,7 +43,7 @@ input.form-control {
 
         <a class="button" href="two-step-code-login{{ params }}" id="continue">Continue</a>
 
-        <p><a id="modal-create-acc" href="/patient-online/mvp/patient-online-gp-online{{ params }}">Create a new NHS account</a></p>
+        <p><a id="modal-create-acc" href="patient-online-gp-online{{ params }}">Create a new NHS account</a></p>
 
         <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
 

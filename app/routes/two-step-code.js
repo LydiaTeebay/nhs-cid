@@ -5,8 +5,10 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
+        var poluser = req.param('poluser')
+        var emailAddress = req.param('emailAddress')
         // re-render the page along with the parameter
-        res.render('create-account/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
+        res.render('create-account/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, poluser: poluser, emailAddress: emailAddress}, function(err, html) {
             res.send(html)
         })
     })
@@ -17,8 +19,10 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
+        var poluser = req.param('poluser')
+        var emailAddress = req.param('emailAddress')
         // re-render the page along with the parameter
-        res.render('create-account/mvp/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName}, function(err, html) {
+        res.render('create-account/mvp/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, poluser: poluser, emailAddress: emailAddress }, function(err, html) {
             res.send(html)
         })
     })

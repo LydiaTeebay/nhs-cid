@@ -4,9 +4,9 @@
 
 {# work out where to send users #}
 {% if vouch %}
-{% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&poluser=" + poluser %}
 {% elif service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&poluser=" + poluser %}
 {% endif %}
 
 {% block content %}
@@ -19,7 +19,7 @@
 
         <h2 class="heading-xlarge"><legend>Thank you</legend></h2>
 
-        <p>Your NHS account is now secured with your phone <br>07779 000333.</p>
+        <p>Your NHS account is now secured with your phone <br>{{ mobileNum }}.</p>
 
       </fieldset>
     </div>

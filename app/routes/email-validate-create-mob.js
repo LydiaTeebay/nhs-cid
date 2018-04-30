@@ -3,7 +3,8 @@ module.exports = function (router) {
     var service = req.param('service')
     var serviceName = req.param('serviceName')
     var hidehead = req.param('hidehead')
-    res.render('emails/email-validate-create-mob', { serviceName: serviceName, service: service, hidehead: hidehead }, function(err, html) {
+    var poluser = req.param('poluser')
+    res.render('emails/email-validate-create-mob', { serviceName: serviceName, service: service, hidehead: hidehead, poluser: poluser }, function(err, html) {
       res.send(html)
     })
   })
@@ -12,7 +13,8 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
-        res.render('emails/mvp/email-validate-create-mob', { serviceName: serviceName, service: service, hidehead: hidehead }, function(err, html) {
+        var poluser = req.param('poluser')
+        res.render('emails/mvp/email-validate-create-mob', { serviceName: serviceName, service: service, hidehead: hidehead, poluser: poluser }, function(err, html) {
             res.send(html)
         })
     })

@@ -8,14 +8,14 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
-
+        var poluser = req.param('poluser')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/two-step-code?vouch=yes')
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead }, function(err, html) {
+        res.render('create-account/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser }, function(err, html) {
             res.send(html)
         })
     })
@@ -26,12 +26,13 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var vouched = req.param('vouch')
         var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/two-step-code?vouch=yes')
             return
         }
-        res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
+        res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
     })
 
     router.get('/create-account/mvp/create-acc-terms', function (req, res) {
@@ -40,14 +41,14 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
-
+        var poluser = req.param('poluser')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/mvp/two-step-code?vouch=yes')
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/mvp/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead }, function(err, html) {
+        res.render('create-account/mvp/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser }, function(err, html) {
             res.send(html)
         })
     })
@@ -58,12 +59,13 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var vouched = req.param('vouch')
         var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/mvp/two-step-code?vouch=yes')
             return
         }
-        res.redirect('/create-account/mvp/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
+        res.redirect('/create-account/mvp/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
     })
 
     router.get('/create-account/v7/create-acc-terms', function (req, res) {
@@ -77,7 +79,7 @@ module.exports = function (router) {
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/v7/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
+        res.render('create-account/v7/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
             res.send(html)
         })
     })
@@ -106,7 +108,7 @@ module.exports = function (router) {
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/v6/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
+        res.render('create-account/v6/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
             res.send(html)
         })
     })
@@ -134,7 +136,7 @@ module.exports = function (router) {
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/v5/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
+        res.render('create-account/v5/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
             res.send(html)
         })
     })
@@ -162,7 +164,7 @@ module.exports = function (router) {
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/v4/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
+        res.render('create-account/v4/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
             res.send(html)
         })
     })
@@ -190,7 +192,7 @@ module.exports = function (router) {
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/v3/create-acc-terms', {vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
+        res.render('create-account/v3/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName }, function(err, html) {
             res.send(html)
         })
     })
