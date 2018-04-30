@@ -4,9 +4,9 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% elif vouch %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead  %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% endif %}
 
 {% block topRow %}
@@ -44,7 +44,13 @@
     </div>
     <div class="form-group">
       {% if service === "nhsonline2" or service === "mvp" %}
+
+      {% if poluser === "true" %}
+      <a id="securitycodeContinue" href="/service-access/mvp/service-access-pol-2{{ params }}" class="button">Continue</a>
+      {% else %}
       <a id="securitycodeContinue" href="/service-access/mvp/service-access-nhs{{ params }}" class="button">Continue</a>
+      {% endif %}
+
       {% elif service === "nhsonline" %}
       <a id="securitycodeContinue" href="/service-access/v4/service-access-stepup{{ params }}" class="button">Continue</a>
       {% else %}
