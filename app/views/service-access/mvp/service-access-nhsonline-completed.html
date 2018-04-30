@@ -1,50 +1,44 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
-{% block page_title %}{{serviceName}}{% endblock %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 2: Your NHS Number{% endblock %}
 
+{% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
-{% if service  %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 
-{% endif %}
-{% set service = "nhsonlinepol" %}
-{% set serviceName = "Completed" %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
 
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
 
 {% block content %}
-<style>
-.create {
-	background-color: #f0f4f5;
-	border-left: 4px solid #d8dde0;
-	padding: 15px;
-}
 
-.verify-note {
-	background: #f0f4f5 url('/images/govuk-verify-transparent.svg') no-repeat 10px 9px;
-	background-size: 15%;
-	border-left: 4px solid #d8dde0;
-	padding: 15px 15px 15px 100px;
-	margin-top: 5px;
-}
-</style>
-
-<p>You have successfully created an NHS account and connected to your GP.</p>
-
-<p>You can now book appointments online, order repeat prescriptions and more.</p>
-
-
-<section class="prove-id">
+<section class="service-access-wrapper">
 
 	<ol class="service-access">
-		<li class="service-access__item hide-number">
-			<p class="h3 service-access__item__title ticked">Create an NHS account</p>
-			<!--<span class="service-access__item__status">Completed</span>-->
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Create an NHS account</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your phone.</p>
+				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
 		</li>
-		<li class="service-access__item hide-number">
-			<p class="h3 service-access__item__title ticked">Connect to your GP</p>
-			<!--<span class="service-access__item__status">Completed</span>-->
+		<li class="service-access__item active completed">
+			<h3 class="service-access__item__title">Enter your registration details</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your online registration details.</p>
+				<p>These are the registration details you will of received from your GP surgery to access online services, eg book appointments.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
 		</li>
 	</ol>
 
-	<a href="../end/nhsonline-dashboard{{ params }}" class="button">Continue</a>
+	<a href="/end/mvp/nhsonline-dashboard{{ params }}" class="button">Continue to NHS App</a>
+
 </section>
+
 {% endblock %}
+{% block rightcol %}{% endblock %}
