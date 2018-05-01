@@ -3,7 +3,7 @@
 
 {% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 
 
 {% block header %}
@@ -17,34 +17,30 @@
 
 <section class="service-access-wrapper">
 
-<p><mark>Do we need to tell the user more info about the new process that they are about to go down??</mark></p>
 	<ol class="service-access">
-		<li class="service-access__item active">
+		<li class="service-access__item completed">
 			<h3 class="service-access__item__title">Create an NHS account</h3>
 			<div class="service-access__item__desc">
 				<p>You will need your phone.</p>
 				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
 			</div>
-			<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item active completed">
+			<h3 class="service-access__item__title">Enter your registration details</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your online registration details.</p>
+				<p>These are the registration details you will of received from your GP surgery to access online services, eg book appointments.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
 		</li>
 		<li class="service-access__item">
 			<h3 class="service-access__item__title">About you</h3>
 			<div class="service-access__item__desc">
-				<p>You will need to give us some details about yourself or your NHS number.</p>
+				<p>You will need to give us some details about yourself.</p>
 			</div>
+			<a href="/patient-online/mvp/patient-online-about-you-name{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
-		<li class="service-access__item">
-			<h3 class="service-access__item__title">Prove your identity</h3>
-			<div class="service-access__item__desc">
-				<p>You will need to record 2 short video clips. One of your photo ID document and one of your face.</p>
-			</div>
-		</li>
-		<!--<li class="service-access__item">-->
-			<!--<h3 class="service-access__item__title">Submit a video selfie</h3>-->
-			<!--<div class="service-access__item__desc">-->
-				<!--<p>For security reasons we need to match you to your photo ID.</p>-->
-			<!--</div>-->
-		<!--</li>-->
 	</ol>
 
 </section>
