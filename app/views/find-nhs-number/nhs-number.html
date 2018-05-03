@@ -4,17 +4,16 @@
 {% block page_title %}Find my NHS number{% endblock %}
 {% set signedin = '' %}
 
+
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
+
 {% block body %}
 
-
-
-<div class="page-band">
-    <div class="page-section">
-      Find my NHS Number
-    </div>
-  </div>
-
-<div class="page-section">
     <div class="reading-width">
       <h1 class="page-title stepper">Here is your NHS number <small>Step 4 of 4</small></h1>
 
@@ -34,7 +33,6 @@
         </div>
       </div>
     </div>
-  </div>
 
 
 

@@ -4,18 +4,15 @@
 {% block page_title %}Find my NHS number{% endblock %}
 {% set signedin = '' %}
 
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
 
 {% block body %}
 
-
-<div class="page-band">
-    <div class="page-section">
-      Find my NHS Number
-    </div>
-</div>
-
-<div class="column--full">
-<div class="page-section">
       <div class="reading-width">
           <div class="grid-row">
             <div class="column--full">
@@ -38,12 +35,13 @@
                       Using the contact details we hold in our database, we will send you a one-time verification code.
                     </p>
                   </li>
-                  <li>
+                 <!-- <li>
                     <h2>Make your choice</h2>
                     <p>
                       When your code is verified, you will be able to manage your choice online.
                     </p>
                   </li>
+                  -->
                 </ol>
               </div>
               <p>
@@ -62,10 +60,7 @@
 
           </div>
         </div>
-      </div>
 
-
-</div>
 <!--
 <a href="create-1" class="button">Start</a>
 -->
