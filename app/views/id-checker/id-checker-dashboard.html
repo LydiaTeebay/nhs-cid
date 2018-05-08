@@ -4,7 +4,7 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = '' %}
-{% set params = '' %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state %}
 
 {% block content %}
 

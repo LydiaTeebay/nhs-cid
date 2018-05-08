@@ -32,7 +32,11 @@
         </div>
 
         <div class="form-group">
-          <a class="button" href="id-checker-dashboard">Continue</a>
+          {% if role === 'Supervisor' %}
+            <a class="button" href="id-checker-supervisor-dashboard">Continue</a>
+          {% else %}
+            <a class="button" href="id-checker-dashboard">Continue</a>
+          {% endif %}
         </div>
       </form>
     </div>

@@ -3,7 +3,9 @@ module.exports = function (router) {
         // pull in the url parameter
         var state = req.param('state')
         var role = req.param('role')
-        res.render('id-checker/id-checker-review', {state: state, role: role}, function(err, html) {
+        var result = req.param('result')
+        var demographics = req.param('demographics')
+        res.render('id-checker/id-checker-review', { state: state, role: role, result: result, demographics: demographics }, function(err, html) {
             res.send(html)
         })
     })

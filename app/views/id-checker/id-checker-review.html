@@ -4,29 +4,176 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = 'true' %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result %}
 
 {% block content %}
 
 <div class="panel">
     <div class="panel__content panel__content--half">
-        <h3>NHS number</h3>
-        <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly>
+        <h3>Submitted details</h3>
+
+        {% if demographics !== 'true' %}
+
+        <div class="form-group">
+            <label class="form-label">NHS Number</label>
+            <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fail' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <fieldset style="display: inline-block; margin-bottom: 0;">
+                <legend class="form-label">
+                Date of birth
+                </legend>
+                <div class="form-group -date" style="margin-top: 10px;">
+                    <div class="form-date-field">
+                        <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day" maxlength="2" min="1" max="31" readonly>
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
+                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month" maxlength="2" min="1" max="12" readonly>
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
+                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year" maxlength="4" min="1900" max="2018" readonly>
+                    </div>
+                </div>
+            </fieldset>
+            {% if result == 'fail' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+
+        {% else %}
+
+        <div class="form-group">
+            <label class="form-label">first name</label>
+            <input type="text" id="" name="" value="Joe" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fail' %}
+                <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Middle names</label>
+            <input type="text" id="" name="" value="" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fail' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Last name</label>
+            <input type="text" id="" name="" value="Bloggs" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fail' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <fieldset style="display: inline-block">
+                <legend class="form-label">
+                    Date of birth
+                </legend>
+                <div class="form-group -date" style="margin-top: 10px;">
+                    <div class="form-date-field">
+                        <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day" maxlength="2" min="1" max="31" readonly style="margin-bottom: 0;">
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
+                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month" maxlength="2" min="1" max="12" readonly style="margin-bottom: 0;">
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
+                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year" maxlength="4" min="1900" max="2018" readonly style="margin-bottom: 0;">
+                    </div>
+                </div>
+            </fieldset>
+            {% if result == 'fail' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Postcode</label>
+            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fail' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+
+        {% endif %}
+    </div>
+    <div class="panel__content panel__content--half">
+        <h3>PDS match</h3>
+        <p class="small" id="loader"><img src="/images/ajax-loader.gif" style="width: 30px" alt="loading">&nbsp; Running trace</p>
+
+        <div id="trace" class="idcheck-match {{ result }}" style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;" >
 
 
-        <table id="trace" style="display:none;-webkit-animation-delay: 5s;-moz-animation-delay: 5s;animation-delay: 5s;">
-            <tr>
-                <td>First name:</td>
-                <td>Joe</td>
-            </tr>
-            <tr>
-                <td>Last name:</td>
-                <td>Blogs</td>
-            </tr>
-            <tr>
-                <td>Date of birth:</td>
-                <td>9th February, 1979</td>
-            </tr>
-        </table>
+            {% if result !== 'fail' %}
+
+            <table class="">
+
+                {% if demographics === 'true' %}
+                <tr>
+                    <td>NHS Number:</td>
+                    <td><b>485 777 3456</b></td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td>First name:</td>
+                    <td><b>Joe</b></td>
+                </tr>
+                <tr>
+                    <td>Middle names:</td>
+                    <td><b>Frederick</b></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><b>Bloggs</b></td>
+                </tr>
+                <tr>
+                    <td>Date of birth:</td>
+                    <td><b>9th February, 1979</b></td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td>Gender:</td>-->
+                    <!--<td><b>Male</b></td>-->
+                <!--</tr>-->
+            </table>
+
+            {% endif %}
+
+            <div class="idcheck-result">
+                {% if result === 'fail' %}
+                    Record not found
+                {% else %}
+                    Match
+                {% endif %}
+            </div>
+
+            {% if result === 'fail' %}
+
+                {% if demographics === 'true' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>The submitted demographic details do not match an NHS record.</p>
+                    </div>
+                {% else %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>Either the NHS number is invalid or it does not match to the date of birth submitted.</p>
+                    </div>
+                {% endif %}
+
+            {% endif %}
+        </div>
+
+        {% if result === 'fail' %}
+        <div id="declinebtn-2" style="display:none;">
+            <div id="id-decline">
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn" class="button button--decline">Decline</a>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>
@@ -59,19 +206,6 @@
                     </label>
                 </div>
             </div>
-            <!--<div class="qa-questions-question" data-answered="false">-->
-                <!--<p class="qa-questions-question-text"><span class="qa-questions-question-text-no">Q2 </span>Does the face on the submitted Photo ID match the one from Home Office or DVLA database?</p>-->
-                <!--<div class="qa-questions-answer-group multiple-choice__container">-->
-                    <!--<label class="qa-questions-answer multiple-choice multiple-choice&#45;&#45;inline multiple-choice&#45;&#45;radio" aria-checked="false" >-->
-                        <!--<input type="radio" id="2" name="a-2" class="multiple-choice__input" tabindex="2">Yes-->
-                        <!--<div class="qa-questions-answer-radio-indicator"></div>-->
-                    <!--</label>-->
-                    <!--<label class="qa-questions-answer multiple-choice multiple-choice&#45;&#45;inline multiple-choice&#45;&#45;radio" aria-checked="false">-->
-                        <!--<input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="3">No-->
-                        <!--<div class="qa-questions-answer-radio-indicator"></div>-->
-                    <!--</label>-->
-                <!--</div>-->
-            <!--</div>-->
         </div>
     </div>
 </div>
@@ -128,7 +262,7 @@
                 <a href="id-checker-dashboard?state=approved&emailLink=email-idcheck-approved" id="approveBtn" class="button button--approve" style="display: none;">Approve</a>
             </div>
             <div id="id-decline">
-                <a href="id-checker-dashboard?state=declined" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
             </div>
         </div>
     </div>
@@ -155,15 +289,19 @@
     var state = getParameterByName('state')
 
     setTimeout(function(){
-        document.getElementById('trace').style.display = "block";
+        document.getElementById('trace').style.display = 'block'
+        document.getElementById('declinebtn-2').style.display = 'block'
+        var errors = document.getElementsByClassName('idcheck-edit')
+        for (i = 0; i < errors.length; i++) {
+            errors[i].style.display = 'inline-block'
+        }
         if (state === 'noresult') {
-            console.log("hello")
             $('label[for="1"]').click()
         }
-    }, 4000)
+    }, 2000)
     setTimeout(function(){
-        document.getElementById('loader').style.display = "none";
-    }, 4000)
+        document.getElementById('loader').style.display = 'none'
+    }, 2000)
 
     var processClick = function(e) {
         // update local storage straight away
@@ -310,18 +448,18 @@
         // pull in the answer array
         var idCheck = JSON.parse(localStorage['idchecker'])
 
-        if (idCheck[1] == true || idCheck[3] == true || idCheck[5] == true){
+        if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true){
             document.getElementById('approveBtn').style.display = "none"
             document.getElementById('declineBtn').style.display = "inline-block"
 
-            if (idCheck[1] == true){
+            if (idCheck[1] === true){
                 $("#id-decline").appendTo("#document")
             } else {
                 $("#id-decline").appendTo("#id-buttons")
             }
         }
 
-        else if (idCheck[0] == true && idCheck[2] == true && idCheck[4] == true){
+        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true){
             document.getElementById('approveBtn').style.display = "inline-block"
             document.getElementById('declineBtn').style.display = "none"
         }

@@ -115,3 +115,86 @@
   line-height: 1.5em;
 
 }
+
+
+// results page
+
+.idcheck-result {
+  @include core-font(24);
+  font-weight: bold;
+  position: relative;
+  padding-left: 60px;
+  margin: 0.75em 0 0.25em;
+
+  &::before,
+  &::after {
+    content: "";
+    left: 0.5em;
+    top: 0;
+    position: absolute;
+    zoom: 1;
+  }
+  &::before {
+    background: transparent;
+    border: solid;
+    border-color: #417505;
+    border-width: 0 0 8px 8px;
+    height: 18px;
+    top: 0.1em;
+    transform: rotate(-45deg);
+    width: 30px;
+  }
+  &::active::before {
+    height: 100%;
+    top: 0;
+  }
+
+  .fail & {
+    position: relative;
+    &::before,
+    &::after {
+      background: #D0021B;
+      border-color: #D0021B;
+      height: 10px;
+      top: 0.5em;
+      transform: rotate(45deg);
+      width: 36px;
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.idcheck-result-reason {
+  @include core-font(18);
+  margin-top: 0.5em;
+  font-weight: bold;
+  position: relative;
+  padding-left: 60px;
+}
+
+.idcheck-match {
+  padding: 1em;
+  background-color: #DEF5E4;
+
+  table {
+    margin: 0;
+    td {
+      border-bottom: none;
+      @include core-font(18);
+      padding: 0.5em;
+    }
+  }
+
+  &.fail {
+    background-color: $red-10;
+  }
+}
+
+// detective mode edit links
+
+.idcheck-edit {
+  display: none;
+  float: right
+}
