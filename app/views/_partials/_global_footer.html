@@ -19,19 +19,18 @@
 
   {% if emailLink %}
   <div class="proto-action">
-    <a href="/emails/{{ emailLink }}">
+    <a href="/emails/{{ emailLink }}{{ params }}">
       <div class="proto-action-icon">
         email sent
       </div>
 
       <div class="proto-action-text">
-        Email sent: <br><b>{{ emailLink }}</b>
+        Email sent:
       </div>
     </a>
   </div>
-
+  {% endif %}
 
 </footer>
 
 
-{% endif %}
