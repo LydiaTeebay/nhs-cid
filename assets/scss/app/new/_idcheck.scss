@@ -149,6 +149,22 @@
     top: 0;
   }
 
+  .spine & {
+    position: relative;
+    &::before,
+    &::after {
+      background: #D0021B;
+      border-color: #D0021B;
+      height: 10px;
+      top: 0.5em;
+      transform: rotate(45deg);
+      width: 36px;
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
   .fail & {
     position: relative;
     &::before,
@@ -187,7 +203,8 @@
     }
   }
 
-  &.fail {
+  &.fail,
+  &.spine {
     background-color: $red-10;
   }
 }

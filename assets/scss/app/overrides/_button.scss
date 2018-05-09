@@ -90,6 +90,28 @@
   }
 }
 
+.button--retry {
+  @include button($green);
+  position: relative;
+  padding: ($baseline-grid-unit * 6) ($baseline-grid-unit * 12);
+  padding-left: ($baseline-grid-unit * 16);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1.3em;
+    left: 1.4em;
+    height: 30px;
+    width: 30px;
+    background: transparent url("/images/three-circling-arrows.svg") no-repeat;
+    background-size: 25px 25px;
+    background-position: middle;
+  }
+  &:active::before {
+    top: 1.3em;
+    height: 30px;
+  }
+}
+
 
 .button--recording {
   background-color: $red !important;

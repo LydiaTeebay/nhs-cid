@@ -4,7 +4,7 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = 'true' %}
-{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason %}
 
 {% block content %}
 
@@ -110,7 +110,7 @@
         <div id="trace" class="idcheck-match {{ result }}" style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;" >
 
 
-            {% if result !== 'fail' %}
+            {% if result !== 'fail' and result !== 'spine' %}
 
             <table class="">
 
@@ -147,7 +147,9 @@
 
             <div class="idcheck-result">
                 {% if result === 'fail' %}
-                    Record not found
+                    Match not found
+                {% elif result === 'spine' %}
+                    Lookup error
                 {% else %}
                     Match
                 {% endif %}
@@ -156,16 +158,40 @@
             {% if result === 'fail' %}
 
                 {% if demographics === 'true' %}
-                    <div class="idcheck-result-reason" id="failed">
-                        <p>The submitted demographic details do not match an NHS record.</p>
-                    </div>
+                <div class="idcheck-result-reason" id="failed">
+                    <p>The submitted demographic details do not match an NHS record.</p>
+                </div>
                 {% else %}
+
+                    {% if failreason === 'multiple' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>Multiple results were returned</p>
+                    </div>
+                    {% elif failreason === 'invalid' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>The submitted NHS number is invalid</p>
+                    </div>
+                    {% elif failreason === 'expired' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>The submitted NHS number has expired</p>
+                    </div>
+                    {% else %}
                     <div class="idcheck-result-reason" id="failed">
                         <p>Either the NHS number is invalid or it does not match to the date of birth submitted.</p>
                     </div>
+                    {% endif %}
+
                 {% endif %}
 
             {% endif %}
+
+            {% if result === 'spine' %}
+                <div class="idcheck-result-reason" id="failed">
+                    <p>There was an issue connecting to the Patient Demographic Service.</p>
+                    <p>Please try again in a few minutes</p>
+                </div>
+            {% endif %}
+
         </div>
 
         {% if result === 'fail' %}
@@ -175,6 +201,15 @@
             </div>
         </div>
         {% endif %}
+
+        {% if result === 'spine' %}
+        <div id="retrybtn-1" style="display:none;">
+            <div id="id-retry">
+                <a href="id-checker-review?demographics=false&role=undefined&result=spine" id="retryBtn" class="button button--retry">Retry</a>
+            </div>
+        </div>
+        {% endif %}
+
     </div>
 </div>
 
@@ -197,11 +232,11 @@
                 <p class="qa-questions-question-text">Does the Name and DOB on the PDS trace match those on the Photo ID?</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="0" aria-checked="false">
-                        <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0">Yes
+                        <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="1" aria-checked="false">
-                        <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1">No
+                        <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -233,11 +268,11 @@
                 <p class="qa-questions-question-text">Does the submitted video clearly show it's the same person pictured in the identity document?</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="2" name="b-1" class="multiple-choice__input" tabindex="2">Yes
+                        <input type="radio" id="2" name="b-1" class="multiple-choice__input" tabindex="2" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="3" name="b-1" class="multiple-choice__input" tabindex="3">No
+                        <input type="radio" id="3" name="b-1" class="multiple-choice__input" tabindex="3" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -246,11 +281,11 @@
                 <p class="qa-questions-question-text">Are the 4 numbers read out 4-0-6-6</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="4" name="b-2" class="multiple-choice__input" tabindex="4">Yes
+                        <input type="radio" id="4" name="b-2" class="multiple-choice__input" tabindex="4" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="5" name="b-2" class="multiple-choice__input" tabindex="5">No
+                        <input type="radio" id="5" name="b-2" class="multiple-choice__input" tabindex="5" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -290,6 +325,16 @@
 
     setTimeout(function(){
         document.getElementById('trace').style.display = 'block'
+        document.getElementById('retrybtn-1').style.display = 'block'
+        if (state === 'noresult') {
+            $('label[for="1"]').click()
+        }
+    }, 2000)
+    setTimeout(function(){
+        document.getElementById('loader').style.display = 'none'
+    }, 2000)
+
+    setTimeout(function(){
         document.getElementById('declinebtn-2').style.display = 'block'
         var errors = document.getElementsByClassName('idcheck-edit')
         for (i = 0; i < errors.length; i++) {

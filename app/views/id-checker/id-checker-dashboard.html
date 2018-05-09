@@ -68,4 +68,24 @@
 {% endif%}
 
 
+<details class="" role="group" >
+  <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+    <span class="details__summary">Testing scenarios</span>
+  </summary>
+  <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+    <div class="reading-width">
+      <ol>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=success">User submits NHS Number and match found</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail">User submits NHS Number and match <b>not</b> found</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=success">User submits demographics and match found</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail">User submits demographics and match <b>not</b> found</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine">User submits NHS Number and PDS trace fails</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=multiple">User submits NHS Number and PDS returns multiple matches</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=expired">User submits NHS Number and PDS returns an expired NHS number. i.e dead person</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid">User submits NHS Number and PDS returns invalid NHS number</a></li>
+      </ol>
+    </div>
+  </div>
+</details>
+
 {% endblock %}
