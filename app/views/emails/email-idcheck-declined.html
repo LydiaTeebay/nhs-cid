@@ -18,8 +18,9 @@
 
   <ol>
     <li>You made a mistake when entering your name or NHS number</li>
-
-    <li>You entered a postcode that isn’t recognised by your GP surgery</li>
+    {% if demographics === 'true' %}
+      <li>You entered a postcode that isn’t recognised by your GP surgery</li>
+    {% endif %}
     <li>The video recording of your photo ID is unclear</li>
     <li>The requested words on the video recording are unclear</li>
     <li>The video recording of your face is unclear</li>
