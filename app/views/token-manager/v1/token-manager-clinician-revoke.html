@@ -1,0 +1,42 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Token Manager{% endblock %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+<div class="callout callout--warning">
+  <h3>Revoke access</h3>
+  <p>Gemma Davis will no longer be able to generate tokens</p>
+</div>
+
+<form>
+    <div class="form-group">
+      <fieldset class="">
+        
+        <h1><legend>What reason are you revoking access?</legend></h1>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="token-manager-clinician-revoke-removed">
+            Clinician has left organisation
+          </label>
+        </div>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="token-manager-clinician-revoke-misconduct">
+            Clinician has been removed due to misconduct
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+<p><a href="">I've changed my mind</a></p>
+{% endblock %}
+

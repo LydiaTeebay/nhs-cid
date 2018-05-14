@@ -1,0 +1,34 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Switching to mobile{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&changetomobile=" + changetomobile %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)">Go back</a></p>
+
+
+  <h1 style="padding-bottom: 0;">
+    Check your mobile
+  </h1>
+
+  <p>We've sent a secure link to {{ mobileNum }}.<br>
+  <strong>It may take a few minutes to arrive.</strong></p>
+
+  <div class="callout callout--info callout--compact" style="margin-top:16px">
+    <img src="/images/mobile-notification-large.svg" style="float:left;padding-right:2em;"/>
+    <ul style="padding-left:2em;margin-top:0!important;">
+      <li>Keep this window open while using your mobile</li>
+      <li>Your mobile link will expire in one hour</li>
+    </ul>
+  </div>
+
+  <p><a href="#">Resend link</a></p>
+
+</div>
+
+{% endblock %}

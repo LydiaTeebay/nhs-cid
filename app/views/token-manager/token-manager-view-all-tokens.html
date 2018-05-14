@@ -1,0 +1,87 @@
+{% extends '_layouts/_grids/_grid-1-2.html' %}
+{% block page_title %}Token Manager{% endblock %}
+
+{% block content %}
+{% set serviceName = "token%20of%20trust%20manager" %}
+
+  <ul>
+    <li><a href="token-manager-index">Home</a></li>
+  </ul>
+  <h3>Patients</h3>
+    <ul>
+        <li><a href="token-manager-token-add">Add a patient</a></li>
+        <!--<li><a href="">Revoke patient access</a></li>-->
+        <li><a href="token-manager-view-all-tokens"><strong>View all patients</strong></a></li>
+    </ul>
+  <h3>Clinicians</h3>
+    <ul>
+        <li><a href="">Add a clinician</a></li>
+        <!--<li><a href="">Revoke a clinician</a></li>-->
+        <li><a href="token-manager-view-all-clinicians">View all clinicians</a></li>
+    </ul>
+
+{% endblock %}
+
+{% block rightcol %}
+<h3>View all patients</h3>
+<h1 style="position: relative"><span id="token-title">All</span> patients
+  <span style="right: 0; bottom: 0; position: absolute; font-size: 14pt">Filter:
+    <select id="selectStatus">
+      <option>All</option>
+      <option>Active</option>
+      <option>Pending</option>
+      <option>Revoked</option>
+    </select>
+  </span>
+</h1>
+<table class="tokenTable">
+  <thead>
+    <tr>
+      <th><input id="selectAll" type="checkbox" /></th>
+      <th>Id</a>
+      <th>Patient</th>
+      <th>NHS No.</th>
+      <th>Issue Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="token-row">
+      <td><input class="token-check" type="checkbox" /></td>
+      <td><a href="token-manager-token">123</a></td>
+      <td>Alex Hills</td>
+      <td>3409823439</td>
+      <td>21st Sept 2017</td>
+      <td><small class="phase-tag phase-tag-active">ACTIVE</small></td>
+      <td><a href="token-manager-token">edit</a></td>
+    </tr>
+    <tr class="token-row">
+      <td><input class="token-check" type="checkbox" /></td>
+      <td><a href="token-manager-token">234</a></td>
+      <td>Christopher Williams</td>
+      <td>3389290290</td>
+      <td>21st Sept 2017</td>
+      <td><small class="phase-tag phase-tag-pending">PENDING</small></td>
+      <td><a href="token-manager-token">edit</a></td>
+    </tr>
+    <tr class="token-row">
+      <td><input class="token-check" type="checkbox" /></td>
+      <td><a href="token-manager-token">345</a></td>
+      <td>Sarah Wilkinson</td>
+      <td>9823049823</td>
+      <td>21st Sept 2017</td>
+      <td><small class="phase-tag phase-tag-revoked">REVOKED</small></td>
+      <td><a href="token-manager-token">edit</a></td>
+    </tr>
+  </tbody>
+</table>
+<p><a href="">Revoke access for all selected patients</a></p>
+
+<!--<hr />-->
+<p><a class="button" href="token-manager-token-add">Add a new patient</a></p>
+
+{% endblock %}
+
+
+

@@ -2,6 +2,8 @@
 {% block page_title %}Prove your Identity Service{% endblock %}
 {% set signedin = 'true' %}
 
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
 {% block topRow %}
 
   {% if reason == "device" %}
@@ -29,7 +31,7 @@
 
     </div>
     <div class="form-group">
-      <a class="button" href="pyi-continue-offline-map" id="">Find a place to prove your identity</a>
+      <a class="button" href="pyi-continue-offline-map{{ params }}" id="">Find a place to prove your identity</a>
     </div>
 
   </form>

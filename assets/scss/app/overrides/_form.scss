@@ -16,7 +16,7 @@ input[type='tel'] {
   -webkit-box-sizing: border-box;
   display: block;
   width: 100%;
-  margin: 16px 0 32px 0;
+  margin: 8px 0 16px 0;
   padding: 8px;
   border: 2px solid #005EB8;
   font-family: inherit;
@@ -32,6 +32,7 @@ input[type='tel'] {
   input[type='email'],
   input[type='tel'] {
     width: 75%;
+    margin: 16px 0 32px 0;
   }
 }
 
@@ -52,6 +53,16 @@ input[type='password'].-small,
 input[type='email'].-small,
 input[type='tel'].-small {
   width: 8em;
+}
+
+@media (min-width: 500px) {
+  input[type='text'].postcode,
+  input[type='number'].postcode,
+  input[type='password'].postcode,
+  input[type='email'].postcode,
+  input[type='tel'].postcode {
+    width: 30%;
+  }
 }
 
 input[type='text'].code,
@@ -122,7 +133,7 @@ input[type='tel'].code {
 
 .block-label {
   display: block;
-  //position: relative;
+  position: relative;
   width: auto;
   padding: 7px 0 7px 50px;
   margin: 16px 0;

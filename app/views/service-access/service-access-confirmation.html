@@ -1,0 +1,34 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Confirm submission of your evidence{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+<section class="prove-id">
+
+	<h1>Proving your identity</h1>
+
+	<p>We now have the required videos to prove your identity.</p>
+
+	<ol class="service-access">
+		<!--<li class="service-access__item hide-number">-->
+			<!--<p class="h3 service-access__item__title ticked">Your NHS number</p>-->
+		<!--</li>-->
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Photo ID document</p>
+		</li>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Video selfie</p>
+		</li>
+	</ol>
+
+	<a href="service-access-complete{{ params }}" class="button">Submit information</a>
+	<p class="small">You are agreeing to submit your information for checking. It will be held for 7 days after checking and then deleted.</p>
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

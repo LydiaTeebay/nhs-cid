@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+{% set signedin = 'true' %}
+{% set isServiceStart = 'false' %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+
+      <h1><legend>Share access to Rosie Dymond's eRedbook</legend></h1>
+
+      <p>Enter the email address of the person you want to share Rosie Dymond's eRedbook with.</p>
+
+      <fieldset>
+        <div class="form-group">
+          <label class="form-label" for="field1">Email address</label>
+          <input class="form-control" id="field1" name="field1" type="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field2">Confirm email address</label>
+          <input class="form-control" id="field2" name="field2" type="email">
+        </div>
+      </fieldset>
+    </div>
+
+
+    <div class="form-group">
+      <a class="button" href="share-access-password" id="continue">Continue</a>
+    </div>
+  </form>
+
+{% endblock %}

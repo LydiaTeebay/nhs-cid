@@ -9,7 +9,7 @@ const app = require('../server')
 const http = require('http')
 const chalk = require('chalk')
 const browserSync = require('browser-sync')
-const config = require('../config.js')
+const config = require('../config.js').app
 
 let env = process.env.NODE_ENV || 'development'
 const useBrowserSync = config.useBrowserSync.toLowerCase()

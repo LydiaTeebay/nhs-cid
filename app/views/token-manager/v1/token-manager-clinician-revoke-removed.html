@@ -1,0 +1,60 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Token Manager{% endblock %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+<div class="callout callout--warning">
+  <h3>Revoke access</h3>
+  <p>Gemma Davis will no longer be able to genereate tokens</p>
+  <p>Gemma Davis will be revoked due leaving the organisation/role</p>
+  <p>305 tokens will be moved to another clinician</p>
+</div>
+
+<!--<h3>Are you sure you want to revoke access?</h3>-->
+<!--
+<div class="form-line">
+ <label for="input-with-support" class="form-label">
+   Password
+   <span class="form-label__hint" id="hintId">We need to make sure it's you</span>
+  </label>
+  <input type="password" name="input-with-support" id="input-with-support" class="form-textbox" aria-describedby="hintId">
+</div>
+-->
+<form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Who do you want to transfer tokens to?</legend></h1>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="token-manager-clinician-revoke-removed-confirm">
+            John
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="token-manager-clinician-revoke-removed-confirm">
+            David
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="token-manager-clinician-revoke-removed-confirm">
+            Alice
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+{% endblock %}
+

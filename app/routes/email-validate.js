@@ -8,9 +8,9 @@ module.exports = function (router) {
     var service = req.param('service')
     var serviceName = req.param('serviceName')
     var terms = req.param('terms')
-    var mobileNum = req.param('mobileNum')
+    var emailAddress = req.param('emailAddress')
     // re-render the page along with the parameter
-    res.render('emails/email-validate', {reason: theReason, passwordChange: passwordChange, newUser: newUser, vouch: vouched, service: service, serviceName: serviceName, terms: terms, mobileNum: mobileNum  }, function(err, html) {
+    res.render('emails/email-validate', { reason: theReason, passwordChange: passwordChange, newUser: newUser, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress  }, function(err, html) {
       res.send(html)
     })
   })

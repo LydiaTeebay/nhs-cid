@@ -1,0 +1,73 @@
+{% extends '_layouts/_iframe_layout.html' %}
+{% set signedin = '' %}
+
+{% block body %}
+
+<style>
+.global-header__inner {
+  padding-left: 16px;
+}
+.page-section {
+    padding: 0 16px 16px 16px;
+}
+
+input.form-control {
+    margin-top: 0;
+    margin-bottom:16px;
+}
+</style>
+<!--<p><a href="/create-account/two-step-code-login"><- back</a></p>-->
+  <form>
+    <div class="form-group">
+
+        <h1><legend>Add children to your eRedbook account?</legend></h1>
+
+      <fieldset>
+
+        {% if child1name %}
+        <div class="child-import">
+          <label class="block-label selection-button-checkbox" for="radio-inline-1">
+            <input id="radio-inline-1" type="checkbox" name="radio-inline-group" value="{{ child1name }}">
+            Name: <b>{{ child1name }}</b> <span>AGE: {{ child1age }}</span>
+          </label>
+        </div>
+
+          {% if child2name %}
+          <div class="child-import">
+            <label class="block-label selection-button-checkbox" for="radio-inline-2">
+              <input id="radio-inline-2" type="checkbox" name="radio-inline-group" value="{{ child2name }}">
+              Name: <b>{{ child2name }}</b> <span>AGE: {{ child2age }}</span>
+            </label>
+          </div>
+          {% endif %}
+
+        {% else %}
+        <div class="child-import">
+          <label class="block-label selection-button-checkbox" for="radio-inline-1">
+            <input id="radio-inline-1" type="checkbox" name="radio-inline-group" value="Rosie Dymond">
+            Name: <b>Rosie Dymond</b> <span>DOB: 01/11/2017</span>
+          </label>
+        </div>
+        <div class="child-import">
+          <label class="block-label selection-button-checkbox" for="radio-inline-2">
+            <input id="radio-inline-2" type="checkbox" name="radio-inline-group" value="Fox Dymond">
+            Name: <b>Fox Dymond</b> <span>DOB: 01/11/2016</span>
+          </label>
+        </div>
+        {% endif %}
+
+
+      </fieldset>
+
+    </div>
+
+
+    <div class="form-group">
+      <a class="button" href="https://eredbook-uat.azurewebsites.net/parental/Inbox" id="securitycodeContinue">Add to eRedbook account</a>
+    </div>
+    <!-- <div class="form-group">
+      <p>My child isn't listed. <a href="#">Add new child</a></p>
+    </div> -->
+  </form>
+
+{% endblock %}

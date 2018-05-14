@@ -1,0 +1,41 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 2: Your NHS Number{% endblock %}
+
+{% set signedin = 'true' %}
+{% set isServiceStart = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+
+
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Create your log in</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your phone.</p>
+				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
+			</div>
+			<a href="service-access-pol-2{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Enter your registration details</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your online registration details.</p>
+				<p>These are the registration details you will of received from your GP surgery to access online services, eg book appointments</p>
+			</div>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

@@ -1,0 +1,28 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Token Manager{% endblock %}
+{% set signedin = 'true' %}
+
+{% block content %}
+
+<div class="callout callout--severe">
+  <h3>Revoke access</h3>
+  <p>Gemma Davis will no longer be able to genereate tokens</p>
+  <p>Gemma Davis will be revoked due to misconduct</p>
+  <p>305 tokens will be revoked</p>
+</div>
+
+<h3>Are you sure you want to revoke access?</h3>
+
+<div class="form-line">
+ <label for="input-with-support" class="form-label">
+   Password
+   <span class="form-label__hint" id="hintId">We need to make sure it's you</span>
+  </label>
+  <input type="password" name="input-with-support" id="input-with-support" class="form-textbox" aria-describedby="hintId">
+</div>
+
+
+<a href="token-manager-clinician-revoke-misconduct-done" class="button button--cancel">Yes, I want to revoke access</a>
+<p><a href="">I've changed my mind</a></p>
+{% endblock %}
+

@@ -4,6 +4,7 @@ var runSequence = require('run-sequence')
 gulp.task('default', function (done) {
   runSequence(
     'move-nhsuk-assets',
+    'move-nhsonline-assets',
     'move-onfido-assets',
     'scripts',
     'styles',

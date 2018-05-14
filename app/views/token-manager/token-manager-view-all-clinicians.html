@@ -1,0 +1,66 @@
+{% extends '_layouts/_grids/_grid-1-2.html' %}
+{% block page_title %}Token Manager{% endblock %}
+
+
+{% block content %}
+{% set serviceName = "token%20of%20trust%20manager" %}
+  <ul>
+    <li><a href="token-manager-index">Home</a></li>
+  </ul>
+  <h3>Patients</h3>
+    <ul>
+        <li><a href="token-manager-token-add">Add a patient</a></li>
+        <!--<li><a href="">Revoke patient access</a></li>-->
+        <li><a href="token-manager-view-all-tokens">View all patients</a></li>
+    </ul>
+  <h3>Clinicians</h3>
+    <ul>
+        <li><a href="">Add a clinician</a></li>
+        <!--<li><a href="">Revoke a clinician</a></li>-->
+        <li><a href="token-manager-view-all-clinicians"><strong>View all clinicians</strong></a></li>
+    </ul>
+
+{% endblock %}
+
+{% block rightcol %}
+<h3>View all clinicians</h3>
+<h1 style="position: relative"><span id="token-title">All</span> clinicians
+  <span style="right: 0; bottom: 0; position: absolute; font-size: 14pt">Filter:
+    <select id="selectStatus">
+      <option>All</option>
+      <option>Active</option>
+      <option>Revoked</option>
+    </select>
+  </span>
+</h1>
+
+<table class="clinicianTable">
+  <thead>
+    <tr>
+      <th>Clinician</th>
+      <th>RA No.</th>
+      <th>Tokens Issued</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="token-row">
+      <td><a href="token-manager-clinician">Gemma Davis</a></td>
+      <td>46563434</td>
+      <td>23</td>
+      <td><small class="phase-tag phase-tag-active">ACTIVE</small></td>
+      <td><a href="token-manager-clinician">edit</a></td>
+    </tr>
+    <tr class="token-row">
+      <td><a href="token-manager-clinician">John Smith</a></td>
+      <td>32309903</td>
+      <td>520</td>
+      <td><small class="phase-tag phase-tag-revoked">REVOKED</small></td>
+      <td><a href="token-manager-clinician">edit</a></td>
+    </tr>
+  </tbody>
+</table>
+<p><a class="button" href="#">Add a new clinician</a></p>
+
+{% endblock %}

@@ -8,7 +8,7 @@
   float: left;
   width: calc(100% - 95px);
   text-align: left;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 @media screen and (max-width: 640px) {
@@ -22,7 +22,7 @@
 @media screen and (min-width: 641px) {
 
   .global-header__service {
-    width: calc(66% - 95px);
+    width: calc(66% - 125px);
   }
 
   .menu-links {
@@ -30,7 +30,7 @@
   }
 
   .global-header__service + .menu-links {
-    width: calc(33% - 95px);
+    width: calc(33% - 10px);
   }
 }
 </style>
@@ -43,17 +43,39 @@
       </a>
 
       {% if isServiceStart !== 'true' %}
-        {% if (serviceName) and (signedin !== 'true') %}
-          <h4 class="global-header__service">{{ serviceName }}</h4>
+        {% if (serviceName) %}
+          <h4 class="global-header__service">{{ serviceName|safe }}</h4>
         {% endif %}
       {% endif %}
 
       {% if signedin %}
-        <div style="float: right;" class="menu-links">
-          <p style="padding: 0; margin: 0; text-align: right;"><a href="/account/dashboard">Dashboard</a> | <a href="/account">Account</a> | <a href="/">Sign out</a></p>
-        </div>
-      {% endif %}
+        {% if service == 'idchecker' %}
 
+          {% if role !== 'Supervisor' %}
+            <div style="float: right;" class="menu-links">
+              <p style="padding: 0; margin: 0; text-align: right;"><a href="/id-checker/id-checker-dashboard{{ params }}&state=inprogress">Return to dashboard</a>
+            </div>
+          {% else %}
+            <div style="float: right;" class="menu-links">
+              <p style="padding: 0; margin: 0; text-align: right;"><a href="/id-checker/id-checker-supervisor-dashboard{{ params }}&state=inprogress">Return to dashboard</a>
+            </div>
+          {% endif %}
+
+        {% elif service == 'idverification' %}
+          <div style="float: right;" class="menu-links">
+            <p style="padding: 0; margin: 0; text-align: right;"><a href="/id-verification/id-verification-log-in">Log out</a>
+          </div>
+        {% else %}
+          <div style="float: right;" class="menu-links">
+            <p style="padding: 0; margin: 0; text-align: right;"><!--<a href="/account/dashboard">Dashboard</a> | --><a href="/account/account">Account</a> |
+              {% if service === 'eredbook' %}
+              <a href="/start/eRedbook">Sign out</a></p>
+            {% else %}
+            <a href="/">Sign out</a></p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}
     </div>
   </div>
 </header>

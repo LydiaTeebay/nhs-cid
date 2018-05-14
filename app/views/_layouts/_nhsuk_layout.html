@@ -1,5 +1,9 @@
+{% if hidehead == 'true' %}
+{% set htmlClass = 'body-webview' %}
+{% endif %}
+
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js {{ htmlClass }}" lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,8 +16,8 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
   <link rel="icon" href="/images/favicon.png">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!--<meta name="mobile-web-app-capable" content="yes">-->
+  <!--<meta name="apple-mobile-web-app-capable" content="yes">-->
   <meta name="format-detection" content="telephone=no">
 
   {% block extrastyles %}{% endblock %}
@@ -22,14 +26,22 @@
 
 </head>
 
-<body class="{{ bodyClass }}">
+
+
+<body class="{{ bodyClass }}" {{ dataAtt|safe }}>
 
   {% include '_partials/_service-alert.html' %}
 
   {# slightly different design for emails #}
-  {% if not hidehead %}
-    {% include '_partials/_global_header.html'%}
-  {% endif %}
+    {% if not hidehead === "true" or not hidehead or hidehead === "undefined" %}
+      {% include '_partials/_global_header.html'%}
+    {% endif %}
+
+    {% if service === "nhsonlinepol" %}
+      {% include '_partials/_global_header-nhsonlinepol.html'%}
+    {% endif %}
+
+
 
   <main id="content" role="main" tab-index="-1">
 
@@ -40,17 +52,20 @@
     </div>
   </main>
 
-  {% if not hidehead %}
-    {% include '_partials/_global_footer.html' %}
-  {% endif %}
+
+    {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
+      {% include '_partials/_global_footer.html' %}
+    {% endif %}
+
 
   <script src="/scripts/jquery-1.12.4.min.js"></script>
+  {% block extrascripts %}{% endblock %}
   <script src="/show-hide-content.js"></script>
-  <script src="/app.js"></script>
+  <script src="/app.js"></script> 
   <script src="/nhsuk.js"></script>
   <script src="/scripts/selection-buttons.js"></script>
   <script src="/scripts/smooth-scroll.js"></script>
-  {% block extrascripts %}{% endblock %}
+
 </body>
 
 </html>

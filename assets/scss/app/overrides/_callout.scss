@@ -3,5 +3,14 @@
 .callout--friendly {
   background-color: transparent;
   border-color: #005eb8;
-  padding: 0px 32px
+  padding: 0 32px
+}
+
+.js-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.callout--compact {
+  margin-top: 0;
 }

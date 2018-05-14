@@ -1,0 +1,14 @@
+{% extends '_layouts/_grids/_grid-email.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+  <h1>Your email address has been changed</h1>
+  <p>If you did not change your email address your account might have been compromised.</p>
+  <p>You have 24 hours to cancel this change.</p>
+  <p><a class="button" href="email-cancel-2fa">Cancel email change</a></p>
+</div>
+
+{% endblock %}

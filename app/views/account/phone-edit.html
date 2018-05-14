@@ -1,0 +1,38 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Account - manage phone number{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu.html' %}s
+
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item">
+	<h2>Enter new phone number</h2>
+
+	<p>We need to validate your phone number to make your account more secure.</p>
+
+	<div class="form-group">	
+
+		<label class="form-label" for="new-phone">New phone number</label>
+		<input class="form-control" id="new-phone" name="field2" type="number">
+	</div>
+
+	<a class="button" href="phone-code">Continue</a>
+
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+
+
+{% extends '_layouts/_service-nhs-number.html' %}
+{% block page_title %}Find my NHS number{% endblock %}
+{% set signedin = '' %}
+
+
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="reading-width">
+      <h1 class="page-title stepper">Here is your NHS number <small>Step 4 of 4</small></h1>
+
+      <div class="grid-row">
+        <div class="column--two-thirds">
+          <div class="reading-width">
+            <h2 id="your-preference" class="h3">Your NHS Number</h2>
+            <p>123-456-7890</p>
+           <br>
+<hr>
+<br>
+            <h2 id="your-preference" class="h3">What next?</h2>            
+            <ul style="list-style:none; text-indent: -20px">
+            <li><p><a href="">Lorem ipsum dolor sit amet</a></p></li>
+            <li><p><a href="">consectetur adipiscing elit</a></p></li>
+            <li><p><a href="">Lsed do eiusmod tempor incididunt</a></p></li>
+            </ul>
+            
+              <!--<a href="end" class="button">Submit</a>  -->
+              <!--<input id="submit-pref" class="button" type="submit" name="submit-pref" value="Continue">-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}
+

@@ -5,11 +5,11 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% elif vouch %}
-{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% elif newUser %}
-{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% endif %}
 
 {% block content %}
@@ -25,13 +25,24 @@
 
     {% if terms %}
     <p>An email has been sent to {{ emailAddress }}</p>
-    <p>Click the link in the <a href="/emails/email-validate{{ params }}">email</a> to continue your registration.</p>
+
+    {% if service === "nhsonline" or headhead === "true" %}
+      <p>Click the link in the <a href="/emails/email-validate-create-mob{{ params }}">email</a> to continue your registration.</p>
+    {% else %}
+        <p>Click the link in the <a href="/emails/email-validate-create{{ params }}">email</a> to continue your registration.</p>
+      {% endif %}
+
     {% else %}
       <p>We need to validate your email address. Please check your email.</p>
       <p>If you haven't received the email check your spam folder or <a href="resent-email{{ params }}">click here to send another one</a>.</p>
       <p>You have 48 hours to validate your email before the link is deactivated.</p>
 
-    <p><a href="/emails/email-validate{{ params }}">Validate Email address</a></p>
+      {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
+        <p><a href="/emails/email-validate{{ params }}">Validate Email address</a></p>
+      {% else %}
+        <p><a href="/emails/email-validate-mob{{ params }}">Validate Email address</a></p>
+      {% endif %}
+
     {% endif %}
 
 

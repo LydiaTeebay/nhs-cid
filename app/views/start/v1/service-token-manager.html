@@ -1,0 +1,25 @@
+{% extends '_layouts/_grids/_grid-2-2.html' %}
+{% block page_title %}Token Manager{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "results" %}
+{% set serviceName = "token%20of%20trust%20manager" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern("Token of Trust Manager",'') }}
+{% endblock %}
+
+{% block content %}
+
+<p>Use this service for clinicians:</p>
+<ul>
+  <li>generate a token of trust for a patient to access online medical records</li>
+  <li>remove token access for a patients identity</li>
+  <li>manage who can issue tokens</li>
+</ul>
+
+<a href="/token-manager/v1/token-manager-index{{ params }}" class="button">Start</a>
+
+{% endblock %}

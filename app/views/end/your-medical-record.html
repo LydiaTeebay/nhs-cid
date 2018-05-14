@@ -1,0 +1,22 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Welcome to your medical record{% endblock %}
+{% set signedin = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Welcome to your medical record',' ') }}
+{% endblock %}
+
+{% block content %}
+
+<ul>
+  <li><a href="#">Medical history</a></li>
+  <li><a href="#">Medication</a></li>
+  <li><a href="#">Appointments</a></li>
+</ul>
+
+{% endblock %}
+
+{% block rightcol %}{% endblock %}

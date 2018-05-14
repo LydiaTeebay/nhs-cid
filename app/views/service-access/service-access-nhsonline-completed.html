@@ -1,0 +1,50 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}{{serviceName}}{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% if service  %}
+
+{% endif %}
+{% set service = "nhsonlinepol" %}
+{% set serviceName = "Completed" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
+
+
+{% block content %}
+<style>
+.create {
+	background-color: #f0f4f5;
+	border-left: 4px solid #d8dde0;
+	padding: 15px;
+}
+
+.verify-note {
+	background: #f0f4f5 url('/images/govuk-verify-transparent.svg') no-repeat 10px 9px;
+	background-size: 15%;
+	border-left: 4px solid #d8dde0;
+	padding: 15px 15px 15px 100px;
+	margin-top: 5px;
+}
+</style>
+
+<p>You have successfully created an NHS account and connected to your GP.</p>
+
+<p>You can now book appointments online, order repeat prescriptions and more.</p>
+
+
+<section class="prove-id">
+
+	<ol class="service-access">
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Create an NHS account</p>
+			<!--<span class="service-access__item__status">Completed</span>-->
+		</li>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Connect to your GP</p>
+			<!--<span class="service-access__item__status">Completed</span>-->
+		</li>
+	</ol>
+
+	<a href="../end/nhsonline-dashboard{{ params }}" class="button">Continue</a>
+</section>
+{% endblock %}

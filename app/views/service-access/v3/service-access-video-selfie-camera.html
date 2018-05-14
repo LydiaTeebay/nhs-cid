@@ -1,0 +1,70 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+  <section class="" id="scan-id-3">
+
+    <form>
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            Take a video selfie
+          </h1>
+        </legend>
+
+        <p>Please ensure:</p>
+        <ul class="list list-bullet">
+          {% if mobile %}
+          <li>you use the front-facing camera</li>
+          {% endif %}
+          <li>your whole face is visible</li>
+          <li>the video is at least 3 seconds long</li>
+        </ul>
+        <div class="form-group">
+
+          <label for="selfie" class="camera-button">Open Camera
+            <input type="file" id="selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+          </label>
+
+        </div>
+
+      </fieldset>
+
+    </form>
+
+  </section>
+
+  <section  class="" id="scan-id-4" style="display:none">
+
+    <h1 style="padding-bottom: 0;">
+      Review the video selfie
+    </h1>
+
+    <div class="reading-width">
+      <div id="scan-video-preview">
+        <video id="uploaded-video" controls autoplay loop muted style="width:100%;height:auto;">
+          <source src="#" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <a class="button" href="service-access-complete{{ params }}" id="">Submit video</a>&nbsp
+      <p><a href="#" id="submit-video-back-button">Take again</a></p>
+    </div>
+
+  </section>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Account - manage phone number{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% endblock %}
+
+{% block content %}
+
+{% block alert %}{% endblock %}
+
+{% include '_partials/_components/_account-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item">
+	<h2>Enter new email address</h2>
+
+	<p>We need to validate your email address to make your account more secure.</p>
+
+	<div class="form-group">	
+
+		<label class="form-label" for="new-email">New email address</label>
+		<input class="form-control" id="new-email" name="field2" type="email">
+	</div>
+
+	<a class="button" href="email-go-validate">Continue</a>
+
+</div>
+
+{% endblock %}
+
+
