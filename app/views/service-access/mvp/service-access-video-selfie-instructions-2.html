@@ -26,7 +26,26 @@
           <li>you will need to perform a simple action that involves speaking out loud</li>
         </ul>
         <div class="form-group">
-          <a href="service-access-video-selfie-camera{{ params }}" class="button camera-button">Continue</a>
+
+          <script type="application/javascript">
+              if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia) {
+
+                  if(window.MediaRecorder !== undefined) {
+                      document.write('<a href="service-access-video-selfie-html5{{ params }}" class="button camera-button">Continue</a>');
+                  } else {
+
+                      {% if mobile %}
+                      document.write('<a href="service-access-video-selfie-camera{{ params }}" class="button camera-button">Continue</a>');
+                      {% else %}
+                      document.write('<a href="service-access-switchtomobile{{ params }}" class="button camera-button">Continue</a>');
+                      {% endif %}
+                  }
+              } else {
+                  document.write('<a href="service-access-switchtomobile{{ params }}" class="button camera-button">Continue</a>');
+              }
+          </script>
+
+
         </div>
 
       </fieldset>
