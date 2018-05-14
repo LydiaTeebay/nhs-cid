@@ -45,9 +45,9 @@ if (!isSecureOrigin) {
 var constraints = {
     audio: true,
     video: {
-        width: 320,
-        height:240,
-        frameRate: {ideal: 20, min:10}
+        width: 640,
+        height:480,
+        frameRate: {ideal: 30, min:20}
     }
 };
 
