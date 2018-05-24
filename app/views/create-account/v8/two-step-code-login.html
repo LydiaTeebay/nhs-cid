@@ -1,0 +1,60 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Sign in to your NHS Account {{serviceName}}{% endblock %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&resend=" + resend + "&verified=" + verified + "&poluser=" + poluser  %}
+
+{% block body %}
+
+<style>
+.global-header__inner {
+  padding-left: 16px;
+}
+.page-section {
+    padding: 0 16px 16px 16px;
+}
+
+input.form-control {
+    margin-top: 0;
+    margin-bottom:16px;
+}
+</style>
+
+<p><a href="login-nhs{{ params }}">Go back</a></p>
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+        {% if terms %}
+        <h1>Check your phone</h1>
+        {% else %}
+        <h1>Enter security code</h1>
+        {% endif %}
+
+        {% if terms %}
+        <p>We've sent you a text message with a security code to {{ mobileNum }}.</p>
+        {% else %}
+        <!--<h2 class="heading-xlarge"><legend>Enter security code</legend></h2>-->
+        <p>We have sent a security code to your phone</p>
+        {% endif %}
+
+        <div class="form-group">
+          <label class="form-label" for="securityCode">Security code</label>
+          <input autocomplete="off" type="tel" class="form-control" name="code" id="securityCode" value="" class="code">
+        </div>
+
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+      {% if verified !== 'undefined' %}
+      <a id="securitycodeContinue" href="/end/mvp/nhsonline-dashboard{{ params }}" class="button button--disabled">Continue</a>
+      {% else %}
+      <a id="securitycodeContinue" href="/end/mvp/nhsonline-dashboard{{ params }}" class="button button--disabled">Continue</a>
+      {% endif %}
+    </div>
+    <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&resend=yes">you can resend it</a>.</p>
+  </form>
+</div>
+
+{% endblock %}
+
