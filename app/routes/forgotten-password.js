@@ -12,6 +12,19 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/create-account/v8/forgotten-password', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var poluser = req.param('poluser')
+        // re-render the page along with the parameter
+        res.render('create-account/v8/forgotten-password', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, poluser: poluser}, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/mvp/forgotten-password', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')

@@ -5,7 +5,7 @@
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&poluser=" + poluser%}
 {% elif vouch %}
   {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
 {% elif newUser %}
@@ -33,6 +33,8 @@
   <p><a class="button" href="/create-account/v4/login-nhs{{ params }}">Validate my email</a></p>
   {% elif service === "record" %}
   <p><a class="button" href="/create-account/v2/two-step{{ params }}">Validate my email</a></p>
+  {% elif service === "app" %}
+  <p><a class="button" href="/create-account/v8/two-step{{ params }}">Validate my email</a></p>
   {% endif %}
   <!--<p>Or copy and paste this link:<br><a href="/create-account/login-nhs{{ params }}">https://nhs-cid.herokuapp.com/create-account/login-nhs{{ params }}</a></p>-->
 </div>

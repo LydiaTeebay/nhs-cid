@@ -28,7 +28,6 @@ module.exports = function (router) {
         })
     })
 
-
     router.get('/service-access/mvp/service-access-pol-2', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')

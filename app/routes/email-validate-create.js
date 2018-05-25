@@ -8,6 +8,15 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/emails/v8/email-validate-create', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        res.render('emails/v8/email-validate-create', { serviceName: serviceName, service: service, hidehead: hidehead }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/emails/mvp/email-validate-create', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
