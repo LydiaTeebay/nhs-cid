@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Create your NHS Account {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
@@ -10,10 +10,10 @@
 {% endif %}
 
 {% block topRow %}
-{% if resend == "yes" %}
-{% import "_partials/_components/_callout.html" as callout %}
-{{ callout.pattern('','Your security code has been resent.','attention') }}
-{% endif %}
+  {% if resend == "yes" %}
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('','Your security code has been resent.','attention') }}
+  {% endif %}
 {% endblock %}
 
 {% block content %}
