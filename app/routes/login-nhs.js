@@ -40,6 +40,7 @@ module.exports = function (router) {
         res.render('create-account/v8/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
             res.send(html)
         })
+
     })
 
     router.get('/create-account/mvp/login-nhs', function (req, res) {
