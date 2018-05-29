@@ -42,13 +42,13 @@
 		<h1>Want to book a GP appointment or order a repeat prescription?</h1>
 		
 		<a href="/create-account/v8/login-nhs{{ params }}" class="button green" id="btn_login">
-			Sign in with NHS One
+			Sign in with {% include '_partials/_components/_name.html' %}
 		</a>
 		
 		<hr class="hr-text" data-content="OR">
 		
 		<a href="/patient-online/v9/patient-online-gp-online{{ params }}" class="button" id="btn_register">
-			Create an NHS One account
+			Create an account
 		</a>
 	</main>
 
