@@ -1,10 +1,18 @@
 // upload progress indicator
 
+.uploader-container,
+.loading-container,
+#camera-container,
+.preview-container {
+  margin: 0;
+}
+
 .bar_container {
     margin-top: 0!important;
 }
 
-.progress-pie-chart {
+.progress-pie-chart,
+.progress-spinner {
     width:200px;
     height: 200px;
     border-radius: 50%;
@@ -12,7 +20,12 @@
     position: relative;
     margin: 50px auto 0;
 }
-.progress-pie-chart.gt-50 {
+
+.progress-spinner {
+    background-color: white;
+}
+.progress-pie-chart.gt-50,
+.progress-spinner .gt-50 {
     background-color: #367c42;
 }
 
@@ -46,7 +59,8 @@
     background: #E5E5E5;
 }
 
-.ppc-percents {
+.ppc-percents,
+.ppc-loading {
     content: "";
     position: absolute;
     border-radius: 50%;
@@ -58,11 +72,55 @@
     text-align: center;
     display: table;
 }
-.ppc-percents span {
+
+.ppc-percents span,
+.ppc-loading span {
     display: block;
     font-size: 2.6em;
     font-weight: bold;
     color: #367c42;
+}
+
+.ppc-loading span {
+  display: inline-block;
+  position: relative;
+  font-size: 1.4em;
+  font-weight: normal;
+  color: $black;
+  margin: 0;
+}
+
+.ppc-loading span.done {
+  //text-indent: -2000px;
+  margin-top: 1.5em;
+  &::before,
+  &::after {
+    content: "";
+    left: 30%;
+    @include core-font(24);
+    font-weight: bold;
+    margin: 1.5em 0 0.25em;
+    top: -2em;
+    position: absolute;
+    zoom: 1;
+  }
+  &::before {
+    background: transparent;
+    border: solid;
+    border-color: #417505;
+    border-width: 0 0 10px 10px;
+    height: 24px;
+    top: -3.3em;
+    transform: rotate(-45deg);
+    width: 40px;
+  }
+  &::active::before {
+    height: 100%;
+    top: 0;
+  }
+  ~ * {
+    display: none;
+  }
 }
 
 .pcc-percents-wrapper {
@@ -70,6 +128,38 @@
     vertical-align: middle;
 }
 
-.ppc-percents {
+.ppc-percents,
+.ppc-loading {
     margin-top: 0!important;
+}
+
+// Spinner animation
+
+#spinner{
+    animation-name: spin;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    display: inline-block;
+  &.done {
+    animation-name: spinback;
+    animation-duration: 1.25s;
+  }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinback {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

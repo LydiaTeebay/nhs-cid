@@ -9,7 +9,27 @@
 
 <div class="first-item">
 
-      <section class="" id="scan-id-1">
+  <section class="loading-container" id="scan-id-0" style="display:none">
+
+    <h1 id="spinner-heading" style="padding-bottom: 0; display:none;">Uploading your photo</h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-spinner" data-percent="0">
+          <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
+          <div class="ppc-loading">
+            <div class="pcc-percents-wrapper">
+              <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+      <section class="" id="scan-id-1" style="display:block">
 
         <p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>
 
@@ -42,7 +62,7 @@
 
       </section>
 
-  <section  class="" id="scan-id-3" style="display:none">
+  <section class="uploader-container" id="scan-id-3" style="display:none">
 
     <h1 style="padding-bottom: 0;">
       Uploading your photo
@@ -67,7 +87,7 @@
 
   </section>
 
-  <section class="" id="scan-id-5" style="display:none">
+  <section class="preview-container" id="scan-id-5" style="display:none">
 
     <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
 
@@ -86,7 +106,7 @@
   </section>
 
 
-  <section  class="" id="scan-id-6" style="display:none">
+  <section class="preview-container" id="scan-id-6" style="display:none">
 
     <h1 style="padding-bottom: 0;">Upload error</h1>
 
@@ -102,7 +122,7 @@
 
   </section>
 
-<section class="" id="scan-id-7" style="display:none">
+<section class="preview-container" id="scan-id-7" style="display:none">
 
   <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
 

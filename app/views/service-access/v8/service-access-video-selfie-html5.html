@@ -18,7 +18,26 @@
 {% block content %}
 <div class="first-item">
 
-    <section id="camera-container">
+    <section class="loading-container" id="scan-id-0" style="display:block">
+
+        <h1 id="spinner-heading" style="padding-bottom: 0; display:none;">Uploading your video</h1>
+
+        <div class="bar_container">
+            <div id="main_container">
+                <div id="pbar" class="progress-spinner" data-percent="0">
+                    <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
+                    <div class="ppc-loading">
+                        <div class="pcc-percents-wrapper">
+                            <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="camera-container" style="display:none">
         <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
             <div class="camera-preview-feed">
@@ -40,7 +59,7 @@
         <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
     </section>
 
-    <section  class="uploader-container" id="scan-id-3" style="display:none">
+    <section class="uploader-container" id="scan-id-3" style="display:none">
 
         <h1 id="progressbar-heading" style="padding-bottom: 0;">Preparing a preview...</h1>
 
@@ -91,5 +110,16 @@
     <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';" >Continue</button>
 
 </div>
+
+<script type="text/javascript">
+
+    //show then hide the spinner animation
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+    }, 2500)
+    setTimeout(function(){
+        document.getElementById('camera-container').style.display = 'block'
+    }, 2500)
+</script>
 
 {% endblock %}
