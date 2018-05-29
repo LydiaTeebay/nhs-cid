@@ -37,6 +37,7 @@ module.exports = function (router) {
         var poluser = req.param('poluser')
         // re-render the page along with the parameter
 
+<<<<<<< HEAD
         if (terms === 'yes') {
             res.redirect('/create-account/v8/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified + '&poluser=' + poluser)
             return
@@ -45,6 +46,11 @@ module.exports = function (router) {
                 res.send(html)
             })
         }
+=======
+        res.render('create-account/v8/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+>>>>>>> origin/master
     })
 
     router.get('/create-account/mvp/login-nhs', function (req, res) {

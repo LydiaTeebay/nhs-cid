@@ -17,31 +17,12 @@
 <div class="first-item">
 
   <div class="form-group">
-    {% if terms %}
-      <h1>Check your email</h1>
-    {% else %}
-      <h1>Validate your email</h1>
-    {% endif %}
 
-    {% if terms %}
+    <h1>Check your email</h1>
+
     <p>An email has been sent to {{ emailAddress }}</p>
 
-    {% if service === "nhsonline" or service === "mvp" %}
-      <p>Click the link in the <a href="/emails/mvp/email-validate-create-mob{{ params }}">email</a> to continue your registration.</p>
-    {% else %}
-        <p>Click the link in the <a href="/emails/mvp/email-validate-create{{ params }}">email</a> to continue your registration.</p>
-      {% endif %}
-
-    {% else %}
-      <p>We need to validate your email address. Please check your email.</p>
-      <p>If you haven't received the email check your spam folder or <a href="resent-email{{ params }}">click here to send another one</a>.</p>
-      <p>You have 48 hours to validate your email before the link is deactivated.</p>
-
-        <p><a href="/emails/mvp/email-validate{{ params }}">Validate Email address</a></p>
-
-    {% endif %}
-
-
+    <p>Click the link in the <a href="/emails/email-validate{{ params }}">email</a> to continue your registration.</p>
 
   </div>
     

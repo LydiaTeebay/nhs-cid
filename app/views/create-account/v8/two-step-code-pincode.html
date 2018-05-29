@@ -4,16 +4,16 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
 {% elif vouch %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
 {% endif %}
 
 {% block topRow %}
-{% if resend == "yes" %}
-{% import "_partials/_components/_callout.html" as callout %}
-{{ callout.pattern('','Your security code has been resent.','attention') }}
-{% endif %}
+  {% if resend == "yes" %}
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('','Your security code has been resent.','attention') }}
+  {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -22,18 +22,9 @@
   <form>
     <div class="form-group">
       <fieldset class="inline">
-        {% if terms %}
         <h1>Check your phone</h1>
-        {% else %}
-        <h1>Check your phone</h1>
-        {% endif %}
 
-        {% if terms %}
         <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
-        {% else %}
-        <!--<h2 class="heading-xlarge"><legend>Enter security code</legend></h2>-->
-        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
-        {% endif %}
 
         <div class="form-group">
           <label class="form-label" for="code">Security code</label>
@@ -43,19 +34,13 @@
       </fieldset>
     </div>
     <div class="form-group">
-      {% if service === "nhsonline2" or service === "mvp" %}
 
       {% if poluser === "true" %}
-      <a id="securitycodeContinue" href="/service-access/mvp/service-access-pol-2{{ params }}" class="button">Continue</a>
+      <a id="securitycodeContinue" href="/service-access/v8/service-access-pol-2{{ params }}" class="button">Continue</a>
       {% else %}
-      <a id="securitycodeContinue" href="/service-access/mvp/service-access-nhs{{ params }}" class="button">Continue</a>
+      <a id="securitycodeContinue" href="/service-access/v8/service-access-nhs{{ params }}" class="button">Continue</a>
       {% endif %}
 
-      {% elif service === "nhsonline" %}
-      <a id="securitycodeContinue" href="/service-access/v4/service-access-stepup{{ params }}" class="button">Continue</a>
-      {% else %}
-      <a id="securitycodeContinue" href="/service-access/service-access-nhs-acc{{ params }}" class="button button--disabled">Continue</a>
-      {% endif %}
     </div>
     <p class="">Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="two-step-code-pincode{{ params }}&resend=yes">you can resend it</a>.</p>
 

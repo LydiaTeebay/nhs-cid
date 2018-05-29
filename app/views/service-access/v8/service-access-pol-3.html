@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Step 2: Your NHS Number{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Step 3: About you{% endblock %}
 
 {% set signedin = 'true' %}
 {% set isServiceStart = 'true' %}
@@ -26,7 +26,7 @@
 			</div>
 			<span class="service-access__item__status">Completed</span>
 		</li>
-		<li class="service-access__item active completed">
+		<li class="service-access__item completed">
 			<h3 class="service-access__item__title">Enter your registration details</h3>
 			<div class="service-access__item__desc">
 				<p>You will need your online registration details.</p>
@@ -34,12 +34,12 @@
 			</div>
 			<span class="service-access__item__status">Completed</span>
 		</li>
-		<li class="service-access__item">
+		<li class="service-access__item active">
 			<h3 class="service-access__item__title">About you</h3>
 			<div class="service-access__item__desc">
 				<p>You will need to give us some details about yourself.</p>
 			</div>
-			<a href="/patient-online/mvp/patient-online-about-you-name{{ params }}" class="service-access__item__button button">Start</a>
+			<a href="/patient-online/v9/patient-online-about-you-name{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 	</ol>
 
