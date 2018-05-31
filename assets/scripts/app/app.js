@@ -477,11 +477,18 @@ $("#securitycodeContinue").on("click", function(e) {
 
 $(".results__name a").on("click", function(e){
     e.preventDefault();
-    let url = e.target.href;
-    var query = window.location.href.slice(window.location.href.indexOf('?'));
+    //let url = e.target.href;
+    //var query = window.location.href.slice(window.location.href.indexOf('?'));
+    var currentLoc = window.location.href.slice(window.location.href.indexOf('patient-online'));
+    console.log(window.parent.document.location.href);
+    console.log(currentLoc);
+    var query = currentLoc.slice(currentLoc.indexOf('?'));
+    var anotherLoc = currentLoc.slice(currentLoc.indexOf('patient-online-gp-results'));
+    console.log(query);
+    console.log(query2);
 
     if (url.indexOf("systmonline") !== -1) {
-        window.parent.document.location.href = "/patient-online/v7/patient-online-gp-online" + query + "&system=tpp";
+        window.parent.document.location.href = "/patient-online/v7/ patient-online-gp-online" + query + "&system=tpp";
     }
     
     if (url.indexOf('emisaccess') !== -1) {
