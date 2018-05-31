@@ -1,10 +1,22 @@
-{% extends '_layouts/_grids/_grid-1.html' %}
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
 {% block page_title %}NHS Identity Verification and Matching Service{% endblock %}
 
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = '' %}
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state %}
+
+{% block topRow %}
+
+{% if result === "null" %}
+
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','There are currently no verification requests pending','alert') }}
+
+{% endif %}
+
+{% endblock %}
+
 
 {% block content %}
 
@@ -62,7 +74,8 @@
 <a class="button" href="id-checker-review{{ params }}">Continue verification</a>
 <p><a href="id-checker-dashboard">Abort</a></p>
 {% elif state === 'clear' %}
-
+{% set params = "?result=null" + "&state=" + state %}
+<a class="button" href="id-checker-dashboard{{ params }}">Start next verification</a>
 {% else %}
 <a class="button" href="id-checker-review{{ params }}">Start next verification</a>
 {% endif%}
@@ -83,6 +96,7 @@
         <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=multiple">User submits NHS Number and PDS returns multiple matches</a></li>
         <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=expired">User submits NHS Number and PDS returns an expired NHS number. i.e dead person</a></li>
         <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid">User submits NHS Number and PDS returns invalid NHS number</a></li>
+        <li><a href="id-checker-dashboard?state=clear">The queue is empty</a></li>
       </ol>
     </div>
   </div>
