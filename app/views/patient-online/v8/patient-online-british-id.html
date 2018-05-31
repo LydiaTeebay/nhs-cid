@@ -10,20 +10,11 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Do you have the registration details from your GP for online services?</legend></h1>
-        <p>You may have received a letter, text or email with online services registration details.</p>
-
-        {% if system === 'tpp' %}
-          <img src="/images/linkage-key-letter-tpp.png" height="200" style="border: 1px solid grey">
-        {% endif %}
-
-        {% if system === 'emis' %}
-          <img src="/images/linkage-key-letter-emis.png" height="200" style="border: 1px solid grey">
-        {% endif %}
-
+        <h1><legend>Do you have British identification?</legend></h1>
+        <p>This includes a British passport or driving licence.</p>
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-british-id{{ params }}&poluser=true">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="/service-access/v8/service-access-account{{ params }}">
             Yes
           </label>
         </div>
@@ -34,12 +25,13 @@
           </label>
         </div>
 
+
       </fieldset>
     </div>
     <div class="form-group">
       <a class="button" href="#" id="continue">Continue</a>
     </div>
-    <!--<p><a href="/service-access/service-access-pol-3{{ params }}">I want to <span style="text-transform: lowercase">{{ serviceName }}</span> another way</a></p>-->
+    <!--<p><a href="/service-access/mvp/service-access-pol-3{{ params }}">I want to <span style="text-transform: lowercase">{{ serviceName }}</span> another way</a></p>-->
   </form>
 </div>
 
