@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
 {% block page_title %}View your medical record {{serviceName}}{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead %}
@@ -10,11 +10,11 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Are you using online services with your GP surgery?</legend></h1>
-        <p>These may include booking appointments or ordering repeat prescriptions.</p>
+        <h1><legend>Do you have British identification?</legend></h1>
+        <p>This includes a British passport or driving licence.</p>
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details{{ params }}">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="/service-access/v8/service-access-account{{ params }}">
             Yes
           </label>
         </div>
@@ -24,8 +24,8 @@
             No
           </label>
         </div>
-        
-        
+
+
       </fieldset>
     </div>
     <div class="form-group">
@@ -40,6 +40,6 @@
 
 
 
-  
+
 
 {% endblock %}
