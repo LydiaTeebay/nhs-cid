@@ -13,6 +13,12 @@
 {% import "_partials/_components/_callout.html" as callout %}
 {{ callout.pattern('','There are currently no verification requests pending','alert') }}
 
+{% elif result === "resubmit" %}
+
+{% import "_partials/_components/_callout.html" as callout2 %}
+{{ callout2.pattern('','The verification request has joined the back of the queue ','warning') }}
+
+
 {% endif %}
 
 {% endblock %}
