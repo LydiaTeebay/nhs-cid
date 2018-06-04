@@ -1,5 +1,5 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
-{% block page_title %}Login to your NHS Account {{serviceName}}{% endblock %}
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 
 {# work out where to send users #}
@@ -19,7 +19,7 @@
         <h3>Your email address has been validated.</h3>
       </div>
 
-      <h1><legend>Login to your NHS Account.</legend></h1>
+      <h1><legend>Sign in with {% include '_partials/_components/_name.html' %}</legend></h1>
 
       <div class="form-group">
         <label class="form-label" for="field3">Email address</label>
@@ -31,7 +31,7 @@
       </div>
 
     </div>
-    <a class="button" href="two-step{{ params }}">Login</a>
+    <a class="button" href="two-step{{ params }}">Continue</a>
 
     <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
   </form>

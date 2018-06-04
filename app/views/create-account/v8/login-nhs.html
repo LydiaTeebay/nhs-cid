@@ -1,5 +1,5 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Sign in to your NHS account {{serviceName}}{% endblock %}
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
@@ -23,7 +23,7 @@ input.form-control {
 <div class="first-item">
    <form>
         <div class="form-group">
-            <h1>Sign in with NHS One</h1>
+            <h1>Sign in with {% include '_partials/_components/_name.html' %}</h1>
 
             <fieldset class="">
 
@@ -42,7 +42,7 @@ input.form-control {
 
         <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
 
-        <p><a id="modal-create-acc" href="/patient-online/v8/patient-online-gp-online{{ params }}">Create an NHS One account</a></p>
+        <p><a id="modal-create-acc" href="/patient-online/v8/patient-online-gp-online{{ params }}">Create an {% include '_partials/_components/_name.html' %} account</a></p>
 
         <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
 
