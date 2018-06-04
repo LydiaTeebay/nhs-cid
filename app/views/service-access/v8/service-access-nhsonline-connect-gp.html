@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
 {% block page_title %}{{serviceName}}{% endblock %}
 
 {% set isServiceStart = 'true' %}
@@ -42,7 +42,7 @@
 
 <ol class="service-access">
 	<li class="service-access__item completed">
-		<h3 class="service-access__item__title">Create an NHS account</h3>
+		<h3 class="service-access__item__title">Create an {% include '_partials/_components/_name.html' %} account</h3>
 		<span class="service-access__item__status">Completed</span>
 	</li>
 	<li class="service-access__item active">
