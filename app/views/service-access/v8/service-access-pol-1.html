@@ -19,26 +19,28 @@
 
 	<ol class="service-access">
 		
-		<li class="service-access__item">
+		<li class="service-access__item active">
 			<h3 class="service-access__item__title">Enter your registration details</h3>
 			<div class="service-access__item__desc">
 				<p>You will need your online registration details.</p>
 				<p>These are the registration details you will have received from your GP surgery to access online services, for example booking appointments.</p>
 			</div>
+			<a href="/patient-online/v8/patient-online-linkage-key{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
+		<!--
 		<li class="service-access__item">
 			<h3 class="service-access__item__title">About you</h3>
 			<div class="service-access__item__desc">
 				<p>You will need to give us some details about yourself.</p>
 			</div>
 		</li>
-		<li class="service-access__item active">
+		-->
+		<li class="service-access__item">
 			<h3 class="service-access__item__title">Create an {% include '_partials/_components/_name.html' %} account</h3>
 			<div class="service-access__item__desc">
 				<p>You will need your phone.</p>
 				<p>Your {% include '_partials/_components/_name.html' %} account will allow you to sign into multiple health services in the future.</p>
 			</div>
-			<a href="/create-account/v8/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 	</ol>
 
