@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
 {% block page_title %}View your medical record {{serviceName}}{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
@@ -22,7 +22,7 @@
     <li>online registration details from your GP</li>
     <li>photo ID</li>
   </ul>
-  
+
 <!--  <h3>What will I need to do?</h3>
   <ul>
     <li>Take a picture of your photo ID</li>
@@ -31,7 +31,7 @@
   -->
   <!--<p>What do I get?</p>-->
   <!--<p>At the end you will be able to use other online services using your secure NHS account.</p>-->
-  
+
   <br />
   <h3>Why do I need to do this?</h3>
   <p>We need to make sure only you access your information.</p>
@@ -41,7 +41,7 @@
   <h3>How long will this take?</h3>
   <p>It will take 10 minutes to complete the application.</p>
   <!--<p>The application will then be checked which can take up to 24 hours, 48 hours at a weekend.</p>-->
-  
+
 
 
 <a href="patient-online-gp-online{{ params }}" class="button">Continue</a>
@@ -58,6 +58,6 @@
 
 
 
-  
+
 
 {% endblock %}

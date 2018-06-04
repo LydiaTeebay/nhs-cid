@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser %}
@@ -15,13 +15,13 @@
           <span class="form-label__hint">16 characters long</span>
           <input class="form-control" id="field2" name="field2" type="text">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label" for="field3">ODS Code</label>
           <span class="form-label__hint">1 letter and 6 characters - for example E123456</span>
           <input class="form-control" id="field3" name="field3" type="text">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label" for="field1">Account ID</label>
           <span class="form-label__hint">Can be up to 30 characters long</span>
