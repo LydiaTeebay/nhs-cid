@@ -480,7 +480,10 @@ $(".results__name a").on("click", function(e){
     let url = e.target.href;
     var currentLoc = window.location.href.slice(window.location.href.indexOf('patient-online'));
     var query = currentLoc.slice(currentLoc.indexOf('?'));
-    //var route = currentLoc.substring(0, currentLoc.indexOf('patient-online-gp-results'));
+
+    if (url.indexOf("patient-online-british-id") !== -1) {
+        window.parent.document.location.href = 'patient-online-british-id' + query;
+    }
 
     if (url.indexOf("systmonline") !== -1) {
         window.parent.document.location.href = 'patient-online-gp-online' + query + "&system=tpp";

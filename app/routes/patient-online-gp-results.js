@@ -25,7 +25,7 @@ module.exports = function (router) {
     let url = "https://beta.nhs.uk/book-a-gp-appointment/results?search=" + search + "&postcode=" + postcode;
 
     var gpResults = "";
-    console.log("TESTING!!!");
+    //console.log("TESTING!!!");
 
     var options = {
       uri: url,
@@ -37,62 +37,22 @@ module.exports = function (router) {
     rp(options)
     .then(function ($) {
       // Process html like you would with jQuery...
-      data = $('.grid-row').html();
-      gpResults = data;
-      
-
-      //console.log(gpResults);
-      //var headers = $('h3');
-    //for(var i = 0; i < headers.length(); i++) {
-     //   console.log(headers[i]);
-     // }
 
       $('h3').each(function( index ) {
 
-        console.log( index + ": " + $( this ).text() );
-
-        if ($(this).has("a").length) {
+        if (!$(this).has("a").length) {
           console.log("has a child");
-        } else {
-          console.log("NO child");
-          // $(this)
-          // http://localhost:3000/patient-online/v8/patient-online-british-id?serviceName=NHS%20App&service=app&system=emis&hidehead=undefined&poluser=true
-          //$(this).wrapInner('<a href="' + $(this).html() + '" />');
-          //$(this).wrapInner('<a href="http://localhost:3000/patient-online/v8/patient-online-british-id?serviceName=NHS%20App&service=app&system=emis&hidehead=undefined&poluser=true">TESTING</a>');
-         // $(this).append('<a href="#">TESTING</a>');
-         // $(this).html('<a href="">TESTING</a>');
-
-
-
+          var textNode = $(this).text();
           var link = $("<a>");
-          link.attr("href", "http://www.google.com");
-          link.attr("title", "Google.com");
-          link.text("Google");
-          link.addClass("link");
- 
+          link.attr("href", "patient-online-british-id");
+          link.attr("title", $(this).text());
+          link.text($(this).text());
           $(this).html(link);
-          $(this).append(link);
-          //$(this).append('<a href="' + $(this).html() + '">'+$(this).html()+'</a>');
         }
-
-        
-        // ( $( "ul" ).has( "li" ).length ? "Yes" : "No" ) +
-        
-        console.log("first child" + $(this).children().first()); //.prop("tagName"));
-
-        //if ($(this).children().first().prop("tagName") !== "") {
-        //  console.log("has a child");
-        //} else {
-        //  console.log("no child present");
-        //}
-        
-        //console.log("child tagname: " + $(this).first().prop("tagname"));
-        //var element = document.getElementById('myImgElement');
-        console.log('Tag name: ' + $(this).prop("tagName"));
       });
-      //console.log(headers);
-      //var element = document.getElementById('myImgElement');
-//console.log('Tag name: ' + element.tagName);
+
+      data = $('.grid-row').html();
+      gpResults = data;
 
       res.render('patient-online/v8/patient-online-gp-results', { serviceName: serviceName, service: service, hidehead: hidehead, postcode: postcode, search: search, gpResults: gpResults  }, function(err, html) {
         res.send(html)
