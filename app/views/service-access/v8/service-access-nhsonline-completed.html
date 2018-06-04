@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
 {% block page_title %}Access {{ serviceName }}{% endblock %}
 
 {% set signedin = 'true' %}
@@ -19,7 +19,7 @@
 
 	<ol class="service-access">
 		<li class="service-access__item hide-number">
-			<p class="h3 service-access__item__title ticked">Create an NHS account</p>
+			<p class="h3 service-access__item__title ticked">Create an {% include '_partials/_components/_name.html' %} account</p>
 			<!--<span class="service-access__item__status">Completed</span>-->
 		</li>
 		<li class="service-access__item hide-number">
