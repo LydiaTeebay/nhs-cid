@@ -38,10 +38,26 @@ module.exports = function (router) {
     .then(function ($) {
       // Process html like you would with jQuery...
 
+      console.log("NEW LINE");
+      $('.results__address').each(function(index) {
+      })
+
+      $('li > div').each(function(index) {
+       $(this).find(".results__address:last-child").remove();
+
+      });
+
+
+      $('li').each(function(index) {
+        console.log("index: " + index);
+        if (index > 9) {
+          $(this).addClass('hide-item');
+        } 
+      })
+
       $('h3').each(function( index ) {
 
         if (!$(this).has("a").length) {
-          console.log("has a child");
           var textNode = $(this).text();
           var link = $("<a>");
           link.attr("href", "patient-online-british-id");
