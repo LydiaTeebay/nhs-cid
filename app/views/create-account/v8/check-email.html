@@ -17,13 +17,15 @@
 <div class="first-item">
 
   <div class="form-group">
-
+  {% if service === 'app' %}
     <h1>Check your email</h1>
-
+    <p>We've sent an <a href="/emails/v1/email-validate{{ params }}">email</a> to {{ emailAddress }}.</p>
+    <p>You'll need to confirm your email address to continue.</p>
+  {% else %}
+    <h1>Check your email</h1>
     <p>An email has been sent to {{ emailAddress }}</p>
-
     <p>Click the link in the <a href="/emails/v1/email-validate{{ params }}">email</a> to continue your {% include '_partials/_components/_name.html' %} registration.</p>
-
+  {% endif %}
   </div>
     
 </div>
