@@ -14,27 +14,27 @@
 
 {% block content %}
 <div class="first-item" style="padding-bottom: 100px;" >
-  <h1>Validate your email address</h1>
-  <p>Before you can use your {% include '_partials/_components/_name.html' %} account you need to validate your email address.</p>
+  <h1>Confirm your email address</h1>
+  <p>Before you can use your {% include '_partials/_components/_name.html' %} account you need to confirm your email address.</p>
 
-  <p>If you didn't create an {% include '_partials/_components/_name.html' %} account using this email address please ignore this email and we will delete the NHS account after 48 hours.</p>
+  <p>If you didn't create an {% include '_partials/_components/_name.html' %} account using this email address please ignore this email. We will delete the NHS account after 48 hours.</p>
 
   {% if service === "accessresults" %}
-  <p><a class="button" href="/create-account/v7/login-nhs{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v7/login-nhs{{ params }}">Confirm your email address</a></p>
   {% elif service === "nhsonline2" %}
-  <p><a class="button" href="/create-account/v7/login-nhs{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v7/login-nhs{{ params }}">Confirm your email address</a></p>
   {% elif service === "nhsonline" %}
-  <p><a class="button" href="/create-account/v6/login-nhs{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v6/login-nhs{{ params }}">Confirm your email address</a></p>
   {% elif service === "eredbook2" %}
-  <p><a class="button" href="/create-account/v6/login-nhs{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v6/login-nhs{{ params }}">Confirm your email address</a></p>
   {% elif service === "eredbook" %}
-  <p><a class="button" href="/create-account/v5/login-nhs{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v5/login-nhs{{ params }}">Confirm your email address</a></p>
   {% elif service === "results" %}
-  <p><a class="button" href="/create-account/v4/login-nhs{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v4/login-nhs{{ params }}">Confirm your email address</a></p>
   {% elif service === "record" %}
-  <p><a class="button" href="/create-account/v2/two-step{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v2/two-step{{ params }}">Confirm your email address</a></p>
   {% elif service === "app" %}
-  <p><a class="button" href="/create-account/v8/two-step{{ params }}">Validate my email</a></p>
+  <p><a class="button" href="/create-account/v8/two-step{{ params }}">Confirm your email address</a></p>
   {% endif %}
   <!--<p>Or copy and paste this link:<br><a href="/create-account/login-nhs{{ params }}">https://nhs-cid.herokuapp.com/create-account/login-nhs{{ params }}</a></p>-->
 </div>
