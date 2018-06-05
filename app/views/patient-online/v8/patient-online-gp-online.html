@@ -11,8 +11,11 @@
     <div class="form-group">
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
       <fieldset class="">
-        <h1><legend>Are you using online services with your GP surgery?</legend></h1>
-        <p>These may include booking appointments or ordering repeat prescriptions.</p>
+        <h1><legend>Are you registered with [surgery name] to do either of the following?</legend></h1>
+        <ul>
+          <li>book an appointment with your GP online</li>
+          <li>order a repeat prescription from your GP online</li>
+        </ul>
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
             <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details{{ params }}">
@@ -25,7 +28,12 @@
             No
           </label>
         </div>
-
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-online-british-id{{ params }}&poluser=true">
+            Don't know
+          </label>
+        </div>
 
       </fieldset>
     </div>
