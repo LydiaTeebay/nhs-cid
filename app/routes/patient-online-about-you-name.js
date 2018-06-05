@@ -1,6 +1,6 @@
 module.exports = function (router) {
 
-    router.get('/patient-online/v9/patient-online-about-you-name', function (req, res) {
+    router.get('/patient-online/v8/patient-online-about-you-name', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -10,7 +10,7 @@ module.exports = function (router) {
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
         // re-render the page along with the parameter
-        res.render('patient-online/v9/patient-online-about-you-name', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead }, function(err, html) {
+        res.render('patient-online/v8/patient-online-about-you-name', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead }, function(err, html) {
             res.send(html)
         })
     })
