@@ -11,11 +11,13 @@
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
       <fieldset class="">
         <h1><legend>Enter your online registration details</legend></h1>
+        <!--
         <div class="form-group">
           <label class="form-label" for="field2">Account Linkage Key</label>
           <span class="form-label__hint">16 characters long</span>
           <input class="form-control" id="field2" name="field2" type="text">
         </div>
+        -->
 <!--
         <div class="form-group">
           <label class="form-label" for="field3">ODS Code</label>
@@ -23,9 +25,37 @@
           <input class="form-control" id="field3" name="field3" type="text">
         </div>
 -->
+<!--
         <div class="form-group">
           <label class="form-label" for="field1">Account ID</label>
           <span class="form-label__hint">Can be up to 30 characters long</span>
+          <input class="form-control" id="field1" name="field1" type="text">
+        </div>
+-->
+        <div class="form-group">
+          {% if system === 'tpp' %}
+            <label class="form-label" for="field2">Account ID</label>
+            <span class="form-label__hint">Can be up to 30 characters long</span>
+          {% endif %}
+
+          {% if system === 'emis' %}
+            <label class="form-label" for="field2">Account linkage key</label>
+            <span class="form-label__hint">16 characters long</span>
+          {% endif %}
+          
+          <input class="form-control" id="field2" name="field2" type="text">
+        </div>
+        <div class="form-group">
+          {% if system === 'tpp' %}
+            <label class="form-label" for="field1">Passphrase</label>
+            <span class="form-label__hint">16 characters long</span>
+          {% endif %}
+          
+          {% if system === 'emis' %}
+            <label class="form-label" for="field1">Account ID</label>
+            <span class="form-label__hint">Can be up to 30 characters long</span>
+          {% endif %}
+          
           <input class="form-control" id="field1" name="field1" type="text">
         </div>
     </div>
