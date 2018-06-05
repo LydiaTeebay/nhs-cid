@@ -24,6 +24,7 @@ ol {
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
       <fieldset class="">
         <h1><legend>Select your GP surgery</legend></h1>
+        <!--
         {% if postcode and search %}
           <p>We found these surgeries close to the '{{postcode}}' area using '{{search}}'.</p>
         {% elif postcode %}
@@ -31,7 +32,7 @@ ol {
         {% elif search %}
           <p>We found these surgeries using {{search}}.</p>
         {% endif %}
-
+        -->
         <h1>{{ gpResults|safe }}</h1>
 
         <p><a href="patient-online-british-id{{ params }}">My GP surgery is not listed here</a></p>
