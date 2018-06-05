@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
 {% block page_title %}View your medical record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead + "&surgery=" + surgery %}
 
 {% block content %}
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -11,7 +11,7 @@
     <div class="form-group">
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
       <fieldset class="">
-        <h1><legend>Are you registered with [surgery name] to do either of the following?</legend></h1>
+        <h1><legend>Are you registered with {{surgery}} to do either of the following?</legend></h1>
         <ul>
           <li>book an appointment with your GP online</li>
           <li>order a repeat prescription from your GP online</li>

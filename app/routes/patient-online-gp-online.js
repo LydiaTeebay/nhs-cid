@@ -13,7 +13,8 @@ module.exports = function (router) {
       var serviceName = req.param('serviceName');
       var hidehead = req.param('hidehead');
       var system = req.param('system');
-      res.render('patient-online/v8/patient-online-gp-online', { serviceName: serviceName, hidehead: hidehead, service: service, system: system }, function(err, html) {
+      var surgery = req.param('surgery');
+      res.render('patient-online/v8/patient-online-gp-online', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, surgery: surgery }, function(err, html) {
           res.send(html)
       })
   })
