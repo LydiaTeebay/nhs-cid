@@ -12,9 +12,9 @@
 <div class="first-item" style="padding-bottom: 100px;" >
 
   {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Congratulations! You now have an NHS account','You can now use this account to access multiple services across the NHS','success') }}
+  {{ localHeader.pattern('Congratulations! You now have an {% include '_partials/_components/_name.html' %} account','You can now use this account to access multiple services across the NHS','success') }}
 
-  <p>You have created an NHS account. The NHS account will allow you to:</p>
+  <p>You have created an {% include '_partials/_components/_name.html' %} account. The {% include '_partials/_components/_name.html' %} account will allow you to:</p>
 
   <ul>
   	<li>Access multiple NHS services</li>
