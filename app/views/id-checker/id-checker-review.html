@@ -147,7 +147,11 @@
 
             <div class="idcheck-result">
                 {% if result === 'fail' %}
-                    Match not found
+                    {% if failreason === 'expired' %}
+                        Match not possible
+                    {% else %}
+                        Match not found
+                    {% endif %}
                 {% elif result === 'spine' %}
                     Lookup error
                 {% else %}
@@ -173,7 +177,7 @@
                     </div>
                     {% elif failreason === 'expired' %}
                     <div class="idcheck-result-reason" id="failed">
-                        <p>The submitted NHS number has expired</p>
+                        <p>The submitted NHS number belongs to someone who has been recorded as deceased</p>
                     </div>
                     {% else %}
                     <div class="idcheck-result-reason" id="failed">
@@ -196,7 +200,16 @@
 
         {% if result === 'fail' %}
 
-            <div class="form-group" id="declinebtn-2" style="display: none;">
+
+        <div class="form-group" id="declinebtn-2" style="display: none;">
+            {% if failreason === 'expired' %}
+
+            <div id="id-decline2">
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn2" class="button button--decline">Reject</a>
+            </div>
+
+            {% else %}
+
                 <fieldset>
 
                     <p>Can you find the person’s NHS number using a manual PDS check?</p>
@@ -235,9 +248,11 @@
                     </div>
                 </div>
 
+            {% endif %}
+
+            </div>
 
 
-        </div>
 
         {% endif %}
 
