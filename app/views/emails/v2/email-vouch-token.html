@@ -1,0 +1,32 @@
+{% extends '_layouts/_grids/_grid-email.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+{% set params = "?vouch=yes" %}
+
+{% block content %}
+
+<div class="first-item">
+  <!--<h1>Patient ID Verification Service</h1>-->
+  <p>Hello,</p>
+
+  <p>Thank you for using the Patient ID Verification Service.</p>
+
+  <div class="callout callout--info">
+    <h3>To access your NHS account, complete the following steps:</h3>
+    <ol class="panel__content">
+      <li>Login to an account or create an account with NHS or Verify</li>
+      <li>Enter the pin code you receive via text</li>
+    </ol>
+  </div>
+
+  <p>Click the link below to login or create an account:</p>
+
+  <p><a class="button" href="/create-account/sign-on{{ params }}">Log in or create an account</a></p>
+
+  <p>If you didn't create an NHS account using this email address please ignore this email and we will delete the NHS account after 48 hours.</p>
+
+  <p>Thanks, <br>NHS Digital</p>
+</div>
+
+{% endblock %}

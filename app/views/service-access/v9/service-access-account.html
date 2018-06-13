@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}Access {{ serviceName }}{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
@@ -17,7 +17,7 @@
 				<p>You'll be able to use these details to sign in to other NHS services.</p>
 				<!--<p>Your {% include '_partials/_components/_name.html' %} account will allow you to sign into multiple health services in the future.</p>-->
 			</div>
-			<a href="/create-account/v8/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
+			<a href="/create-account/v9/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 		<li class="service-access__item">
 			<h3 class="service-access__item__title">Help us find your NHS record</h3>

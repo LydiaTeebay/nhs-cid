@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&system=" + system %}
@@ -60,9 +60,9 @@
         </div>
     </div>
     <div class="form-group">
-      <a class="button" href="/patient-online/v8/patient-online-about-you-name{{ params }}">Continue</a>
+      <a class="button" href="/patient-online/v9/patient-online-about-you-name{{ params }}">Continue</a>
     </div>
-    <p><a href="/patient-online/v8/patient-online-british-id{{ params }}&poluser=false">I don't have my registration details</a></p>
+    <p><a href="/patient-online/v9/patient-online-british-id{{ params }}&poluser=false">I don't have my registration details</a></p>
   </form>
 </div>
 

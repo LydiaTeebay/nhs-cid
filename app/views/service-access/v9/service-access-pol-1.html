@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}Access {{ serviceName }} - Step 1: Enter your registration details{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&system=" + system %}
@@ -16,7 +16,7 @@
 				<p>You'll need to tell us your online registration details, last name and date of birth.</p>
 				<!--<p>These are the registration details you will have received from your GP surgery to access online services, for example booking appointments.</p>-->
 			</div>
-			<a href="/patient-online/v8/patient-online-linkage-key{{ params }}" class="service-access__item__button button">Start</a>
+			<a href="/patient-online/v9/patient-online-linkage-key{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 		<!--
 		<li class="service-access__item">

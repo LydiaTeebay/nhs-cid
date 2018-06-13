@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your medical record {{serviceName}}{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead + "&surgery=" + surgery %}
@@ -23,7 +23,7 @@
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="/service-access/v8/service-access-pol-1{{ params }}">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="/service-access/v9/service-access-pol-1{{ params }}">
             Yes
           </label>
         </div>

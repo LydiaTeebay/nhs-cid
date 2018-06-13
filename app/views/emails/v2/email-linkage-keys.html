@@ -1,0 +1,40 @@
+{% extends '_layouts/_grids/_grid-email.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Your GP Online details','You can use these details to access other health and social care services','') }}
+
+  <p><strong>Account Linkage Key:</strong> f46623ba-7c2d-423d-a464<br />
+  <strong>ODS Code:</strong> 332462<br />
+  <strong>User ID:</strong> 02393009<br /></p>
+
+<hr>
+  <p>Why am I receiving these details?</p>
+  <p>You can use your GP Online details for a variety of health and social care services such as:</p>
+  <ul>
+    <li>Using other GP Online systems</li>
+    <li>NHS Online app</li>
+    <li>Health & social care apps</li>
+  </ul>
+
+
+
+  <p>Kind Regards</p>
+  <p>Patient Access</p>
+  
+<!--
+  <p><a class="button" href="https://beta.nhs.uk">Continue to NHS.UK</a></p>
+-->
+</div>
+
+{% endblock %}

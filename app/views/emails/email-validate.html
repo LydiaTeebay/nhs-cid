@@ -19,7 +19,9 @@
 
   <p>If you didn't create an NHS account using this email address please ignore this email and we will delete the NHS account after 48 hours.</p>
 
-  {% if service === "app" %}
+  {% if service === "app2" %}
+  <p><a class="button" href="/create-account/v9/two-step{{ params }}">Validate my email</a></p>
+  {% elif service === "app" %}
   <p><a class="button" href="/create-account/v8/two-step{{ params }}">Validate my email</a></p>
   {% elif service === "mvp" %}
   <p><a class="button" href="/create-account/mvp/two-step{{ params }}">Validate my email</a></p>
