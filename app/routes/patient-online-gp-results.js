@@ -36,8 +36,6 @@ module.exports = function (router) {
 
     rp(options)
     .then(function ($) {
-      // Process html like you would with jQuery...
-
       $('.results__address').each(function(index) {
       })
 
@@ -46,7 +44,6 @@ module.exports = function (router) {
       });
 
       $('li').each(function(index) {
-        console.log("index: " + index);
         if (index > 9) {
           $(this).addClass('hide-item');
         } 
@@ -61,6 +58,19 @@ module.exports = function (router) {
           link.attr("title", $(this).text());
           link.text($(this).text());
           $(this).html(link);
+        } else {
+
+          var systemQuery = "patient-online-gp-online?" + "service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead
+          var systemUrl = $(this).find('a').attr('href');
+          var surgeryName = $(this).find('a').text();
+
+          if (systemUrl.indexOf("systmonline") !== -1) {  
+            $(this).find('a').attr('href', systemQuery + "&system=tpp" + "&surgery=" + surgeryName);
+          }
+        
+          if (systemUrl.indexOf('emisaccess') !== -1) {
+            $(this).find('a').attr('href', systemQuery + "&system=emis"+ "&surgery=" + surgeryName);
+          }
         }
       });
 

@@ -475,29 +475,6 @@ $("#securitycodeContinue").on("click", function(e) {
   }
 })
 
-$(".results__name a").on("click", function(e){
-    e.preventDefault();
-    
-    let url = e.target.href;    
-    var surgery = e.currentTarget.innerText;
-    var currentLoc = window.location.href.slice(window.location.href.indexOf('patient-online'));
-    var query = currentLoc.slice(currentLoc.indexOf('?'));
-
-    if (url.indexOf("patient-online-british-id") !== -1) {
-        window.parent.document.location.href = 'patient-online-british-id' + query;
-    }
-
-    if (url.indexOf("systmonline") !== -1) {
-        window.parent.document.location.href = 'patient-online-gp-online' + query + "&system=tpp" + "&surgery=" + surgery;
-    }
-    
-    if (url.indexOf('emisaccess') !== -1) {
-        window.parent.document.location.href = 'patient-online-gp-online' + query + "&system=emis" + "&surgery=" + surgery;
-    }
-
-    return;
-  })
-
 // expand ID document image in ID checker
 $(".idcheck-image-expand-button").on("click", function(e) {
     e.preventDefault()
