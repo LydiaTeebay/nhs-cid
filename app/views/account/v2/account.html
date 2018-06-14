@@ -1,0 +1,32 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked-nhsone.html' %}
+{% block page_title %}Account - profile{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% endblock %}
+
+{% block content %}
+
+{% block alert %}{% endblock %}
+
+{% include '_partials/_components/_account-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item">
+
+	<h2>Profile</h2>
+
+	<p><b>Name</b>
+	<br/>Jonathan Liam Kingston</p> 
+
+</div>
+
+{% endblock %}
+
+

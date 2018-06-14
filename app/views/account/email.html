@@ -3,9 +3,20 @@
 
 {% set signedin = 'true' %}
 
-{% block header %}
-  {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% block topRow %}
+
+<h1>Account settings
+	<div class="smaller-h1">Email address</div>
+</h1>
+<hr>
+
+<style>
+	.c-page-contents__link.link-email { 
+		font-weight: bold; 
+		text-decoration: none; 
+	}
+</style>
+
 {% endblock %}
 
 {% block content %}
@@ -18,11 +29,11 @@
 
 {% block alert %}{% endblock %}
 
-<div class="first-item">
+<div class="first-item account-mgmt">
 
 	<h2>Email address</h2>
 
-	<p>jonthanlkingston@gmail.com</p>
+	<p>jo************@**ail.com</p>
 
 	<a class="button" href="email-2fa">Edit email address</a>
 

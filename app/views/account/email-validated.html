@@ -6,4 +6,17 @@
 {% import "_partials/_components/_callout.html" as callout %}
 {{ callout.pattern('Your email address has been updated','','attention') }}
 
+<style>
+@media (min-width:925px) {
+    .callout.callout--attention {
+        margin-top: -32px;
+    }
+}
+@media (min-width:925px) {
+    .account-mgmt {
+        margin-top: 10px;
+    }
+}
+</style>
+
 {% endblock %}
