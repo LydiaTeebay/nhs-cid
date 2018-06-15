@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Forgotten password {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset>
+        <h1 class="heading-large">Error</h1>
+
+        <p>Some error details.</p>
+        
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a href="forgotten-password-check-email" class="button" id="continue">Recovery</a>
+    </div>
+
+    <p><a href="login-nhs">Anther route</a></p>
+    
+  </form>
+</div>
+
+{% endblock %}
+
