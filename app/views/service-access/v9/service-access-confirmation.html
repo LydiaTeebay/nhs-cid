@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Confirm submission of your evidence{% endblock %}
 
 {% set signedin = 'true' %}
@@ -17,7 +17,7 @@
 
 <section class="service-access-wrapper">
 	{% if poluser === "true" %}
-	<p>You now have the required information to prove your identity.</p>
+	<!--<p>You now have the required information to prove your identity.</p>-->
 	<ol class="service-access">
 		<li class="service-access__item hide-number">
 			<p class="h3 service-access__item__title ticked">Connect to your GP</p>
@@ -42,10 +42,14 @@
 	{% endif %}
 
 
-	
-	<p class="small">You are agreeing to submit your evidence for checking. It will be held for 7 days after checking and then deleted.</p>
-	<a href="service-access-complete{{ params }}" class="button">Submit information</a>
+	{% if poluser === "true" %}
+		<a href="https://nhsa.herokuapp.com/home.php?logged=false" target="_parent" class="button">Continue to NHS App</a>
+	{% else %}
+		<p class="small">You are agreeing to submit your evidence for checking. It will be held for 7 days after checking and then deleted.</p>
+		<a href="service-access-complete{{ params }}" class="button">Submit information</a>
+	{% endif %}
 
+	
 </section>
 
 {% endblock %}
