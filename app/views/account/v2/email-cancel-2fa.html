@@ -3,20 +3,9 @@
 
 {% set signedin = 'true' %}
 
-{% block topRow %}
-
-<h1>Account settings
-  <div class="smaller-h1">Email address</div>
-</h1>
-<hr>
-
-<style>
-  .c-page-contents__link.link-email { 
-    font-weight: bold; 
-    text-decoration: none; 
-  }
-</style>
-
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
 {% endblock %}
 
 {% block content %}
@@ -29,14 +18,14 @@
 
 {% block rightcol %}
 
-<div class="first-item account-mgmt">
+<div class="first-item">
   <form>
     <div class="form-group">
       <fieldset class="inline">
 
-        <h2>Check your phone</h2>
+        <h1><legend>Cancel email change</legend></h1>
 
-        <p>We have sent a security code to your phone</p>
+        <p>We've sent you a message with a security code to 077*** ***123. Enter the code below to cancel the email change.</p>
 
         <div class="form-group">
           <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="">
@@ -45,10 +34,12 @@
       </fieldset>
     </div>
     <div class="form-group">
-      <a href="email-edit" class="button">Continue</a>
+      <a href="account-compromised" class="button">Continue</a>
     </div>
 
   </form>
 </div>
 
 {% endblock %}
+
+

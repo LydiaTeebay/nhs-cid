@@ -54,7 +54,7 @@ module.exports = function (router) {
                     if (!$(this).has("a").length) {
                         var textNode = $(this).text()
                         var link = $("<a>")
-                        link.attr("href", "patient-online-british-id")
+                        link.attr("href", "patient-online-british-id?" + "service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead)
                         link.attr("title", $(this).text())
                         link.text($(this).text())
                         $(this).html(link)
@@ -128,7 +128,7 @@ module.exports = function (router) {
         if (!$(this).has("a").length) {
           var textNode = $(this).text();
           var link = $("<a>");
-          link.attr("href", "patient-online-british-id");
+          link.attr("href", "patient-online-british-id?" + "service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead);
           link.attr("title", $(this).text());
           link.text($(this).text());
           $(this).html(link);

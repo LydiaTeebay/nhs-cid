@@ -3,6 +3,11 @@
 
 {% set signedin = 'true' %}
 
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% endblock %}
+
 {% block content %}
 
 {% include '_partials/_components/_account-menu.html' %}

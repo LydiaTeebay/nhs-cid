@@ -3,20 +3,9 @@
 
 {% set signedin = 'true' %}
 
-{% block topRow %}
-
-<h1>Account settings
-  <div class="smaller-h1">Email address</div>
-</h1>
-<hr>
-
-<style>
-  .c-page-contents__link.link-email { 
-    font-weight: bold; 
-    text-decoration: none; 
-  }
-</style>
-
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
 {% endblock %}
 
 {% block content %}
@@ -29,7 +18,7 @@
 
 {% block rightcol %}
 
-<div class="first-item account-mgmt">
+<div class="first-item">
 	<h2>Check your email</h2>
 
 	<p>We need to validate your email address. Please check your <a href="mail-validate">email</a>.</p>
