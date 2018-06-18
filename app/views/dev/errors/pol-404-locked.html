@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Forgotten password {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset>
+        <h1 class="heading-large">It looks like there’s something wrong with the details you’ve sent us.</h1>
+
+        <p>You can try to create an account another way by sending us a photo of your ID and recording a short video of yourself.</p>
+        
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a href="" class="button" id="continue">Create an account</a>
+    </div>
+
+    <p><a href="">I want to create an account another way</a></p>
+    
+  </form>
+</div>
+
+{% endblock %}
+

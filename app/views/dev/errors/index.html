@@ -1,0 +1,30 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Citizen ID Prototypes{% endblock %}
+
+
+{% block topRow %}
+{% endblock %}
+
+{% block content %}
+
+<h1>Error pages</h1>
+
+<h3>Patient Online</h3>
+<h4>Linkage Key error codes returned from NHS App</h4>
+<ol>
+  <li><a href="errors/pol-400">Error 400: Bad Request</a></li>
+  <li><a href="errors/pol-403">Error 403: The user doesn’t have GP permissions</a></li>
+  <li><a href="errors/pol-404">Error 404: Not found. No patient was found matching the supplied connection details</a></li>
+  <li><a href="errors/pol-404-locked">Error 404: If the user tries three times and gets 404 errors, on the third unsuccessful attempt</a></li>
+  <li><a href="errors/pol-409">Error 409: User already has an account</a></li>
+  <li><a href="errors/pol-500-502-504">Error 500/502/504: technical issue</a></li>
+</ol>
+
+
+
+{% endblock %}
+
+
+{% block rightcol %}
+
+{% endblock %}
