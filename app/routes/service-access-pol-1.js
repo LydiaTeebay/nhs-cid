@@ -24,8 +24,9 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
         var system = req.param('system');
+        var practiceID = req.param('practiceID');
         // re-render the page along with the parameter
-        res.render('service-access/v9/service-access-pol-1', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system }, function(err, html) {
+        res.render('service-access/v9/service-access-pol-1', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID }, function(err, html) {
             res.send(html)
         })
     })

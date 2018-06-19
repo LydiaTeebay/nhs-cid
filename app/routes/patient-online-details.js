@@ -14,7 +14,8 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var system = req.param('system')
         var surgery = req.param('surgery')
-        res.render('patient-online/v9/patient-online-details', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, surgery: surgery }, function(err, html) {
+        var practiceID = req.param('practiceID')
+        res.render('patient-online/v9/patient-online-details', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, surgery: surgery, practiceID: practiceID }, function(err, html) {
             res.send(html)
         })
     })

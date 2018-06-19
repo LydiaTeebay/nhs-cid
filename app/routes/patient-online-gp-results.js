@@ -36,6 +36,7 @@ module.exports = function (router) {
 
         rp(options)
             .then(function ($) {
+
                 $('.results__address').each(function(index) {
                 })
 
@@ -59,15 +60,15 @@ module.exports = function (router) {
                         link.text($(this).text())
                         $(this).html(link)
                     } else {
-
                         var systemQuery = "patient-online-gp-online?" + "service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead
                         var systemUrl = $(this).find('a').attr('href')
-                        var surgeryName = $(this).find('a').text()
-
+                        var surgeryName = $(this).find('a').text();
                         if (systemUrl.indexOf("systmonline") !== -1) {
-                            $(this).find('a').attr('href', systemQuery + "&system=tpp" + "&surgery=" + surgeryName)
+                          // ODS code is currently only available for systmOnline
+                          var practiceID = $(this).find('a').attr('href');
+                          practiceID = practiceID.substring(practiceID.indexOf('=') + 1 ,practiceID.length);
+                          $(this).find('a').attr('href', systemQuery + "&system=tpp" + "&surgery=" + surgeryName + "&practiceID=" + practiceID);
                         }
-
                         if (systemUrl.indexOf('emisaccess') !== -1) {
                             $(this).find('a').attr('href', systemQuery + "&system=emis"+ "&surgery=" + surgeryName)
                         }

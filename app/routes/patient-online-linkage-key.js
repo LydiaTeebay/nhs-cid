@@ -20,7 +20,8 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
         var system = req.param('system')
-        res.render('patient-online/v9/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system }, function(err, html) {
+        var practiceID = req.param('practiceID');
+        res.render('patient-online/v9/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID }, function(err, html) {
             res.send(html)
         })
     })

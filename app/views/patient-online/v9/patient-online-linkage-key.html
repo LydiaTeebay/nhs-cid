@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&system=" + system %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID %}
 
 {% block content %}
 
@@ -32,6 +32,14 @@
           <input class="form-control" id="field1" name="field1" type="text">
         </div>
 -->
+        {% if system === 'tpp' %}
+          <div class="form-group">
+            <label class="form-label" for="field2">Organisation Code</label>
+            <span class="form-label__hint">7 characters long - for example E123456</span>
+            <input class="form-control" id="field2" name="field2" type="text" value="{{ practiceID }}">
+          </div>
+        {% endif %}
+        
         <div class="form-group">
           {% if system === 'tpp' %}
             <label class="form-label" for="field2">Account ID</label>
@@ -45,6 +53,9 @@
           
           <input class="form-control" id="field2" name="field2" type="text">
         </div>
+
+
+
         <div class="form-group">
           {% if system === 'tpp' %}
             <label class="form-label" for="field1">Passphrase</label>
