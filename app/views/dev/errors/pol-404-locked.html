@@ -8,14 +8,34 @@
   <form>
     <div class="form-group">
       <fieldset>
-        <h1 class="heading-large">It looks like there’s something wrong with the details you’ve sent us.</h1>
+        <h1 class="heading-large">Sorry, we could not connect you to your doctor’s surgery</h1>
 
-        <p>You can try to create an account another way by sending us a photo of your ID and recording a short video of yourself.</p>
-        
+        <p>You can create an account by submitting a photo of your ID and a short video of yourself online.</p>
+
+        <p>What type of ID do you have?</p>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details{{ params }}">
+            UK passport or UK driving licence
+          </label>
+        </div>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details{{ params }}">
+            Passport, driving licence or ID card from a different country
+          </label>
+        </div>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details{{ params }}">
+            None of these
+          </label>
+        </div>        
       </fieldset>
     </div>
     <div class="form-group">
-      <a href="" class="button" id="continue">Create an account</a>
+      <a href="" class="button" id="continue">Continue</a>
     </div>
 
     <p><a href="">I want to create an account another way</a></p>
