@@ -9,71 +9,35 @@
   <form>
     <div class="form-group">
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-      <fieldset class="">
-        <h1><legend>Enter your online registration details</legend></h1>
-        <!--
-        <div class="form-group">
-          <label class="form-label" for="field2">Account Linkage Key</label>
-          <span class="form-label__hint">16 characters long</span>
-          <input class="form-control" id="field2" name="field2" type="text">
-        </div>
-        -->
-<!--
-        <div class="form-group">
-          <label class="form-label" for="field3">ODS Code</label>
-          <span class="form-label__hint">1 letter and 6 characters - for example E123456</span>
-          <input class="form-control" id="field3" name="field3" type="text">
-        </div>
--->
-<!--
-        <div class="form-group">
-          <label class="form-label" for="field1">Account ID</label>
-          <span class="form-label__hint">Can be up to 30 characters long</span>
-          <input class="form-control" id="field1" name="field1" type="text">
-        </div>
--->
-        {% if system === 'tpp' %}
-          <div class="form-group">
-            <label class="form-label" for="field2">Organisation Code</label>
-            <span class="form-label__hint">7 characters long - for example E123456</span>
-            <input class="form-control" id="field2" name="field2" type="text" value="{{ practiceID }}">
-          </div>
-        {% endif %}
-        
-        <div class="form-group">
-          {% if system === 'tpp' %}
-            <label class="form-label" for="field2">Account ID</label>
-            <span class="form-label__hint">Can be up to 30 characters long</span>
-          {% endif %}
 
-          {% if system === 'emis' %}
+      <fieldset class="">
+        <h1><legend><span class="heading-secondary">Connect to your GP</span> Enter your registration details</legend></h1>
+
+        <div class="form-group">
             <label class="form-label" for="field2">Account linkage key</label>
             <span class="form-label__hint">16 characters long</span>
-          {% endif %}
           
-          <input class="form-control" id="field2" name="field2" type="text">
+            <input class="form-control" id="field2" name="field2" type="text">
         </div>
-
-
 
         <div class="form-group">
-          {% if system === 'tpp' %}
-            <label class="form-label" for="field1">Passphrase</label>
-            <span class="form-label__hint">16 characters long</span>
-          {% endif %}
-          
-          {% if system === 'emis' %}
+          <label class="form-label" for="field3">ODS Code</label>
+          <span class="form-label__hint">This may also be ORG ID or Practice ID</span>
+          <input class="form-control" id="field3" name="field3" type="text">
+        </div>
+
+        <div class="form-group">
             <label class="form-label" for="field1">Account ID</label>
             <span class="form-label__hint">Can be up to 30 characters long</span>
-          {% endif %}
-          
-          <input class="form-control" id="field1" name="field1" type="text">
+            <input class="form-control" id="field1" name="field1" type="text">
         </div>
+
+
     </div>
     <div class="form-group">
-      <a class="button" href="/patient-online/v9/patient-online-about-you-name{{ params }}">Continue</a>
+      <a class="button" href="patient-online-about-you-name{{ params }}">Continue</a>
     </div>
-    <p><a href="/patient-online/v9/patient-online-british-id{{ params }}&poluser=false">I don't have my registration details</a></p>
+    <p><a href="patient-online-british-id{{ params }}&poluser=false">I don't have my registration details</a></p>
   </form>
 </div>
 
