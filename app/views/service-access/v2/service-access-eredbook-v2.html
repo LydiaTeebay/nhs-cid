@@ -3,12 +3,12 @@
 
 {% set isServiceStart = 'true' %}
 {% set service = "eredbook2" %}
-{% set serviceName = "Access%20eRedbook" %}
+{% set serviceName = "Create%20an%20eRedbook%20account" %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName %}
 
 {% block header %}
   {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Access eRedbook','') }}
+  {{ localHeader.pattern('Create an eRedbook account','') }}
 {% endblock %}
 
 {% block content %}
@@ -25,10 +25,10 @@
 
 	<ol class="step-list">
 		<li class="step-list__item">
-			<h3 class="step-list__item--task">Create an NHS account</h3>
+			<h3 class="step-list__item--task">Set up {% include '_partials/_components/_name.html' %}</h3>
 			<a href="/create-account/v6/create-acc-terms{{ params }}" class="step-list__item__status button">Start</a>
 			<p>You will need your phone.</p>
-			<p>If you already have an {% include '_partials/_components/_name.html' %} account you can <a href="/create-account/v9/login-nhs{{ params }}">Log in</a></span></p>
+			<p>If you've already done this, <a href="/create-account/v9/login-nhs{{ params }}">log in with {% include '_partials/_components/_name.html' %}</a></span></p>
 		</li>
 		<li class="step-list__item">
 			<h3 class="step-list__item--task">Your NHS number</h3>
