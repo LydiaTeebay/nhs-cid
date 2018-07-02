@@ -519,8 +519,6 @@ swap();
   var mOverlay = getId('modal_window'),
       mOpen = getId('modal_open'),
       mCreate = getId('modal_create'),
-      mCreate2 = getId('modal_create2'),
-      mCreate3 = getId('modal_create3'),
       mClose = getId('modal_close'),
       modal = getId('modal_holder'),
       emailField = getId('emailAddress'),
@@ -576,11 +574,6 @@ swap();
     // open modal by btn click/hit
     // mOpen.addEventListener('click', modalShow)
     mCreate.addEventListener('click', modalShow, false)
-    mCreate2.addEventListener('click', modalShow, false)
-    mCreate3.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.parent.document.location.href = e.target.href
-    });
     // close modal by btn click/hit
     mClose.addEventListener('click', modalClose)
 
