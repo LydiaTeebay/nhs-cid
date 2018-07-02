@@ -43,7 +43,7 @@ function activateLoader2(speed) {
     // console.log("activate")
     var progressbar = $('#progress_bar')
     var $ppc = $('.progress-pie-chart')
-    document.getElementById("spinner-status").innerHTML = "Checking";
+    document.getElementById("spinner-status").innerHTML = "Please wait";
     $ppc.removeClass('gt-50')
     max = progressbar.attr('max')
     time = (1000 / max) * speed

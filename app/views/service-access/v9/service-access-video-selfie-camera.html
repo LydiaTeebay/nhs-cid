@@ -37,33 +37,14 @@
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
-            What to do when you record your video
+            Record a short video
           </h1>
         </legend>
 
+        <p>Say these 4 numbers when you record your video</p>
 
+        <h1>{{ pinCode }}</h1>
 
-        <p>You must:</p>
-        <ul class="list list-bullet">
-          {% if mobile %}
-          <li>use the front-facing camera</li>
-          {% endif %}
-          <li>say the numbers</li>
-          <li>make sure your whole face is in the video<br></li>
-          <li>make sure the video lasts 3 seconds or longer<br>&nbsp;</li>
-        </ul>
-
-        {% if challenge == 'words' %}
-        <div class="camera-instructions">
-          <div class="camera-instructions-text">Say these 2 words whilst recording your short video: </div>
-          <div class="camera-instructions-numbers"><b>Record Wagon</b></div>
-        </div>
-        {% else %}
-          <div class="camera-instructions">
-            <div class="camera-instructions-text">Say these numbers whilst recording your short video: </div>
-            <div class="camera-instructions-numbers">{{ pinCode }}</div>
-          </div>
-        {% endif %}
 
         <div class="form-group">
 
@@ -106,7 +87,9 @@
 
   <section class="" id="scan-id-5" style="display:none">
 
-    <h1 style="padding-bottom: 0;">Review your short video</h1>
+    <h1 style="padding-bottom: 0;">Check your video</h1>
+
+    <p>Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</p>
 
     <div class="reading-width">
       <div id="scan-video-preview">
@@ -116,21 +99,11 @@
         </video>
       </div>
     </div>
-    {% if challenge == 'words' %}
-    <div class="camera-instructions">
-      <div class="camera-instructions-text">Is the video clear and can you hear these 2 Words? </div>
-      <div class="camera-instructions-numbers"><b>Record Wagon</b></div>
-    </div>
-    {% else %}
-    <div class="camera-instructions">
-      <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
-      <div class="camera-instructions-numbers">{{ pinCode }}</div>
-    </div>
-    {% endif %}
+
 
     <div class="form-group">
-      <a class="button" href="" id="submit-videoSelfie2-button">Use this video</a>
-      <p><a href="service-access-video-selfie-camera{{ params }}" id="">Retake</a></p>
+      <a class="button" href="" id="submit-videoSelfie2-button">Yes - continue</a>
+      <p><a href="service-access-video-selfie-camera{{ params }}" id="">No - record video again</a></p>
     </div>
 
   </section>
@@ -165,10 +138,10 @@
     //show then hide the spinner animation
     setTimeout(function(){
         document.getElementById('scan-id-0').style.display = 'none'
-    }, 2500)
+    }, 1500)
     setTimeout(function(){
         document.getElementById('scan-id-1').style.display = 'block'
-    }, 2500)
+    }, 1500)
 </script>
 
 {% endblock %}

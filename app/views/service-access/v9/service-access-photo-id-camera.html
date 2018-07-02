@@ -41,13 +41,12 @@
               </h1>
             </legend>
 
-            <p>You need to make sure:</p>
+            <p>You must:</p>
             <ul class="list list-bullet">
-              <li>the whole document is visible</li>
-              <li>you hold the camera straight above the document</li>
-              <li>the details are clear and readable</li>
-              <li>there are no reflections</li>
+              <li>hold the camera straight above your {{ idType }}</li>
+              <li>make sure all the details are clear and readable</li>
             </ul>
+
             <div class="form-group">
 
               <label for="photo-id-document" class="camera-button">Open camera
@@ -89,7 +88,9 @@
 
   <section class="preview-container" id="scan-id-5" style="display:none">
 
-    <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
+    <h1 style="padding-bottom: 0;">Check your photo</h1>
+
+    <p>Can you see your full face and read all the information on your {{ idType}}?</p>
 
     <div class="reading-width">
       <div id="scan-id-preview">
@@ -98,9 +99,9 @@
     </div>
 
     <div class="form-group">
-      <a class="button" href="" id="submit-photoId-button">Submit this photo</a>
+      <a class="button" href="" id="submit-photoId-button">Yes - continue</a>
 
-      <p><a href="service-access-photo-id-camera{{ params }}" id="">Retake</a></p>
+      <p><a href="service-access-photo-id-camera{{ params }}" id="">No - take the photo again</a></p>
     </div>
 
   </section>

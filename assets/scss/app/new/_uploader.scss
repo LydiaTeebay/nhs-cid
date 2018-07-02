@@ -96,7 +96,7 @@
   &::before,
   &::after {
     content: "";
-    left: 30%;
+    left: 20%;
     @include core-font(24);
     font-weight: bold;
     margin: 1.5em 0 0.25em;
