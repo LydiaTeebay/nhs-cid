@@ -21,8 +21,9 @@ module.exports = function (router) {
         var mobileNum = req.param('mobileNum')
         var emailAddress = req.param('emailAddress')
         var hidehead = req.param('hidehead')
+        var loggedin = req.param('loggedin')
         // re-render the page along with the parameter
-        res.render('service-access/v9/service-access-nhs', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead }, function(err, html) {
+        res.render('service-access/v9/service-access-nhs', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin }, function(err, html) {
             res.send(html)
         })
     })

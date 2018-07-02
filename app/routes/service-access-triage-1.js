@@ -9,8 +9,9 @@ module.exports = function (router) {
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
+        var loggedin = req.param('loggedin')
         // re-render the page along with the parameter
-        res.render('service-access/v9/service-access-triage-1', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        res.render('service-access/v9/service-access-triage-1', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin }, function(err, html) {
             res.send(html)
         })
     })

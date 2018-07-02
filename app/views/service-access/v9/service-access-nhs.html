@@ -2,9 +2,14 @@
 {% block page_title %}Access {{ serviceName }} - Step 2: Your NHS Number{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
 
 {% block content %}
+
+{%if loggedin === "true" %}
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endif %}
+
 <p>Follow these steps to create your account</p>
 <section class="service-access-wrapper">
 
