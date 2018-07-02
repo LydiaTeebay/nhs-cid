@@ -1,0 +1,52 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access eRedbook{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "eredbook2" %}
+{% set serviceName = "Create%20an%20eRedbook%20account" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Create an eRedbook account','') }}
+{% endblock %}
+
+{% block content %}
+
+<p>To access this service you need to prove your identity. You'll only ever need to do this once.</p>
+<!-- <p>Before you start it will be useful to have your:</p>
+<ul>
+	<li>mobile phone</li>
+	<li>NHS number</li>
+	<li>passport or driving licence number</li>
+</ul> -->
+
+<section class="prove-id">
+
+	<ol class="step-list">
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Set up {% include '_partials/_components/_name.html' %}</h3>
+			<a href="/create-account/v6/create-acc-terms{{ params }}" class="step-list__item__status button">Start</a>
+			<p>You will need your phone.</p>
+			<p>If you've already done this, <a href="/create-account/v9/login-nhs{{ params }}">log in with {% include '_partials/_components/_name.html' %}</a></span></p>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Your NHS number</h3>
+			<span class="form-label__hint">If you don't have your NHS number we will ask for some basic information about yourself.</span>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Photo ID document details</h3>
+			<span class="form-label__hint">You will need either your passport number or driving licence number.</span>
+		</li>
+		<li class="step-list__item">
+			<h3 class="step-list__item--task">Submit a video selfie</h3>
+			<span class="form-label__hint">For security reasons we need this to match your face with your photo ID.</span>
+		</li>
+		<!-- <li class="step-list__item">
+			<h3 class="step-list__item--task">Add children to your eRedbook</h3>
+		</li> -->
+	</ol>
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
