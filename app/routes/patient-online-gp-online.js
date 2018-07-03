@@ -8,6 +8,18 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/patient-online/pb/patient-online-gp-online', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var system = req.param('system')
+        var surgery = req.param('surgery')
+        var practiceID = req.param('practiceID')
+        res.render('patient-online/pb/patient-online-gp-online', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, surgery: surgery, practiceID: practiceID }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/patient-online/v9/patient-online-gp-online', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')

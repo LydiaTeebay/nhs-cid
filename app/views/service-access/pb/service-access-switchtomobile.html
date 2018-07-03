@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Continue on mobile{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead %}
@@ -38,7 +38,6 @@
         </div>
 
         <div class="form-group">
-          <!--<a class="button" href="service-access-eredbook-03{{ params }}" id="continue">Continue</a>-->
           <button class="button">Send Link</button>
         </div>
 

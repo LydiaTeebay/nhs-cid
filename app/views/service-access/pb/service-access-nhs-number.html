@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - What is your NHS Number?{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Do you know your NHS Number?{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
@@ -9,8 +9,6 @@
 <div class="first-item">
 
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-
-  <!--<span class="section-header">About you</span>-->
 
   <form>
     <div class="form-group">
@@ -41,8 +39,6 @@
           </div>
         </details>
 
-
-
         <div class="selection-button-radio-inline" style="margin-top: 32px;">
           <div class="multiple-choice" data-target="nhs-yes">
             <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-nhs-number-num{{ params }}">
@@ -62,9 +58,6 @@
     <div class="form-group">
       <a class="button" href="#" id="continue">Continue</a>
     </div>
-
-
-
 
   </form>
 

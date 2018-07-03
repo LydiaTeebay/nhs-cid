@@ -17,6 +17,24 @@ module.exports = function (router) {
         })
     })
 
+    router.get('/create-account/pb/two-step-thanks', function (req, res) {
+        // pull in the url parameter
+        var vouched = req.param('vouch')
+        // vouched users bypass this page and set a password
+        if (vouched === 'yes') {
+            res.redirect('/create-account/pb/set-password?vouch=yes')
+            return
+        }
+        var theReason = req.param('reason')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var poluser = req.param('poluser')
+        // re-render the page along with the parameter
+        res.render('create-account/pb/two-step-thanks', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/v9/two-step-thanks', function (req, res) {
         // pull in the url parameter
         var vouched = req.param('vouch')

@@ -1,10 +1,9 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Connect to your GP - Have you been given registration details by your GP's surgery?{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Has your doctor’s surgery given you details that let you book appointments online?{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead + "&surgery=" + surgery + "&practiceID=" + practiceID %}
 
 {% block content %}
-<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 <div class="first-item">
   <form>
@@ -13,7 +12,7 @@
 
         <legend>
           <h1 class="">
-            <!--<span class="heading-secondary">Connect to your GP </span>-->Has your doctor’s surgery given you details that let you book appointments online?
+            Has your doctor’s surgery given you details that let you book appointments online?
           </h1>
         </legend>
 
@@ -43,11 +42,11 @@
           Yes
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-2">
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/v9/service-access-triage-1{{ params }}&poluser=false">
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-triage-1{{ params }}&poluser=false">
           No
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-3">
-          <input id="radio-inline-3" type="radio" name="radio-inline-group" value="/service-access/v9/service-access-triage-1{{ params }}&poluser=false">
+          <input id="radio-inline-3" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-triage-1{{ params }}&poluser=false">
           Don't know
         </label>
 

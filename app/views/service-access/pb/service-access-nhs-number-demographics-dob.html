@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - What is your NHS number?{% endblock %}
+{% block page_title %}Access {{ serviceName }} - What is your date of birth?{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
@@ -13,15 +13,10 @@
 
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
-      <!--<span class="section-header">About you</span>-->
-
       <h1><legend>What's your date of birth?</legend></h1>
 
       <div class="form-group">
         <fieldset>
-          <!--<legend class="form-label">-->
-            <!--Date of birth-->
-          <!--</legend>-->
           <span class="form-label__hint" style="margin-top: 10px;">Example: 31 3 1980</span>
           <div class="form-group -date" style="margin-top: 10px;">
             <div class="form-date-field">
