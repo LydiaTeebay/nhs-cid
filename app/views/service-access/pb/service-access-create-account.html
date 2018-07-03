@@ -1,0 +1,79 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}{{serviceName}}{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% if service  %}
+
+{% endif %}
+{% set service = "accessresults" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern(serviceName,'') }}
+{% endblock %}
+
+{% block content %}
+<style>
+.create {
+	background-color: #f0f4f5;
+	border-left: 4px solid #d8dde0;
+	padding: 15px;
+}
+
+.verify-note {
+	background: #f0f4f5 url('/images/govuk-verify-transparent.svg') no-repeat 10px 9px;
+	background-size: 15%;
+	border-left: 4px solid #d8dde0;
+	padding: 15px 15px 15px 100px;
+	margin-top: 5px;
+}
+</style>
+
+<p>To access this service you must have an NHS account.</p>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
+
+{% block leftHalf %}
+<section class="login">
+	<fieldset class="">
+	    <h2 style="font-size: 26px">Log in to your NHS account</h2>
+
+	    <div class="verify-note">
+	    	<p class="small">If you created your NHS account through <strong>GOV.UK Verify</strong> you can <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">sign in here</a>.</p>
+		</div>
+
+	    <div class="form-group" style="margin-top: 16px;">
+	      	<label class="form-label" for="field1">Email</label>
+	      	<input class="form-control" id="field1" name="field1" type="text">
+	    </div>
+
+	    <div class="form-group">
+	      	<label class="form-label" for="field2">Password</label>
+	      	<input class="form-control" id="field2" name="field2" type="password">
+	    </div>
+	    <a class="button" href="/create-account/two-step-code-login{{ params }}" id="continue" style="margin-top: 0;">Continue</a>
+	</fieldset>
+
+	    
+
+	<p><a href="/create-account/forgotten-password{{ params }}">Forgotten your password?</a></p>
+</section>
+
+{% endblock %}
+
+{% block rightHalf %}
+
+<section class="create">
+	<h2 style="font-size: 26px">Create an NHS account</h2>
+	<p>If you do not have an NHS account you can create one here.</p>
+	<p class="small">You will need:</p>
+	<ul>
+		<li class="small">an email address you have access to</li>
+		<li class="small">a mobile phone you have access to</li>
+	</ul>
+	<p><a class="button" href="/create-account/create-acc-terms{{ params }}">Create an NHS account</a></p>
+</section>
+
+{% endblock %}

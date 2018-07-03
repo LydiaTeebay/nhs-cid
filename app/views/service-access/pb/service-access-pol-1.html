@@ -1,0 +1,41 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 1: Enter your registration details{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID %}
+
+{% block content %}
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+<p>Follow these steps to create your account</p>
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Connect to your doctor's surgery</h3>
+			<div class="service-access__item__desc">
+				<p>You'll need to tell us your online registration details, last name and date of birth.</p>
+				<!--<p>These are the registration details you will have received from your GP surgery to access online services, for example booking appointments.</p>-->
+			</div>
+			<a href="/patient-online/v9/patient-online-linkage-key{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<!--
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">About you</h3>
+			<div class="service-access__item__desc">
+				<p>You will need to give us some details about yourself.</p>
+			</div>
+		</li>
+		-->
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Create your {% include '_partials/_components/_name.html' %} sign-in details</h3>
+			<div class="service-access__item__desc">
+				<p>You'll be able to use these details to sign in to other NHS services.</p>
+				<!--<p>Your {% include '_partials/_components/_name.html' %} account will allow you to sign into multiple health services in the future.</p>-->
+			</div>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

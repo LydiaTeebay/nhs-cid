@@ -1,0 +1,82 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}{{serviceName}}{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% if service  %}
+
+{% endif %}
+{% set service = "nhsonlinepol" %}
+{% set serviceName = "Create an NHS Account" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
+
+
+{% block content %}
+<style>
+.create {
+	background-color: #f0f4f5;
+	border-left: 4px solid #d8dde0;
+	padding: 15px;
+}
+
+.verify-note {
+	background: #f0f4f5 url('/images/govuk-verify-transparent.svg') no-repeat 10px 9px;
+	background-size: 15%;
+	border-left: 4px solid #d8dde0;
+	padding: 15px 15px 15px 100px;
+	margin-top: 5px;
+}
+</style>
+
+<p>To access online services you will need to create an {% include '_partials/_components/_name.html' %} account and connect to your GP</p>
+
+
+<ol class="service-access">
+	<li class="service-access__item active">
+		<h3 class="service-access__item__title">Create an {% include '_partials/_components/_name.html' %} account</h3>
+		<div class="service-access__item__desc">
+			<p>If you don't have an NHS account you can create one here.</p>
+			<p class="small">You will need:</p>
+			<ul>
+				<li class="small">an email address you have access to</li>
+				<li class="small">a mobile phone you have access to</li>
+			</ul>
+		</div>
+		<a href="/create-account/v9/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
+	</li>
+	<li class="service-access__item">
+		<h3 class="service-access__item__title">Connect to your GP</h3>
+		<div class="service-access__item__desc">
+			<p>If you already use online services with your GP, you can use those details again.</p>
+			<p class="small">You will need:</p>
+			<ul>
+				<li class="small">online services details</li>
+				<li class="small">GP practice postcode or practice name</li>
+			</ul>
+		</div>
+	</li>
+</ol>
+<!--
+<section class="create">
+	<h2 style="font-size: 26px">Create an NHS account</h2>
+	<p>If you don't have an NHS account you can create one here.</p>
+	<p class="small">You will need:</p>
+	<ul>
+		<li class="small">an email address you have access to</li>
+		<li class="small">a mobile phone you have access to</li>
+	</ul>
+	<p><a class="button" href="/create-account/create-acc-terms{{ params }}">Create an NHS account</a></p>
+</section>
+-->
+<!--
+<p style="text-align: center">and</p>
+<section class="create">
+	<h2 style="font-size: 26px">Connect to your GP</h2>
+	<p>If you already use online services with your GP, you can use those details again.</p>
+	<p class="small">You will need:</p>
+	<ul>
+		<li class="small">online services details</li>
+		<li class="small">GP practice postcode or practice name</li>
+	</ul>
+</section>
+-->
+{% endblock %}
