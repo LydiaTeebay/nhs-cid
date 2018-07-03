@@ -10,12 +10,8 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
         var loggedin = req.param('loggedin')
-        // re-render the page along with the parameter
-        if (loggedin === 'true') {
-            var stepurl = 'service-access-nhs'
-        } else {
-            var stepurl = 'service-access-account'
-        }
+        var stepurl = 'service-access-nhs'
+
         res.render('service-access/pb/service-access-triage-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl }, function(err, html) {
             res.send(html)
         })
