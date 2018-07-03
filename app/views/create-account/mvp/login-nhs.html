@@ -1,11 +1,11 @@
-{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Sign in to your NHS account {{serviceName}}
 {% endblock %}
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
 
-{% block body %}
+{% block content %}
 
 <style>
 .global-header__inner {
@@ -29,7 +29,7 @@ input.form-control {
             <fieldset class="">
 
                 <div class="form-group">
-                    <label class="form-label" for="field1">Email</label>
+                    <label class="form-label" for="field1">Email address</label>
                     <input class="form-control" id="field1" name="field1" type="text">
                 </div>
 

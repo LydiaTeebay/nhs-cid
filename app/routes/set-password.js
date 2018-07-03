@@ -8,6 +8,30 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/create-account/pb/set-password', function (req, res) {
+        // pull in the url parameter
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        // re-render the page along with the parameter
+        res.render('create-account/v9/set-password', {service: service, serviceName: serviceName, hidehead: hidehead, vouch: vouched}, function(err, html) {
+            res.send(html)
+        })
+    })
+
+    router.get('/create-account/pb/set-password', function (req, res) {
+        // pull in the url parameter
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        // re-render the page along with the parameter
+        res.render('create-account/v9/set-password', {service: service, serviceName: serviceName, hidehead: hidehead, vouch: vouched}, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/mvp/set-password', function (req, res) {
         // pull in the url parameter
         var vouched = req.param('vouch')

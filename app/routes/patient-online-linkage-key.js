@@ -12,6 +12,50 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/patient-online/pb/patient-online-linkage-key', function (req, res) {
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = req.param('emailAddress')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var system = req.param('system')
+        var practiceID = req.param('practiceID')
+        var loggedin = req.param('loggedin')
+        res.render('patient-online/pb/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.get('/patient-online/v9/patient-online-linkage-key', function (req, res) {
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = req.param('emailAddress')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var system = req.param('system')
+        var practiceID = req.param('practiceID')
+        var loggedin = req.param('loggedin')
+        res.render('patient-online/v9/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.get('/patient-online/v8/patient-online-linkage-key', function (req, res) {
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = req.param('emailAddress')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var system = req.param('system')
+        res.render('patient-online/v8/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/patient-online/mvp/patient-online-linkage-key', function (req, res) {
         var vouched = req.param('vouch')
         var service = req.param('service')

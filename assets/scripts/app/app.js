@@ -39,6 +39,53 @@ function activateLoader(speed) {
     }, time)
 }
 
+function activateLoader2(speed) {
+    // console.log("activate")
+    var progressbar = $('#progress_bar')
+    var $ppc = $('.progress-pie-chart')
+    document.getElementById("spinner-status").innerHTML = "Please wait";
+    $ppc.removeClass('gt-50')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate)
+            $("#spinner-heading").css("display", "block")
+            $("#scan-id-0").css("display", "block")
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-5").css("display", "none")
+            $("#scan-id-6").css("display", "none")
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 4000)
+            setTimeout(function(){
+                $('#continueButton').click()
+            }, 5000)
+        }
+    }
+    var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function reactivateLoader(speed) {
     // console.log("activate")
     var $ppc = $('.progress-pie-chart')
@@ -103,6 +150,51 @@ function uploadLoader(speed) {
                 $("#scan-id-3").css("display", "none")
             $("#scan-id-7").css("display", "block")
             // $("#scan-id-5").css("display", "block")
+        }
+    }
+    var animate2 = setInterval(function() {
+        loading()
+    }, time)
+}
+
+function uploadLoader2(speed) {
+    var $ppc = $('.progress-pie-chart')
+    $ppc.removeClass('gt-50')
+    var progressbar = $('#progress_bar')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate2)
+            $("#spinner-heading").css("display", "block")
+            document.getElementById("spinner-status").innerHTML = "Checking";
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-0").css("display", "block")
+
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 4000)
+            setTimeout(function(){
+                $('#confirmButton').click()
+            }, 5000)
         }
     }
     var animate2 = setInterval(function() {
@@ -186,7 +278,7 @@ function playSelectedFile(event) {
     $("#scan-id-1").css("display", "none")
     $("#scan-id-5").css("display", "block")
 
-    uploadLoader(2)
+    // uploadLoader(2)
 }
 
 $("#video-selfie").change(function(){
@@ -247,7 +339,8 @@ $("#submit-id-back-button").on("click", function(e) {
 // submit button action
 $("#submit-photoId-button").on("click", function(e) {
     e.preventDefault()
-    activateLoader(2)
+    activateLoader2(2)
+    $("#scan-id-0").css("display","none")
     $("#scan-id-5").css("display","none")
     $("#scan-id-6").css("display","none")
     $("#scan-id-3").css("display","block")
@@ -258,6 +351,18 @@ $("#submit-photoId-button").on("click", function(e) {
 $("#submit-videoSelfie-button").on("click", function(e) {
     e.preventDefault()
     activateLoader(2)
+    $("#scan-id-0").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit button action post v8 version
+$("#submit-videoSelfie2-button").on("click", function(e) {
+    e.preventDefault()
+    activateLoader2(2)
+    $("#scan-id-0").css("display","none")
     $("#scan-id-5").css("display","none")
     $("#scan-id-6").css("display","none")
     $("#scan-id-3").css("display","block")
@@ -370,22 +475,6 @@ $("#securitycodeContinue").on("click", function(e) {
   }
 })
 
-$(".results__name a").on("click", function(e){
-    e.preventDefault();
-    let url = e.target.href;
-    var query = window.location.href.slice(window.location.href.indexOf('?'));
-
-    if (url.indexOf("systmonline") !== -1) {
-        window.parent.document.location.href = "/patient-online/v7/patient-online-gp-online" + query + "&system=tpp";
-    }
-    
-    if (url.indexOf('emisaccess') !== -1) {
-        window.parent.document.location.href = "/patient-online/v7/patient-online-gp-online" + query + "&system=emis";
-    }
-
-    return;
-  })
-
 // expand ID document image in ID checker
 $(".idcheck-image-expand-button").on("click", function(e) {
     e.preventDefault()
@@ -430,8 +519,6 @@ swap();
   var mOverlay = getId('modal_window'),
       mOpen = getId('modal_open'),
       mCreate = getId('modal_create'),
-      mCreate2 = getId('modal_create2'),
-      mCreate3 = getId('modal_create3'),
       mClose = getId('modal_close'),
       modal = getId('modal_holder'),
       emailField = getId('emailAddress'),
@@ -487,11 +574,6 @@ swap();
     // open modal by btn click/hit
     // mOpen.addEventListener('click', modalShow)
     mCreate.addEventListener('click', modalShow, false)
-    mCreate2.addEventListener('click', modalShow, false)
-    mCreate3.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.parent.document.location.href = e.target.href
-    });
     // close modal by btn click/hit
     mClose.addEventListener('click', modalClose)
 

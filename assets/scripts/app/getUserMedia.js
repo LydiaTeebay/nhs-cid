@@ -160,7 +160,8 @@ function showPrep() {
 
 function showUploader() {
     mute();
-    uploadLoader(2);
+    uploadLoader2(2);
+    document.getElementById("spinner-heading").innerHTML = "Uploading your video";
     document.getElementById("progressbar-heading").innerHTML = "Uploading your video";
     document.getElementById('scan-id-5').style.display = "none";
     document.getElementById('scan-id-3').style.display = "block";

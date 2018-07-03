@@ -1,0 +1,39 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Instructions to record a short video{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <section class="" id="scan-id-1">
+
+    <p><a href="service-access-video-selfie{{ params }}" class="link-back">Back</a></p>
+
+    <form>
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            Record a short video
+          </h1>
+        </legend>
+
+        <p>You'll need to record a video of your face while you say 4 numbers.</p>
+        <p>We'll show you the numbers on the next page.</p>
+
+        <div class="form-group">
+          <a href="service-access-video-selfie-camera{{ params }}" class="button camera-button">Continue</a>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+
+  </section>
+
+</div>
+
+{% endblock %}

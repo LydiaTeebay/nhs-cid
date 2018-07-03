@@ -1,24 +1,33 @@
-{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% extends '_layouts/_grids/_grid-1-2-stacked-nhsone.html' %}
 {% block page_title %}Account - manage phone number{% endblock %}
 
 {% set signedin = 'true' %}
 
-{% block header %}
-  {% import "_partials/_components/_local-header.html" as localHeader %}
-  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% block topRow %}
+
+<h1>Account settings
+  <div class="smaller-h1">Phone number</div>
+</h1>
+<hr>
+
+<style>
+  .c-page-contents__link.link-phone { 
+    font-weight: bold; 
+    text-decoration: none; 
+  }
+</style>
+
 {% endblock %}
 
 {% block content %}
 
-{% include '_partials/_components/_account-menu.html' %}s
+{% include '_partials/_components/_account-menu.html' %}
 
 {% endblock %}
 
 {% block rightcol %}
 
-{% block alert %}{% endblock %}
-
-<div class="first-item">
+<div class="first-item account-mgmt">
 	<h2>Enter new phone number</h2>
 
 	<p>We need to validate your phone number to make your account more secure.</p>

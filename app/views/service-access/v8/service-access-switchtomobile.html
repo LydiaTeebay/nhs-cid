@@ -1,0 +1,51 @@
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+
+  <form action="service-access-switchtomobile{{ params }}" method="POST">
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            Continue on mobile
+          </h1>
+        </legend>
+
+        <p>You'll need to use your mobile to take photos of your {{ idType }}.</p>
+        <p>We'll text you a one-time secure link to your mobile.</p>
+
+
+        <div class="form-group">
+          <label class="form-label" for="mob_number">Mobile number</label>
+
+          {% if formerror == 'notaphone' %}
+          <div id="mobile-num" class="has-error form-row-error-active">
+            <span class="error error-message error-label error-text error-message-active" id="mobile-number-error">Please enter a valid mobile number</span>
+          </div>
+
+          {% endif %}
+
+          <input class="form-control code" id="mob_number" name="mob_number" value="{{ mobileNum }}" type="text">
+        </div>
+
+        <div class="form-group">
+          <!--<a class="button" href="service-access-eredbook-03{{ params }}" id="continue">Continue</a>-->
+          <button class="button">Send Link</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+</div>
+
+{% endblock %}

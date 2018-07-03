@@ -17,7 +17,7 @@
         <div class="form-group">
             <label class="form-label">NHS Number</label>
             <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fail' %}
+            {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </fieldset>
-            {% if result == 'fail' %}
+            {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
@@ -51,21 +51,21 @@
         <div class="form-group">
             <label class="form-label">first name</label>
             <input type="text" id="" name="" value="Joe" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fail' %}
+            {% if result == 'fails' %}
                 <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
         <div class="form-group">
             <label class="form-label">Middle names</label>
             <input type="text" id="" name="" value="" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fail' %}
+            {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
         <div class="form-group">
             <label class="form-label">Last name</label>
             <input type="text" id="" name="" value="Bloggs" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fail' %}
+            {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
@@ -89,14 +89,14 @@
                     </div>
                 </div>
             </fieldset>
-            {% if result == 'fail' %}
+            {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
         <div class="form-group">
             <label class="form-label">Postcode</label>
             <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fail' %}
+            {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
@@ -147,7 +147,11 @@
 
             <div class="idcheck-result">
                 {% if result === 'fail' %}
-                    Match not found
+                    {% if failreason === 'expired' %}
+                        Match not possible
+                    {% else %}
+                        Match not found
+                    {% endif %}
                 {% elif result === 'spine' %}
                     Lookup error
                 {% else %}
@@ -173,7 +177,7 @@
                     </div>
                     {% elif failreason === 'expired' %}
                     <div class="idcheck-result-reason" id="failed">
-                        <p>The submitted NHS number has expired</p>
+                        <p>The submitted NHS number belongs to someone who has been recorded as deceased</p>
                     </div>
                     {% else %}
                     <div class="idcheck-result-reason" id="failed">
@@ -195,11 +199,61 @@
         </div>
 
         {% if result === 'fail' %}
-        <div id="declinebtn-2" style="display:none;">
-            <div id="id-decline">
-                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn" class="button button--decline">Decline</a>
+
+
+        <div class="form-group" id="declinebtn-2" style="display: none;">
+            {% if failreason === 'expired' %}
+
+            <div id="id-decline3">
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" data-target="modal" id="declineBtn3" class="button button--decline">Reject</a>
             </div>
-        </div>
+
+            {% else %}
+
+                <fieldset>
+
+                    <p>Can you find the person’s NHS number using a manual PDS check?</p>
+
+                    <span  style="padding-bottom: 32px;" class="form-label__hint">Use the name and date of birth from their photo ID document. </span>
+
+                    <div class="selection-button-radio-inline">
+                        <div class="multiple-choice" data-target="nhs-yes">
+                            <input id="radio-inline-1" type="radio" name="radioinlinegroup" value="yes">
+                            <label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
+                        </div>
+                    </div>
+                    <div class="selection-button-radio-inline">
+                        <div class="multiple-choice" data-target="nhs-no">
+                            <input id="radio-inline-2" type="radio" name="radioinlinegroup" value="no">
+                            <label for="radio-inline-2"class="block-label" style="position: static;">No</label>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <div aria-hidden="true" aria-expanded="false" class=" js-hidden" id="nhs-yes" style="margin: 0;">
+
+                    <div class="form-group">
+                        <label class="form-label" for="nhs_number">NHS Number</label>
+                        <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
+                    </div>
+                    <div id="id-approve2">
+                        <a href="id-checker-dashboard?state=approved&result=resubmit&emailLink=email-idcheck-approved" id="approveBtn2" data-target="modal" class="button button--approve">Submit</a>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-no" style="margin: 0 0 32px;">
+                    <div id="id-decline2">
+                        <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                    </div>
+                </div>
+
+            {% endif %}
+
+            </div>
+
+
+
         {% endif %}
 
         {% if result === 'spine' %}
@@ -208,7 +262,11 @@
                 <a href="id-checker-review?demographics=false&role=undefined&result=spine" id="retryBtn" class="button button--retry">Retry</a>
             </div>
         </div>
+
+
         {% endif %}
+
+
 
     </div>
 </div>
@@ -294,20 +352,46 @@
 
         <div id="id-buttons">
             <div id="id-approve">
-                <a href="id-checker-dashboard?state=approved&emailLink=email-idcheck-approved" id="approveBtn" class="button button--approve" style="display: none;">Approve</a>
+                <a href="id-checker-dashboard?state=approved&emailLink=email-idcheck-approved" data-target="modal" id="approveBtn" class="button button--approve" style="display: none;">Approve</a>
             </div>
             <div id="id-decline">
-                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" data-target="modal" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal-overlay no-fade" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="modal-content" id="modal_holder" role="document">
+        <h3 id="modal-header">Additional information about this assurance request</h3>
+        <div class="first-item">
+            <form>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label class="form-label" for="field3">Comments (optional)</label>
+
+                        <textarea class="form-control form-textbox" id="field3" name="field3" type="text" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <a class="button" id="modal-link" href="id-checker-supervisor-dashboard?role=Supervisor">Submit</a>
+                </div>
+            </form>
+        </div>
+    </div> <!-- end .modal-content -->
+</div> <!-- end .modal-overlay -->
+
+<p><a id="modal_create" class="smartcard" href="#">.</a></p>
 
 <script type="text/javascript">
 
     // hide or show the buttons based on selections
     // localStorage.removeItem("idchecker")
     addEventListeners()
+    addButtonListeners()
     resetAllSections()
     questionsComplete = false
 
@@ -370,6 +454,28 @@
         }
     }
 
+    var buttonClick = function(object, event) {
+        event.preventDefault()
+
+        console.log(object.text)
+
+        var link = object.href
+        var heading = document.getElementById('modal-header')
+        heading.text = 'Additional information about this declined assurance request'
+        var a = document.getElementById('modal-link')
+        a.href = link
+        document.getElementById('modal_create').click()
+
+        var buttonType = object.text
+
+        if (buttonType === 'Decline') {
+            heading.innerText = 'Additional information about this declined assurance request'
+        } else {
+            heading.innerText = 'Additional information about this approved assurance request'
+        }
+
+    }
+
     // run through all sections checking for completeness
     function resetAllSections() {
         // get an array of all the question groups
@@ -403,6 +509,15 @@
         for (i = 0; i < inputs.length; i++) {
             inputs[i].addEventListener('click', function(){
                 processClick(this)
+            })
+        }
+    }
+
+    function addButtonListeners() {
+        var inputs = document.querySelectorAll('.button--approve, .button--decline')
+        for (i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('click', function(event){
+                buttonClick(this, event)
             })
         }
     }
@@ -559,6 +674,7 @@
             questionsComplete = true
         }
     }
+
 </script>
 
 {% endblock %}

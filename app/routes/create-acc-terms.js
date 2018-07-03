@@ -35,6 +35,105 @@ module.exports = function (router) {
         res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
     })
 
+    router.get('/create-account/pb/create-acc-terms', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/pb/two-step-code?vouch=yes')
+            return
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/pb/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/pb/create-acc-terms', function (req, res) {
+        var emailAddress = req.body.emailAddress
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/pb/two-step-code?vouch=yes')
+            return
+        }
+        res.redirect('/create-account/pb/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
+    })
+
+    router.get('/create-account/v9/create-acc-terms', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v9/two-step-code?vouch=yes')
+            return
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v9/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/v9/create-acc-terms', function (req, res) {
+        var emailAddress = req.body.emailAddress
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v9/two-step-code?vouch=yes')
+            return
+        }
+        res.redirect('/create-account/v9/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
+    })
+
+    router.get('/create-account/v8/create-acc-terms', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v8/two-step-code?vouch=yes')
+            return
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v8/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/v8/create-acc-terms', function (req, res) {
+        var emailAddress = req.body.emailAddress
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v8/two-step-code?vouch=yes')
+            return
+        }
+        res.redirect('/create-account/v8/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
+    })
+
     router.get('/create-account/mvp/create-acc-terms', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
