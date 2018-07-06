@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
-{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
+{% block page_title %}Sign in with NHS One - {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 {% set newUser = 'yes' %}
 
@@ -24,7 +24,7 @@
   {% else %}
     <h1>Check your email</h1>
     <p>An email has been sent to {{ emailAddress }}</p>
-    <p>Click the link in the <a href="/emails/v1/email-validate{{ params }}">email</a> to continue your {% include '_partials/_components/_name.html' %} registration.</p>
+    <p>Click the link in the <a href="/emails/v1/email-validate{{ params }}">email</a> to continue your NHS One registration.</p>
   {% endif %}
   </div>
     
