@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Sign in with NHS Access - {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>Check your email</h1>
+    <p>We've sent an <a href="/emails/v4/email-validate{{ params }}">email</a> to {{ emailAddress }}. You'll need to confirm your email address to continue.</p>
+    <p>If you have not received your email check your spam folder.</p>
+  </div>
+    
+</div>
+
+{% endblock %}

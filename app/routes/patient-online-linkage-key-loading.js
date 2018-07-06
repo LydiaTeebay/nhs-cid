@@ -9,6 +9,16 @@ module.exports = function (router) {
             res.send(html)
         })
     })
+    router.get('/patient-online/v10/patient-online-linkage-key-loading', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var system = req.param('system')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        res.render('patient-online/v10/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+    })
     router.get('/patient-online/pb/patient-online-linkage-key-loading', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')

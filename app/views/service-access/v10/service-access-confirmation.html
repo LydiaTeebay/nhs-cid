@@ -1,0 +1,26 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - We need to check your information to keep your account secure{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+
+<h1>We need to check your information to keep your account secure</h1>
+
+<section class="service-access-wrapper">
+
+	<p>By clicking submit, you agree to send us your photo, video and personal information. It will be stored securely.</p>
+	<p>See <a href="/create-account/v10/terms{{ params }}">terms and conditions</a> for how long we'll store your information.</p>
+	<a href="service-access-complete{{ params }}" class="button">Submit information</a>
+	
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

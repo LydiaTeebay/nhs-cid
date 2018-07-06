@@ -1,0 +1,23 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Sorry you cannot continue{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+<div class="first-item">
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+
+  <h1 class="">
+    Sorry you cannot continue
+  </h1>
+
+  <p>You don't have the correct information to continue using this service.</p>
+
+
+
+</div>
+
+{% endblock %}

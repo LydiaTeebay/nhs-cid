@@ -1,0 +1,26 @@
+{% extends '_layouts/_grids/_grid-email-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Your identity has been verified{% endblock %}
+{% set hidehead = "true" %}
+{% set service = "mvp" %}
+{% set serviceName = "NHS App" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Your identity has been verified','You can now access the NHS App','success') }}
+
+  <p>We have reviewed your application for Online NHS Services and it has been approved.</p>
+
+
+  <p><a class="button" href="/start/10/nhs-online{{ params }}">Continue to {{ serviceName }}</a></p>
+
+</div>
+
+{% endblock %}
