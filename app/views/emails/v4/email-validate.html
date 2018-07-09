@@ -13,12 +13,32 @@
 {% endif %}
 
 {% block content %}
+
+<style>
+.security-code {
+  padding-left: 10px;
+  font-size: 36px;
+  letter-spacing: 30px;
+  color: #005eb8;
+}
+
+.heading-medium {
+	font-size: 24px;
+}
+
+</style>
+
+
 <div class="first-item" style="padding-bottom: 100px;" >
   <h1>Confirm your email address</h1>
-  <p>To continue setting up NHS Access, you need to confirm your email address.</p>
+  <p>To continue setting up NHS Access, you need to confirm your email address by entering this security code into the app.</p>
+
+  <h2 class="heading-medium">Security code</h2>
+  <p class="security-code">8937</p>
+
   <p>If you did not try to set up {% include '_partials/_components/_name.html' %} using this email address, please ignore this email. We will delete your information after 48 hours.</p>
 
-  <p><a class="button" href="/create-account/v10/two-step{{ params }}">Confirm your email address</a></p>
+  <!-- <p><a class="button" href="/create-account/v10/two-step{{ params }}">Confirm your email address</a></p> -->
 
 </div>
 

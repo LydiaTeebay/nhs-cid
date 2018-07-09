@@ -15,13 +15,19 @@
 {% block content %}
 
 <div class="first-item">
-
-  <div class="form-group">
-    <h1>Check your email</h1>
-    <p>We've sent an <a href="/emails/v4/email-validate{{ params }}">email</a> to {{ emailAddress }}. You'll need to confirm your email address to continue.</p>
-    <p>If you have not received your email check your spam folder.</p>
-  </div>
-    
+<form>
+<div class="form-group">
+<h1>Check your email</h1>
+<p>We've sent an <a href="/emails/v4/email-validate{{ params }}">email</a> to {{ emailAddress }} with a security code. You'll need to enter the code below to continue. Do not close this app whilst you get the code from your email.</p>
+<div class="form-group">
+<input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+</div>
+<div class="form-group">
+<a href="two-step{{ params }}" class="button">Continue</a>
+</div>
+<p>If you have not received your email check your spam folder.</p>
+</div>
+</form>
 </div>
 
 {% endblock %}
