@@ -8,70 +8,50 @@
 
 {% block content %}
 
-<h1>{{ role }} Dashboard </h1>
+<style>
+  tr:hover:not(first-of-type) {
+    cursor: pointer;
+    background-color: #f4f4f4;
+  }
+  a:visited {
+    text-decoration: line-through;
+  }
+</style>
 
-<div class="grid-row">
-  <div class="column--one-third">
-    <div class="idcheck-dash">
-      <p class="idcheck-dash-heading">Pending</p>
 
-      <div class="idcheck-dash-details">
+<h1>Completed assurance requests</h1>
 
-        {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
-        <div class="idcheck-dash-number bold-xxlarge">14</div>
-        {% elif state === 'clear' %}
-        <div class="idcheck-dash-number bold-xxlarge">0</div>
-        {% else %}
-        <div class="idcheck-dash-number bold-xxlarge">15</div>
-        {% endif%}
+<table>
+  <tr>
+    <th>Date, time</th>
+    <th>Name or NHS number</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
 
-        {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
-        <div class="idcheck-dash-desc">First: 15 minutes ago <br>Last: 2 hours ago</div>
-        {% elif state === 'clear' %}
+  <tr class='clickable-row' data-href='/id-checker/id-checker-supervisor-review'>
+    <td>1st May 2018, 11:56am</td>
+    <td>Joe Blogs</td>
+    <td>Approved</td>
+    <td><a href="/id-checker/id-checker-supervisor-review">View</a></td>
+  </tr>
 
-        {% else %}
-        <div class="idcheck-dash-desc">First: 2 minutes ago <br>Last: 2 hours ago</div>
-        {% endif%}
-      </div>
-    </div>
-  </div>
-  <div class="column--one-third">
-    <div class="idcheck-dash {% if state === 'inprogress' %}u-inprogress{% endif %}">
-      <p class="idcheck-dash-heading">In progress</p>
-      <div class="idcheck-dash-details">
-        {% if state === 'inprogress' %}
-        <span class="idcheck-dash-number bold-xxlarge">2</span>
-        {% else %}
-        <span class="idcheck-dash-number bold-xxlarge">1</span>
-        {% endif%}
+  <tr class='clickable-row' data-href='/id-checker/id-checker-supervisor-review?demographics=true'>
+    <td>1st May 2018, 10:56am</td>
+    <td>Mark Young</td>
+    <td>Declined</td>
+    <td><a href="/id-checker/id-checker-supervisor-review?demographics=true">View</a></td>
+  </tr>
 
-        <div class="idcheck-dash-desc">Logged in RAs: 2</div>
-      </div>
-    </div>
-  </div>
-  <div class="column--one-third">
-    <div class="idcheck-dash">
-      <p class="idcheck-dash-heading">Reports</p>
+</table>
 
-      <div class="idcheck-dash-details">
-
-        <div class="idcheck-dash-number">31 completed today</div>
-
-        <div class="idcheck-dash-desc"><a href="id-checker-supervisor-reports{{ params }}" class="link--reverse-polarity">Generate a new report</a></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{% if state === 'inprogress' %}
-<p>You still have a verification in progress</p>
-<a class="button" href="id-checker-review{{ params }}">Continue verification</a>
-<p><a href="id-checker-dashboard">Abort</a></p>
-{% elif state === 'clear' %}
-
-{% else %}
-<a class="button" href="id-checker-review{{ params }}">Start next verification</a>
-{% endif%}
-
+<script type="application/javascript">
+    var clickable = document.getElementsByClassName('clickable-row')
+    for (i = 0; i < clickable.length; i++) {
+        clickable[i].addEventListener('click', function(event){
+            window.location = this.dataset.href
+        })
+    }
+</script>
 
 {% endblock %}

@@ -548,6 +548,7 @@ swap();
       if (modalOpen && ( !event.keyCode || event.keyCode === 27 ) ) {
           mOverlay.setAttribute('aria-hidden', 'true')
           modal.setAttribute('tabindex', '-1')
+          event.preventDefault()
           modalOpen = false
           lastFocus.focus()
       }
