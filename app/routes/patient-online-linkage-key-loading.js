@@ -15,7 +15,8 @@ module.exports = function (router) {
         var system = req.param('system')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
-        res.render('patient-online/v10/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        var result = req.param('result')
+        res.render('patient-online/v10/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, poluser: poluser, result: result }, function(err, html) {
             res.send(html)
         })
     })
@@ -25,7 +26,8 @@ module.exports = function (router) {
         var system = req.param('system')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
-        res.render('patient-online/pb/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        var result = req.param('result')
+        res.render('patient-online/pb/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, poluser: poluser, result: result }, function(err, html) {
             res.send(html)
         })
     })

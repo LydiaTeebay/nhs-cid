@@ -23,7 +23,8 @@ module.exports = function (router) {
         var system = req.param('system')
         var practiceID = req.param('practiceID')
         var loggedin = req.param('loggedin')
-        res.render('patient-online/v10/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin }, function(err, html) {
+        var result = req.param('result')
+        res.render('patient-online/v10/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result }, function(err, html) {
             res.send(html)
         })
     })
@@ -39,7 +40,8 @@ module.exports = function (router) {
         var system = req.param('system')
         var practiceID = req.param('practiceID')
         var loggedin = req.param('loggedin')
-        res.render('patient-online/pb/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin }, function(err, html) {
+        var result = req.param('result')
+        res.render('patient-online/pb/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result }, function(err, html) {
             res.send(html)
         })
     })

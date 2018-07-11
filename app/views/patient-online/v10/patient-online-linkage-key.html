@@ -33,10 +33,32 @@
     </div>
     <div class="form-group">
       <a class="button" href="patient-online-about-you-name{{ params }}">Continue</a>
+        <details class="" role="group" >
+            <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                <span class="details__summary">Continue with testing scenario</span>
+            </summary>
+            <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+                <div class="reading-width">
+                    <ol>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=200">[200] Validation success</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=400">[400] Functional - Bad request</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=403">[403] Functional - wrong permissions</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=404">[404] Functional - not found</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=409">[409] Functional - conflict, account already exists</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=500">[500] Technical - Unexpected error</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=501">[501] Technical - Unknown ODS code</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=502">[502] Technical - GP system unavailable</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=504">[504] Technical - Timeout</a></li>
+                    </ol>
+                </div>
+            </div>
+        </details>
     </div>
 
       <p>If you do not have your registration details, you can <a href="/service-access/v10/service-access-triage-1{{ params }}&poluser=false&loggedin=true">create an account using your photo ID</a></p>
   </form>
+
+
 </div>
 
 {% endblock %}

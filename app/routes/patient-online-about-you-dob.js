@@ -8,8 +8,9 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
+        var result = req.param('result')
         // re-render the page along with the parameter
-        res.render('patient-online/v10/patient-online-about-you-dob', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead}, function(err, html) {
+        res.render('patient-online/v10/patient-online-about-you-dob', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, result: result}, function(err, html) {
             res.send(html)
         })
     })
@@ -22,8 +23,9 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
+        var result = req.param('result')
         // re-render the page along with the parameter
-        res.render('patient-online/pb/patient-online-about-you-dob', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead}, function(err, html) {
+        res.render('patient-online/pb/patient-online-about-you-dob', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, result: result}, function(err, html) {
             res.send(html)
         })
     })
