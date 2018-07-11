@@ -15,19 +15,24 @@
 {% block content %}
 
 <div class="first-item">
-<form>
-<div class="form-group">
-<h1>Check your email</h1>
-<p>We've sent an <a href="/emails/v4/email-validate{{ params }}">email</a> to {{ emailAddress }} with a security code. You'll need to enter the code below to continue. Do not close this app whilst you get the code from your email.</p>
-<div class="form-group">
-<input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
-</div>
-<div class="form-group">
-<a href="two-step{{ params }}" class="button">Continue</a>
-</div>
-<p>If you have not received your email check your spam folder.</p>
-</div>
-</form>
+	<form>
+		<div class="form-group">
+			<fieldset class="inline">
+				<h1>Check your email</h1>
+				<p>We've sent an <a href="/emails/v4/email-validate{{ params }}">email</a> to {{ emailAddress }} with a security code. You'll need to enter the code below to continue. Do not close this app whilst you get the code from your email.</p>
+				<div class="form-group">
+					<input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+				</div>
+			</fieldset>
+		</div>
+		<div class="form-group">
+			<div class="form-group">
+				<a href="two-step{{ params }}" class="button">Continue</a>
+			</div>
+
+			<p>If you have not received your email check your spam folder.</p>
+		</div>
+	</form>
 </div>
 
 {% endblock %}
