@@ -13,7 +13,10 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
         var system = req.param('system')
-        res.render('patient-online/v10/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, service: service, system: system }, function(err, html) {
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

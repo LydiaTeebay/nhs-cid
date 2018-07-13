@@ -42,13 +42,16 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/v10/two-step-code?vouch=yes')
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/v10/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        res.render('create-account/v10/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
@@ -60,12 +63,15 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/v10/two-step-code?vouch=yes')
             return
         }
-        res.redirect('/create-account/v10/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
+        res.redirect('/create-account/v10/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
     })
 
     router.get('/create-account/pb/create-acc-terms', function (req, res) {

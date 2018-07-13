@@ -47,10 +47,13 @@ module.exports = function (router) {
         var idType = req.param('idType')
         var hidehead = req.param('hidehead')
         var changetomobile = req.param('changetomobile')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v10/service-access-switchtomobile', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead }, function(err, html) {
+        res.render('service-access/v10/service-access-switchtomobile', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
@@ -66,6 +69,9 @@ module.exports = function (router) {
         var changetomobile = req.param('changetomobile')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
 
         if (mobileNum === '' || mobileNum === 'undefined') {
             var formerror = 'invalid'
@@ -79,7 +85,7 @@ module.exports = function (router) {
                 .then(response => console.log(response))
         .catch(err => console.error(err))
         }
-        res.redirect('/service-access/v10/service-access-switchtomobile-waiting?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror)
+        res.redirect('/service-access/v10/service-access-switchtomobile-waiting?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&isMobile=' + isMobile + '&changetomobile=' + changetomobile + '&vouch=' + vouched + '&idType=' + idType + '&formerror=' + formerror + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
     })
 
     router.get('/service-access/pb/service-access-switchtomobile', function (req, res) {

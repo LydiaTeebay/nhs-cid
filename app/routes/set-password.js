@@ -14,8 +14,11 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
-        res.render('create-account/v10/set-password', {service: service, serviceName: serviceName, hidehead: hidehead, vouch: vouched}, function(err, html) {
+        res.render('create-account/v10/set-password', {service: service, serviceName: serviceName, hidehead: hidehead, vouch: vouched, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
             res.send(html)
         })
     })

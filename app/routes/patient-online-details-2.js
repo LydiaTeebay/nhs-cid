@@ -12,7 +12,10 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
-        res.render('patient-online/v10/patient-online-details-2', { serviceName: serviceName, hidehead: hidehead, service: service, poluser: poluser}, function(err, html) {
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-details-2', { serviceName: serviceName, hidehead: hidehead, service: service, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

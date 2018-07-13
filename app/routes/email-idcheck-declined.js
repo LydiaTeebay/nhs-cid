@@ -25,8 +25,11 @@ module.exports = function (router) {
         var verified = req.param('verified')
         var result = req.param('result')
         var demographics = req.param('demographics')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
-        res.render('emails/v4/email-idcheck-declined', { mobileNum: mobileNum, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, verified: verified, result: result, demographics: demographics }, function(err, html) {
+        res.render('emails/v4/email-idcheck-declined', { mobileNum: mobileNum, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, verified: verified, result: result, demographics: demographics, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

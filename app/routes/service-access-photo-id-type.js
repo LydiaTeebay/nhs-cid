@@ -81,8 +81,11 @@ module.exports = function (router) {
         var challenge = req.param('challenge')
         var hidehead = req.param('hidehead')
         var changetomobile = 'true'
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
-        res.render('service-access/v10/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/v10/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
@@ -96,6 +99,9 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
         var hidehead = req.param('hidehead')
         var challenge = req.param('challenge')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
 
         if (idType === 'driving licence') {
             // var formerror = 'invalid'
@@ -104,9 +110,9 @@ module.exports = function (router) {
             // var formerror = 'undefined'
         }
         if (idType === 'passport' || idType === 'driving licence') {
-            res.redirect('/service-access/v10/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge )
+            res.redirect('/service-access/v10/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         } else {
-            res.redirect('/service-access/v10/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge)
+            res.redirect('/service-access/v10/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         }
     })
 

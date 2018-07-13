@@ -24,8 +24,11 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
         var system = req.param('system')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
-        res.render('service-access/v10/service-access-pol-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system }, function(err, html) {
+        res.render('service-access/v10/service-access-pol-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
             res.send(html)
         })
     })

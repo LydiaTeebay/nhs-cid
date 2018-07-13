@@ -50,6 +50,9 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
         var pinCode = Math.floor(1000 + Math.random() * 9000)
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         var personalisation = {
             'pincode': pinCode
         }
@@ -64,7 +67,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v10/two-step-code-pincode', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        res.render('create-account/v10/two-step-code-pincode', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

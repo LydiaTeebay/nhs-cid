@@ -29,10 +29,13 @@ module.exports = function (router) {
         var idType = req.param('idType')
         var changetomobile = req.param('changetomobile')
         var hidehead = req.param('hidehead')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v10/service-access-no-documents', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, hidehead: hidehead }, function(err, html) {
+        res.render('service-access/v10/service-access-no-documents', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

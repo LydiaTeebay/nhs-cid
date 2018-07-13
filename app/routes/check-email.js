@@ -47,8 +47,11 @@ module.exports = function (router) {
         var mobileNum = req.param('mobileNum')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // send email message
-        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason + '&hidehead=' + hidehead + "&poluser=" + poluser
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason + '&hidehead=' + hidehead + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy
         var personalisation = {
             'email_address': emailAddress,
             'params': params
@@ -62,7 +65,7 @@ module.exports = function (router) {
         ).catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v10/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        res.render('create-account/v10/check-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

@@ -16,7 +16,10 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
         var result = req.param('result')
-        res.render('patient-online/v10/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, poluser: poluser, result: result }, function(err, html) {
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

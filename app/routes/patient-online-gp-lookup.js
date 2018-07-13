@@ -14,11 +14,14 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var service = req.param('service')
         var hidehead = req.param('hidehead')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
 
         if (postcode === '' && search === '') {
-            res.redirect('/patient-online/v10/patient-online-gp-lookup?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search + '&emptysearch=true')
+            res.redirect('/patient-online/v10/patient-online-gp-lookup?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&emptysearch=true')
         } else {
-            res.redirect('/patient-online/v10/patient-online-gp-results?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search)
+            res.redirect('/patient-online/v10/patient-online-gp-results?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
         }
     })
 
@@ -27,7 +30,10 @@ module.exports = function (router) {
         var service = req.param('service')
         var hidehead = req.param('hidehead')
         var emptysearch = req.param('emptysearch')
-        res.render('patient-online/v10/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, emptysearch: emptysearch }, function(err, html) {
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, emptysearch: emptysearch, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

@@ -10,8 +10,11 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var system = req.param('system')
         var result = req.param('result')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
-        res.render('patient-online/v10/patient-online-about-you-name', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, system: system, result: result }, function(err, html) {
+        res.render('patient-online/v10/patient-online-about-you-name', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, system: system, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

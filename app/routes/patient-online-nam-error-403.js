@@ -3,7 +3,10 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
-        res.render('patient-online/v10/patient-online-nam-error-403', { serviceName: serviceName, hidehead: hidehead, service: service }, function(err, html) {
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-nam-error-403', { serviceName: serviceName, hidehead: hidehead, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

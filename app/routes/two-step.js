@@ -35,8 +35,11 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
-        res.render('create-account/v10/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        res.render('create-account/v10/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
@@ -48,7 +51,10 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
-        res.redirect('/create-account/v10/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.redirect('/create-account/v10/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
     })
 
 

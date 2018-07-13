@@ -11,8 +11,11 @@ module.exports = function (router) {
         var poluser = req.param('poluser')
         var loggedin = req.param('loggedin')
         var stepurl = 'service-access-nhs'
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
 
-        res.render('service-access/v10/service-access-triage-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl }, function(err, html) {
+        res.render('service-access/v10/service-access-triage-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
