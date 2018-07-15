@@ -69,14 +69,16 @@
           </div>
         {% else %}
           <div style="float: right;" class="menu-links">
-            {% if service !== 'app2' %}
+            {% if service === 'app2' or service === 'app3' %}
+              <p style="padding: 0; margin: 0; text-align: right;"><!--<a href="/account/dashboard">Dashboard</a> | <a href="/account/account">Account</a> |-->
+                {% else %}
               <p style="padding: 0; margin: 0; text-align: right;"><!--<a href="/account/dashboard">Dashboard</a> | --><a href="/account/account">Account</a> |
             {% endif %}
 
             {% if service === 'eredbook' %}
               <a href="/start/eRedbook">Sign out</a></p>
             {% else %}
-              <a href="/">Sign out</a></p>
+              <a href="#">Log out</a></p>
             {% endif %}
           </div>
         {% endif %}
