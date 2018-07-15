@@ -19,8 +19,9 @@
   <form>
 
     <div class="form-group">
-      <h1>Set up NHS Access</h1>
-      <p>If you've already set up NHS Access, <a href="login-nhs{{ params }}">log in instead</a>.</p>
+      <h1>{{ service.name('login') }}</h1>
+
+      <p>If you've already set up {{ service.name('') }}, <a href="login-nhs{{ params }}">log in instead</a>.</p>
       <div class="form-group">
         <label class="form-label" for="emailAddress">Email address</label>
         <input class="form-control" id="emailAddress" name="emailAddress" type="email">

@@ -1,0 +1,25 @@
+{% macro name(variant = '') %}
+
+    {% set the name based on the study ID %}
+
+    {% if lsStudy === '000001' %}
+        {% set theName = '' %}
+    {% elif lsStudy === '000002' %}
+        {% set theName = 'NHS' %}
+    {% else %} {# fallback to 000003 if no argument is found #}
+        {% set theName = 'NHS Access' %}
+    {% endif %}
+
+
+    {# set up variations of the name string to fit in different contexts #}
+
+    {% if variant === 'login' %}
+        Log in with {{ theName }}
+    {% elif variant === 'setup' %}
+        Set up {{ theName }}
+    {% else %}
+        {{ theName }}
+    {% endif %}
+
+{% endmacro %}
+
