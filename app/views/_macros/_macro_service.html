@@ -17,15 +17,29 @@
     {# set up variations of the name string to fit in different contexts #}
 
     {% if variant === 'login' %}
-        Log in with {{ theName }}
+
+        {% if theName === '' %}
+            Log in
+        {% else %}
+            Log in with {{ theName }}
+        {% endif %}
+
     {% elif variant === 'setup' %}
+
         Set up {{ theName }}
+
     {% elif variant === 'account' %}
+
         {{ theName }} account
+
     {% elif variant === 'your' %}
+
         Your {{ theName }}
+
     {% else %}
+
         {{ theName }}
+
     {% endif %}
 
 {% endmacro %}
