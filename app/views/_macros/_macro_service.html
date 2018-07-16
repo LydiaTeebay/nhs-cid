@@ -18,15 +18,49 @@
 
     {% if variant === 'login' %}
 
+    {% if theName === '' %}
+        Log in
+    {% else %}
+        Log in with {{ theName }}
+    {% endif %}
+
+    {% elif variant === 'login-inline' %}
+
         {% if theName === '' %}
-            Log in
+        log in
         {% else %}
-            Log in with {{ theName }}
+        log in with {{ theName }}
         {% endif %}
 
     {% elif variant === 'setup' %}
 
-        Set up {{ theName }}
+        {% if theName === '' %}
+            Set your login details
+        {% elif theName === 'NHS' %}
+            Set up your NHS login
+        {% else %}
+            Set up {{ theName }}
+        {% endif %}
+
+    {% elif variant === 'setup-inline' %}
+
+        {% if theName === '' %}
+            set your login details
+        {% elif theName === 'NHS' %}
+            set up your NHS login
+        {% else %}
+            set up {{ theName }}
+        {% endif %}
+
+    {% elif variant === 'success' %}
+
+        {% if theName === '' %}
+            You now have an NHS login
+        {% elif theName === 'NHS' %}
+            You now have an {{ theName }} login
+        {% else %}
+            You have set up {{ theName }}
+        {% endif %}
 
     {% elif variant === 'account' %}
 

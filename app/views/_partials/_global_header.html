@@ -44,7 +44,9 @@
 
       {% if isServiceStart !== 'true' %}
         {% if (serviceName) %}
-          <h4 class="global-header__service">{{ serviceName|safe }}</h4>
+            {% if service !== 'app3' %}
+              <h4 class="global-header__service">{{ serviceName|safe }}</h4>
+         {% endif %}
         {% endif %}
       {% endif %}
 
