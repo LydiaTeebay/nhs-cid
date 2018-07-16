@@ -10,11 +10,11 @@
 
     <p>We couldn't create your account on {{ serviceName }}.</p>
 
-    <p>The information you submitted is already associated with an existing NHS Access login.</p>
+    <p>The information you submitted is already associated with an existing {{ service.name('') }} login.</p>
 
     <p>If you think you have made an error with the details try again.</p>
 
-    <p>If you think you already have an NHS Access account, please sign out and log in with that one.</p>
+    <p>If you think you already have {{ service.name('account') }}, please sign out and log in with that one.</p>
 </div>
 
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Set up NHS Access{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Set up {{ service.name('') }}{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&hidehead=" + hidehead %}
 
@@ -11,9 +11,9 @@
 
 	<ol class="service-access">
 		<li class="service-access__item active">
-			<h3 class="service-access__item__title">Set up NHS Access</h3>
+			<h3 class="service-access__item__title">{{ service.name('setup') }}</h3>
 			<div class="service-access__item__desc">
-				<p>If you've already done this, <a href="/create-account/v10/login-nhs{{ params }}">log in with NHS Access</a></p>
+				<p>If you've already done this, <a href="/create-account/v10/login-nhs{{ params }}">{{ service.name('login') }}</a></p>
 			</div>
 			<a href="/create-account/v10/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
 		</li>

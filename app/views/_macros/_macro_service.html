@@ -1,12 +1,15 @@
 {% macro name(variant = '') %}
 
-    {% set the name based on the study ID %}
+    {# set the name based on the study ID #}
+    {# fallback to NHS Access if no argument is found #}
 
     {% if lsStudy === '000001' %}
         {% set theName = '' %}
     {% elif lsStudy === '000002' %}
         {% set theName = 'NHS' %}
-    {% else %} {# fallback to 000003 if no argument is found #}
+    {% elif lsStudy === '000003' %}
+        {% set theName = 'NHS Access' %}
+    {% else %}
         {% set theName = 'NHS Access' %}
     {% endif %}
 
@@ -17,6 +20,10 @@
         Log in with {{ theName }}
     {% elif variant === 'setup' %}
         Set up {{ theName }}
+    {% elif variant === 'account' %}
+        {{ theName }} account
+    {% elif variant === 'your' %}
+        Your {{ theName }}
     {% else %}
         {{ theName }}
     {% endif %}
