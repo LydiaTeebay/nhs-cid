@@ -1,36 +1,49 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
+{% block page_title %}Sign in - {{serviceName}}{% endblock %}
 {% set signedin = '' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
 
 {% block content %}
 
 <div class="first-item">
-  <form>
-    <div class="form-group">
-      <fieldset class="">
-        <h1><legend>Log in with {% include '_partials/_components/_name.html' %}</legend></h1>
-
+   <form>
         <div class="form-group">
-          <label class="form-label" for="field1">Email address</label>
-          <input class="form-control" id="field1" name="field1" type="text">
+            <h1>Log in with {% include '_partials/_components/_name.html' %}</h1>
+
+            <fieldset class="">
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Email address</label>
+                    <input class="form-control" id="field1" name="field1" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Password</label>
+                    <input class="form-control" id="field2" name="field2" type="password">
+                </div>
+
+            </fieldset>
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="field2">Password</label>
-          <input class="form-control" id="field2" name="field2" type="password">
-        </div>
+        <a class="button" href="two-step{{ params }}" id="">Continue</a>
 
-      </fieldset>
-    </div>
-    <div class="form-group">
+        <p><a id="modal-create-acc" href="create-acc-terms{{ params }}">Create an account</a></p>
 
-      <a class="button" href="two-step{{ params }}" id="continue">Continue</a>
+        <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
 
-    </div>
-    <p><a href="forgotten-password">Forgotten your password?</a></p>
-    <p><a href="/patient-online/pb/patient-online-gp-lookup{{ params }}">Create an {% include '_partials/_components/_name.html' %} account</a></p>
-  </form>
+        <!-- <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin-bottom: 40px;">
+          <span style="font-size: 18px; background-color: #ffffff; padding: 0 10px;">Or</span>
+        </div> -->
+
+
+        <!-- div class="sidebar-button sidebar-buttongv">
+            <a id="modal-verify" href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">
+                <img src="/images/logo-verify@2x.png" width="60" />
+                <p style="font-size: 16px; line-height: 22px; color: #000;" class="font-xsmall">Sign in to your NHS account with <strong>GOV.UK Verify</strong></p>
+            </a>
+        </div -->
+    </form>
 </div>
 
 {% endblock %}
