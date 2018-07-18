@@ -1,0 +1,38 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Sorry - we're having technical problems{% endblock %}
+
+{% set params = "?lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+        <h1 class="heading-large"><span class="heading-secondary">Step 2 of 3 </span>Watch this video</h1>
+
+        <div >
+
+            <video id="name-video" width="320" height="240" controls style="max-width:100%;height:auto;">
+                <source src="/images/challenge.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+
+        <button onclick="visitPage()" class="button button--secondary" id="name-button" disabled>I've watched the video</button>
+
+    </section>
+
+</div>
+
+<script type='text/javascript'>
+    document.getElementById('name-video').addEventListener('ended', onComplete, false)
+    function onComplete(e) {
+        document.getElementById("name-button").disabled = false
+    }
+    function visitPage(){
+        window.location='survey{{ params }}'
+    }
+</script>
+
+{% endblock %}
