@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Enter your registration details{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID + "&result=" + result %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID %}
 
 {% block content %}
 
@@ -46,15 +46,15 @@
             <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
                 <div class="reading-width">
                     <ol>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=200">[200] Validation success</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=400">[400] Functional - Bad request</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=403">[403] Functional - wrong permissions</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=404">[404] Functional - not found</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=200">[201] successful operation</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=400">[400] Functional - ODS Code or NHS Number was invalid</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=403">[403] Functional - the linkage key has been revoked</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=404">[404] Functional - patient not found</a></li>
                         <li><a href="patient-online-about-you-name{{ params }}&result=409">[409] Functional - conflict, account already exists</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=500">[500] Technical - Unexpected error</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=501">[501] Technical - Unknown ODS code</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=502">[502] Technical - GP system unavailable</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=504">[504] Technical - Timeout</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=500">[500] Technical - An unexpected error occurred processing the request</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=501">[501] Technical - No GP system was found for ODS Code</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=502">[502] Technical - The GP system is currently unavailable</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=504">[504] Technical - The GP system did not respond in a timely fashion</a></li>
                     </ol>
                 </div>
             </div>

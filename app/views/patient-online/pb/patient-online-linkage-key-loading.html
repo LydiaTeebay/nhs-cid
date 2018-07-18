@@ -11,7 +11,7 @@
 {% elif result === '403' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-403{{ params }}">
 {% elif result === '404' %}
-<meta http-equiv="refresh" content="5;url=patient-online-nam-error-400{{ params }}">
+<meta http-equiv="refresh" content="5;url=patient-online-nam-error-404{{ params }}">
 {% elif result === '409' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-409{{ params }}">
 {% elif result === '500' %}
@@ -23,9 +23,6 @@
 {% elif result === '504' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-504{{ params }}">
 {% endif%}
-
-
-<meta http-equiv="refresh" content="5;url=https://nhsa.herokuapp.com/template.php??logged=true&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&optarr=default&pageCode=SC02b">
 
 <h1><legend>Checking your details</legend></h1>
 
