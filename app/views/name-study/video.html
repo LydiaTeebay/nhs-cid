@@ -6,9 +6,23 @@
 {% block content %}
 
 <style>
-    #video-container { position: relative; margin: 0;}
+    #video-container { position: relative; margin: 32px 0 0;}
     #name-video { border: 1px solid black; max-width:100%; height:auto; margin: 0;}
-    #video-overlay { position: absolute; width: 100%; height: 100%; z-index: 999; cursor: pointer; margin: 0;}
+    #video-overlay2 { position: absolute; width: 100%; height: 100%; z-index: 999; cursor: pointer; margin: 0;}
+    #video-overlay {
+        background-image:url(/images/media_play_pause_resume.png);
+        background-repeat:no-repeat;
+        width:50%;
+        height:50%;
+        position:absolute;
+        left:0%;
+        right:0%;
+        top:0%;
+        bottom:0%;
+        margin:auto;
+        background-size:contain;
+        background-position: center;
+    }
 
 </style>
 
@@ -23,11 +37,12 @@
              Note that there is no sound. </p>
 
             <div id="video-container">
-                <div id="video-overlay">Play</div>
+
                 <video id="name-video" width="100%" height="auto">
                     <source src="/images/cid-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <div id="video-overlay"></div>
             </div>
 
         </div>
@@ -46,9 +61,24 @@
     function visitPage(){
         window.location='survey{{ params }}'
     }
-    document.getElementById('video-overlay').onclick = function() {
-        document.getElementById('name-video').play()
+    // document.getElementById('video-overlay').onclick = function() {
+    //     document.getElementById('name-video').play()
+    // }
+
+    window.onload = function() {
+        $('#name-video').parent().click(function () {
+            if($(this).children("#name-video").get(0).paused){
+                $(this).children("#name-video").get(0).play()
+                $(this).children("#video-overlay").fadeOut()
+            }else {
+                $(this).children("#name-video").get(0).pause()
+                $(this).children("#video-overlay").fadeIn()
+            }
+        })
     }
+
+
+
 </script>
 
 {% endblock %}
