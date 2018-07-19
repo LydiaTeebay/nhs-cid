@@ -1109,15 +1109,20 @@ body.web {
 
 	<main class="home-main">
 		<h2>Want to book an appointment or order a repeat prescription?</h2>
-            <a href="/create-account/pb/login-nhs{{ params }}" class="button green" id="btn_login" style="
-        color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
-                Log in with {% include '_partials/_components/_name.html' %}
-            </a>
+
+		<a href="/create-account/pb/login-nhs{{ params }}" class="button nhs-button" id="btn_login">
+            Continue with NHS
+        </a>
+        
+        <!-- <a href="/create-account/pb/login-nhs{{ params }}" class="button green" id="btn_login" style="
+    color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
+            Log in with {% include '_partials/_components/_name.html' %}
+        </a>
 
         <a href="/create-account/pb/create-acc-terms{{ params }}" class="button" id="btn_register" style="
         color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
             Create an account
-        </a>
+        </a> -->
 
 		<a href="#">Terms and conditions</a>
 	</main>
