@@ -39,7 +39,7 @@
             <div id="video-container">
 
                 <video id="name-video" width="100%" height="auto">
-                    <source src="/images/cid-video.mp4" type="video/mp4">
+                    <source src="/images/challenge.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div id="video-overlay"></div>
@@ -59,11 +59,8 @@
         document.getElementById('name-button').disabled = false
     }
     function visitPage(){
-        window.location='survey{{ params }}'
+        window.location.href = 'survey{{ params|safe }}'
     }
-    // document.getElementById('video-overlay').onclick = function() {
-    //     document.getElementById('name-video').play()
-    // }
 
     window.onload = function() {
         $('#name-video').parent().click(function () {
@@ -76,7 +73,6 @@
             }
         })
     }
-
 
 
 </script>

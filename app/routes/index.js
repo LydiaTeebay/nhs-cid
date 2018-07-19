@@ -5,12 +5,12 @@ module.exports = function (router) {
     })
   })
 
-    router.get('/naming-study/index', function (req, res) {
+    router.get('/name-study', function (req, res) {
         // pull in the url parameter
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        res.render('naming-study/index', {lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
+        res.render('name-study/index', {lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
             res.send(html)
         })
     })

@@ -14,7 +14,7 @@ module.exports = function (router) {
     router.post('/name-study/screening-3', function (req, res) {
         // pull in the url parameters
         var country = req.param('country')
-        var age = req.body.age
+        var age = req.param('age')
         var healthcare = req.body.healthcare
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
