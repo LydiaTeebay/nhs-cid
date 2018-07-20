@@ -13,20 +13,6 @@
 
 {% block content %}
 
-<style>
-.global-header__inner {
-  padding-left: 16px;
-}
-.page-section {
-    padding: 0 16px 16px 16px;
-}
-
-input.form-control {
-    margin-top: 0;
-    margin-bottom:16px;
-}
-</style>
-
 <p><a href="login-nhs{{ params }}" class="link-back">back</a></p>
 
 <div class="first-item">
@@ -34,9 +20,9 @@ input.form-control {
     <div class="form-group">
       <fieldset class="inline">
 
-        <h1>Enter security code</h1>
+        <h1>Check your phone</h1>
 
-        <p>We have sent a security code to your phone</p>
+        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
 
         <div class="form-group">
           <label class="form-label" for="securityCodes">Security code</label>
@@ -49,7 +35,6 @@ input.form-control {
     <div class="form-group">
       <a id="securitycodeContinue" href="https://nhsa.herokuapp.com/template.php?page=welcome.php&logged=true&feature=welcome&pageCode=SC02b" class="button">Continue</a>
     </div>
-    <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&resend=yes">you can resend it</a>.</p>
   </form>
 </div>
 
