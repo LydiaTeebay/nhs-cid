@@ -4,6 +4,8 @@
 
 {% block content %}
 
+{#  hide this
+
 {% if result === '200' %}
 <meta http-equiv="refresh" content="5;url=https://nhsa.herokuapp.com/template.php?page=welcome.php&logged=true&feature=welcome&pageCode=SC02b">
 {% elif result === '400' %}
@@ -23,6 +25,8 @@
 {% elif result === '504' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-504{{ params }}">
 {% endif%}
+
+#}
 
 <h1><legend>Checking your details</legend></h1>
 
