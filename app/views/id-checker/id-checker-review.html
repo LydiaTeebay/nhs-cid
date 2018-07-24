@@ -49,7 +49,7 @@
         {% else %}
 
         <div class="form-group">
-            <label class="form-label">first name</label>
+            <label class="form-label">First name</label>
             <input type="text" id="" name="" value="Joe" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
             {% if result == 'fails' %}
                 <a href="#" class="idcheck-edit">Edit</a>
@@ -104,7 +104,7 @@
         {% endif %}
     </div>
     <div class="panel__content panel__content--half">
-        <h3>PDS match</h3>
+        <h3>PDS trace</h3>
         <p class="small" id="loader"><img src="/images/ajax-loader.gif" style="width: 30px" alt="loading">&nbsp; Running trace</p>
 
         <div id="trace" class="idcheck-match {{ result }}" style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;" >
@@ -153,7 +153,16 @@
                         Match not found
                     {% endif %}
                 {% elif result === 'spine' %}
-                    Lookup error
+
+                    {% if failreason === 'invalid' %}
+                        System error - SMSP-0001
+                    {% elif failreason === 'validation' %}
+                        System error - SMSP-0002
+                    {% elif failreason === 'unavailable' %}
+                        System error - SMSP-0003
+                    {% else %}
+                        System error - SMSP-0004
+                    {% endif %}
                 {% else %}
                     Match
                 {% endif %}
@@ -162,9 +171,17 @@
             {% if result === 'fail' %}
 
                 {% if demographics === 'true' %}
-                <div class="idcheck-result-reason" id="failed">
-                    <p>The submitted demographic details do not match an NHS record.</p>
-                </div>
+
+                    {% if failreason === 'multiple' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>We found more than one PDS record using these details.</p>
+                    </div>
+                    {% else %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <!--<p>The submitted demographic details do not match an NHS record.</p>-->
+                    </div>
+                    {% endif %}
+
                 {% else %}
 
                     {% if failreason === 'multiple' %}
@@ -173,7 +190,7 @@
                     </div>
                     {% elif failreason === 'invalid' %}
                     <div class="idcheck-result-reason" id="failed">
-                        <p>The submitted NHS number is invalid</p>
+                        <!--<p>The submitted NHS number is invalid</p>-->
                     </div>
                     {% elif failreason === 'expired' %}
                     <div class="idcheck-result-reason" id="failed">
@@ -181,7 +198,7 @@
                     </div>
                     {% else %}
                     <div class="idcheck-result-reason" id="failed">
-                        <p>Either the NHS number is invalid or it does not match to the date of birth submitted.</p>
+                        <!--<p>Either the NHS number is invalid or it does not match to the date of birth submitted.</p>-->
                     </div>
                     {% endif %}
 
@@ -190,10 +207,29 @@
             {% endif %}
 
             {% if result === 'spine' %}
-                <div class="idcheck-result-reason" id="failed">
-                    <p>There was an issue connecting to the Patient Demographic Service.</p>
-                    <p>Please try again in a few minutes</p>
-                </div>
+
+                {% if failreason === 'invalid' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>Please contact your supervisor.</p>
+                    </div>
+
+                {% elif failreason === 'validation' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>Please contact your supervisor.</p>
+                    </div>
+
+                {% elif failreason === 'unavailable' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>We are having technical problems.</p>
+                        <p>Please abort and try again later.</p>
+                    </div>
+
+                {% else %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>We are having technical problems.</p>
+                        <p>Please abort and try again later.</p>
+                    </div>
+                {% endif %}
             {% endif %}
 
         </div>
@@ -212,9 +248,9 @@
 
                 <fieldset>
 
-                    <p>Can you find the person’s NHS number using a manual PDS check?</p>
+                    <p style="padding-bottom: 32px;">Can you find the person’s NHS Number using a manual PDS check?</p>
 
-                    <span  style="padding-bottom: 32px;" class="form-label__hint">Use the name and date of birth from their photo ID document. </span>
+                    <!--<span  style="padding-bottom: 32px;" class="form-label__hint">Use the name and date of birth from their photo ID document. </span>-->
 
                     <div class="selection-button-radio-inline">
                         <div class="multiple-choice" data-target="">
@@ -238,7 +274,7 @@
                         <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
                     </div>
                     <div id="id-approve2">
-                        <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--approve">Submit</a>
+                        <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--approve">Re-run trace</a>
                     </div>
                 </div>
 
@@ -287,7 +323,7 @@
         <div class="qa-questions-group" id="document" data-complete="false">
 
             <div class="qa-questions-question" data-answered="false">
-                <p class="qa-questions-question-text">Does the Name and DOB on the PDS trace match those on the Photo ID?</p>
+                <p class="qa-questions-question-text">Does the name and date of birth in the PDS record match the details in the photo ID?</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="0" aria-checked="false">
                         <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
