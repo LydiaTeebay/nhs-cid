@@ -1,0 +1,26 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - We will now check your information{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
+
+{% block header %}
+<div class="local-header">
+	<h1 class="local-header__title">We will now check your information</h1>
+	<div class="local-header__intro">
+		<div class="reading-width">
+			<p>This could take up to 2 hours.<br><br>We will <a href="/emails/v4/email-identity-verified{{ params }}">email</a> you when we have made the checks.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<a href="https://nhsa.herokuapp.com/template.php?page=welcome.php&logged=true&feature=welcome&pageCode=SC02b" target="_parent" class="service-access__item__button button" style="margin-top:0; ">Continue to NHS App</a>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
