@@ -10,15 +10,22 @@
 	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 {% endif %}
 
-<p>Follow these steps to create your account</p>
+<h1>Complete these steps</h1>
 <section class="service-access-wrapper">
 
 	<ol class="service-access">
+
 		<li class="service-access__item completed">
-			<h3 class="service-access__item__title">{{ service.name('setup') }}</h3>
+			<h3 class="service-access__item__title">Take a photo of your ID document</h3>
 			<div class="service-access__item__desc">
-				<p>You will need your phone.</p>
-				<p>Your {{ service.name('account') }} will allow you to sign into multiple health services in the future.</p>
+				<p>You will need to take a photo of your passport or driving licence.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Record a short video</h3>
+			<div class="service-access__item__desc">
+				<p>This is so we can check that your face matches your photo ID.</p>
 			</div>
 			<span class="service-access__item__status">Completed</span>
 		</li>
@@ -28,19 +35,6 @@
 				<p>You'll need to give us some details so we can connect to your doctor's surgery.</p>
 			</div>
 			<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
-		</li>
-		<li class="service-access__item ">
-			<h3 class="service-access__item__title">Take a photo of your ID document</h3>
-			<div class="service-access__item__desc">
-				<p>You will need to take a photo of your passport or driving licence.</p>
-			</div>
-			<!--<a href="service-access-photo-id-type{{ params }}" class="service-access__item__button button">Start</a>-->
-		</li>
-		<li class="service-access__item">
-			<h3 class="service-access__item__title">Record a short video</h3>
-			<div class="service-access__item__desc">
-				<p>This is so we can check that your face matches your photo ID.</p>
-			</div>
 		</li>
 	</ol>
 
