@@ -1,0 +1,24 @@
+<footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner util-visuallyhidden">
+      
+    </div>
+  </div>
+
+  {% if emailLink %}
+  <div class="proto-action">
+    <a href="/emails/{{ emailLink }}{{ params }}">
+      <div class="proto-action-icon">
+        email sent
+      </div>
+
+      <div class="proto-action-text">
+        Email sent:
+      </div>
+    </a>
+  </div>
+  {% endif %}
+
+</footer>
+
+
