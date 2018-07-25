@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Sorry you cannot continue{% endblock %}
+{% block page_title %}Access {{ serviceName }} - You will not be able to prove your identity online without a UK photo ID document.{% endblock %}
 
 {% set signedin = 'false' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
@@ -11,22 +11,19 @@
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
   <h1 class="">
-    You will not be able to prove your identity online without a UK photo ID.
+    You will not be able to prove your identity online without a UK photo ID document.
   </h1>
 
-  <h3>However, there is still a way to access the service.</h3>
+  <h3>However, there are still ways to access the service.</h3>
 
-  <p>You need to visit a local Post Office and:</p>
+  <p>You will need to visit a local Post Office and:</p>
 
   <ul>
     <li>Take with you either your passport, driving license or identity card</li>
-    <li>Sign up for online services and receive the registration details</li>
   </ul>
 
-  <p>When you next log in you will be asked about your registration details. You can then type the details in. </p>
-
   <div class="form-group">
-    <a class="button" href="service-access-offline-document">Continue</a>
+    <a class="button" href="service-access-offline-document-type">Continue</a>
   </div>
 
 </div>
