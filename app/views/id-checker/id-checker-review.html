@@ -241,7 +241,7 @@
             {% if failreason === 'expired' %}
 
             <div id="id-decline3">
-                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" data-target="modal" id="declineBtn3" class="button button--decline">Reject</a>
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" data-target="modal" id="declineBtn3" class="button button--decline">Decline</a>
             </div>
 
             {% else %}
@@ -274,7 +274,7 @@
                         <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
                     </div>
                     <div id="id-approve2">
-                        <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--approve">Re-run trace</a>
+                        <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                     </div>
                 </div>
 
