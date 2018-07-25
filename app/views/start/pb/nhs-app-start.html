@@ -953,7 +953,8 @@ main.home-main {
     font-size: 1.375em;
     line-height: 1.375em;
     color: #005EB8;
-    margin-bottom: 0.750em;
+    margin-bottom: 1em;
+    margin-top: 0.750em;
     font-size: 1.2em;
     color: #4A4A4A;
     text-align: center;
@@ -1078,17 +1079,33 @@ body.web {
   body.web main.logged {
     height: 16.5em;
     overflow: auto; }
-
-
-.nhs-button, main.home-main a.nhs-button {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 1.25em;
-    /*text-align: left;*/
-    /*background: url('images/logotype-nhs-colour__reverse.png') no-repeat #005EB8 6px 9px;*/
-    /*padding-left: 110px;*/
-    border-radius: 2px;
+.button, main.home-main a.button {
+	font-family: "FrutigerLTW01-65Bold", Arial, sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 32px;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #007f3b;
+	border: 0;
+	-webkit-box-shadow: 0 2px 0 #003317;
+	box-shadow: 0 2px 0 #003317;
+	cursor: pointer;
+	display: inline-block;
+	letter-spacing: .5px;
+	line-height: 1.25;
+	outline: 1px solid transparent;
+	outline-offset: -1px;
+	padding: 12px 24px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	border-radius: 0;
+	color: #fff;
 }
 /*# sourceMappingURL=home.css.map */
 </style>
@@ -1121,8 +1138,8 @@ body.web {
 	<main class="home-main">
 		<h2>Want to book an appointment or order a repeat prescription?</h2>
 
-		<a href="/create-account/pb/login-nhs{{ params }}" class="button nhs-button" id="btn_login">
-            Continue with NHS
+		<a href="/create-account/pb/login-nhs{{ params }}" class="button" id="btn_login">
+            Start
         </a>
         
         <!-- <a href="/create-account/pb/login-nhs{{ params }}" class="button green" id="btn_login" style="
