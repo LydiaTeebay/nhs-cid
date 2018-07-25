@@ -1,4 +1,4 @@
-{% import '_macros/_macro_service.html' as service with context %}
+{% import '_macros/_macro_service.html' as theService with context %}
 
 {% if hidehead == 'true' %}
 {% set htmlClass = 'body-webview' %}
@@ -41,7 +41,14 @@
 
   {# slightly different design for emails #}
     {% if not hidehead === "true" or not hidehead or hidehead === "undefined" %}
-      {% include '_partials/_global_header.html'%}
+
+      {# if PB or later use the latest header design #}
+
+      {% if lsId or service === "app3" %}
+        {% include '_partials/_global_header-plain.html'%}
+      {% else %}
+        {% include '_partials/_global_header.html'%}
+      {% endif %}
     {% endif %}
 
     {% if service === "nhsonlinepol" %}

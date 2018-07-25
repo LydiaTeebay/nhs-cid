@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - {{ service.name('setup') }}{% endblock %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('setup') }}{% endblock %}
 {% set signedin = '' %}
 {% set terms = 'yes' %}
 
@@ -19,7 +19,7 @@
   <form>
 
     <div class="form-group">
-      <h1>{{ service.name('setup') }}</h1>
+      <h1>{{ theService.name('setup') }}</h1>
 
       <p>If you've already done this, <a href="login-nhs{{ params }}">log in instead</a>.</p>
       <div class="form-group">

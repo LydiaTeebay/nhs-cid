@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - {{ service.name('') }} Terms and Conditions{% endblock %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('') }} Terms and Conditions{% endblock %}
 {% set signedin = '' %}
 {% set newUser = 'yes' %}
 
@@ -21,7 +21,7 @@
 
     <div class="form-group">
 
-        <h1>{{ service.name('login') }} Terms and Conditions</h1>
+        <h1>{{ theService.name('login') }} Terms and Conditions</h1>
 
         <div class="list--counter">
             <ol>

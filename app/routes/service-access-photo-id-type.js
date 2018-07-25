@@ -49,8 +49,6 @@ module.exports = function (router) {
             // var formerror = 'undefined'
         }
 
-
-
         if (idType === 'passport' || idType === 'driving licence') {
 
             res.redirect('/service-access/service-access-photo-id-instructions?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge )
@@ -103,12 +101,6 @@ module.exports = function (router) {
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
 
-        if (idType === 'driving licence') {
-            // var formerror = 'invalid'
-        }
-        if (idType === 'passport') {
-            // var formerror = 'undefined'
-        }
         if (idType === 'passport' || idType === 'driving licence') {
             res.redirect('/service-access/v11/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         } else {
@@ -151,12 +143,6 @@ module.exports = function (router) {
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
 
-        if (idType === 'driving licence') {
-            // var formerror = 'invalid'
-        }
-        if (idType === 'passport') {
-            // var formerror = 'undefined'
-        }
         if (idType === 'passport' || idType === 'driving licence') {
             res.redirect('/service-access/v10/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         } else {

@@ -406,7 +406,7 @@
             <form>
                 <div class="form-group">
                     <div class="form-group">
-                        <label class="form-label" for="field3">Comments (optional)</label>
+                        <!--<label class="form-label" for="field3">Comments (optional)</label>-->
 
                         <textarea class="form-control form-textbox" id="field3" name="field3" type="text" rows="5"></textarea>
                     </div>
@@ -498,7 +498,7 @@
 
         var link = object.href
         var heading = document.getElementById('modal-header')
-        heading.text = 'Additional information about this declined assurance request'
+        heading.text = 'Information about this declined verification (optional)'
         var a = document.getElementById('modal-link')
         a.href = link
         document.getElementById('modal_create').click()
@@ -506,9 +506,9 @@
         var buttonType = object.text
 
         if (buttonType === 'Decline') {
-            heading.innerText = 'Additional information about this declined assurance request'
+            heading.innerText = 'Information about this declined verification (optional)'
         } else {
-            heading.innerText = 'Additional information about this approved assurance request'
+            heading.innerText = 'Information about this approved verification (optional)'
         }
 
     }

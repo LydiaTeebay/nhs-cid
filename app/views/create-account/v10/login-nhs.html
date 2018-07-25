@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - {{ service.name('login') }}{% endblock %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('login') }}{% endblock %}
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
@@ -23,7 +23,7 @@ input.form-control {
 <div class="first-item">
    <form>
         <div class="form-group">
-            <h1>{{ service.name('login') }}</h1>
+            <h1>{{ theService.name('login') }}</h1>
 
             <fieldset class="">
 
