@@ -36,7 +36,7 @@ module.exports = function (router) {
         res.redirect('/service-access/v11/service-access-offline-document?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
     })
 
-    router.get('/service-access/pb/service-access-photo-id-type', function (req, res) {
+    router.get('/service-access/pb/service-access-offline-document-type', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -64,6 +64,6 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
         var hidehead = req.param('hidehead')
         var challenge = req.param('challenge')
-        res.redirect('/service-access/pb/service-access-photo-offline-document?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge )
+        res.redirect('/service-access/pb/service-access-offline-document?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge )
     })
 }
