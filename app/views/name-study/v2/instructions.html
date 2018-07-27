@@ -1,0 +1,30 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Instructions - Name Survey{% endblock %}
+
+{% set params = "?healthcare=" + healthcare + "&age=" + age + "&country=" + country + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+        <h1 class="heading-large"><span class="heading-secondary">Step 1 of 3 </span>How you can help us</h1>
+
+        <p>We are asking members of the public to help us choose a name for a new NHS service.
+            We will firstly ask you to watch a short video, which explains the service, and then ask you to answer a few questions.
+            The whole process takes about 5-6 minutes.</p>
+
+        <h3>About the service</h3>
+        <p>The service will allow people to use websites and apps that contain personal health data.
+            Because of security needs people will have to prove who they are, in order to connect to their health record.
+            The video shows how people will be able to do this.
+            This would only be done once, and then the login details (email + password) could be used to enter several health websites and apps that include personal data. .</p>
+
+
+        <a href="video{{ params }}" class="button button--secondary">Continue</a>
+
+    </section>
+
+</div>
+
+{% endblock %}
