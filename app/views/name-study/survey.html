@@ -6,17 +6,21 @@
 {% block content %}
 
 <div class="first-item">
+	<form action="survey{{ params }}" method="POST">
 
-    <section class="intructions">
-        <h1 class="heading-large"><span class="heading-secondary">Step 3 of 3 </span>Survey</h1>
+	    <section class="intructions">
+	        <h1 class="heading-large"><span class="heading-secondary">Step 3 of 3 </span>Survey</h1>
 
-        <p>Please complete the survey by answering the questions you can see below.</p>
-        <p>AFTER you have answered all questions click the SEND button to complete it and get paid.</p>
+	        <p>Please complete the survey by answering the questions you can see below.</p>
+	        <p>AFTER you have answered all questions click the SEND button to complete it and get paid.</p>
 
-        <a href="thanks{{ params }}" class="button button--secondary">Send</a>
+	        <div class="form-group">
+	            <button class="button" id="">Continue</button>
+	        </div>
 
-    </section>
+	    </section>
 
+	</form>
 </div>
 
 {% endblock %}
