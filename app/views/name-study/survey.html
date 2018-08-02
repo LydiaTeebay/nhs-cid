@@ -4,6 +4,33 @@
 {% set params = "?healthcare=" + healthcare + "&age=" + age + "&country=" + country + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
 
 {% block content %}
+<style>
+#hideMe {
+    -moz-animation: cssAnimation 0s ease-in 25s backwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 25s backwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 25s backwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 25s backwards;
+    -webkit-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 
 <div class="first-item">
 	<form action="survey{{ params }}" method="POST">
@@ -14,8 +41,8 @@
 	        <p>Please complete the survey by answering the questions you can see below.</p>
 	        <p>AFTER you have answered all questions click the SEND button to complete it and get paid.</p>
 
-	        <div class="form-group" style="display:none;-webkit-animation-delay: 5s;-moz-animation-delay: 5s;animation-delay: 5s;">
-	            <button class="button" id="" >Continue</button>
+	        <div class="form-group">
+	            <button class="button" id="hideMe" >Continue</button>
 	        </div>
 
 	    </section>
