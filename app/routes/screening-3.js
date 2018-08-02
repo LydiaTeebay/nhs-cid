@@ -23,7 +23,7 @@ module.exports = function (router) {
         if (healthcare === 'nhs' || healthcare === 'nhs-private') {
             res.redirect('/name-study/instructions?healthcare=' + healthcare + '&age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         } else {
-            res.redirect('/name-study/screening-1?healthcare=' + healthcare + '&age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
+            res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac=[ACCESS_CODE]&sn=595218&lang=E' + healthcare + '&age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         }
     })
 

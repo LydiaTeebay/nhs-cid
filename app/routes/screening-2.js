@@ -19,7 +19,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
 
         if (age === 'under-16') {
-            res.redirect('/name-study/screening-3?age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
+            res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac=[ACCESS_CODE]&sn=595218&lang=E' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         } else {
             res.redirect('/name-study/screening-3?age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         }
