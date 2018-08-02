@@ -1,0 +1,21 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Welcome - Name Survey{% endblock %}
+
+{% set params = "?lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+        <h1 class="heading-large">Email questions</h1>
+
+        <p>Please answer the questions and then click continue.</p>
+
+        <a href="/remote-testing/pol-card-5{{ params }}" class="button button--secondary">Continue</a>
+
+    </section>
+
+</div>
+
+{% endblock %}
