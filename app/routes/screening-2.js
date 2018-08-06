@@ -19,9 +19,9 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
 
         if (age === 'under-16') {
-            res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac='+ lsAccess +'&sn=595218&lang=E')
+            res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac=' + lsAccess + '&sn=595218&lang=E')
         } else {
-            res.redirect('/name-study/screening-3?age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
+            res.redirect('/name-study/screening-3?age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
         }
     })
 

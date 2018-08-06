@@ -10,7 +10,7 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
 
         // grab LightSpeed ID if there is one
-        if (req.param('lsAccess') ){
+        if (req.param('lsAccess')) {
             var lsAccess = req.param('lsAccess')
         } else {
             var lsAccess = req.param('ac')
