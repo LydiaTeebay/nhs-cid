@@ -19,7 +19,7 @@ module.exports = function (router) {
         if (country === 'england') {
             res.redirect('/name-study/screening-2?country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         } else {
-            res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac=' + lsAccess + '&sn=595218&lang=E')
+            res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac=' + lsAccess + '&sn=595218&sco=s&lang=E')
         }
     })
 
