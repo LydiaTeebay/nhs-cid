@@ -51,7 +51,7 @@ module.exports = function (router) {
         if (healthcare === 'nhs' || healthcare === 'nhs-private') {
             res.redirect('/remote-testing/instructions?healthcare=' + healthcare + '&age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
         } else {
-            res.redirect('/remote-testing/screening-1?healthcare=' + healthcare + '&age=' + age + '&country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
+            res.redirect('http://www.surveybods.com/uc/admin/' + lsStudy + '/ospe.php?c_0001=2&return_tic=' + lsId)
         }
     })
 }

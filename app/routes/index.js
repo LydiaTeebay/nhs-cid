@@ -21,4 +21,29 @@ module.exports = function (router) {
             res.send(html)
         })
     })
+
+    router.get('/remote-testing', function (req, res) {
+        // pull in the url parameter
+
+        // grab user ID if there is one
+        if (req.param('lsId')) {
+            var lsId = req.param('lsId')
+        } else {
+            var lsId = req.param('tic')
+        }
+
+        // grab Study number if there is one
+        if (req.param('lsStudy')) {
+            var lsStudy = req.param('lsStudy')
+        } else {
+            var lsStudy = req.param('sn')
+        }
+
+        var lsAccess = req.param('lsAccess')
+
+        res.render('remote-testing/index', {lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
+            res.send(html)
+        })
+    })
+
 }

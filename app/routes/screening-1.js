@@ -41,9 +41,9 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
 
         if (country === 'england') {
-            res.redirect('/remote-testing/screening-2?country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
+            res.redirect('/remote-testing/screening-2?country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
         } else {
-            res.redirect('/remote-testing/screening-1?country=' + country + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
+            res.redirect('http://www.surveybods.com/uc/admin/' + lsStudy + '/ospe.php?c_0001=2&return_tic=' + lsId)
         }
     })
 }
