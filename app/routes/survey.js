@@ -8,7 +8,7 @@ module.exports = function (router) {
         var age = req.param('age')
         var healthcare = req.param('healthcare')
         // re-render the page along with the parameter
-        res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac='+ lsAccess +'&sn=595218&lang=E')
+        res.redirect('http://globaltestmarket.com/20/survey/finished.phtml?ac=' + lsAccess + '&sn=595218&lang=E')
         
     })
     router.get('/name-study/v2/survey', function (req, res) {
