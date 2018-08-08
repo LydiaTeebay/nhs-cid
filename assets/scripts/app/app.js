@@ -602,3 +602,14 @@ $(document).ready(function () {
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
 })
+
+// radio button functionality
+
+$('#continue').click(function(e) {
+    var value = $('input:radio[name=radio-inline-group]:checked').val()
+    if (value == null){
+        e.preventDefault()
+    } else {
+        location.href = value
+    }
+})

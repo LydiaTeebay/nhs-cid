@@ -120,8 +120,3 @@ $(document).ready(function() {
   new GOVUK.SelectionButtons($blockLabels);
 
 });
-
-$( "#continue" ).click(function() {
-    var value = $("input:radio[name=radio-inline-group]:checked").val();
-        location.href = value;
-});
