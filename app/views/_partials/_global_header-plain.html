@@ -1,9 +1,19 @@
+{% if lsId %}
+  {% if lsId === 'undefined' %}
+    {% set logoLink = '/' %}
+  {% else %}
+    {% set logoLink = 'javascript:void(0)' %}
+  {% endif %}
+
+{% else %}
+  {% set logoLink = '/' %}
+{% endif %}
 
 
 <header role="banner">
   <div class="global-header">
     <div class="global-header__inner">
-      <a href="/" class="global-header__link">
+      <a href="{{ logoLink }}" class="global-header__link">
         <img src="/images/logotype-nhs-mono.png" alt="NHS">
       </a>
 
