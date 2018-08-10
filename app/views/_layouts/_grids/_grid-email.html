@@ -1,5 +1,17 @@
 {% extends '_layouts/_nhsuk_layout.html' %}
 
+{% if lsStudy %}
+{% if lsStudy === 'undefined' %}
+{% set logoLink = '/' %}
+{% else %}
+{% set logoLink = 'javascript:void(0)' %}
+{% endif %}
+
+{% else %}
+{% set logoLink = '/' %}
+{% endif %}
+
+
 {% block body %}
 
 <div class="grid-row">
@@ -8,7 +20,7 @@
     <header role="banner">
       <div class="global-header">
         <div class="global-header__inner">
-          <a href="/" class="global-header__link" style="width: 95px;">
+          <a href="{{ logoLink }}" class="global-header__link" style="width: 95px;">
             <img src="/images/logotype-nhs-mono.png"  alt="NHS">
           </a>
 
