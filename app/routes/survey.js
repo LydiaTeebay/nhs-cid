@@ -48,7 +48,6 @@ module.exports = function (router) {
         var healthcare = req.param('healthcare')
         // re-render the page along with the parameter
         res.redirect('http://www.surveybods.com/uc/admin/' + lsStudy + '/ospe.php?c_0001=1&return_tic=' + lsId)
-
     })
 
     router.get('/name-study/v2/survey', function (req, res) {
