@@ -6,24 +6,10 @@
 
 {% block content %}
 
-<style>
-.global-header__inner {
-  padding-left: 16px;
-}
-.page-section {
-    padding: 0 16px 16px 16px;
-}
-
-input.form-control {
-    margin-top: 0;
-    margin-bottom:16px;
-}
-</style>
-
 <div class="first-item">
    <form>
         <div class="form-group">
-            <h1>Log in with {% include '_partials/_components/_name.html' %}</h1>
+            <h1>Log in</h1>
 
             <fieldset class="">
 
@@ -42,7 +28,7 @@ input.form-control {
 
         <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
 
-        <p><a id="modal-create-acc" href="/patient-online/pb/patient-online-details{{ params }}">Create an account</a></p>
+        <p><a id="modal-create-acc" href="create-acc-terms{{ params }}">Create an account</a></p>
 
         <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
 

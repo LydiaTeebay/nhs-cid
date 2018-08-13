@@ -1,3 +1,15 @@
+{% if lsId or service === "app3" %}
+
+  {% if hideBeta !== 'true' %}
+  <div class="banner beta">
+      <div class="page-section">
+        <span>BETA</span> This is a new service.
+      </div>
+    </div>
+  {% endif %}
+
+{% endif %}
+
 {% if alert.notlive == 'true' %}
   <div class="service-alert">
     <div class="service-alert-inner">

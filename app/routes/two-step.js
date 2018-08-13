@@ -25,6 +25,39 @@ module.exports = function (router) {
         res.redirect('/create-account/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
     })
 
+    router.get('/create-account/v10/two-step', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        // re-render the page along with the parameter
+        res.render('create-account/v10/two-step', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/v10/two-step', function (req, res) {
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.redirect('/remote-testing/acc-card-4?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=undefined&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
+    })
+
+
     router.get('/create-account/pb/two-step', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')

@@ -14,21 +14,6 @@ module.exports = function (router) {
         })
     })
 
-    // router.post('/service-access/nhs-number', [
-    //     // sanitize('nhs_number').trim(),
-    //     check('nhs_number', 'NHS numbers must be at least 10 digits and can contain spaces')
-    //         .exists()
-    //         .isLength({min: 10, max: 10})
-    //         .isNumeric()
-    //     ], (req, res, next) => {
-    //     // const nhs_number = req.body.filter('nhs_number')
-    //     // console.log(nhs_number === req.body.nhs_number)
-    //
-    //     // console.log(validationResult(req))
-    //     // console.log(req.body.nhs_number.trim())
-    //     res.redirect('/service-access/service-access-eredbook-03?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName)
-    // })
-
     router.post('/service-access/v2/nhs-number', function (req, res) {
         console.log("post")
         var nhs_yes = req.body.radioinlinegroup

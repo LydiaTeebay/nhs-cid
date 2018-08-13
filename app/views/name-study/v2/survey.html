@@ -1,0 +1,21 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Complete the survey - Name Survey{% endblock %}
+
+{% set params = "?healthcare=" + healthcare + "&age=" + age + "&country=" + country + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+        <h1 class="heading-large"><span class="heading-secondary">Step 3 of 3 </span>Thank you</h1>
+
+        <p>If the survey didn't open automatically for you <a href="https://insights.hotjar.com/s?siteId=913057&surveyId=92000" target="_blank" style="color: #fff;">please click this link</a>.</p>
+
+        <p>Once you have completed this survey you can close this tab.</p>
+
+    </section>
+
+</div>
+
+{% endblock %}

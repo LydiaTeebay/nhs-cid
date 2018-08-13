@@ -548,6 +548,7 @@ swap();
       if (modalOpen && ( !event.keyCode || event.keyCode === 27 ) ) {
           mOverlay.setAttribute('aria-hidden', 'true')
           modal.setAttribute('tabindex', '-1')
+          event.preventDefault()
           modalOpen = false
           lastFocus.focus()
       }
@@ -600,4 +601,15 @@ $(document).ready(function () {
   // to toggle hidden content
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
+})
+
+// radio button functionality
+
+$('#continue').click(function(e) {
+    var value = $('input:radio[name=radio-inline-group]:checked').val()
+    if (value == null){
+        e.preventDefault()
+    } else {
+        location.href = value
+    }
 })

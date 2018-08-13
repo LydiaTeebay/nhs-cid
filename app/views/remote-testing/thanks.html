@@ -1,0 +1,21 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Thank you - Name Survey{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+        <h1 class="heading-large">Thank you</h1>
+
+        <p>You have now completed our survey.</p>
+
+        <p>You can now close this browser window.</p>
+
+    </section>
+
+</div>
+
+{% endblock %}

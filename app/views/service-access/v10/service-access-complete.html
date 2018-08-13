@@ -1,0 +1,26 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - We will now check your information{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
+
+{% block header %}
+<div class="local-header">
+	<h1 class="local-header__title">We will now check your information</h1>
+	<div class="local-header__intro">
+		<div class="reading-width">
+			<p>This could take up to 2 hours.<br><br>We will email you when we have made the checks.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<a href="/remote-testing/pyi-card-1{{ params }}" target="_parent" class="button" style="margin-top:0; ">Continue</a>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

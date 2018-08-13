@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Create an {% include '_partials/_components/_name.html' %} account - {{serviceName}}{% endblock %}
+{% block page_title %}Create an NHS Access account - {{serviceName}}{% endblock %}
 {% set signedin = '' %}
 {% set terms = 'yes' %}
 
@@ -23,8 +23,8 @@
   <form>
 
     <div class="form-group">
-      <h1>Set up {% include '_partials/_components/_name.html' %}</h1>
-      <p>If you've already set up {% include '_partials/_components/_name.html' %}, <a href="login-nhs{{ params }}">log in instead</a>.</p>
+      <h1>Set up NHS Access</h1>
+      <p>If you've already set up NHS Access, <a href="login-nhs{{ params }}">log in instead</a>.</p>
       <div class="form-group">
         <label class="form-label" for="emailAddress">Email address</label>
         <input class="form-control" id="emailAddress" name="emailAddress" type="email">

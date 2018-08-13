@@ -35,6 +35,45 @@ module.exports = function (router) {
         res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
     })
 
+    router.get('/create-account/v10/create-acc-terms', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v10/two-step-code?vouch=yes')
+            return
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v10/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/v10/create-acc-terms', function (req, res) {
+        var emailAddress = req.body.emailAddress
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v10/two-step-code?vouch=yes')
+            return
+        }
+        res.redirect('/create-account/v10/check-email?terms=yes&emailAddress=undefined&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
+    })
+
     router.get('/create-account/pb/create-acc-terms', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')

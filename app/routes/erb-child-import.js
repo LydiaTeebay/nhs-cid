@@ -20,7 +20,6 @@ module.exports = function (router) {
 
     router.get('/eRedbook/v1/erb-child-import', function (req, res) {
         // pull in the url parameters
-        console.log("HHDSDSAHDAS")
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var mobileNum = req.param('mobileNum')
