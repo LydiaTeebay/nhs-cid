@@ -267,22 +267,53 @@
 
                 </fieldset>
 
-                <div aria-hidden="true" aria-expanded="false" class=" js-hidden" id="nhs-yes" style="margin: 0;">
+                {% if formerror === "true" %}
 
-                    <div class="form-group">
-                        <label class="form-label" for="nhs_number">NHS Number</label>
-                        <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
-                    </div>
-                    <div id="id-approve2">
-                        <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
-                    </div>
-                </div>
+                <form action="">
 
-                <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-no" style="margin: 0 0 32px;">
-                    <div id="id-decline2">
-                        <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                    <div aria-hidden="true" aria-expanded="false" class=" js-hidden" id="nhs-yes" style="margin: 0;">
+
+                        <div class="form-group">
+
+                            <div id="nhs-number" class="has-error form-row-error-active">
+                                <label class="has-error form-label" for="nhs_number">NHS Number</label>
+                                <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
+
+                                <div id="nhs-number" class="has-error form-row-error-active">
+                                    <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">Invalid NHS Number</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="id-approve2">
+                            <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
+                        </div>
+
+
                     </div>
-                </div>
+
+                </form>
+
+                {% else %}
+
+                    <div aria-hidden="true" aria-expanded="false" class=" js-hidden" id="nhs-yes" style="margin: 0;">
+
+                        <div class="form-group">
+                            <label class="form-label" for="nhs_number">NHS Number</label>
+                            <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
+                        </div>
+                        <div id="id-approve2">
+                            <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
+                        </div>
+                    </div>
+
+                    <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-no" style="margin: 0 0 32px;">
+                        <div id="id-decline2">
+                            <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                        </div>
+                    </div>
+
+                {% endif %}
 
             {% endif %}
 

@@ -6,7 +6,8 @@ module.exports = function (router) {
         var result = req.param('result')
         var demographics = req.param('demographics')
         var failreason = req.param('failreason')
-        res.render('id-checker/id-checker-review', { state: state, role: role, result: result, demographics: demographics, failreason: failreason }, function(err, html) {
+        var formerror = req.param('formerror')
+        res.render('id-checker/id-checker-review', { state: state, role: role, result: result, demographics: demographics, failreason: failreason, formerror: formerror }, function(err, html) {
             res.send(html)
         })
     })
