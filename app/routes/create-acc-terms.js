@@ -71,7 +71,7 @@ module.exports = function (router) {
             res.redirect('/create-account/v10/two-step-code?vouch=yes')
             return
         }
-        res.redirect('/create-account/v10/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
+        res.redirect('/create-account/v10/check-email?terms=yes&emailAddress=undefined&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
     })
 
     router.get('/create-account/pb/create-acc-terms', function (req, res) {
