@@ -1,3 +1,4 @@
+{% import '_macros/_macro_service.html' as theService with context %}
 {% extends '_layouts/_blank_layout.html' %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
@@ -73,7 +74,7 @@
         -moz-border-radius: 8px;
         -webkit-border-radius: 8px;
         border-radius: 8px;
-        width: 150px;
+        width: 100% !important;
         height: 50px;
         border: 1px solid #a9a9a9;
         font-size: 12px;
@@ -118,6 +119,15 @@
         margin: 125px 0 15px !important;
     }
 
+    div[role='form'] > ul {
+        position: relative;
+        width: auto !important;
+        max-width: 354px;
+        margin: 0 auto;
+        text-align: left;
+        box-sizing: border-box;
+    }
+
     </style>
     <title>Register with eRedbook</title>
     <style>.no_display {
@@ -138,6 +148,11 @@
             margin: 0 26px 0 0
         }
     </style>
+
+    {% if service === "app2" or service === "app3" or lsStudy or lsId %}
+        {% include "_partials/_includes/_hotjar-tracking-v9.html" %}
+    {% endif %}
+
 </head>
 
 <body style="">
@@ -178,8 +193,11 @@
             background: #005eb8 url('/images/nhs-login.png') no-repeat 17px 5px;
             color: #fff;
             text-decoration: none;
+            text-transform: uppercase;
             display: block;
             padding: 18px 0px 18px 115px;
+            /*width: 100%;*/
+            max-width: 354px;
         }
 
         .buttons button, ul li button, ul li a.buttonns {
@@ -197,7 +215,7 @@
             font-style: normal;
             font-family: "Open Sans", sans-serif;
             display: block;
-            width: 321px !important;
+            /*width: 321px !important;*/
             font-size: 1em !important;
             height: auto !important;
             padding: 18px 0 16px;
@@ -216,7 +234,7 @@
                    aria-label="Local Account SignUp">Local Account SignUp</a>
             </li>
             <li>
-                <a href="pol-card-nhs{{ params }}" class="nhs-login">CONTINUE WITH NHS</a>
+                <a href="pol-card-nhs{{ params }}" class="nhs-login">{{ theService.name('continue') }}</a>
             </li>
         </ul>
         <div>
