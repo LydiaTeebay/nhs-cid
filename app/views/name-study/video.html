@@ -33,9 +33,12 @@
 
         <div>
 
-            <p>Click the play button and watch the full video. <br>
-             Note that there is no sound. </p>
-
+            <ul>
+                <li>Click the play symbol below and watch the full video clip. (3 minutes) </li>
+                <li>The video will need to be fully download before it will start playing. It may take a few seconds depending on your internet connection speed.</li>
+                <li>The button underneath isn't clickable until you have watched the full video.</li>
+                <li>The video clip has no sound.</li>
+            </ul>
             <div id="video-container">
 
                 <video id="name-video" width="100%" height="auto">
@@ -61,7 +64,6 @@
     function visitPage(){
         window.location.href = 'survey{{ params|safe }}'
     }
-
     window.onload = function() {
         $('#name-video').parent().click(function () {
             if($(this).children("#name-video").get(0).paused){
@@ -73,8 +75,6 @@
             }
         })
     }
-
-
 </script>
 
 {% endblock %}
