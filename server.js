@@ -35,6 +35,7 @@ let password = process.env.AUTH_PASSWORD || process.env.PASSWORD
 let env = process.env.NODE_ENV || 'production'
 const useBrowserSync = config.useBrowserSync.toLowerCase()
 const useAuth = process.env.USE_AUTH || config.useAuth.toLowerCase()
+const useHttps = process.env.FORCE_HTTPS || config.useHttps.toLowerCase()
 env = env.toLowerCase()
 
 const router = express.Router()
@@ -81,6 +82,11 @@ app.use('/', router)
 app.get(/^\/([^.]+)$/, function (req, res) {
   utils.matchRoutes(req, res)
 })
+
+// Force HTTPs on production connections
+if (env === 'production' && useHttps === 'true') {
+    app.use(utils.forceHttps)
+}
 
 //
 app.use('/directory', serveIndex(path.join(__dirname, 'public')))
