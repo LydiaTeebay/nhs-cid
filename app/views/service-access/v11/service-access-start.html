@@ -1,0 +1,29 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - To access this service we'll need to do the following{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+
+{% block content %}
+
+<div class="first-item">
+	<section class="intructions">
+
+		<div class="reading-width">
+
+			<h1 class="heading-large">To access this service we'll need to do the following:</h1>
+
+			<ol class="instructions-list">
+				<li class="instructions-list__item">Find your NHS record</li>
+				<li class="instructions-list__item">Ensure you are who you say you are.</li>
+			</ol>
+
+			<p>We will only need to do this once.</p><p>There are a number of ways to do this and  We'll ask some questions to help you find the best way. </p>
+
+			<div class="form-control" style="margin: 32px 0 16px;">
+				<a class="button--information" href="service-access-triage-1{{ params }}">Continue</a>
+			</div>
+		</div>
+	</section>
+</div>
+
+{% endblock %}

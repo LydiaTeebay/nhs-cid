@@ -1,0 +1,84 @@
+{% macro name(variant = '') %}
+
+    {# set the name based on the study ID #}
+    {# fallback to NHS Access if no argument is found #}
+
+    {% if lsStudy === 'undefined' %}
+        {% set theName = '' %}
+    {% elif lsStudy === '8509' %}
+        {% set theName = 'NHS' %}
+    {% elif lsStudy === '1275' %}
+        {% set theName = 'NHS Access' %}
+    {% else %}
+        {% set theName = 'NHS Access' %}
+    {% endif %}
+
+
+    {# set up variations of the name string to fit in different contexts #}
+
+    {% if variant === 'login' %}
+
+    {% if theName === '' %}
+        Log in
+    {% else %}
+        Log in with {{ theName }}
+    {% endif %}
+
+    {% elif variant === 'login-inline' %}
+
+        {% if theName === '' %}
+        log in
+        {% else %}
+        log in with {{ theName }}
+        {% endif %}
+
+    {% elif variant === 'setup' %}
+
+        {% if theName === '' %}
+            Set your login details
+        {% elif theName === 'NHS' %}
+            Set up your NHS login
+        {% else %}
+            Set up {{ theName }}
+        {% endif %}
+
+    {% elif variant === 'setup-inline' %}
+
+        {% if theName === '' %}
+            set your login details
+        {% elif theName === 'NHS' %}
+            set up your NHS login
+        {% else %}
+            set up {{ theName }}
+        {% endif %}
+
+    {% elif variant === 'continue' %}
+
+        Continue with {{ theName }}
+
+    {% elif variant === 'success' %}
+
+        {% if theName === '' %}
+            You now have an NHS login
+        {% elif theName === 'NHS' %}
+            You now have an {{ theName }} login
+        {% else %}
+            You have set up {{ theName }}
+        {% endif %}
+
+    {% elif variant === 'account' %}
+
+        {{ theName }} account
+
+    {% elif variant === 'your' %}
+
+        Your {{ theName }}
+
+    {% else %}
+
+        {{ theName }}
+
+    {% endif %}
+
+{% endmacro %}
+

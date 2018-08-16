@@ -19,6 +19,11 @@
 <div class="first-item">
 
     <section id="camera-container">
+
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Position your face in the oval</div>
+        </div>
+
         <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
             <div class="camera-preview-feed">
@@ -26,16 +31,23 @@
             </div>
         </div>
 
+        {% if challenge == 'words' %}
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Say these 2 words whilst recording your video selfie: </div>
+            <div class="camera-instructions-numbers"><b>measure perfect</b></div>
+        </div>
+        {% else %}
         <div class="camera-instructions">
             <div class="camera-instructions-text">Say these numbers whilst recording your video selfie: </div>
             <div class="camera-instructions-numbers">{{ pinCode }}</div>
         </div>
+        {% endif %}
 
         <div class="camera-record">
             <button id="record" class="button" disabled>Start recording</button>
         </div>
 
-        <p><a class="" href="service-access-video-selfie-instructions{{ params }}">Cancel</a></p>
+        <p><a class="" href="service-access-video-selfie-instructions-2{{ params }}">Cancel</a></p>
 
         <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
     </section>
@@ -70,19 +82,27 @@
 
         <div class="reading-width">
             <div id="scan-video-preview">
-                <video id="recorded" controls="" autoplay style="width:100%;height:auto;"></video>
+                <video id="recorded" controls="" autoplay loop style="width:100%;height:auto;"></video>
             </div>
+
+            {% if challenge == 'words' %}
+            <div class="camera-instructions">
+                <div class="camera-instructions-text">Is the video clear and can you hear these 2 Words? </div>
+                <div class="camera-instructions-numbers"><b>measure perfect</b></div>
+            </div>
+            {% else %}
             <div class="camera-instructions">
                 <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
                 <div class="camera-instructions-numbers">{{ pinCode }}</div>
             </div>
+            {% endif %}
         </div>
 
         <button class="button" id="submitvideo">Yes, submit this video</button>
 
 
 
-        <p><a href="#" id="retakevideo">Retake</a> or <a class="" href="service-access-video-selfie-instructions{{ params }}">Cancel</a></p>
+        <p><a href="#" id="retakevideo">Retake</a> or <a class="" href="service-access-video-selfie-instructions-2{{ params }}">Cancel</a></p>
 
     </section>
 

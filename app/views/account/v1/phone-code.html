@@ -1,0 +1,48 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Account - manage phone number{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% endblock %}
+
+{% block content %}
+
+{% block alert %}{% endblock %}
+
+<div class="c-page-contents" style="">
+	<ul class="c-links__list js-page-nav-list">
+		<li class="c-links__list"><a href="account" class="c-page-contents__link">Profile</a></li>
+		<li class="c-links__list"><a href="phone" class="c-page-contents__link">Phone number</a></li>
+		<li class="c-links__list"><a href="password" class="c-page-contents__link">Manage password</a></li>
+	</ul>
+</div>
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item">
+
+	<h2>Check your phone</h2>
+
+	<p>We've sent you a message with a security code to 077*** ***123.</p>
+
+	<fieldset class="inline">
+		<div class="form-group">
+	        <label class="form-label" for="code">Security code</label>
+	        <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+	    </div>
+	</fieldset>
+	<a class="button" href="phone">Continue</a>
+
+
+	<p>Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="phone-resend">you can resend it</a>.</p>
+
+</div>
+
+{% endblock %}
+
+

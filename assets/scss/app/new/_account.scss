@@ -46,15 +46,16 @@
 
 @media(min-width:641px) {
     .c-page-contents__link {
-        text-decoration: none;
+        text-decoration: underline;
     }
 
     .c-page-contents__link:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     .c-page-contents__link:active {
-        text-decoration: underline;
+        text-decoration: none;
+        font-weight: bold;
     }
 }
 
@@ -114,5 +115,34 @@
 }
 
 
+.smaller-h1 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 38px;
+}
+
+.account-mgmt h2 {
+    font-size: 30px;
+}
+
+.account-mgmt {
+    margin-top: 0;
+}
+
+@media (min-width:925px) {
+    .account-mgmt {
+        margin-top: -32px;
+    }
+}
+
+.c-links__list.small {
+    margin-top: 10px;
+}
+
+@media (min-width:925px) {
+    .c-links__list.small {
+        margin-top: 32px;
+    }
+}
 
 

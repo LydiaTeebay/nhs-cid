@@ -45,9 +45,9 @@ if (!isSecureOrigin) {
 var constraints = {
     audio: true,
     video: {
-        width: 320,
-        height:240,
-        frameRate: {ideal: 20, min:10}
+        width: 640,
+        height:480,
+        frameRate: {ideal: 30, min:20}
     }
 };
 
@@ -160,7 +160,8 @@ function showPrep() {
 
 function showUploader() {
     mute();
-    uploadLoader(2);
+    uploadLoader2(2);
+    document.getElementById("spinner-heading").innerHTML = "Uploading your video";
     document.getElementById("progressbar-heading").innerHTML = "Uploading your video";
     document.getElementById('scan-id-5').style.display = "none";
     document.getElementById('scan-id-3').style.display = "block";

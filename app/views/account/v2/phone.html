@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked-nhsone.html' %}
+{% block page_title %}Account - manage phone number{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Account','Manage your account and security settings') }}
+{% endblock %}
+
+{% block content %}
+
+{% block alert %}{% endblock %}
+
+{% include '_partials/_components/_account-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item">
+
+	<h2>Phone number</h2>
+
+	<p>07*** ***123 <span class="step-list__item__status__text" style="float: none; padding-left: 15px;"> 2 FACTOR VERIFIED</span></p> 
+
+	<a class="button" href="phone-2fa">Edit phone number</a>
+
+</div>
+
+{% endblock %}
+
+

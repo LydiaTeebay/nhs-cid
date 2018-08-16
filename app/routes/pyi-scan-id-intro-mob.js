@@ -11,7 +11,7 @@ module.exports = function (router) {
         // var mobileNum = "XXXXXXXXXXX"
         // send text message
         if (changetomobile === 'yes') {
-            console.log("sending text")
+            console.log('sending text')
                 notifyClient
                     .sendSms(templateId, mobileNum, {
                         smsSenderId: smsSender })
@@ -27,7 +27,7 @@ module.exports = function (router) {
         // var mobileNum = "XXXXXXXXXXX"
         // send text message
         if (changetomobile === 'yes') {
-            console.log("sending text")
+            console.log('sending text')
             notifyClient
                 .sendSms(templateId, mobileNum, {
                     smsSenderId: smsSender })

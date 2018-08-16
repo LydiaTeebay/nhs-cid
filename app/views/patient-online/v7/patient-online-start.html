@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-1-stacked.html' %}
 {% block page_title %}View your medical record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead %}
 
 {% block content %}
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -10,9 +10,17 @@
   <form>
     <div class="form-group">
       <fieldset class="">
-        <h1><legend>Do you have an online services registration letter from your GP surgery?</legend></h1>
-        <p>If you have used GP online services then you will have been given a letter</p>
-        <img src="/images/registration-letter-1.png" height="200" style="border: 1px solid grey">
+        <h1><legend>Do you have a letter for online services from your GP surgery?</legend></h1>
+        <p>You may have received a letter, text or email with online services registration details.</p>
+
+        {% if system === 'tpp' %}
+          <img src="/images/linkage-key-letter-tpp.png" height="200" style="border: 1px solid grey">
+        {% endif %}
+
+        {% if system === 'emis' %}
+          <img src="/images/linkage-key-letter-emis.png" height="200" style="border: 1px solid grey">
+        {% endif %}
+        
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
             <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-linkage-key{{ params }}">
@@ -22,13 +30,7 @@
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
             <input id="radio-inline-2" type="radio" name="radio-inline-group" value="patient-online-gp-systems{{ params }}">
-            I've registered for online services but don't have the letter
-          </label>
-        </div>
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-3">
-            <input id="radio-inline-3" type="radio" name="radio-inline-group" value="patient-online-gp-online{{ params }}">
-            I haven't registered for online services
+            No
           </label>
         </div>
         

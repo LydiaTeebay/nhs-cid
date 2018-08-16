@@ -1,0 +1,44 @@
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% block page_title %}Access {{ serviceName }}{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
+
+
+{% block content %}
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+<p>Follow these steps to create your account</p>
+
+<section class="service-access__wrapper">
+
+	<ol class="service-access">
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Create your NHS One sign-in details</h3>
+			<div class="service-access__item__desc">
+				<p>You'll be able to use these details to sign in to other NHS services.</p>
+				<!--<p>Your {% include '_partials/_components/_name.html' %} account will allow you to sign into multiple health services in the future.</p>-->
+			</div>
+			<a href="/create-account/v8/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Help us find your NHS record</h3>
+			<div class="service-access__item__desc">
+				<p>You'll need to give us some details so we can connect to your GP.</p>
+			</div>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Take a photo of your ID document</h3>
+			<div class="service-access__item__desc">
+				<p>You will need to take a photo of your passport or driving licence.</p>
+			</div>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Record a short video</h3>
+			<div class="service-access__item__desc">
+				<p>This is so we can check that your face matches your photo ID.</p>
+			</div>
+		</li>
+	</ol>
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

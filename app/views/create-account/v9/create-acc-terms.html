@@ -1,0 +1,74 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Create an NHS Access account - {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set terms = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+{% if service !== 'nhsonline' and service !== 'nhsonline2' %}
+
+{% endif %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <form>
+
+    <div class="form-group">
+      <h1>Set up NHS Access</h1>
+      <p>If you've already set up NHS Access, <a href="login-nhs{{ params }}">log in instead</a>.</p>
+      <div class="form-group">
+        <label class="form-label" for="emailAddress">Email address</label>
+        <input class="form-control" id="emailAddress" name="emailAddress" type="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field3">Create a password</label>
+        <span class="form-label__hint">Your password must have at least 8 characters and at least 1 capital letter.</span>
+
+        <input class="form-control" id="field3" name="field3" type="password">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="field2">Confirm password</label>
+        <input class="form-control" id="field2" name="field2" type="password">
+      </div>
+
+      <h4>Information Security</h4>
+      <p class="small" style="margin-top: 16px;">We will collect and store your information in a secure way. We use your personal information in accordance with the site's <a href="#">privacy policy</a> and <a href="terms{{ params }}">terms and conditions</a>.</p>
+      <p class="small">We will not disclose your personal information to any third parties without obtaining your consent.</p>
+    </div>
+    <a class="button" href="check-email{{ params }}&terms=yes">I agree to Terms. Create account</a>
+  </form>
+
+</div>
+
+{% endblock %}
+
+{% block rightcol %}
+
+<!-- <div class="sidebar-button sidebar-button--gv">
+    
+      <img src="/images/non-gov-verify-logo.png" width="80" />
+      <p style="font-family: "nta", Arial, sans-serif; font-weight: 400; text-transform: none; font-size: 18px;" class="font-xsmall">Create an NHS account with <br><strong>VERIFY</strong></p>
+      <a href="https://nhs-cid-verify.herokuapp.com/intro{{ params }}">Create a GOV.UK Verify account</a>
+  </div>
+
+  <details class="" role="group">
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+      <span class="details__summary"><span style="font-size: 16px;">What is GOV.UK Verify?</span></span>
+    </summary>
+    <div id="details-content-0" aria-hidden="true">
+      <p class="small">GOV.UK Verify is an identity service that allows you to login where ever you see the GOV.UK Verify logo.</p>
+      <p class="small">You can sign up for a GOV.UK Verify account now or log to a service using your GOV.UK Verify credentials</p>
+    </div>
+  </details> -->
+  
+{% endblock %}

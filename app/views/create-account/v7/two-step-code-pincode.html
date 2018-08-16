@@ -4,9 +4,9 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 {% elif vouch %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum%}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 {% endif %}
 
 {% block topRow %}
@@ -43,8 +43,12 @@
       </fieldset>
     </div>
     <div class="form-group">
-      {% if service === "nhsonline" %}
+      {% if service === "nhsonline2" or service === "nhsonline3" %}
+      <a id="securitycodeContinue" href="/service-access/v4/service-access-nhs{{ params }}" class="button">Continue</a>
+      {% elif service === "nhsonline" %}
       <a id="securitycodeContinue" href="/service-access/v3/service-access-nhs{{ params }}" class="button button--disabled">Continue</a>
+      {% elif service === "nhsonlinepol" %}
+      <a id="securitycodeContinue" href="/service-access/service-access-nhsonline-connect-gp{{ params }}" class="button button--disabled">Continue</a>
       {% else %}
       <a id="securitycodeContinue" href="/service-access/v3/service-access-nhs-acc?serviceName=Access%20your%20medical%20record" class="button button--disabled">Continue</a>
       {% endif %}

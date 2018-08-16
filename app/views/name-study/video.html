@@ -1,0 +1,80 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Watch this video - Name Survey{% endblock %}
+
+{% set params = "?healthcare=" + healthcare + "&age=" + age + "&country=" + country + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+
+{% block content %}
+
+<style>
+    #video-container { position: relative; margin: 32px 0 0;}
+    #name-video { border: 1px solid black; max-width:100%; height:auto; margin: 0;}
+    #video-overlay2 { position: absolute; width: 100%; height: 100%; z-index: 999; cursor: pointer; margin: 0;}
+    #video-overlay {
+        background-image:url(/images/media_play_pause_resume.png);
+        background-repeat:no-repeat;
+        width:50%;
+        height:50%;
+        position:absolute;
+        left:0%;
+        right:0%;
+        top:0%;
+        bottom:0%;
+        margin:auto;
+        background-size:contain;
+        background-position: center;
+    }
+
+</style>
+
+<div class="first-item">
+
+    <section class="intructions">
+        <h1 class="heading-large"><span class="heading-secondary">Step 2 of 3 </span>Watch the video</h1>
+
+        <div>
+
+            <ul>
+                <li>Click the play symbol below and watch the full video clip. (3 minutes) </li>
+                <li>The video will need to be fully download before it will start playing. It may take a few seconds depending on your internet connection speed.</li>
+                <li>The button underneath isn't clickable until you have watched the full video.</li>
+                <li>The video clip has no sound.</li>
+            </ul>
+            <div id="video-container">
+
+                <video id="name-video" width="100%" height="auto">
+                    <source src="/images/CID_PB_STUDY.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="video-overlay"></div>
+            </div>
+
+        </div>
+
+        <button onclick="visitPage()" class="button--information" id="name-button" disabled>I've watched the video</button>
+
+    </section>
+
+</div>
+
+<script type='text/javascript'>
+    document.getElementById('name-video').addEventListener('ended', onComplete, false)
+    function onComplete(e) {
+        document.getElementById('name-button').disabled = false
+    }
+    function visitPage(){
+        window.location.href = 'survey{{ params|safe }}'
+    }
+    window.onload = function() {
+        $('#name-video').parent().click(function () {
+            if($(this).children("#name-video").get(0).paused){
+                $(this).children("#name-video").get(0).play()
+                $(this).children("#video-overlay").fadeOut()
+            }else {
+                $(this).children("#name-video").get(0).pause()
+                $(this).children("#video-overlay").fadeIn()
+            }
+        })
+    }
+</script>
+
+{% endblock %}

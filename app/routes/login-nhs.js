@@ -10,17 +10,125 @@ module.exports = function (router) {
     var emailAddress = req.param('emailAddress')
     var mobileNum = req.param('mobileNum')
     var verified = req.param('verified')
+    var poluser = req.param('poluser')
     // re-render the page along with the parameter
 
     if (terms === 'yes') {
-      res.redirect('/create-account/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified)
+      res.redirect('/create-account/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified + '&poluser=' + poluser)
       return
     } else {
-      res.render('create-account/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified }, function(err, html) {
+      res.render('create-account/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
           res.send(html)
       })
     }
   })
+
+    router.get('/create-account/v10/login-nhs', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var newUser = req.param('newUser')
+        var serviceName = req.param('serviceName')
+        var passwordChange = req.param('passwordChange')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var verified = req.param('verified')
+        var poluser = req.param('poluser')
+        var result = req.param('result')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        // re-render the page along with the parameter
+        res.render('create-account/v10/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+
+    })
+
+    router.get('/create-account/pb/login-nhs', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var newUser = req.param('newUser')
+        var serviceName = req.param('serviceName')
+        var passwordChange = req.param('passwordChange')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var verified = req.param('verified')
+        var poluser = req.param('poluser')
+        // re-render the page along with the parameter
+
+        res.render('create-account/pb/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+
+    })
+
+    router.get('/create-account/v9/login-nhs', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var newUser = req.param('newUser')
+        var serviceName = req.param('serviceName')
+        var passwordChange = req.param('passwordChange')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var verified = req.param('verified')
+        var poluser = req.param('poluser')
+        // re-render the page along with the parameter
+
+        res.render('create-account/v9/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+
+    })
+
+    router.get('/create-account/v8/login-nhs', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var newUser = req.param('newUser')
+        var serviceName = req.param('serviceName')
+        var passwordChange = req.param('passwordChange')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var verified = req.param('verified')
+        var poluser = req.param('poluser')
+        // re-render the page along with the parameter
+
+        res.render('create-account/v8/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+
+    })
+
+    router.get('/create-account/mvp/login-nhs', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var newUser = req.param('newUser')
+        var serviceName = req.param('serviceName')
+        var passwordChange = req.param('passwordChange')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var verified = req.param('verified')
+        var poluser = req.param('poluser')
+        // re-render the page along with the parameter
+
+        if (terms === 'yes') {
+            res.redirect('/create-account/mvp/two-step?service=' + service + '&serviceName=' + serviceName + '&terms=' + terms + '&mobileNum=' + mobileNum + '&emailAddress=' + emailAddress + '&vouch=' + vouched + '&verified=' + verified + '&poluser=' + poluser)
+            return
+        } else {
+            res.render('create-account/mvp/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
+                res.send(html)
+            })
+        }
+    })
 
   router.get('/create-account/v7/login-nhs', function (req, res) {
     // pull in the url parameters

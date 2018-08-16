@@ -1,5 +1,5 @@
 module.exports = function (router) {
-    router.get('/id-checker/id-checker-profile-1', function (req, res) {
+    router.get('/id-checker/v1/id-checker-profile-1', function (req, res) {
       // pull in the url parameter
       //var vouched = req.param('vouch')
 
@@ -9,7 +9,7 @@ module.exports = function (router) {
       var dateMatchID = req.param('dateMatchID');
       var videoMatchID = req.param('videoMatchID');
       // re-render the page along with the parameter
-      res.render('id-checker/id-checker-profile-1', { nhsNumber: nhsNumber,
+      res.render('id-checker/v1/id-checker-profile-1', { nhsNumber: nhsNumber,
                                                       nameMatchPDS: nameMatchPDS,
                                                       nameMatchID: nameMatchID,
                                                       dateMatchID: dateMatchID,

@@ -1,0 +1,46 @@
+{% extends '_layouts/_grids/_grid-email.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern('Sorry - your application has been declined.','We have reviewed your application for a verified NHS Online Services account and it has been declined.','failure') }}
+
+  <p>There are several reasons why you may have been declined:</p>
+
+  <ol>
+    <li>You made a mistake when entering your name or NHS number</li>
+    {% if demographics === 'true' %}
+      <li>You entered a postcode that isn’t recognised by your GP surgery</li>
+    {% endif %}
+    <li>The video recording of your photo ID is unclear</li>
+    <li>The requested words on the video recording are unclear</li>
+    <li>The video recording of your face is unclear</li>
+    <li>Your appearance on your photo ID does not match your appearance on your video recording.</li>
+  </ol>
+
+  <p>If you think you may have made an error, you can re-apply below.</p>
+
+  <p><a class="button" href="/service-access/v8/service-access-nhs{{ params }}">Revise and Re-apply</a></p>
+
+
+  <h2>What Happens Now?</h2>
+
+  <p>You still have an Online NHS Services account, and your log in details will still work.</p>
+
+  <p>If you try to access the NHS App, you will be asked to prove your identity again.</p>
+
+  <p><a class="button" href="/start/v2/nhs-online{{ params }}">Go back to the NHS App now</a></p>
+
+
+</div>
+
+{% endblock %}

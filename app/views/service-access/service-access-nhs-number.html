@@ -8,49 +8,38 @@
 
 <div class="first-item">
 
+  <p><a href="javascript:history.go(-1)">Go back</a></p>
+
+  <!--<span class="section-header">About you</span>-->
+
   <form>
     <div class="form-group">
-
       <fieldset>
 
-        <label for="nhs_number">
+        <legend>
           <h1 class="">
-            Your NHS number
+            Do you know your NHS number?
           </h1>
-        </label>
+        </legend>
 
-        <div id="nhs-number" {% if formerror %}class="has-error form-row-error-active"{% endif %}>
-
-          <div class="form-group">
-            <!--<label class="form-label" for="nhs_number">Your NHS Number</label>-->
-            <!-- <span class="form-label__hint">Example: 485 777 3456</span> -->
-
-            {% if formerror %}
-              <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">Please enter a valid NHS number</span>
-            {% endif %}
-
-            <input class="form-control code" id="nhs_number" pattern="[0-9]" maxlength="10" name="nhs_number" type="tel">
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice" data-target="nhs-yes">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-nhs-number-num{{ params }}">
+            <label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
           </div>
-
         </div>
-
-        <div class="callout callout--info callout--compact">
-          <p>NHS numbers are 10 digits long, for example <strong>943 476 5919</strong>.<br>You can find it on prescriptions or doctor/hospital letters.</p>
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice" data-target="nhs-no">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-demographics-name{{ params }}">
+            <label for="radio-inline-2"class="block-label" style="position: static;">No</label>
+          </div>
         </div>
-
-        <div class="form-group">
-          <!--<a class="button" href="service-access-eredbook-03{{ params }}" id="continue">Continue</a>-->
-          <a class="button" href="service-access-photo-id{{ params }}">Continue</a>
-        </div>
-
-        {% if service === 'nhsonline' %}
-          <p><a href="service-access-nhs-demographics{{ params }}">I don't know my NHS number</a></p>
-        {% else %}
-          <p><a href="service-access-no-documents{{ params }}">I don't know my NHS number</a></p>
-        {% endif %}
 
       </fieldset>
+    </div>
 
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
     </div>
 
   </form>

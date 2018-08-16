@@ -1,0 +1,55 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - Check your phone{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
+{% elif vouch %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
+{% endif %}
+
+{% block topRow %}
+  {% if resend == "yes" %}
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('','Your security code has been resent.','attention') }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+  
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+        <h1>Check your phone</h1>
+
+        <p>We've sent you a message with a security code to your phone.</p>
+        <p>For the purposes of this survey this wont work so please just click CONTINUE.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="code">Security code</label>
+          <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+        </div>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+
+      {% if poluser === "true" %}
+      <a id="securitycodeContinue" href="/patient-online/v10/patient-online-linkage-key{{ params }}" class="button">Continue</a>
+      {% else %}
+      <a id="securitycodeContinue" href="/service-access/v10/service-access-nhs{{ params }}" class="button">Continue</a>
+      {% endif %}
+
+    </div>
+    <!--p class="">If you haven't received the message you can <a href="two-step{{ params }}">try again</a>.</p-->
+
+  </form>
+</div>
+
+{% endblock %}
+

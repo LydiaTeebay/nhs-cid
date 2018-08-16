@@ -1,31 +1,40 @@
 {% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}View your hospital record {{serviceName}}{% endblock %}
 
-{% set params = "?serviceName=" + serviceName + "&hidehead=" + hidehead %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead %}
+
+
+
+
 
 {% block content %}
 
+
+{% if emptysearch == "true" %}
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','Enter GP surgery name, postcode or both.','warning') }}
+<br>
+{% endif %}
+
 <div class="first-item">
-  <form>
+  <form action="patient-online-gp-lookup{{ params }}" method="POST">
     <div class="form-group">
       <fieldset class="">
         <h1><legend>Find your GP surgery</legend></h1>
-        <!--<p>You need to do this to register for online services.</p>-->
         <div class="form-group">
-          <label class="form-label" for="findGP">GP surgery name</label>
-          <input class="form-control" id="findGP" name="findGP" type="text">
+          <label class="form-label" for="gpName">GP surgery name</label>
+          <input class="form-control" id="gpName" name="gpName" type="text">
         </div>
         <div class="form-group">
-          <label class="form-label" for="findGP">Postcode</label>
-          <input class="form-control" id="findGP" name="findGP" type="text">
+          <label class="form-label" for="gpPostcode">Postcode</label>
+          <input class="form-control" id="gpPostcode" name="gpPostcode" type="text">
         </div>
     </div>
 
    
     <div class="form-group">
-      <a class="button" href="patient-online-gp-results{{ params }}" id="continue">Search</a>
+      <button class="button" href="patient-online-gp-lookup{{ params }}">Search</button>
     </div>
-    <!--<p><a href="patient-online-gp-systems{{ params }}">I know which system my GP uses, let me choose from a list</a></p>-->
   </form>
 </div>
 

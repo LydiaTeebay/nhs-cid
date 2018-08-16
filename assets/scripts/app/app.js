@@ -39,6 +39,53 @@ function activateLoader(speed) {
     }, time)
 }
 
+function activateLoader2(speed) {
+    // console.log("activate")
+    var progressbar = $('#progress_bar')
+    var $ppc = $('.progress-pie-chart')
+    document.getElementById("spinner-status").innerHTML = "Please wait";
+    $ppc.removeClass('gt-50')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate)
+            $("#spinner-heading").css("display", "block")
+            $("#scan-id-0").css("display", "block")
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-5").css("display", "none")
+            $("#scan-id-6").css("display", "none")
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 4000)
+            setTimeout(function(){
+                $('#continueButton').click()
+            }, 5000)
+        }
+    }
+    var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function reactivateLoader(speed) {
     // console.log("activate")
     var $ppc = $('.progress-pie-chart')
@@ -110,6 +157,51 @@ function uploadLoader(speed) {
     }, time)
 }
 
+function uploadLoader2(speed) {
+    var $ppc = $('.progress-pie-chart')
+    $ppc.removeClass('gt-50')
+    var progressbar = $('#progress_bar')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate2)
+            $("#spinner-heading").css("display", "block")
+            document.getElementById("spinner-status").innerHTML = "Checking";
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-0").css("display", "block")
+
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 4000)
+            setTimeout(function(){
+                $('#confirmButton').click()
+            }, 5000)
+        }
+    }
+    var animate2 = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function readURL(input, idType) {
   if (input.files && input.files[0]) {
     var reader = new FileReader()
@@ -159,11 +251,39 @@ function readURL(input, idType) {
             $('#uploaded-video>source').attr('src', e.target.result)
             activateLoader(2)
         }
-
     }
     reader.readAsDataURL(input.files[0])
   }
 }
+
+function playSelectedFile(event) {
+    var URL = window.URL || window.webkitURL
+
+    var file = event.files[0]
+    var type = file.type
+    console.log(file)
+    console.log(file.type)
+    var videoNode = document.getElementById('uploaded-video')
+    var canPlay = videoNode.canPlayType(type)
+    if (canPlay === '') canPlay = 'no'
+    var isError = canPlay === 'no'
+
+    if (isError) {
+        return
+    }
+
+    var fileURL = URL.createObjectURL(file)
+    videoNode.src = fileURL
+
+    $("#scan-id-1").css("display", "none")
+    $("#scan-id-5").css("display", "block")
+
+    // uploadLoader(2)
+}
+
+$("#video-selfie").change(function(){
+    playSelectedFile(this)
+})
 
 $("#id-document").change(function(){
   readURL(this, "id")
@@ -173,11 +293,14 @@ $("#photo-id-document").change(function(){
     readURL(this, "photoId")
 })
 
-
-
 $("#document").change(function(){
     readURL(this, "doc")
 })
+
+$("#linkage-key-loader").on("load", function() {
+    reactivateLoader(2);
+    console.log("is this firing!!");
+}) 
 
 // submit photo button action
 $("#submit-id-button").on("click", function(e) {
@@ -213,11 +336,33 @@ $("#submit-id-back-button").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
-
 // submit button action
 $("#submit-photoId-button").on("click", function(e) {
     e.preventDefault()
+    activateLoader2(2)
+    $("#scan-id-0").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit button action
+$("#submit-videoSelfie-button").on("click", function(e) {
+    e.preventDefault()
     activateLoader(2)
+    $("#scan-id-0").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit button action post v8 version
+$("#submit-videoSelfie2-button").on("click", function(e) {
+    e.preventDefault()
+    activateLoader2(2)
+    $("#scan-id-0").css("display","none")
     $("#scan-id-5").css("display","none")
     $("#scan-id-6").css("display","none")
     $("#scan-id-3").css("display","block")
@@ -258,10 +403,6 @@ $("#id-selfie").change(function(){
 
 $("#selfie").change(function(){
     readURL(this, "selfie")
-})
-
-$("#video-selfie").change(function(){
-    readURL(this, "videoSelfie")
 })
 
 // submit back button action
@@ -378,8 +519,6 @@ swap();
   var mOverlay = getId('modal_window'),
       mOpen = getId('modal_open'),
       mCreate = getId('modal_create'),
-      mCreate2 = getId('modal_create2'),
-      mCreate3 = getId('modal_create3'),
       mClose = getId('modal_close'),
       modal = getId('modal_holder'),
       emailField = getId('emailAddress'),
@@ -409,6 +548,7 @@ swap();
       if (modalOpen && ( !event.keyCode || event.keyCode === 27 ) ) {
           mOverlay.setAttribute('aria-hidden', 'true')
           modal.setAttribute('tabindex', '-1')
+          event.preventDefault()
           modalOpen = false
           lastFocus.focus()
       }
@@ -435,11 +575,6 @@ swap();
     // open modal by btn click/hit
     // mOpen.addEventListener('click', modalShow)
     mCreate.addEventListener('click', modalShow, false)
-    mCreate2.addEventListener('click', modalShow, false)
-    mCreate3.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.parent.document.location.href = e.target.href
-    });
     // close modal by btn click/hit
     mClose.addEventListener('click', modalClose)
 
@@ -466,4 +601,15 @@ $(document).ready(function () {
   // to toggle hidden content
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
+})
+
+// radio button functionality
+
+$('#continue').click(function(e) {
+    var value = $('input:radio[name=radio-inline-group]:checked').val()
+    if (value == null){
+        e.preventDefault()
+    } else {
+        location.href = value
+    }
 })

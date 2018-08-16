@@ -1,0 +1,30 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - You will not be able to prove your identity online without a photo ID.{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+<div class="first-item">
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+
+  <h1 class="">
+    You will not be able to prove your identity online without a photo ID.
+  </h1>
+
+  <h3>However, there is still a way to access the service.</h3>
+
+  <p>You need to visit your GP surgery and either:</p>
+
+  <ul>
+    <li>Ask them to re-print your registration details if you have previously registered for online services.</li>
+    <li>Sign up for online services and receive the registration details</li>
+  </ul>
+
+  <p>When you next log in you will be asked about your registration details. You can then type the details in. </p>
+
+</div>
+
+{% endblock %}

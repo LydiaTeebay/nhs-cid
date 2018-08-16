@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% block page_title %}Sign in with NHS One - {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+  {% if service === 'app' %}
+    <h1>Check your email</h1>
+    <p>We've sent an <a href="/emails/v1/email-validate{{ params }}">email</a> to {{ emailAddress }}.</p>
+    <p>You'll need to confirm your email address to continue.</p>
+  {% else %}
+    <h1>Check your email</h1>
+    <p>An email has been sent to {{ emailAddress }}</p>
+    <p>Click the link in the <a href="/emails/v1/email-validate{{ params }}">email</a> to continue your NHS One registration.</p>
+  {% endif %}
+  </div>
+    
+</div>
+
+{% endblock %}

@@ -88,3 +88,21 @@
     margin-top: 0;
   }
 }
+
+.panel-confirmation {
+  color: #fff;
+  background: #28a197;
+}
+
+.panel-confirmation__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.09375;
+
+  @include media(tablet) {
+    font-size: 48px;
+    line-height: 1.04167;
+  }
+}

@@ -1,0 +1,41 @@
+// expanded views of image thumbnails
+
+.pop-thumb {
+  cursor: pointer;
+  border: 2px solid $nhs-blue;
+}
+
+#pop {
+  position: fixed;
+  z-index: 999999;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6) none no-repeat 50% 50%;
+  box-shadow: 0 0 0 24px rgba(0, 0, 0, 0.6);
+  left: 24px;
+  top: 24px;
+  right: 24px;
+  bottom: 24px;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#pop.loading:after {
+  content: "Loading...";
+  position: absolute;
+  top: 50%;
+  left: 44%;
+}
+
+#pop.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+#popClose {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 2em;
+}

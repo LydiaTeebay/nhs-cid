@@ -1,0 +1,50 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Check your phone - {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
+{% elif vouch %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
+{% endif %}
+
+{% block topRow %}
+  {% if resend == "yes" %}
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('','Your security code has been resent.','attention') }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+  
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+        <h1>Check your phone</h1>
+
+        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="code">Security code</label>
+          <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+        </div>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+
+      <a id="securitycodeContinue" href="/patient-online/pb/patient-online-details{{ params }}" class="button">Continue</a>
+
+    </div>
+    <!--p class="">If you haven't received the message you can <a href="two-step{{ params }}">try again</a>.</p-->
+
+  </form>
+</div>
+
+{% endblock %}
+

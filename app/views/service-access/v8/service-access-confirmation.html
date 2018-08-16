@@ -1,0 +1,56 @@
+{% extends '_layouts/_grids/_grid-2-1-nhsone.html' %}
+{% block page_title %}Access {{ serviceName }} - Confirm submission of your evidence{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="service-access-wrapper">
+	{% if poluser === "true" %}
+	<!--<p>You now have the required information to prove your identity.</p>-->
+	<ol class="service-access">
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Connect to your GP</p>
+		</li>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Create your NHS One sign in details</p>
+		</li>
+	</ol>
+	{% else %}
+	<p>You now have the required information to prove your identity.</p>
+	<ol class="service-access">
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Your NHS record</p>
+		</li>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Photo of your ID document</p>
+		</li>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">A short video</p>
+		</li>
+	</ol>
+	{% endif %}
+
+
+	{% if poluser === "true" %}
+		<a href="https://nhsa.herokuapp.com/home.php?logged=false" target="_parent" class="button">Continue to NHS App</a>
+	{% else %}
+		<p class="small">You are agreeing to submit your evidence for checking. It will be held for 7 days after checking and then deleted.</p>
+		<a href="service-access-complete{{ params }}" class="button">Submit information</a>
+	{% endif %}
+	
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

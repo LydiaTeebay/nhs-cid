@@ -1,0 +1,40 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }}{% endblock %}
+
+{% set signedin = 'true' %}
+{% set isServiceStart = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+
+
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Create an NHS account</p>
+			<!--<span class="service-access__item__status">Completed</span>-->
+		</li>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">Enter your registration details</p>
+			<!--<span class="service-access__item__status">Completed</span>-->
+		</li>
+		<li class="service-access__item hide-number">
+			<p class="h3 service-access__item__title ticked">About you</p>
+			<!--<span class="service-access__item__status">Completed</span>-->
+		</li>
+	</ol>
+
+	<a href="/end/mvp/nhsonline-dashboard{{ params }}" class="button">Continue to NHS App</a>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

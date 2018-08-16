@@ -1,0 +1,56 @@
+{% extends '_layouts/_nhsone_layout.html' %}
+
+{% block body %}
+
+<style>
+.global-header__link {
+  float: left;
+  width: 140px;
+  background: url(/images/nhs-one.png) no-repeat;
+}
+</style>
+
+<div class="grid-row">
+
+  <section class="">
+    <header role="banner">
+      <div class="global-header">
+        <div class="global-header__inner">
+          <a href="/" class="global-header__link" >
+            <img src="/images/logotype-nhs-mono.png"  alt="NHS">
+          </a>
+
+          {% if isServiceStart !== 'true' %}
+          {% if (serviceName) %}
+          <h4 class="global-header__service" style="margin: 0;">{{ serviceName|safe }}</h4>
+          {% endif %}
+          {% endif %}
+
+        </div>
+      </div>
+    </header>
+    {% block content %}{% endblock %}
+    <footer role="contentinfo">
+      <div class="global-footer">
+        <div class="global-footer__inner">
+          <div>
+
+            <h2 class="util-visuallyhidden">Support links</h2>
+            <ul class="link-list">
+              <li>
+                <a href="https://beta.nhs.uk/help/clinical-assurance">Clinical assurance</a>
+              </li>
+              <li>
+                <a href="https://beta.nhs.uk/help/cookies">Cookies</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+</section>
+
+{% endblock %}

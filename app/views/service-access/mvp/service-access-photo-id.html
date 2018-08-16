@@ -1,0 +1,54 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 3: Photo ID document details{% endblock %}
+
+{% set signedin = 'true' %}
+{% set isServiceStart = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+
+{% block header %}
+  {% if hidehead !== 'true' %}
+    {% import "_partials/_components/_local-header.html" as localHeader %}
+    {{ localHeader.pattern(serviceName,'') }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="service-access__wrapper">
+
+	<ol class="service-access">
+
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Create an NHS account</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your phone.</p>
+				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Enter your NHS number</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your NHS number so we can get your details.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Photo ID document</h3>
+			<div class="service-access__item__desc">
+				<p>You will need to take a photo of your passport or driving licence.</p>
+			</div>
+			<a href="service-access-photo-id-type{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Submit a video selfie</h3>
+			<div class="service-access__item__desc">
+				<p>For security reasons we need to match you to your photo ID.</p>
+			</div>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

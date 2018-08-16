@@ -1,0 +1,36 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Log in with NHS Access</legend></h1>
+
+        <div class="form-group">
+          <label class="form-label" for="field1">Email address</label>
+          <input class="form-control" id="field1" name="field1" type="text">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field2">Password</label>
+          <input class="form-control" id="field2" name="field2" type="password">
+        </div>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+
+      <a class="button" href="two-step{{ params }}" id="continue">Continue</a>
+
+    </div>
+    <p><a href="forgotten-password">Forgotten your password?</a></p>
+    <p><a href="/patient-online/v9/patient-online-gp-lookup{{ params }}">Create an NHS Access account</a></p>
+  </form>
+</div>
+
+{% endblock %}

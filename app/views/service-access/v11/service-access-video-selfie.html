@@ -1,0 +1,43 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 4: Submit a video selfie{% endblock %}
+
+{% set signedin = 'true' %}
+{% set formerror = 'undefined' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge %}
+
+
+{% block content %}
+
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+<h1>Complete these steps</h1>
+
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Take a photo of your ID document</h3>
+			<div class="service-access__item__desc">
+				<!--<p>You will need to take a photo of your passport or driving licence.</p>-->
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Record a short video</h3>
+			<div class="service-access__item__desc">
+				<p>This is so we can check that your face matches your photo ID.</p>
+			</div>
+			<a href="service-access-video-selfie-instructions-2{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Help us find your NHS record</h3>
+			<div class="service-access__item__desc">
+				<!--<p>You'll need to give us some details so we can connect to your doctor's surgery.</p>-->
+			</div>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
