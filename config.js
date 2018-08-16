@@ -6,12 +6,23 @@ const srcPath = './assets/'
 const destPath = './public/'
 
 module.exports = {
+  // Enable or disable password protection on production
+  useAuth: 'true',
+  // Force HTTP to redirect to HTTPs on production
+  useHttps: 'true',
+  // Enable or disable Browser Sync
+  useBrowserSync: 'true',
+
   app: {
     // Default port that prototype runs on
     port: '3000',
 
     // Enable or disable password protection on production
     useAuth: 'true',
+    // Force HTTP to redirect to HTTPs on production
+    useHttps: 'true',
+    // Enable or disable Browser Sync
+    useBrowserSync: 'true',
 
     // Automatically stores form data, and send to all views
     useAutoStoreData: 'true',
@@ -19,14 +30,9 @@ module.exports = {
     // Enable or disable built-in docs and examples.
     useDocumentation: 'false',
 
-    // Force HTTP to redirect to HTTPs on production
-    useHttps: 'true',
-
     // Cookie warning - update link to service's cookie page.
     cookieText: 'GOV.UK uses cookies to make the site simpler. <a href="#">Find out more about cookies</a>',
 
-    // Enable or disable Browser Sync
-    useBrowserSync: 'true'
   },
 
   gulp: {
