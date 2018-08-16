@@ -176,6 +176,10 @@
                     <div class="idcheck-result-reason" id="failed">
                         <p>We found more than one PDS record using these details.</p>
                     </div>
+                    {% elif failreason === 'expired' %}
+                    <div class="idcheck-result-reason" id="failed">
+                        <p>This person is classified as dead</p>
+                    </div>
                     {% else %}
                     <div class="idcheck-result-reason" id="failed">
                         <!--<p>The submitted demographic details do not match an NHS record.</p>-->

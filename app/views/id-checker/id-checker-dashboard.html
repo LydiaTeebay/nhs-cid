@@ -11,7 +11,7 @@
 {% if result === "null" %}
 
 {% import "_partials/_components/_callout.html" as callout %}
-{{ callout.pattern('','There are currently no verification requests pending','alert') }}
+{{ callout.pattern('','There are no verification requests in the queue.','alert') }}
 
 {% elif result === "resubmit" %}
 

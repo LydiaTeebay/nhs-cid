@@ -1,13 +1,12 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Checking your details{% endblock %}
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&result=" + result %}
 
 {% block content %}
 
-{#  hide this
-
 {% if result === '200' %}
-<meta http-equiv="refresh" content="5;url=https://nhsa.herokuapp.com/template.php?page=welcome.php&logged=true&feature=welcome&pageCode=SC02b">
+<meta http-equiv="refresh" content="5;url={{ backlink.link() }}">
 {% elif result === '400' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-400{{ params }}">
 {% elif result === '403' %}
@@ -26,7 +25,6 @@
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-504{{ params }}">
 {% endif%}
 
-#}
 
 <h1><legend>Checking your details</legend></h1>
 
