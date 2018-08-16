@@ -3,6 +3,19 @@
 
 {% set params = "?lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
 
+{% block topRow %}
+<div id="javascript-message">
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('Warning','You can not proceed with this study if you have disabled Javascript in your browser.','warning') }}
+</div>
+<div id="blocking-message" style="display:none">
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('Warning','You can not proceed with this study if you have any form of script blocking software running in your browser.','warning') }}
+</div>
+
+{% endblock %}
+
+
 {% block content %}
 
 <div class="first-item">
@@ -12,10 +25,33 @@
         <p>This survey is to find out what people think of a prototype of a new NHS app.</p>
         <p>Before you start the survey we need to make sure you can take part by asking you some questions.</p>
 
-        <a href="/remote-testing/screening-1{{ params }}" class="button--information">Continue</a>
+        <a href="/remote-testing/screening-1{{ params }}" class="button--information" id="blocking-continue" style="display:none">Continue</a>
 
     </section>
 
 </div>
+
+{% endblock %}
+
+{% block extrascripts %}
+<script>
+    // We inline abt.min.js rather than link to it so that it's harder for an Ad Blocker to whitelist
+    function ad_block_test(a,b){if("undefined"!=typeof document.body){var c="0.1.2-dev",b=b?b:"sponsorText",d=document.createElement("DIV");d.id=b,d.style.position="absolute",d.style.left="-999px",d.appendChild(document.createTextNode("&nbsp;")),document.body.appendChild(d),setTimeout(function(){if(d){var b=0==d.clientHeight;try{}catch(e){}a(b,c),document.body.removeChild(d)}},175)}}
+
+    ad_block_test(function(is_blocked){
+        // Note this function may not run until some time later.
+        if(is_blocked) {
+            console.log("blocking")
+            var button = document.getElementById('no-blocking')
+            $("#blocking-continue").hide()
+            $("#blocking-message").show()
+            $("#javascript-message").hide()
+        } else {
+            console.log("not blocking")
+            $("#blocking-continue").show()
+            $("#javascript-message").hide()
+        }
+    })
+</script>
 
 {% endblock %}
