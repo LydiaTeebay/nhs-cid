@@ -3,9 +3,16 @@
 
 {% set signedin = '' %}
 
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
 {% block topRow %}
 
-<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+<p><a href="/create-account/pb/create-acc-terms{{ params }}" class="link-back">Back</a></p>
 
 <h1>Terms of Use
 	<div class="smaller-h1">Cookie Policy</div>
