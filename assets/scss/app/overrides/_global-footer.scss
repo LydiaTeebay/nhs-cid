@@ -1,0 +1,10 @@
+.global-footer__inner__no-logo {
+  @include site-width-container;
+  padding-bottom: $baseline-grid-unit * 24;
+  padding-top: $baseline-grid-unit * 8;
+
+  @include media(desktop) {
+    padding-bottom: $baseline-grid-unit * 32;
+    padding-top: $baseline-grid-unit * 12;
+  }
+}

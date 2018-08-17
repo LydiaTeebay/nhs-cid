@@ -1,0 +1,51 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Terms of Use - Terms and Conditions{% endblock %}
+
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block topRow %}
+
+<p><a href="/create-account/pb/create-acc-terms{{ params }}" class="link-back">Back</a></p>
+
+<h1>Terms of Use
+	<div class="smaller-h1">Terms and Conditions</div>
+</h1>
+<hr>
+
+<style>
+	.c-page-contents__link.link-terms { 
+		font-weight: bold; 
+		text-decoration: none; 
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_terms-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item account-mgmt">
+
+	<h2>Terms and Conditions</h2>
+
+	<p>Awaiting content.</p>
+
+</div>
+
+{% endblock %}
+
+

@@ -9,12 +9,22 @@
 
     <section class="intructions">
 
-        <p>Please answer the questions and then continue.</p>
+        <p>Please complete the survey by answering the questions you can see below.</p>
+        <p>Only AFTER you have answered all the questions click the button below.</p>
 
-        <a href="survey{{ params }}" class="button--information">Continue</a>
+        <a href="survey{{ params }}" class="button--information" id="hideMe">I have answered all the questions</a>
 
     </section>
 
 </div>
 
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+    //show the button
+    setTimeout(function(){
+        document.getElementById('hideMe').style.display = 'block'
+    }, 15000)
+</script>
 {% endblock %}
