@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+  <section class="loading-container" id="scan-id-0">
+
+    <h1 id="spinner-heading" style="padding-bottom: 0; display:block;">Doing stuff</h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-spinner" data-percent="0">
+          <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
+          <div class="ppc-loading">
+            <div class="pcc-percents-wrapper">
+              <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+{% endblock %}
