@@ -4,10 +4,10 @@
         {% if backURL !== 'undefined' %}
             {% set backLink = backURL %}
         {% else %}
-            {% set backLink = 'https://nhsa-private.herokuapp.com/template.php?logged=true&nopadding=true&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC02b&optarr=default' %}
+            {% set backLink = 'https://nhsa-private.herokuapp.com/template.php?logged=false&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC06&optarr=default' %}
         {% endif %}
     {% else %}
-        {% set backLink = 'https://nhsa-private.herokuapp.com/template.php?logged=true&nopadding=true&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC02b&optarr=default' %}
+        {% set backLink = 'https://nhsa-private.herokuapp.com/template.php?logged=false&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC06&optarr=default' %}
     {% endif %}
 
     {{ backLink }}
