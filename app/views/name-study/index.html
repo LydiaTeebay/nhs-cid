@@ -3,6 +3,8 @@
 
 {% set params = "?lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
 
+
+
 {% block topRow %}
 <div id="javascript-message">
     {% import "_partials/_components/_callout.html" as callout %}
@@ -10,8 +12,11 @@
     your browser.','warning') }}
 </div>
 <div id="blocking-message" style="display:none">
-    {% import "_partials/_components/_callout.html" as callout %}
-    {{ callout.pattern('','<p>You will not be able to continue if your web browser blocks pop-ups or adverts.</p><p>Please disable your ad-blockers and pop-up blockers and then refresh this page.</p>','warning') }}
+    <div class="callout callout--warning">
+        <p>You will not be able to continue if your web browser blocks pop-ups or adverts.</p>
+        <p>Please disable your ad-blockers and pop-up blockers and then refresh this page.</p>
+        <p class="small"><a href="http://globaltestmarket.com/20/survey/finished.phtml?ac={{ lsAccess }}&sn=595218&sco=s&lang=E">I do not wish to continue</a></p>
+    </div>
 </div>
 
 {% endblock %}
