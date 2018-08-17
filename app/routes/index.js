@@ -16,7 +16,13 @@ module.exports = function (router) {
             var lsAccess = req.param('ac')
         }
 
-        var lsStudy = req.param('lsStudy')
+        // grab Study number if there is one
+        if (req.param('lsStudy')) {
+            var lsStudy = req.param('lsStudy')
+        } else {
+            var lsStudy = req.param('sn')
+        }
+
         res.render('name-study/index', {lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
             res.send(html)
         })
