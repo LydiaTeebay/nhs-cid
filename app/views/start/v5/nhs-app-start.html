@@ -1,7 +1,7 @@
 {% import '_macros/_macro_service.html' as theService with context %}
 {% extends '_layouts/_blank_layout.html' %}
 
-{% set params = "?service=app3&serviceName=NHS%20App" + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+{% set params = "?service=app3&serviceName=NHS%20App" + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode %}
 
 {% block body %}
 
@@ -1108,20 +1108,15 @@ body.web {
 		Session expired. Please log in again.
 	</div>
 
-	<main class="home-main">
-		<h2>Want to book an appointment or order a repeat prescription?</h2>
-            <a href="/create-account/v10/login-nhs{{ params }}" class="button green" id="btn_login" style="
+    <main class="home-main">
+        <h2>Want to book an appointment or order a repeat prescription?</h2>
+        <a href="/create-account/v11/login-nhs{{ params }}" class="button green" id="btn_login" style="
         color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
-                {{ theService.name('login') }}
-            </a>
-
-        <a href="/patient-online/v10/patient-online-details{{ params }}" class="button" id="btn_register" style="
-        color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
-            Create an account
+            Log in or create account
         </a>
 
-		<a href="#">Terms and conditions</a>
-	</main>
+        <a href="javascript:void(0)">Terms and conditions</a>
+    </main>
 </body>
 </html>
 

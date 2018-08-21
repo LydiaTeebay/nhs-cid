@@ -42,6 +42,7 @@ input.form-control {
 
         <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
 
+       {% if devMode === "true" %}
        <details class="" role="group" >
            <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
                <span class="details__summary">Continue with testing scenario</span>
@@ -54,6 +55,7 @@ input.form-control {
                </div>
            </div>
        </details>
+       {% endif %}
 
         <p><a id="modal-create-acc" href="/patient-online/v10/patient-online-details{{ params }}">Create an account</a></p>
 

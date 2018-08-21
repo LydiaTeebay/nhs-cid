@@ -28,22 +28,28 @@
 
         <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
 
+
+       {% if devMode === "true" %}
+       <details class="" role="group" >
+           <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+               <span class="details__summary">Continue with testing scenario</span>
+           </summary>
+           <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+               <div class="reading-width">
+                   <ol>
+                       <li><a href="two-step-code-login{{ params }}&result=200">[200] Validation success</a></li>
+                   </ol>
+               </div>
+           </div>
+       </details>
+       {% endif %}
+
+
         <p><a id="modal-create-acc" href="create-acc-terms{{ params }}">Create an account</a></p>
 
         <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
 
-       <details class="" role="group" >
-          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-              <span class="details__summary">Continue with testing scenario</span>
-          </summary>
-          <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-              <div class="reading-width">
-                  <ol>
-                      <li><a href="two-step-code-login{{ params }}&result=200">[200] Validation success</a></li>
-                  </ol>
-              </div>
-          </div>
-      </details>
+
     </form>
 </div>
 
