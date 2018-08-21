@@ -3,7 +3,7 @@
   {% if hideBeta !== 'true' %}
   <div class="banner beta">
       <div class="page-section">
-        <span>BETA</span> This is a new service.
+        <span>BETA</span> This is a new service. By using this service you agree to our <a href="/terms-of-use/terms-conditions">terms of use.</a>
       </div>
     </div>
   {% endif %}
@@ -19,10 +19,10 @@
 {% endif %}
 
 {% if alert.cookies == 'true' %}
-  <div class="notification-banner" id="global-cookies-banner" role="alert">
-    <p class="notification-banner__inner">
-      NHS.UK uses cookies to make the site simpler.
-      <a href="https://beta.nhs.uk/help/cookies">Find out more about cookies</a>
-    </p>
-  </div>
-{% endif %}
+    <div class="notification-banner" id="global-cookies-banner" role="alert">
+      <p class="notification-banner__inner">
+        This service uses cookies to make the site simpler.
+        <a href="/terms-of-use/cookie-policy">Find out more about cookies</a>
+      </p>
+    </div>
+  {% endif %}
