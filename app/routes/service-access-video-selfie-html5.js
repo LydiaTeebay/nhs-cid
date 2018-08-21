@@ -44,8 +44,10 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-video-selfie-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('service-access/v11/service-access-video-selfie-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -91,12 +93,13 @@ module.exports = function (router) {
         var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode4 = Math.floor(0 + (9 - 0) * Math.random())
-
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-video-selfie-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead }, function(err, html) {
+        res.render('service-access/pb/service-access-video-selfie-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

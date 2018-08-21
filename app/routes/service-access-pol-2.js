@@ -27,8 +27,10 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-pol-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
+        res.render('service-access/v11/service-access-pol-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -62,8 +64,10 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
         var system = req.param('system')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-pol-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system }, function(err, html) {
+        res.render('service-access/pb/service-access-pol-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

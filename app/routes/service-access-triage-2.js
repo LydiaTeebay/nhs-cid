@@ -14,13 +14,15 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         if (loggedin === 'true') {
             var stepurl = 'service-access-nhs'
         } else {
             var stepurl = 'service-access-account'
         }
 
-        res.render('service-access/v11/service-access-triage-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('service-access/v11/service-access-triage-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -63,8 +65,10 @@ module.exports = function (router) {
         var poluser = req.param('poluser')
         var loggedin = req.param('loggedin')
         var stepurl = 'service-access-nhs'
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
 
-        res.render('service-access/pb/service-access-triage-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl }, function(err, html) {
+        res.render('service-access/pb/service-access-triage-2', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

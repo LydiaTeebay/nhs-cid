@@ -15,8 +15,10 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-offline-find-place', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('service-access/v11/service-access-offline-find-place', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, changetomobile: changetomobile }, function(err, html) {
             res.send(html)
         })
     })
@@ -34,7 +36,9 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        res.redirect('/service-access/v11/service-access-offline-confirmation?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&place=' + place + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy )
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        res.redirect('/service-access/v11/service-access-offline-confirmation?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&place=' + place + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
     })
 
     router.get('/service-access/pb/service-access-offline-find-place', function (req, res) {
@@ -50,8 +54,10 @@ module.exports = function (router) {
         var challenge = req.param('challenge')
         var hidehead = req.param('hidehead')
         var changetomobile = 'true'
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-offline-find-place', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/pb/service-access-offline-find-place', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, changetomobile: changetomobile  }, function(err, html) {
             res.send(html)
         })
     })
@@ -66,6 +72,8 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
         var hidehead = req.param('hidehead')
         var challenge = req.param('challenge')
-        res.redirect('/service-access/pb/service-access-photo-offline-confirmation?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&place=' + place + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge )
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        res.redirect('/service-access/pb/service-access-photo-offline-confirmation?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&place=' + place + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
     })
 }

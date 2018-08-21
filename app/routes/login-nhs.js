@@ -40,8 +40,9 @@ module.exports = function (router) {
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('create-account/v11/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode }, function(err, html) {
+        res.render('create-account/v11/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
 
@@ -83,9 +84,10 @@ module.exports = function (router) {
         var verified = req.param('verified')
         var poluser = req.param('poluser')
         var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
 
-        res.render('create-account/pb/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, devMode: devMode }, function(err, html) {
+        res.render('create-account/pb/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
 

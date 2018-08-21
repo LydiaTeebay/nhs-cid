@@ -36,10 +36,12 @@ module.exports = function (router) {
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
         var pinCode = Math.floor(1000 + Math.random() * 9000)
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('service-access/v11/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -81,10 +83,12 @@ module.exports = function (router) {
         var challenge = req.param('challenge')
         var idType = req.param('idType')
         var pinCode = Math.floor(1000 + Math.random() * 9000)
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType }, function(err, html) {
+        res.render('service-access/pb/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, devMode: devMode, returnUrl: returnUrl  }, function(err, html) {
             res.send(html)
         })
     })

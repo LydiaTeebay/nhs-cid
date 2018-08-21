@@ -49,6 +49,8 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
 
         if (changetomobile === 'yes') {
@@ -60,7 +62,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
 
-        res.render('service-access/v11/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('service-access/v11/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -110,6 +112,8 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
 
         if (changetomobile === 'yes') {
@@ -121,7 +125,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
 
-        res.render('service-access/pb/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead }, function(err, html) {
+        res.render('service-access/pb/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
