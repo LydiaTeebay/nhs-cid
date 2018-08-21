@@ -9,13 +9,14 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-offline-nhs-number', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v11/service-access-offline-nhs-number', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, idType: idType, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -28,6 +29,7 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
@@ -37,7 +39,7 @@ module.exports = function (router) {
         if (nhs_yes === 'yes') {
 
         }
-        res.redirect('/service-access/v11/service-access-offline-nhs-number-demographics-name?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&formerror=' + formerror + '&hidehead=' + hidehead + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
+        res.redirect('/service-access/v11/service-access-offline-nhs-number-demographics-name?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&formerror=' + formerror + '&hidehead=' + hidehead + '&idType=' + idType + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
     })
 
     router.get('/service-access/pb/service-access-nhs-number', function (req, res) {
@@ -49,10 +51,11 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-offline-nhs-number', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-offline-nhs-number', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -65,6 +68,7 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         console.log(nhs_yes)
@@ -72,6 +76,6 @@ module.exports = function (router) {
 
         }
 
-        res.redirect('/service-access/pb/service-access-offline-nhs-number-demographics-name?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&formerror=" + formerror + "&hidehead=" + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl)
+        res.redirect('/service-access/pb/service-access-offline-nhs-number-demographics-name?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&formerror=' + formerror + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl)
     })
 }
