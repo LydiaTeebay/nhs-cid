@@ -13,6 +13,25 @@ module.exports = function (router) {
         })
     })
 
+    router.get('/create-account/v11/two-step-code', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var poluser = req.param('poluser')
+        var emailAddress = req.param('emailAddress')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        // re-render the page along with the parameter
+        res.render('create-account/v11/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, poluser: poluser, emailAddress: emailAddress, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/v10/two-step-code', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')
@@ -37,9 +56,11 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var poluser = req.param('poluser')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         var emailAddress = req.param('emailAddress')
         // re-render the page along with the parameter
-        res.render('create-account/pb/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, poluser: poluser, emailAddress: emailAddress }, function(err, html) {
+        res.render('create-account/pb/two-step-code', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, poluser: poluser, emailAddress: emailAddress }, function(err, html) {
             res.send(html)
         })
     })

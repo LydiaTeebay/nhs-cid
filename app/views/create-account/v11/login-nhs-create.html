@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{serviceName}} - {{ theService.name('login') }}{% endblock %}
 {% set signedin = '' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
 
 {% block content %}
 
@@ -28,7 +28,7 @@
       <a class="button" href="two-step{{ params }}" id="continue">Continue</a>
 
     </div>
-    <p><a href="forgotten-password">Forgotten your password?</a></p>
+    <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
     <p><a href="/patient-online/v10/patient-online-gp-lookup{{ params }}">Create an account</a></p>
   </form>
 </div>

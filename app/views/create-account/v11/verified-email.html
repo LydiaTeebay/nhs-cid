@@ -4,9 +4,9 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
 {% elif vouch %}
-{% set params = "?vouch=" + vouch %}
+{% set params = "?vouch=" + vouch + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
 {% endif %}
 
 {% block content %}

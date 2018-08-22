@@ -35,6 +35,49 @@ module.exports = function (router) {
         res.redirect('/create-account/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
     })
 
+    router.get('/create-account/v11/create-acc-terms', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v11/two-step-code?vouch=yes')
+            return
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v11/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.post('/create-account/v11/create-acc-terms', function (req, res) {
+        var emailAddress = req.body.emailAddress
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+
+        if (vouched === 'yes') {
+            res.redirect('/create-account/v11/two-step-code?vouch=yes')
+            return
+        }
+        res.redirect('/create-account/v11/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
+    })
+
     router.get('/create-account/v10/create-acc-terms', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
@@ -81,6 +124,8 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/pb/two-step-code?vouch=yes')
@@ -99,12 +144,14 @@ module.exports = function (router) {
         var vouched = req.param('vouch')
         var hidehead = req.param('hidehead')
         var poluser = req.param('poluser')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/pb/two-step-code?vouch=yes')
             return
         }
-        res.redirect('/create-account/pb/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&poluser=" + poluser)
+        res.redirect('/create-account/pb/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&devMode=' + devMode + '&returnUrl=' + returnUrl + "&poluser=" + poluser)
     })
 
     router.get('/create-account/v9/create-acc-terms', function (req, res) {
