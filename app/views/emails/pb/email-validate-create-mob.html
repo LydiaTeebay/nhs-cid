@@ -6,11 +6,11 @@
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% elif vouch %}
-  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
+  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% elif newUser %}
-  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
+  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% endif %}
 
 {% block content %}

@@ -5,7 +5,7 @@
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
 {% endif %}
 
 
@@ -17,17 +17,6 @@
     </div>
 
   <p>You can use this to log in to other health websites and apps wherever you see &quot;{{theService.name('login')|trim}}&quot;</p>
-
-  <!--<p>This will allow you to:</p>-->
-
-  <!--<ul>-->
-  	<!--<li>Access multiple NHS services</li>-->
-  	<!--<li>Keep a record of your identity when accessing personal services</li>-->
-  	<!--<li>Keep your medical information secure and up to date</li>-->
-  <!--</ul>-->
-
-
-  <!-- <p><a class="button" href="https://beta.nhs.uk">Continue to the NHS</a></p> -->
 
 </div>
 
