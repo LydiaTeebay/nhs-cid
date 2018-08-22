@@ -8,6 +8,19 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/patient-online/v10/patient-online-gp-lookup', function (req, res) {
+        var serviceName = req.param('serviceName')
+        var service = req.param('service')
+        var hidehead = req.param('hidehead')
+        var emptysearch = req.param('emptysearch')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, emptysearch: emptysearch, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.post('/patient-online/v10/patient-online-gp-lookup', function (req, res) {
         var postcode = req.body.gpPostcode
         var search = req.body.gpName
@@ -25,19 +38,17 @@ module.exports = function (router) {
         }
     })
 
-    router.get('/patient-online/v10/patient-online-gp-lookup', function (req, res) {
+    router.get('/patient-online/pb/patient-online-gp-lookup', function (req, res) {
         var serviceName = req.param('serviceName')
         var service = req.param('service')
         var hidehead = req.param('hidehead')
         var emptysearch = req.param('emptysearch')
-        var lsId = req.param('lsId')
-        var lsAccess = req.param('lsAccess')
-        var lsStudy = req.param('lsStudy')
-        res.render('patient-online/v10/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, emptysearch: emptysearch, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        res.render('patient-online/pb/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, emptysearch: emptysearch }, function(err, html) {
             res.send(html)
         })
     })
-
 
     router.post('/patient-online/pb/patient-online-gp-lookup', function (req, res) {
         var postcode = req.body.gpPostcode
@@ -45,22 +56,14 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var service = req.param('service')
         var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
 
         if (postcode === '' && search === '') {
-            res.redirect('/patient-online/pb/patient-online-gp-lookup?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search + '&emptysearch=true')
+            res.redirect('/patient-online/pb/patient-online-gp-lookup?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&postcode=' + postcode + '&search=' + search + '&emptysearch=true')
         } else {
-            res.redirect('/patient-online/pb/patient-online-gp-results?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&postcode=' + postcode + '&search=' + search)
+            res.redirect('/patient-online/pb/patient-online-gp-results?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&postcode=' + postcode + '&search=' + search)
         }
-    })
-
-    router.get('/patient-online/pb/patient-online-gp-lookup', function (req, res) {
-        var serviceName = req.param('serviceName')
-        var service = req.param('service')
-        var hidehead = req.param('hidehead')
-        var emptysearch = req.param('emptysearch')
-        res.render('patient-online/pb/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, emptysearch: emptysearch }, function(err, html) {
-            res.send(html)
-        })
     })
 
     router.post('/patient-online/v9/patient-online-gp-lookup', function (req, res) {

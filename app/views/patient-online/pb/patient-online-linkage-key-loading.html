@@ -1,7 +1,7 @@
 {% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Checking your details{% endblock %}
-{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&result=" + result %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result %}
 
 {% block content %}
 
