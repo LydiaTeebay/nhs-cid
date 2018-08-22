@@ -8,8 +8,9 @@
 <div class="first-item">
   <form>
     <div class="form-group">
+      <h1>Log in</h1>
+
       <fieldset class="">
-        <h1><legend>{{ theService.name('login') }}</legend></h1>
 
         <div class="form-group">
           <label class="form-label" for="field1">Email address</label>
@@ -17,19 +18,19 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="field2">Password</label>
+          <label class="form-label" for="field1">Password</label>
           <input class="form-control" id="field2" name="field2" type="password">
         </div>
 
       </fieldset>
     </div>
-    <div class="form-group">
 
-      <a class="button" href="two-step{{ params }}" id="continue">Continue</a>
+    <a class="button" href="two-step{{ params }}" id="">Continue</a>
 
-    </div>
+    <p><a id="modal-create-acc" href="create-acc-terms{{ params }}">Create an account</a></p>
+
     <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
-    <p><a href="/patient-online/v11/patient-online-gp-lookup{{ params }}">Create an account</a></p>
+
   </form>
 </div>
 

@@ -4,7 +4,6 @@
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&system=" + system + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&surgery=" + surgery + "&practiceID=" + practiceID %}
 
 {% block content %}
-<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 <div class="first-item">
   <form>
@@ -43,11 +42,11 @@
           Yes
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-2">
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/v10/service-access-triage-1{{ params }}&poluser=false">
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-nhs{{ params }}&poluser=false">
           No
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-3">
-          <input id="radio-inline-3" type="radio" name="radio-inline-group" value="/service-access/v10/service-access-triage-1{{ params }}&poluser=false">
+          <input id="radio-inline-3" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-nhs{{ params }}&poluser=false">
           Don't know
         </label>
 

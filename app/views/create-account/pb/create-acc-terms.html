@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Create an {% include '_partials/_components/_name.html' %} account - {{serviceName}}{% endblock %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('setup') }}{% endblock %}
 {% set signedin = '' %}
 {% set terms = 'yes' %}
 
@@ -11,10 +11,6 @@
 {% endif %}
 
 {% block content %}
-
-{% if service !== 'nhsonline' and service !== 'nhsonline2' %}
-
-{% endif %}
 
 <div class="first-item">
 

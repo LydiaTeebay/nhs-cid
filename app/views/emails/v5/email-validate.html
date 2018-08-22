@@ -14,30 +14,14 @@
 
 {% block content %}
 
-<style>
-.security-code {
-  padding-left: 10px;
-  font-size: 36px;
-  letter-spacing: 30px;
-  color: #005eb8;
-}
-
-.heading-medium {
-	font-size: 24px;
-}
-
-</style>
-
-
 <div class="first-item" style="padding-bottom: 100px;" >
   <h1>Confirm your email address</h1>
-  <p>To continue you need to go back to the {{ serviceName }} and enter this security code.</p>
+  <p><a class="button" href="/create-account/v11/email-confirmed{{ params }}">Confirm your email address</a></p>
+  <p><a href="/create-account/v11/email-confirmed{{ params }}">http:/anyoldlink/create-account/pb/confirm-email</a></p>
+  <p>Ignore this email if you did not sign up. We will delete your information after 24 hours.</p>
 
-  <h2 class="heading-medium">Security code</h2>
-  <p class="security-code">8937</p>
 
-  <p>If you did not try to create an {{ serviceName }} account using this email address, please ignore this email. We will delete your information after 48 hours.</p>
-
+  <!--<p>Or copy and paste this link:<br><a href="/create-account/login-nhs{{ params }}">https://nhs-cid.herokuapp.com/create-account/login-nhs{{ params }}</a></p>-->
 </div>
 
 {% endblock %}
