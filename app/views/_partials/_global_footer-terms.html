@@ -1,0 +1,29 @@
+<footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+        <li>
+          <a href="/terms-of-use/terms-conditions{{ params }}">Terms of use and cookie policy</a>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+
+  {% if emailLink %}
+  <div class="proto-action">
+    <a href="/emails/{{ emailLink }}{{ params }}">
+      <div class="proto-action-icon">
+        email sent
+      </div>
+
+      <div class="proto-action-text">
+        Email sent:
+      </div>
+    </a>
+  </div>
+  {% endif %}
+
+</footer>
+
+

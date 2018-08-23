@@ -1,7 +1,7 @@
 {% import '_macros/_macro_service.html' as theService with context %}
 
-{% if hidehead == 'true' %}
-{% set htmlClass = 'body-webview' %}
+{% if hidehead === 'true' %}
+  {% set htmlClass = 'body-webview' %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -40,22 +40,20 @@
   {% include '_partials/_service-alert.html' %}
 
   {# slightly different design for emails #}
-    {% if not hidehead === "true" or not hidehead or hidehead === "undefined" %}
+    {% if not hidehead === 'true' or not hidehead or hidehead === 'undefined' %}
 
       {# if PB or later use the latest header design #}
 
-      {% if lsId or service === "app3" %}
+      {% if lsId or service === 'app3' %}
         {% include '_partials/_global_header-plain.html'%}
       {% else %}
         {% include '_partials/_global_header.html'%}
       {% endif %}
     {% endif %}
 
-    {% if service === "nhsonlinepol" %}
+    {% if service === 'nhsonlinepol' %}
       {% include '_partials/_global_header-nhsonlinepol.html'%}
     {% endif %}
-
-
 
   <main id="content" role="main" tab-index="-1">
 
@@ -66,11 +64,17 @@
     </div>
   </main>
 
-
     {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
-      {% include '_partials/_global_footer-plain.html' %}
-    {% endif %}
 
+      {% if service === 'app3' %}
+        {% include '_partials/_global_footer-plain.html'%}
+      {% elif lsId or service === 'app4' %}
+        {% include '_partials/_global_footer-terms.html'%}
+      {% else %}
+        {% include '_partials/_global_footer.html'%}
+      {% endif %}
+
+    {% endif %}
 
   <script src="/scripts/jquery-1.12.4.min.js"></script>
   {% block extrascripts %}{% endblock %}

@@ -1,13 +1,13 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Terms of Use - Terms and Conditions{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Terms of Use - Terms and conditions{% endblock %}
 
 {% set signedin = '' %}
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+ {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
 {% elif vouch %}
-  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+ {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
 {% endif %}
 
 {% block topRow %}
@@ -18,10 +18,10 @@
 <hr>
 
 <style>
-	.c-page-contents__link.link-terms { 
-		font-weight: bold; 
-		text-decoration: none; 
-	}
+    .c-page-contents__link.link-cookies {
+        font-weight: bold;
+        text-decoration: none;
+    }
 </style>
 
 {% endblock %}
