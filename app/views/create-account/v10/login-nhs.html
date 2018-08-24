@@ -6,22 +6,16 @@
 
 {% block content %}
 
-<style>
-.global-header__inner {
-  padding-left: 16px;
-}
-.page-section {
-    padding: 0 16px 16px 16px;
-}
-
-input.form-control {
-    margin-top: 0;
-    margin-bottom:16px;
-}
-</style>
-
 <div class="first-item">
    <form>
+
+        <div class="form-group">
+          <h1>{{ theService.name('create') }}</h1>
+          <p>If you do not have an {{ theService.name('create-msg') }} you need to create one.</p>
+          <a class="button" href="/patient-online/v10/patient-online-details{{ params }}" id="">{{ theService.name('create') }}</a>
+        </div>
+
+        <hr>
         <div class="form-group">
             <h1>{{ theService.name('login') }}</h1>
 
@@ -41,8 +35,6 @@ input.form-control {
         </div>
 
         <a class="button" href="/remote-testing/acc-card-1{{ params }}" id="">Continue</a>
-
-        <p><a id="modal-create-acc" href="/patient-online/v10/patient-online-details{{ params }}">Create an account</a></p>
 
     </form>
 </div>
