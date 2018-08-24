@@ -1,7 +1,7 @@
 {% import '_macros/_macro_service.html' as theService with context %}
 {% extends '_layouts/_blank_layout.html' %}
 
-{% set params = "?service=app3&serviceName=NHS%20App" + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode %}
+{% set params = "?service=app4&serviceName=NHS%20App" + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode %}
 
 {% block body %}
 
@@ -1117,6 +1117,15 @@ body.web {
 
         <a href="javascript:void(0)">Terms and conditions</a>
     </main>
+
+
+    {% if devMode === "true" %}
+        <div class="proto-error">
+            <div class="proto-error-icon"></div>
+            <div class="proto-error-text">Dev mode</div>
+        </div>
+    {% endif %}
+
 </body>
 </html>
 
