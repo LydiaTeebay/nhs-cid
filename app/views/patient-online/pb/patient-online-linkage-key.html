@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Enter your registration details{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Enter the details your GP surgery gave you{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID %}
 
@@ -13,7 +13,7 @@
     <div class="form-group">
 
       <fieldset class="">
-        <h1><legend>Enter the details your doctor's surgery gave you</legend></h1>
+        <h1><legend>Enter the details your GP surgery gave you</legend></h1>
 
         <div class="form-group">
             <label class="form-label" for="field2">Account Linkage Key</label>
@@ -47,11 +47,11 @@
                 <div class="reading-width">
                     <ol>
                         <li><a href="patient-online-about-you-name{{ params }}&result=200">[201] successful operation</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=400">[400] Functional - ODS Code or NHS Number was invalid</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=403">[403] Functional - the linkage key has been revoked</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=404">[404] Functional - patient not found</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=409">[409] Functional - conflict, account already exists</a></li>
-                        <li><a href="patient-online-about-you-name{{ params }}&result=500">[500] Technical - An unexpected error occurred processing the request</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=400">[400] Functional - ODS Code or NHS Number was invalid [REF: CID7001]</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=403">[403] Functional - the linkage key has been revoked [REF: CID7002]</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=404">[404] Functional - patient not found [REF: CID7003]</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=409">[409] Functional - conflict, account already exists [REF: CID7004]</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=500">[500] Technical - An unexpected error occurred processing the request [REF: CID7005]</a></li>
                         <li><a href="patient-online-about-you-name{{ params }}&result=501">[501] Technical - No GP system was found for ODS Code</a></li>
                         <li><a href="patient-online-about-you-name{{ params }}&result=502">[502] Technical - The GP system is currently unavailable</a></li>
                         <li><a href="patient-online-about-you-name{{ params }}&result=504">[504] Technical - The GP system did not respond in a timely fashion</a></li>
