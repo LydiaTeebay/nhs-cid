@@ -18,18 +18,34 @@
 
     {% if variant === 'login' %}
 
-    {% if theName === '' %}
-        Log in
-    {% else %}
-        Log in with {{ theName }}
-    {% endif %}
+        {% if theName === '' %}
+            Log in
+        {% else %}
+            Log in with {{ theName }}
+        {% endif %}
+
+    {% elif variant === 'create' %}
+
+        {% if theName === '' %}
+            Create an NHS login
+        {% else %}
+            Create an {{ theName }} login
+        {% endif %}
+
+    {% elif variant === 'create-msg' %}
+
+        {% if theName === '' %}
+            NHS login
+        {% else %}
+            {{ theName }} login
+        {% endif %}
 
     {% elif variant === 'login-inline' %}
 
         {% if theName === '' %}
-        log in
+            log in
         {% else %}
-        log in with {{ theName }}
+            log in with {{ theName }}
         {% endif %}
 
     {% elif variant === 'setup' %}

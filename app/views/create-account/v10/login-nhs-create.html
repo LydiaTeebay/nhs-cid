@@ -7,6 +7,14 @@
 
 <div class="first-item">
   <form>
+
+    <div class="form-group">
+      <h1>{{ theService.name('create') }}</h1>
+      <p>If you do not have an {{ theService.name('create-msg') }} you need to create one.</p>
+      <a class="button" href="/patient-online/v10/patient-online-details{{ params }}" id="">{{ theService.name('create') }}</a>
+    </div>
+
+    <hr>
     <div class="form-group">
       <fieldset class="">
         <h1><legend>{{ theService.name('login') }}</legend></h1>
@@ -28,8 +36,7 @@
       <a class="button" href="two-step{{ params }}" id="">Continue</a>
 
     </div>
-    <!--p><a href="forgotten-password">Forgotten your password?</a></p-->
-    <p><a href="/patient-online/v10/patient-online-gp-lookup{{ params }}">Create an account</a></p>
+
   </form>
 </div>
 
