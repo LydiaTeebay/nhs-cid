@@ -1,0 +1,28 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>We have not checked your ID yet</h1>
+    <p>We have not checked the information, photo and video that you sent us. This takes up to 2 hours.</p>
+    <p>We'll email you when we have finished our checks.</p>
+    <p class="small">Reference: CID2001</p>
+  </div>
+    
+</div>
+
+{% endblock %}
