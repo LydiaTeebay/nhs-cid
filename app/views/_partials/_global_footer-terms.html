@@ -10,40 +10,4 @@
   </div>
 </footer>
 
-{% if devMode === "true" %}
-
-  {% if emailLink %}
-    <div class="proto-action">
-      <a href="/emails/{{ emailLink }}{{ params }}">
-        <div class="proto-action-icon">
-          email sent
-        </div>
-
-        <div class="proto-action-text">
-          Email sent:
-        </div>
-      </a>
-  </div>
-  {% endif %}
-
-  <div class="proto-error">
-    <div class="proto-error-icon"></div>
-    <div class="proto-error-text">Dev mode</div>
-
-    <details class="" role="group" >
-      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-        <span class="details__summary">Service errors pages</span>
-      </summary>
-      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-        <div class="reading-width">
-          <ol>
-            <li><a href="">[404] Page not found</a></li>
-            <li><a href="">[403] Page not found</a></li>
-            <li><a href="">Timeout</a></li>
-          </ol>
-        </div>
-      </div>
-    </details>
-  </div>
-
-{% endif %}
+{% include '_partials/_includes/_devmode.html' %}
