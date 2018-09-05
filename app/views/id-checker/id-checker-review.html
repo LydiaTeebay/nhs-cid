@@ -4,7 +4,7 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = 'true' %}
-{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode %}
 
 {% block content %}
 
@@ -245,7 +245,7 @@
             {% if failreason === 'expired' %}
 
             <div id="id-decline3">
-                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" data-target="modal" id="declineBtn3" class="button button--decline">Decline</a>
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined&devMode={{ devMode }}" data-target="modal" id="declineBtn3" class="button button--decline">Decline</a>
             </div>
 
             {% else %}
@@ -290,7 +290,7 @@
                         </div>
 
                         <div id="id-approve2">
-                            <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
+                            <a href="id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                         </div>
 
 
@@ -307,13 +307,13 @@
                             <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
                         </div>
                         <div id="id-approve2">
-                            <a href="http://localhost:3000/id-checker/id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
+                            <a href="id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}" id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                         </div>
                     </div>
 
                     <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-no" style="margin: 0 0 32px;">
                         <div id="id-decline2">
-                            <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                            <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined&devMode={{ devMode }}" id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
                         </div>
                     </div>
 
@@ -330,7 +330,7 @@
         {% if result === 'spine' %}
         <div id="retrybtn-1" style="display:none;">
             <div id="id-retry">
-                <a href="id-checker-review?demographics=false&role=undefined&result=spine" id="retryBtn" class="button button--retry">Retry</a>
+                <a href="id-checker-review?demographics=false&role=undefined&result=spine&devMode={{ devMode }}" id="retryBtn" class="button button--retry">Retry</a>
             </div>
         </div>
 
@@ -423,10 +423,10 @@
 
         <div id="id-buttons">
             <div id="id-approve">
-                <a href="id-checker-dashboard?state=approved&emailLink=email-idcheck-approved" data-target="modal" id="approveBtn" class="button button--approve" style="display: none;">Approve</a>
+                <a href="id-checker-dashboard?state=approved&emailLink=email-idcheck-approved&devMode={{ devMode }}" data-target="modal" id="approveBtn" class="button button--approve" style="display: none;">Approve</a>
             </div>
             <div id="id-decline">
-                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined" data-target="modal" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
+                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined&devMode={{ devMode }}" data-target="modal" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
             </div>
         </div>
     </div>
@@ -448,7 +448,7 @@
                 </div>
 
                 <div class="form-group">
-                    <a class="button" id="modal-link" href="id-checker-supervisor-dashboard?role=Supervisor">Submit</a>
+                    <a class="button" id="modal-link" href="id-checker-supervisor-dashboard?role=Supervisor&devMode={{ devMode }}">Submit</a>
                     <p><a href="#" id="modal_close">Cancel</a></p>
                 </div>
             </form>

@@ -4,7 +4,7 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = '' %}
-{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state + "&devMode=" + devMode %}
 
 {% block topRow %}
 
@@ -78,7 +78,7 @@
 {% if state === 'inprogress' %}
 <p>You still have a verification in progress</p>
 <a class="button" href="id-checker-review{{ params }}">Continue verification</a>
-<p><a href="id-checker-dashboard">Abort</a></p>
+<p><a href="id-checker-dashboard{{ params }}">Abort</a></p>
 {% elif state === 'clear' %}
 {% set params = "?result=null" + "&state=" + state %}
 <a class="button" href="id-checker-dashboard{{ params }}">Start next verification</a>
@@ -86,8 +86,8 @@
 <a class="button" href="id-checker-review{{ params }}">Start next verification</a>
 {% endif%}
 
-
-<details class="" role="group" >
+{% if devMode === "true" %}
+<details class="dev-mode" role="group" >
   <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
     <span class="details__summary">Testing scenarios</span>
   </summary>
@@ -96,30 +96,30 @@
 
       <p>NHS number</p>
       <ol>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=success">SMSP-0000: User submits NHS Number and match found</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail">DEMOG-0001: User submits NHS Number and match <b>not</b> found</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=success">DEMOG-0017: User submits NHS Number and PDS returns superseded NHS number</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid">DEMOG-0022: User submits NHS Number and PDS returns invalid NHS number</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid">DEMOG-0040: User submits NHS Number and PDS returns NHS Number not verified</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail">DEMOG-0042: User submits NHS Number and PDS returns NHS Number is old style</li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid">DEMOG-9999: User submits NHS Number and PDS returns unspecified error</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=invalid">SMSP-0001: User submits NHS Number and PDS trace fails - Invalid parameters</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=validation">SMSP-0002: User submits NHS Number and PDS trace fails - Response message validation error</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=unavailable">SMSP-0003: User submits NHS Number and PDS trace fails - Problem with Spine, PDS, N3 network, or local network</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine">SMSP-0004: User submits NHS Number and PDS trace fails - Could not connect to Spine</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=expired">User submits NHS Number and PDS returns informally or formally dead</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}">SMSP-0000: User submits NHS Number and match found</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&devMode={{ devMode }}">DEMOG-0001: User submits NHS Number and match <b>not</b> found</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}">DEMOG-0017: User submits NHS Number and PDS returns superseded NHS number</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}">DEMOG-0022: User submits NHS Number and PDS returns invalid NHS number</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}">DEMOG-0040: User submits NHS Number and PDS returns NHS Number not verified</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&devMode={{ devMode }}">DEMOG-0042: User submits NHS Number and PDS returns NHS Number is old style</li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}">DEMOG-9999: User submits NHS Number and PDS returns unspecified error</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=invalid&devMode={{ devMode }}">SMSP-0001: User submits NHS Number and PDS trace fails - Invalid parameters</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=validation&devMode={{ devMode }}">SMSP-0002: User submits NHS Number and PDS trace fails - Response message validation error</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=unavailable&devMode={{ devMode }}">SMSP-0003: User submits NHS Number and PDS trace fails - Problem with Spine, PDS, N3 network, or local network</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&devMode={{ devMode }}">SMSP-0004: User submits NHS Number and PDS trace fails - Could not connect to Spine</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=expired&devMode={{ devMode }}">User submits NHS Number and PDS returns informally or formally dead</a></li>
       </ol>
       <p>Demographics</p>
       <ol>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=success">SMSP-0000: User submits demographics and match found</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail">DEMOG-0001: User submits demographics and match <b>not</b> found</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=multiple">DEMOG-0007: User submits demographics and PDS returns multiple matches</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=invalid">DEMOG-9999: User submits demographics and PDS returns unspecified error</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=invalid">SMSP-0001: User submits demographics and PDS trace fails - Invalid parameters</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=validation">SMSP-0002: User submits demographics and PDS trace fails - Response message validation error</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=unavailable">SMSP-0003: User submits demographics and PDS trace fails - Problem with Spine, PDS, N3 network, or local network</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine">SMSP-0004: User submits demographics and PDS trace fails - Could not connect to Spine</a></li>
-        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=expired">User submits demographics and PDS returns informally or formally dead</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=success&devMode={{ devMode }}">SMSP-0000: User submits demographics and match found</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&devMode={{ devMode }}">DEMOG-0001: User submits demographics and match <b>not</b> found</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=multiple&devMode={{ devMode }}">DEMOG-0007: User submits demographics and PDS returns multiple matches</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}">DEMOG-9999: User submits demographics and PDS returns unspecified error</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=invalid&devMode={{ devMode }}">SMSP-0001: User submits demographics and PDS trace fails - Invalid parameters</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=validation&devMode={{ devMode }}">SMSP-0002: User submits demographics and PDS trace fails - Response message validation error</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=unavailable&devMode={{ devMode }}">SMSP-0003: User submits demographics and PDS trace fails - Problem with Spine, PDS, N3 network, or local network</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&devMode={{ devMode }}">SMSP-0004: User submits demographics and PDS trace fails - Could not connect to Spine</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=expired&devMode={{ devMode }}">User submits demographics and PDS returns informally or formally dead</a></li>
       </ol>
       <p>Other</p>
       <ol>
@@ -128,5 +128,6 @@
     </div>
   </div>
 </details>
+{% endif %}
 
 {% endblock %}

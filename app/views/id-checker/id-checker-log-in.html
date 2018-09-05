@@ -5,6 +5,8 @@
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = '' %}
 
+{% set params = "?devMode=" + devMode %}
+
 {% block content %}
 <p><a id="modal_create" class="smartcard" href="#">User enters Smartcard</a></p>
 <p>&nbsp;</p>
@@ -32,9 +34,9 @@
 
         <div class="form-group">
           {% if role === 'Supervisor' %}
-          <a class="button" href="id-checker-supervisor-dashboard?role=Supervisor">Continue</a>
+          <a class="button" href="id-checker-supervisor-dashboard{{ params }}&role=Supervisor">Continue</a>
           {% else %}
-          <a class="button" href="id-checker-dashboard">Continue</a>
+          <a class="button" href="id-checker-dashboard{{ params }}">Continue</a>
           {% endif %}
         </div>
       </form>
