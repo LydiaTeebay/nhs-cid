@@ -58,7 +58,8 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        res.redirect('/create-account/v11/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
+        var theReason = req.param('reason')
+        res.redirect('/create-account/v11/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&reason=' + theReason)
     })
 
     router.get('/create-account/v10/two-step', function (req, res) {
@@ -121,7 +122,8 @@ module.exports = function (router) {
         var poluser = req.param('poluser')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        res.redirect('/create-account/pb/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&devMode=' + devMode + '&returnUrl=' + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser)
+        var theReason = req.param('reason')
+        res.redirect('/create-account/pb/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&hidehead=' + hidehead + '&poluser=' + poluser + '&reason=' + theReason)
     })
 
     router.get('/create-account/v9/two-step', function (req, res) {

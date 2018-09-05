@@ -8,6 +8,14 @@
 
 <div class="first-item">
    <form>
+
+       <div class="form-group">
+           <h1>Create an NHS login</h1>
+           <p>If you do not have an NHS login you need to create one.</p>
+           <a class="button" href="create-acc-terms{{ params }}" id="">Create an NHS login</a>
+       </div>
+
+       <hr>
         <div class="form-group">
             <h1>Log in</h1>
 
@@ -23,14 +31,33 @@
                     <input class="form-control" id="field2" name="field2" type="password">
                 </div>
 
+                <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
+
             </fieldset>
         </div>
 
         <a class="button" href="two-step{{ params }}" id="">Continue</a>
 
-        <p><a id="modal-create-acc" href="create-acc-terms{{ params }}">Create an account</a></p>
+       {% if devMode === "true" %}
+       <details class="" role="group" >
+           <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+               <span class="details__summary">Continue with testing scenario</span>
+           </summary>
+           <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+               <div class="reading-width">
+                   <p>Success</p>
+                   <ol>
+                       <li><a href="two-step{{ params }}&result=200">[200] Validation success</a></li>
+                   </ol>
 
-        <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
+                   <p>PYI</p>
+                   <ol>
+                       <li><a href="two-step{{ params }}&result=idpending">[200] Validation success</a></li>
+                   </ol>
+               </div>
+           </div>
+       </details>
+       {% endif %}
 
     </form>
 </div>
