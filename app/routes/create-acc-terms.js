@@ -132,7 +132,7 @@ module.exports = function (router) {
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/pb/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser }, function(err, html) {
+        res.render('create-account/pb/create-acc-terms', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

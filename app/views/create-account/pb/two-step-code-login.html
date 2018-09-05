@@ -35,7 +35,14 @@
     </div>
 
     <div class="form-group">
+
+      {% if reason === 'idpending' %}
+      <a id="securitycodeContinue" href="error-id-not-checked{{ params }}" target="_parent" class="button">Continue</a>
+      {% else %}
       <a id="securitycodeContinue" href="{{ backlink.link() }}" target="_parent" class="button">Continue</a>
+      {% endif%}
+
+
     </div>
 
   </form>

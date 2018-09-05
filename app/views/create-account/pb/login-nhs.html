@@ -40,26 +40,7 @@
         <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
 
 
-       {% if devMode === "true" %}
-       <details class="dev-mode" role="group" >
-           <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-               <span class="details__summary">Continue with testing scenario</span>
-           </summary>
-           <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-               <div class="reading-width">
-                   <p>Success</p>
-                   <ol>
-                       <li><a href="two-step-code-login{{ params }}&result=200">[200] Validation success</a></li>
-                   </ol>
-
-                   <p>PYI</p>
-                   <ol>
-                       <li><a href="two-step-code-login{{ params }}&result=idpending">User logs in whilst Identity check is in progress [REF: CID-2001]</a></li>
-                   </ol>
-               </div>
-           </div>
-       </details>
-       {% endif %}
+       {% include '_partials/_includes/_scenarios_login.html' %}
 
 
     </form>
