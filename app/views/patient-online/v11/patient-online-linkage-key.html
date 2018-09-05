@@ -36,6 +36,7 @@
     </div>
     <div class="form-group">
       <a class="button" href="patient-online-about-you-name{{ params }}&result=200">Continue</a>
+        {% if devMode === "true" %}
         <details class="" role="group" >
             <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
                 <span class="details__summary">Continue with testing scenario</span>
@@ -56,9 +57,16 @@
                 </div>
             </div>
         </details>
+        {% endif %}
     </div>
 
-      <p>If you do not have these details, you can <a href="/service-access/v11/service-access-triage-1{{ params }}&poluser=false&loggedin=true">create an account using your photo ID</a></p>
+      <p>&nbsp;</p>
+
+      <h3>Don't have these details?</h3>
+
+      <p>We can connect you to your GP surgery using the details that the surgery gave you to book appointments online. These details also prove to us that the surgery has checked your ID.</p>
+
+      <p>If you don't have these details, we can <a href="/service-access/v11/service-access-triage-1{{ params }}&poluser=false&loggedin=true">connect you to your surgery and check your ID another way</a>.</p>
   </form>
 
 
