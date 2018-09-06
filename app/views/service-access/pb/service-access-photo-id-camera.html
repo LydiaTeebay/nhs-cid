@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
 
 {% block content %}
 
@@ -99,7 +99,13 @@
     </div>
 
     <div class="form-group">
+
+      {% if formerror === 'invalid' %}
+      <a class="button" href="" id="submit-photoId-button-error">Yes - continue</a>
+      {% else %}
       <a class="button" href="" id="submit-photoId-button">Yes - continue</a>
+      {% endif %}
+
 
       <p><a href="service-access-photo-id-camera{{ params }}" id="">No - take the photo again</a></p>
     </div>
@@ -125,28 +131,28 @@
 
 <section class="preview-container" id="scan-id-7" style="display:none">
 
-  <h1 style="padding-bottom: 0;">Review the photo of your {{ idType }}</h1>
+  <h1 style="padding-bottom: 0;">Upload error</h1>
 
   <div id="nhs-number" class="has-error form-row-error-active">
-    <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">No face detected</span>
+    <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your photo.</span>
   </div>
 
-  <div class="reading-width">
-    <div id="scan-id-preview" style="border: 3px solid red">
-    <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
-  </div>
-  </div>
+  <!--<div class="reading-width">-->
+    <!--<div id="scan-id-preview" style="border: 3px solid red">-->
+    <!--<img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>-->
+  <!--</div>-->
+  <!--</div>-->
 
   <div class="form-group">
-    <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Retake photo</a>
+    <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Try again</a>
 
   </div>
 </section>
 
   {% if formerror === 'invalid' %}
-    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie{{ params }}';">Continue</button>
+    <button id="confirmButton" style="visibility:hidden">Continue to error</button>
   {% else %}
-    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-video-selfie{{ params }}';" >Continue</button>
+    <button id="confirmButton" style="visibility:hidden;" onclick="window.location='service-access-video-selfie{{ params }}';" >Continue</button>
   {% endif %}
 
 </div>

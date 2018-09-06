@@ -2,7 +2,9 @@
 {% block page_title %}Access {{ serviceName }} - What type of ID do you have?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+
 
 {% block content %}
 
@@ -47,7 +49,27 @@
       <button class="button" id="">Continue</button>
     </div>
 
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Reload this page with a testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+          <p>Photo upload errors</p>
+          <ol>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Exceeded file size limit</a></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    {% endif %}
+
+
   </form>
+
+
+
 </div>
 
 {% endblock %}

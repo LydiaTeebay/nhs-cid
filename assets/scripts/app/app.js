@@ -86,6 +86,53 @@ function activateLoader2(speed) {
     }, time)
 }
 
+function activateLoader3(speed) {
+    // console.log("activate")
+    var progressbar = $('#progress_bar')
+    var $ppc = $('.progress-pie-chart')
+    document.getElementById("spinner-status").innerHTML = "Please wait";
+    $ppc.removeClass('gt-50')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate)
+            $("#spinner-heading").css("display", "block")
+            $("#scan-id-0").css("display", "block")
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-5").css("display", "none")
+            $("#scan-id-6").css("display", "none")
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 1500)
+            setTimeout(function(){
+                $('#confirmButton').click()
+            }, 1500)
+        }
+    }
+    var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function reactivateLoader(speed) {
     // console.log("activate")
     var $ppc = $('.progress-pie-chart')
@@ -146,7 +193,8 @@ function uploadLoader(speed) {
         if (value == max) {
             clearInterval(animate2)
             // window.parent.document.location.href = "service-access-confirmation"
-            $('#confirmButton').click()
+            // $('#confirmButton').click()
+                $("#scan-id-3").css("display", "none")
                 $("#scan-id-3").css("display", "none")
             $("#scan-id-7").css("display", "block")
             // $("#scan-id-5").css("display", "block")
@@ -319,6 +367,14 @@ $("#submit-document-button").on("click", function(e) {
 })
 
 // submit photo button action
+$("#confirmButton").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-0").css("display","none")
+    $("#scan-id-7").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit photo button action
 $("#submit-document-back-button").on("click", function(e) {
     e.preventDefault()
     $("#scan-id-3").css("display","none")
@@ -340,6 +396,16 @@ $("#submit-id-back-button").on("click", function(e) {
 $("#submit-photoId-button").on("click", function(e) {
     e.preventDefault()
     activateLoader2(2)
+    $("#scan-id-0").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+$("#submit-photoId-button-error").on("click", function(e) {
+    e.preventDefault()
+    activateLoader3(2)
     $("#scan-id-0").css("display","none")
     $("#scan-id-5").css("display","none")
     $("#scan-id-6").css("display","none")
