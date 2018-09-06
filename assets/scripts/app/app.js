@@ -125,6 +125,7 @@ function activateLoader3(speed) {
             }, 1500)
             setTimeout(function(){
                 $('#confirmButton').click()
+                console.log("js click")
             }, 1500)
         }
     }
@@ -371,6 +372,7 @@ $("#confirmButton").on("click", function(e) {
     e.preventDefault()
     $("#scan-id-0").css("display","none")
     $("#scan-id-7").css("display","block")
+    console.log("show 7")
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
@@ -428,6 +430,17 @@ $("#submit-videoSelfie-button").on("click", function(e) {
 $("#submit-videoSelfie2-button").on("click", function(e) {
     e.preventDefault()
     activateLoader2(2)
+    $("#scan-id-0").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit button action post v8 version
+$("#submit-videoSelfie2-button-error").on("click", function(e) {
+    e.preventDefault()
+    activateLoader3(2)
     $("#scan-id-0").css("display","none")
     $("#scan-id-5").css("display","none")
     $("#scan-id-6").css("display","none")

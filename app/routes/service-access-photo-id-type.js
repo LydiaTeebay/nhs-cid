@@ -169,8 +169,8 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
 
-        if (challenge === 'invalid') {
-            var formerror = 'invalid'
+        if (challenge !== 'undefined') {
+            var formerror = challenge
         }
         // re-render the page along with the parameter
         res.render('service-access/pb/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile }, function(err, html) {

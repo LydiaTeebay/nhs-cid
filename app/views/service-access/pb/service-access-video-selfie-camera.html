@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Instructions to record a short video{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&challenge=" + challenge + "&returnUrl=" + returnUrl %}
 
 {% block content %}
 
@@ -102,13 +102,19 @@
 
 
     <div class="form-group">
+
+      {% if formerror === 'invalid' %}
+      <a class="button" href="" id="submit-videoSelfie2-button-error">Yes - continue</a>
+      {% else %}
       <a class="button" href="" id="submit-videoSelfie2-button">Yes - continue</a>
+      {% endif %}
+
       <p><a href="service-access-video-selfie-camera{{ params }}" id="">No - record video again</a></p>
     </div>
 
   </section>
 
-  <section  class="" id="scan-id-6" style="display:none">
+  <section  class="" id="scan-id-7" style="display:none">
 
     <h1 style="padding-bottom: 0;">Upload error</h1>
 
@@ -125,11 +131,10 @@
   </section>
 
   {% if formerror === 'invalid' %}
-  <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';">Continue</button>
+  <button id="confirmButton" style="visibility:hidden">Continue</button>
   {% else %}
   <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';" >Continue</button>
   {% endif %}
-
 
 </div>
 
