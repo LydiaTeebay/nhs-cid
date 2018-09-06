@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Step 2: Set up {% include '_partials/_components/_name.html' %}{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
 
 {% block content %}
 <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
