@@ -36,6 +36,9 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
+        var isMobileOs = req.useragent.source
+        var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
+        var isMobileOsV = isMobileOsVer
         var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
@@ -53,7 +56,7 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v11/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -98,6 +101,9 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
+        var isMobileOs = req.useragent.source
+        var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
+        var isMobileOsV = isMobileOsVer
         var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
@@ -108,7 +114,7 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

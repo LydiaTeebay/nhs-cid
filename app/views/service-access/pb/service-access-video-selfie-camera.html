@@ -31,6 +31,13 @@
 
   <section class="" id="scan-id-1" style="display:none">
 
+    {% if mobileOsV === 9.1 %}
+
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','It looks like you are using a buggy version of iOS. Please update to the latest version and come back.','alert') }}
+
+    {% endif %}
+
     <p><a href="service-access-video-selfie-instructions-2{{ params }}" class="link-back">Back</a></p>
 
     <form>
@@ -120,10 +127,11 @@
 
     <p>This could be because of one of the following reasons:</p>
     <ul>
-      <li>it’s too large</li>
-      <li>it’s a file format that we cannot accept</li>
+      <li>you've sent us a photo instead of a video</li>
+      <li>the video is too long (it only needs to be a few seconds)</li>
+      <li>the file is a type that we cannot accept </li>
     </ul>
-    <p>Please try again. Check that you’re using your phone’s camera to take a video. On some phones, the video camera is called a camcorder.</p>
+    <p>Please try again.</p>
 
     <div class="form-group">
       <a class="button" href="service-access-video-selfie-camera{{ params }}" id="video-selfie-back-buttonzz">Record another video</a>

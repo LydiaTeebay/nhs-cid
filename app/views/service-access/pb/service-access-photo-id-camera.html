@@ -31,6 +31,15 @@
 
       <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
 
+
+
+        {% if mobileOsV === 9.1 %}
+
+        {% import "_partials/_components/_callout.html" as callout %}
+        {{ callout.pattern('','It looks like you are using a buggy version of iOS. Please update to the latest version and come back.','alert') }}
+
+        {% endif %}
+
         <p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>
 
         <form>
@@ -135,10 +144,11 @@
 
   <p>This could be because of one of the following reasons:</p>
   <ul>
-    <li>it’s too large</li>
-    <li>it’s a file format that we cannot accept</li>
+    <li>you've sent us a video instead of a photo</li>
+    <li>the file is too large</li>
+    <li>the file is a type that we cannot accept</li>
   </ul>
-  <p>Please try again. Check that you’re using your phone’s camera to take a photo.</p>
+  <p>Please try again.</p>
 
   <div class="form-group">
     <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
