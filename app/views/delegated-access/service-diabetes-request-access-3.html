@@ -1,0 +1,42 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}View your Diabetes Record{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "results" %}
+{% set serviceName = "view%20your%20Personal%20Child%20Health%20Record%20" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern("Diabetes",'') }}
+{% endblock %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+
+      <span class="section-header">Requesting access - About the person</span>
+
+      <h1><legend>Upload supporting documentation</legend></h1>
+      
+      <fieldset>
+        <span class="form-label__hint">For example, power of attorney</span>
+
+          <a href="service-diabetes-request-access-4" class="button">Upload</a>
+
+      </fieldset>
+
+    </div>
+
+
+    <!--
+    <div class="form-group">
+      <a class="button" href="" id="">Continue</a>
+    </div>
+    -->
+  </form>
+
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

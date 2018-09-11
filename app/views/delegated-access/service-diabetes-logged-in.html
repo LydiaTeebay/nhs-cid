@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}View your Diabetes Record{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "results" %}
+{% set serviceName = "view%20your%20Personal%20Child%20Health%20Record%20" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern("Diabetes",'') }}
+{% endblock %}
+
+{% block content %}
+<!--
+<p>Use this service to:</p>
+<ul>
+  <li>manage the screening and routine reviews</li>
+  <li>chart your child's weight and height</li>
+  <li>manage your child's immunisation schedule</li>
+</ul>
+-->
+logged in
+<a href="service-diabetes-request-access-1" class="button">request access to another person</a>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

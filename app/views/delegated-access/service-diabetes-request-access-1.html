@@ -1,0 +1,44 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}View your Diabetes Record{% endblock %}
+
+{% set isServiceStart = 'true' %}
+{% set service = "results" %}
+{% set serviceName = "view%20your%20Personal%20Child%20Health%20Record%20" %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+
+{% block header %}
+  {% import "_partials/_components/_local-header.html" as localHeader %}
+  {{ localHeader.pattern("Diabetes",'') }}
+{% endblock %}
+
+{% block content %}
+
+  <form>
+    <div class="form-group">
+      <span class="section-header">Requesting access - About the person</span>
+
+        <h1><legend>What is their name?</legend></h1>
+
+      <fieldset class="">
+      
+        <div class="form-group">
+          <label class="form-label" for="field2">First Name</label>
+          <!--<span class="form-label__hint">16 characters long</span>-->
+          <input class="form-control" id="field2" name="field2" type="text">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="field3">Last Name</label>
+          <!--<span class="form-label__hint">1 letter and 6 characters - for example E123456</span>-->
+          <input class="form-control" id="field3" name="field3" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+      <a class="button" href="service-diabetes-request-access-2{{ params }}">Continue</a>
+    </div>
+    <p><a href="/service-access/mvp/service-access-nhs{{ params }}&poluser=false">I want to access the NHS App another way</a></p>
+  </form>
+
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
