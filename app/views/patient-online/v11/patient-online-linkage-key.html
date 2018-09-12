@@ -66,9 +66,9 @@
 
       <p>We can connect you to your GP surgery using the details that the surgery gave you to book appointments online. These details also prove to us that the surgery has checked your ID.</p>
 
-      {% import "_partials/_components/_callout.html" as callout %}
-      {{ callout.pattern('','If you don\'t have these details, we can <a href="/service-access/pb/service-access-triage-1{{ params }}&poluser=false&loggedin=true">connect you to your surgery and check your ID another way</a>.','info') }}
-
+      <div class="callout callout--info">
+          <p>If you don't have these details, we can <a href="/service-access/v11/service-access-nhs{{ params }}&poluser=false&loggedin=true">connect you to your surgery and check your ID another way</a>.</p>
+      </div>
   </form>
 
 
