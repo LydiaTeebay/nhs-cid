@@ -5,23 +5,21 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 
 {% block content %}
-
 <div class="first-item">
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-
   <h1 class="">Sorry - you cannot continue</h1>
-
   <p>We need to see a photo of your ID to check that the information on your ID matches your NHS record.</p>
-
   <p>We can only accept UK driving licences and UK passports at the moment.</p>
 
-  <h2 class="h3">Follow these steps</h2>
+  <div class="callout callout--info">
+    <h2 class="h3">What you can do instead</h2>
+    <p>Follow these steps:</p>
+    <ol>
+      <li> Ask your GP surgery to register you for their online services - they will give you some registration details.</li>
+      <li>Log in to the NHS App using your NHS login.</li>
+      <li>Use the details that your surgery gave you.</li>
+    </ol>
+  </div>
 
-  <ol>
-    <li> Ask your GP surgery to register you for their online services - they will give you some registration details.</li>
-    <li>Log in to the NHS App using your NHS login.</li>
-    <li>Use the details that your surgery gave you.</li>
-  </ol>
 </div>
-
 {% endblock %}
