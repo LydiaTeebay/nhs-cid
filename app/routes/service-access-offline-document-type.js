@@ -37,7 +37,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        res.redirect('/service-access/v11/service-access-offline-document?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl)
+        res.redirect('/service-access/v11/service-access-offline-document-type?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl)
     })
 
     router.get('/service-access/pb/service-access-offline-document-type', function (req, res) {
@@ -72,6 +72,6 @@ module.exports = function (router) {
         var challenge = req.param('challenge')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        res.redirect('/service-access/pb/service-access-offline-document?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl)
+        res.redirect('/service-access/pb/service-access-offline-document-type?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl)
     })
 }
