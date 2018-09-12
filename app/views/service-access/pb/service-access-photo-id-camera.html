@@ -36,7 +36,7 @@
         {% if mobileOsV === 9.1 %}
 
         {% import "_partials/_components/_callout.html" as callout %}
-        {{ callout.pattern('','It looks like you are using a buggy version of iOS. Please update to the latest version and come back.','alert') }}
+        {{ callout.pattern('','You cannot continue because your phone needs an iOS update.<br><br>Go to your phone’s Settings. Select General, then Software Update. After you’ve updated, come back and try again.','alert') }}
 
         {% endif %}
 
@@ -58,9 +58,13 @@
 
             <div class="form-group">
 
+              {% if mobileOsV !== 9.1 %}
+
               <label for="photo-id-document" class="camera-button">Open camera
                 <input type="file" id="photo-id-document" accept="image/*" capture="environment">
               </label>
+
+              {% endif %}
 
             </div>
 
