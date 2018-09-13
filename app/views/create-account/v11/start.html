@@ -16,23 +16,14 @@
 
   <form>
     <div class="form-group">
-      <fieldset class="">
+      <fieldset class="inline">
 
         <legend>
           <h1 class="">
             Do you have an NHS login?
           </h1>
         </legend>
-
-        <label class="block-label selection-button-radio" for="radio-inline-1">
-          <input id="radio-inline-1" type="radio" name="radio-inline-group" value="login-nhs{{ params }}">
-          Yes
-        </label>
-        <label class="block-label selection-button-radio" for="radio-inline-2">
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="create-acc-terms{{ params }}">
-          No
-        </label>
-
+        
         <details class="" role="group" style="margin-top: 0;">
           <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
             <span class="details__summary">What is an NHS login?</span>
@@ -41,6 +32,21 @@
             <p>NHS login is an amazing thing that lets you do really cool stuff and all the designers &amp; researchers what done it are way amazing. You get me? Init.</p>
           </div>
         </details>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="login-nhs{{ params }}">
+          Yes
+          </label>
+        </div>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="create-acc-terms{{ params }}">
+          No
+          </label>
+        </div>
+
+        
 
       </fieldset>
     </div>
