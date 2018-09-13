@@ -10,14 +10,6 @@
    <form>
 
         <div class="form-group">
-          <h1>Create an NHS login</h1>
-          <p>If you do not have an NHS login you need to create one.</p>
-          <a class="button" href="create-acc-terms{{ params }}" id="">Create an NHS login</a>
-        </div>
-
-        <hr>
-
-        <div class="form-group">
             <h2>Log in</h2>
 
             <fieldset class="">
@@ -38,6 +30,8 @@
         </div>
 
         <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
+
+        <p><a href="create-acc-terms{{ params }}">Create an NHS login</a></p>
 
        {% include '_partials/_includes/_scenarios_login.html' %}
 
