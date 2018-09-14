@@ -4,13 +4,13 @@
     {# fallback to NHS Access if no argument is found #}
 
     {% if lsStudy === 'undefined' %}
-        {% set theName = '' %}
+        {% set theName = 'NHS' %}
     {% elif lsStudy === '8509' %}
         {% set theName = 'NHS' %}
     {% elif lsStudy === '1275' %}
         {% set theName = 'NHS Access' %}
     {% else %}
-        {% set theName = 'NHS Access' %}
+        {% set theName = 'NHS' %}
     {% endif %}
 
 
