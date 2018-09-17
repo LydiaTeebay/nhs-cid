@@ -2,6 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Step 1: Photo ID document details{% endblock %}
 
 {% set signedin = 'true' %}
+
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
 
 {% block content %}
@@ -13,18 +14,18 @@
 
 	<ol class="service-access">
 
-		<li class="service-access__item completed">
+		<li class="service-access__item active">
 			<h3 class="service-access__item__title">Help us find your NHS record</h3>
 			<div class="service-access__item__desc">
+				<p>You'll need to give us some details so we can connect to your doctor's surgery.</p>
 			</div>
-			<span class="service-access__item__status">Completed</span>
+			<a href="service-access-offline-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
-		<li class="service-access__item active">
+		<li class="service-access__item">
 			<h3 class="service-access__item__title">[PROVE ID]</h3>
 			<div class="service-access__item__desc">
-				<p>[PROVE ID CONTENT]</p>
+				<!--<p>This is so we can check that your face matches your photo ID.</p>-->
 			</div>
-			<a href="service-access-photo-id-camera{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 	</ol>
 

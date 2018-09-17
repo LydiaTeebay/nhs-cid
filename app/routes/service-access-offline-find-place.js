@@ -38,7 +38,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        res.redirect('/service-access/v11/service-access-offline-confirmation?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&place=' + place + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
+        res.redirect('/service-access/v11/service-access-offline-find-place-confirm?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&place=' + place + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
     })
 
     router.get('/service-access/pb/service-access-offline-find-place', function (req, res) {
