@@ -24,6 +24,15 @@ $_step-width: $baseline-grid-unit * 8;
   p {
     @include core-font(24);
   }
+  
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+.instructions--link {
+  @include core-font(20);
 }
 
 .instructions--image {
