@@ -11,6 +11,7 @@ $_step-width: $baseline-grid-unit * 8;
 
   .heading-large {
     color: $white;
+    padding-bottom: $baseline-grid-unit*4;
   }
 
   .heading-secondary {
@@ -31,7 +32,8 @@ $_step-width: $baseline-grid-unit * 8;
   }
 }
 
-.instructions--link {
+.instructions--link,
+p.instructions--link {
   @include core-font(20);
 }
 
@@ -54,6 +56,18 @@ $_step-width: $baseline-grid-unit * 8;
     margin: 1.6em 0 0 2em;
   }
 }
+
+.instructions-list-unordered {
+  @include core-font(24);
+  padding: inherit 0;
+  padding-bottom: $baseline-grid-unit*4;
+}
+
+.instructions-list-unordered__item {
+  padding: $default-spacing-unit/2 $gutter*1.5 $default-spacing-unit/2 $gutter*0.25;
+  margin: 0!important;
+}
+
 
 .instructions-list {
   @include core-font(24);
