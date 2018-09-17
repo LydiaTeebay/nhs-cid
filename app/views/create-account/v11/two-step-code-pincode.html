@@ -23,14 +23,16 @@
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
   
   <form>
+
     <div class="form-group">
       <fieldset class="inline">
         <h1>Check your phone</h1>
 
-        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
+        <p>Enter the security code we sent to {{ mobileNum }}. The code expires in 2 minutes.</p>
 
         <div class="form-group">
           <label class="form-label" for="code">Security code</label>
+          <span class="form-label__hint">The code is 6 numbers</span>
           <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
         </div>
 
@@ -41,7 +43,8 @@
       <a id="securitycodeContinue" href="/patient-online/v11/patient-online-details{{ params }}" class="button">Continue</a>
 
     </div>
-    <p class="">If you haven't received the message you can <a href="two-step{{ params }}">try again</a>.</p>
+    <p class="">If you do not get a code, <a href="two-step{{ params }}">enter your number to try again.</a></p>
+
 
   </form>
 </div>

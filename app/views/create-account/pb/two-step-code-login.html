@@ -24,7 +24,7 @@
 
         <h1>Check your phone</h1>
 
-        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
+        <p>Enter the security code we sent to {{ mobileNum }}. The code expires in 2 minutes.</p>
 
         <div class="form-group">
           <label class="form-label" for="securityCodes">Security code</label>
@@ -42,8 +42,9 @@
       <a id="securitycodeContinue" href="{{ backlink.link() }}" target="_parent" class="button">Continue</a>
       {% endif%}
 
-
     </div>
+
+    <p class="">If you do not get a code, <a href="login-nhs{{ params }}">log in again to get a new code.</a></p>
 
   </form>
 </div>

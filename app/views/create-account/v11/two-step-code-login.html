@@ -23,10 +23,11 @@
 
         <h1>Check your phone</h1>
 
-        <p>We've sent you a message with a security code to {{ mobileNum }}.</p>
+        <p>Enter the security code we sent to {{ mobileNum }}. The code expires in 2 minutes.</p>
 
         <div class="form-group">
           <label class="form-label" for="securityCodes">Security code</label>
+          <span class="form-label__hint">The code is 6 numbers</span>
           <input autocomplete="off" type="tel" class="form-control" name="code" id="securityCodes" value="" class="code">
         </div>
 
@@ -36,6 +37,9 @@
     <div class="form-group">
       <a id="securitycodeContinue" href="{{ backlink.link() }}" target="_parent" class="button">Continue</a>
     </div>
+
+    <p class="">If you do not get a code, <a href="login-nhs{{ params }}">log in again to get a new code.</a></p>
+
   </form>
 </div>
 
