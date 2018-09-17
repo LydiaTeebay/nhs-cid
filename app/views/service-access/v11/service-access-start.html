@@ -6,22 +6,30 @@
 {% block content %}
 
 <div class="first-item">
+
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 	<section class="intructions">
 
 		<div class="reading-width">
 
-			<h1 class="heading-large">To access this service we'll need to do the following:</h1>
+			<h1 class="heading-large">Prove your identity online</h1>
 
+			<p>How it's done:</p>
 			<ol class="instructions-list">
-				<li class="instructions-list__item">Find your NHS record</li>
-				<li class="instructions-list__item">Ensure you are who you say you are.</li>
+				<li class="instructions-list__item">Help us locate your NHS record</li>
+				<li class="instructions-list__item">Take a photo of your ID document with your phone's camera</li>
+				<li class="instructions-list__item">Record a short video of yourself</li>
 			</ol>
 
-			<p>We will only need to do this once.</p><p>There are a number of ways to do this and  We'll ask some questions to help you find the best way. </p>
+			<p>You will only need to do this once.</p>
 
 			<div class="form-control" style="margin: 32px 0 16px;">
-				<a class="button--information" href="service-access-triage-1{{ params }}">Continue</a>
+				<a class="button--information" href="service-access-nhs{{ params }}">Continue</a>
 			</div>
+			<p>&nbsp;</p>
+			<h3>Don't want to do this?</h3>
+			<p><a href="service-access-offline{{ params }}" class="instructions--link">You can take your photo ID document to the post office instead.</a></p>
+
 		</div>
 	</section>
 </div>

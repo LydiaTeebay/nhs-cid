@@ -8,13 +8,20 @@
 
 {% block content %}
 
-<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-<h1>Complete these steps</h1>
+<h1>Follow these steps</h1>
+<p>You'll need to give us some information so that we can connect you to your GP surgery, and keep your NHS login secure.</p>
 
 <section class="service-access-wrapper">
 
 	<ol class="service-access">
 
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Help us find your NHS record</h3>
+			<div class="service-access__item__desc">
+				<!--<p>You'll need to give us some details so we can connect to your doctor's surgery.</p>-->
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
 		<li class="service-access__item completed">
 			<h3 class="service-access__item__title">Take a photo of your ID document</h3>
 			<div class="service-access__item__desc">
@@ -29,12 +36,7 @@
 			</div>
 			<a href="service-access-video-selfie-instructions-2{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
-		<li class="service-access__item">
-			<h3 class="service-access__item__title">Help us find your NHS record</h3>
-			<div class="service-access__item__desc">
-				<!--<p>You'll need to give us some details so we can connect to your doctor's surgery.</p>-->
-			</div>
-		</li>
+
 	</ol>
 
 </section>
