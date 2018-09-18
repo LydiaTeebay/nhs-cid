@@ -13,14 +13,32 @@
 
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
-      <h1><legend>[POST OFFICE CONFIRM]</legend></h1>
-      <mark>carry through the selected post office {{ postcode }}</mark>
-      <p>[information about the postcode selected]</p>
+      <h1><legend>[Confirm Post Office]</legend></h1>
+
+        <div class="panel">
+          <div class="panel__content panel__content--half">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">1-3 South John Street, <br>Liverpool, <br>Merseyside <br>L1 8BN</p>
+          <p> <span><a href="http://maps.google.co.uk/maps?daddr=1-3%20South%20John%20Street,%20Liverpool,%20MerseysideL1%208BN@53.40498,-2.9879&saddr=L1%208BN@53.4083714,-2.9915726000000404&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
+    </div>
+    <div class="panel__content panel__content--half">
+      <h3>Opening times:<h3>
+       <p>Mon 09:00-17:30<br>
+        Tue	09:00-17:30<br>
+        Wed	09:00-17:30<br>
+        Thu	09:00-17:30<br>
+        Fri	09:00-17:30<br>
+        Sat	09:00-17:30<br>
+        Sun	11:00-15:00</p>
+    </div>
+  </div>
 
     </div>
 
     <div class="form-group">
-      <a class="button" href="service-access-offline-confirmation{{ params }}">Continue</a>
+      <a class="button" href="service-access-offline-confirmation{{ params }}">Confirm</a>
     </div>
   </form>
 
