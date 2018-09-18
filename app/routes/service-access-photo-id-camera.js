@@ -18,6 +18,8 @@ module.exports = function (router) {
         var pinCode4 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         var challenge = req.param('challenge')
+
+
         // re-render the page along with the parameter
         res.render('service-access/service-access-photo-id-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, hidehead: hidehead, challenge: challenge, pinCode: pinCode }, function(err, html) {
             res.send(html)
@@ -45,8 +47,13 @@ module.exports = function (router) {
         var isMobileOs = req.useragent.source
         var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
         var isMobileOsV = isMobileOsVer
+
+        var secondPass = req.param('secondPass')
+        if (secondPass === 'true') {
+            var formerror = 'undefined'
+        }
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-photo-id-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl  }, function(err, html) {
+        res.render('service-access/v11/service-access-photo-id-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, secondPass: secondPass  }, function(err, html) {
             res.send(html)
         })
     })
