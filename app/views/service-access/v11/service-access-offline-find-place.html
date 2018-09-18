@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Choose a Post Office{% endblock %}
 
 {% set signedin = 'false' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&postcode=" + postcode %}
 
 {% block content %}
 
@@ -38,7 +38,7 @@
   <form action="service-access-offline-find-place{{ params }}" method="POST">
     <div class="form-group">
       <fieldset>
-
+        <mark>{{ postcode }}</mark>
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
             Choose a Post Office
