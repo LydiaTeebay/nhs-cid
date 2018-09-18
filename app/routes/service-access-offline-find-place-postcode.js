@@ -19,7 +19,7 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var postcode = req.param('postcode').toUpperCase()
 
-        if (postcode === 'undefined') {
+        if (postcode === 'undefined' || 'UNDEFINED') {
             var postcode = '';
         }
         // re-render the page along with the parameter
