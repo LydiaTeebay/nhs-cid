@@ -13,6 +13,17 @@
   }
 }
 
+.list--ordered {
+  @include core-font(20);
+  padding: 0 0 0 32px;
+  padding-bottom: $baseline-grid-unit*4;
+}
+
+.instructions--ordered__item {
+  padding: $default-spacing-unit/2 $gutter*1.5 $default-spacing-unit/2 0;
+  margin: 0!important;
+}
+
 .list--counter {
 
   ol {

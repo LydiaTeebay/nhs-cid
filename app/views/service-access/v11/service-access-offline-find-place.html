@@ -4,32 +4,29 @@
 {% set signedin = 'false' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&postcode=" + postcode %}
 
-{% block content %}
-
+{% block header %}
 <style>
-
-.block-label.selection-button-radio {
-  padding: 32px;
-  padding-left: 80px;
-  background-color: #f0f4f5;
-  border: 1px solid #f0f4f5;
-}
-
-.block-label.selection-button-radio.selected {
-  border: 1px solid black;
-}
-
-.block-label.selection-button-radio:before {
-  top: 24px;
-  left: 24px;
-}
-
-.block-label.selection-button-checkbox.selected:after, .block-label.selection-button-radio.selected:after {
-  top: 34px;
-  left: 34px;
-}
-
+  .block-label.selection-button-radio {
+    padding: 32px;
+    padding-left: 80px;
+    background-color: #f0f4f5;
+    border: 1px solid #f0f4f5;
+  }
+  .block-label.selection-button-radio.selected {
+    border: 1px solid black;
+  }
+  .block-label.selection-button-radio:before {
+    top: 24px;
+    left: 24px;
+  }
+  .block-label.selection-button-checkbox.selected:after, .block-label.selection-button-radio.selected:after {
+    top: 34px;
+    left: 34px;
+  }
 </style>
+{% endblock %}
+
+{% block content %}
 
 <div class="first-item">
 

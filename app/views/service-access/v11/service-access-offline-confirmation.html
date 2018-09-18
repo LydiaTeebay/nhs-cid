@@ -5,11 +5,20 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&place=" + place + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + '&postcode=' + postcode %}
 
 
+{% block header %}
+<div class="local-header">
+    <h1 class="local-header__title">Take your photo ID to the Post Office</h1>
+    <div class="local-header__intro">
+        <div class="reading-width">
+            <p>You do not need to book an appointment​</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 
-
 <div class="first-item">
-  <h1>Take your photo ID to the Post Office​</h1>
 
   {% if place === "postoffice1" %}
       <div class="panel">
@@ -68,22 +77,16 @@
     </div>
 {% endif %}
 
-
-
-
-
-
-  <h3>What to do next:</h3>
-  <ul class="list-bullet">
-    <li>You do not need to book an appointment​</li>
-    <li>Tell the Post Office staff you need to do an <abbr title="National health service">NHS</abbr> <abbr title="identity document">ID</abbr> check​</li>
-    <li>The Post Office will check your photo <abbr title="identity document">ID</abbr> and send a picture to us​</li>
-    <li>We will <a href="/emails/v4/email-identity-verified{{ params }}">email</a> you when we have checked your details​</li>
-    <li>If it's approved, you can log in with the login details you set up</li>
-  </ul>
+  <h2 class="h3">What happens next:</h3>
+  <ol class="list--ordered">
+    <li class="instructions--ordered__item">Tell the Post Office staff you need to do an <abbr title="National health service">NHS</abbr> <abbr title="identity document">ID</abbr> check​</li>
+    <li class="instructions--ordered__item">The Post Office will check your photo <abbr title="identity document">ID</abbr> and send a picture to us​</li>
+    <li class="instructions--ordered__item">We will <a href="/emails/v4/email-identity-verified{{ params }}">email</a> you when we have checked your details​</li>
+    <!--<li>If it's approved, you can log in with the login details you set up</li>-->
+  </ol>
 
   <div class="form-group">
-    <a class="button" href="javascript:window.print()" id="">Print these instructions</a>
+    <a class="" href="javascript:window.print()" style="padding: 16px 0; display: inline-block;">Print these instructions</a>
   </div>
 
 </div>
