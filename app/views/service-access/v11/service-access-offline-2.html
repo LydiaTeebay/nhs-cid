@@ -6,25 +6,37 @@
 
 {% block content %}
 
+<style>
+@media (min-width: 641px) {
+	.service-access__item__title {
+		width: 50%;
+	}
+}
+
+@media (min-width: 641px) {
+	.service-access__item__desc {
+		width: 50%;
+	}
+}
+</style>
+
 <p><a href="service-access-triage-1" class="link-back">Back</a></p>
 <h1>Complete these steps</h1>
 
 <section class="service-access__wrapper">
-
 	<ol class="service-access">
-		<mark>testing {{ postcode }} </mark>
 		<li class="service-access__item completed">
-			<h3 class="service-access__item__title">Help us find your NHS record</h3>
+			<h3 class="service-access__item__title">Help us find your NHS record​</h3>
 			<div class="service-access__item__desc">
 			</div>
-			<span class="service-access__item__status">Completed</span>
+			<span class="service-access__item__status">Done</span>
 		</li>
 		<li class="service-access__item active">
-			<h3 class="service-access__item__title">[PROVE ID]</h3>
+			<h3 class="service-access__item__title">Take your photo <abbr title="identity document">ID</abbr> to a Post Office to be checked​</h3>
 			<div class="service-access__item__desc">
-				<p>[PROVE ID CONTENT]</p>
+				<p>You'll need to go to a Post Office that does NHS ID checks. </p>
 			</div>
-			<a href="service-access-offline-find-place-postcode{{ params }}" class="service-access__item__button button">Start</a>
+			<a href="service-access-offline-find-place-postcode{{ params }}" class="service-access__item__button button">Find a Post Office</a>
 		</li>
 	</ol>
 
