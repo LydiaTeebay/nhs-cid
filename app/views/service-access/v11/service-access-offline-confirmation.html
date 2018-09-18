@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - You will not be able to prove your identity online without a UK photo ID document.{% endblock %}
 
 {% set signedin = 'false' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&place=" + place + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&place=" + place + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + '&postcode=' + postcode %}
 
 
 {% block header %}
@@ -22,7 +22,7 @@
 
   <div class="panel">
     <div class="panel__content panel__content--half">
-
+    <mark>{{ postcode }}</mark>
       <h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>
         <p class="te">1-3 South John Street, <br>Liverpool, <br>Merseyside <br>L1 8BN</p>
 

@@ -17,8 +17,9 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var postcode = req.param('postcode')
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-offline-find-place', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, changetomobile: changetomobile }, function(err, html) {
+        res.render('service-access/v11/service-access-offline-find-place', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, changetomobile: changetomobile, postcode: postcode }, function(err, html) {
             res.send(html)
         })
     })
@@ -38,7 +39,8 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        res.redirect('/service-access/v11/service-access-offline-find-place-confirm?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&place=' + place + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
+        var postcode = req.param('postcode')
+        res.redirect('/service-access/v11/service-access-offline-find-place-confirm?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&isMobile=' + isMobile + '&hidehead=' + hidehead + '&challenge=' + challenge + '&place=' + place + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&postcode=' + postcode )
     })
 
     router.get('/service-access/pb/service-access-offline-find-place', function (req, res) {
