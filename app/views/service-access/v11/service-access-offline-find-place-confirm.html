@@ -12,8 +12,7 @@
     <div class="form-group">
 
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-      <mark>{{ place }}</mark>
-      <h1><legend>[Confirm Post Office]</legend></h1>
+      <h1><legend>Confirm your Post Office​</legend></h1>
 {% if place === "postoffice1" %}
       <div class="panel">
         <div class="panel__content panel__content--half">
@@ -61,19 +60,19 @@
         <div class="panel__content panel__content--half">
           <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
           <h3>Address</h3>
-          <p class="te">1-3 South John Street, <br>Liverpool, <br>Merseyside <br>L1 8BN</p>
-          <p><span><a href="http://maps.google.co.uk/maps?daddr=1-3%20South%20John%20Street,%20Liverpool,%20MerseysideL1%208BN@53.40498,-2.9879&saddr=L1%208BN@53.4083714,-2.9915726000000404&t=m">Show on a map.</a></span></p>
+          <p class="te">St Johns Post Office,<br>116 Albion Street,<br/>Leeds,<br/>West Yorkshire,<br/>LS2 8LP</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=116%20Albion%20Street,%20Leeds,%20West%20YorkshireLS2%208LP@53.80034,-1.54453&saddr=LS2%208LP@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
           <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
         </div>
         <div class="panel__content panel__content--half">
           <h3>Opening times:<h3>
           <p>Mon 09:00-17:30<br>
-          Tue	09:00-17:30<br>
+          Tue	09:30-17:30<br>
           Wed	09:00-17:30<br>
           Thu	09:00-17:30<br>
           Fri	09:00-17:30<br>
           Sat	09:00-17:30<br>
-          Sun	11:00-15:00</p>
+          Sun	Closed</p>
         </div>
       </div>
 {% endif %}
@@ -82,8 +81,8 @@
         <div class="panel__content panel__content--half">
           <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
           <h3>Address</h3>
-          <p class="te">1-3 South John Street, <br>Liverpool, <br>Merseyside <br>L1 8BN</p>
-          <p><span><a href="http://maps.google.co.uk/maps?daddr=1-3%20South%20John%20Street,%20Liverpool,%20MerseysideL1%208BN@53.40498,-2.9879&saddr=L1%208BN@53.4083714,-2.9915726000000404&t=m">Show on a map.</a></span></p>
+          <p class="te">Beeston Hill Post Office,<br/>2 Lodge Lane,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 6AZ</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=2%20Lodge%20Lane,%20Leeds,%20West%20YorkshireLS11%206AZ@53.77758,-1.55418&saddr=LS11%206AZ@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
           <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
         </div>
         <div class="panel__content panel__content--half">
@@ -93,8 +92,8 @@
           Wed	09:00-17:30<br>
           Thu	09:00-17:30<br>
           Fri	09:00-17:30<br>
-          Sat	09:00-17:30<br>
-          Sun	11:00-15:00</p>
+          Sat	09:00-14:30<br>
+          Sun	Closed</p>
         </div>
       </div>
 {% endif %}
@@ -103,25 +102,27 @@
         <div class="panel__content panel__content--half">
           <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
           <h3>Address</h3>
-          <p class="te">1-3 South John Street, <br>Liverpool, <br>Merseyside <br>L1 8BN</p>
-          <p><span><a href="http://maps.google.co.uk/maps?daddr=1-3%20South%20John%20Street,%20Liverpool,%20MerseysideL1%208BN@53.40498,-2.9879&saddr=L1%208BN@53.4083714,-2.9915726000000404&t=m">Show on a map.</a></span></p>
+          <p class="te">Victoria Terrace Post Office,<br/>163-165 Dewsbury Road,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 5EG</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=163-165%20Dewsbury%20Road,%20Leeds,%20West%20YorkshireLS11%205EG@53.77828,-1.54458&saddr=LS11%205EG@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
           <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
         </div>
         <div class="panel__content panel__content--half">
           <h3>Opening times:<h3>
-          <p>Mon 09:00-17:30<br>
-          Tue	09:00-17:30<br>
-          Wed	09:00-17:30<br>
-          Thu	09:00-17:30<br>
-          Fri	09:00-17:30<br>
-          Sat	09:00-17:30<br>
-          Sun	11:00-15:00</p>
+          <p>Mon 08:30-20:00<br>
+          Tue	08:30-20:00<br>
+          Wed	08:30-20:00<br>
+          Thu	08:30-20:00<br>
+          Fri	08:30-20:00<br>
+          Sat	09:30-20:00<br>
+          Sun	10:00-18:30</p>
         </div>
       </div>
     </div>
 {% endif %}
+
+  <p>When you confirm your Post Office, we'll send you details about what you need to do next.</p>
     <div class="form-group">
-      <a class="button" href="service-access-offline-confirmation{{ params }}">Confirm</a>
+      <a class="button" href="service-access-offline-confirmation{{ params }}">Confirm your Post Office</a>
     </div>
   </form>
 
