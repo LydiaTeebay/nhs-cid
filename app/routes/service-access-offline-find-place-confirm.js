@@ -8,6 +8,7 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var idType = req.param('idType')
+        var place = req.param('place')
         var isMobile = req.useragent.isMobile
         var challenge = req.param('challenge')
         var hidehead = req.param('hidehead')
@@ -19,7 +20,7 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var postcode = req.param('postcode')
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-offline-find-place-confirm', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, changetomobile: changetomobile, postcode: postcode }, function(err, html) {
+        res.render('service-access/v11/service-access-offline-find-place-confirm', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, place: place, isMobile: isMobile, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, changetomobile: changetomobile, postcode: postcode }, function(err, html) {
             res.send(html)
         })
     })
