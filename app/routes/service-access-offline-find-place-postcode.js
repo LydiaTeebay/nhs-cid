@@ -19,8 +19,8 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var postcode = req.param('postcode').toUpperCase()
 
-        if (postcode === 'undefined' || 'UNDEFINED') {
-            var postcode = '';
+        if (postcode === 'undefined' || postcode === 'UNDEFINED') {
+            postcode = ''
         }
         // re-render the page along with the parameter
         res.render('service-access/v11/service-access-offline-find-place-postcode', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, changetomobile: changetomobile, postcode: postcode }, function(err, html) {
