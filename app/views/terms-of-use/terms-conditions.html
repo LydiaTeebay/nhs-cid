@@ -29,6 +29,10 @@
 	  padding: 0;
 	}
 
+	ol li {
+		padding-left: 0;
+	}
+
 	ol > li {
 	  display: table;
 	  counter-increment: item;
@@ -37,8 +41,9 @@
 
 	ol > li:before {
 	  content: counters(item, ".") ". ";
-	  display: table-cell;
-	  padding-right: 0.6em;    
+	  display: /*table-cell*/ inline-block;
+	  padding-right: 0.6em;  
+	  font-weight: bold;  
 	}
 
 	li ol > li {
@@ -154,7 +159,7 @@
 						<li>any information which is marked as being under a different licence, or not for release.</li>
 					</ul>
 				</li>
-				<li><p>If you do use any <abbr>NHS</abbr> Digital Content you must attribute it with the following statement:<p>
+				<li>If you do use any <abbr>NHS</abbr> Digital Content you must attribute it with the following statement:
 					<blockquote><b>&quot;Information from <abbr>NHS</abbr> Digital, licenced under the current version of the Open Government Licence&quot;.</b></blockquote>
 					<p>or in cases where the <abbr>NHS</abbr> Digital Content is combined, adapted, or otherwise modified in line with these terms and conditions:</p>
 					<blockquote><b>&quot;Contains information from <abbr>NHS</abbr> Digital, licenced under the current version of the Open Government Licence&quot;.</b></blockquote></li>
