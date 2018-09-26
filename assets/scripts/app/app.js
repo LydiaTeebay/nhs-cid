@@ -338,9 +338,22 @@ function readURL(input, idType) {
           $('#uploaded-video>source').attr('src', e.target.result)
       }
         if (idType == "photoId") {
-
             $("#scan-id-1").css("display", "none")
-            $("#scan-id-5").css("display", "block")
+            $("#scan-id-0").css("display", "block")
+            //show then hide the spinner animation
+            setTimeout(function(){
+                document.getElementById('scan-id-0').style.display = 'none'
+            }, 1000)
+            setTimeout(function(){
+                if (Validate(input)) {
+                    document.getElementById('scan-id-5').style.display = 'block'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                } else {
+                    $(".camera-file-format").css("display", "block")
+                    document.getElementById('scan-id-1').style.display = 'block'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                }
+            }, 1000)
             $('#uploaded-id').attr('src', e.target.result)
             $('#uploaded-id-error').attr('src', e.target.result)
             // activateLoader(2)
@@ -354,6 +367,36 @@ function readURL(input, idType) {
     }
     reader.readAsDataURL(input.files[0])
   }
+}
+
+var _validFileExtensions = [".jpg", ".jpeg"]
+
+function Validate(oForm) {
+    var arrInputs = oForm
+
+
+        if (oForm.type == "file") {
+            console.log(arrInputs)
+            var sFileName = oForm.value
+            if (sFileName.length > 0) {
+                var blnValid = false
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j]
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true
+                        return true
+                        break
+                    }
+                }
+                if (!blnValid) {
+                    // alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "))
+                    return false
+                }
+            }
+        }
+
+
+    return true
 }
 
 function playSelectedFile(event) {

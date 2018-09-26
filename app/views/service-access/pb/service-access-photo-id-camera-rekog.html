@@ -1,0 +1,174 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+  <section class="loading-container" id="scan-id-0" style="display:none">
+
+    <h1 id="spinner-heading" style="padding-bottom: 0; display:none;">Uploading your photo</h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-spinner" data-percent="0">
+          <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
+          <div class="ppc-loading">
+            <div class="pcc-percents-wrapper">
+              <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+      <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
+
+        {% if mobileOsV === 9.1 %}
+
+        {% import "_partials/_components/_callout.html" as callout %}
+        {{ callout.pattern('','You cannot continue because your phone needs an iOS update.<br><br>Go to your phone’s Settings. Select General, then Software Update. After you’ve updated, come back and try again.','alert') }}
+
+        {% endif %}
+
+        <div class="callout callout--warning camera-file-format" style="display:none">
+          <h2 class="h3">There’s a problem</h2>
+          <p>Make sure you take a photo now. Do not use a photo that you've taken before</p>
+        </div>
+
+        <p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>
+
+        <form>
+          <fieldset class="">
+            <legend for="radio-inline-group">
+              <h1 style="padding-bottom: 0;">
+                Take a photo of your {{ idType }}
+              </h1>
+            </legend>
+
+            <p>You must:</p>
+            <ul class="list list-bullet">
+              <li>hold the camera straight above your {{ idType }}</li>
+              <li>make sure all the details are clear and readable</li>
+            </ul>
+
+            <div class="form-group">
+
+              {% if mobileOsV !== 9.1 %}
+
+              <label for="photo-id-document" class="camera-button">Open camera
+                <input type="file" id="photo-id-document" accept="image/*" capture="environment">
+              </label>
+
+              {% endif %}
+
+            </div>
+
+          </fieldset>
+
+        </form>
+
+      </section>
+
+  <section class="uploader-container" id="scan-id-3" style="display:none">
+
+    <h1 style="padding-bottom: 0;">
+      Uploading your photo
+    </h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-pie-chart" data-percent="0">
+          <div class="ppc-progress">
+            <div class="ppc-progress-fill"></div>
+          </div>
+          <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+              <span>%</span>
+            </div>
+          </div>
+        </div>
+
+        <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="preview-container" id="scan-id-5" style="display:none">
+
+    <h1 style="padding-bottom: 0;">Check your photo</h1>
+
+    <p>Can you see your full face and read all the information on your {{ idType}}?</p>
+
+    <div class="reading-width">
+      <div id="scan-id-preview">
+        <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      {% if formerror === 'invalid' %}
+      <a class="button" href="" id="submit-photoId-button-error">Yes - continue</a>
+      {% else %}
+      <a class="button" href="" id="submit-photoId-button">Yes - continue</a>
+      {% endif %}
+
+
+      <p><a href="service-access-photo-id-camera{{ params }}" id="">No - take the photo again</a></p>
+    </div>
+
+  </section>
+
+
+  <section class="preview-container" id="scan-id-6" style="display:none">
+
+    <h1 style="padding-bottom: 0;">Upload error</h1>
+
+    <div id="nhs-number" class="has-error form-row-error-active">
+      <span class="error error-message error-label error-text error-message-active" id="nhs-number-error">There was an problem uploading your photo.</span>
+    </div>
+
+    <div class="form-group">
+      <a class="button" href="" id="submit-photoId-back-button">Retry upload</a>
+      <p><a href="service-access-photo-id-camera{{ params }}" id="">Cancel</a></p>
+
+    </div>
+
+  </section>
+
+<section class="preview-container" id="scan-id-7" style="display:none">
+
+  <h1 style="padding-bottom: 0;">Sorry - we cannot upload your photo</h1>
+
+  <p>This could be because of one of the following reasons:</p>
+  <ul>
+    <li>you've sent us a video instead of a photo</li>
+    <li>the file is too large</li>
+    <li>the file is a type that we cannot accept</li>
+  </ul>
+  <p>Please try again.</p>
+
+  <div class="form-group">
+    <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+  </div>
+  <p class="small">&nbsp;<br>Reference: CID4001</p>
+</section>
+
+  {% if formerror === 'invalid' %}
+    <button id="confirmButton" style="visibility:hidden">Continue to error</button>
+  {% else %}
+    <button id="continueButton" style="visibility:hidden;" onclick="window.location='service-access-video-selfie{{ params }}';" >Continue</button>
+  {% endif %}
+
+</div>
+
+{% endblock %}
