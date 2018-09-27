@@ -6,6 +6,9 @@
 
 {% block content %}
 
+{% import "_partials/_components/_callout.html" as callout %}
+        {{ callout.pattern('','We cannot find your NHS login. This could be because you either:<ul><li>entered the wrong email address</li><li>entered the wrong password</li><li>do not have an NHS login yet</li><li>have not clicked confirm in the email we sent you</li></ul>','alert') }}
+
 <div class="first-item">
    <form>
 
@@ -14,8 +17,7 @@
            <p>If you do not have an NHS login you need to create one.</p>
            <a class="button" href="create-acc-terms{{ params }}" id="">Create an NHS login</a>
        </div>
-      {% import “_partials/_components/_callout.html” %}
-        {{ callout.pattern(‘’,‘<strong>You cannot continue because your phone needs an iOS update.</strong><br><br>Go to your phone’s Settings. Select General, then Software Update. After you’ve updated, come back and try again.’,’alert’) }}
+      
        <hr>
 
         <div class="form-group">
