@@ -1,0 +1,24 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Register to use your GP surgery's online booking system.{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+
+{% block content %}
+<div class="first-item">
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+  <h1 class="">Register to use your GP surgery's online booking system</h1>
+  <p>If you register for your GP surgery's online booking system, you can use the details you'll get to help us find your <abbr>NHS</abbr> record.</p>
+  <p>This also proves to us that your <abbr>GP</abbr> surgery has checked who you are.​</p>
+
+  <div class="callout callout--info">
+    <h2 class="h3">Follow these steps:</h2>
+    <ol>
+      <li>Ask your GP surgery to register you for their online services - they will give you registration details.​</li>
+      <li>Log in to the NHS App using your NHS login.</li>
+      <li>Use the details your surgery gave you so we can connect you to your NHS record.</li>
+    </ol>
+  </div>
+
+</div>
+{% endblock %}
