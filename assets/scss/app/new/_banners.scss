@@ -56,6 +56,35 @@
 
   }
 
+  &.alert {
+
+    background-color: #f5e6e4;
+    color: #da291c;
+    font-size: 1em;
+    font-weight: 700;
+
+
+    span {
+
+      padding: 1px 5px;
+      color: #da291c;
+      background-color: white;
+      border: 1px solid $red;
+
+    }
+
+    a {
+
+      &:hover {
+
+        color: white;
+        background-color: $red;
+
+      }
+    }
+
+  }
+
   &.cookie {
 
     background-color: lighten( $yellow, 25%);
