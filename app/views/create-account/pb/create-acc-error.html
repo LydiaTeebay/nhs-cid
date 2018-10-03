@@ -12,6 +12,9 @@
 
 {% block content %}
 
+{% import "_partials/_components/_callout.html" as callout %}
+        {{ callout.pattern('','We could not create your NHS login. This could be because you entered an email address that is already signed up.','alert') }}
+
 <div class="first-item">
 
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
