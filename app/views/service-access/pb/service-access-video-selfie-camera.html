@@ -38,19 +38,32 @@
 
     {% endif %}
 
+    <div class="callout callout--error camera-file-format" style="display:block">
+      <h2 class="h3">There's a problem</h2>
+      <!--<p>You've taken a photo by mistake. When you click on <em style="font-style: normal">Open camera</em>, pick your video camcorder.</p>-->
+
+      <p>Your video is a file type we cannot accept. When you click on <em style="font-style: normal">Open camera</em>, pick your video camcorder.</p>
+
+      <!--<p>Your video is too long. Record your video again and stop it when you’ve finished speaking.</p>-->
+
+      <!--<p>Your video is too small. Record your video again.</p>-->
+      <!--<p>When you click on <em style="font-style: normal">Open camera</em>, pick your main video camcorder.</p></p>-->
+    </div>
+
     <p><a href="service-access-video-selfie-instructions-2{{ params }}" class="link-back">Back</a></p>
 
     <form>
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
-            Say these numbers
+            Record a short video
           </h1>
         </legend>
 
-        <p>Say these 4 numbers when you record your video.</p>
+        <p>You'll need to record a short video of your face.</p>
+        <p>When you record your video, say these 4 numbers:</p>
 
-        <h1>{{ pinCode }}</h1>
+        <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
 
 
         <div class="form-group">
@@ -92,7 +105,7 @@
 
   </section>
 
-  <section class="" id="scan-id-5" style="display:none">
+  <section class="" id="scan-id-9" style="display:none">
 
     <h1 style="padding-bottom: 0;">Check your video</h1>
 
@@ -123,22 +136,55 @@
 
   <section  class="" id="scan-id-7" style="display:none">
 
-    <h1 style="padding-bottom: 0;">Sorry - we cannot upload your video</h1>
+    <h1 style="padding-bottom: 0;">There's a problem with your video</h1>
 
-    <p>This could be because of one of the following reasons:</p>
+    <p>This could be because of any of the following:</p>
     <ul>
-      <li>you've sent us a photo instead of a video</li>
+      <li>you sent us a photo instead of a photo</li>
       <li>the video is too long (it only needs to be a few seconds)</li>
-      <li>the file is a type that we cannot accept </li>
+      <li>the file is a type we cannot accept</li>
     </ul>
-    <p>Please try again.</p>
 
     <div class="form-group">
-      <a class="button" href="service-access-video-selfie-camera{{ params }}" id="video-selfie-back-buttonzz">Record another video</a>
+      <a class="button" href="service-access-video-selfie-camera{{ params }}" id="">Record another video</a>
     </div>
-    <p class="small">&nbsp;<br>Reference: CID4002</p>
 
+      <p class="small" style="margin-top: 28px;">Reference: CID4013</p>
+
+  </section>
+
+<section  class="" id="scan-id-8" style="display:none">
+
+  <h1 style="padding-bottom: 0;">Something went wrong</h1>
+
+  <p>We're having technical problems.</p>
+
+  <div class="form-group">
+    <a class="button" href="service-access-video-selfie-camera{{ params }}" id="">Try again</a>
+  </div>
+
+  <div class="callout callout--info" style="margin-top: 28px;">
+    <p>If you keep getting this message, please try again later.</p>
+  </div>
+
+  <p class="small" style="margin-top: 28px;">Reference: CID4012</p>
+
+</section>
+
+  {# section to show uploading error #}
+  <section class="preview-container" id="scan-id-5" style="display:none">
+
+    <h1 style="padding-bottom: 0;">Something went wrong</h1>
+
+    <div id="nhs-number" class="has-error form-row-error-active">
+      <p>We could not upload your video.</p>
     </div>
+
+    <div class="form-group">
+      <a class="button" href="" id="submit-photoId-back-button">Try again</a>
+    </div>
+
+    <p class="small" style="margin-top: 28px;">Reference: CID4011</p>
 
   </section>
 

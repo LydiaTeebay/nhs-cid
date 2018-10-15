@@ -38,9 +38,20 @@
 
         {% endif %}
 
-        <div class="callout callout--warning camera-file-format" style="display:none">
-          <h2 class="h3">There’s a problem</h2>
-          <p>Make sure you take a photo now. Do not use a photo that you've taken before</p>
+        <div class="callout callout--error camera-file-format" style="display:block">
+          <h2 class="h3">There's a problem</h2>
+          <!--<p>You've recorded a video by mistake. When you click on <em style="font-style: normal">Open camera</em>, pick your main camera.</p>-->
+
+          <!--<p>Your photo is a file type we cannot accept. When you click <em style="font-style: normal">Open camera</em>, pick your main camera.</p>-->
+
+          <!--<p>Your photo file is too large. Take your photo again.</p>-->
+
+          <!--<p>Your photo file is too large. Take your photo again.</p>-->
+          <!--<p>When you click <em style="font-style: normal">Open camera</em>, pick your main camera.</p>-->
+
+          <p>Your photo is too small. Take your photo again.</p>
+          <p>When you click <em style="font-style: normal">Open camera</em>, pick your main camera.</p>
+
         </div>
 
         <p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>
@@ -74,6 +85,10 @@
           </fieldset>
 
         </form>
+
+        {% if devMode === 'true' %}
+        <p class="dev-mode" style="display: block;">File extention: <span class="dev-mode-file">None</span></p>
+        {% endif %}
 
       </section>
 
