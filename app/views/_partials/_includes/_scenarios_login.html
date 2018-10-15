@@ -10,6 +10,13 @@
                 <li><a href="two-step-code-login{{ params }}&result=200">[200] Validation success</a></li>
             </ol>
 
+            <p>Account errors</p>
+            <ol>
+                <li><a href="login-nhs-error{{ params }}&reason=noaccount">No account found</a></li>
+                <li><a href="login-no-service{{ params }}&reason=noservice">We don't know which service to connect them to</a></li>
+                <li><a href="login-nhs-reset{{ params }}&reason=resetaccount">User needs to reset their password</a></li>
+            </ol>
+
             <p>PYI</p>
             <ol>
                 <li><a href="two-step-code-login{{ params }}&reason=idpending">User logs in whilst Identity check is in progress [REF: CID-2001]</a></li>
