@@ -38,6 +38,8 @@
 
       {% if reason === 'idpending' %}
       <a id="securitycodeContinue" href="error-id-not-checked{{ params }}" target="_parent" class="button">Continue</a>
+      {% elif reason === 'nam' %}
+      <a id="securitycodeContinue" href="/service-access/pb/service-access-connect-gp{{ params }}" target="_parent" class="button">Continue</a>
       {% else %}
       <a id="securitycodeContinue" href="{{ backlink.link() }}" target="_parent" class="button">Continue</a>
       {% endif%}

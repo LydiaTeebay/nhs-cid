@@ -5,11 +5,6 @@
     </summary>
     <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
         <div class="reading-width">
-            <p>Success</p>
-            <ol>
-                <li><a href="two-step-code-login{{ params }}&result=200">[200] Validation success</a></li>
-            </ol>
-
             <p>Account errors</p>
             <ol>
                 <li><a href="login-nhs-error{{ params }}&reason=noaccount">No account found</a></li>
@@ -17,9 +12,19 @@
                 <li><a href="login-nhs-reset{{ params }}&reason=resetaccount">User needs to reset their password</a></li>
             </ol>
 
-            <p>PYI</p>
+            <p>PYI GP-Connect endpoint</p>
             <ol>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=200">[200] Validation success</a></li>
                 <li><a href="two-step-code-login{{ params }}&reason=idpending">User logs in whilst Identity check is in progress [REF: CID-2001]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=400">[400] Functional - ODS Code or NHS Number was invalid [REF: CID7020]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=403">[403] Functional - the linkage key has been revoked [REF: CID7021]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=404">[404] Functional - patient not found [REF: CID7022]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=409">[409] Functional - conflict, account already exists [REF: CID7023]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=500">[500] Technical - An unexpected error occurred processing the request [REF: CID7024]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=501">[501] Technical - No GP system was found for ODS Code [REF: CID7025]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=502">[502] Technical - The GP system is currently unavailable [REF: CID7026]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=504">[504] Technical - The GP system did not respond in a timely fashion [REF: CID7027]</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=nam&result=504">Technical - Non-specific error. - go down pyi again [REF: CID7028]</a></li>
             </ol>
         </div>
     </div>

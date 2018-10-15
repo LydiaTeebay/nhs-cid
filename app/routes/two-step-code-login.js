@@ -62,6 +62,8 @@ module.exports = function (router) {
         var personalisation = {
             'pincode': pinCode
         }
+        var reason = req.param('reason')
+        var result = req.param('result')
         // send text message
 
         if (mobileNum !== '' || mobileNum !== 'undefined') {
@@ -73,7 +75,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v12/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('create-account/v12/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })
@@ -170,6 +172,8 @@ module.exports = function (router) {
         var personalisation = {
             'pincode': pinCode
         }
+        var reason = req.param('reason')
+        var result = req.param('result')
         // send text message
 
         if (mobileNum !== '' || mobileNum !== 'undefined') {
@@ -181,7 +185,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/pb/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser }, function(err, html) {
+        res.render('create-account/pb/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })

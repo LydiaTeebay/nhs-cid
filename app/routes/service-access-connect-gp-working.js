@@ -1,5 +1,5 @@
 module.exports = function (router) {
-    router.get('/service-access/v12/service-access-nam-error-502', function (req, res) {
+    router.get('/service-access/v12/service-access-connect-gp-working', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
@@ -10,11 +10,11 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var reason = req.param('reason')
         var result = req.param('result')
-        res.render('service-access/v12/service-access-nam-error-502', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
+        res.render('service-access/v12/service-access-connect-gp-working', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })
-    router.get('/service-access/pb/service-access-nam-error-502', function (req, res) {
+    router.get('/service-access/pb/service-access-connect-gp-working', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
@@ -22,7 +22,7 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var reason = req.param('reason')
         var result = req.param('result')
-        res.render('service-access/pb/service-access-nam-error-502', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, result: result, reason: reason }, function(err, html) {
+        res.render('service-access/pb/service-access-connect-gp-working', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })

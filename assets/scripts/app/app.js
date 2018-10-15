@@ -348,10 +348,12 @@ function readURL(input, idType) {
                 if (Validate(input)) {
                     document.getElementById('scan-id-5').style.display = 'block'
                     document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('validated')
                 } else {
                     $(".camera-file-format").css("display", "block")
                     document.getElementById('scan-id-1').style.display = 'block'
                     document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('not validated')
                 }
             }, 1000)
             $('#uploaded-id').attr('src', e.target.result)
@@ -369,34 +371,47 @@ function readURL(input, idType) {
   }
 }
 
-var _validFileExtensions = [".jpg", ".jpeg"]
+var _validPhotoFileExtensions = [".jpeg", ".jpg"]
+var _validVideoFileExtensions = [".mpg", ".mp4"]
 
 function Validate(oForm) {
-    var arrInputs = oForm
-
-
-        if (oForm.type == "file") {
-            console.log(arrInputs)
-            var sFileName = oForm.value
-            if (sFileName.length > 0) {
-                var blnValid = false
-                for (var j = 0; j < _validFileExtensions.length; j++) {
-                    var sCurExtension = _validFileExtensions[j]
-                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-                        blnValid = true
-                        return true
-                        break
-                    }
-                }
-                if (!blnValid) {
-                    // alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "))
-                    return false
+    console.log('validate')
+    if (oForm.type == "file") {
+        var sFileName = oForm.value
+        if (sFileName.length > 0) {
+            var blnValid = false
+            for (var j = 0; j < _validPhotoFileExtensions.length; j++) {
+                var sCurExtension = _validPhotoFileExtensions[j]
+                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                    blnValid = true
+                    $('.dev-mode-file').html()
+                    return true
+                    break
                 }
             }
+            if (!blnValid) {
+                for (var k = 0; k < _validPhotoFileExtensions.length; k++) {
+                    var sCurExtension = _validPhotoFileExtensions[k]
+                    fileType = sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase()
+                    $('.dev-mode-file').html(fileType)
+                }
+                $('.dev-mode').css("display", "block")
+                return false
+            }
         }
-
-
+    }
     return true
+
+    // EXIF.readFromBinaryFile(oForm, function() {
+    //
+    //     var xRes = EXIF.getTag(this, "ImageWidth")
+    //     var yRes = EXIF.getTag(this, "PixelYDimension")
+    //     $('.dev-mode-file').html(xRes)
+    //     console.log('get exif data')
+    //     return false
+    // })
+    //
+    // return true
 }
 
 function playSelectedFile(event) {
