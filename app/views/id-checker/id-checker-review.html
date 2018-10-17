@@ -245,7 +245,7 @@
             {% if failreason === 'expired' %}
 
             <div id="id-decline3">
-                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined&devMode={{ devMode }}" data-target="modal" id="declineBtn3" class="button button--decline">Decline</a>
+                <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-goto-gp&devMode={{ devMode }}" data-target="modal" id="declineBtn3" class="button button--decline">Decline</a>
             </div>
 
             {% else %}
@@ -313,7 +313,7 @@
 
                     <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-no" style="margin: 0 0 32px;">
                         <div id="id-decline2">
-                            <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined&devMode={{ devMode }}" id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                            <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}" id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
                         </div>
                     </div>
 
@@ -428,7 +428,7 @@
                 <a href="id-checker-dashboard?state=approved&emailLink=email-idcheck-approved&devMode={{ devMode }}" data-target="modal" id="approveBtn" class="button button--approve" style="display: none;">Approve</a>
             </div>
             <div id="id-decline">
-                <a href="id-checker-dashboard?state=declined&emailLink=email-idcheck-declined&devMode={{ devMode }}" data-target="modal" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
+                <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}" data-target="modal" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
             </div>
         </div>
     </div>
