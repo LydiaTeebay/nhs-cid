@@ -6,19 +6,23 @@
 {% block content %}
 
 <div class="first-item">
+
+    <p><a href="service-access-connect-gp{{ params }}" class="link-back">Back</a></p>
+
+
     <h1>Sorry - we're having technical problems</h1>
 
     <p>Please try again later.</p>
 
-    <details class="" role="group" style="margin-top: 0;">
+    <details class="" role="group">
         <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-            <span class="details__summary">If you keep seeing this message</span>
+            <span class="details__summary">If you keep getting this message</span>
         </summary>
         <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
 
-                <h3>Alternative way to connect to your GP system</h3>
-                <p>Contact your GP surgery and ask them for your registration details for their online booking system. These details are sometimes called patient online registration details.</p>
-                <p>When you have your details, log in and try again.</p>
+                <h3>Another way to connect your NHS login to your GP's system</h3>
+                <p>Ask your GP surgery for your registration details for GP online services (this is different from the username and password used to access the service).  Your details might include things called a linkage key, O.D.S code and account ID.</p>
+                <p>When you have these details, log in again and click the button below.</p>
 
                 <a class="button" href="/patient-online/pb/patient-online-details">Enter registration details</a>
 
