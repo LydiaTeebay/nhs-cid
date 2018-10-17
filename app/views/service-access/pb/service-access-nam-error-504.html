@@ -1,16 +1,32 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Sorry - we're having technical problems{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason %}
 
 {% block content %}
 
 <div class="first-item">
+
+    <p><a href="service-access-connect-gp{{ params }}" class="link-back">Back</a></p>
+
     <h1>Sorry - we're having technical problems</h1>
 
     <p>Please try again later.</p>
 
-    <!--<a href="patient-online-linkage-key-loading{{ params }}&result=200" class="button">Retry</a>-->
+    <details class="" role="group">
+        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">If you keep getting this message</span>
+        </summary>
+        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+
+            <h3>Another way to connect your NHS login to your GP surgery</h3>
+            <p>Ask your GP surgery for your registration details for GP online services (this is different from the username and password used to access the service). Your details might include things called a linkage key, O.D.S code and account ID.</p>
+            <p>When you have these details, log in again and click the button below.</p>
+
+            <a class="button" href="/patient-online/pb/patient-online-details{{ params }}">Enter registration details</a>
+
+        </div>
+    </details>
 
     <p class="small">Reference: CID7027</p>
 
