@@ -6,16 +6,6 @@
 
 {% block content %}
 
-{% if secondPass !== 'true' %}
-<style>
-  #uploaded-id-error,
-  #uploaded-id {
-    -webkit-filter: blur(2px);
-    filter: blur(2px);
-  }
-</style>
-{% endif %}
-
 
 <div class="first-item">
 
@@ -152,7 +142,7 @@
     <p>Please try again.</p>
 
     <div class="form-group">
-      <a class="button" href="service-access-photo-id-camera{{ params }}&secondPass=true" id="">Take another photo</a>
+      <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
     </div>
 
   </section>

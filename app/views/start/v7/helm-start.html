@@ -1,7 +1,7 @@
 {% import '_macros/_macro_service.html' as theService with context %}
 {% extends '_layouts/_blank_layout_no_css.html' %}
 
-{% set params = "?service=app5&serviceName=NHS%20App" + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode %}
+{% set params = "?service=helm1&serviceName=Helm" + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode %}
 
 {% block body %}
 
@@ -55,6 +55,8 @@
               <a href="https://login.myhelm.org/openid/interaction/4196ce38-e882-4520-a767-e0ec79e7b76d/forgotPassword" class="forgotten">[ Forgot my Password ]</a>
               <button class="succes login" type="button"><i class="fa fa-check"></i>Log In</button>
             </div>
+
+            <a href="/create-account/v12/start{{ params }}" class="button green" id="btn_login">NHS login</a>
           </form>
 
         </div>

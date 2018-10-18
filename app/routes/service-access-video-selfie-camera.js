@@ -31,7 +31,7 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var mobileNum = req.param('mobileNum')
         var emailAddress = req.param('emailAddress')
-        var formerror = req.param('formerror')
+        //var formerror = req.param('formerror')
         var changetomobile = req.param('changetomobile')
         var hidehead = req.param('hidehead')
         // is the user on a mobile device?
@@ -50,13 +50,13 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
 
-        if (challenge !== 'undefined') {
-            var formerror = challenge
-        }
+        //if (challenge !== 'undefined') {
+        //    var formerror = challenge
+        //}
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v12/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v12/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
