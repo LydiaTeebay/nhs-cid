@@ -591,9 +591,8 @@ $("#submit-videoSelfie3-button").on("click", function(e) {
         $("#scan-id-5").css("display","none")
         $("#scan-id-6").css("display","none")
         $("#scan-id-3").css("display","block")
+        document.body.scrollTop = document.documentElement.scrollTop = 0
     }
-    
-    document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
 // submit button action post v8 version
