@@ -574,6 +574,28 @@ $("#submit-videoSelfie2-button").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+$('#uploaded-video').on('ended',function(){
+    //alert('Video has ended!');
+
+    $("#submit-videoSelfie3-button").attr("disabled", false);
+  
+  });
+
+// submit button action post v12 version - preview first
+$("#submit-videoSelfie3-button").on("click", function(e) {
+    e.preventDefault()
+
+    if ($("#submit-videoSelfie3-button").prop('disabled') === false) {
+        activateLoader2(2)
+        $("#scan-id-0").css("display","none")
+        $("#scan-id-5").css("display","none")
+        $("#scan-id-6").css("display","none")
+        $("#scan-id-3").css("display","block")
+    }
+    
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 // submit button action post v8 version
 $("#submit-videoSelfie2-button-error").on("click", function(e) {
     e.preventDefault()
