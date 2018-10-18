@@ -8,11 +8,29 @@
 <div class="first-item">
     <h1>Sorry - we cannot connect you to your GP surgery</h1>
 
-    <p>One or more of the details that you entered might be wrong.</p>
+    <p>This might be because we cannot match your details or there’s a problem with your GP surgery’s system.</p>
 
-    <a href="patient-online-linkage-key{{ params }}" class="button">Try again</a>
+    <p>Please speak to someone at your GP surgery</p>
 
-    <p class="small">Reference: CID7022</p>
+    <details class="" role="group">
+        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">You can try another way to connect you to your GP surgery</span>
+        </summary>
+        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+
+            <h3>Another way to connect your NHS login to your GP surgery</h3>
+            <p>Ask your GP surgery for your registration details for GP online services. These are different to your username and password. They might include things called:</p>
+            <ul>
+                <li>account ID</li>
+                <li>O.D.S code</li>
+                <li>linkage key</li>
+            </ul>
+            <p>When you have these details, try to log in again and enter your registration details.</p>
+
+            <a class="button" href="/patient-online/pb/patient-online-details{{ params }}">Enter your registration details</a>
+
+        </div>
+    </details>
 
 </div>
 
