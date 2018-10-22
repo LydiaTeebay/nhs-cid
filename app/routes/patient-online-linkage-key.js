@@ -90,7 +90,8 @@ module.exports = function (router) {
         var result = req.param('result')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        res.render('patient-online/pb/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result }, function(err, html) {
+        var pyiuser = req.param('pyiuser')
+        res.render('patient-online/pb/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result, pyiuser: pyiuser }, function(err, html) {
             res.send(html)
         })
     })

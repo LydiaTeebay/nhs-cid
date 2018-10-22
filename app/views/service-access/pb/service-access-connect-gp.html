@@ -8,7 +8,27 @@
 
 <div class="first-item">
 
-  <section class="intructions">
+  <section class="loading-container" id="gp-connect-0" style="display:block; min-height: 16em;">
+
+    <h1 id="spinner-heading" style="padding-bottom: 0; display:none;">Uploading your video</h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-spinner" data-percent="0">
+          <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
+          <div class="ppc-loading">
+            <div class="pcc-percents-wrapper">
+              <span id="spinner-status">Please wait</span><span aria-hidden="true">...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="intructions" id="gp-connect-1" style="display: none; margin-top: 0;">
 
     <div class="reading-width">
 
@@ -25,5 +45,16 @@
   </section>
 
 </div>
+
+<script type="text/javascript">
+
+    //show then hide the spinner animation
+    setTimeout(function(){
+        document.getElementById('gp-connect-0').style.display = 'none'
+    }, 1500)
+    setTimeout(function(){
+        document.getElementById('gp-connect-1').style.display = 'block'
+    }, 1500)
+</script>
 
 {% endblock %}
