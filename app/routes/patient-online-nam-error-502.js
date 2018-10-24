@@ -1,4 +1,17 @@
 module.exports = function (router) {
+    router.get('/patient-online/v13/patient-online-nam-error-502', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v13/patient-online-nam-error-502', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
     router.get('/patient-online/v12/patient-online-nam-error-502', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -12,7 +25,6 @@ module.exports = function (router) {
             res.send(html)
         })
     })
-
     router.get('/patient-online/v11/patient-online-nam-error-502', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
