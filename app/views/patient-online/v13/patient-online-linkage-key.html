@@ -59,15 +59,15 @@
         {% endif %}
     </div>
 
+      {% if pyiuser === "true" %}
+
+      {% else %}
+
       <h2 class="h3" style="margin-top: 2em;">What these details are for</h2>
 
       <p>We can use these details to connect your NHS login to your GP surgery, so that you can access their online services.</p>
 
       <p>If you've been given these details, we'll know that your surgery has checked who you are. This helps us keep your NHS login secure.</p>
-
-      {% if pyiuser === "true" %}
-
-      {% else %}
 
       <div class="callout callout--info">
           <p>If you do not have the details, we can <a href="/service-access/v13/service-access-nhs{{ params }}&poluser=false&loggedin=true">connect you to your GP's services and check who you are another way.</a></p>
