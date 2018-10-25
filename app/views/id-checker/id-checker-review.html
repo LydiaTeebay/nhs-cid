@@ -358,7 +358,7 @@
         <div class="qa-questions-group" id="document" data-complete="false">
 
             <div class="qa-questions-question" data-answered="false">
-                <p class="qa-questions-question-text">Does the name and date of birth in the PDS record match the details in the photo ID?</p>
+                <p class="qa-questions-question-text">Is the photo ID valid?</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="0" aria-checked="false">
                         <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
@@ -366,6 +366,34 @@
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="1" aria-checked="false">
                         <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Does the Photo ID look genuine?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="0" aria-checked="false">
+                        <input type="radio" id="2" name="a-2" class="multiple-choice__input" tabindex="2" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="1" aria-checked="false">
+                        <input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="3" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Does the name and date of birth in the PDS record match the details in the photo ID?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="0" aria-checked="false">
+                        <input type="radio" id="4" name="a-3" class="multiple-choice__input" tabindex="4" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="1" aria-checked="false">
+                        <input type="radio" id="5" name="a-3" class="multiple-choice__input" tabindex="5" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -399,11 +427,11 @@
                 <p class="qa-questions-question-text">Are the 4 numbers read out 4-0-6-6?</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="2" name="b-1" class="multiple-choice__input" tabindex="2" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <input type="radio" id="6" name="b-1" class="multiple-choice__input" tabindex="6" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="3" name="b-1" class="multiple-choice__input" tabindex="3" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <input type="radio" id="7" name="b-1" class="multiple-choice__input" tabindex="7" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -412,11 +440,11 @@
                 <p class="qa-questions-question-text">Does the video clearly show it's the same person pictured in the identity document?</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="4" name="b-2" class="multiple-choice__input" tabindex="4" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <input type="radio" id="8" name="b-2" class="multiple-choice__input" tabindex="8" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
-                        <input type="radio" id="5" name="b-2" class="multiple-choice__input" tabindex="5" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <input type="radio" id="9" name="b-2" class="multiple-choice__input" tabindex="9" {% if result === 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -483,7 +511,7 @@
             <form>
                 <div class="form-group">
                     <div class="form-group">
-                        <label class="form-label" for="field3">Additional comments (optional)</label>
+                        <label class="form-label" for="field3">Additional comments</label>
 
                         <textarea class="form-control form-textbox" id="field3" name="field3" type="text" rows="3" style="margin-top: 16px;"></textarea>
                     </div>
