@@ -9,6 +9,21 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/emails/v7/email-validate-create-mob', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        res.render('emails/v7/email-validate-create-mob', { serviceName: serviceName, service: service, hidehead: hidehead, poluser: poluser, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/emails/v6/email-validate-create-mob', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
