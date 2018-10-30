@@ -1,0 +1,52 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('login') }}{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+{% import "_partials/_components/_callout.html" as callout %}
+        {{ callout.pattern('','We cannot find your NHS login. This could be because you either:<ul><li>entered the wrong email address</li><li>entered the wrong password</li><li>do not have an NHS login yet</li><li>have not clicked confirm in the email we sent you</li></ul>','alert') }}
+
+<div class="first-item">
+   <form>
+
+       <div class="form-group">
+           <h1>Create an NHS login</h1>
+           <p>If you do not have an NHS login you need to create one.</p>
+           <a class="button" href="create-acc-terms{{ params }}" id="">Create an NHS login</a>
+       </div>
+      
+       <hr>
+
+        <div class="form-group">
+            <h1>Log in</h1>
+
+            <fieldset class="">
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Email address</label>
+                    <input class="form-control" id="field1" name="field1" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Password</label>
+                    <input class="form-control" id="field2" name="field2" type="password">
+                </div>
+
+                <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
+
+            </fieldset>
+        </div>
+
+        <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
+
+
+       {% include '_partials/_includes/_scenarios_login.html' %}
+
+
+    </form>
+</div>
+
+{% endblock %}
