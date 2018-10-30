@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - {{ theService.name('setup') }}{% endblock %}
+{% block page_title %}Access {{serviceName}} - Set up an NHS login{% endblock %}
 {% set signedin = '' %}
 {% set terms = 'yes' %}
 
@@ -19,8 +19,8 @@
   <form>
 
     <div class="form-group">
-      <h1>Set up your NHS login</h1>
-      <p>If you've already done this, <a href="login-nhs{{ params }}">log in instead</a>.</p>
+      <h1>Set up an NHS login</h1>
+      <p>If you've already done this, <a href="login-nhs{{ params }}">log in instead.</a></p>
       <div class="form-group">
         <label class="form-label" for="emailAddress">Email address</label>
         <input class="form-control" id="emailAddress" name="emailAddress" type="email">
@@ -45,7 +45,7 @@
       <p class="small" style="margin-top: 16px;">We will collect and store your information in a secure way. We use your personal information in accordance with the site's <a href="/terms-of-use/privacy-notice{{ params }}">privacy notice</a> and <a href="/terms-of-use/terms-conditions{{ params }}">terms and conditions</a>.</p>
       <p class="small">We will not disclose your personal information to any third parties without obtaining your consent.</p>
     </div>
-    <a class="button" href="check-email{{ params }}&terms=yes">I agree to Terms. Continue</a>
+    <a class="button" href="check-email{{ params }}&terms=yes">Agree and continue</a>
   </form>
 
   {% include '_partials/_includes/_scenarios_setup.html' %}
