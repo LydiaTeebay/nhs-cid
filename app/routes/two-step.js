@@ -46,6 +46,23 @@ module.exports = function (router) {
         })
     })
 
+    router.post('/create-account/v13/two-step', function (req, res) {
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.body.mobileNum
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var vouched = req.param('vouch')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var theReason = req.param('reason')
+        res.redirect('/create-account/v13/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&reason=' + theReason)
+    })
+
     router.get('/create-account/v12/two-step', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')
