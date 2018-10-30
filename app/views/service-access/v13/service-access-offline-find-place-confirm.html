@@ -1,0 +1,135 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - What's your postcode?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&place=" + place + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&postcode=" + postcode %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+
+      <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+      <h1><legend>Confirm your Post Office​</legend></h1>
+{% if place === "postoffice1" %}
+      <div class="panel">
+        <div class="panel__content panel__content--half">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">Holbeck Post Office,<br/>95 - 97 Domestic Street,<br/>Holbeck,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 9NS</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=95%20-%2097%20Domestic%20Street,%20Holbeck,%20Leeds,%20West%20YorkshireLS11%209NS@53.78552,-1.56015&saddr=LS11%209NS@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
+        </div>
+        <div class="panel__content panel__content--half">
+          <h3>Opening times:<h3>
+          <p>Mon	08:00-18:00<br>
+          Tue	08:00-18:00<br>
+          Wed	08:00-18:00<br>
+          Thu	08:00-18:00<br>
+          Fri	08:00-18:00<br>
+          Sat	08:30-12:30<br>
+          Sun	Closed</p>
+        </div>
+      </div>
+{% endif %}
+{% if place === "postoffice2" %}
+      <div class="panel">
+        <div class="panel__content panel__content--half">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">The Markets Post Office,<br/>6 - 16 New York Street,<br/>Leeds,<br/>West Yorkshire,<br/>LS2 7DZ</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=6%20-%2016%20New%20York%20Street,%20Leeds,%20West%20YorkshireLS2%207DZ@53.79636,-1.53874&saddr=LS2%207DZ@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
+        </div>
+        <div class="panel__content panel__content--half">
+          <h3>Opening times:<h3>
+          Mon	09:00-17:30<br>
+          Tue	09:30-17:30<br>
+          Wed	09:00-17:30<br>
+          Thu	09:00-17:30<br>
+          Fri	09:00-17:30<br>
+          Sat	09:00-17:30<br>
+          Sun	Closed</p>
+        </div>
+      </div>
+{% endif %}
+{% if place === "postoffice3" %}
+      <div class="panel">
+        <div class="panel__content panel__content--half">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">St Johns Post Office,<br>116 Albion Street,<br/>Leeds,<br/>West Yorkshire,<br/>LS2 8LP</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=116%20Albion%20Street,%20Leeds,%20West%20YorkshireLS2%208LP@53.80034,-1.54453&saddr=LS2%208LP@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
+        </div>
+        <div class="panel__content panel__content--half">
+          <h3>Opening times:<h3>
+          <p>Mon 09:00-17:30<br>
+          Tue	09:30-17:30<br>
+          Wed	09:00-17:30<br>
+          Thu	09:00-17:30<br>
+          Fri	09:00-17:30<br>
+          Sat	09:00-17:30<br>
+          Sun	Closed</p>
+        </div>
+      </div>
+{% endif %}
+{% if place === 'postoffice4' %}
+      <div class="panel">
+        <div class="panel__content panel__content--half">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">Beeston Hill Post Office,<br/>2 Lodge Lane,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 6AZ</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=2%20Lodge%20Lane,%20Leeds,%20West%20YorkshireLS11%206AZ@53.77758,-1.55418&saddr=LS11%206AZ@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
+        </div>
+        <div class="panel__content panel__content--half">
+          <h3>Opening times:<h3>
+          <p>Mon 09:00-17:30<br>
+          Tue	09:00-17:30<br>
+          Wed	09:00-17:30<br>
+          Thu	09:00-17:30<br>
+          Fri	09:00-17:30<br>
+          Sat	09:00-14:30<br>
+          Sun	Closed</p>
+        </div>
+      </div>
+{% endif %}
+{% if place === 'postoffice5' %}
+      <div class="panel">
+        <div class="panel__content panel__content--half">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">Victoria Terrace Post Office,<br/>163-165 Dewsbury Road,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 5EG</p>
+          <p><span><a href="http://maps.google.co.uk/maps?daddr=163-165%20Dewsbury%20Road,%20Leeds,%20West%20YorkshireLS11%205EG@53.77828,-1.54458&saddr=LS11%205EG@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-1)" class="link-back">Choose a different Post Office</a></p>
+        </div>
+        <div class="panel__content panel__content--half">
+          <h3>Opening times:<h3>
+          <p>Mon 08:30-20:00<br>
+          Tue	08:30-20:00<br>
+          Wed	08:30-20:00<br>
+          Thu	08:30-20:00<br>
+          Fri	08:30-20:00<br>
+          Sat	09:30-20:00<br>
+          Sun	10:00-18:30</p>
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+    <div class="reading-width">
+
+  <p>When you confirm your Post Office, we'll send you details about what you need to do next.</p>
+    <div class="form-group">
+      <a class="button" href="service-access-offline-confirmation{{ params }}">Confirm your Post Office</a>
+    </div>
+
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}

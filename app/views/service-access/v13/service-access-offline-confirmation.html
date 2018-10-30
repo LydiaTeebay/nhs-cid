@@ -1,0 +1,98 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - You will not be able to prove your identity online without a UK photo ID document.{% endblock %}
+
+{% set signedin = 'false' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&place=" + place + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + '&postcode=' + postcode %}
+
+
+{% block header %}
+<div class="local-header">
+    <h1 class="local-header__title">Take your photo ID to the Post Office</h1>
+    <div class="local-header__intro">
+        <div class="reading-width">
+            <p>You do not need to book an appointment​</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+  {% if place === "postoffice1" %}
+      <div class="panel">
+        <div class="panel__content panel__content--full">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">Holbeck Post Office,<br/>95 - 97 Domestic Street,<br/>Holbeck,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 9NS</p>
+          <!--<p><span><a href="http://maps.google.co.uk/maps?daddr=95%20-%2097%20Domestic%20Street,%20Holbeck,%20Leeds,%20West%20YorkshireLS11%209NS@53.78552,-1.56015&saddr=LS11%209NS@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-2)" class="link-back">Choose a different Post Office</a></p>-->
+        </div>
+      </div>
+{% endif %}
+{% if place === "postoffice2" %}
+      <div class="panel">
+        <div class="panel__content panel__content--full">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">The Markets Post Office,<br/>6 - 16 New York Street,<br/>Leeds,<br/>West Yorkshire,<br/>LS2 7DZ</p>
+          <!--<p><span><a href="http://maps.google.co.uk/maps?daddr=6%20-%2016%20New%20York%20Street,%20Leeds,%20West%20YorkshireLS2%207DZ@53.79636,-1.53874&saddr=LS2%207DZ@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-2)" class="link-back">Choose a different Post Office</a></p>-->
+        </div>
+      </div>
+{% endif %}
+{% if place === "postoffice3" %}
+      <div class="panel">
+        <div class="panel__content panel__content--full">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">St Johns Post Office,<br>116 Albion Street,<br/>Leeds,<br/>West Yorkshire,<br/>LS2 8LP</p>
+          <!--<p><span><a href="http://maps.google.co.uk/maps?daddr=116%20Albion%20Street,%20Leeds,%20West%20YorkshireLS2%208LP@53.80034,-1.54453&saddr=LS2%208LP@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-2)" class="link-back">Choose a different Post Office</a></p>-->
+        </div>
+      </div>
+{% endif %}
+{% if place === 'postoffice4' %}
+      <div class="panel">
+        <div class="panel__content panel__content--full">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">Beeston Hill Post Office,<br/>2 Lodge Lane,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 6AZ</p>
+          <!--<p><span><a href="http://maps.google.co.uk/maps?daddr=2%20Lodge%20Lane,%20Leeds,%20West%20YorkshireLS11%206AZ@53.77758,-1.55418&saddr=LS11%206AZ@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-2)" class="link-back">Choose a different Post Office</a></p>-->
+        </div>
+      </div>
+{% endif %}
+{% if place === 'postoffice5' %}
+      <div class="panel">
+        <div class="panel__content panel__content--full">
+          <!--<h3>Take your {{ idType|default("photo ID document", true) }} with you to:<h3>-->
+          <h3>Address</h3>
+          <p class="te">Victoria Terrace Post Office,<br/>163-165 Dewsbury Road,<br/>Leeds,<br/>West Yorkshire,<br/>LS11 5EG</p>
+         <!-- <p><span><a href="http://maps.google.co.uk/maps?daddr=163-165%20Dewsbury%20Road,%20Leeds,%20West%20YorkshireLS11%205EG@53.77828,-1.54458&saddr=LS11%205EG@53.79047569999999,-1.5530595999999832&t=m">Show on a map.</a></span></p>
+          <p><a href="javascript:history.go(-2)" class="link-back">Choose a different Post Office</a></p>-->
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+  <h2 class="h3">What happens next:</h3>
+  <ol class="list--ordered">
+    <li class="instructions--ordered__item">Tell the Post Office staff you need to do an <abbr title="National health service">NHS</abbr> <abbr title="identity document">ID</abbr> check​</li>
+    <li class="instructions--ordered__item">The Post Office will check your photo <abbr title="identity document">ID</abbr> and send a picture to us​</li>
+    <li class="instructions--ordered__item">We will <a href="/emails/v6/email-identity-verified{{ params }}">email</a> you when we have checked your details​</li>
+    <!--<li>If it's approved, you can log in with the login details you set up</li>-->
+  </ol>
+
+  <div class="form-group">
+    <a href="/start/v7/helm-start" class="button">Done</a>
+  </div>
+
+  <div class="form-group">
+    <a class="" href="javascript:window.print()" style="padding: 16px 0; display: inline-block;">Print these instructions</a>
+  </div>
+
+</div>
+
+{% endblock %}

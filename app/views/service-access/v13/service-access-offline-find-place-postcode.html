@@ -1,0 +1,31 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - What's your postcode?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&postcode=" + postcode %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <form action="service-access-offline-find-place-postcode{{ params }}" method="POST">
+    <div class="form-group">
+
+      <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+      <h1><legend>Find a Post Office</legend></h1>
+      <p>Tell us where you want to do your <abbr title="National Health Service">NHS</abbr> <abbr title="Identity document">ID</abbr> check.</p>
+      <div class="form-group">
+        <label class="form-label" for="postcode">Enter a postcode</label>
+        <!--<span class="form-hint" style="">This must be the same postcode that is registered with your GP</span>-->
+        <input class="form-control postcode" type="text" id="postcode" name="postcode" value="{{ postcode }}"  style="margin-bottom: 32px;">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="button" id="">Continue</button>
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}
