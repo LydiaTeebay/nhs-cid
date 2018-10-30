@@ -1,0 +1,21 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Sorry - we cannot connect you to your GP surgery{% endblock %}
+
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+<div class="first-item">
+    <h1>Sorry - there's a problem</h1>
+
+    <p>You cannot use your NHS login to access your GP's services.</p>
+
+    <p>This might be because you do not have permission from your GP.</p>
+
+    <p>Please speak to someone at your GP surgery.</p>
+
+    <p class="small">Reference: CID7021</p>
+
+</div>
+
+{% endblock %}
