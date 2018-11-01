@@ -436,7 +436,7 @@ function playSelectedFile(event) {
     var URL = window.URL || window.webkitURL
     var file = event.files[0]
     var type = file.type
-    // console.log(file)
+    console.log(file)
     // console.log(file.type)
     var videoNode = document.getElementById('uploaded-video')
     var canPlay = videoNode.canPlayType(type)
@@ -451,9 +451,9 @@ function playSelectedFile(event) {
     videoNode.src = fileURL
 
     $("#scan-id-1").css("display", "none")
-    $("#scan-id-7").css("display", "block")
+    $("#scan-id-5").css("display", "block")
 
-    uploadLoader(2)
+    // uploadLoader(2)
 }
 
 function loadSelectedFile(event) {
