@@ -302,10 +302,10 @@ function uploadLoader2(speed) {
 function spinner() {
     setTimeout(function(){
         document.getElementById('scan-id-0').style.display = 'none'
-    }, 7500)
+    }, 1500)
     setTimeout(function(){
         document.getElementById('scan-id-5').style.display = 'block'
-    }, 7500)
+    }, 1500)
 }
 
 function readURL(input, idType) {
