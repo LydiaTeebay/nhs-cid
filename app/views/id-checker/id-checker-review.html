@@ -532,16 +532,16 @@
             <label class="form-label" for="sort">Rejection reason</label>
             <select class="govuk-select" id="sort" name="sort" style="margin-top: 16px; width: 100%;">
 
-                <optgroup label="Fake">
+                <div id="">
                     <option value="IDC-001">Passport contains fake information - photo correct</option>
                     <option value="IDC-002">Passport has a fake photo - information correct</option>
                     <option value="IDC-003">Passport is entirely fake</option>
                     <option value="IDC-010">Drivers License contains fake information - photo correct</option>
                     <option value="IDC-011">Drivers License has a fake photo - information correct</option>
                     <option value="IDC-012">Drivers License is entirely fake</option>
-                </optgroup>
+                </div>
 
-                <optgroup label="Video Selfie">
+                <div id="">
                     <option value="IDC-020">Person in video selfie doesn't match the photo ID</option>
                     <option value="IDC-021">Person in video selfie doesn't clearly say all 4 of the numbers</option>
                     <option value="IDC-022">Person in video selfie can't be seen at all, just heard</option>
@@ -553,9 +553,9 @@
                         and sunglasses, films their feet)
                     </option>
                     <option value="IDC-034">Poor lighting in video</option>
-                </optgroup>
+                </div>
 
-                <optgroup label="Photo ID">
+                <div id="">
                     <option value="IDC-030">Photo is too blurred/grainy/fuzzy/unreadable</option>
                     <option value="IDC-031">Video is too blurred/grainy/fuzzy/unreadable</option>
                     <option value="IDC-032">Glare on photo</option>
@@ -563,13 +563,13 @@
                     <option value="IDC-035">Data is obscured in the photo (i.e. Missed a corner of ID containing
                         information)
                     </option>
-                </optgroup>
+                </div>
 
-                <optgroup label="Other">
+                <div id="">
                     <option value="IDC-040">ID document has expired</option>
                     <option value="IDC-041">Un-supported UK Security Document</option>
                     <option value="IDC-042">Un-supported Foreign Security Document</option>
-                </optgroup>
+                </div>
             </select>
         </div>
 
@@ -607,13 +607,13 @@
     questionsComplete = false
 
     function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
+        if (!url) url = window.location.href
+        name = name.replace(/[\[\]]/g, "\\$&")
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
+            results = regex.exec(url)
+        if (!results) return null
+        if (!results[2]) return ''
+        return decodeURIComponent(results[2].replace(/\+/g, " "))
     }
 
     var state = getParameterByName('state')
@@ -848,50 +848,6 @@
             document.getElementById('declineBtn').style.display = 'none'
         }
 
-    }
-
-    // run through all sections checking for completeness
-    function checkAllSections() {
-        // get an array of all the question groups
-        var questionGroups = document.getElementsByClassName('qa-questions-group')
-        // lets hold the completion state of each section in an array
-        var allComplete = []
-        for (i = 0; i < questionGroups.length; i++) {
-            // get array of all the answer groups
-            var questions = questionGroups[i].getElementsByClassName('qa-questions-question')
-            var sectionComplete = true
-            // loop through all the question groups
-            for (j = 0; j < questions.length; j++) {
-                var inputs = questions[j].getElementsByTagName('input')
-                var questionComplete = false
-                // loop through all the inputs
-                for (k = 0; k < inputs.length; k++) {
-                    if (inputs[k].checked) {
-                        questionComplete = true
-                    }
-                }
-                if (questionComplete === false) {
-                    sectionComplete = false
-                }
-            }
-            if (sectionComplete) {
-                questionGroups[i].setAttribute('data-complete', true)
-                allComplete[i] = true
-                // unset disabled state of the radio buttons
-                var sectionRadios = questionGroups[i].getElementsByTagName('input')
-                for (m = 0; m < sectionRadios.length; m++) {
-                    sectionRadios[m].removeAttribute('disabled')
-                }
-            } else {
-                // unlock next section if not all are unlocked
-                var nextSectionPosition = questionGroups[i - 1]
-                unlockNextSection(nextSectionPosition)
-            }
-        }
-        // if all sections are complete go to the solutions
-        if (allComplete.length === questionGroups.length) {
-            questionsComplete = true
-        }
     }
 </script>
 

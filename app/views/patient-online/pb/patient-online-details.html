@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Has your GP surgery given you details that let you book appointments online?{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&system=" + system + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&surgery=" + surgery + "&practiceID=" + practiceID %}
@@ -6,52 +6,59 @@
 {% block content %}
 
 <div class="first-item">
+
+  <p><a href="patient-online-start{{ params }}" class="link-back">Back</a></p>
+
+  <div class="reading-width">
+    <h1>We need to connect your NHS login to your GP surgery</h1>
+
+    <p>This is so that you can access your GP surgery's online services.</p>
+
+    <p>Online services let you order repeat prescriptions, and book appointments online.</p>
+
+    <p>If you've already asked to use your GP surgery's online services, they might have given you a letter with your registration details on it.</p>
+  </div>
+
+  <div class="panel">
+    <div class="panel__content panel__content--half">
+      <h3>You'll need</h3>
+      <ul class="list--check">
+        <li>Linkage Key (could be called a Passphrase)</li>
+        <li>O.D.S. Code (could be called an Organisation Code or Practice I.D.)</li>
+        <li>Account I.D.</li>
+      </ul>
+    </div>
+    <div class="panel__content panel__content--half">
+      <h3>You won't need</h3>
+      <ul class="list--cross">
+        <li>Username</li>
+        <li>Password</li>
+      </ul>
+    </div>
+  </div>
+
   <form>
     <div class="form-group">
+
       <fieldset class="">
 
         <legend>
-          <h1 class="">
-            Has your GP surgery given you details that let you book appointments online?
-          </h1>
+          <h2 class="" style="padding:0.5em 0; font-size: 28px;">Have you got these details?</h2>
         </legend>
 
-        <details class="" role="group" style="margin-top: 0;">
-          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-            <span class="details__summary">See what these details look like</span>
-          </summary>
-          <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-            <p>Your GP surgery may have given you a letter with these details on:</p>
-            <ul>
-              <li>Account Linkage Key</li>
-              <li>Practice ODS Code</li>
-              <li>Account ID</li>
-            </ul>
-            <div class="reading-width">
-              <img src="/images/pol-letter-thumb.png" data-pop="/images/pol-letter@2x.png" class="pop-thumb" alt="Enlarge the image of registration details letter" height="200" />
-              <p>&nbsp;</p>
-              <!-- POP BOX -->
-              <div id="pop"><a id="popClose">&times;</a></div>
-
-            </div>
-          </div>
-        </details>
 
         <label class="block-label selection-button-radio" for="radio-inline-1">
-          <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details-2{{ params }}&poluser=true">
+          <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-linkage-key{{ params }}&poluser=true">
           Yes
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-2">
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-nhs{{ params }}&poluser=false">
-          No
-        </label>
-        <label class="block-label selection-button-radio" for="radio-inline-3">
-          <input id="radio-inline-3" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-nhs{{ params }}&poluser=false">
-          Don't know
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-triage-1{{ params }}&poluser=false">
+          No - connect another way
         </label>
 
       </fieldset>
     </div>
+
     <div class="form-group">
       <a class="button" href="#" id="continue">Continue</a>
     </div>
