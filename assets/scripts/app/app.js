@@ -299,6 +299,15 @@ function uploadLoader2(speed) {
     }, time)
 }
 
+function spinner() {
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+    }, 7500)
+    setTimeout(function(){
+        document.getElementById('scan-id-5').style.display = 'block'
+    }, 7500)
+}
+
 function readURL(input, idType) {
   if (input.files && input.files[0]) {
     var reader = new FileReader()
@@ -333,10 +342,13 @@ function readURL(input, idType) {
         }
       }
       if (idType == "selfie") {
-          $("#scan-id-3").css("display", "none")
-          $("#scan-id-4").css("display", "block")
-          $('#uploaded-video>source').attr('src', e.target.result)
+          // console.log('populated')
+          // $("#scan-id-3").css("display", "none")
+          // $("#scan-id-4").css("display", "block")
+          // $('#uploaded-video').attr('src', e.target.result)
+          activateLoader(2)
       }
+
         if (idType == "photoId") {
             $("#scan-id-1").css("display", "none")
             $("#scan-id-0").css("display", "block")
@@ -364,11 +376,17 @@ function readURL(input, idType) {
             $("#scan-id-1").css("display", "none")
             $("#scan-id-3").css("display", "block")
             $('#uploaded-video>source').attr('src', e.target.result)
+            $('#uploaded-video').attr('src', e.target.result)
             activateLoader(2)
         }
     }
     reader.readAsDataURL(input.files[0])
   }
+}
+
+function onComplete(e) {
+    console.log('complete')
+    document.getElementById('submit-videoSelfie3-button').disabled = false
 }
 
 var _validPhotoFileExtensions = [".jpeg", ".jpg"]
@@ -416,11 +434,10 @@ function Validate(oForm) {
 
 function playSelectedFile(event) {
     var URL = window.URL || window.webkitURL
-
     var file = event.files[0]
     var type = file.type
-    console.log(file)
-    console.log(file.type)
+    // console.log(file)
+    // console.log(file.type)
     var videoNode = document.getElementById('uploaded-video')
     var canPlay = videoNode.canPlayType(type)
     if (canPlay === '') canPlay = 'no'
@@ -434,12 +451,42 @@ function playSelectedFile(event) {
     videoNode.src = fileURL
 
     $("#scan-id-1").css("display", "none")
-    $("#scan-id-5").css("display", "block")
+    $("#scan-id-7").css("display", "block")
 
-    // uploadLoader(2)
+    uploadLoader(2)
 }
 
+function loadSelectedFile(event) {
+    var URL = window.URL || window.webkitURL
+    var file = event.files[0]
+    var type = file.type
+    // console.log(file)
+    // console.log(file.type)
+    var videoNode = document.getElementById('uploaded-video')
+    var canPlay = videoNode.canPlayType(type)
+    if (canPlay === '') canPlay = 'no'
+    var isError = canPlay === 'no'
+
+    if (isError) {
+        return
+    }
+    var fileURL = URL.createObjectURL(file)
+    videoNode.src = fileURL
+
+    $("#scan-id-1").css("display", "none")
+    $("#scan-id-0").css("display", "block")
+    spinner(2)
+}
+
+$("#short-video").change(function(){
+    loadSelectedFile(this)
+})
+
 $("#video-selfie").change(function(){
+    playSelectedFile(this)
+})
+
+$('#video-overlay').change(function(){
     playSelectedFile(this)
 })
 
@@ -574,12 +621,13 @@ $("#submit-videoSelfie2-button").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
-$('#uploaded-video').on('ended',function(){
-    //alert('Video has ended!');
-
-    $("#submit-videoSelfie3-button").attr("disabled", false);
-  
-  });
+$('#uploaded-video').on('ended', function(){
+    // alert('Video has ended!')
+    $("#submit-videoSelfie3-button").attr("disabled", false)
+    $("#submit-videoSelfie4-button").attr("disabled", false)
+    $('#video-overlay').fadeIn()
+    $('#uploaded-video').currentTime = 0
+})
 
 // submit button action post v12 version - preview first
 $("#submit-videoSelfie3-button").on("click", function(e) {
@@ -591,6 +639,21 @@ $("#submit-videoSelfie3-button").on("click", function(e) {
         $("#scan-id-5").css("display","none")
         $("#scan-id-6").css("display","none")
         $("#scan-id-3").css("display","block")
+        document.body.scrollTop = document.documentElement.scrollTop = 0
+    }
+})
+
+// submit button action post v13 version - preview first
+$("#submit-videoSelfie4-button").on("click", function(e) {
+    e.preventDefault()
+    console.log($("#submit-videoSelfie4-button").prop)
+
+    if ($("#submit-videoSelfie4-button").prop('disabled') === false) {
+        activateLoader2(2)
+        $("#scan-id-0").css("display", "none")
+        $("#scan-id-5").css("display", "none")
+        $("#scan-id-6").css("display", "none")
+        $("#scan-id-3").css("display", "block")
         document.body.scrollTop = document.documentElement.scrollTop = 0
     }
 })
@@ -833,6 +896,17 @@ swap();
 $(document).ready(function () {
   // Turn off jQuery animation
   jQuery.fx.off = true
+
+    $('#video-overlay').click(function () {
+        if ($('#uploaded-video').get(0).paused) {
+            $('#uploaded-video').get(0).play()
+            $('#video-overlay').fadeOut()
+        } else {
+            console.log('show up')
+            $('#uploaded-video').get(0).pause()
+            $('#video-overlay').fadeIn()
+        }
+    })
 
   // Where .multiple-choice uses the data-target attribute
   // to toggle hidden content

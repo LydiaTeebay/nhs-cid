@@ -58,7 +58,13 @@
 
               {% if mobileOsV !== 9.1 %}
 
-              <label for="photo-id-document" class="camera-button">Open camera
+              {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
+              {% set instruction = 'Choose a file' %}
+              {% else %}
+              {% set instruction = 'Open camera' %}
+              {% endif %}
+
+              <label for="photo-id-document" class="camera-button">{{ instruction }}
                 <input type="file" id="photo-id-document" accept="image/*" capture="environment">
               </label>
 

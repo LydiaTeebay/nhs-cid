@@ -36,7 +36,7 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
-        var isMobileOs = req.useragent.source
+        var isMobileOs = req.useragent.platform
         var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
         var isMobileOsV = isMobileOsVer
         var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
@@ -175,7 +175,7 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
-        var isMobileOs = req.useragent.source
+        var isMobileOs = req.useragent.platform
         var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
         var isMobileOsV = isMobileOsVer
         var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())

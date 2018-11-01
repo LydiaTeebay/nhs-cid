@@ -1,11 +1,43 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Record a short video{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
 
-{% block content %}
+{% block extrastyles %}
 
+<style>
+  .video-wrapper { position: relative; margin: 0;}
+  #uploaded-video { outline: 5px solid #f7e214; max-width:100%; height:auto; margin: 0;}
+  #video-overlay2 { position: absolute; width: 100%; height: 100%; z-index: 999; cursor: pointer; margin: 0;}
+  #video-overlay {
+    background-image:url(/images/play-button.png);
+    background-repeat:no-repeat;
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0%;
+    right:0%;
+    top:0%;
+    bottom:0%;
+    margin:auto;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+  }
+
+  section {
+    margin: 0 !important;
+  }
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
 
 <div class="first-item">
 
@@ -42,14 +74,21 @@
         </legend>
 
         <p>Say these 4 numbers when you record your video</p>
-        <!--<p>When you click on open camera, pick the video camcorder. ​</p>-->
-        <h1>{{ pinCode }}</h1>
-
+        <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
 
         <div class="form-group">
 
-          <label for="video-selfie" class="camera-button">Open camera
-            <input type="file" id="video-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+          {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
+              {% set instruction = 'Choose a file' %}
+          {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
+              {% set instruction = 'Open camera' %}
+          {% else %}
+              {% set instruction = 'Open camcorder' %}
+          {% endif %}
+
+
+          <label for="short-video" class="camera-button">{{ instruction }}
+            <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
           </label>
 
         </div>
@@ -86,24 +125,22 @@
   </section>
 
   <section class="" id="scan-id-5" style="display:none">
-
+    
     <h1 style="padding-bottom: 0;">Check your video</h1>
 
-    <p>Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</p>
+    <p>You need to watch the video before you can continue.</p>
 
     <div class="reading-width">
-      <div id="scan-video-preview">
-        <video id="uploaded-video" controls autoplay style="max-width:100%;max-height:400px;">
-          <source src="#" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <div id="scan-video-preview" class="video-wrapper" style="display: inline-block;">
+        <video id="uploaded-video" webkit-playsinline="true" playsinline="true" style="max-width:100%;max-height:400px;" aria-label="Video player displaying your video selfie." src="#" type="video/mp4"></video>
+        <div id="video-overlay" role="button"></div>
       </div>
     </div>
 
 
     <div class="form-group">
-      <p>You must watch the video before you can continue.</p>
-      <a class="button" disabled="disabled" href="" id="submit-videoSelfie3-button">Yes - continue</a>
+      <p>Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</p>
+      <a class="button" disabled="disabled" href="" id="submit-videoSelfie4-button">Yes - continue</a>
       <p><a href="service-access-video-selfie-camera{{ params }}" id="">No - record video again</a></p>
     </div>
 
@@ -135,14 +172,14 @@
 </div>
 
 <script type="text/javascript">
-
     //show then hide the spinner animation
     setTimeout(function(){
         document.getElementById('scan-id-0').style.display = 'none'
-    }, 1500)
+    }, 7500)
     setTimeout(function(){
         document.getElementById('scan-id-1').style.display = 'block'
-    }, 1500)
+    }, 7500)
+
 </script>
 
 {% endblock %}

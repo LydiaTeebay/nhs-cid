@@ -60,15 +60,22 @@
           </h1>
         </legend>
 
-        <p>You'll need to record a short video of your face.</p>
-        <p>When you record your video, say these 4 numbers:</p>
+        <p>Say these 4 numbers when you record your video</p>
 
         <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
 
 
         <div class="form-group">
 
-          <label for="video-selfie" class="camera-button">Open camera
+          {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
+            {% set instruction = 'Choose a file' %}
+          {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
+            {% set instruction = 'Open camera' %}
+          {% else %}
+            {% set instruction = 'Open camcorder' %}
+          {% endif %}
+
+          <label for="video-selfie" class="camera-button">{{ instruction }}
             <input type="file" id="video-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
           </label>
 
@@ -109,7 +116,7 @@
 
     <h1 style="padding-bottom: 0;">Check your video</h1>
 
-    <p>Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</p>
+    <p>You need to watch the video before you can continue.</p>
 
     <div class="reading-width">
       <div id="scan-video-preview">
@@ -122,6 +129,8 @@
 
 
     <div class="form-group">
+
+      <p>Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</p>
 
       {% if formerror === 'invalid' %}
       <a class="button" href="" id="submit-videoSelfie2-button-error">Yes - continue</a>
