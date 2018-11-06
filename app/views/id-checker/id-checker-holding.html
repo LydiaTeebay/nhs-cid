@@ -1,0 +1,58 @@
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
+{% block page_title %}NHS Identity Verification and Matching Service - holding list{% endblock %}
+
+{% set service = "idchecker" %}
+{% set serviceName = "Identity Verification and Matching Service" %}
+{% set signedin = '' %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state + "&devMode=" + devMode %}
+
+
+{% block content %}
+
+<h1>Holding list</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name or NHS number</th>
+      <th>Time since submission</th>
+      <th>Time in holding list</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>00003</td>
+      <td>Maria Anders</td>
+      <td>1 hour 15 minutes</td>
+      <td>33 minutes</td>
+    </tr>
+    <tr>
+      <td>00004</td>
+      <td><i>Not available</i></td>
+      <td>1 hour 15 minutes</td>
+      <td>33 minutes</td>
+    </tr>
+    <tr>
+      <td>00005</td>
+      <td>Maria Anders</td>
+      <td>1 hour 15 minutes</td>
+      <td>33 minutes</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+{% if state === 'inprogress' %}
+<p>You still have a verification in progress</p>
+<a class="button" href="id-checker-review{{ params }}">Continue verification</a>
+<p><a href="id-checker-dashboard{{ params }}">Abort</a></p>
+{% elif queue === 'cleared' %}
+<a class="button" id="cleared" href="id-checker-dashboard{{ params }}">Start next verification</a>
+{% elif queue === 'clear' %}
+{% else %}
+<a class="button" href="id-checker-review{{ params }}">Start next verification</a>
+{% endif%}
+
+
+{% endblock %}

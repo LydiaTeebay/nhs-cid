@@ -3,6 +3,7 @@ module.exports = function (router) {
         // pull in the url parameter
         var state = req.param('state')
         var queue = req.param('queue')
+        var holding = req.param('holding')
         var role = req.param('role')
         var emailLink = req.param('emailLink')
         var result = req.param('result')
@@ -10,10 +11,10 @@ module.exports = function (router) {
         var devmode = req.param('devMode')
 
         if (role === 'Supervisor') {
-            res.redirect('/id-checker/id-checker-supervisor-dashboard?role=Supervisor' + '&emailLink=' + emailLink + '&state=' + state + '&result=' + result + '&demographics=' + demographics )
+            res.redirect('/id-checker/id-checker-supervisor-dashboard?role=Supervisor' + '&emailLink=' + emailLink + '&state=' + state + '&result=' + result + '&demographics=' + demographics + '&queue=' + queue + '&holding=' + holding )
             return
         }
-        res.render('id-checker/id-checker-dashboard', {state: state, emailLink: emailLink, role: role, result: result, demographics: demographics, devMode: devmode, queue: queue }, function(err, html) {
+        res.render('id-checker/id-checker-dashboard', {state: state, emailLink: emailLink, role: role, result: result, demographics: demographics, devMode: devmode, queue: queue, holding: holding  }, function(err, html) {
             res.send(html)
         })
 
