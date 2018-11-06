@@ -26,6 +26,11 @@ select {
   line-height: 32px;
 }
 
+select{
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right 10px center white;
+  //background-position: right 10px 20px 0;
+}
+
 @media (min-width: 500px) {
   input[type='text'],
   input[type='number'],
@@ -43,7 +48,8 @@ input[type='number']:focus,
 input[type='password']:focus,
 input[type='email']:focus,
 input[type='tel']:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: 0;
   -webkit-box-shadow: 0 0 0 5px #F7E214;
   -moz-box-shadow: 0 0 0 5px #F7E214;
@@ -285,7 +291,9 @@ input[type='tel'].code {
 
 input,
 textarea {
-  &[readonly] {
+  border-color: #D81E05;
+  &[readonly],
+  &[disabled] {
     border: 2px solid $grey-3;
   }
 }
@@ -396,6 +404,16 @@ $_radio-spacing: ($_element-size - $_radio-size) / 2;
     display: inline-block;
   }
 }
+
+.js-enabled .multiple-choice--radio {
+  &:before {
+    border: 2px solid #005EB8;
+  }
+  &[disabed]:before {
+    border: 2px solid #768692;
+  }
+}
+
 
 .js-enabled .multiple-choice input:checked + label::after {
   zoom: 1;
