@@ -91,6 +91,9 @@
   &.u-inprogress {
     background-color: $green;
   }
+  &.u-inholding {
+    background-color: $red;
+  }
 }
 
 .idcheck-dash-heading {

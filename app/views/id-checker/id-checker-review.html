@@ -274,9 +274,7 @@
 
             <fieldset>
 
-                <p style="padding-bottom: 32px;">Can you find the person’s NHS Number using a manual PDS check?</p>
-
-                <!--<span  style="padding-bottom: 32px;" class="form-label__hint">Use the name and date of birth from their photo ID document. </span>-->
+                <p style="padding-bottom: 32px;">Can you find the person's NHS Number using a manual PDS check, so you can re-run the trace?</p>
 
                 <div class="selection-button-radio-inline">
                     <div class="multiple-choice" data-target="">
@@ -488,8 +486,7 @@
 
         <div class="qa-questions-group" data-complete="false">
             <div class="qa-questions-question" id="selfie-1" data-answered="false" data-group="decline-5">
-                <p class="qa-questions-question-text">Does the video clearly show it's the same person pictured in the
-                    identity document?</p>
+                <p class="qa-questions-question-text">Can you clearly see the face in the video?</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            aria-checked="false">
@@ -509,7 +506,7 @@
 
         <div class="qa-questions-group" data-complete="false">
             <div class="qa-questions-question" id="selfie-2" data-answered="false" data-group="decline-6">
-                <p class="qa-questions-question-text">Are the 4 numbers read out 4-0-6-6?</p>
+                <p class="qa-questions-question-text">Does the face in the photo ID match the face in the video?</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            aria-checked="false">
@@ -529,7 +526,7 @@
 
         <div class="qa-questions-group" data-complete="false">
             <div class="qa-questions-question" id="selfie-3" data-answered="false" data-group="decline-7">
-                <p class="qa-questions-question-text">Are the 4 numbers read out 4-0-6-6?</p>
+                <p class="qa-questions-question-text">Are these 4 numbers clearly read out: 4-2-2-8?</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            aria-checked="false">
@@ -566,89 +563,165 @@
     <div class="modal-content" id="modal_holder" role="document">
         <h3 id="modal-header">Additional information about this assurance request</h3>
 
-        <div class="govuk-form-group" id="rejection-reasons">
-            <label class="form-label" for="sort">Rejection reason</label>
-
-            <select id="decline-0" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-001">Passport contains fake information - photo correct</option>
-                <option value="IDC-002">Passport has a fake photo - information correct</option>
-                <option value="IDC-003">Passport is entirely fake</option>
-            </select>
-
-
-            <select id="decline-1" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-001">Passport contains fake information - photo correct</option>
-                <option value="IDC-002">Passport has a fake photo - information correct</option>
-                <option value="IDC-003">Passport is entirely fake</option>
-                <option value="IDC-010">Drivers License contains fake information - photo correct</option>
-                <option value="IDC-011">Drivers License has a fake photo - information correct</option>
-                <option value="IDC-012">Drivers License is entirely fake</option>
-            </select>
-
-
-            <select id="decline-2" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-020">Person in video selfie doesn't match the photo ID</option>
-                <option value="IDC-021">Person in video selfie doesn't clearly say all 4 of the numbers</option>
-                <option value="IDC-022">Person in video selfie can't be seen at all, just heard</option>
-                <option value="IDC-023">Person in video selfie can be seen but there is no sound</option>
-                <option value="IDC-024">Person in video selfie can be seen speaking different numbers to what can be
-                    heard
-                </option>
-                <option value="IDC-036">Person in video can't be clearly identified in picture (e.g. Wearing a cap
-                    and sunglasses, films their feet)
-                </option>
-                <option value="IDC-034">Poor lighting in video</option>
-            </select>
-
-            <select id="decline-3" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-030">Photo is too blurred/grainy/fuzzy/unreadable</option>
-                <option value="IDC-031">Video is too blurred/grainy/fuzzy/unreadable</option>
-                <option value="IDC-032">Glare on photo</option>
-                <option value="IDC-033">Poor lighting on photo</option>
-                <option value="IDC-035">Data is obscured in the photo (i.e. Missed a corner of ID containing
-                    information)
-                </option>
-            </select>
-
-            <select id="decline-4" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-040">ID document has expired</option>
-                <option value="IDC-041">Un-supported UK Security Document</option>
-                <option value="IDC-042">Un-supported Foreign Security Document</option>
-            </select>
-
-            <select id="decline-5" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-040">ID document has expired</option>
-                <option value="IDC-041">Un-supported UK Security Document</option>
-                <option value="IDC-042">Un-supported Foreign Security Document</option>
-            </select>
-
-            <select id="decline-6" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-040">ID document has expired</option>
-                <option value="IDC-041">Un-supported UK Security Document</option>
-                <option value="IDC-042">Un-supported Foreign Security Document</option>
-            </select>
-
-            <select id="decline-7" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                <option value="IDC-040">ID document has expired</option>
-                <option value="IDC-041">Un-supported UK Security Document</option>
-                <option value="IDC-042">Un-supported Foreign Security Document</option>
-            </select>
-        </div>
-
         <div class="first-item">
             <form>
-                <div class="form-group">
-                    <div class="form-group">
-                        <label class="form-label" for="field3">Additional comments (optional)</label>
 
-                        <textarea class="form-control form-textbox" id="field3" name="field3" type="text" rows="3"
-                                  style="margin-top: 16px;"></textarea>
+                <div class="form-group">
+
+                    <div class="govuk-form-group" id="rejection-reasons">
+                        <label class="form-label" for="sort">Rejection reason</label>
+
+                        <select id="decline-0" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-010" data-question="">--- Please select ---</option>
+                            <option value="IDC-011" data-question="decline-text-1">Driving licence - cannot see information in ID</option>
+                            <option value="IDC-012" data-question="decline-text-2">Driving licence - cannot find NHS Number</option>
+                            <option value="IDC-013" data-question="decline-text-1">Passport - cannot see information in ID</option>
+                            <option value="IDC-014" data-question="decline-text-2">Passport - cannot find NHS Number</option>
+                            <option value="IDC-015" data-question="decline-text-3">User's submitted date of birth does not match the date of birth in PDS</option>
+                        </select>
+
+                        <select id="decline-1" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-020" data-question="">--- Please select ---</option>
+                            <option value="IDC-021" data-question="decline-text-1">Driving licence - cannot see everything clearly</option>
+                            <option value="IDC-022" data-question="decline-text-1">Passport - cannot see everything clearly</option>
+                        </select>
+
+                        <select id="decline-2" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-030" data-question="">--- Please select ---</option>
+                            <option value="IDC-031" data-question="decline-text-4">Driving licence - whole document is a fake</option>
+                            <option value="IDC-032" data-question="decline-text-5">Driving licence - photo or information has been tampered with</option>
+                            <option value="IDC-033" data-question="decline-text-4">Passport - whole document is a fake</option>
+                            <option value="IDC-034" data-question="decline-text-5">Driving licence - photo or information has been tampered with</option>
+                        </select>
+
+                        <select id="decline-3" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-040" data-question="">--- Please select ---</option>
+                            <option value="IDC-041" data-question="">Driving licence - expired</option>
+                            <option value="IDC-042" data-question="decline-text-6">Driving licence - not a UK licence</option>
+                            <option value="IDC-043" data-question="">Passport - expired</option>
+                            <option value="IDC-044" data-question="decline-text-6">Passport - not a UK passport</option>
+                            <option value="IDC-045" data-question="decline-text-6">Unsupported UK document</option>
+                            <option value="IDC-046" data-question="decline-text-6">Unsupported non-UK document</option>
+                        </select>
+
+                        <select id="decline-4" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-050" data-question="">--- Please select ---</option>
+                            <option value="IDC-051" data-question="decline-text-7">Driving licence - details do not match</option>
+                            <option value="IDC-052" data-question="decline-text-7">Passport - details do not match</option>
+                        </select>
+
+                        <select id="decline-5" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-060" data-question="">--- Please select ---</option>
+                            <option value="IDC-061" data-question="decline-text-8">There is a face, but it’s not clear</option>
+                            <option value="IDC-062" data-question="decline-text-9">There is no face in the video</option>
+                        </select>
+
+                        <select id="decline-6" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-070" data-question="">--- Please select ---</option>
+                            <option value="IDC-071" data-question="decline-text-10">Driving licence - face in photo ID does not match face in video</option>
+                            <option value="IDC-072" data-question="decline-text-10">Passport - face in photo ID does not match face in video</option>
+                        </select>
+
+                        <select id="decline-7" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-080" data-question="">--- Please select ---</option>
+                            <option value="IDC-081" data-question="">There is no sound at all</option>
+                            <option value="IDC-082" data-question="decline-text-11">Cannot hear the numbers clearly</option>
+                            <option value="IDC-083" data-question="decline-text-12">Missing first or last number</option>
+                            <option value="IDC-084" data-question="decline-text-13">Numbers are wrong</option>
+                            <option value="IDC-085" data-question="decline-text-14">Says something other than numbers</option>
+                        </select>
                     </div>
+                </div>
+
+
+                <div class="form-group" id="rejection-text" style="display:none;">
+
+                    <div id="decline-text-1" style="display:none;">
+                        <label class="form-label" for="field3">Which part of the ID is affected, and how?</label>
+                        <span class="form-hint">Tell us if:<br>
+                            &#9679; anything is covered up, and how<br>
+                            &#9679; anything is cut off<br>
+                            &#9679; there is glare<br>
+                            &#9679; there is blur<br>
+                            &#9679; it's too light<br>
+                            &#9679; it's too dark<br>
+                            &#9679; anything else is making it difficult for you to see the information clearly<br>
+                        </span>
+                    </div>
+
+                    <div id="decline-text-2" style="display:none;">
+                        <label class="form-label" for="field3">Why could you not find the person's NHS Number? (required)</label>
+                    </div>
+
+                    <div id="decline-text-3" style="display:none;">
+                        <label class="form-label" for="field3">"Which dates do not match? (required)</label>
+                            <span class="form-hint">Look at the date of birth:<br>
+                                &#9679; in the submitted details<br>
+                                &#9679; in PDS<br>
+                                &#9679; in the photo ID<br>
+                            </span>
+                    </div>
+
+                    <div id="decline-text-4" style="display:none;">
+                        <label class="form-label" for="field3">How did you identify that it's a fake? (required)</label>
+                    </div>
+
+                    <div id="decline-text-5" style="display:none;">
+                        <label class="form-label" for="field3">What has been tampered with, and how? (required)</label>
+                    </div>
+
+                    <div id="decline-text-6" style="display:none;">
+                        <label class="form-label" for="field3">What kind of ID is it? (required)</label>
+                    </div>
+
+                    <div id="decline-text-7" style="display:none;">
+                        <label class="form-label" for="field3">Which details do not match, and why? (required)</label>
+                    </div>
+
+                    <div id="decline-text-8" style="display:none;">
+                        <label class="form-label" for="field3">Why not?</label>
+                        <span class="form-hint">Tell us if:<br>
+                            &#9679; anything is covered up, and how<br>
+                            &#9679; anything is cut off<br>
+                            &#9679; there is glare<br>
+                            &#9679; there is blur<br>
+                            &#9679; it's too light<br>
+                            &#9679; it's too dark<br>
+                            &#9679; anything else is making it difficult for you to see the information clearly<br>
+                        </span>
+                    </div>
+
+                    <div id="decline-text-9" style="display:none;">
+                        <label class="form-label" for="field3">What can you see? (required)</label>
+                    </div>
+
+                    <div id="decline-text-10" style="display:none;">
+                        <label class="form-label" for="field3">More information about why you think they do not match (optional)</label>
+                    </div>
+
+                    <div id="decline-text-11" style="display:none;">
+                        <label class="form-label" for="field3">Why can't you hear the numbers clearly? (required)</label>
+                    </div>
+
+                    <div id="decline-text-12" style="display:none;">
+                        <label class="form-label" for="field3">Which numbers do they miss? (required)</label>
+                    </div>
+
+                    <div id="decline-text-13" style="display:none;">
+                        <label class="form-label" for="field3">More information about why they were wrong (optional)</label>
+                    </div>
+
+                    <div id="decline-text-14" style="display:none;">
+                        <label class="form-label" for="field3">What do they say? (required)</label>
+                    </div>
+
+                    <textarea class="form-control form-textbox" id="field3" name="field3" type="text" rows="3"
+                              style="margin-top: 16px;" onkeyup='checkText(this.value);'></textarea>
                 </div>
 
                 <div class="form-group">
                     <a class="button" id="modal-link"
-                       href="id-checker-supervisor-dashboard?role=Supervisor&devMode={{ devMode }}">Submit</a>
+                       href="id-checker-supervisor-dashboard?role=Supervisor&devMode={{ devMode }}" disabled="disabled">Submit</a>
                     <p><a href="#" id="modal_close">Cancel</a></p>
                 </div>
             </form>
@@ -665,6 +738,7 @@
     // localStorage.removeItem("idchecker")
     addEventListeners()
     addButtonListeners()
+    addRejectionListeners()
     resetAllSections()
     questionsComplete = false
 
@@ -732,7 +806,7 @@
         event.preventDefault()
         console.log(object)
         var target = object.parentElement.parentElement.getAttribute('data-group')
-        console.log(target)
+        // console.log(target)
 
         var link = object.href
         var heading = document.getElementById('modal-header')
@@ -743,10 +817,9 @@
 
         var buttonType = object.text
 
-        // document.getElementById('modal_create').click()
-
         if (buttonType === 'Decline') {
             heading.innerText = 'Information about this declined verification'
+            setSubReasons('')
             setReasons(target)
             document.getElementById('modal_create').click()
         } else {
@@ -762,10 +835,46 @@
         var reasons = document.getElementsByClassName('decline-group')
         for (i = 0; i < reasons.length; i++) {
             reasons[i].style.display = 'none'
+            reasons[i].selectedIndex = "0";
         }
         if (target){
             document.getElementById(target).style.display = 'block'
         }
+    }
+
+    var selectChange = function (object, event) {
+        var target = object.options[object.selectedIndex].getAttribute('data-question')
+        setSubReasons(target)
+    }
+
+    function setSubReasons(target) {
+        // reset everything before showing the picked one
+        var subReasons = document.getElementById('rejection-text').getElementsByTagName('div')
+        resetText()
+        for (i = 0; i < subReasons.length; i++) {
+            subReasons[i].style.display = 'none'
+        }
+        if (target){
+            document.getElementById(target).style.display = 'block'
+            // show the text area
+            document.getElementById('rejection-text').style.display = 'block'
+        } else {
+            document.getElementById('rejection-text').style.display = 'none'
+        }
+    }
+
+    function checkText(text) {
+        if(text.length >= 1) {
+            document.getElementById('modal-link').removeAttribute("disabled")
+        } else if(text.length == 0) {
+            document.getElementById('modal-link').setAttribute("disabled", "")
+        }
+    }
+
+    function resetText() {
+        var textarea = document.getElementById('field3')
+        textarea.value = "";
+        document.getElementById('modal-link').setAttribute("disabled", "")
     }
 
     // run through all sections checking for completeness
@@ -838,6 +947,17 @@
             })
         }
     }
+
+    function addRejectionListeners() {
+        var selects = document.querySelectorAll('.decline-group')
+        for (i = 0; i < selects.length; i++) {
+            selects[i].addEventListener('change', function (event) {
+                selectChange(this, event)
+            })
+        }
+    }
+
+    object.addEventListener("select", myScript);
 
     function updateStorageFromElements() {
         var idCheck = []
