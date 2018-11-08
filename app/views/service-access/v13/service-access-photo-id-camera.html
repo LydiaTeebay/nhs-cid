@@ -67,8 +67,6 @@
 
               {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
               {% set instruction = 'Choose a file' %}
-              {% elif mobileOs === 'Android' %}
-              {% set instruction = 'Open camcorder' %}
               {% else %}
                 {% if mobileOsV !== 12.1 %}
                     {% set instruction = 'Open camera' %}
