@@ -31,10 +31,10 @@
 
       <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
 
-        {% if mobileOsV === 9.1 %}
+        {% if mobileOsV === 12.1 %}
 
         {% import "_partials/_components/_callout.html" as callout %}
-        {{ callout.pattern('','<strong>You cannot continue because your phone needs an iOS update.</strong><br><br>Go to your phone’s Settings. Select General, then Software Update. After you’ve updated, come back and try again.','alert') }}
+        {{ callout.pattern('','You will need to switch to your device\'s camera application and take a picture of your photo ID. When done, return here and use the green button to select the file.','warning') }}
 
         {% endif %}
 
@@ -44,7 +44,13 @@
           <fieldset class="">
             <legend for="radio-inline-group">
               <h1 style="padding-bottom: 0;">
-                Take a photo of your passport or photo driving licence
+
+                {% if mobileOsV !== 12.1 %}
+                  Take a photo of your passport or photo driving licence
+                {% else %}
+                  Upload a photo of your passport or photo driving licence
+                {% endif %}
+
               </h1>
             </legend>
 
@@ -56,25 +62,32 @@
 
             <div class="form-group">
 
-              {% if mobileOsV !== 9.1 %}
+
+
 
               {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
               {% set instruction = 'Choose a file' %}
+              {% elif mobileOs === 'Android' %}
+              {% set instruction = 'Open camcorder' %}
               {% else %}
-              {% set instruction = 'Open camera' %}
+                {% if mobileOsV !== 12.1 %}
+                    {% set instruction = 'Open camera' %}
+                {% else %}
+                    {% set instruction = 'Open your Photo Library' %}
+                {% endif %}
               {% endif %}
 
               <label for="photo-id-document" class="camera-button">{{ instruction }}
-                <input type="file" id="photo-id-document" accept="image/*" capture="environment">
+                <input type="file" id="photo-id-document" accept="image/*" {% if mobileOsV !== 12.1 %} capture="environment" {% endif %} />
               </label>
-
-              {% endif %}
 
             </div>
 
           </fieldset>
 
         </form>
+
+        <small>iOS version: {{ mobileOsV }}</small>
 
       </section>
 
