@@ -64,12 +64,21 @@
 
           {% if role !== 'Supervisor' %}
             <div style="float: right; text-align: right;" class="menu-links">
-              <p style="padding: 0; margin: 0; text-align: right; display: inline-block;"><a href="id-checker-dashboard{{ params }}">Abort</a> |&nbsp;
+              {% if noabort === 'true' %}
+
+              {% else %}
+                <p style="padding: 0; margin: 0; text-align: right; display: inline-block;"><a href="id-checker-dashboard{{ params }}">Abort</a> |&nbsp;
+              {% endif %}
+
               <p style="padding: 0; margin: 0; text-align: right; display: inline-block;"><a href="id-checker-dashboard{{ params }}&state=inprogress"> Return to dashboard</a>
             </div>
           {% else %}
             <div style="float: right; text-align: right;" class="menu-links">
-              <p style="padding: 0; margin: 0; text-align: right;"><a href="id-checker-supervisor-dashboard{{ params }}">Abort</a> |
+              {% if noabort === 'true' %}
+
+              {% else %}
+                <p style="padding: 0; margin: 0; text-align: right;"><a href="id-checker-supervisor-dashboard{{ params }}">Abort</a> |
+              {% endif %}
               <p style="padding: 0; margin: 0; text-align: right;"><a href="id-checker-supervisor-dashboard{{ params }}&state=inprogress">Return to dashboard</a>
             </div>
           {% endif %}

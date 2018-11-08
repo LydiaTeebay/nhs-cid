@@ -55,15 +55,15 @@
     </div>
   </div>
   <div class="column--one-quarter">
-    <div class="idcheck-dash idcheck-dash-{{holding}} {% if holding === 'inholding' %}u-inholding{% endif %}">
-      <p class="idcheck-dash-heading">Holding</p>
+    <div class="idcheck-dash idcheck-dash-{{holding|default('clear') }} {% if holding === 'inholding' %}u-inholding{% endif %}">
+      <p class="idcheck-dash-heading">Holding list</p>
 
       <div class="idcheck-dash-details">
 
-        {% if holding === 'clear' %}
-        <div class="idcheck-dash-number bold-xxlarge">0</div>
-        {% else %}
+        {% if holding === 'inholding' %}
         <div class="idcheck-dash-number bold-xxlarge">3</div>
+        {% else %}
+        <div class="idcheck-dash-number bold-xxlarge">0</div>
         {% endif %}
 
       </div>
@@ -89,7 +89,7 @@
 {% if state === 'inprogress' %}
 <p>You still have a verification in progress</p>
 <a class="button" href="id-checker-review{{ params }}">Continue verification</a>
-<p><a href="id-checker-dashboard{{ params }}">Abort</a></p>
+<p><a href="id-checker-dashboard{{ params }}&state=none">Abort</a></p>
 {% elif queue === 'cleared' %}
 <a class="button" id="cleared" href="id-checker-dashboard{{ params }}">Start next verification</a>
 {% elif queue === 'clear' %}
@@ -101,7 +101,7 @@
 
 {% if holding === 'inholding' %}
 <div>
-  <a class="" href="id-checker-holding{{ params }}">View the holding list</a>
+  <a class="" href="id-checker-holding{{ params }}&noabort=true">Open the holding list</a>
 </div>
 {% endif%}
 
@@ -146,7 +146,7 @@
       <ol>
         <li><a href="id-checker-dashboard{{ params }}&queue=clear&holding=clear">The queue is empty</a></li>
         <li><a href="id-checker-dashboard{{ params }}&holding=clear">The queue is empty but shows 1 pending</a></li>
-        <li><a href="id-checker-dashboard{{ params }}&holding=inholding">The dashboard shows 1 in holding</a></li>
+        <li><a href="id-checker-dashboard{{ params }}&holding=inholding">The dashboard shows 3 in holding list</a></li>
         <li><a href="id-checker-http-error{{ params }}">HTTP response status code errors</a></li>
       </ol>
     </div>
