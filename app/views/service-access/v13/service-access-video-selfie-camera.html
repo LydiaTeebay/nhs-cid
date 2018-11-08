@@ -63,6 +63,13 @@
 
   <section class="" id="scan-id-1" style="display:none">
 
+    {% if mobileOsV === 12.1 %}
+
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','You will need to switch to your device\'s video camcorder application to record your short video. When done, return here and use the green button to select the file.','warning') }}
+
+    {% endif %}
+
     <p><a href="service-access-video-selfie-instructions-2{{ params }}" class="link-back">Back</a></p>
 
     <form>
@@ -81,14 +88,18 @@
           {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
               {% set instruction = 'Choose a file' %}
           {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
-              {% set instruction = 'Open camera' %}
+              {% if mobileOsV !== 12.1 %}
+                {% set instruction = 'Open camera' %}
+              {% else %}
+                {% set instruction = 'Open your Photo Library' %}
+              {% endif %}
           {% else %}
               {% set instruction = 'Open camcorder' %}
           {% endif %}
 
 
           <label for="short-video" class="camera-button">{{ instruction }}
-            <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+            <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" {% if mobileOsV !== 12.1 %} capture="environment" {% endif %}>
           </label>
 
         </div>
