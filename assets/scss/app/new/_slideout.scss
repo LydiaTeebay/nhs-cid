@@ -1,0 +1,55 @@
+#slideout {
+  position: fixed;
+  top: 40px;
+  right: 0;
+  width: 32px;
+  padding: 0 0 12px;
+  margin: 0;
+  text-align: center;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+}
+#slideout_inner {
+  position: fixed;
+  top: 40px;
+  right: -300px;
+
+  background: #367C42;
+  width: 300px;
+  padding: 25px;
+  margin: 0;
+  //height: 130px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  text-align: left;
+}
+#slideout_inner h3 {
+  color: white;
+  margin: 0 0 20px;
+}
+#slideout_inner textarea {
+  width: 250px;
+  height: 75px;
+  font-size: 14px;
+  line-height: 1.5em;
+  margin-bottom: 6px;
+  border-color: black;
+}
+#slideout_inner label {
+  color: white;
+}
+#slideout_inner button {
+  @include button($white);
+  padding: 0 24px;
+  margin: 12px 0;
+}
+#slideout:hover {
+  right: 300px;
+}
+#slideout:hover #slideout_inner {
+  right: 1px;
+}

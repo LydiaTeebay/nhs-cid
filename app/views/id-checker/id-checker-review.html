@@ -557,6 +557,19 @@
     </div>
 </div>
 
+<div id="slideout">
+    <img src="/images/problem.png" alt="Feedback" height="173" width="32"/>
+    <div id="slideout_inner">
+        <h3>Move to holding list</h3>
+        <label class="" for="field3">Reason for moving</label>
+        <textarea class="" id="field3" name="field3" type="text" rows="3"
+              style="margin-top: 16px;" onkeyup='checkText(this.value);'></textarea>
+        <button class="" id="id-holding">Move</button>
+
+    </div>
+</div>
+
+
 <div class="modal-overlay no-fade" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
     <p>&nbsp;</p>
     <p>&nbsp;</p>
@@ -729,7 +742,7 @@
     </div> <!-- end .modal-content -->
 </div> <!-- end .modal-overlay -->
 
-<p><a id="modal_create" class="smartcard" href="#">.</a></p>
+<p><a id="modal_create" class="smartcard" href="#">.</a><a id="holding" href="id-checker-dashboard{{ params }}&holding=inholding">.</a></p>
 
 <script type="text/javascript">
     /* eslint-disable indent */
@@ -739,6 +752,7 @@
     addEventListeners()
     addButtonListeners()
     addRejectionListeners()
+    addToHolding()
     resetAllSections()
     questionsComplete = false
 
@@ -827,6 +841,8 @@
             document.getElementById('rejection-reasons').style.display = 'none'
         }
     }
+
+
 
     function setReasons(target) {
         // first do a reset
@@ -957,7 +973,12 @@
         }
     }
 
-    object.addEventListener("select", myScript);
+    function addToHolding() {
+        var selects = document.getElementById('id-holding')
+        selects.addEventListener('click', function (event) {
+            document.getElementById('holding').click()
+        })
+    }
 
     function updateStorageFromElements() {
         var idCheck = []
