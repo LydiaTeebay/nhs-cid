@@ -27,8 +27,14 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        // is the user on a mobile device?
+        var isMobile = req.useragent.isMobile
+        var isMobileOs = req.useragent.source
+        var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
+        var isMobileOsV = isMobileOsVer
+
         // re-render the page along with the parameter
-        res.render('service-access/v13/service-access-nhs', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v13/service-access-nhs', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
@@ -102,8 +108,14 @@ module.exports = function (router) {
         var loggedin = req.param('loggedin')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        // is the user on a mobile device?
+        var isMobile = req.useragent.isMobile
+        var isMobileOs = req.useragent.source
+        var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
+        var isMobileOsV = isMobileOsVer
+
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-nhs', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-nhs', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

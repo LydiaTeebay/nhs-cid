@@ -31,14 +31,14 @@
 
   <section class="" id="scan-id-1" style="display:none">
 
-    {% if mobileOsV === 9.1 %}
+    {% if mobileOsV === 11 %}
 
     {% import "_partials/_components/_callout.html" as callout %}
-    {{ callout.pattern('','It looks like you are using a buggy version of iOS. Please update to the latest version and come back.','alert') }}
+    {{ callout.pattern('','This bit includes one of the extra steps we told you about.','warning') }}
 
     {% endif %}
 
-    <div class="callout callout--error camera-file-format" style="display:block">
+    {# <div class="callout callout--error camera-file-format" style="display:block">
       <h2 class="h3">There's a problem</h2>
       <!--<p>You've taken a photo by mistake. When you click on <em style="font-style: normal">Open camera</em>, pick your video camcorder.</p>-->
 
@@ -48,7 +48,7 @@
 
       <!--<p>Your video is too small. Record your video again.</p>-->
       <!--<p>When you click on <em style="font-style: normal">Open camera</em>, pick your main video camcorder.</p></p>-->
-    </div>
+    </div> #}
 
     <p><a href="service-access-video-selfie-instructions-2{{ params }}" class="link-back">Back</a></p>
 
@@ -60,23 +60,41 @@
           </h1>
         </legend>
 
-        <p>Say these 4 numbers when you record your video</p>
+        {% if mobileOsV !== 11 %}
 
+        <p>Say these 4 numbers when you record your video</p>
         <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
+
+        {% else %}
+
+        <p>You'll need to:</p>
+        <ol>
+          <li>Open your phone’s camera and choose the video mode.</li>
+          <li>Record a video of your face while you say these 4 numbers: {{ pinCode }}.</li>
+          <li>Come back here and click the button to open your Photo Library.</li>
+          <li>Select 'videos', then select the video you recorded.</li>
+        </ol>
+
+        {% endif %}
 
 
         <div class="form-group">
 
           {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
-            {% set instruction = 'Choose a file' %}
+          {% set instruction = 'Choose a file' %}
           {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
-            {% set instruction = 'Open camera' %}
+          {% if mobileOsV !== 11 %}
+          {% set instruction = 'Open camera' %}
           {% else %}
-            {% set instruction = 'Open camcorder' %}
+          {% set instruction = 'Open your Photo Library' %}
+          {% endif %}
+          {% else %}
+          {% set instruction = 'Open camcorder' %}
           {% endif %}
 
-          <label for="video-selfie" class="camera-button">{{ instruction }}
-            <input type="file" id="video-selfie" name="video" accept="video/mp4,video/x-m4v,video/*" capture="user">
+
+          <label for="short-video" class="camera-button">{{ instruction }}
+            <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" {% if mobileOsV !== 11 %} capture="environment" {% endif %}>
           </label>
 
         </div>
