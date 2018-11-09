@@ -31,7 +31,7 @@
 
   <section class="" id="scan-id-1" style="display:none">
 
-    {% if mobileOsV === 11 %}
+    {% if mobileOsV === 11.2 and devMode === 'true' %}
 
     {% import "_partials/_components/_callout.html" as callout %}
     {{ callout.pattern('','This bit includes one of the extra steps we told you about.','warning') }}
@@ -60,20 +60,20 @@
           </h1>
         </legend>
 
-        {% if mobileOsV !== 11 %}
-
-        <p>Say these 4 numbers when you record your video</p>
-        <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
-
-        {% else %}
+        {% if mobileOsV === 11.2 and devMode === 'true' %}
 
         <p>You'll need to:</p>
         <ol>
-          <li>Open your phone’s camera and choose the video mode.</li>
+          <li>Open your phone's camera and choose the video mode.</li>
           <li>Record a video of your face while you say these 4 numbers: {{ pinCode }}.</li>
           <li>Come back here and click the button to open your Photo Library.</li>
           <li>Select 'videos', then select the video you recorded.</li>
         </ol>
+
+        {% else %}
+
+        <p>Say these 4 numbers when you record your video</p>
+        <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
 
         {% endif %}
 
@@ -81,20 +81,20 @@
         <div class="form-group">
 
           {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
-          {% set instruction = 'Choose a file' %}
+            {% set instruction = 'Choose a file' %}
           {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
-          {% if mobileOsV !== 11 %}
-          {% set instruction = 'Open camera' %}
+            {% if mobileOsV === 11.2 and devMode === 'true' %}
+              {% set instruction = 'Open your Photo Library' %}
+            {% else %}
+              {% set instruction = 'Open camera' %}
+            {% endif %}
           {% else %}
-          {% set instruction = 'Open your Photo Library' %}
-          {% endif %}
-          {% else %}
-          {% set instruction = 'Open camcorder' %}
+            {% set instruction = 'Open camcorder' %}
           {% endif %}
 
 
           <label for="short-video" class="camera-button">{{ instruction }}
-            <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" {% if mobileOsV !== 11 %} capture="environment" {% endif %}>
+            <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %}>
           </label>
 
         </div>
@@ -102,6 +102,12 @@
       </fieldset>
 
     </form>
+
+    {% if devMode === 'true' %}
+    <div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
+      <small>OS version: {{ mobileOsV }}</small>
+    </div>
+    {% endif %}
 
   </section>
 

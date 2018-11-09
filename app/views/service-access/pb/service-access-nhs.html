@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% if mobileOsV === 11 %}
+{% if mobileOsV === 11.2 and devMode === 'true' %}
 
 {% import "_partials/_components/_callout.html" as callout %}
 {{ callout.pattern('Your phone does not have the latest version of iOS','<p>So when we ask you to take a photo of your I.D. and record a video, you\'ll need to do 2 extra steps. We\'ll help you with that.</p><p>To update your phone instead, go to your phone\'s Settings. Select General then Software Update. After you\'ve updated, come back and try again.</p>','warning') }}
@@ -48,6 +48,12 @@
 			</div>
 		</li>
 	</ol>
+
+	{% if devMode === 'true' %}
+	<div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
+		<small>OS version: {{ mobileOsV }}</small>
+	</div>
+	{% endif %}
 
 </section>
 

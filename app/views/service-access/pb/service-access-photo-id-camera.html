@@ -31,7 +31,7 @@
 
     <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
 
-        {% if mobileOsV === 11 %}
+        {% if mobileOsV === 11.2 and devMode === 'true' %}
 
         {% import "_partials/_components/_callout.html" as callout %}
         {{ callout.pattern('','This bit includes one of the extra steps we told you about.','warning') }}
@@ -44,23 +44,15 @@
             <fieldset class="">
                 <legend for="radio-inline-group">
                     <h1 style="padding-bottom: 0;">
-                        {% if mobileOsV !== 11 %}
-                        Take a photo of your passport or your {{ idType }}
-                        {% else %}
+                        {% if mobileOsV === 11.2 and devMode === 'true' %}
                         Upload a photo of your {{ idType }}
+                        {% else %}
+                        Take a photo of your passport or your {{ idType }}
                         {% endif %}
                     </h1>
                 </legend>
 
-                {% if mobileOsV !== 11 %}
-
-                <p>You must:</p>
-                <ul class="list list-bullet">
-                    <li>hold the camera straight above your {{ idType }}</li>
-                    <li>make sure all the details are clear and readable</li>
-                </ul>
-
-                {% else %}
+                {% if mobileOsV === 11.2 and devMode === 'true' %}
 
                 <p>You'll need to:</p>
                 <ol>
@@ -74,6 +66,14 @@
                     <li>Select the photo you took.</li>
                 </ol>
 
+                {% else %}
+
+                <p>You must:</p>
+                <ul class="list list-bullet">
+                    <li>hold the camera straight above your {{ idType }}</li>
+                    <li>make sure all the details are clear and readable</li>
+                </ul>
+
                 {% endif %}
 
                 <div class="form-group">
@@ -81,15 +81,15 @@
                     {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
                       {% set instruction = 'Choose a file' %}
                     {% else %}
-                      {% if mobileOsV !== 11 %}
-                         {% set instruction = 'Open camera' %}
-                      {% else %}
+                      {% if mobileOsV === 11.2 and devMode === 'true' %}
                          {% set instruction = 'Open your Photo Library' %}
+                      {% else %}
+                         {% set instruction = 'Open camera' %}
                       {% endif %}
                     {% endif %}
 
                     <label for="photo-id-document" class="camera-button">{{ instruction }}
-                        <input type="file" id="photo-id-document" accept="image/*" {% if mobileOsV !== 11 %} capture="environment" {% endif %} />
+                        <input type="file" id="photo-id-document" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
                     </label>
 
                 </div>
@@ -97,6 +97,12 @@
             </fieldset>
 
         </form>
+
+        {% if devMode === 'true' %}
+        <div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
+            <small>OS version: {{ mobileOsV }}</small>
+        </div>
+        {% endif %}
 
     </section>
 
