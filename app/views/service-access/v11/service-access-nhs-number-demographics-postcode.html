@@ -25,11 +25,24 @@
     </div>
 
 
-    <div class="form-group">
-      <a class="button" href="service-access-photo-id{{ params }}">Continue</a>
+    <div class="form-group ">
+      <a class="button button--save" href="service-access-photo-id{{ params }}" id="button--save">Continue</a>
     </div>
   </form>
 
 </div>
+
+<script type="text/javascript">
+    // create back button action
+      $("#button--save").on("click", function(e) {
+          e.preventDefault()
+          console.log("help")
+      })
+
+    #button--save.addEventListener('click', function() {
+        console.log("help")
+        e.preventDefault()
+    });
+</script>
 
 {% endblock %}
