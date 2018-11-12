@@ -1,0 +1,23 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - We will now check your information{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+<h1>Your information has been submitted</h1>
+
+<section class="service-access-wrapper">
+
+	<p>We'll check your information within 2 hours</p>
+	<p>Your data will be stored securely. Read our <a href="/terms-of-use/privacy-notice{{ params }}">privacy notice</a> to find out what we’ll do with your data.</p>
+
+</section>
+
+{% endblock %}
+
+
+{% block rightcol %}{% endblock %}

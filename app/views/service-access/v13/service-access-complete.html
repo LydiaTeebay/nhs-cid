@@ -18,9 +18,25 @@
 {% endblock %}
 
 
+
 {% block content %}
 
 <!--<a href="https://nhsa.herokuapp.com/template.php??logged=true&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&optarr=default&pageCode=SC02b" target="_parent" class="service-access__item__button button" style="margin-top:0; ">Continue to NHS App</a>-->
+
+<script>
+
+    history.replaceState(null, document.title, location.pathname+"#!/stealingyourhistory")
+    history.pushState(null, document.title, location.pathname)
+
+    window.addEventListener("popstate", function() {
+        if(location.hash === "#!/stealingyourhistory") {
+            history.replaceState(null, document.title, location.pathname)
+            setTimeout(function(){
+                location.replace("/service-access/v13/service-access-completed{{ params|safe }}")
+            },0)
+        }
+    }, false)
+</script>
 
 {% endblock %}
 
