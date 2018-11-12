@@ -52,17 +52,14 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var verified = req.param('verified')
         var poluser = req.param('poluser')
-        var result = req.param('result')
         var pinCode = Math.floor(1000 + Math.random() * 9000)
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        var personalisation = {
-            'pincode': pinCode
-        }
-        var reason = req.param('reason')
+        var personalisation = {'pincode': pinCode}
+
         var result = req.param('result')
         // send text message
 
@@ -75,7 +72,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v13/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
+        res.render('create-account/v13/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result }, function(err, html) {
             res.send(html)
         })
     })
