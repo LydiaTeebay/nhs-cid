@@ -142,19 +142,17 @@
     content: "";
     position: relative;
     display: inline-block;
-    //right: 0;
     margin-right: 10px;
     margin-bottom: -6px;
     height: 25px;
     width: 25px;
     background: transparent url("/images/mini-button-spinner.svg") no-repeat;
     background-size: 25px 25px;
-
     animation-name: spin;
     animation-duration: 0.75s;
     animation-iteration-count: infinite;
     transform-origin: 50% 50%;
-
+    // spin the svg image
     @keyframes spin {
       0% {
         transform: rotate(0deg);
@@ -164,6 +162,7 @@
       }
     }
   }
+  // override opacity of disabled button so spinner is more visible
   &[disabled],
   &[disabled]:hover {
     background-color: #9abda0;
