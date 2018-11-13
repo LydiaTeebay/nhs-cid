@@ -20,9 +20,32 @@
 	<p>Your data will be stored securely. Read our <a href="/terms-of-use/privacy-notice{{ params }}">privacy notice</a> to find out what we’ll do with your data.</p>
 
 	<!--<p class="small">You are agreeing to submit your evidence for checking. It will be held for 7 days after checking and then deleted.</p>-->
-	<a href="service-access-complete{{ params }}&emailLink=v7/email-identity-verified" class="button">Submit information</a>
+	<a href="service-access-complete{{ params }}&emailLink=v7/email-identity-verified" class="button" id="button--save">Submit information</a>
 
 </section>
 
+<script type="text/javascript">
+    submitSpinner()
+    function submitSpinner() {
+        var selects = document.getElementById('button--save')
+        selects.addEventListener('click', function (event) {
+            event.preventDefault()
+            if (selects.getAttribute('disabled') === 'disabled') {
+                console.log('already clicked')
+            } else {
+                event.preventDefault()
+                console.log(selects.getAttribute('disabled'))
+                buttonClicked(selects)
+            }
+        })
+    }
+    function buttonClicked(target) {
+        target.setAttribute('disabled', 'disabled')
+        target.className += ' button--save'
+        setTimeout(function () {
+            window.location.href = target.getAttribute('href')
+        }, 2500)
+    }
+</script>
+
 {% endblock %}
-{% block rightcol %}{% endblock %}
