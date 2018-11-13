@@ -1,0 +1,367 @@
+{% import '_macros/_macro_service.html' as theService with context %}
+{% extends '_layouts/_blank_layout_no_css.html' %}
+
+{% set params = "?service=helm1&serviceName=Helm" + "&mobileNum=" + mobileNum + "&devMode=" + devMode %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en-GB" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://myhelm.org/xmlrpc.php">
+<link rel="icon" href="https://myhelm.org/wp-content/themes/Helm/img/favicon.ico"/>
+<title>Home - Helm</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v8.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://myhelm.org/" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Home - Helm" />
+<meta property="og:url" content="https://myhelm.org/" />
+<meta property="og:site_name" content="Helm" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home - Helm" />
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/myhelm.org\/","name":"Helm","potentialAction":{"@type":"SearchAction","target":"https:\/\/myhelm.org\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Helm &raquo; Feed" href="https://myhelm.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Helm &raquo; Comments Feed" href="https://myhelm.org/comments/feed/" />
+<link rel='stylesheet' id='styles-css'  href='https://myhelm.org/wp-content/themes/Helm/css/core.css?ver=1537290530' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='ie6-css'  href='https://myhelm.org/wp-content/themes/Helm/css/legacy/ie-basic.css?ver=4.9.8' type='text/css' media='all' />
+<![endif]-->
+<!--[if IE 8]>
+<link rel='stylesheet' id='ie8-css'  href='https://myhelm.org/wp-content/themes/Helm/css/legacy/ie.css?ver=4.9.8' type='text/css' media='all' />
+<![endif]-->
+<link rel='https://api.w.org/' href='https://myhelm.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://myhelm.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://myhelm.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel='shortlink' href='https://myhelm.org/' />
+<link rel="alternate" type="application/json+oembed" href="https://myhelm.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmyhelm.org%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://myhelm.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmyhelm.org%2F&#038;format=xml" />
+</head>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808764-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808764-1');
+</script>
+
+<body class="home page-template page-template-template-homepage page-template-template-homepage-php page page-id-11">
+<div class="wrapper">
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col mb-0">
+
+				<a class="skip-link" href="#main-content" tabindex="1">Skip to main content</a>
+
+			</div><!-- /l-col-1 -->
+
+		</div><!-- /row -->
+
+	</div><!-- /container -->
+
+
+	<header class="site-header">
+		<div class="container">
+			<div class="row">
+				<nav class="site-header__nav col">
+					<a class="site-header__logo" href="https://myhelm.org/">Helm</a>
+					<button type="button" class="site-header__burger"><span></span>Open Menu</button>
+					<div class="site-header__menu-holder"><ul id="primary-menu" class="site-header__menu"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="#scroll-about">About</a></li>
+<li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="#scroll-features">Features</a></li>
+<li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="#scroll-contact">Contact</a></li>
+<li id="menu-item-10" class="site-header__login menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="helm-login.html">Login</a></li>
+</ul></div>				</nav>
+			</div>
+		</div>
+	</header>
+
+
+
+<!-- HERE IS THE BANNER! -->
+
+
+<div class="homepage-hero bg-grey--tint">
+
+    <div class="background-circle background-circle--green"></div>
+    <div class="background-circle background-circle--yellow"></div>
+    <div class="background-circle background-circle--blue"></div>
+
+    <section class="container-fluid h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12 col-sm-8 col-md-6 text-center">
+
+                <h1 class="homepage-hero__logo scroll-in">Helm</h1>
+                <span class="homepage-hero__strapline scroll-in">Your health and care data under control</span>
+                <a href="#scroll-about" class="btn-primary scroll-in">Discover Helm<i class="icon icon-arrow-down"></i></a>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!--- HERE THE BANNER ENDS -->
+
+
+
+
+
+
+            <section class="container section-spacer"  id="scroll-about">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 text-center--md scroll-in">
+                        <h2>What can Helm do for you?</h2>
+                        <p>Helm helps you to manage and control your own care and wellbeing. It will revolutionise access to personal data, starting with your medical information and expanding to include secure data from other sources. It will enable you to use your health and care data to make more informed decisions about your wellbeing choices.</p>
+                    </div>
+                </div>
+            </section>
+
+
+        
+            
+                <section class="container image-split image-split--alt section-spacer">
+
+             
+
+                <div class="background-circle background-circle--yellow"></div>
+                <div class="background-circle background-circle"></div>
+            
+                <div class="row">
+                    <div class="col-12 col-md-5 col-lg-5 offset-lg-1 scroll-in">
+                        <div class="image-split__content">
+                            <h2>Your health records in your pocket</h2>
+                            <p>Important information about you - wherever and whenever you go on mobile, tablet or computer. </p>
+                        </div>
+                    </div> 
+
+                    
+                    
+                    <div class="col-12 col-md-7 col-lg-6">
+
+                        <div class="row image-split__img-contain">
+
+                            <div class="col-12 col-sm-6 col-md-12 scroll-in">
+
+                                <img src="https://myhelm.org/wp-content/uploads/2018/04/image-993x1200.jpg" alt="" />
+
+                            </div>
+
+                            
+                                <div class="col-12 col-sm-6 col-md-12 drop-shadow offset-image offset-image--left p-md-0 scroll-in">
+
+                                                        
+
+                                <img src="https://myhelm.org/wp-content/uploads/2018/04/app-1.jpg" alt="" class="mb-0"/>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+                </div>
+            </section>
+
+        
+        <section class="container section-spacer" id="scroll-features">
+
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-8 col-lg-6 text-center scroll-in">
+                    <h2>Safe and secure</h2>
+                    <p>Protected data via a secure network, Helm is tested to ensure data is kept safe at all times.</p>
+                </div>
+            </div>
+
+            <div class="row data-rings"> 
+                <div class="col-12 col-sm-6 col-lg-4 text-center scroll-in">
+                    <div class="data-ring">
+                        <div class="background-circle background-circle--green"></div>
+                        <p class="data-ring__text">Contribute your own information to Helm</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 text-center scroll-in">
+                    <div class="data-ring">
+                        <div class="background-circle"></div>
+                        <p class="data-ring__text">Developed with you in mind</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 text-center scroll-in">
+                    <div class="data-ring">
+                        <div class="background-circle background-circle--blue"></div>
+                        <p class="data-ring__text">Secure and encrypted data</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    	
+             
+
+                <section class="container image-split section-spacer">
+
+             
+
+                <div class="background-circle background-circle--yellow"></div>
+                <div class="background-circle background-circle"></div>
+            
+                <div class="row">
+                    <div class="col-12 col-md-5 col-lg-5 offset-lg-1 scroll-in">
+                        <div class="image-split__content">
+                            <h2>It’s just the beginning </h2>
+                            <p>We think that Helm has huge potential to transform the way people use their health and care information. But we need your feedback to make sure that Helm includes data that is useful and accessible to you. </p>
+                        </div>
+                    </div> 
+
+                    
+                    
+                    <div class="col-12 col-md-7 col-lg-6">
+
+                        <div class="row image-split__img-contain">
+
+                            <div class="col-12 col-sm-6 col-md-12 scroll-in">
+
+                                <img src="https://myhelm.org/wp-content/uploads/2018/04/image-2-993x1200.jpg" alt="" />
+
+                            </div>
+
+                             
+
+                                <div class="col-12 col-sm-6 col-md-12 drop-shadow offset-image offset-image--right p-md-0 scroll-in">
+
+                                                        
+
+                                <img src="https://myhelm.org/wp-content/uploads/2018/04/bar-chart-01.jpg" alt="" class="mb-0"/>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+                </div>
+            </section>
+
+        
+
+            <section class="full-width-pod bg-grey--tint">
+                <div class="background-circle background-circle--green"></div>
+                <div class="background-circle background-circle--yellow"></div>
+                <div class="background-circle background-circle--blue"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-8 col-xl-6 text-center--md text-center-lg scroll-in">
+                            <h2>Take control. Take the Helm.</h2>
+                            <p>Helm is a smart, seamless digital experience you’ve been waiting for. It is revolutionising access to personal data, giving you more information, control and choice in healthcare, and in the future other public services too, all with a single login.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        
+<section class="container section-spacer partners-pod">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3>Helm is brought to you by</h3>
+        </div>
+        <div class="col-6 offset-3 col-sm-4 offset-sm-2 col-md-3 offset-md-3 col-lg-2 offset-lg-4 partner-pod__img-contain">
+            <img src="https://myhelm.org/wp-content/themes/Helm/img/nhs-logo.png" alt="NHS logo">
+        </div>
+        <div class="col-6 offset-3 col-sm-4 offset-sm-0 col-md-3 col-lg-2 partner-pod__img-contain">
+            <img src="https://myhelm.org/wp-content/themes/Helm/img/leeds-city-council.png" alt="Leeds city council logo">
+        </div>
+        <div class="col-12 hide-md">
+            <hr>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="container pre-footer" id="scroll-contact">
+	<div class="background-circle"></div>
+	<div class="row">
+		<div class="col-12 col-lg-6 pod-holder">
+			<div class="pod h-100--md">
+				<h4>Ready to take the helm?</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do elusmod.</p>
+				<form action="" class="newsletter-form">
+					<div class="row">
+						<div class="col col-sm-6">
+							<input type="text" placeholder="First name">
+						</div>
+						<div class="col col-sm-6">
+							<input type="text" placeholder="Surname">
+						</div>
+					</div>
+					<input type="text" placeholder="Email">
+					<input type="submit" class="btn-primary">
+				</form>
+			</div>
+		</div>
+		<div class="col-12 col-lg-6 pod-holder">
+			<div class="pod h-100--md">
+				<h4>Want to develop for Helm?</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do elusmod.</p>
+				<a href="#" class="btn-primary btn-primary--outline">Get in touch</a>
+			</div>
+		</div>
+	</div>
+</section> -->
+<footer class="site-footer">
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-12">
+				<hr>
+			</div>
+			
+			<div class="col-12 col-md-6">
+				<!-- <nav class="site-footer__menu">
+					<ul id="footer-menu" class="site-footer__nav"><li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="https://myhelm.org/frequently-asked-questions/">Frequently asked questions</a></li>
+<li id="menu-item-121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-121"><a href="https://myhelm.org/supporting-documentation/">Supporting documentation</a></li>
+<li id="menu-item-55" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"><a href="https://myhelm.org/website-terms-conditions/">Website terms &#038; conditions</a></li>
+<li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54"><a href="https://myhelm.org/cookie-policy/">Cookies</a></li>
+</ul>				</nav> -->
+			</div>
+
+			<div class="col-12 col-md-6 site-footer__content">
+				 <div class="footer-logo site-footer__logo">
+					<img src="https://myhelm.org/wp-content/themes/Helm/img/helm-logo.svg" alt="Helm logo">
+				</div>
+				<span>Copyright 2018 Helm. All rights reserved.</span>
+			</div>
+
+		</div>
+
+	</div>
+	
+</footer>
+
+</div><!-- /wrapper -->
+
+
+<script type='text/javascript' src='https://myhelm.org/wp-content/themes/Helm/js/vendors.js?ver=4.9.8'></script>
+<script type='text/javascript' src='https://myhelm.org/wp-content/themes/Helm/js/site.js?ver=4.9.8'></script>
+<script type='text/javascript' src='https://myhelm.org/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+
+</body>
+</html>
+{% endblock %}

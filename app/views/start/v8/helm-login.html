@@ -1,0 +1,211 @@
+{% extends '_layouts/_blank_layout_no_css.html' %}
+
+{% set params = "?service=helm1&serviceName=Helm" + "&mobileNum=" + mobileNum + "&devMode=" + devMode %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+    <link href="data:image/x-icon;base64,    iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGjGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTgtMDYtMTJUMTQ6NTk6NDErMDE6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTgtMDYtMTJUMTQ6NTk6NDErMDE6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE4LTA2LTEyVDE0OjU5OjQxKzAxOjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjZmZjM4NjYyLTMyNzAtNDJiZC04MGVkLTQxZDZhZDNmMWJmOSIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmYwNmIyYzNmLTkzMDctZjI0MS1hZGIzLTY1NTAwZGFkOWE4MiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjM4ZWU0ZjRjLTgwZjUtNDI4OS1iMzRkLTQyMDNmMTZhNmExMiIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MzhlZTRmNGMtODBmNS00Mjg5LWIzNGQtNDIwM2YxNmE2YTEyIiBzdEV2dDp3aGVuPSIyMDE4LTA2LTEyVDE0OjU5OjQxKzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoTWFjaW50b3NoKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NmZmMzg2NjItMzI3MC00MmJkLTgwZWQtNDFkNmFkM2YxYmY5IiBzdEV2dDp3aGVuPSIyMDE4LTA2LTEyVDE0OjU5OjQxKzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPHBob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHJkZjpCYWc+IDxyZGY6bGk+eG1wLmRpZDozRUMwRkVGQTVDRTIxMUU4QUM5MTlDRTZFOEIyQkJEQTwvcmRmOmxpPiA8L3JkZjpCYWc+IDwvcGhvdG9zaG9wOkRvY3VtZW50QW5jZXN0b3JzPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhKveukAAA6RSURBVHic7Z1pkFxVGYafnu7Zskw6MRBD7GwQjKSCaFygZHFlE5RV44oiFqK4NKW4UcUPf7hA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" rel="icon" type="image/x-icon">
+    <title>myHelm - Login</title>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://login.myhelm.org/assets/css/grotesk.css">
+    <link rel="stylesheet" href="https://login.myhelm.org/assets/css/remodal.css">
+
+    <link rel="stylesheet" href="https://login.myhelm.org/assets/css/main.css">
+
+    <link rel="stylesheet" href="https://login.myhelm.org/assets/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  </head>
+
+<style>
+@media (max-width: 414px) {
+    .strapline {
+        top: 50px;
+    }
+    .LoginRegister {
+        padding-top:70px;
+    }
+}
+
+.nhs-login {
+    background: #005eb8 url('/images/nhs-login-v2.png') no-repeat 13px 13px;
+    color: #fff;
+    text-decoration: none;
+    //text-transform: uppercase;
+    display: block;
+    padding: 15px 18px 15px 100px;
+    border-radius: 4px;
+    border-bottom: #003087 solid 4px;
+    /*width: 100%;*/
+    text-align: left;
+    max-width: 265px;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.federated-box {
+    text-align: center;
+    margin: 0 auto;
+}
+
+@font-face{
+  font-family:"Frutiger W01";
+  src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix");
+  src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix") format("eot"),
+      url("https://assets.nhs.uk/fonts/0811514e-6660-4043-92c1-23d0b8caaa2f.woff2") format("woff2"),
+      url("https://assets.nhs.uk/fonts/aeae8cac-ba4d-40d2-bbcf-936f2c7dcfe6.woff") format("woff"),
+      url("https://assets.nhs.uk/fonts/caedf2e6-fbef-4928-b08e-1f975981ae8d.ttf") format("truetype"),
+      url("https://assets.nhs.uk/fonts/7def0e34-f28d-434f-b2ec-472bde847115.svg") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:"Frutiger W01";
+  src:url("https://assets.nhs.uk/fonts/eb06b4c3-c0fd-4cd0-a9d9-a2954f6839a7.eot?#iefix");
+  src:url("https://assets.nhs.uk/fonts/eb06b4c3-c0fd-4cd0-a9d9-a2954f6839a7.eot?#iefix") format("eot"),
+      url("https://assets.nhs.uk/fonts/8c92eb68-ce37-4962-a9f4-5b47d336bd1c.woff2") format("woff2"),
+      url("https://assets.nhs.uk/fonts/9bdfdcac-bbd4-46a9-9280-056c9a4438a2.woff") format("woff"),
+      url("https://assets.nhs.uk/fonts/5dae3a6e-9b07-4c2f-aed2-1f5b8951261b.ttf") format("truetype"),
+      url("https://assets.nhs.uk/fonts/eae74276-dd78-47e4-9b27-dac81c3411ca.svg") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:"Frutiger W01";
+  src:url("https://assets.nhs.uk/fonts/fb1e4ad2-83fa-4735-aa1b-900f4a36749f.eot?#iefix");
+  src:url("https://assets.nhs.uk/fonts/fb1e4ad2-83fa-4735-aa1b-900f4a36749f.eot?#iefix") format("eot"),
+      url("https://assets.nhs.uk/fonts/221b3252-186e-4a32-a90b-cc0c3a4817d7.woff2") format("woff2"),
+      url("https://assets.nhs.uk/fonts/a061c7a6-3b14-451e-883c-0f1661ac3d76.woff") format("woff"),
+      url("https://assets.nhs.uk/fonts/558394f3-8981-4be9-8a8a-c23488eb9b6d.ttf") format("truetype"),
+      url("https://assets.nhs.uk/fonts/1c437efb-925e-4bc5-96d0-c706bb400696.svg") format("svg");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/*
+.nhs-login {
+    font-size: 20px;
+    line-height: 32px;
+    background-color: #005eb8;
+    font-family: Frutiger W01;
+    font-weight: 600;
+    line-height: 32px;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-appearance: none;
+    background-color: #007f3b;
+    border: 0;
+    box-shadow: 0 2px 0 #003317;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: .5px;
+    line-height: 1.25;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 0;
+}
+*/
+
+.nhs-login:link, .nhs-login:visited, .nhs-login:hover, .nhs-login:active  {
+    color: white;
+}
+</style>
+
+  <body>
+
+    <div id="root">
+
+      <img src="https://login.myhelm.org/assets/strapline.png" alt="Helm - Your Health and care data under control" class="strapline">
+
+      <div class="LoginRegister">
+
+        <div class="form-box">
+          <div class="titleLogin">
+            Log In<i class="fa fa-angle-down"></i>
+          </div>
+
+          <div class="grant-debug">
+            
+          </div>
+
+          
+
+          <form class="forms" autocomplete="off" action="https://login.myhelm.org/openid/interaction/4196ce38-e882-4520-a767-e0ec79e7b76d/login" method="post" id="loginForm">
+
+            <div class="federated-box">
+
+                <a href="/create-account/v12/start{{ params }}" class="nhs-login">Continue with NHS login</a>
+
+            <!--<a href="/create-account/v12/start{{ params }}" class="nhs-login" id="btn_login">Log in with NHS</a>-->
+           </div>
+
+           <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin-bottom: 25px; margin-top:12px;">
+                <span style="font-size: 18px; background-color: #ffffff; padding: 0 10px;">Or</span>
+            </div>
+
+            <label>
+              Email Address
+              <input placeholder="Enter your email address" required="" type="email" name="email" autofocus="on">
+            </label>
+            <label>
+              Password
+              <input placeholder="Password" required="" type="password" name="password">
+            </label>
+
+            
+                <div class="btn-box">
+                    <a href="https://login.myhelm.org/openid/interaction/4196ce38-e882-4520-a767-e0ec79e7b76d/forgotPassword" class="forgotten">[ Forgot my Password ]</a>
+                    <button class="succes login" type="button"><i class="fa fa-check"></i>Log In</button>
+                </div>
+           
+                
+
+          </form>
+
+        </div>
+      </div>
+
+<!--
+      <div class="LoginRegister">
+        <div class="grant-debug">
+          
+        </div>
+      </div>
+-->
+
+      <div class="footer">
+        <p>Copyright 2018 Leeds City Council. All rights reserved</p>
+
+        <div class="footer-img">
+          <img alt="leeds" src="https://login.myhelm.org/assets/leeds.png">
+          <img alt="nsh" src="https://login.myhelm.org/assets/nhs.png">
+        </div>
+      </div>
+
+
+      
+      </div><!-- /.remodal -->
+
+    <!-- #root -->
+
+    <script src="https://login.myhelm.org/js/jquery.min.js"></script>
+    <script src="https://login.myhelm.org/js/remodal.min.js"></script>
+    <script src="https://login.myhelm.org/js/js.cookie.js"></script>
+    <script src="https://login.myhelm.org/js/main.js"></script><div class="remodal-overlay remodal-is-closed" style="display: none;"></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div data-remodal-id="modal" class="modal remodal remodal-is-initialized remodal-is-closed" tabindex="-1">
+
+</body></html>
+
+{% endblock %}
