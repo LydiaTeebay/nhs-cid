@@ -4,19 +4,7 @@
 
 {% block body %}
 
-<style>
-.global-header__inner {
-  padding-left: 16px;
-}
-.page-section {
-    padding: 0 16px 16px 16px;
-}
 
-input.form-control {
-    margin-top: 0;
-    margin-bottom:16px;
-}
-</style>
 
 <p><a href="login-nhs"><- back</a></p>
 
@@ -53,6 +41,9 @@ input.form-control {
       {% endif %}
     </div>
     <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login?resend=yes">you can resend it</a>.</p>
+
+    {% include '_partials/_includes/_scenarios_2fa.html' %}
+
   </form>
 </div>
 
