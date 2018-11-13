@@ -27,8 +27,9 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var emailLink = req.param('emailLink')
+        var complete = req.param('complete')
         // re-render the page along with the parameter
-        res.render('service-access/v13/service-access-complete', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, emailLink: emailLink }, function(err, html) {
+        res.render('service-access/v13/service-access-complete', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, emailLink: emailLink, complete: complete }, function(err, html) {
             res.send(html)
         })
     })
@@ -100,8 +101,9 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var complete = req.param('complete')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-complete', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-complete', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, complete: complete }, function(err, html) {
             res.send(html)
         })
     })

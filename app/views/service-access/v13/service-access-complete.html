@@ -4,6 +4,7 @@
 {% set signedin = 'true' %}
 {% set verified = 'true' %}
 
+
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead %}
 
 {% block header %}
@@ -32,7 +33,7 @@
         if(location.hash === "#!/stealingyourhistory") {
             history.replaceState(null, document.title, location.pathname)
             setTimeout(function(){
-                location.replace("/service-access/v13/service-access-completed{{ params|safe }}")
+                location.replace("/service-access/v13/service-access-completed{{ params|safe }}&complete-true")
             },0)
         }
     }, false)
