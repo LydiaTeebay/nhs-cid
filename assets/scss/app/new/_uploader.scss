@@ -70,7 +70,10 @@
     height: 173.91304px;
     background: #fff;
     text-align: center;
-    display: table;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .ppc-percents span,
@@ -124,8 +127,8 @@
 }
 
 .pcc-percents-wrapper {
-    display: table-cell;
-    vertical-align: middle;
+    //display: flex;
+    //vertical-align: middle;
 }
 
 .ppc-percents,
