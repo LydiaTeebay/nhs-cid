@@ -38,14 +38,21 @@
     text-decoration: none;
     //text-transform: uppercase;
     display: block;
-    padding: 15px 18px 15px 100px;
+    padding: 16px 18px 14px 90px;
     border-radius: 4px;
-    border-bottom: #003087 solid 4px;
+    box-shadow: 0 4px 0 #003087;
     /*width: 100%;*/
     text-align: left;
-    max-width: 265px;
+    max-width: 275px;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     font-size: 18px;
+}
+.nhs-login:hover, .nhs-login:focus {
+  background-color: #0153a1;
+}
+.nhs-login:active {
+  margin-top: 2px;
+  box-shadow: none;
 }
 
 .federated-box {
@@ -147,7 +154,7 @@
 
             <div class="federated-box">
 
-                <a href="/create-account/v12/start{{ params }}" class="nhs-login">Continue with NHS login</a>
+                <a href="/create-account/v13/start{{ params }}" class="nhs-login">Continue with NHS login</a>
 
             <!--<a href="/create-account/v12/start{{ params }}" class="nhs-login" id="btn_login">Log in with NHS</a>-->
            </div>
