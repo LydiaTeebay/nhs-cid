@@ -1,0 +1,35 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('login') }}{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+   <form>
+
+        <div class="form-group">
+            <h1>Sharing your information</h1>
+            <p>NHS App requires some information about you. By accepting you are agreeing to share this information with NHS App:</p>
+            <ul>
+                <li>your surname</li>
+                <li>your date of birth</li>
+                <li>your NHS number</li>
+                <li>the GP surgery that you are registered with</li>
+            </ul>
+        </div>
+
+        <a class="button" href="#" id="">Accept</a>
+        <p><a href="#">Do not accept</a> - you will not be able to get access to NHS App</p>
+
+
+       
+
+    </form>
+</div>
+
+{% endblock %}
