@@ -41,10 +41,10 @@ module.exports = function (router) {
         //console.log("testing pin code");
         var challenge = req.param('challenge')
         if (challenge === "hands") {
-            var pinCode1 = Math.floor(Math.random() * 6)
-            var pinCode2 = Math.floor(Math.random() * 6)
-            var pinCode3 = Math.floor(Math.random() * 6)
-            var pinCode4 = Math.floor(Math.random() * 6)
+            var pinCode1 = Math.ceil(Math.random() * 5)
+            var pinCode2 = Math.ceil(Math.random() * 5)
+            var pinCode3 = Math.ceil(Math.random() * 5)
+            var pinCode4 = Math.ceil(Math.random() * 5)
         } else {
             var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
             var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())

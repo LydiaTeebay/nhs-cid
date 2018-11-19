@@ -103,12 +103,16 @@
 
           {% if challenge === "say" %}
             <p>Say these 4 numbers when you record your video</p>
-            <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
+            <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em">{{ pinCode }}</p>
           {% endif %}
 
           {% if challenge === "hands" %}
             <p>Use your hands to show numbers</p>
-            <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
+            <p class="camera-challenge" style="font-size: 42px; margin-left:25px; letter-spacing: 25px">{{ pinCode }}</p>
+            <img style="padding-top:0" src="/images/challenge-hand-{{ pinCode[0] }}.png" width="80" height="100" />
+            <img style="padding-top:0" src="/images/challenge-hand-{{ pinCode[2] }}.png" width="80" height="100" />
+            <img style="padding-top:0" src="/images/challenge-hand-{{ pinCode[4] }}.png" width="80" height="100" />
+            <img style="padding-top:0" src="/images/challenge-hand-{{ pinCode[6] }}.png" width="80" height="100" />
           {% endif %}
 
           {% if challenge === "write" %}
@@ -190,9 +194,15 @@
       </div>
     </div>
 
-
     <div class="form-group">
+      {% if challenge === "hands" %}
+      <p>Can you see all of your face and did you show the numbers <strong>{{ pinCode }}</strong> clearly?</p>
+      {% elif challenge === "write" %}
+      <p>Can you see all of your face and did you show the written numbers <strong>{{ pinCode }}</strong> clearly?</p>
+      {% else %}
       <p>Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</p>
+      {% endif %}
+
       <p>You need to watch the video before you can continue.</p>
 
       <a class="button" disabled="disabled" href="" id="submit-videoSelfie4-button">Yes - continue</a>
