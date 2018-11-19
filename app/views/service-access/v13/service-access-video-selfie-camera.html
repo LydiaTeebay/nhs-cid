@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Record a short video{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge %}
 
 {% block extrastyles %}
 
@@ -80,7 +80,14 @@
           </h1>
         </legend>
 
+        {% if challenge === "say" %}
+        {% endif %}
 
+        {% if challenge === "hands" %}
+        {% endif %}
+
+        {% if challenge === "write" %}
+        {% endif %}
 
         {% if mobileOsV === 11.2 and devMode === 'true' %}
 
@@ -94,8 +101,22 @@
 
         {% else %}
 
-        <p>Say these 4 numbers when you record your video</p>
-        <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
+          {% if challenge === "say" %}
+            <p>Say these 4 numbers when you record your video</p>
+            <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
+          {% endif %}
+
+          {% if challenge === "hands" %}
+            <p>Use your hands to show numbers</p>
+            <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
+          {% endif %}
+
+          {% if challenge === "write" %}
+            <p>Write numbers</p>
+            <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
+          {% endif %}
+
+
 
         {% endif %}
 

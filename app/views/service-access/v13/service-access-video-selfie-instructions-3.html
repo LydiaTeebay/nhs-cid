@@ -1,0 +1,67 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <section class="" id="scan-id-1">
+
+    <p><a href="service-access-video-selfie{{ params }}" class="link-back">Back</a></p>
+
+    <form>
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            Instructions {{ challenge }}
+          </h1>
+        </legend>
+
+        {% if challenge === "say" %}
+        {{ challenge }}
+        Inc record face
+        <ul>
+          <li>Start recording</li>
+          <li>Stop recording</li>
+        </ul>
+        {% endif %}
+
+        {% if challenge === "hands" %}
+        {{ challenge }}
+        Inc show face
+        <mark>image</mark>
+        <ul>
+          <li>Start recording</li>
+          <li>Stop recording</li>
+        </ul>
+        <p>It might be easier if you ask for help</p>
+        {% endif %}
+
+        {% if challenge === "write" %}
+        {{ challenge }}
+        Inc show face - write clearly
+        <mark>image</mark>
+        <ul>
+          <li>Start recording</li>
+          <li>Stop recording</li>
+        </ul>
+        <p>It might be easier to get help</p>
+        {% endif %}
+      
+        <div class="form-group">
+			    <a class="button" href="service-access-video-selfie-camera{{ params }}">Continue</a>
+		    </div>
+        <p><a href="service-access-video-selfie-instructions-2{{ params }}">Choose another way</a></p>
+      </fieldset>
+
+    </form>
+
+
+  </section>
+
+</div>
+
+{% endblock %}
