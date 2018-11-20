@@ -131,8 +131,9 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var genericButton = req.param('genericButton')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-video-selfie-instructions-2', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-video-selfie-instructions-2', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton }, function(err, html) {
             res.send(html)
         })
     })

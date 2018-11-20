@@ -306,12 +306,13 @@ module.exports = function (router) {
         var changetomobile = 'true'
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var genericButton = req.param('genericButton')
 
         if (challenge !== 'undefined') {
             var formerror = challenge
         }
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile }, function(err, html) {
+        res.render('service-access/pb/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile, genericButton: genericButton }, function(err, html) {
             res.send(html)
         })
     })
@@ -328,6 +329,8 @@ module.exports = function (router) {
         var challenge = req.param('challenge')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var genericButton = req.param('genericButton')
+
         if (idType === 'driving licence') {
             // var formerror = 'invalid'
         }
@@ -335,9 +338,9 @@ module.exports = function (router) {
             // var formerror = 'undefined'
         }
         if (idType === 'passport' || idType === 'driving licence') {
-            res.redirect('/service-access/pb/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile )
+            res.redirect('/service-access/pb/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&genericButton=' + genericButton )
         } else {
-            res.redirect('/service-access/pb/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile )
+            res.redirect('/service-access/pb/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&genericButton=' + genericButton )
         }
     })
 
