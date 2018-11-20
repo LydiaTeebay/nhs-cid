@@ -41,15 +41,31 @@ module.exports = function (router) {
         //console.log("testing pin code");
         var challenge = req.param('challenge')
         if (challenge === "hands") {
-            var pinCode1 = Math.ceil(Math.random() * 5)
-            var pinCode2 = Math.ceil(Math.random() * 5)
-            var pinCode3 = Math.ceil(Math.random() * 5)
-            var pinCode4 = Math.ceil(Math.random() * 5)
+
+            var pinArray = [
+                '1 3 2 5',
+                '4 2 3 1',
+                '4 3 5 2',
+                '3 2 1 5',
+                '5 1 3 2',
+                '4 2 3 5',
+                '4 3 4 2',
+                '2 4 1 3',
+                '5 1 4 2',
+                '3 1 4 2']
+            
+            var pinCode = pinArray[Math.floor(Math.random()*9)]
+            //var pinCode1 = Math.ceil(Math.random() * 5)
+            //var pinCode2 = Math.ceil(Math.random() * 5)
+            //var pinCode3 = Math.ceil(Math.random() * 5)
+            //var pinCode4 = Math.ceil(Math.random() * 5)
         } else {
             var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
             var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
             var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
             var pinCode4 = Math.floor(0 + (9 - 0) * Math.random())
+            var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
+
         }
         
         var lsId = req.param('lsId')
@@ -58,7 +74,6 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
 
-        var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
         res.render('service-access/v13/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
             res.send(html)
