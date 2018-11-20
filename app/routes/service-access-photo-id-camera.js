@@ -149,13 +149,14 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var genericButton = req.param('genericButton')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         var isMobileOs = req.useragent.platform
         var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
         var isMobileOsV = isMobileOsVer
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-photo-id-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl  }, function(err, html) {
+        res.render('service-access/pb/service-access-photo-id-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton }, function(err, html) {
             res.send(html)
         })
     })

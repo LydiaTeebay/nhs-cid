@@ -137,10 +137,11 @@ module.exports = function (router) {
         var pinCode = Math.floor(1000 + Math.random() * 9000)
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var genericButton = req.param('genericButton')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, devMode: devMode, returnUrl: returnUrl  }, function(err, html) {
+        res.render('service-access/pb/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton  }, function(err, html) {
             res.send(html)
         })
     })

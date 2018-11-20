@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Record a short video{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&challenge=" + challenge + "&returnUrl=" + returnUrl %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&challenge=" + challenge + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
 
 
 {% block extrastyles %}
@@ -123,7 +123,11 @@
               {% set instruction = 'Open camera' %}
             {% endif %}
           {% else %}
-            {% set instruction = 'Open camcorder' %}
+            {% if genericButton === 'true' %}
+              {% set instruction = 'Record a video' %}
+            {% else %}
+              {% set instruction = 'Open camcorder' %}
+            {% endif %}
           {% endif %}
 
 

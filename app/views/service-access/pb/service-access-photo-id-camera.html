@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
 
 {% block content %}
 
@@ -84,7 +84,11 @@
                       {% if mobileOsV === 11.2 and devMode === 'true' %}
                          {% set instruction = 'Open your Photo Library' %}
                       {% else %}
-                         {% set instruction = 'Open camera' %}
+                         {% if genericButton === 'true' %}
+                            {% set instruction = 'Take a photo' %}
+                         {% else %}
+                            {% set instruction = 'Open camera' %}
+                         {% endif %}
                       {% endif %}
                     {% endif %}
 
