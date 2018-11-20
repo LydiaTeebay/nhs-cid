@@ -35,7 +35,7 @@
 					<img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
 					<div class="ppc-loading">
 						<div class="pcc-percents-wrapper">
-							<span id="spinner-status">Please wait</span><span aria-hidden="true">...</span>
+							<span id="spinner-status">Please wait&hellip;</span>
 						</div>
 					</div>
 				</div>
@@ -46,12 +46,12 @@
 
 	<script type="text/javascript">
 		setTimeout(function(){
-			document.getElementById("spinner-status").innerHTML = "It's taking a bit longer than usual"
+			document.getElementById("spinner-status").innerHTML = "It's taking a bit longer than usual&hellip;"
 
 		}, 5000)
 
         setTimeout(function(){
-            document.getElementById("spinner-status").innerHTML = "We're still trying"
+            document.getElementById("spinner-status").innerHTML = "We're still trying&hellip;"
 
         }, 10000)
         setTimeout(function(){
