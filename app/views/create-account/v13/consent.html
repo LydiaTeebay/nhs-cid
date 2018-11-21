@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - {{ theService.name('login') }}{% endblock %}
+{% block page_title %}Agree to share your information{% endblock %}
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
@@ -12,8 +12,7 @@
 
     <div class="form-group">
         <h1>Agree to share your information</h1>
-        <p>NHS login will share information about you with the NHS App.</p>
-        <p>By accepting, you agree to share:</p>
+        <p>To use the NHS App, you will need to agree to share:</p>
         <ul>
             <li>your surname</li>
             <li>your date of birth</li>
