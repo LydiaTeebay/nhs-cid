@@ -237,3 +237,9 @@
 #id-decline {
   margin: 0 0 32px 0;
 }
+
+// remove video player play icon in Chrome browsers
+
+video::-webkit-media-controls-overlay-play-button {
+  display: none;
+}
