@@ -240,6 +240,18 @@
 
 // remove video player play icon in Chrome browsers
 
+#uploaded-video {
+  position: relative;
+}
+
 #uploaded-video::-webkit-media-controls-overlay-play-button {
-  display: none;
+  //display: none;
+  position: absolute;
+  display: inline-block;
+  text-align: left;
+  width: 50%;
+  left: 0;
+  top: 5px;
+
+  //-webkit-appearance: none;
 }
