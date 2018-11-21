@@ -240,6 +240,6 @@
 
 // remove video player play icon in Chrome browsers
 
-video::-webkit-media-controls-overlay-play-button {
+#uploaded-video::-webkit-media-controls-overlay-play-button {
   display: none;
 }
