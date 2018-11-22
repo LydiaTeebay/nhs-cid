@@ -1,0 +1,24 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Agree to share your information{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <!-- <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p> -->
+
+    <div class="form-group">
+        <h1>Get access to Online Consultations using your NHS login</h1>
+        <p>This will create an account with &quot;Online Consultations&quot; using your NHS login registered with chris******@gmail.com.</p>
+        
+    </div>
+
+    <a class="button" href="consent{{ params }}" id="">Agree and continue</a>
+    <p><a href="#">Do not agree</a> - you will not be able to use Online Consultations.</p>
+
+</div>
+
+{% endblock %}
