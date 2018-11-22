@@ -38,6 +38,11 @@
     </section>
 
     <section id="camera-container" style="display:none">
+
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Position your face in the oval</div>
+        </div>
+
         <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
             <div class="camera-preview-feed">
@@ -45,16 +50,28 @@
             </div>
         </div>
 
+        {% if challenge === 'say' %}
         <div class="camera-instructions">
-            <div class="camera-instructions-text">Say these numbers whilst recording your short video: </div>
+            <div class="camera-instructions-text">Say these numbers while recording your video selfie: </div>
             <div class="camera-instructions-numbers">{{ pinCode }}</div>
         </div>
+        {% elif challenge === 'hands' %}
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Sign these numbers while recording your video: </div>
+            <div class="camera-instructions-numbers">{{ pinCode }}</div>
+        </div>
+        {% else %}
+        <div class="camera-instructions">
+            <div class="camera-instructions-text">Write down these numbers and show them while recording your video: </div>
+            <div class="camera-instructions-numbers">{{ pinCode }}</div>
+        </div>
+        {% endif %}
 
         <div class="camera-record">
             <button id="record" class="button" disabled>Start recording</button>
         </div>
 
-        <p><a class="" href="service-access-video-selfie-instructions{{ params }}">Cancel</a></p>
+        <p><a class="" href="service-access-video-selfie-instructions-2{{ params }}">Cancel</a></p>
 
         <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
     </section>
@@ -85,23 +102,22 @@
 
     <section class="preview-container" id="scan-id-5" style="display:none">
 
-        <h1 style="padding-bottom: 0;">Review the short video</h1>
+        <h1 style="padding-bottom: 0;">Check your video</h1>
 
         <div class="reading-width">
             <div id="scan-video-preview">
-                <video id="recorded" controls="" autoplay loop style="width:100%;height:auto;"></video>
+                <video id="recorded" controls="" style="width:100%;height:auto;"></video>
             </div>
             <div class="camera-instructions">
-                <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
-                <div class="camera-instructions-numbers">{{ pinCode }}</div>
+                <div class="camera-instructions-text">Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</div>
             </div>
         </div>
 
-        <button class="button" id="submitvideo">Yes, submit this video</button>
+        <button class="button" id="submitvideo">Yes - continue</button>
 
 
 
-        <p><a href="#" id="retakevideo">Retake</a> or <a class="" href="service-access-video-selfie-instructions{{ params }}">Cancel</a></p>
+        <p><a href="#" id="retakevideo">No - record video again</a></p>
 
     </section>
 
