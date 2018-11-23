@@ -53,8 +53,9 @@ module.exports = function (router) {
                 '2 4 1 3',
                 '5 1 4 2',
                 '3 1 4 2']
-            
-            var pinCode = pinArray[Math.floor(Math.random()*9)]
+
+            var pinCode = pinArray[Math.floor(Math.random()*10)]
+
             //var pinCode1 = Math.ceil(Math.random() * 5)
             //var pinCode2 = Math.ceil(Math.random() * 5)
             //var pinCode3 = Math.ceil(Math.random() * 5)
@@ -192,13 +193,11 @@ module.exports = function (router) {
         var formerror = req.param('formerror')
         var changetomobile = req.param('changetomobile')
         var hidehead = req.param('hidehead')
-        var genericButton = req.param('genericButton')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         var isMobileOs = req.useragent.platform
         var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
         var isMobileOsV = isMobileOsVer
-
         var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
@@ -209,7 +208,7 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, genericButton: genericButton }, function(err, html) {
+        res.render('service-access/pb/service-access-video-selfie-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
