@@ -129,12 +129,14 @@
         {% else %}
 
           {% if challenge === "say" %}
-            <p>Say these 4 numbers when you record your video</p>
+            <p>Say these 4 numbers when you record your video.</p>
+            <p>Make sure you start recording.</p>
             <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em">{{ pinCode }}</p>
           {% endif %}
 
           {% if challenge === "hands" %}
-            <p>Use your hand to show numbers</p>
+            <p>Use your hand to show numbers.</p>
+            <p>Make sure you start recording.</p>
             <p class="camera-challenge" style="font-size: 42px; margin-left:25px; letter-spacing: 18px">{{ pinCode }}</p>
             <img style="padding-top:0" src="/images/challenge-hand-{{ pinCode[0] }}.png" width="68" height="90" />
             <img style="padding-top:0" src="/images/challenge-hand-{{ pinCode[2] }}.png" width="68" height="90" />
@@ -146,8 +148,9 @@
            <!-- <p>Write numbers</p>-->
             <ol>
               <li>Write the 4 numbers clearly on a piece of paper.</li>
-              <li>Record your face. make sure your whole face is in the video.</li>
+              <li>Record your face. Make sure your whole face is in the video.</li>
               <li>Hold the paper to show the numbers.</li>
+              <li>Make sure you start recording.</li>
             </ol>
             <p>Ask someone to help you record the video if it’s easier.</p>
 
