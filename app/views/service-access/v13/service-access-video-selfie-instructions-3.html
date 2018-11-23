@@ -22,92 +22,37 @@
 
         {% if challenge === "say" %}
 
-        <!-- version one -->
         <p>We’ll show you 4 numbers on the next page.</p>
         <p>Make sure you can see your face in the video.</p>
         <p>Start recording.</p>
-         <!-- version one -->
-
-        <!-- version two
-        <p>You’ll need to record a video of your face while you say 4 numbers. We’ll show you the numbers on the next page.</p>
-        <p>Make sure you can see all your face in the video when you start recording.</p>
-        version two -->
 
         {% endif %}
 
         {% if challenge === "hands" %}
-
-        <!-- version one
-        <p>You’ll need to take a video of your face and use your fingers to show 4 numbers – one after the other. We’ll show you the numbers on the next page. You’ll only be shown numbers you can do with one hand.</p>
-        <p>It might be easier to get someone else to take the video.</p>
-        <p>Video your face – make sure you can see all your face when you start recording</p>
-        <img style="max-width:300px" src="/images/challenge-face.png" />
-        <p>Hold your hand up to show the numbers</p>
-        <img style="max-width:300px" src="/images/challenge-hands.png" />
-         version one -->
-
-        <!-- version two -->
-        <!--<p>How to take a video showing numbers with your hand</p>-->
         <ol>
           <li>Record your face. make sure your whole face is in the video.</li>
           <li>Use your hand to show 4 numbers (between 1 and 5). We’ll tell you the numbers on the next page</li>
-
-          <!--<li>Make sure you can see all your face in the screen</li>
-          <li>Start recording</li>
-          <li>Video of your face</li>
-          <li>Hold your hand up to show the numbers – you’ll see the numbers on the next page</li>-->
         </ol>
         <p>Ask someone to help you record the video if it’s easier.</p>
         <img src="/images/challenge-instructions-hands.png" />
-        <!--<p>If it’s easier ask someone else to take your video</p>-->
-        
-        <!-- version two -->
 
         {% endif %}
 
         {% if challenge === "write" %}
 
-        <!-- version one
-        <p>You’ll need to take a video of your face while showing 4 numbers written on a piece of paper. We’ll show you the numbers on the next page.</p>
-        <p>It might help if someone else holds the camera.</p>
-        <p>Write the numbers clearly on a piece of paper</p>
-        <p>Video your face – make sure you can see all your face when you start recording</p>
-        <img style="max-width:300px" src="/images/challenge-face.png" />
-        <p>Hold the paper up to show the numbers</p>
-        <img style="max-width:300px" src="/images/challenge-write.png" />
-         version one -->
-
-        <!-- version two -->
         <ol>
           <li>Write the 4 numbers clearly on a piece of paper</li>
           <li>Record your face. make sure your whole face is in the video.</li>
           <li>Hold the paper to show the numbers</li>
-          <!--<li>We’ll show you 4 numbers on the next page - write these clearly on a piece of paper</li>
-          <li>Start recording</li>
-          <li>Video your face - make sure you can see all your face</li>
-          <li>Hold the paper up to show the numbers</li>-->
         </ol>
         <p>Ask someone to help you record the video if it’s easier.</p>
         <img src="/images/challenge-instructions-write.png" />
-        <!--<p>If it’s easier ask someone else to take the video</p>-->
-        <!-- version two -->
 
         {% endif %}
       
         <div class="form-group">
 			    <a class="button" href="service-access-video-selfie-camera{{ params }}">Continue</a>
 		    </div>
-        {% if challenge === "say" %}
-          <!--<p><a href="service-access-video-selfie-instructions-2{{ params }}">Choose a different way to show the numbers</a></p>-->
-        {% endif %}
-
-        {% if challenge === "hands" %}
-          <!--<p><a href="service-access-video-selfie-instructions-2{{ params }}">Choose another way to take your video</a></p>-->
-        {% endif %}
-
-        {% if challenge === "write" %}
-          <!--<p><a href="service-access-video-selfie-instructions-2{{ params }}">Choose a different way to show the numbers</a></p>-->
-        {% endif %}
         
       </fieldset>
 
