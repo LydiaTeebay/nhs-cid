@@ -12,13 +12,13 @@
 <div class="first-item">
    <form>
 
-       <div class="form-group">
+       <!-- <div class="form-group">
            <h1>Create an NHS login</h1>
            <p>If you do not have an NHS login you need to create one.</p>
            <a class="button" href="create-acc-terms{{ params }}" id="">Create an NHS login</a>
        </div>
       
-       <hr>
+       <hr> -->
 
         <div class="form-group">
             <h1>Log in</h1>
@@ -41,6 +41,8 @@
         </div>
 
         <a class="button" href="two-step-code-login{{ params }}" id="">Continue</a>
+
+        <p><a href="create-acc-terms{{ params }}">Set up an <abbr>NHS</abbr> login</a></p>
 
 
        {% include '_partials/_includes/_scenarios_login.html' %}
