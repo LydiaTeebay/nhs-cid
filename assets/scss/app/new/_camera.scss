@@ -44,12 +44,16 @@ video#recorded {
   background: #222;
   margin: 0;
   display: block;
-  height: 50vh;
-  width: 100vw;
-  object-fit: cover;
+  //height: 50vh;
+  width: 100%;
+  object-fit: contain;
   object-position: 50% 50%;
   //object-fit: contain;
   -webkit-tap-highlight-color: transparent;
+
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
 }
 
 .camera-preview-wrapper {
@@ -149,6 +153,12 @@ button#download {
 
 #camera-container {
   overflow: hidden;
+
+  @include media(tablet) {
+    max-width: 80%;
+    margin: 0 auto 0 auto !important;
+  }
+
 }
 
 #gum {

@@ -1,16 +1,16 @@
 {% macro link() %}
 
-    {% if backURL %}
-        {% if backURL !== 'undefined' %}
-            {% set backLink = backURL %}
+    {% if returnUrl %}
+        {% if returnUrl !== 'undefined' %}
+            {% set returnUrl = returnUrl %}
         {% else %}
-            {% set backLink = 'https://nhsa-private.herokuapp.com/template.php?logged=false&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC06&optarr=default' %}
+            {% set returnUrl = 'https://nhsa-private.herokuapp.com/template.php?logged=false&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC06&optarr=default' %}
         {% endif %}
     {% else %}
-        {% set backLink = 'https://nhsa-private.herokuapp.com/template.php?logged=false&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC06&optarr=default' %}
+        {% set returnUrl = 'https://nhsa-private.herokuapp.com/template.php?logged=false&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&pageCode=SC06&optarr=default' %}
     {% endif %}
 
-    {{ backLink }}
+    {{ returnUrl }}
 
 {% endmacro %}
 

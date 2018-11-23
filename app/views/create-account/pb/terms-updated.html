@@ -1,6 +1,6 @@
 {% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-1-hotjar.html' %}
-{% block page_title %}Updated terms of use{% endblock %}
+{% block page_title %}NHS login terms of use update{% endblock %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
 
 {% block content %}
@@ -11,14 +11,14 @@
 
 		<div class="reading-width">
 
-			<h1 class="heading-large">Updated terms of use</h1>
+			<h1 class="heading-large">NHS login terms of use update</h1>
 
-			<p>We've updated our <a href="/terms-of-use/terms-conditions">terms &amp; conditions</a>, <a href="/terms-of-use/privacy-notice">privacy notice</a> and <a href="/terms-of-use/cookies">cookies</a>.</p>
+			<p>We've updated our <a href="/terms-of-use/terms-conditions">terms and conditions</a>, <a href="/terms-of-use/privacy-notice">privacy notice</a> and <a href="/terms-of-use/cookies">cookies.</a></p>
 
-			<p>By accepting you are agreeing to our updated terms of use.</p>
+			<p>By continuing you agree to our updated terms of use.</p>
 
 			<div class="form-control" style="margin: 32px 0 16px;">
-				<a class="button--information" href="{{ backlink.link() }}">Accept and continue</a>
+				<a class="button--information" href="{{ backlink.link() }}">Continue</a>
 			</div>
 
 		</div>
