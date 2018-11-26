@@ -124,10 +124,10 @@
 
         <p>You'll need to:</p>
         <ol>
-          <li>Open your phone's camera and choose the video mode</li>
-          <li>Record a video of your face while you say these 4 numbers: {{ pinCode }}</li>
-          <li>Come back here and click the button to open your Photo Library</li>
-          <li>Select 'videos', then select the video you recorded</li>
+          <li>Open your phone's camera and choose the video mode.</li>
+          <li>Record a video of your face while you say these 4 numbers: {{ pinCode }}.</li>
+          <li>Come back here and click the button to open your Photo Library.</li>
+          <li>Select 'videos', then select the video you recorded.</li>
         </ol>
 
         {% else %}
@@ -151,10 +151,10 @@
           {% if challenge === "write" %}
            <!-- <p>Write numbers</p>-->
             <ol>
-              <li>Write the 4 numbers clearly on a piece of paper</li>
-              <li>Record your face. Make sure your whole face is in the video</li>
-              <li>Hold the paper to show the numbers</li>
-              <li>Make sure you start recording</li>
+              <li>Write the 4 numbers clearly on a piece of paper.</li>
+              <li>Record your face. Make sure your whole face is in the video.</li>
+              <li>Hold the paper to show the numbers.</li>
+              <li>Make sure you start recording.</li>
             </ol>
             <p>Ask someone to help you record the video if it’s easier.</p>
 
@@ -192,7 +192,7 @@
           <label for="short-video" class="camera-button">{{ instruction }}
             <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %}>
           </label>
-          <p><a href="service-access-video-selfie-instructions-2">Choose another way</a></p>
+          <p><a href="service-access-video-selfie-instructions-2{{ params x}}">Choose another way</a></p>
         </div>
 
       </fieldset>
