@@ -7,7 +7,7 @@
 {% block content %}
 
 {% import "_partials/_components/_callout.html" as callout %}
-        {{ callout.pattern('','We cannot find your NHS login. This could be because you either:<ul><li>entered the wrong email address</li><li>entered the wrong password</li><li>do not have an NHS login yet</li></ul>','alert') }}
+        {{ callout.pattern('','We cannot find your NHS login. This could be because you either:<ul><li>entered the wrong email address</li><li>entered the wrong password</li><li>do not have an NHS login yet</li><li>have not clicked confirm in the email we sent you</li></ul>','alert') }}
 
 <div class="first-item">
    <form>
