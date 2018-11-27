@@ -1,0 +1,20 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
+
+{% block header %}
+{% import "_partials/_components/_local-header.html" as localHeader %}
+{{ localHeader.pattern('Patient ID Verification Service','This service is for clinicians') }}
+{% endblock %}
+
+{% block content %}
+
+<p>Use this service to:</p>
+<ul>
+  <li>Verify a patient's identity</li>
+  <li>Send an email to a patient that allows access to online services</li>
+
+</ul>
+
+<a href="vouching-nhs-no" class="button">Start</a>
+
+{% endblock %}
