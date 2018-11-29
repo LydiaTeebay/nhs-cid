@@ -1,12 +1,15 @@
 {% if lsId or service === "app3" or service === "app4" %}
 
-  {% if hideBeta !== 'true' %}
-  <!-- <div class="banner alert">
+{% if showWarning !== 'true' %}
+  <div class="banner alert">
     <div class="page-section">
-      We are currently experiencing some problems. We're sorry for any issues you may be experiencing.
+      <h4>WARNING</h4>
+      Crayonz has lost his crayons. If you find them on your journey please let Hindsight know.
     </div>
-  </div> -->
+  </div>
+{% endif %}
 
+{% if hideBeta !== 'true' %}
   <div class="banner beta">
       <div class="page-section">
         <span>BETA</span> This is a new service. By using this service you agree to our <a href="/terms-of-use/terms-conditions">terms of use.</a>
