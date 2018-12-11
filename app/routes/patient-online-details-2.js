@@ -8,6 +8,18 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/patient-online/demo/patient-online-details-2', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var poluser = req.param('poluser')
+        res.render('patient-online/demo/patient-online-details-2', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, poluser: poluser}, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/patient-online/v12/patient-online-details-2', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')

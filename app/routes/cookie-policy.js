@@ -1,6 +1,6 @@
 module.exports = function (router) {
 
-    router.get('/terms-of-use/cookie-policy', function (req, res) {
+    router.get('/terms-of-use/cookies', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -19,7 +19,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
 
-        res.render('terms-of-use/cookie-policy', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
+        res.render('terms-of-use/cookies', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy}, function(err, html) {
             res.send(html)
         })
 

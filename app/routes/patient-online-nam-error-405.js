@@ -1,4 +1,17 @@
 module.exports = function (router) {
+    router.get('/patient-online/demo/patient-online-nam-error-405', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/demo/patient-online-nam-error-405', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
     router.get('/patient-online/v13/patient-online-nam-error-405', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')

@@ -35,6 +35,40 @@ module.exports = function (router) {
         })
     })
 
+    router.get('/create-account/demo/two-step-code-pincode', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var resend = req.param('resend')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = req.param('emailAddress')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var pinCode = Math.floor(1000 + Math.random() * 9000)
+        var personalisation = {
+            'pincode': pinCode
+        }
+        // send text message
+
+        if (mobileNum !== '' || mobileNum !== 'undefined') {
+            notifyClient
+                .sendSms(templateId, mobileNum, {
+                    personalisation: personalisation,
+                    smsSenderId: smsSender })
+                .then(response => console.log(response))
+        .catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/demo/two-step-code-pincode', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/v13/two-step-code-pincode', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')

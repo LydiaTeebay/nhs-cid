@@ -8,6 +8,35 @@ module.exports = function (router) {
     })
   })
 
+
+    router.get('/patient-online/demo/patient-online-gp-lookup', function (req, res) {
+        var serviceName = req.param('serviceName')
+        var service = req.param('service')
+        var hidehead = req.param('hidehead')
+        var emptysearch = req.param('emptysearch')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        res.render('patient-online/demo/patient-online-gp-lookup', { serviceName: serviceName, service: service, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, emptysearch: emptysearch }, function(err, html) {
+            res.send(html)
+        })
+    })
+
+    router.post('/patient-online/demo/patient-online-gp-lookup', function (req, res) {
+        var postcode = req.body.gpPostcode
+        var search = req.body.gpName
+        var serviceName = req.param('serviceName')
+        var service = req.param('service')
+        var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+
+        if (postcode === '' && search === '') {
+            res.redirect('/patient-online/demo/patient-online-gp-lookup?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&postcode=' + postcode + '&search=' + search + '&emptysearch=true')
+        } else {
+            res.redirect('/patient-online/demo/patient-online-gp-results?serviceName=' + serviceName + '&service=' + service + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&postcode=' + postcode + '&search=' + search)
+        }
+    })
+
     router.get('/patient-online/v10/patient-online-gp-lookup', function (req, res) {
         var serviceName = req.param('serviceName')
         var service = req.param('service')
