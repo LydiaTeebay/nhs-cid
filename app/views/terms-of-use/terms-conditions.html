@@ -10,6 +10,57 @@
  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
 {% endif %}
 
+{% block extrastyles %}
+<style>
+	.c-page-contents__link.link-terms {
+		font-weight: bold;
+		text-decoration: none;
+	}
+	ol {
+		list-style-type: none;
+		counter-reset: item;
+		margin: 0;
+		padding: 0;
+	}
+
+	ol li {
+		padding-left: 0;
+
+		> ol {
+			flex-direction: row;
+		}
+	}
+
+	ol > li {
+		display: block;
+		margin-top: 1em !important;
+		counter-increment: item;
+		margin-bottom: 0.6em;
+	}
+
+	ol > li:first-of-type > p {
+		 margin-top: 2em !important;
+	}
+
+	ol > li:before {
+		content: counters(item, ".") ". ";
+		/*display: !*table-cell*! inline-block;*/
+		/*flex-direction: row;*/
+		padding-right: 0.6em;
+		font-weight: bold;
+	}
+
+	li ol > li {
+		margin: 0;
+
+	}
+
+	li ol > li:before {
+		content: counters(item, ".") " ";
+	}
+</style>
+{% endblock %}
+
 {% block topRow %}
 
 <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
@@ -17,43 +68,7 @@
 <h1>Terms of use</h1>
 <hr>
 
-<style>
-    .c-page-contents__link.link-terms {
-        font-weight: bold;
-        text-decoration: none;
-    }
-    ol {
-	  list-style-type: none;
-	  counter-reset: item;
-	  margin: 0;
-	  padding: 0;
-	}
 
-	ol li {
-		padding-left: 0;
-	}
-
-	ol > li {
-	  display: table;
-	  counter-increment: item;
-	  margin-bottom: 0.6em;
-	}
-
-	ol > li:before {
-	  content: counters(item, ".") ". ";
-	  display: /*table-cell*/ inline-block;
-	  padding-right: 0.6em;  
-	  font-weight: bold;  
-	}
-
-	li ol > li {
-	  margin: 0;
-	}
-
-	li ol > li:before {
-	  content: counters(item, ".") " ";
-	}
-</style>
 
 {% endblock %}
 
