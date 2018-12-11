@@ -10,35 +10,49 @@
   {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
 {% endif %}
 
-{% block topRow %}
-
-<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-
-<h1>Terms of use</h1>
-<hr>
-
+{% block extrastyles %}
 <style>
-    .c-page-contents__link.link-cookies {
-        font-weight: bold;
-        text-decoration: none;
-    }
-</style>
+	.c-page-contents__link.link-cookies {
+		font-weight: bold;
+		text-decoration: none;
+	}
 
+	.terms-heading {
+		padding-top: 1em;
+		font-size: 24px;
+		display: inline-block;
+	}
+
+	.terms-heading-secondary {
+		font-size: 20px;
+		display: inline-block;
+	}
+</style>
+{% endblock %}
+
+
+{% block topRow %}
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 {% endblock %}
 
 {% block content %}
-
-{% include '_partials/_components/_terms-menu.html' %}
-
+<aside>
+	<nav role="navigation">
+		<h2 class="h3">Terms of use</h2>
+		{% include '_partials/_components/_terms-menu.html' %}
+	</nav>
+	<hr>
+</aside>
 {% endblock %}
 
 {% block rightcol %}
 
 {% block alert %}{% endblock %}
 
-<div class="first-item account-mgmt">
+<div class="first-item">
 
-	<h2>NHS login - cookies</h2>
+	<h1>NHS login - cookies</h1>
+
 	<section id="intro">
 		<p>We put small files called cookies onto your device (for example your phone). </p>
 		<p>We use:</p>
@@ -50,7 +64,7 @@
 	</section>
 	
 	<section id="cookies-we-need">
-		<h3>Cookies we need to set</h3>
+		<h2 class="terms-heading">Cookies we need to set</h2>
 		<p>The cookies we need to put on your device for our platform to work include:</p>
 		<div class="cookie-table">
 			<table>
@@ -84,7 +98,7 @@
 	</section>
 
 	<section id="analytics-cookies">
-		<h3>Analytic cookies</h3>
+		<h2 class="terms-heading">Analytic cookies</h2>
 		<p>We use Adobe and Hotjar analytic tools to collect information about how you use our platform, for example the steps you make, what you click and when you leave. This helps us identify what doesn’t work so we can improve it.</p>
 		<p>These tools do not collect or store your personal information (for example your name or address). This means we cannot identify who you are.</p>
 		<p>We do not allow Adobe or Hotjar to use or share our analytics data.</p>
@@ -184,7 +198,7 @@
 	</section>
 
 	<section id="managing-cookies">
-		<h3>Managing analytics cookies</h3>
+		<h2 class="terms-heading">Managing analytics cookies</h2>
 		<p>Collecting data on how people use our platform helps us improve it. But you can choose to stop your data being collected if you want to.</p>
 		<p>To turn off analytics cookies, you can:</p>
 		<ul>
@@ -194,7 +208,7 @@
 	</section>
 
 	<section id="changes-to-cookies">
-		<h3>Changes to cookies</h3>
+		<h2 class="terms-heading">Changes to cookies</h2>
 		<p>Our terms of use may change. We will inform you on the platform if we make any changes to our privacy notice, cookies or terms and conditions.</p>
 	</section>
 
