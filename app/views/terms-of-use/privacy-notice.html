@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Privacy notice{% endblock %}
+{% block page_title %}privacy notice{% endblock %}
 
 {% set signedin = '' %}
 
@@ -12,6 +12,9 @@
 
 {% block extrastyles %}
 <style>
+	.terms-aside {
+		padding-bottom: 1em;
+	}
 	.c-page-contents__link.link-privacy {
 		font-weight: bold;
 		text-decoration: none;
@@ -35,7 +38,7 @@
 {% endblock %}
 
 {% block content %}
-<aside>
+<aside class="terms-aside">
 	<nav role="navigation">
 		<h2 class="h3">Terms of use</h2>
 		{% include '_partials/_components/_terms-menu.html' %}
@@ -244,7 +247,7 @@
 		<p>Our terms of use may change. We'll inform you on the platform if we make any substantial changes NHS login's privacy notice, cookies or terms and conditions.</p>
 	</section>
 
-	<p><em>Last updated: 23rd November 2018</em></p>
+	<p class="small"><em>Last updated: 17th December 2018</em></p>
 
 </div>
 

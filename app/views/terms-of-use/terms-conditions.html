@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}NHS login – terms and conditions{% endblock %}
+{% block page_title %}Terms and conditions{% endblock %}
 
 {% set signedin = '' %}
 
@@ -12,6 +12,10 @@
 
 {% block extrastyles %}
 <style>
+	.terms-aside {
+		padding-bottom: 1em;
+	}
+
 	.c-page-contents__link.link-terms {
 		font-weight: bold;
 		text-decoration: none;
@@ -62,6 +66,10 @@
 		content: counters(item, ".") " ";
 	}
 
+	h1 ~ ol > li > h2 {
+		padding-top: 0 !important;
+	}
+
 	.terms-heading {
 		padding-top: 1em;
 		font-size: 24px;
@@ -81,7 +89,7 @@
 {% endblock %}
 
 {% block content %}
-<aside>
+<aside class="terms-aside">
 	<nav role="navigation">
 		<h2 class="h3">Terms of use</h2>
 		{% include '_partials/_components/_terms-menu.html' %}
@@ -188,7 +196,7 @@
 			</ol>
 		</li>
 
-		<p><em>Last updated: 13th December 2018</em></p>
+		<p class="small"><em>Last updated: 17th December 2018</em></p>
 
 	</ol>
 </div>
