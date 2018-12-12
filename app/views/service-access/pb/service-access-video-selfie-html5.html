@@ -8,6 +8,16 @@
 {% block extrascripts %}
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="/getUserMedia.js"></script>
+<style>
+    .camera-instructions {
+        display: flex;
+    }
+    .camera-instructions-numbers,
+    .camera-instructions-text {
+        display: block;
+        margin: 0;
+    }
+</style>
 {% endblock %}
 
 {% block header %}
