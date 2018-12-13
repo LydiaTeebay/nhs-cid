@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Step 3: Take a photo of your ID{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&idType=" + idType %}
 
 {% block content %}
 
@@ -34,7 +34,7 @@
 			<div class="service-access__item__desc">
 				<p>You'll need to take a photo of your passport or driving licence. We'll check that it matches your NHS record.</p>
 			</div>
-			<a href="service-access-photo-id-type{{ params }}" class="service-access__item__button button">Start</a>
+			<a href="service-access-photo-id-camera{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 		<li class="service-access__item">
 			<h3 class="service-access__item__title">Record a short video</h3>
