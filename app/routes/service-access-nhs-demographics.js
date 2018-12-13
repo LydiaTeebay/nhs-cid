@@ -80,11 +80,12 @@ module.exports = function (router) {
         var mobileNum = req.param('mobileNum')
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
+        var idType = req.param('idType')
         var hidehead = req.param('hidehead')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-nhs-demographics', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-nhs-demographics', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, idType: idType }, function(err, html) {
             res.send(html)
         })
     })
@@ -96,6 +97,7 @@ module.exports = function (router) {
         var serviceName = req.param('serviceName')
         var mobileNum = req.param('mobileNum')
         var emailAddress = req.param('emailAddress')
+        var idType = req.param('idType')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
         // re-render the page along with the parameter

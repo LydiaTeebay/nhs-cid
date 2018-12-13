@@ -73,10 +73,11 @@ module.exports = function (router) {
         var mobileNum = req.param('mobileNum')
         var emailAddress = req.param('emailAddress')
         var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-nhs-acc', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-nhs-acc', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, idType: idType }, function(err, html) {
             res.send(html)
         })
     })

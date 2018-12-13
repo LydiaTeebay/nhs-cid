@@ -211,30 +211,13 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var formerror = req.param('formerror')
         var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-nhs-number', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-nhs-number', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, idType: idType }, function(err, html) {
             res.send(html)
         })
-    })
-
-    router.post('/service-access/pb/service-access-nhs-number', function (req, res) {
-        var nhs_yes = req.body.radioinlinegroup.val()
-        var service = req.param('service')
-        var serviceName = req.param('serviceName')
-        var mobileNum = req.param('mobileNum')
-        var emailAddress = req.param('emailAddress')
-        var formerror = req.param('formerror')
-        var hidehead = req.param('hidehead')
-        var devMode = req.param('devMode')
-        var returnUrl = req.param('returnUrl')
-        console.log(nhs_yes)
-        if (nhs_yes === 'yes') {
-
-        }
-
-        res.redirect('/service-access/pb/service-access-nhs-number-demographics-name?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&formerror=' + formerror + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl )
     })
 
     router.get('/service-access/v9/service-access-nhs-number', function (req, res) {

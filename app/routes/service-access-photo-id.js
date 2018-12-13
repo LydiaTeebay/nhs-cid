@@ -111,11 +111,12 @@ module.exports = function (router) {
         var mobileNum = req.param('mobileNum')
         var emailAddress = req.param('emailAddress')
         var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var genericButton = req.param('genericButton')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-photo-id', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton }, function(err, html) {
+        res.render('service-access/pb/service-access-photo-id', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, idType: idType }, function(err, html) {
             res.send(html)
         })
     })

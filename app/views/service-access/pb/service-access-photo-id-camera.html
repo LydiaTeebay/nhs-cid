@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&idType=" + idType %}
 
 {% block content %}
 
@@ -47,7 +47,7 @@
                         {% if mobileOsV === 11.2 and devMode === 'true' %}
                         Upload a photo of your {{ idType }}
                         {% else %}
-                        Take a photo of your passport or your {{ idType }}
+                        Take a photo of your {{ idType }}
                         {% endif %}
                     </h1>
                 </legend>
