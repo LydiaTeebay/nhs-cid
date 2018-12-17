@@ -14,40 +14,41 @@
 
     <form>
       <fieldset class="">
-        <legend for="radio-inline-group">
-          <h1 style="padding-bottom: 0;">
-            Record a short video
-          </h1>
-        </legend>
 
-        <p>You'll need to record a video of your face while you say 4 numbers.</p>
-        <p>We'll show the numbers on the next page.</p>
+        <h1 style="padding-bottom: 0;">Record a short video</h1>
+        <p>You'll need to:</p>
+        <ul>
+          <li>record a video of your face</li>
+          <li>say or show 4 numbers in the video</li>
+        </ul>
 
-        <div class="form-group">
-          <a href="service-access-video-selfie-camera{{ params }}&formerror=undefined" class="button camera-button">Continue</a>
+
+        <h2 class="h3" style="padding:0.5em 0 0 0;">How do you want to do this?</h2>
+
+        <div class="selection-button-radio" style="margin-top: 32px;">
+          <div class="multiple-choice">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-challenge-1{{ params }}">
+            <label for="radio-inline-1" class="block-label" style="position: static;">Say the numbers</label>
+          </div>
         </div>
-
+        <div class="selection-button-radio">
+          <div class="multiple-choice">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-challenge-2{{ params }}">
+            <label for="radio-inline-2"class="block-label" style="position: static;">Use my hand to show the numbers</label>
+          </div>
+        </div>
+        <div class="selection-button-radio">
+          <div class="multiple-choice">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-challenge-3{{ params }}">
+            <label for="radio-inline-2"class="block-label" style="position: static;">Write the numbers down and show them</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <a class="button" href="#" id="continue">Continue</a>
+        </div>
       </fieldset>
 
     </form>
-
-    {% if devMode === "true" %}
-    <details class="dev-mode" role="group" >
-      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-        <span class="details__summary">Continue with a testing scenario</span>
-      </summary>
-      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-        <div class="reading-width">
-          <p>Photo upload errors</p>
-          <ol>
-            <li><a href="service-access-video-selfie-camera{{ params }}&formerror=undefined">Video upload successfull</a></li>
-            <li><a href="service-access-video-selfie-camera{{ params }}&formerror=invalid">Video Validation Failure</a></li>
-            <li><a href="service-access-video-selfie-camera{{ params }}&formerror=invalid">Video Upload Failure</a></li>
-          </ol>
-        </div>
-      </div>
-    </details>
-    {% endif %}
 
 
   </section>
