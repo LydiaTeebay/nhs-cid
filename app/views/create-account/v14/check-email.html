@@ -1,0 +1,41 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - Check your email{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+        <h1>Check your email</h1>
+        <p>We've <a href="/emails/v7/email-validate{{ params }}" target="_blank">emailed</a> you a word to confirm your email address. You'll need to enter it to continue.</p>
+        <div class="form-group">
+
+          <span class="form-label__hint">The word is 5 characters long</span>
+          <input autocomplete="off" type="text" class="form-control" name="code" id="code" value="" class="code">
+        </div>
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <div class="form-group">
+        <a href="two-step{{ params }}" class="button">Continue</a>
+      </div>
+
+      <p>If you did not get an email, check your spam folder. ​</p>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

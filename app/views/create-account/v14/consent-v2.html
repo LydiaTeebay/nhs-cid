@@ -1,0 +1,31 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Agree to share your information{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <!-- <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p> -->
+
+    <div class="form-group">
+        <h1>Agree to share your information</h1>
+        <p>NHS login will share information about you with Online Consultations.</p>
+        <p>To use Online Consultations, you will need to agree to share:</p>
+        <ul>
+            <li>your surname</li>
+            <li>your date of birth</li>
+            <li>your NHS number</li>
+            <li>the GP surgery you're registered with</li>
+            <li>access to your GP record</li>
+        </ul>
+    </div>
+
+    <a class="button" href="#" id="">Agree</a>
+    <p><a href="consent-declined{{ params }}">Do not agree</a> - you will not be able to use the Online Consultations.</p>
+
+</div>
+
+{% endblock %}
