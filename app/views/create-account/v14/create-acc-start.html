@@ -29,7 +29,7 @@
         <li>a passport, driving licence or national identity card</li>
       </ul>
 
-      <p>If you do not have any of these documents, you cannot use <b>{{ serviceName }}</b> yet. We're working on different ways for you to prove who you are. </p>
+      <p>If you do not have any of these documents, you cannot use <b>{{ serviceName | default("Find out who looked at your health records", true) }}</b> yet. We're working on different ways for you to prove who you are. </p>
 
 
       <div class="form-control" style="margin: 32px 0 16px;">

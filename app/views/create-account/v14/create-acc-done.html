@@ -13,7 +13,7 @@
 
 			<h1 class="heading-large">You now have an <abbr>NHS</abbr> login</h1>
 
-			<p>Before you can use it to access <b>{{ serviceName }}</b>, you'll need to: </p>
+			<p>Before you can use it to access <b>{{ serviceName | default("Find out who looked at your health records", true) }}</b>, you'll need to: </p>
 
 			<ul>
 				<li>help us find your NHS number</li>
