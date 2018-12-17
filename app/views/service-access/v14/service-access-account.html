@@ -4,38 +4,43 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
 
 {% block content %}
-<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-<p>Follow these steps to create your account</p>
 
-<section class="service-access__wrapper">
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+<h1>Follow these steps</h1>
+<p>You'll need to give us some information so that we can connect you to your NHS record, and keep your NHS login secure.</p>
+<section class="service-access-wrapper">
+
+	<!-- <h1>Proving your identity</h1> -->
 
 	<ol class="service-access">
 		<li class="service-access__item active">
-			<h3 class="service-access__item__title">Set up {% include '_partials/_components/_name.html' %}</h3>
-			<div class="service-access__item__desc">
-				<p>If you've already done this, <a href="/create-account/pb/login-nhs{{ params }}">log in with {% include '_partials/_components/_name.html' %}</a></p>
-			</div>
-			<a href="/create-account/pb/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
+			<h3 class="service-access__item__title">Set up your NHS login</h3>
+			<a href="/create-account/v14/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 		<li class="service-access__item">
 			<h3 class="service-access__item__title">Help us find your NHS record</h3>
-			<div class="service-access__item__desc">
-				<p>You'll need to give us some details so we can connect to your GP.</p>
-			</div>
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>You'll need to give us some information so that we can connect you to your NHS record.</p>-->
+			<!--</div>-->
+			<!--<span class="service-access__item__status">Completed</span>-->
 		</li>
 		<li class="service-access__item">
-			<h3 class="service-access__item__title">Take a photo of your ID document</h3>
-			<div class="service-access__item__desc">
-				<p>You will need to take a photo of your passport or driving licence.</p>
-			</div>
+			<h3 class="service-access__item__title">Take a photo of your ID</h3>
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>You'll need to take a photo of your passport or driving licence.</p>-->
+			<!--</div>-->
+			<!--<span class="service-access__item__status">Completed</span>-->
 		</li>
 		<li class="service-access__item">
 			<h3 class="service-access__item__title">Record a short video</h3>
-			<div class="service-access__item__desc">
-				<p>This is so we can check that your face matches your photo ID.</p>
-			</div>
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>This is so we can check that your face matches your photo ID.</p>-->
+			<!--</div>-->
+			<!--<a href="service-access-video-selfie-instructions-2{{ params }}" class="service-access__item__button button">Start</a>-->
 		</li>
 	</ol>
+
 </section>
 
 {% endblock %}
