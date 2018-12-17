@@ -1,5 +1,5 @@
-{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - {{ theService.name('setup') }}{% endblock %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - First, we need to check some things{% endblock %}
 {% set signedin = '' %}
 {% set terms = 'yes' %}
 
@@ -18,14 +18,22 @@
 
     <div class="reading-width">
 
-      <h1 class="heading-large">Before you set up an NHS login</h1>
+      <h1 class="heading-large">First, we need to check some things</h1>
 
-      <p>To use {{ serviceName }}, blahh blahh </p>
+      <p>Before you can use <b>{{ serviceName }}</b>, you'll have to prove who you are.  This helps us keep your information secure.</p>
 
+      <p>You'll need:</p>
+
+      <ul>
+        <li>a phone with a camera​</li>
+        <li>a passport, driving licence or national identity card</li>
+      </ul>
+
+      <p>If you do not have any of these documents, you cannot use <b>{{ serviceName }}</b> yet. We are working on different ways you can prove who you are. </p>
 
 
       <div class="form-control" style="margin: 32px 0 16px;">
-        <a class="button--information" href="/service-access/v14/service-access-account{{ params }}">I have these - Continue</a>
+        <a class="button--information" href="create-acc-terms{{ params }}">I have what I need – continue</a>
       </div>
       <!-- <p>&nbsp;</p>
       <h3>Don't want to do this?</h3>

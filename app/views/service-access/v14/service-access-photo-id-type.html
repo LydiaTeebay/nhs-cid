@@ -24,21 +24,21 @@
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-1">
             <input id="radio-inline-1" type="radio" name="idType" value="passport">
-            UK passport
+            passport
           </label>
         </div>
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
             <input id="radio-inline-2" type="radio" name="idType" value="driving licence">
-            UK driving licence
+            driving licence
           </label>
         </div>
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-3">
-            <input id="radio-inline-3" type="radio" name="idType" value="none">
-            Neither of these
+            <input id="radio-inline-3" type="radio" name="idType" value="identity card">
+            identity card
           </label>
         </div>
 
@@ -48,6 +48,10 @@
     <div class="form-group">
       <button class="button" id="">Continue</button>
     </div>
+
+    <p class=""><a href="service-access-no-documents{{ params }}">I don't have a photo ID document.</a></p>
+
+
 
     {% if devMode === "true" %}
     <details class="dev-mode" role="group" >
