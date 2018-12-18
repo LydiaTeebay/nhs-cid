@@ -245,21 +245,26 @@
         </div>
       </div>
 
-      <!--<p>You need to watch the video before you can continue.</p>-->
+      <p>Watch the video {% if challenge === "say" %}(with sound){% endif %} before you continue.</p>
+
+      <p>Can you clearly:</p>
+
+      <ul>
+        <li>see your full face</li>
 
       {% if challenge === "say" %}
-      <p>Can you clearly see your whole face and hear these numbers?<br><strong>{{ pinCode }}</strong></p>
+        <li>hear the numbers <strong>{{ pinCode }}</strong></li>
       {% endif %}
 
       {% if challenge === "hands" %}
-      <p>Can you see your whole face and your fingers showing numbers clearly? <br><strong>{{ pinCode }}</strong> </p>
+        <li>see your hand showing the numbers <strong>{{ pinCode }}</strong> </li>
       {% endif %}
 
       {% if challenge === "write" %}
-      <p>Can you see your whole face and the paper showing numbers clearly?<br><strong>{{ pinCode }}</strong></p>
+        <li>see the paper showing the numbers <strong>{{ pinCode }}</strong></li>
       {% endif %}
 
-      <p>You need to watch the video before you can continue.</p>
+      </ul>
 
       <a class="button" disabled="disabled" href="" id="submit-videoSelfie4-button">Yes - continue</a>
       <p><a href="service-access-video-selfie-camera{{ params }}" id="">No - record video again</a></p>
