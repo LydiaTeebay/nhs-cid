@@ -49,7 +49,7 @@ module.exports = function (router) {
         var poluser = req.param('poluser')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        var pinCode = Math.floor(1000 + Math.random() * 9000)
+        var pinCode = Math.floor(100000 + Math.random() * 900000)
         var personalisation = {
             'pincode': pinCode
         }
