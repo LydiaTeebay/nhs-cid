@@ -22,7 +22,7 @@ $_step-width: $baseline-grid-unit * 8;
     padding: 32px;
   }
 
-  p {
+  p , ul>li {
     @include core-font(24);
   }
   
