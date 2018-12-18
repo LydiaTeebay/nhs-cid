@@ -49,9 +49,11 @@ module.exports = function (router) {
         var poluser = req.param('poluser')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        var pinCode = Math.floor(100000 + Math.random() * 900000)
+        var pinCode1 = Math.floor(100 + Math.random() * 900)
+        var pinCode2 = Math.floor(100 + Math.random() * 900)
+        var pinCode = pinCode1 + pinCode2
         var personalisation = {
-            'pincode': pinCode
+            'pincode': pinCode1 + " " + pinCode2
         }
         // send text message
 
