@@ -238,28 +238,26 @@
 
     <div class="form-group">
 
-
-
-
-      <!--<p>You need to watch the video before you can continue.</p>-->
-
-      {% if challenge === "say" %}
-      <p>Can you see your whole face and hear numbers <strong>{{ pinCode }}</strong> clearly?</p>
-      {% endif %}
-
-      {% if challenge === "hands" %}
-      <p>Can you see your whole face and your fingers showing numbers <strong>{{ pinCode }}</strong> clearly?</p>
-      {% endif %}
-
-      {% if challenge === "write" %}
-      <p>Can you see your whole face and the paper showing numbers <strong>{{ pinCode }}</strong> clearly?</p>
-      {% endif %}
       <div class="reading-width">
         <div id="scan-video-preview" class="video-wrapper" style="display: inline-block;">
           <video id="uploaded-video" webkit-playsinline="true" playsinline="true" style="max-width:100%;max-height:400px;" aria-label="Video player displaying your video selfie." src="#" type="video/mp4"></video>
           <div id="video-overlay" role="button"></div>
         </div>
       </div>
+
+      <!--<p>You need to watch the video before you can continue.</p>-->
+
+      {% if challenge === "say" %}
+      <p>Can you clearly see your whole face and hear these numbers?<br><strong>{{ pinCode }}</strong></p>
+      {% endif %}
+
+      {% if challenge === "hands" %}
+      <p>Can you see your whole face and your fingers showing numbers clearly? <br><strong>{{ pinCode }}</strong> </p>
+      {% endif %}
+
+      {% if challenge === "write" %}
+      <p>Can you see your whole face and the paper showing numbers clearly?<br><strong>{{ pinCode }}</strong></p>
+      {% endif %}
 
       <p>You need to watch the video before you can continue.</p>
 
