@@ -22,11 +22,14 @@
 
     <p>For use with onboarding partners</p>
 
+    <p>Example flow:</p>
+    <a class="button" href="http://nhslogin-demo.herokuapp.com/create-account/demo/start?service=app4&serviceName=Your%20Health%20Service&returnUrl=https://nhslogin-demo.herokuapp.com/your-service&devMode=undefined" id="">START</a>
+
     <h2 class="h3">Instructions</h2>
 
     <ul>
         <li>A connected service can pass to the NHS login start page in prototype at the following URL:<br>
-            <a href="https://nhslogin-demo.herokuapp.com/create-account/demo/start">http://nhslogin-demo.herokuapp.com/create-account/demo/start</a></li>
+            <a href="http://nhslogin-demo.herokuapp.com/create-account/demo/start?service=app4&serviceName=Your%20Health%20Service&returnUrl=https://nhslogin-demo.herokuapp.com/your-service&devMode=undefined">http://nhslogin-demo.herokuapp.com/create-account/demo/start</a></li>
         <li>To simulate NHS login passing the user back to a connected service after a successfull login a <code>'returnUrl'</code> parameter can be set in the URL.</li>
         <li>On certain screen we display the name of the connected service. This can also be set in the <code>'serviceName'</code> parameter.</li>
         <li>To ensure the most recent protype changes are visible <b>ensure</b> the parameter <code>'service'</code> is set to <code>'app4'</code></li>
