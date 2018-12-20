@@ -1,20 +1,39 @@
-{% extends '_layouts/_grids/_grid-1-plain.html' %}
+{% extends '_layouts/_grids/_grid-2-1.html' %}
 {% block page_title %}NHS login demo{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+{% block extrastyles %}
+<style>
+    code {
+        display: inline-block;
+        border: 1px solid grey;
+        padding: 2px 5px;
+    }
+</style>
+{% endblock %}
 
 
 {% block content %}
 
 <div class="first-item">
 
+    <h1>NHS login Prototype</h1>
 
-    <div class="form-group">
-        <h1>NHS login demo</h1>
-        <p>NHS login prototype demo for services.</p>
-    </div>
+    <p>For use with onboarding partners</p>
 
-    <a class="button" href="http://nhs-cid.herokuapp.com/create-account/demo/start?service=app4&serviceName=Your%20Health%20Service&returnUrl=https://nhs-cid.herokuapp.com/your-service&devMode=undefined" id="">START</a>
+    <h2 class="h3">Instructions</h2>
+
+    <ul>
+        <li>A connected service can pass to the NHS login start page in prototype at the following URL:<br>
+            <a href="https://nhslogin-demo.herokuapp.com/create-account/demo/start">http://nhslogin-demo.herokuapp.com/create-account/demo/start</a></li>
+        <li>To simulate NHS login passing the user back to a connected service after a successfull login a <code>'returnUrl'</code> parameter can be set in the URL.</li>
+        <li>On certain screen we display the name of the connected service. This can also be set in the <code>'serviceName'</code> parameter.</li>
+        <li>To ensure the most recent protype changes are visible <b>ensure</b> the parameter <code>'service'</code> is set to <code>'app4'</code></li>
+        <li>The full url will look like something like this: <code>http://nhslogin-demo.herokuapp.com/create-account/demo/start?service=app4&serviceName=Your%20Health%20Service&returnUrl=https://nhslogin-demo.herokuapp.com/your-service&devMode=undefined</code></li>
+    </ul>
+    
+    <!--<a class="button" href="http://nhslogin-demo.herokuapp.com/create-account/demo/start?service=app4&serviceName=Your%20Health%20Service&returnUrl=https://nhslogin-demo.herokuapp.com/your-service&devMode=undefined" id="">START</a>-->
 
 </div>
 
