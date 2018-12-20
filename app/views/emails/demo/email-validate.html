@@ -16,9 +16,11 @@
 {% block content %}
 <div class="first-item" style="padding-bottom: 100px;" >
   <h1>Confirm your email address</h1>
+  <p>To continue setting up your NHS login, you need to confirm your email address.</p>
+  <p>If you did not try to set up your NHS login using this email address, please ignore this email. We will delete your information after 24 hours.</p>
   <p><a class="button" href="/create-account/demo/email-confirmed{{ params }}">Confirm your email address</a></p>
-  <p><a href="/create-account/demo/email-confirmed{{ params }}">http:/anyoldlink/create-account/demo/confirm-email</a></p>
-  <p>Ignore this email if you did not sign up. We will delete your information after 24 hours.</p>
+  <p>If the link does not work, copy and paste this into your browser:</p>
+  <p class="small"><a href="/create-account/demo/email-confirmed{{ params }}">http:/anyoldlink/create-account/demo/confirm-email</a></p>
 
   
   <!--<p>Or copy and paste this link:<br><a href="/create-account/login-nhs{{ params }}">https://nhs-cid.herokuapp.com/create-account/login-nhs{{ params }}</a></p>-->

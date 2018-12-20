@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - There was a problem{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>There was a problem</h1>
+    <p>This could be because you entered the wrong code, or the code expired.</p>
+    <p>Please go back and <a href="two-step{{ params }}">enter your number to try again</a></p>
+  </div>
+    
+</div>
+
+{% endblock %}

@@ -62,6 +62,22 @@
 
   </section>
 
+  {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
+    {% set instruction = 'Choose a file' %}
+  {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
+    {% if mobileOsV === 11.2 and devMode === 'true' %}
+      {% set instruction = 'Open your Photo Library' %}
+    {% else %}
+      {% set instruction = 'Open camera' %}
+    {% endif %}
+  {% else %}
+    {% if genericButton === 'true' %}
+      {% set instruction = 'Record a video' %}
+    {% else %}
+      {% set instruction = 'Open camcorder' %}
+    {% endif %}
+  {% endif %}
+
 
   <section class="" id="scan-id-1" style="display:none">
 
@@ -72,16 +88,20 @@
 
     {% endif %}
 
-    {# <div class="callout callout--error camera-file-format" style="display:block">
-      <h2 class="h3">There's a problem</h2>
-      <!--<p>You've taken a photo by mistake. When you click on <em style="font-style: normal">Open camera</em>, pick your video camcorder.</p>-->
+     {# <div class="callout callout--error camera-file-format" style="display:block">
+      <!--<h2 class="h3">There's a problem</h2>-->
+       <h2 class="h3">There's a problem with your video</h2>
+       <p>Please try again.</p>
+      <!--<p>You've taken a photo by mistake. When you click on <em style="font-style: normal">{{ instruction }}</em>, pick your video camcorder.</p>-->
+       <!--<p>It looks like you're trying to select a file that is not a video.</p>-->
 
-      <p>Your video is a file type we cannot accept. When you click on <em style="font-style: normal">Open camera</em>, pick your video camcorder.</p>
+       <!--<p>Your video is too long. Record your video again and stop it when you've finished speaking.</p>-->
+      <!--<p>Your video is a file type we cannot accept. When you click on <em style="font-style: normal">{{ instruction }}</em>, pick your video camcorder.</p>-->
 
       <!--<p>Your video is too long. Record your video again and stop it when you’ve finished speaking.</p>-->
 
       <!--<p>Your video is too small. Record your video again.</p>-->
-      <!--<p>When you click on <em style="font-style: normal">Open camera</em>, pick your main video camcorder.</p></p>-->
+      <p>When you click on <em style="font-style: normal">{{ instruction }}</em>, pick your main video camcorder.</p>
     </div> #}
 
     <p><a href="service-access-video-selfie-instructions-2{{ params }}" class="link-back">Back</a></p>
@@ -113,23 +133,6 @@
 
 
         <div class="form-group">
-
-          {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
-            {% set instruction = 'Choose a file' %}
-          {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
-            {% if mobileOsV === 11.2 and devMode === 'true' %}
-              {% set instruction = 'Open your Photo Library' %}
-            {% else %}
-              {% set instruction = 'Open camera' %}
-            {% endif %}
-          {% else %}
-            {% if genericButton === 'true' %}
-              {% set instruction = 'Record a video' %}
-            {% else %}
-              {% set instruction = 'Open camcorder' %}
-            {% endif %}
-          {% endif %}
-
 
           <label for="short-video" class="camera-button">{{ instruction }}
             <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %}>

@@ -1,0 +1,20 @@
+{% extends '_layouts/_grids/_grid-1-plain.html' %}
+{% block page_title %}NHS login demo{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <div class="form-group">
+        <h1>NHS login demo</h1>
+        <p>This would now be your service.</p>
+        <p><a href="index">Back to the start</a></p>
+    </div>
+
+</div>
+
+{% endblock %}
+
