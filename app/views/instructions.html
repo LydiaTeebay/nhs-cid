@@ -1,0 +1,37 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}NHS login demo{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+{% block extrastyles %}
+<style>
+    code {
+        display: inline-block;
+        border: 1px solid grey;
+        padding: 2px 5px;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+    <h1>NHS login prototype instructions</h1>
+
+    <p>These instruction help you can plug in your website or app to the NHS login start page</p>
+
+    <ol>
+    	<li>To pass the user back to your website or app after a successful login, set a <code>'returnUrl'</code> parameter in the url.</li>
+    	<li>On certain screens we display the name of the website or app. Set this in the <code>'serviceName'</code> parameter.</li>
+    	<li>Make sure the parameter <code>'service'</code> os set to <code>'app4'</code></li>
+    	<li>The full url should look something like this: <code>http://nhslogin-demo.herokuapp.com/create-account/demo/start?service=app4&serviceName=Your%20Health%20Service&returnUrl=https://nhslogin-demo.herokuapp.com/your-service&devMode=undefined</code></li>
+    </ol>
+
+</div>
+
+{% endblock %}
+
