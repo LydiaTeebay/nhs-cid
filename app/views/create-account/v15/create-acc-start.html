@@ -1,0 +1,46 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - Before you set up your NHS login{% endblock %}
+{% set signedin = '' %}
+{% set terms = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&poluser=" + poluser %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <section class="intructions">
+
+    <div class="reading-width">
+
+      <h1 class="heading-large">What you'll need</h1>
+
+      <p>To use <b><em>"{{ serviceName | default("Find out who looked at your health records", true) }}"</em></b> you'll have to prove who you are. This helps us keep your information secure.</p>
+
+      <p>You'll need:</p>
+
+      <ul>
+        <li>a phone with a camera​</li>
+        <li>a passport, driving licence or national identity card</li>
+      </ul>
+
+      <p>If you do not have any of these documents, you cannot use <b><em>"{{ serviceName | default("Find out who looked at your health records", true) }}"</em></b> yet. We're working on different ways for you to prove who you are. </p>
+
+
+      <div class="form-control" style="margin: 32px 0 16px;">
+        <a class="button--information" href="create-acc-terms{{ params }}">I have what I need – continue</a>
+      </div>
+      <!-- <p>&nbsp;</p>
+      <h3>Don't want to do this?</h3>
+      <p><a href="service-access-offline{{ params }}" class="instructions--link">You can take your photo ID document to the post office instead.</a></p> -->
+
+    </div>
+  </section>
+</div>
+
+{% endblock %}
