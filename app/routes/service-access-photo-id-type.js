@@ -90,6 +90,27 @@ module.exports = function (router) {
         })
     })
 
+    router.post('/service-access/v15/service-access-photo-id-type', function (req, res) {
+        // pull in the url parameters
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var idType = req.body.idType
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var isMobile = req.useragent.isMobile
+        var formerror = req.param('formerror')
+        var hidehead = req.param('hidehead')
+        var challenge = req.param('challenge')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+
+        res.redirect('/service-access/v15/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile )
+
+    })
+
     router.get('/service-access/v14/service-access-photo-id-type', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
