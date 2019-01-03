@@ -1,0 +1,44 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - To access this service we'll need to do the following{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+
+{% block content %}
+
+<div class="first-item">
+
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+	<section class="intructions">
+
+		<div class="reading-width">
+
+			<h1 class="heading-large">You can use your ID to prove who you are​</h1>
+
+			<!--<p>We need to find your NHS record, and keep it secure.​</p>-->
+
+			<p>You will need:</p>
+			<ul class="instructions-list-unordered">
+				<li class="instructions-list-unordered__item">your passport or driving licence</li>
+				<li class="instructions-list-unordered__item">a phone with a camera​</li>
+			</ul>
+
+			<h2 class="h3">How it works​</h2>
+
+			<ol class="instructions-list">
+				<li class="instructions-list__item">Help us find your NHS record – we'll ask you for some information.​</li>
+				<li class="instructions-list__item">Take a photo of your ID – we'll help you with this.​</li>
+				<li class="instructions-list__item">Record a short video of yourself saying or showing 4 numbers - we'll help you with this too.</li>
+			</ol>
+
+			<div class="form-control" style="margin: 32px 0 16px;">
+				<a class="button--information" href="service-access-photo-id{{ params }}">Continue</a>
+			</div>
+
+			<h3 style="margin-top: 32px;">Don't want to do this?</h3>
+			<p class="instructions--link">If you do not want to do this, you can <a href="service-access-offline{{ params }}">take your ID to the Post Office instead.</a></p>
+
+		</div>
+	</section>
+</div>
+
+{% endblock %}

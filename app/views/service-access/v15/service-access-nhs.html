@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Step 2: Help us find your NHS record{% endblock %}
 
 {% set signedin = 'true' %}
@@ -14,47 +14,30 @@
 {% endif %}
 
 <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+<section class="intructions">
 
-<h1>Follow these steps</h1>
-<!--<p>You'll need to give us some information so that we can connect you to your NHS record, and keep your NHS login secure.</p>-->
-<section class="service-access-wrapper">
+	<div class="reading-width">
 
-	<ol class="service-access">
-		<li class="service-access__item completed">
-			<h3 class="service-access__item__title">Set up an NHS login</h3>
-			<!--<div class="service-access__item__desc">-->
-				<!--<p>You will need your phone.</p>-->
-				<!--<p>{% include '_partials/_components/_name.html' %} will allow you to sign into multiple health services in the future.</p>-->
-			<!--</div>-->
-			<span class="service-access__item__status">Done</span>
-		</li>
-		<li class="service-access__item active">
-			<h3 class="service-access__item__title">Help us find your NHS number</h3>
-			<!--<div class="service-access__item__desc">-->
-				<!--<p>You'll need to give us some information so that we can connect you to your NHS record.</p>-->
-			<!--</div>-->
-			<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
-		</li>
-		<li class="service-access__item ">
-			<h3 class="service-access__item__title">Take a photo of your identity document</h3>
-			<!--<div class="service-access__item__desc">-->
-				<!--<p>You'll need to take a photo of your passport or driving licence.</p>-->
-			<!--</div>-->
-		</li>
-		<li class="service-access__item">
-			<h3 class="service-access__item__title">Record a short video</h3>
-			<!--<div class="service-access__item__desc">-->
-				<!--<p>This is so we can check that your face matches your photo ID.</p>-->
-			<!--</div>-->
-		</li>
-	</ol>
 
-	{% if devMode === 'true' %}
-	<div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
-		<small>OS version: {{ mobileOsV }}</small>
+
+		<h1 class="heading-large"><span class="heading-secondary">Step 3 of 3</span> Find your NHS record</h1>
+
+		<!--<p>We need to find your NHS record, and keep it secure.​</p>-->
+
+		<p>You will need:</p>
+		<ul class="instructions-list-unordered">
+			<li class="instructions-list-unordered__item"></li>
+		</ul>
+
+
+		<div class="form-control" style="margin: 32px 0 16px;">
+			<a class="button--information" href="service-access-nhs-number{{ params }}">Continue</a>
+		</div>
+
+		<h3 style="margin-top: 32px;">Don't want to do this?</h3>
+		<p class="instructions--link">If you do not want to do this, you can <a href="service-access-offline{{ params }}">take your ID to the Post Office instead.</a></p>
+
 	</div>
-	{% endif %}
-
 </section>
 
 {% endblock %}

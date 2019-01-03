@@ -1,0 +1,37 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Instructions to record a short video{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <section class="" id="scan-id-1">
+
+    <!--<p><a class="" href="service-access-video-selfie{{ params }}">Go back</a></p>-->
+
+    <form>
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            iProov
+          </h1>
+        </legend>
+
+        <p>iProov will be added in here:</p>
+
+
+        <a href="service-access-iproov-checking{{ params }}" class="button camera-button">Continue</a>
+
+      </fieldset>
+
+    </form>
+
+
+  </section>
+
+</div>
+
+{% endblock %}
