@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Step 4: Record a short video{% endblock %}
 
 {% set signedin = 'true' %}
@@ -13,24 +13,13 @@
 
 	<div class="reading-width">
 
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Compare your face to your ID document</h1>
 
-
-		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Compare your face</h1>
-
-		<!--<p>We need to find your NHS record, and keep it secure.​</p>-->
-
-		<p>You will need:</p>
-		<ul class="instructions-list-unordered">
-			<li class="instructions-list-unordered__item"></li>
-		</ul>
-
+		<p>To ensure someone can't pretend to be you, we'll use your camera to make sure your face is the same as the one on the submitted Photo ID.</p>
 
 		<div class="form-control" style="margin: 32px 0 16px;">
-			<a class="button--information" href="service-access-video-selfie-instructions{{ params }}">Continue</a>
+			<a class="button--information" href="service-access-iproov{{ params }}">Start</a>
 		</div>
-
-		<h3 style="margin-top: 32px;">Don't want to do this?</h3>
-		<p class="instructions--link">If you do not want to do this, you can <a href="service-access-offline{{ params }}">take your ID to the Post Office instead.</a></p>
 
 	</div>
 </section>

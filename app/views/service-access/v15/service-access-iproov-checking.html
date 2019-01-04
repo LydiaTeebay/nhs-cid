@@ -1,39 +1,41 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Instructions to record a short video{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Connecting to your GP{% endblock %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason %}
 
-{% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+
+{% block extrastyles %}
+  <meta http-equiv="refresh" content="5;url=service-access-nhs{{ params }}">
+{% endblock %}
+
 
 {% block content %}
 
-<meta http-equiv="refresh" content="3.8;url=service-access-nhs{{ params }}">
+<h1><legend>Comparing your face</legend></h1>
 
-<div class="first-item">
+<!--<p style="">This should only take a few seconds</p>-->
 
-  <section class="" id="scan-id-1">
-
-    <!--<p><a class="" href="service-access-video-selfie{{ params }}">Go back</a></p>-->
-
-    <form>
-      <fieldset class="">
-        <legend for="radio-inline-group">
-          <h1 style="padding-bottom: 0;">
-
-          </h1>
-        </legend>
-
-        <p>iProov checking spinners etc will be here with auto re-direct:</p>
-
-
-        <!--<a href="service-access-video-selfie-html5{{ params }}" class="button camera-button">Continue</a>-->
-
-      </fieldset>
-
-    </form>
-
-
-  </section>
-
+<div class="bar_container">
+  <div id="main_container">
+    <div id="pbar" class="progress-spinner" data-percent="0">
+      <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
+      <div class="ppc-loading">
+        <div class="pcc-percents-wrapper">
+          <span id="spinner-status">Please wait</span><span aria-hidden="true">...</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<script type="text/javascript">
+  setTimeout(function(){
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+
+  }, 3900)
+</script>
+
 {% endblock %}
+
