@@ -19,12 +19,29 @@
 
 
 
-  <section class="" id="scan-id-1">
+  <section class="" id="scan-id-1" data-random="{{ pinCode }}">
 
-    <img src="/images/iproov2.gif" />
+    <!--<img id="iproov-img" src="/images/iproov.gif" />-->
 
   </section>
 
-<meta http-equiv="refresh" content="8;url=service-access-iproov-checking{{ params }}">
+<meta http-equiv="refresh" content="6;url=service-access-iproov-checking{{ params }}">
+
+<script type="text/javascript">
+
+  var img = document.createElement("img"), imageUrl = "/images/iproov3.gif?dummy={{ pinCode }}"
+  img.src = "/images/iproov.gif"
+  document.getElementById("scan-id-1").appendChild(img)
+
+  setTimeout(function(){
+    $(".global-header").addClass("u-hide")
+    $(".global-footer").addClass("u-hide")
+  }, 2100)
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    img.src = imageUrl
+  })
+
+</script>
 
 {% endblock %}

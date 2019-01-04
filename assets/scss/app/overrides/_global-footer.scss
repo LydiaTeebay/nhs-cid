@@ -8,3 +8,13 @@
     padding-top: $baseline-grid-unit * 12;
   }
 }
+
+// iprove shrink header and footer
+.global-header.u-hide {
+  height: 0;
+  transition: all ease 0.5s;
+}
+
+.global-footer.u-hide {
+  display: none;
+}

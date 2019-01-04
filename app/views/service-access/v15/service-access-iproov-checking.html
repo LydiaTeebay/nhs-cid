@@ -5,7 +5,7 @@
 
 
 {% block extrastyles %}
-  <meta http-equiv="refresh" content="5;url=service-access-nhs{{ params }}">
+  <meta http-equiv="refresh" content="10;url=service-access-nhs{{ params }}">
 {% endblock %}
 
 
@@ -21,7 +21,7 @@
       <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
       <div class="ppc-loading">
         <div class="pcc-percents-wrapper">
-          <span id="spinner-status">Please wait</span><span aria-hidden="true">...</span>
+          <span id="spinner-status">Please wait</span></span>
         </div>
       </div>
     </div>
@@ -29,12 +29,20 @@
 </div>
 
 <script type="text/javascript">
+
+  setTimeout(function(){
+    document.getElementById("spinner-status").innerHTML = "It's taking a bit longer than usual&hellip;"
+
+  }, 7000)
+
   setTimeout(function(){
     $("#spinner-status").addClass("done")
     $("#spinner").addClass("done")
     document.getElementById("spinner-status").innerHTML = "Done"
 
-  }, 3900)
+  }, 8000)
+</script>
+
 </script>
 
 {% endblock %}
