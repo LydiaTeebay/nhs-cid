@@ -31,7 +31,26 @@
 			<p class="instructions--link"><a href="service-access-offline{{ params }}">I do not have any of these photo I.D. documents</a></p>
 
 		</div>
+
 	</section>
+
+	{% if devMode === "true" %}
+	<details class="dev-mode" role="group" >
+		<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+			<span class="details__summary">Continue with testing scenario</span>
+		</summary>
+		<div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+			<div class="reading-width">
+				<ol>
+					<li><a href="service-access-photo-id-type{{ params }}&iproov=true&desk=false">Feature detection passed</a></li>
+					<li><a href="service-access-photo-id-type{{ params }}&iproov=false&desk=false">Feature detection fail (iProov not supported by platform)</a></li>
+					<li><a href="service-access-photo-id-type{{ params }}&iproov=true&desk=true">Feature detection passed but user is on a desktop browser</a></li>
+				</ol>
+			</div>
+		</div>
+	</details>
+	{% endif %}
+
 </div>
 
 {% endblock %}

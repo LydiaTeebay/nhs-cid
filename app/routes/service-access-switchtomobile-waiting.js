@@ -51,6 +51,8 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var iproov = req.param('iproov')
+        var desk = req.param('desk')
         // re-render the page along with the parameter
 
         if (changetomobile === 'yes') {
@@ -62,7 +64,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
 
-        res.render('service-access/v15/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v15/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
             res.send(html)
         })
     })
