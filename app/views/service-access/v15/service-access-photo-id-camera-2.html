@@ -45,9 +45,9 @@
                 <legend for="radio-inline-group">
                     <h1 style="padding-bottom: 0;">
                         {% if mobileOsV === 11.2 and devMode === 'true' %}
-                        Upload a photo of your {{ idType }}
+                        Upload a photo of the back of your {{ idType }}
                         {% else %}
-                        Take a photo of your {{ idType }}
+                        Take a photo of the back of your {{ idType }}
                         {% endif %}
                     </h1>
                 </legend>
@@ -56,7 +56,7 @@
 
                 <p>You'll need to:</p>
                 <ol>
-                    <li>Open your phone's camera and take a photo of your {{ idType }}:
+                    <li>Open your phone's camera and take a photo of the back of your {{ idType }}:
                         <ul class="list list-bullet">
                             <li>hold the {{ idType }} in the palm of your hand as this will reduce glare from above</li>
                             <li>make sure all the details are clear and readable</li>
@@ -230,7 +230,7 @@
             onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
     </button>
 
-    <a id="continueButton2" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue
+    <a id="continueButton2" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue
     </a>
 
     {% endif %}
