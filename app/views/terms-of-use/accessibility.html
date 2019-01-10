@@ -1,0 +1,70 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}cookie policy{% endblock %}
+
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% endif %}
+
+{% block extrastyles %}
+<style>
+	.terms-aside {
+		padding-bottom: 1em;
+	}
+
+	.c-page-contents__link.link-access {
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.terms-heading {
+		padding-top: 1em;
+		font-size: 24px;
+		display: inline-block;
+	}
+
+	.terms-heading-secondary {
+		font-size: 20px;
+		display: inline-block;
+	}
+</style>
+{% endblock %}
+
+
+{% block topRow %}
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endblock %}
+
+{% block content %}
+<aside class="terms-aside">
+	<nav role="navigation">
+		<h2 class="h3">Terms of use</h2>
+		{% include '_partials/_components/_terms-menu.html' %}
+	</nav>
+	<hr>
+</aside>
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item">
+
+	<h1>NHS login - accessibility</h1>
+
+	<section id="intro">
+		<p>Some content yeah.</p>
+	</section>
+
+	<p class="small"><em>Last updated: 10th January 2018</em></p>
+
+</div>
+
+{% endblock %}
+
+
