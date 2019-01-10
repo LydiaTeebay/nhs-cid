@@ -24,10 +24,11 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var challenge = req.param('challenge')
         var devMode = req.param('devMode')
+        var idType = req.param('idType')
         var returnUrl = req.param('returnUrl')
         var genericButton = req.param('genericButton')
         // re-render the page along with the parameter
-        res.render('service-access/v15/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton }, function(err, html) {
+        res.render('service-access/v15/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton }, function(err, html) {
             res.send(html)
         })
     })

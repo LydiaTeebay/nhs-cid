@@ -3,7 +3,7 @@
 
 {% set signedin = 'true' %}
 {% set formerror = 'undefined' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
 
 
 {% block content %}
@@ -13,15 +13,34 @@
 
 	<div class="reading-width">
 
-		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Match your face to your I.D. document</h1>
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Match your face to your I.D document</h1>
 
-		<p>We have to make sure your face is the same as the photo on your I.D. document. You can do this with your camera.</p>
+		<p>We have to make sure your face is the same as the photo on your I.D. document. This is so we know you are who you say you are.</p>
+		<p>You can do this with your camera.</p>
 
 		<div class="form-control" style="margin: 32px 0 16px;">
 			<a class="button--information" href="service-access-iproov{{ params }}">Start</a>
 		</div>
 
 	</div>
+
+	{% if devMode === "true" %}
+	<details class="dev-mode" role="group" >
+		<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+			<span class="details__summary">Continue with testing scenario</span>
+		</summary>
+		<div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+			<div class="reading-width">
+				<ol>
+					<li><a href="service-access-iproov{{ params }}&iproovPass=true">Photo Comparison and ODS passes</a></li>
+					<li><a href="service-access-iproov{{ params }}&iproovPass=true&odsPass=false">Photo Comparison Passes and ODS fails</a></li>
+					<li><a href="service-access-iproov{{ params }}&iproovPass=false">Photo Comparison fails</a></li>
+				</ol>
+			</div>
+		</div>
+	</details>
+	{% endif %}
+
 </section>
 
 
