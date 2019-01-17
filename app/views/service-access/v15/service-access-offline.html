@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Sorry you cannot continue{% endblock %}
+{% block page_title %}Access {{ serviceName }} - What you can do instead{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
@@ -11,10 +11,19 @@
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
   <h1 class="">
-    Sorry you cannot continue
+    What you can do instead
   </h1>
 
-  <p>You are unable to use this service as you are not registered for GP online services. You can register by contacting your GP surgery and filling in the registration form.</p>
+  <ol>
+    <li>Tell your GP surgery that you want to sign up for their online services. They'll ask you to fill in a form and prove who you are.
+    <li>Your GP surgery will give you registration details. You'll need:
+    <ul>
+      <li>Linkage Key (could be called a Passphrase)</li>
+      <li>O.D.S. Code (could be called an Organisation Code or Practice I.D.)</li>
+      <li>Account I.D.</li>
+    </ul> </li>
+    <li>When you have these details, log in to {{ serviceName }}.</li>
+  </ol>
 
 </div>
 
