@@ -1,0 +1,43 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Account - delete account{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+  <div class="smaller-h1">Delete login</div>
+</h1>
+<hr>
+
+<style>
+  .c-page-contents__link.link-delete {
+    font-weight: bold;
+    text-decoration: none;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu-pb.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item account-mgmt">
+
+  <h2>Delete your NHS login<h2>
+
+  <p>If you delete your NHS login, it will not delete any accounts linked to it.</p>
+  <p>To delete these accounts, you will need to do this on each website or app where you use NHS login.</p>
+
+  <h3>Do you want to delete your NHS login?</h3>
+
+  <p><a class="button" href="account-delete-login{{ params }}">Yes - continue</a></p>
+
+
+
+{% endblock %}
