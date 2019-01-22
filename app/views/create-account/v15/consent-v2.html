@@ -9,9 +9,12 @@
 <style>
 
 dl {
+    display: block;
     padding-left: 50px;
     line-height: 0.75em;
-    background: url('../assets/images/user.png') no-reapeat 0 0;
+    background: transparent url("https://nhs-cid.herokuapp.com/images/user.png") no-repeat 0 11px;
+    background-size: 45px 45px;
+    height: 70px;
 }
 
 </style>
@@ -32,12 +35,7 @@ dl {
 
 
 
-        <p>To continue NHS login will share with &quot;Find out who's looked at your health records&quot;:</p>
-        <ul>
-            <li>your surname</li>
-            <li>your date of birth</li>
-            <li>your NHS number</li>
-        </ul>
+        <p class="small">To continue NHS login will share your surname, date of birth and your NHS number with &quot;Find out who's looked at your health records.&quot;</p>
     </div>
 
     <a class="button" href="https://nhs-audit.herokuapp.com/release-login" id="">Agree and continue</a>
