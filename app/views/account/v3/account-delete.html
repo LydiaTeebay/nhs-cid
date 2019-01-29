@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Delete your NHS login account{% endblock %}
+{% block page_title %}Delete your NHS login{% endblock %}
 
 {% set signedin = 'true' %}
 
@@ -31,12 +31,20 @@
 
   <h2>Delete your NHS login<h2>
 
-  <p>If you delete your NHS login, it will not delete any accounts linked to it.</p>
-  <p>To delete these accounts, you will need to do this on each website or app where you use NHS login.</p>
+  <p>You might have used your NHS login to access one or more websites or apps.</p>
+  
+  <div class="callout callout--warning">
+    <p>After you've deleted your NHS login:</p>
+    <ul>
+      <li>you will not have access to those websites or apps</li>
+      <li>they might keep some information about you</li>
+    </ul>
+  </div>
 
   <h3>Do you want to delete your NHS login?</h3>
 
   <p><a class="button" href="account-delete-login{{ params }}">Yes - continue</a></p>
+  <p><a href="account-delete-cancel">I do not want to delete my NHS login</a></p>
 
 
 

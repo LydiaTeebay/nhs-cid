@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Delete your NHS login account{% endblock %}
+{% block page_title %}Enter your password to delete your NHS login{% endblock %}
 
 {% set signedin = 'true' %}
 
@@ -29,14 +29,16 @@
 
 <div class="first-item account-mgmt">
 
-    <h2>Re-enter your password<h2>
+    <h2>Enter your password to delete your NHS login<h2>
 
     <div class="form-group">  
-        <label class="form-label" for="new-phone">Password</label>
-        <input class="form-control" id="new-phone" name="field2" type="number">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" id="password" name="field2" type="password">
     </div>
 
-    <a class="button" href="account-delete-confirm">Continue</a>
+    <p><a href="/create-account/pb/forgotten-password{{ params }}">Forgotten your password?</a></p>
+
+    <a class="button" href="account-delete-end">Delete NHS login</a>
 
 </div>
 
