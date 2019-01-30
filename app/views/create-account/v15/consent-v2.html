@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Agree to share your information{% endblock %}
+{% block page_title %}Use your NHS login and share your information{% endblock %}
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
@@ -25,21 +25,21 @@ dl {
 
     <div class="form-group">
         <h1>Use your NHS login</h1>
-        <p>Continue to &quot;Find out who's looked at your health records&quot; using the following NHS login:</p>
+        <p>You can use your NHS login to access 'Find out who’s looked at your health records'.</p>
 
         <dl>
-            <dt>James Randerson</dt>
-            <dd>james.randerson@gmail.com</dd>
+            <dt>james.randerson@gmail.com</dt>
+            <dd>18/07/1976</dd>
         </dl>
-        <p class="small"><a href="#">Use another account</a></p>
+        <p class="small"><a href="login-nhs">Use a different NHS login</a></p>
 
 
 
-        <p class="small">To continue NHS login will share your surname, date of birth and your NHS number with &quot;Find out who's looked at your health records.&quot;</p>
+        <p class="small">When you agree to use this NHS login, we'll share your last name, date of birth, and NHS number with 'Find out who's looked at your health records'.</p>
     </div>
 
     <a class="button" href="https://nhs-audit.herokuapp.com/release-login" id="">Agree and continue</a>
-    <p><a href="consent-declined{{ params }}">Do not agree</a> - you will not be able to use &quot;Find out who's looked at your health records.&quot;</p>
+    <p><a href="consent-declined{{ params }}">I do not want to use my NHS login</a></p>
 
 </div>
 
