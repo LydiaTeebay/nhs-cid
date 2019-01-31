@@ -1,12 +1,12 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Account - delete account{% endblock %}
+{% block page_title %}Delete your NHS login{% endblock %}
 
 {% set signedin = 'true' %}
 
 {% block topRow %}
 
 <h1>Account settings
-  <div class="smaller-h1">Delete account</div>
+  <div class="smaller-h1">Delete login</div>
 </h1>
 <hr>
 
@@ -29,8 +29,23 @@
 
 <div class="first-item account-mgmt">
 
-  <h2>Delete your account<h2>
+  <h2>Delete your NHS login<h2>
 
-  <p>Please email <a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a> for help with deleting your account.</p>
+  <p>You might have used your NHS login to access one or more websites or apps.</p>
+  
+  <div class="callout callout--warning">
+    <p>After you've deleted your NHS login:</p>
+    <ul>
+      <li>you will not be able to access those websites or apps using your NHS login (you might have to set up a new login if you want to access them)</li>
+      <li>they might keep some information about you</li>
+    </ul>
+  </div>
+
+  <h3>Do you want to delete your NHS login?</h3>
+
+  <p><a class="button" href="account-delete-login{{ params }}">Yes - continue</a></p>
+  <p><a href="account-delete-cancel">I do not want to delete my NHS login</a></p>
+
+
 
 {% endblock %}

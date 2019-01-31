@@ -1,0 +1,46 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Enter your password to delete your NHS login{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+  <div class="smaller-h1">Delete login</div>
+</h1>
+<hr>
+
+<style>
+  .c-page-contents__link.link-delete {
+    font-weight: bold;
+    text-decoration: none;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu-pb.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item account-mgmt">
+
+    <h2>Enter your password to delete your NHS login<h2>
+
+    <div class="form-group">  
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" id="password" name="field2" type="password">
+    </div>
+
+    <p><a href="/create-account/pb/forgotten-password{{ params }}">Forgotten your password?</a></p>
+
+    <a class="button" href="account-delete-end">Delete NHS login</a>
+    <p><a href="account-delete-cancel">I do not want to delete my NHS login</a></p>
+
+</div>
+
+{% endblock %}
