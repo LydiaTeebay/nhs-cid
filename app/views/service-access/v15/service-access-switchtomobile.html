@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Continue on mobile{% endblock %}
+{% block page_title %}You'll need to open another web page{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
@@ -20,7 +20,7 @@
           </h1>
         </legend>
 
-        <p>This is because our photo I.D. check won't work on your phone.</p>
+        <p>This is because our instant photo I.D. check will not work on your phone.</p>
         <p>We'll send a link to {{ mobileNum|default("*******2645", true) }}.</p>
 
 
@@ -30,7 +30,7 @@
         <!--</div>-->
 
         <div class="form-group">
-          <button class="button">Send Link</button>
+          <button class="button">Send link</button>
         </div>
 
       </fieldset>
