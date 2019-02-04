@@ -12,34 +12,6 @@
         background-color: #e7e8e8;
     }
 
-    .nhs-login {
-    background: #005eb8 url('/images/nhs-login-2.png') no-repeat 13px 13px;
-    color: #fff;
-    text-decoration: none;
-    //text-transform: uppercase;
-    display: block;
-    padding: 16px 18px 14px 90px;
-    border-radius: 4px;
-    box-shadow: 0 4px 0 #003087;
-    width: 100%;
-    text-align: left;
-    max-width: 315px;
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    }
-    .nhs-login:hover, .nhs-login:focus {
-      background-color: #0153a1;
-    }
-    .nhs-login:active {
-      margin-top: 2px;
-      box-shadow: none;
-    }
-
-    .federated-box {
-        text-align: center;
-        margin: 0 auto;
-    }
-
     @font-face{
       font-family:"Frutiger W01";
       src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix");
@@ -52,9 +24,37 @@
       font-style: normal;
     }
 
+    .nhs-login {
+    background: #005eb8 url('/images/nhs-login-2.png') no-repeat 13px 13px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 16px 18px 14px 90px;
+    border-radius: 4px;
+    box-shadow: 0 4px 0 #003087;
+    width: 100%;
+    text-align: left;
+    max-width: 325px;
+    font-family: "Frutiger W01", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    }
+
+    .nhs-login:hover, .nhs-login:focus {
+      background-color: #0153a1;
+    }
+
     .nhs-login:link, .nhs-login:visited, .nhs-login:hover, .nhs-login:active  {
         color: white;
     }
+
+    .federated-box {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    
+
+    
 </style>
 {% endblock %}
 
@@ -76,35 +76,8 @@
 
 
     <code><pre>
-        .nhs-login {
-          background: #005eb8 url('/images/nhs-login-2.png') no-repeat 13px 13px;
-          color: #fff;
-          text-decoration: none;
-          //text-transform: uppercase;
-          display: block;
-          padding: 16px 18px 14px 90px;
-          border-radius: 4px;
-          box-shadow: 0 4px 0 #003087;
-          width: 100%;
-          text-align: left;
-          max-width: 275px;
-          font-family: "Open Sans", Arial, Helvetica, sans-serif;
-          font-size: 18px;
-          }
-          .nhs-login:hover, .nhs-login:focus {
-            background-color: #0153a1;
-          }
-          .nhs-login:active {
-            margin-top: 2px;
-            box-shadow: none;
-          }
 
-          .federated-box {
-              text-align: center;
-              margin: 0 auto;
-          }
-
-          @font-face{
+        @font-face{
             font-family:"Frutiger W01";
             src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix");
             src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix") format("eot"),
@@ -116,10 +89,32 @@
             font-style: normal;
           }
 
+        .nhs-login {
+          background: #005eb8 url('/images/nhs-login-2.png') no-repeat 13px 13px;
+          color: #fff;
+          text-decoration: none;
+          display: block;
+          padding: 16px 18px 14px 90px;
+          border-radius: 4px;
+          box-shadow: 0 4px 0 #003087;
+          width: 100%;
+          text-align: left;
+          max-width: 325px;
+          font-family: "Frutiger W01", Arial, Helvetica, sans-serif;
+          font-size: 18px;
+          }
+
+          .nhs-login:hover, .nhs-login:focus {
+            background-color: #0153a1;
+          }
 
           .nhs-login:link, .nhs-login:visited, .nhs-login:hover, .nhs-login:active  {
               color: white;
-          }</pre>
+          }
+
+          
+
+          </pre>
     </code>
 
 </div>
