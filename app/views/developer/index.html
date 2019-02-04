@@ -1,0 +1,128 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}NHS login demo{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+{% block extrastyles %}
+<style>
+    code {
+        display: inline-block;
+        border: 1px solid grey;
+        padding: 12px 15px;
+        background-color: #e7e8e8;
+    }
+
+    .nhs-login {
+    background: #005eb8 url('/images/nhs-login-2.png') no-repeat 13px 13px;
+    color: #fff;
+    text-decoration: none;
+    //text-transform: uppercase;
+    display: block;
+    padding: 16px 18px 14px 90px;
+    border-radius: 4px;
+    box-shadow: 0 4px 0 #003087;
+    width: 100%;
+    text-align: left;
+    max-width: 315px;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    }
+    .nhs-login:hover, .nhs-login:focus {
+      background-color: #0153a1;
+    }
+    .nhs-login:active {
+      margin-top: 2px;
+      box-shadow: none;
+    }
+
+    .federated-box {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    @font-face{
+      font-family:"Frutiger W01";
+      src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix");
+      src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix") format("eot"),
+          url("https://assets.nhs.uk/fonts/0811514e-6660-4043-92c1-23d0b8caaa2f.woff2") format("woff2"),
+          url("https://assets.nhs.uk/fonts/aeae8cac-ba4d-40d2-bbcf-936f2c7dcfe6.woff") format("woff"),
+          url("https://assets.nhs.uk/fonts/caedf2e6-fbef-4928-b08e-1f975981ae8d.ttf") format("truetype"),
+          url("https://assets.nhs.uk/fonts/7def0e34-f28d-434f-b2ec-472bde847115.svg") format("svg");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .nhs-login:link, .nhs-login:visited, .nhs-login:hover, .nhs-login:active  {
+        color: white;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <h1>NHS login button</h1>
+
+    <p>Use this button to link from your service to NHS login</p>
+    
+    <div class="federated-box">
+
+        <a href="#" class="nhs-login">Continue with NHS login</a>           
+    </div>
+
+    <hr>
+
+
+    <code><pre>
+        .nhs-login {
+          background: #005eb8 url('/images/nhs-login-2.png') no-repeat 13px 13px;
+          color: #fff;
+          text-decoration: none;
+          //text-transform: uppercase;
+          display: block;
+          padding: 16px 18px 14px 90px;
+          border-radius: 4px;
+          box-shadow: 0 4px 0 #003087;
+          width: 100%;
+          text-align: left;
+          max-width: 275px;
+          font-family: "Open Sans", Arial, Helvetica, sans-serif;
+          font-size: 18px;
+          }
+          .nhs-login:hover, .nhs-login:focus {
+            background-color: #0153a1;
+          }
+          .nhs-login:active {
+            margin-top: 2px;
+            box-shadow: none;
+          }
+
+          .federated-box {
+              text-align: center;
+              margin: 0 auto;
+          }
+
+          @font-face{
+            font-family:"Frutiger W01";
+            src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix");
+            src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix") format("eot"),
+                url("https://assets.nhs.uk/fonts/0811514e-6660-4043-92c1-23d0b8caaa2f.woff2") format("woff2"),
+                url("https://assets.nhs.uk/fonts/aeae8cac-ba4d-40d2-bbcf-936f2c7dcfe6.woff") format("woff"),
+                url("https://assets.nhs.uk/fonts/caedf2e6-fbef-4928-b08e-1f975981ae8d.ttf") format("truetype"),
+                url("https://assets.nhs.uk/fonts/7def0e34-f28d-434f-b2ec-472bde847115.svg") format("svg");
+            font-weight: 400;
+            font-style: normal;
+          }
+
+
+          .nhs-login:link, .nhs-login:visited, .nhs-login:hover, .nhs-login:active  {
+              color: white;
+          }</pre>
+    </code>
+
+</div>
+
+{% endblock %}
+
