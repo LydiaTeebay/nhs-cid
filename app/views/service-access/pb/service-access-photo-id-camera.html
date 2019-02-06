@@ -44,7 +44,7 @@
             <fieldset class="">
                 <legend for="radio-inline-group">
                     <h1 style="padding-bottom: 0;">
-                        {% if mobileOsV === 11.2 and devMode === 'true' %}
+                        {% if mobileOsV === 11.2  %}
                         Upload a photo of your {{ idType }}
                         {% else %}
                         Take a photo of your {{ idType }}
@@ -52,14 +52,26 @@
                     </h1>
                 </legend>
 
-                {% if mobileOsV === 11.2 and devMode === 'true' %}
+                {% if mobileOsV === 11.2  %}
 
                 <p>You'll need to:</p>
                 <ol>
-                    <li>Open your phone's camera and take a photo of your {{ idType }}:
+                    <li>Open your phone's camera and take a photo of your {{ idType }}. Make sure:
                         <ul class="list list-bullet">
-                            <li>hold the camera straight above your {{ idType }}</li>
-                            <li>make sure all the details are clear and readable</li>
+
+                            {% if idType === 'passport' %}
+                                <li>your passport is open, so you can see the edges of the photo page</li>
+                            {% else %}
+                                <li>you can see the edges of the card</li>
+                            {% endif %}
+
+                            <li>the details are clear and readable</li>
+
+                            <li>there's no glare from lights or windows</li>
+
+                            {% if idType === 'passport' %}
+                                <li>your hands are not covering any of the details</li>
+                            {% endif %}
                         </ul>
                     </li>
                     <li>Come back here and click the button to open your Photo Library.</li>
@@ -68,10 +80,18 @@
 
                 {% else %}
 
-                <p>You must:</p>
+                <p>Make sure:</p>
                 <ul class="list list-bullet">
-                    <li>hold the camera straight above your {{ idType }}</li>
-                    <li>make sure all the details are clear and readable</li>
+                    {% if idType === 'passport' %}
+                    <li>you take a photo of your open passport, so you can see the edges of the photo page</li>
+                    {% else %}
+                    <li>you can see the edges of the card</li>
+                    {% endif %}
+                    <li>the details are clear and readable</li>
+                    <li>there's no glare from lights or windows</li>
+                    {% if idType === 'passport' %}
+                    <li>your hands are not covering any of the details</li>
+                    {% endif %}
                 </ul>
 
                 {% endif %}
@@ -81,7 +101,7 @@
                     {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
                       {% set instruction = 'Choose a file' %}
                     {% else %}
-                      {% if mobileOsV === 11.2 and devMode === 'true' %}
+                      {% if mobileOsV === 11.2  %}
                          {% set instruction = 'Open your Photo Library' %}
                       {% else %}
                          {% if genericButton === 'true' %}
@@ -139,7 +159,11 @@
 
         <h1 style="padding-bottom: 0;">Check your photo</h1>
 
-        <p>Can you see your full face and read all the information on your {{ idType}}?</p>
+        {% if idType === 'passport' %}
+            <p>Are all the details clear, and can you see the edges of the page?</p>
+        {% else %}
+            <p>Are all the details clear, and can you see the edges of the card?</p>
+        {% endif %}
 
         <div class="reading-width">
             <div id="scan-id-preview">
