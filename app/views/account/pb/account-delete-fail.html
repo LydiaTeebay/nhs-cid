@@ -1,0 +1,38 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}We cannot delete your NHS login{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+  <div class="smaller-h1">Delete login</div>
+</h1>
+<hr>
+
+<style>
+  .c-page-contents__link.link-delete {
+    font-weight: bold;
+    text-decoration: none;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu-pb.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item account-mgmt">
+
+  <h2>Sorry - we cannot delete your NHS login<h2>
+
+  <p>Please try again later.</p>
+
+
+
+{% endblock %}
