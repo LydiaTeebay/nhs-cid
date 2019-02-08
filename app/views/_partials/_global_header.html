@@ -92,13 +92,15 @@
             {% if service === 'app2' or service === 'app3' %}
               <p style="padding: 0; margin: 0; text-align: right;"><!--<a href="/account/dashboard">Dashboard</a> | <a href="/account/account">Account</a> |-->
                 {% else %}
-              <p style="padding: 0; margin: 0; text-align: right;"><!--<a href="/account/dashboard">Dashboard</a> | --><a href="/account/account">Account</a> |
+              <p style="padding: 0; margin: 0; text-align: right;"><!--<a href="/account/dashboard">Dashboard</a> | -->
             {% endif %}
 
             {% if service === 'eredbook' %}
               <a href="/start/eRedbook">Sign out</a></p>
             {% else %}
-              <a href="#">Log out</a></p>
+            
+              <a href="/start/v9/nhsapp-account" style="text-decoration: none; padding: 5px; border: 1px solid #1878eb; border-radius:2px;">X</a></p>
+            
             {% endif %}
           </div>
         {% endif %}
