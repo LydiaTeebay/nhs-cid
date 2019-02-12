@@ -13,7 +13,6 @@ module.exports = function (router) {
         var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode4 = Math.floor(0 + (9 - 0) * Math.random())
-
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
@@ -223,13 +222,9 @@ module.exports = function (router) {
         var formerror = req.param('formerror')
         var changetomobile = req.param('changetomobile')
         var hidehead = req.param('hidehead')
-        var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
-        var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
-        var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
-        var pinCode4 = Math.floor(0 + (9 - 0) * Math.random())
+        var pinCode = req.param('pinCode')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter

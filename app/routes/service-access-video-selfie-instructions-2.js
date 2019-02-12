@@ -196,7 +196,7 @@ module.exports = function (router) {
         var emailAddress = req.param('emailAddress')
         var changetomobile = req.param('changetomobile')
         var hidehead = req.param('hidehead')
-        var pinCode = Math.floor(1000 + Math.random() * 9000)
+        var pinCode = req.param('pinCode')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         var devMode = req.param('devMode')

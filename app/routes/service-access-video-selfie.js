@@ -159,8 +159,13 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var genericButton = req.param('genericButton')
+        var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
+        var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
+        var pinCode3 = Math.floor(0 + (9 - 0) * Math.random())
+        var pinCode4 = Math.floor(0 + (9 - 0) * Math.random())
+        var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton }, function(err, html) {
+        res.render('service-access/pb/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, pinCode: pinCode }, function(err, html) {
             res.send(html)
         })
     })
