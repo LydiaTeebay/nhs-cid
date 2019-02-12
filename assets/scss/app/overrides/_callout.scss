@@ -14,3 +14,7 @@
 .callout--compact {
   margin-top: 0;
 }
+
+.u-visuallyhidden {
+  @include visuallyhidden;
+}
