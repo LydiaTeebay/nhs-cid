@@ -1,0 +1,20 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}You have not agreed to share your information{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <!-- <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p> -->
+
+    <div class="form-group">
+        <h1>You have not agreed to use your NHS login</h1>
+        <p>We share your personal information to help other services securely identify who you are.</p>
+        <p>You need to <a href="login-nhs">log in again</a> and agree to share your information before you can get access.</p>
+    </div>
+</div>
+
+{% endblock %}

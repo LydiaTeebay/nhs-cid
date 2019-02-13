@@ -1,0 +1,31 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - To access this service we'll need to do the following{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+
+{% block content %}
+
+<div class="first-item">
+
+	<section class="intructions">
+
+		<div class="reading-width">
+
+			<h1 class="heading-large">You now have an <abbr>NHS</abbr> login</h1>
+
+			<p>Before you can use your NHS login to access "{{ serviceName | default("the NHS App", true) }}", we need to:</p>
+			<ul>
+				<li>connect you to your GP surgery - this is so you can use their online services</li>
+				<li>prove who you are - this helps us keep your information safe</li>
+			</ul>
+
+			<p>You can use your NHS login to access health websites and apps wherever you see ‘NHS login’.</p>
+
+			<div class="form-control" style="margin: 32px 0 16px;">
+				<a class="button--information" href="/patient-online/v16/patient-online-details{{ params }}">Continue</a>
+			</div>
+		</div>
+	</section>
+</div>
+
+{% endblock %}
