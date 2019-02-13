@@ -10,6 +10,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         res.render('patient-online/v16/patient-online-nam-error-504', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
+        })
     })
     router.get('/patient-online/v15/patient-online-nam-error-504', function (req, res) {
         var service = req.param('service')
