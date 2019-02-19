@@ -142,6 +142,14 @@
         <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&devMode={{ devMode }}&holding=clear">SMSP-0004: User submits demographics and PDS trace fails - Could not connect to Spine</a></li>
         <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=expired&devMode={{ devMode }}&holding=clear">User submits demographics and PDS returns informally or formally dead</a></li>
       </ol>
+      <p>Automated - NHS number</p>
+      <ol>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number, match found but doesn't match OCR results</a></li>
+      </ol>
+      <p>Automated - omits NHS number</p>
+      <ol>
+        <li><a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=fail&failreason=nomatch&devMode={{ devMode }}&holding=clear">SMSP-0000: Match not found against OCR details</a></li>
+      </ol>
       <p>Other</p>
       <ol>
         <li><a href="id-checker-dashboard{{ params }}&queue=clear&holding=clear">The queue is empty</a></li>
