@@ -118,7 +118,7 @@
       <p>NHS number</p>
       <ol>
         <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number and match found</a></li>
-        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear}">DEMOG-0001: User submits NHS Number and match <b>not</b> found</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User submits NHS Number and match <b>not</b> found</a></li>
         <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">DEMOG-0017: User submits NHS Number and PDS returns superseded NHS number</a></li>
         <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}&holding=clear">DEMOG-0022: User submits NHS Number and PDS returns invalid NHS number</a></li>
         <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}&holding=clear">DEMOG-0040: User submits NHS Number and PDS returns NHS Number not verified</a></li>
@@ -144,11 +144,12 @@
       </ol>
       <p>Automated - NHS number</p>
       <ol>
-        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number, match found but doesn't match OCR results</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number, PDS match found but doesn't match OCR results</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number, PDS match not found</a></li>
       </ol>
       <p>Automated - omits NHS number</p>
       <ol>
-        <li><a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=fail&failreason=nomatch&devMode={{ devMode }}&holding=clear">SMSP-0000: Match not found against OCR details</a></li>
+        <li><a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=fail&failreason=nomatch&devMode={{ devMode }}&holding=clear">SMSP-0000: Match not found against OCR details</a></li>
       </ol>
       <p>Other</p>
       <ol>
