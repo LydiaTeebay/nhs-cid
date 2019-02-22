@@ -142,14 +142,16 @@
         <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&devMode={{ devMode }}&holding=clear">SMSP-0004: User submits demographics and PDS trace fails - Could not connect to Spine</a></li>
         <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=expired&devMode={{ devMode }}&holding=clear">User submits demographics and PDS returns informally or formally dead</a></li>
       </ol>
-      <p>Automated - NHS number</p>
+      <p>Automated - Document check success - PDS fail or PDS data mismatch with OCR</p>
       <ol>
-        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number, PDS match found but doesn't match OCR results</a></li>
-        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number, PDS match not found</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000/DEMOG-0017: User submits NHS Number, PDS match found but doesn't match OCR results</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User submits NHS Number, PDS match not found</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User <b>did not</b> submit NHS Number, PDS match not found using OCR details</a></li>
       </ol>
-      <p>Automated - omits NHS number</p>
+      <p>Automated - Document check failure</p>
       <ol>
-        <li><a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=fail&failreason=nomatch&devMode={{ devMode }}&holding=clear">SMSP-0000: Match not found against OCR details</a></li>
+        <li><a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=fail&failreason=nomatch&devMode={{ devMode }}&holding=clear">User submitted NHS number</a></li>
+        <li><a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=fail&failreason=nomatch&devMode={{ devMode }}&holding=clear">User <b>did not</b> submit NHS number</a></li>
       </ol>
       <p>Other</p>
       <ol>

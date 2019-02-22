@@ -10,19 +10,32 @@
 
 <div class="panel">
     <div class="panel__content panel__content--half">
-        <h3>Submitted details</h3>
+        <h3>User submitted details</h3>
 
         {% if demographics !== 'true' %}
 
         <div class="form-group">
-            <label class="form-label">NHS Number</label>
-            <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly
+            <label class="form-label">Postcode</label>
+            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
                    style="display: inline-block; margin-bottom: 0;">
             {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
+
+        <h3>ID checker submitted details</h3>
+
         <div class="form-group">
+
+            <div class="form-group">
+                <label class="form-label">NHS Number</label>
+                <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly
+                       style="display: inline-block; margin-bottom: 0;">
+                {% if result == 'fails' %}
+                <a href="#" class="idcheck-edit">Edit</a>
+                {% endif %}
+            </div>
+
             <fieldset style="display: inline-block; margin-bottom: 0;">
                 <legend class="form-label">
                     Date of birth
@@ -53,28 +66,23 @@
         {% else %}
 
         <div class="form-group">
-            <label class="form-label">First name</label>
-            <input type="text" id="" name="" value="Joe" class="" maxlength="" readonly
+            <label class="form-label">Postcode</label>
+            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
                    style="display: inline-block; margin-bottom: 0;">
             {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
         </div>
+
+        <h3>OCR details</h3>
+
         <div class="form-group">
-            <label class="form-label">Middle names</label>
-            <input type="text" id="" name="" value="" class="" maxlength="" readonly
-                   style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
+            <label class="form-label">First names</label>
+            <input type="text" id="" name="" value="" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
         </div>
         <div class="form-group">
             <label class="form-label">Last name</label>
-            <input type="text" id="" name="" value="Bloggs" class="" maxlength="" readonly
-                   style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
+            <input type="text" id="" name="" value="" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
         </div>
         <div class="form-group">
             <fieldset style="display: inline-block">
@@ -84,33 +92,23 @@
                 <div class="form-group -date" style="margin-top: 10px;">
                     <div class="form-date-field">
                         <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
-                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day"
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="" class="day"
                                maxlength="2" min="1" max="31" readonly style="margin-bottom: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
-                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month"
+                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="" class="month"
                                maxlength="2" min="1" max="12" readonly style="margin-bottom: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
-                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year"
+                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="" class="year"
                                maxlength="4" min="1900" max="2018" readonly style="margin-bottom: 0;">
                     </div>
                 </div>
             </fieldset>
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
         </div>
-        <div class="form-group">
-            <label class="form-label">Postcode</label>
-            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
-                   style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
-        </div>
+
 
         {% endif %}
     </div>
@@ -301,7 +299,7 @@
                     <div class="form-group">
 
                         <div id="nhs-number" class="has-error form-row-error-active">
-                            <label class="has-error form-label" for="nhs_number">NHS Number</label>
+                            <label class="has-error form-label" for="nhs_number">NHS Numbers</label>
                             <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
 
                             <div id="nhs-number" class="has-error form-row-error-active">
@@ -309,10 +307,31 @@
                                       id="nhs-number-error">This NHS Number looks wrong. Please check that you've entered exactly 10 numbers.</span>
                             </div>
                         </div>
+
+                        <fieldset>
+                            <legend class="form-label">Date of birth</legend>
+                            <span class="form-label__hint" style="margin-top: 10px;">Example: 31 3 1980</span>
+                            <div class="form-group -date" style="margin-top: 10px;">
+                                <div class="form-date-field">
+                                    <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
+                                    <input type="number" id="dob-day" name="dob-day" pattern="[0-9]*" value="" class="day" maxlength="2" min="1" max="31">
+                                </div>
+                                <div class="form-date-field">
+                                    <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
+                                    <input type="number" id="dob-month" name="dob-month" pattern="[0-9]*" value="" class="month" maxlength="2" min="1" max="12">
+                                </div>
+                                <div class="form-date-field">
+                                    <label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>
+                                    <input type="number" id="dob-year" name="dob-year" pattern="[0-9]*" value="" class="year" maxlength="4" min="1900" max="2018">
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
 
+
+
                     <div id="id-approve2">
-                        <a href="id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
+                        <a href="id-checker-review-automated-ocr?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
                            id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                     </div>
 
@@ -327,11 +346,31 @@
 
                 <div class="form-group">
                     <label class="form-label" for="nhs_number">NHS Number</label>
-                    <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
+                    <input class="form-control code" id="nhs_number" name="nhs_number" type="text" value="{% if demographics === 'false' %}485 777 3456{% endif%}">
                 </div>
+
+                <fieldset>
+                    <legend class="form-label">Date of birth</legend>
+                    <span class="form-label__hint" style="margin-top: 10px;">Example: 31 3 1980</span>
+                    <div class="form-group -date" style="margin-top: 10px;">
+                        <div class="form-date-field">
+                            <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
+                            <input type="number" id="dob-day" name="dob-day" pattern="[0-9]*" value="" class="day" maxlength="2" min="1" max="31">
+                        </div>
+                        <div class="form-date-field">
+                            <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
+                            <input type="number" id="dob-month" name="dob-month" pattern="[0-9]*" value="" class="month" maxlength="2" min="1" max="12">
+                        </div>
+                        <div class="form-date-field">
+                            <label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>
+                            <input type="number" id="dob-year" name="dob-year" pattern="[0-9]*" value="" class="year" maxlength="4" min="1900" max="2018">
+                        </div>
+                    </div>
+                </fieldset>
+
                 <div id="id-approve2">
-                    <a href="id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
-                       id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
+                    <a href="id-checker-review-automated-ocr?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
+                       id="approveBtn2b" data-target="modal" class="button button--retry">Re-run trace</a>
                 </div>
             </div>
 
@@ -353,7 +392,7 @@
         {% if result === 'spine' %}
         <div id="retrybtn-1" style="display:none;">
             <div id="id-retry">
-                <a href="id-checker-review?demographics=false&role=undefined&result=spine&devMode={{ devMode }}"
+                <a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=spine&devMode={{ devMode }}"
                    id="retryBtn" class="button button--retry">Retry</a>
             </div>
         </div>
@@ -459,90 +498,6 @@
             </div>
         </div>
 
-    </div>
-</div>
-
-<div class="panel" style="display: block;">
-    <div class="panel__content panel__content--half">
-        <h3>Watch the video</h3>
-        <div class="idcheck-media">
-            <div class="idcheck-video">
-                <div class="idcheck-video-paired"><a href="#" class="idcheck-video-paired-button">Show document</a>
-                </div>
-                <video id="uploaded-video" controls autoplay="" name="media" style="width:100%;height:auto;">
-                    <source src="/images/challenge.mp4" type="video/mp4">
-                    <p>Your browser doesn't support Apple's HEVC videos yet. Here is
-                        a <a href="hevc.mkv">link to the video</a> instead.</p>
-                </video>
-            </div>
-            <div class="idcheck-image" style="display: none;">
-                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
-                     alt="Image of a passport"/>
-            </div>
-        </div>
-
-    </div>
-    <div class="panel__content panel__content--half">
-
-        <div class="qa-questions-group" data-complete="false">
-            <div class="qa-questions-question" id="selfie-1" data-answered="false" data-group="decline-5">
-                <p class="qa-questions-question-text">Can you clearly see the face in the video?</p>
-                <div class="qa-questions-answer-group multiple-choice__container">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="8" name="a-5" class="multiple-choice__input" tabindex="8" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="9" name="a-5" class="multiple-choice__input" tabindex="9" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="qa-questions-group" data-complete="false">
-            <div class="qa-questions-question" id="selfie-2" data-answered="false" data-group="decline-6">
-                <p class="qa-questions-question-text">Does the face in the photo ID match the face in the video?</p>
-                <div class="qa-questions-answer-group multiple-choice__container">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="10" name="a-6" class="multiple-choice__input" tabindex="10" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="11" name="a-6" class="multiple-choice__input" tabindex="11" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="qa-questions-group" data-complete="false">
-            <div class="qa-questions-question" id="selfie-3" data-answered="false" data-group="decline-7">
-                <p class="qa-questions-question-text">Are these 4 numbers clearly read out: 4-2-2-8?</p>
-                <div class="qa-questions-answer-group multiple-choice__container">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="12" name="a-7" class="multiple-choice__input" tabindex="12" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="13" name="a-7" class="multiple-choice__input" tabindex="13" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
 
         <div id="id-buttons">
             <div id="id-approve">
@@ -554,7 +509,9 @@
                    data-target="modal" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
             </div>
         </div>
+
     </div>
+
 </div>
 
 <div id="slideout">
@@ -649,13 +606,15 @@
                             <option value="IDC-012" data-question="decline-text-2">Driving licence - cannot find NHS Number</option>
                             <option value="IDC-013" data-question="decline-text-1">Passport - cannot see information in ID</option>
                             <option value="IDC-014" data-question="decline-text-2">Passport - cannot find NHS Number</option>
-                            <option value="IDC-015" data-question="decline-text-3">User's submitted date of birth does not match the date of birth in PDS</option>
+                            <option value="IDC-015" data-question="decline-text-1">National identity card - cannot see information in ID</option>
+                            <option value="IDC-016" data-question="decline-text-2">National identity card - cannot find NHS Number</option>
                         </select>
 
                         <select id="decline-1" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-020" data-question="">--- Please select ---</option>
                             <option value="IDC-021" data-question="decline-text-1">Driving licence - cannot see everything clearly</option>
                             <option value="IDC-022" data-question="decline-text-1">Passport - cannot see everything clearly</option>
+                            <option value="IDC-023" data-question="decline-text-1">National identity card - cannot see everything clearly</option>
                         </select>
 
                         <select id="decline-2" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
@@ -664,44 +623,27 @@
                             <option value="IDC-032" data-question="decline-text-5">Driving licence - photo or information has been tampered with</option>
                             <option value="IDC-033" data-question="decline-text-4">Passport - whole document is a fake</option>
                             <option value="IDC-034" data-question="decline-text-5">Passport - photo or information has been tampered with</option>
+                            <option value="IDC-035" data-question="decline-text-4">National identity card - whole document is a fake</option>
+                            <option value="IDC-036" data-question="decline-text-5">National identity card - photo or information has been tampered with</option>
                         </select>
 
                         <select id="decline-3" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-040" data-question="">--- Please select ---</option>
                             <option value="IDC-041" data-question="">Driving licence - expired</option>
-                            <option value="IDC-042" data-question="decline-text-6">Driving licence - not a UK licence</option>
+                            <option value="IDC-042" data-question="decline-text-6">Driving licence - not a supported licence</option>
                             <option value="IDC-043" data-question="">Passport - expired</option>
-                            <option value="IDC-044" data-question="decline-text-6">Passport - not a UK passport</option>
-                            <option value="IDC-045" data-question="decline-text-6">Unsupported UK document</option>
-                            <option value="IDC-046" data-question="decline-text-6">Unsupported non-UK document</option>
+                            <option value="IDC-044" data-question="decline-text-6">Passport - not a supported passport</option>
+                            <option value="IDC-045" data-question="">National identity card - expired</option>
+                            <option value="IDC-046" data-question="decline-text-6">National identity card - not a supported identity card</option>
                         </select>
 
                         <select id="decline-4" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-050" data-question="">--- Please select ---</option>
                             <option value="IDC-051" data-question="decline-text-7">Driving licence - details do not match</option>
                             <option value="IDC-052" data-question="decline-text-7">Passport - details do not match</option>
+                            <option value="IDC-053" data-question="decline-text-7">National identity card - details do not match</option>
                         </select>
 
-                        <select id="decline-5" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                            <option value="IDC-060" data-question="">--- Please select ---</option>
-                            <option value="IDC-061" data-question="decline-text-8">There is a face, but it’s not clear</option>
-                            <option value="IDC-062" data-question="decline-text-9">There is no face in the video</option>
-                        </select>
-
-                        <select id="decline-6" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                            <option value="IDC-070" data-question="">--- Please select ---</option>
-                            <option value="IDC-071" data-question="decline-text-10">Driving licence - face in photo ID does not match face in video</option>
-                            <option value="IDC-072" data-question="decline-text-10">Passport - face in photo ID does not match face in video</option>
-                        </select>
-
-                        <select id="decline-7" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                            <option value="IDC-080" data-question="">--- Please select ---</option>
-                            <option value="IDC-081" data-question="">There is no sound at all</option>
-                            <option value="IDC-082" data-question="decline-text-11">Cannot hear the numbers clearly</option>
-                            <option value="IDC-083" data-question="decline-text-12">Missing first or last number</option>
-                            <option value="IDC-084" data-question="decline-text-13">Numbers are wrong</option>
-                            <option value="IDC-085" data-question="decline-text-14">Says something other than numbers</option>
-                        </select>
                     </div>
                 </div>
 
@@ -1112,7 +1054,7 @@
         // pull in the answer array
         var idCheck = JSON.parse(localStorage['idchecker'])
 
-        if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[11] === true || idCheck[13] === true ) {
+        if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true || idCheck[7] === true ) {
             document.getElementById('approveBtn').style.display = 'none'
             document.getElementById('declineBtn').style.display = 'inline-block'
 
@@ -1124,18 +1066,12 @@
                 $("#id-decline").appendTo('#document-3')
             } else if (idCheck[7] === true) {
                 $("#id-decline").appendTo('#document-4')
-            } else if (idCheck[9] === true) {
-                $("#id-decline").appendTo('#selfie-1')
-            } else if (idCheck[11] === true) {
-                $("#id-decline").appendTo('#selfie-2')
-            } else if (idCheck[13] === true) {
-                $("#id-decline").appendTo('#selfie-3')
             } else {
                 $("#id-decline").appendTo('#id-buttons')
             }
         }
 
-        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true && idCheck[6] === true && idCheck[8] === true && idCheck[10] === true && idCheck[12] === true) {
+        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true && idCheck[6] === true) {
             document.getElementById('approveBtn').style.display = 'inline-block'
             document.getElementById('declineBtn').style.display = 'none'
         }
