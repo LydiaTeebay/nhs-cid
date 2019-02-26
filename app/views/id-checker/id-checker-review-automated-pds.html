@@ -8,7 +8,9 @@
 
 {% block content %}
 
-<div class="panel">
+<div class="id-check_automated">Automated journey</div>
+
+<div class="panel" style="margin: 0;">
     <div class="panel__content panel__content--half">
         <h3>User submitted details</h3>
 
@@ -18,9 +20,6 @@
             <label class="form-label">NHS Number</label>
             <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly
                    style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
         </div>
 
         <div class="form-group">
@@ -35,6 +34,15 @@
         <h3>OCR details</h3>
 
         <div class="form-group">
+            <label class="form-label">First names</label>
+            <input type="text" id="" name="" value="Joe Billy" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Last name</label>
+            <input type="text" id="" name="" value="Bloggs" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+        </div>
+
+        <div class="form-group">
             <fieldset style="display: inline-block; margin-bottom: 0;">
                 <legend class="form-label">
                     Date of birth
@@ -42,7 +50,7 @@
                 <div class="form-group -date" style="margin-top: 10px;">
                     <div class="form-date-field">
                         <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
-                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day"
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="8" class="day"
                                maxlength="2" min="1" max="31" readonly>
                     </div>
                     <div class="form-date-field">
@@ -73,16 +81,16 @@
             {% endif %}
         </div>
 
-        <h3>OCR details</h3>
+        {% if result == 'success' %}
+
+        <h3>ID checker submitted details</h3>
 
         <div class="form-group">
-            <label class="form-label">First names</label>
-            <input type="text" id="" name="" value="Joe Billy" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            <label class="form-label">NHS Number</label>
+            <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly
+                   style="display: inline-block; margin-bottom: 0;">
         </div>
-        <div class="form-group">
-            <label class="form-label">Last name</label>
-            <input type="text" id="" name="" value="Bloggs" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
-        </div>
+
         <div class="form-group">
             <fieldset style="display: inline-block">
                 <legend class="form-label">
@@ -107,6 +115,48 @@
                 </div>
             </fieldset>
         </div>
+
+        {% endif %}
+
+        <h3>OCR details</h3>
+
+        <div class="form-group">
+            <label class="form-label">First names</label>
+            <input type="text" id="" name="" value="Joe Billy" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Last name</label>
+            <input type="text" id="" name="" value="Bloggs" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+        </div>
+
+        {% if result != 'success' %}
+
+        <div class="form-group">
+            <fieldset style="display: inline-block">
+                <legend class="form-label">
+                    Date of birth
+                </legend>
+                <div class="form-group -date" style="margin-top: 10px;">
+                    <div class="form-date-field">
+                        <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="8" class="day"
+                               maxlength="2" min="1" max="31" readonly style="margin-bottom: 0;">
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
+                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month"
+                               maxlength="2" min="1" max="12" readonly style="margin-bottom: 0;">
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
+                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year"
+                               maxlength="4" min="1900" max="2018" readonly style="margin-bottom: 0;">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        {% endif %}
 
 
         {% endif %}
@@ -298,43 +348,60 @@
                     <div class="form-group">
 
                         <div id="nhs-number" class="has-error form-row-error-active">
-                            <label class="has-error form-label" for="nhs_number">NHS Numbers</label>
-                            <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
+                            <label class="has-error form-label" for="nhs_number">NHS Number</label>
+                            <input class="form-control code" id="nhs_number" name="nhs_number" type="text" style="margin-bottom: 0;">
 
-                            <div id="nhs-number" class="has-error form-row-error-active">
+                            <div class="has-error form-row-error-active" style="margin-top:1em;">
                                 <span class="error error-message error-label error-text error-message-active"
                                       id="nhs-number-error">This NHS Number looks wrong. Please check that you've entered exactly 10 numbers.</span>
                             </div>
                         </div>
 
+                    </div>
+
+                    <div class="form-group">
+
                         <fieldset>
                             <legend class="form-label">Date of birth</legend>
                             <span class="form-label__hint" style="margin-top: 10px;">Example: 31 3 1980</span>
                             <div class="form-group -date" style="margin-top: 10px;">
-                                <div class="form-date-field">
+                                <div class="form-date-field has-error">
                                     <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
-                                    <input type="number" id="dob-day" name="dob-day" pattern="[0-9]*" value="" class="day" maxlength="2" min="1" max="31">
+                                    <input type="number" class="day form-control" id="dob-day" name="dob-day" pattern="[0-9]*" value="8" class="day" maxlength="2" min="1" max="31" style="margin: 0;">
                                 </div>
-                                <div class="form-date-field">
+                                <div class="form-date-field has-error">
                                     <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
-                                    <input type="number" id="dob-month" name="dob-month" pattern="[0-9]*" value="" class="month" maxlength="2" min="1" max="12">
+                                    <input type="number" class="month form-control" id="dob-month" name="dob-month" pattern="[0-9]*" value="2" class="month" maxlength="2" min="1" max="12" style="margin: 0;">
                                 </div>
-                                <div class="form-date-field">
+                                <div class="form-date-field has-error">
                                     <label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>
-                                    <input type="number" id="dob-year" name="dob-year" pattern="[0-9]*" value="" class="year" maxlength="4" min="1900" max="2018">
+                                    <input type="number" class="year form-control" id="dob-year" name="dob-year" pattern="[0-9]*" value="79" class="year" maxlength="4" min="1900" max="2018" style="margin: 0;">
                                 </div>
                             </div>
+
                         </fieldset>
+
+                        <div class="has-error form-row-error-active" style="margin-top:1em;">
+                                <span class="error error-message error-label error-text error-message-active"
+                                      id="nhs-number-error">Please enter the full date of birth.</span>
+                        </div>
                     </div>
 
 
-
                     <div id="id-approve2">
-                        <a href="id-checker-review-automated-pds?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
+                        <a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=success&state=undefined&devMode={{ devMode }}"
                            id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                     </div>
 
 
+
+                </div>
+
+                <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-no" style="margin: 0 0 32px;" data-group="decline-0">
+                    <div id="id-decline2">
+                        <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}"
+                           id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                    </div>
                 </div>
 
             </form>
@@ -354,7 +421,7 @@
                     <div class="form-group -date" style="margin-top: 10px;">
                         <div class="form-date-field">
                             <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
-                            <input type="number" id="dob-day" name="dob-day" pattern="[0-9]*" value="9" class="day" maxlength="2" min="1" max="31">
+                            <input type="number" id="dob-day" name="dob-day" pattern="[0-9]*" value="8" class="day" maxlength="2" min="1" max="31">
                         </div>
                         <div class="form-date-field">
                             <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
@@ -368,7 +435,7 @@
                 </fieldset>
 
                 <div id="id-approve2">
-                    <a href="id-checker-review-automated-pds?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
+                    <a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=success&state=undefined&devMode={{ devMode }}"
                        id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                 </div>
             </div>
