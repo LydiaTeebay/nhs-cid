@@ -18,22 +18,17 @@
 
   <form>
     <div class="form-group">
-      <fieldset class="inline">
-        <h1>Check your email</h1>
-        <p>We've <a href="/emails/v10/email-validate{{ params }}" target="_blank">emailed</a> you a word to confirm your email address. You'll need to enter it to continue.</p>
-        <div class="form-group">
+      <h1>Check your email</h1>
 
-          <span class="form-label__hint">The word is 5 characters long</span>
-          <input autocomplete="off" type="text" class="form-control" name="code" id="code" value="" class="code">
-        </div>
-      </fieldset>
+      <p>We've sent an email to *****@mail.com. Click confirm in the email then come back here to continue.</p>
+        
     </div>
     <div class="form-group">
       <div class="form-group">
-        <a href="two-step{{ params }}" class="button">Continue</a>
+        <a href="login-nhs-create{{ params }}" class="button">Continue</a>
       </div>
 
-      <p>If you did not get an email, check your spam folder. ​</p>
+      <p>If you do not get an email, check your spam folder.</p>
     </div>
   </form>
 </div>

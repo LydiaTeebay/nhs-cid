@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - {{ theService.name('login') }}{% endblock %}
+{% block page_title %}Enter your NHS login details{% endblock %}
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
@@ -21,7 +21,7 @@
        <hr> -->
 
         <div class="form-group">
-            <h1>Log in</h1>
+            <h1>Enter your NHS login email address and password</h1>
 
             <fieldset class="">
 

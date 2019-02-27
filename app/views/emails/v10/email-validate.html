@@ -16,12 +16,6 @@
 {% block content %}
 
 <style>
-.security-code {
-  padding-left: 10px;
-  font-size: 36px;
-  letter-spacing: 30px;
-  color: #005eb8;
-}
 
 .heading-medium {
 	font-size: 24px;
@@ -29,18 +23,13 @@
 
 </style>
 
-
-<div class="first-item" style="padding-bottom: 100px;" >
+<div class="first-item" style="padding-bottom: 100px;">
   <h1>Confirm your email address</h1>
-  <p>To continue you need to return to <abbr>NHS</abbr> login and enter this word.</p>
-
-  <h2 class="heading-medium">Confirmation word</h2>
-  <p class="security-code">KOALA</p>
-
-  <p>If you did not try to set up an <abbr>NHS</abbr> login using this email address, please ignore this email. We'll delete your information after 24 hours.</p>
-
-  <!-- <p><a class="button" href="/create-account/v10/two-step{{ params }}">Confirm your email address</a></p> -->
-
+  <p>Confirm this email address to continue setting up your NHS login.</p>
+  <p><a class="button" href="/create-account/v16/email-confirmed{{ params }}">Confirm email address</a></p>
+  <p>If nothing happens when you click the button, try this link instead. You might need to copy and paste it into an internet browser:</p>
+  <p><a href="/create-account/v16/email-confirmed{{ params }}">http:/anyoldlink/create-account/v16/confirm-email</a></p>
+  <p>If you did not try to set up an NHS login using this email address, then ignore this email. We will delete your information after 48 hours.</p>
 </div>
 
 {% endblock %}
