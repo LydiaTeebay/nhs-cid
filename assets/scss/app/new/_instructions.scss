@@ -14,6 +14,11 @@ $_step-width: $baseline-grid-unit * 8;
     padding-bottom: $baseline-grid-unit*4;
   }
 
+  .heading-medium {
+    color: $white;
+    font-size: 28px;
+  }
+
   .heading-secondary {
     color: rgba($white, .8);
   }
@@ -22,7 +27,7 @@ $_step-width: $baseline-grid-unit * 8;
     padding: 32px;
   }
 
-  p , ul>li {
+  p , ul>li , ol>li {
     @include core-font(24);
   }
   

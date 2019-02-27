@@ -1,5 +1,5 @@
-{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}You now have an NHS login{% endblock %}
 {% set signedin = '' %}
 {% set newUser = 'yes' %}
 
@@ -16,11 +16,24 @@
 
 <div class="first-item">
 
-  <div class="form-group">
-    <h1>We've confirmed your email address</h1>
-    <p>Please go <a href="javascript:window.open('','_self').close();">back to the NHS App</a> and continue.</p>
-  </div>
-    
+	<section class="intructions">
+
+		<div class="reading-width">
+
+			<h1 class="heading-large">You now have an NHS login</h1>
+
+			<p>You need to:</p>
+			<ol>
+				<li>Go to the website or app you were trying to access.</li>
+				<li>Enter your NHS login email address and password.</li>
+			</ol>
+
+			<h2 class="heading-medium">What you can do with your NHS login</h2>
+
+			<p>You can use your NHS login to access health websites and apps wherever you see 'NHS login'.</p>
+
+		</div>
+	</section>
 </div>
 
 {% endblock %}
