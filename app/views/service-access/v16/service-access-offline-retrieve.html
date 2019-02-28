@@ -1,0 +1,29 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - If you have not signed up for your GP's online services, or you're not sure{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <h1 class="">
+    If you signed up for your GP's online services, but do not have the details any more
+  </h1>
+
+  <ol>
+    <li>Ask your GP surgery for your registration details for their online services. Tell them you need:</li>
+    <ul>
+      <li>Linkage Key (could be called a Passphrase)</li>
+      <li>O.D.S. Code (could be called an Organisation Code or Practice I.D.)</li>
+      <li>Account I.D.</li>
+    </ul> </li>
+    <li>Use your NHS login to access {{ serviceName }}, and prove who you are using these 3 details.
+  </ol>
+
+</div>
+
+{% endblock %}

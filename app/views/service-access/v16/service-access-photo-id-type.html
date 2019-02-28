@@ -4,8 +4,6 @@
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
 
-
-
 {% block content %}
 
 <div class="first-item">
@@ -63,9 +61,8 @@
       <button class="button" id="">Continue</button>
     </div>
 
+
     <!--<p class=""><a href="service-access-no-documents{{ params }}">I don't have a photo ID document.</a></p>-->
-
-
 
     {% if devMode === "true" %}
     <details class="dev-mode" role="group" >
