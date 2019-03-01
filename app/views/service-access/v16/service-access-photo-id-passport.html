@@ -64,14 +64,32 @@
                     </li>
                     <li>Come back here and click the button to open your Photo Library.</li>
                     <li>Select the photo you took.</li>
+
+
+                    {% if idType === 'passport' %}
+                    <li>your passport is open, so you can see the edges of the photo page</li>
+                    {% else %}
+                    <li>you can see the edges of the card</li>
+                    {% endif %}
+
+                    <li>the details are clear and readable</li>
+
+                    <li>there's no glare from lights or windows</li>
+
+                    {% if idType === 'passport' %}
+                    <li>your hands are not covering any of the details</li>
+                    {% endif %}
+
                 </ol>
 
                 {% else %}
 
+                <p>We only need a photo of the page with your face and personal details.</p>
+
                 <p>Make sure:</p>
                 <ul class="list list-bullet">
                     <li>you do not cover any part of the page</li>
-                    <li>you can see the page's edges in your photo</li>
+                    <li>all 4 edges of the page are in your photo</li>
                     <li>you can clearly see your face and all the text</li>
                     <li>there's no shine from a light or window</li>
                 </ul>
