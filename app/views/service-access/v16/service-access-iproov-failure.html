@@ -12,20 +12,7 @@
 
       <form>
 
-          {% if iproovFailReason === "ambiguous" %}
-
-              <h1>We could not match your face to your photo I.D.</h1>
-
-          {% elif iproovFailReason === "lighting" %}
-
-              <h1>We could not match your face to your photo I.D.</h1>
-
-          {% else %}
-
-              <h1>We could not match your face to your photo I.D.</h1>
-
-          {% endif %}
-
+          <h1>We could not match your face to your photo I.D.</h1>
 
           {% if iProovSecondAttempt === "true" %}
 
@@ -36,6 +23,20 @@
               </div>
 
           {% else %}
+
+              {% if iproovFailReason === "ambiguous" %}
+
+                <!-- no message -->
+
+              {% elif iproovFailReason === "light" %}
+
+                <p>light reason</p>
+
+              {% else %}
+
+                <h1>We could not match your face to your photo I.D.</h1>
+
+              {% endif %}
 
               <p></p>
               <div class="form-group">

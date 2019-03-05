@@ -43,15 +43,19 @@
           <div class="reading-width">
             <p>Pass</p>
             <ol>
-              <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iproovFailCount=undefined&pyiFailCount=undefined">iProov test passes</a></li>
+              <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iProovSecondAttempt=undefined&pyiSecondAttempt=undefined">iProov test passes</a></li>
             </ol>
-            <p>Fail - iProov feedback codes</p>
+            <p>Fail - iProov feedback codes - try again</p>
             <ol>
-              <li><a href="service-access-iproov{{ params }}&iproovFailReason=ambiguous&iproovFailCount=undefined&pyiFailCount=undefinedd">Sorry, ambiguous outcome</a></li>
-              <li><a href="service-access-iproov{{ params }}&iproovFailReason=light&iproovFailCount=undefined&pyiFailCount=undefined">Ambient light too strong or screen brightness too low</a></li>
-              <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iproovFailCount=undefined&pyiFailCount=undefined">Strong light source detected behind you</a></li>
+              <li><a href="service-access-iproov{{ params }}&iproovFailReason=ambiguous&iProovSecondAttempt=undefined&pyiSecondAttempt=undefinedd">Sorry, ambiguous outcome</a></li>
+              <li><a href="service-access-iproov{{ params }}&iproovFailReason=light&iProovSecondAttempt=undefined&pyiSecondAttempt=undefined">Ambient light too strong or screen brightness too low</a></li>
+              <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iProovSecondAttempt=undefined&pyiSecondAttempt=undefined">Strong light source detected behind you</a></li>
               <li>More to come</li>
             </ol>
+              <p>Fail - second attempt - try new photo</p>
+              <ol>
+                  <li><a href="service-access-iproov{{ params }}&iproovFailReason=ambiguous&iProovSecondAttempt=true&pyiSecondAttempt=undefinedd">Sorry, ambiguous outcome</a></li>
+              </ol>
 
           </div>
         </div>
