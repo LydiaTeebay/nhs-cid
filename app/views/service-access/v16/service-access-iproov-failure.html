@@ -10,44 +10,40 @@
 
   <section class="" id="scan-id-1">
 
-      <p><a href="service-access-video-selfie{{ params }}" class="link-back">Back</a></p>
-
       <form>
-          <h1>There's a problem</h1>
 
           {% if iproovFailReason === "ambiguous" %}
 
-          <p>We couldn't match your face to the face in the photo Id document</p>
+              <h1>We could not match your face to your photo I.D.</h1>
+
+          {% elif iproovFailReason === "lighting" %}
+
+              <h1>We could not match your face to your photo I.D.</h1>
 
           {% else %}
 
-          <p>lighting issue content</p>
+              <h1>We could not match your face to your photo I.D.</h1>
 
           {% endif %}
+
 
           {% if iProovSecondAttempt === "true" %}
 
-          <div class="form-group">
-              <a href="service-access-photo-id{{ params }}" class="button camera-button">Try a different photo</a>
-          </div>
+              <p>You will need to take another photo of your I.D.</p>
+              <p>It might help if you try a different I.D. from the list.</p>
+              <div class="form-group">
+                  <a href="service-access-photo-id{{ params }}" class="button camera-button">Back to step 1 - send a photo of your I.D.</a>
+              </div>
 
           {% else %}
 
-              {% if iproovFailReason === "ambiguous" %}
-
+              <p></p>
               <div class="form-group">
-                  <a href="service-access-photo-id{{ params }}" class="button camera-button">Try a different photo</a>
+                  <a href="service-access-iproov-instructions{{ params }}" class="button camera-button">Try again</a>
               </div>
-
-              {% else %}
-
-              <div class="form-group">
-                  <a href="service-access-iproov{{ params }}" class="button camera-button">Try again</a>
-              </div>
-
-              {% endif %}
 
           {% endif %}
+
 
       </form>
 

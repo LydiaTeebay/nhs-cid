@@ -13,20 +13,22 @@
       <p><a href="service-access-video-selfie{{ params }}" class="link-back">Back</a></p>
 
       <form>
-          <h1>iProov instructions</h1>
+          <h1>What you need to do</h1>
 
-          <ul class="list list-bullet">
-            <li>you will need to adjust your brightness to the max</li>
-            <li>and go somewhere shady</li>
-            <li>follow the on-screen instrucrtions</li>
-          </ul>
+          <ol class="list--ordered">
+            <li>Before you start, turn your phone's brightness up.</li>
+            <li>When you press start you will see an outline of your face, and an oval.</li>
+            <li>Make sure your face is inside the oval. Follow the instructions on the screen.</li>
+            <li>TThe screen will change colour while we scan your face.</li>
+          </ol>
 
-          <div class="form-group" id="allow-camera" style="display: none">
-            <p>Camera access must be granted first</p>
-            <a href="service-access-iproov{{ params }}" class="button camera-button">Enable camera permission</a>
+          <div class="form-group" id="allow-camera" >
+            <h2 class="h3">Allow us to access your phone's camera</h2>
+            <p>This is so we can use it to scan your face.</p>
+            <a href="service-access-iproov{{ params }}" class="button camera-button">Change camera permissions</a>
           </div>
 
-          <div class="form-group" id="camera-allowed">
+          <div class="form-group" id="camera-allowed" style="display: none">
             <a href="service-access-iproov{{ params }}" class="button camera-button">Start</a>
           </div>
 
