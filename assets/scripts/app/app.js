@@ -797,6 +797,30 @@ $(".idcheck-video-paired-button").on("click", function(e) {
     }
 })
 
+// give permission for camera
+
+$("#allow-camera-button").on("click", function(e) {
+    e.preventDefault()
+    const constraints = { audio: false, video: true }
+
+    navigator.mediaDevices.getUserMedia(constraints).then(cameraEnabled)
+})
+
+var cameraEnabled = function (stream) {
+    console.log('pressed yes')
+    $("#enable-camera").css("display","none")
+    $("#camera-enabled").css("display","block")
+}
+
+// submit photo button action
+$("#submit-id-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-2").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+
 // helper function to place modal window as the first child
 // of the #page node
 var m = document.getElementById('modal_window'),
