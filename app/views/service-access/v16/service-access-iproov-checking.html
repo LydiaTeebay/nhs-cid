@@ -1,17 +1,16 @@
 {% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Connecting to your GP{% endblock %}
-{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&idType=" + idType + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&iproov=" + iproov + "&iproovPass=" + iproovPass %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&idType=" + idType + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&iproovFailReason=" + iproovFailReason + "&iProovSecondAttempt=" + iProovSecondAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt %}
 
 
 {% block extrastyles %}
 
-  {% if (idType == "UK driving licence") and (iproovPass == "true") %}
-    <meta http-equiv="refresh" content="7;url=service-access-nhs-pds-checking{{ params }}">
+  {% if (iproovFailReason !== "undefined") %}
+    <meta http-equiv="refresh" content="7;url=service-access-iproov-failure{{ params }}">
   {% else %}
     <meta http-equiv="refresh" content="7;url=service-access-nhs{{ params }}">
   {% endif %}
-
 
 {% endblock %}
 

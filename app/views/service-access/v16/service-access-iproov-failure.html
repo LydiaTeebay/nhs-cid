@@ -1,0 +1,63 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <section class="" id="scan-id-1">
+
+      <p><a href="service-access-video-selfie{{ params }}" class="link-back">Back</a></p>
+
+      <form>
+          <h1>There's a problem</h1>
+
+          {% if iproovFailReason === "ambiguous" %}
+
+          <p>We couldn't match your face to the face in the photo Id document</p>
+
+          {% else %}
+
+          <p>lighting issue content</p>
+
+          {% endif %}
+
+          {% if iProovSecondAttempt === "true" %}
+
+          <div class="form-group">
+              <a href="service-access-photo-id{{ params }}" class="button camera-button">Try a different photo</a>
+          </div>
+
+          {% else %}
+
+              {% if iproovFailReason === "ambiguous" %}
+
+              <div class="form-group">
+                  <a href="service-access-photo-id{{ params }}" class="button camera-button">Try a different photo</a>
+              </div>
+
+              {% else %}
+
+              <div class="form-group">
+                  <a href="service-access-iproov{{ params }}" class="button camera-button">Try again</a>
+              </div>
+
+              {% endif %}
+
+          {% endif %}
+
+      </form>
+
+  </section>
+
+</div>
+
+<script type="text/javascript">
+
+
+</script>
+
+{% endblock %}

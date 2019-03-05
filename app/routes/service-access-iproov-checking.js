@@ -15,16 +15,11 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        var iproov = req.param('iproov')
-        var iproovPass = req.param('iproovPass')
-
-        if ( iproov !== '' || iproov !== 'undefined' ) {
-            iproov = 'true'
-        } else {
-            iproov = 'false'
-        }
+        var iproovFailReason = req.param('iproovFailReason')
+        var iProovSecondAttempt = req.param('iProovSecondAttempt')
+        var pyiSecondAttempt = req.param('pyiSecondAttempt')
         // re-render the page along with the parameter
-        res.render('service-access/v16/service-access-iproov-checking', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproov: iproov }, function(err, html) {
+        res.render('service-access/v16/service-access-iproov-checking', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovFailReason: iproovFailReason, iProovSecondAttempt: iProovSecondAttempt, pyiSecondAttempt: pyiSecondAttempt }, function(err, html) {
             res.send(html)
         })
     })
