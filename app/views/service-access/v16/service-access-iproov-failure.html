@@ -24,19 +24,39 @@
 
           {% else %}
 
-              {% if iproovFailReason === "ambiguous" %}
+          {% if iproovFailReason === "ambiguous_outcome" or iproovFailReason === "network_problem" or iproovFailReason === "user_timeout" %}
 
-                <!-- no message -->
+          <!-- no message -->
 
-              {% elif iproovFailReason === "light" %}
+          {% elif iproovFailReason === "lighting_flash_reflection_too_low" %}
 
-                <p>light reason</p>
+          <p>Make sure your phone's screen brightness is on full.</p>
 
-              {% else %}
+          {% elif iproovFailReason === "lighting_backlit" %}
 
-                <h1>We could not match your face to your photo I.D.</h1>
+          <p>Make sure there is no bright light behind your head.</p>
 
-              {% endif %}
+          {% elif iproovFailReason === "lighting_too_dark" %}
+
+          <p>It's too dark. Try moving somewhere lighter, or turning on a light.</p>
+
+          {% elif iproovFailReason === "lighting_too_dark" %}
+
+          <p>There's too much light shining on your face.</p>
+
+          {% elif iproovFailReason === "motion_too_much_movement" %}
+
+          <p>Try to stay still when the scan starts.</p>
+
+          `         {% elif iproovFailReason === "motion_too_much_mouth_movement" %}
+
+          <p>Do not talk when the scan starts.</p>
+
+          {% else %}
+
+          <!-- no message -->
+
+          {% endif %}
 
               <p></p>
               <div class="form-group">
@@ -44,7 +64,6 @@
               </div>
 
           {% endif %}
-
 
       </form>
 
