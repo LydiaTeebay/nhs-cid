@@ -146,12 +146,15 @@
       <ol>
         <li><a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User <b>did not</b> submit NHS Number, PDS match not found using OCR details</a></li>
         <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User submits NHS Number, PDS match not found</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear&idType=driving">DEMOG-0001: User submits <b>Non-UK Driving licence</b> with NHS Number, PDS match not found</a></li>
         <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000/DEMOG-0017: User submits NHS Number, PDS match found but doesn't match OCR results</a></li>
+
       </ol>
       <p>Automated - Document check failure</p>
       <ol>
         <li><a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=fail&failreason=ocr&devMode={{ devMode }}&holding=clear">User <b>did not</b> submit NHS number</a></li>
         <li><a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=fail&failreason=ocr&devMode={{ devMode }}&holding=clear">User submitted NHS number</a></li>
+        <li><a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=fail&failreason=ocr&devMode={{ devMode }}&holding=clear&idType=driving">User submits <b>Non-UK Driving licence</b> with NHS Number</a></li>
       </ol>
       <p>Other</p>
       <ol>

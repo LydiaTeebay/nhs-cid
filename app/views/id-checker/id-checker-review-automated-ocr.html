@@ -428,7 +428,7 @@
 
 
                     <div id="id-approve2">
-                        <a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=undefined&failreason=ocr&state=undefined&devMode={{ devMode }}"
+                        <a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=undefined&failreason=ocr&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
                            id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                     </div>
 
@@ -473,7 +473,7 @@
                 </fieldset>
 
                 <div id="id-approve2">
-                    <a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=success&state=undefined&devMode={{ devMode }}"
+                    <a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=success&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
                        id="approveBtn2b" data-target="modal" class="button button--retry">Re-run trace</a>
                 </div>
             </div>
@@ -497,7 +497,7 @@
         {% if result === 'spine' %}
         <div id="retrybtn-1" style="display:none;">
             <div id="id-retry">
-                <a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=spine&devMode={{ devMode }}"
+                <a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=spine&devMode={{ devMode }}&idType={{ idType }}"
                    id="retryBtn" class="button button--retry">Retry</a>
             </div>
         </div>
@@ -513,10 +513,36 @@
 
             <div class="idcheck-image">
                 <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+
+                {% if idType === 'driving' %}
+
+                <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a driving licence"/>
+
+                {% else %}
+
                 <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
                      alt="Image of a passport"/>
+
+                {% endif %}
+
             </div>
+
+            {% if idType === 'driving' %}
+
+            <div class="idcheck-image">
+                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+
+                <img src="/images/DL-back.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a driving licence"/>
+
+            </div>
+
+            {% endif %}
+
         </div>
+
+
     </div>
     <div class="panel__content panel__content--half">
 
