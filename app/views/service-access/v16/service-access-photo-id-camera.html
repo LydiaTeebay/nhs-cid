@@ -42,7 +42,7 @@
 
         <!--<div class="callout callout&#45;&#45;alert camera-file-format" style="display:block">-->
             <!--<h2 class="h3">There's a problem</h2>-->
-            <!--<p>Your photo is a file type we cannot accept. When you click <em style="font-style: normal">Open camera</em>, pick your main camera.</p>-->
+            <!--<p>Your photo is a file type we cannot accept. When you click <em style="font-style: normal">Open camera</em>, pick your photo camera.</p>-->
         <!--</div>-->
 
 
@@ -99,8 +99,8 @@
                       {% endif %}
                     {% endif %}
 
-                    <label for="photo-id-document" class="camera-button">{{ instruction }}
-                        <input type="file" id="photo-id-document" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
+                    <label for="photo-id-document-auto" class="camera-button">{{ instruction }}
+                        <input type="file" id="photo-id-document-auto" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
                     </label>
 
                 </div>
@@ -197,9 +197,9 @@
 
         <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
 
-        <p>This could be because of any of the following:</p>
+        <p>It could be one of these reasons:</p>
         <ul>
-            <li>you sent us a video instead of a photo</li>
+            <li>you sent a photo instead of a video</li>
             <li>the file is too large</li>
             <li>the file is a type we cannot accept</li>
         </ul>
@@ -207,7 +207,7 @@
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
-        <p class="small" style="margin-top: 28px;">Reference: CID4003</p>
+        <p class="small" style="margin-top: 28px;">Reference: CID8002</p>
     </section>
 
     {# section to show the upload timeout errors #}
@@ -215,7 +215,7 @@
 
         <h1 style="padding-bottom: 0;">Something went wrong</h1>
 
-        <p>We're having technical problems.</p>
+        <p>We are having technical problems.</p>
 
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Try again</a>
@@ -225,7 +225,7 @@
             <p>If you keep getting this message, please try again later.</p>
         </div>
 
-        <p class="small">Reference: CID4002</p>
+        <p class="small">Reference: CID8001</p>
     </section>
 
     {% if formerror === 'invalid' %}

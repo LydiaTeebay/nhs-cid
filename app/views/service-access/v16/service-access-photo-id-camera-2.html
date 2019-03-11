@@ -40,10 +40,10 @@
 
         <!--<p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>-->
 
-        <!--<div class="callout callout&#45;&#45;alert camera-file-format" style="display:block">-->
-            <!--<h2 class="h3">There's a problem</h2>-->
-            <!--<p>Your photo is a file type we cannot accept. When you click <em style="font-style: normal">Open camera</em>, pick your main camera.</p>-->
-        <!--</div>-->
+        <div class="callout callout--alert camera-file-format" style="display:block">
+        <h2 class="h3">There's a problem</h2>
+        <p>Your photo is a file type we cannot accept. When you click <em style="font-style: normal">Open camera</em>, pick your photo camera.</p>
+        </div>
 
         <form>
             <fieldset class="">
@@ -76,7 +76,7 @@
                 <p>Make sure:</p>
                 <ul class="list list-bullet">
                     <li>you do not cover any of the corners</li>
-                    <li>you can clearly see your face and all the text</li>
+                    <!--<li>you can clearly see your face and all the text</li>-->
                     <li>there's no shine from a light or window</li>
                 </ul>
 
@@ -98,8 +98,8 @@
                       {% endif %}
                     {% endif %}
 
-                    <label for="photo-id-document" class="camera-button">{{ instruction }}
-                        <input type="file" id="photo-id-document" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
+                    <label for="photo-id-document-auto" class="camera-button">{{ instruction }}
+                        <input type="file" id="photo-id-document-auto" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
                     </label>
 
                 </div>

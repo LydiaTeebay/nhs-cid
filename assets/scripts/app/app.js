@@ -372,6 +372,28 @@ function readURL(input, idType) {
             $('#uploaded-id-error').attr('src', e.target.result)
             // activateLoader(2)
         }
+
+        if (idType == "photoIdAuto") {
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-5").css("display", "block")
+            //show then hide the spinner animation
+            setTimeout(function(){
+                if (Validate(input)) {
+                    document.getElementById('scan-id-5').style.display = 'block'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('validated')
+                } else {
+                    $(".camera-file-format").css("display", "block")
+                    document.getElementById('scan-id-1').style.display = 'block'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('not validated')
+                }
+            }, 1000)
+            $('#uploaded-id').attr('src', e.target.result)
+            $('#uploaded-id-error').attr('src', e.target.result)
+            // activateLoader(2)
+        }
+
         if (idType == "videoSelfie") {
             $("#scan-id-1").css("display", "none")
             $("#scan-id-3").css("display", "block")
@@ -496,6 +518,10 @@ $("#id-document").change(function(){
 
 $("#photo-id-document").change(function(){
     readURL(this, "photoId")
+})
+
+$("#photo-id-document-auto").change(function(){
+    readURL(this, "photoIdAuto")
 })
 
 $("#document").change(function(){
