@@ -85,6 +85,7 @@ app.get(/^\/([^.]+)$/, function (req, res) {
 
 // Force HTTPs on production connections
 if (env === 'production' && useHttps === 'true') {
+    console.log('use https')
     app.use(utils.forceHttps)
 }
 
