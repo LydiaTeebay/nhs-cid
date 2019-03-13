@@ -12,7 +12,18 @@
 
       <form>
 
-          <h1>We could not match your face to your photo I.D.</h1>
+          {% if iproovFailReason === "client_config" %}
+
+            <h1>Something went wrong</h1>
+
+          {% else %}
+
+            <h1>We could not match your face to your photo I.D.</h1>
+
+          {% endif %}
+
+
+
 
           {% if iProovSecondAttempt === "true" %}
 
@@ -24,7 +35,7 @@
 
           {% else %}
 
-          {% if iproovFailReason === "ambiguous_outcome" or iproovFailReason === "network_problem" or iproovFailReason === "user_timeout" %}
+          {% if iproovFailReason === "ambiguous_outcome" or iproovFailReason === "network_problem" or iproovFailReason === "user_timeout" or iproovFailReason === "client_api" or iproovFailReason === "client_camera" or iproovFailReason === "client_stream" or iproovFailReason === "client_error" or iproovFailReason === "server_abort" %}
 
           <!-- no message -->
 
@@ -40,7 +51,7 @@
 
           <p>It's too dark. Try moving somewhere lighter, or turning on a light.</p>
 
-          {% elif iproovFailReason === "lighting_too_dark" %}
+          {% elif iproovFailReason === "lighting_face_too_bright" %}
 
           <p>There's too much light shining on your face.</p>
 
@@ -48,9 +59,14 @@
 
           <p>Try to stay still when the scan starts.</p>
 
-          `         {% elif iproovFailReason === "motion_too_much_mouth_movement" %}
+          {% elif iproovFailReason === "motion_too_much_mouth_movement" %}
 
           <p>Do not talk when the scan starts.</p>
+
+          {% elif iproovFailReason === "client_config" %}
+
+          <p>We are having technical problems. Try again later.</p>
+          <p class="small">Reference: CID4010</p>
 
           {% else %}
 
@@ -58,10 +74,14 @@
 
           {% endif %}
 
+          {% if iproovFailReason !== "client_config" %}
+
               <p></p>
               <div class="form-group">
                   <a href="service-access-iproov-instructions{{ params }}" class="button camera-button">Try again</a>
               </div>
+
+          {% endif %}
 
           {% endif %}
 
