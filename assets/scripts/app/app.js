@@ -828,14 +828,15 @@ $(".idcheck-video-paired-button").on("click", function(e) {
 $("#allow-camera-button").on("click", function(e) {
     e.preventDefault()
     const constraints = { audio: false, video: true }
-
+    window.iproovLink = e.target.href
     navigator.mediaDevices.getUserMedia(constraints).then(cameraEnabled)
 })
 
 var cameraEnabled = function (stream) {
-    console.log('pressed yes')
-    $("#enable-camera").css("display","none")
-    $("#camera-enabled").css("display","block")
+
+    window.parent.document.location.href = window.iproovLink
+    // $("#enable-camera").css("display","none")
+    // $("#camera-enabled").css("display","block")
 }
 
 // submit photo button action
