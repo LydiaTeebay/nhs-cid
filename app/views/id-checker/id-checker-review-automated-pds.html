@@ -14,7 +14,7 @@
     <div class="panel__content panel__content--half">
         <!--<h3>User submitted details</h3>-->
 
-        {% if demographics !== 'true' %}
+        {% if demographics !== 'true' or demographics == 'both' %}
 
         <div class="form-group">
             <label class="form-label">NHS Number</label>
@@ -395,7 +395,7 @@
 
 
                     <div id="id-approve2">
-                        <a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=success&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
+                        <a href="id-checker-review-automated-pds?demographics=both&role=undefined&result=success&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
                            id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                     </div>
 
@@ -441,7 +441,7 @@
                 </fieldset>
 
                 <div id="id-approve2">
-                    <a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=success&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
+                    <a href="id-checker-review-automated-pds?demographics=both&role=undefined&result=success&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
                        id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                 </div>
             </div>
