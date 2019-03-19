@@ -8,50 +8,80 @@
 
 {% block content %}
 
-<style>
-  tr:hover:not(first-of-type) {
-    cursor: pointer;
-    background-color: #f4f4f4;
-  }
-  a:visited {
-    text-decoration: line-through;
-  }
-</style>
+<h1>Audit Dashboard</h1>
 
+<p>Period 11th March - 17th March</p>
 
-<h1>Completed assurance requests</h1>
+<div class="grid-row">
+    <div class="column--one-quarter">
+        <div class="idcheck-dash idcheck-dash-{{ queue}}" id="pending">
+            <p class="idcheck-dash-heading">Total</p>
 
-<table>
-  <tr>
-    <th>Date, time</th>
-    <th>Name or NHS number</th>
-    <th>Status</th>
-    <th></th>
-  </tr>
+            <div class="idcheck-dash-details">
 
-  <tr class='clickable-row' data-href='/id-checker/id-checker-supervisor-review'>
-    <td>1st May 2018, 11:56am</td>
-    <td>Joe Blogs</td>
-    <td>Approved</td>
-    <td><a href="/id-checker/id-checker-supervisor-review">View</a></td>
-  </tr>
+                {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
+                <div class="idcheck-dash-number bold-xxlarge">1111</div>
+                {% else %}
 
-  <tr class='clickable-row' data-href='/id-checker/id-checker-supervisor-review?demographics=true'>
-    <td>1st May 2018, 10:56am</td>
-    <td>Mark Young</td>
-    <td>Declined</td>
-    <td><a href="/id-checker/id-checker-supervisor-review?demographics=true">View</a></td>
-  </tr>
+                <div class="idcheck-dash-number bold-xxlarge">1112</div>
+                {% endif %}
 
-</table>
+            </div>
+        </div>
+    </div>
+    <div class="column--one-quarter">
+        <div class="idcheck-dash {% if state === 'inprogress' %}u-inprogress{% endif %}"id="inprogress" >
+            <p class="idcheck-dash-heading">Completed</p>
+            <div class="idcheck-dash-details">
+                {% if state === 'inprogress' %}
+                <span class="idcheck-dash-number bold-xxlarge">40</span>
+                {% else %}
+                <span class="idcheck-dash-number bold-xxlarge" id="progress-num">40</span>
+                {% endif%}
+            </div>
+        </div>
+    </div>
+    <div class="column--one-quarter">
+        <div class="idcheck-dash {% if holding === 'inholding' %}u-inholding{% endif %}">
+            <p class="idcheck-dash-heading">Percentage</p>
 
-<script type="application/javascript">
-    var clickable = document.getElementsByClassName('clickable-row')
-    for (i = 0; i < clickable.length; i++) {
-        clickable[i].addEventListener('click', function(event){
-            window.location = this.dataset.href
-        })
-    }
-</script>
+            <div class="idcheck-dash-details">
+
+                <div class="idcheck-dash-number bold-xxlarge">3.6%</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="column--one-quarter">
+        <div class="idcheck-dash">
+            <p class="idcheck-dash-heading">Contested</p>
+
+            <div class="idcheck-dash-details">
+
+                {% if state === 'declined' or state === 'approved' %}
+                <div class="idcheck-dash-number bold-xxlarge">9</div>
+                {% else %}
+                <div class="idcheck-dash-number bold-xxlarge">8</div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if state === 'inprogress' %}
+<p>You still have a verification in progress</p>
+<a class="button" href="id-checker-review{{ params }}">Continue verification</a>
+<p><a href="id-checker-dashboard{{ params }}&state=none">Abort</a></p>
+{% elif queue === 'cleared' %}
+<a class="button" id="cleared" href="id-checker-dashboard{{ params }}">Start next audit</a>
+{% elif queue === 'clear' %}
+{% else %}
+<a class="button" href="id-checker-review{{ params }}">Start next audit</a>
+{% endif%}
+
+<div>
+    <a class="" href="id-checker-supervisor-contested{{ params }}&noabort=true">Open the contested list</a>
+</div>
 
 {% endblock %}
