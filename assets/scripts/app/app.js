@@ -308,6 +308,16 @@ function spinner() {
     }, 1500)
 }
 
+function fastSpinner() {
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+    }, 500)
+    setTimeout(function(){
+        document.getElementById('scan-id-5').style.display = 'block'
+    }, 500)
+}
+
+
 function readURL(input, idType) {
   if (input.files && input.files[0]) {
     var reader = new FileReader()

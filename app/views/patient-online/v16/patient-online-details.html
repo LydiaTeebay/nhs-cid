@@ -58,6 +58,25 @@
     </div>
 
   </form>
+
+  {% if devMode === "true" %}
+  <details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+      <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+      <div class="reading-width">
+        <ol>
+          <li><a href="/service-access/v16/service-access-nhs{{ params }}&poluser=false">Chooses No - Assigned manual workflow</a></li>
+          <li><a href="/service-access/v16/service-access-start{{ params }}&poluser=false">Chooses No - Assigned automated workflow</a></li>
+          <li><a href="/service-access/v16/service-access-in-progress{{ params }}&poluser=false">Chooses No - User has verification request which is currently in progress</a></li>
+          <li><a href="/service-access/v16/service-access-previously-completed{{ params }}&poluser=false">Chooses No - User already completed the PYI process</a></li>
+        </ol>
+      </div>
+    </div>
+  </details>
+  {% endif %}
+
 </div>
 
 {% endblock %}
