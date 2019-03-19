@@ -181,6 +181,50 @@
 
     </section>
 
+
+    {# section to show the AWS face check validation errors - no face #}
+    <section class="preview-container" id="scan-id-7b" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
+
+        <p>We could not detect a face in your photo</p>
+
+        <p>Try again and make sure:</p>
+        <ul>
+            <li>all the details on your I.D are visible</li>
+            <li>there is no blur or glare on the image</li>
+            <li>the image isn't too dark or light</li>
+        </ul>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CIDXXXX</p>
+    </section>
+
+
+    {# section to show the AWS face check validation errors - multiple face #}
+    <section class="preview-container" id="scan-id-7c" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
+
+        <p>We detected more than one face in your photo</p>
+
+        <p>Try again and make sure:</p>
+        <ul>
+            {% if idType == 'passport' %}
+            <li>you only take a photo of the details page of your passport</li>
+            {% endif %}
+            <li>there are no faces visible to the sides</li>
+        </ul>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CIDXXXX</p>
+    </section>
+
+
     {# section to show uploading error #}
     <section class="preview-container" id="scan-id-6" style="display:none">
 
