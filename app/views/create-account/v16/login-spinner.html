@@ -1,10 +1,14 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Checking your details{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
 
+
 {% block content %}
+
+<meta http-equiv="refresh" content="2;url={{ backlink.link() }}">
 
 
 <div class="first-item">
@@ -28,6 +32,30 @@
 
   </section>
 
+
+  <div class="bar_container" id="scan-id-5" style="display: none">
+    <div id="main_container">
+      <div id="pbar" class="progress-spinner" data-percent="0">
+        <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
+        <div class="ppc-loading">
+          <div class="pcc-percents-wrapper">
+            <span id="spinner-status">Please wait&hellip;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
+
+<script type="text/javascript">
+  setTimeout(function(){
+    fastSpinner()
+  }, 1000)
+</script>
+
+
+
 
 {% endblock %}
