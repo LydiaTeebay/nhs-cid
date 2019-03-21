@@ -3,14 +3,14 @@
 
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
-{% set signedin = '' %}
+{% set signedin = 'audit' %}
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state %}
 
 {% block content %}
 
-<h1>Audit Dashboard</h1>
+<h1>Auditing</h1>
 
-<p>Period 11th March - 17th March</p>
+<p>Current period: 11th March 2019 - 17th March 2019</p>
 
 <div class="grid-row">
     <div class="column--one-quarter">
@@ -53,15 +53,15 @@
         </div>
     </div>
     <div class="column--one-quarter">
-        <div class="idcheck-dash">
+        <div class="idcheck-dash u-inholding">
             <p class="idcheck-dash-heading">Contested</p>
 
             <div class="idcheck-dash-details">
 
                 {% if state === 'declined' or state === 'approved' %}
-                <div class="idcheck-dash-number bold-xxlarge">9</div>
+                <div class="idcheck-dash-number bold-xxlarge">4</div>
                 {% else %}
-                <div class="idcheck-dash-number bold-xxlarge">8</div>
+                <div class="idcheck-dash-number bold-xxlarge">3</div>
                 {% endif %}
 
             </div>
@@ -81,7 +81,7 @@
 {% endif%}
 
 <div>
-    <a class="" href="id-checker-supervisor-contested{{ params }}&noabort=true">Open the contested list</a>
+    <p><a class="" href="id-checker-supervisor-contested-periods{{ params }}">Open the contested list</a></p>
 </div>
 
 {% endblock %}

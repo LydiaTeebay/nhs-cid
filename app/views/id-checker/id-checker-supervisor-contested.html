@@ -3,22 +3,26 @@
 
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
-{% set signedin = 'true' %}
+{% set signedin = '' %}
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&idType=" + idType %}
 
 
 {% block content %}
 
+<p><a href="id-checker-supervisor-contested-periods{{ params }}" class="link-back">Back</a></p>
+
 <h1>Contested list</h1>
+<p>11th March 2019 - 17th March 2019</p>
 
 <table>
     <thead>
     <tr>
         <th>ID</th>
         <th>User</th>
-        <th>Reason</th>
+        <th>Reason for review</th>
         <th>Submitted</th>
-        <th>&nbsp;</th>
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -26,22 +30,25 @@
         <td>5f9c1b41</td>
         <td>Maria Anders</td>
         <td>Numbers didn't show</td>
-        <td>1 hour 15 minutes</td>
-        <td><a href="id-checker-review{{ params }}" class="">View</a> </td>
+        <td>12th March 2019</td>
+        <td><a href="id-checker-supervisor-review-pds{{ params }}" class="">View</a> </td>
+        <td></td>
     </tr>
     <tr>
         <td>134a4214</td>
         <td><i style="color: grey;">Not available</i></td>
-        <td>No information appeared for PDS check, I tried to refresh a couple of times and it still won't show.</td>
-        <td>55 minutes</td>
-        <td><a href="id-checker-review{{ params }}" class="">View</a> </td>
+        <td>Details on the document were fine, rejected due to OCR issue</td>
+        <td>13th March 2019</td>
+        <td><a href="id-checker-supervisor-review-pds{{ params }}" class="">View</a> </td>
+        <td></td>
     </tr>
     <tr>
         <td>7fc61a11</td>
         <td>5990060173</td>
         <td>The video won't play on my computer</td>
-        <td>29 minutes</td>
-        <td><span style="color: grey;">In progress</span></td>
+        <td>14th March 2019</td>
+        <td><a href="id-checker-supervisor-review-pds{{ params }}" class="">View</a> </td>
+        <td></td>
     </tr>
     </tbody>
 </table>

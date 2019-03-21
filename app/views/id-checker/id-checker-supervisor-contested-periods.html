@@ -3,46 +3,43 @@
 
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
-{% set signedin = 'true' %}
+{% set signedin = '' %}
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&idType=" + idType %}
 
 
 {% block content %}
 
-<h1>Contested list</h1>
+<p><a href="id-checker-supervisor-dashboard{{ params }}" class="link-back">Back</a></p>
+
+<h1>Contested lists</h1>
 
 <table>
     <thead>
     <tr>
-        <th>ID</th>
-        <th>User</th>
-        <th>Reason</th>
-        <th>Submitted</th>
+        <th>Audit period</th>
+        <th>number</th>
         <th>&nbsp;</th>
-
+        <th>&nbsp;</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>5f9c1b41</td>
-        <td>Maria Anders</td>
-        <td>Numbers didn't show</td>
-        <td>1 hour 15 minutes</td>
-        <td><a href="id-checker-review{{ params }}" class="">View</a> </td>
+        <td>11th March 2019 - 17th March 2019</td>
+        <td>3</td>
+        <td><span style="color: grey;">Current period</span></td>
+        <td><a href="id-checker-supervisor-contested{{ params }}" class="">View</a> </td>
     </tr>
     <tr>
-        <td>134a4214</td>
-        <td><i style="color: grey;">Not available</i></td>
-        <td>No information appeared for PDS check, I tried to refresh a couple of times and it still won't show.</td>
-        <td>55 minutes</td>
-        <td><a href="id-checker-review{{ params }}" class="">View</a> </td>
+        <td>4th March 2019 - 10th March 2019</td>
+        <td>14</td>
+        <td>&nbsp;</td>
+        <td><a href="id-checker-supervisor-contested{{ params }}" class="">View</a> </td>
     </tr>
     <tr>
-        <td>7fc61a11</td>
-        <td>5990060173</td>
-        <td>The video won't play on my computer</td>
-        <td>29 minutes</td>
-        <td><span style="color: grey;">In progress</span></td>
+        <td>25th February 2019 - 3rd March 2019</td>
+        <td>11</td>
+        <td>&nbsp;</td>
+        <td><a href="id-checker-supervisor-contested{{ params }}" class="">View</a> </td>
     </tr>
     </tbody>
 </table>

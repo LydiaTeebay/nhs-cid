@@ -511,7 +511,7 @@
     </div>
     <div class="panel__content panel__content--half">
 
-        <div class="qa-questions-group" data-complete="false">
+        <div class="qa-questions-group" data-complete="false" style="display:none;">
             <div class="qa-questions-question" id="document-1" data-answered="false" data-group="decline-1">
                 <p class="qa-questions-question-text">Does the name and date of birth in the PDS record match the
                     details in the photo ID?</p>
@@ -546,6 +546,18 @@
 
     </div>
 </div>
+
+<div id="id-buttons">
+    <span id="id-approve">
+        <a href="id-checker-supervisor-dashboard?state=approved" data-target="modal" id="approveBtn" class="button button--approve">Agree</a>
+    </span>
+    <span id="id-decline">
+        <a href="id-checker-supervisor-dashboard?state=declined" data-target="modal" id="declineBtn" class="button button--decline">Overrule</a>
+    </span>
+</div>
+
+
+
 
 <div id="slideout">
     <img src="/images/problem.png" alt="Feedback" height="173" width="32"/>
