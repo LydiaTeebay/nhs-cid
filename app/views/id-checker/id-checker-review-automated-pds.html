@@ -12,7 +12,7 @@
 
 <div class="panel" style="margin: 0;">
     <div class="panel__content panel__content--half">
-        <!--<h3>User submitted details</h3>-->
+        <h3>Submitted details</h3>
 
         {% if demographics !== 'true' or demographics == 'both' %}
 
@@ -20,15 +20,6 @@
             <label class="form-label">NHS Number</label>
             <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly
                    style="display: inline-block; margin-bottom: 0;">
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Postcode</label>
-            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
-                   style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
         </div>
 
         <!--<h3>OCR details</h3>-->
@@ -51,20 +42,26 @@
                     <div class="form-date-field">
                         <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
                         <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="8" class="day"
-                               maxlength="2" min="1" max="31" readonly>
+                               maxlength="2" min="1" max="31" readonly style="margin-bottom: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
                         <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month"
-                               maxlength="2" min="1" max="12" readonly>
+                               maxlength="2" min="1" max="12" readonly style="margin-bottom: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
                         <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year"
-                               maxlength="4" min="1900" max="2018" readonly>
+                               maxlength="4" min="1900" max="2018" readonly style="margin-bottom: 0;">
                     </div>
                 </div>
             </fieldset>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Postcode</label>
+            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
+                   style="display: inline-block; margin-bottom: 0;">
             {% if result == 'fails' %}
             <a href="#" class="idcheck-edit">Edit</a>
             {% endif %}
@@ -78,18 +75,7 @@
                    style="display: inline-block; margin-bottom: 0;">
         </div>
 
-        <div class="form-group">
-            <label class="form-label">Postcode</label>
-            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
-                   style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
-        </div>
-
         {% if result == 'success' %}
-
-        <!--<h3>ID checker submitted details</h3>-->
 
         <div class="form-group">
             <label class="form-label">NHS Number</label>
@@ -121,6 +107,7 @@
                 </div>
             </fieldset>
         </div>
+
 
         {% endif %}
 
@@ -161,6 +148,16 @@
                 </div>
             </fieldset>
         </div>
+
+        <div class="form-group">
+            <label class="form-label">Postcode</label>
+            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
+                   style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fails' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+
 
         {% endif %}
 
