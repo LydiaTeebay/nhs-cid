@@ -39,6 +39,10 @@
 
           <!-- no message -->
 
+          {% elif iproovFailReason === "user_abort" %}
+
+          <p>This is because you stopped the scan.</p>
+
           {% elif iproovFailReason === "lighting_flash_reflection_too_low" %}
 
           <p>Make sure your phone's screen brightness is on full.</p>
