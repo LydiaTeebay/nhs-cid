@@ -198,8 +198,11 @@
 
         <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
 
-        <p>We could not detect a face in your photo</p>
+        <p>We cannot see all the information we need.</p>
 
+        <p>Make sure you follow the instructions when you take another photo of your I.D.</p>
+
+        {#
         <p>Try again and make sure:</p>
         <ul>
             <li>all the details on your I.D are visible</li>
@@ -207,10 +210,12 @@
             <li>the image isn't too dark or light</li>
         </ul>
 
+        #}
+
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
-        <p class="small" style="margin-top: 28px;">Reference: CIDXXXX</p>
+        <p class="small" style="margin-top: 28px;">Reference: CID8005</p>
     </section>
 
 
@@ -219,7 +224,15 @@
 
         <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
 
-        <p>We detected more than one face in your photo</p>
+        <p>It looks like there's more than one face.</p>
+
+        {% if idType == 'passport' %}
+        <p>Make sure you only take a photo of the page that has your photo and personal information on it.</p>
+        {% endif %}
+
+        <p>Check there are no other faces in the photo that you send us.</p>
+
+        {#
 
         <p>Try again and make sure:</p>
         <ul>
@@ -229,10 +242,12 @@
             <li>there are no faces visible to the sides</li>
         </ul>
 
+        #}
+
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
-        <p class="small" style="margin-top: 28px;">Reference: CIDXXXX</p>
+        <p class="small" style="margin-top: 28px;">Reference: CID8006</p>
     </section>
 
 
