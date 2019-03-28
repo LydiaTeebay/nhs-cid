@@ -1,17 +1,17 @@
 {% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
-{% block page_title %}Change your phone number{% endblock %}
+{% block page_title %}Your phone number has been changed{% endblock %}
 
 {% set signedin = 'true' %}
 
 {% block topRow %}
 
 <h1>Account settings
-    <div class="smaller-h1">Phone number</div>
+  <div class="smaller-h1">Phone number</div>
 </h1>
 <hr>
 
 <style>
-  .c-page-contents__link.link-phone {
+  .c-page-contents__link.link-password {
     font-weight: bold;
     text-decoration: none;
   }
@@ -27,14 +27,15 @@
 
 {% block rightcol %}
 
-<div class="first-item">
+{% block alert %}{% endblock %}
 
-	<h2>Change your phone number</h2>
+<div class="first-item account-mgmt">
+  	<div class="form-group">
 
-	<p>07*** ***123</p> 
+        <h2>Your phone number has been changed</h2>
 
-	<a class="button" href="account-phone-2fa">Change your phone number</a>
 
+  	</div>
 </div>
 
 {% endblock %}
