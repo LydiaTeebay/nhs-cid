@@ -3,30 +3,34 @@
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
 
-
-{% block content %}
+{% block extrastyles %}
 
 <style>
 
-dl {
-    display: block;
-    padding-left: 50px;
-    padding-top: 0px;
-    line-height: 0.75em;
-    background: transparent url("https://nhs-cid.herokuapp.com/images/user.png") no-repeat 0 0;
-    background-size: 45px 45px;
-    height: 70px;
-    margin-bottom: -20px;
-}
+    dl {
+        display: block;
+        padding-left: 50px;
+        padding-top: 0px;
+        line-height: 0.75em;
+        background: transparent url("https://nhs-cid.herokuapp.com/images/user.png") no-repeat 0 0;
+        background-size: 45px 45px;
+        height: 70px;
+        margin-bottom: -20px;
+    }
 
-dl dt span {
-    display: block;
-    font-size: 0.8em;
-    font-weight: normal;
-    line-height: 0.9em;
-}
+    dl dt span {
+        display: block;
+        font-size: 0.8em;
+        font-weight: normal;
+        line-height: 0.9em;
+    }
 
 </style>
+
+{% endblock %}
+
+
+{% block content %}
 
 <div class="first-item">
 
@@ -57,18 +61,3 @@ dl dt span {
 </div>
 
 {% endblock %}
-
-
-[H1] Use your NHS login
-
-You can use your NHS login registered to chris******@gmail.com to set up an account with Online Consultations.
-
-To do this, we need to share your:
-
-- surname
-- date of birth
-- NHS number
-
-[Agree]
-
-Do not agree - you will not be able to use your NHS login to access Online Consultations
