@@ -4,7 +4,8 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = 'audit' %}
-{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state %}
+{% set noabort = 'true' %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state + "&devMode=" + devMode %}
 
 {% block content %}
 
@@ -13,9 +14,24 @@
 <p>Current period: 11th March 2019 - 17th March 2019</p>
 
 <div class="grid-row">
+
+    <div class="column--one-quarter">
+        <div class="idcheck-dash {% if state === 'inprogress' %}u-inprogress{% endif %}"id="inprogress" >
+            <p class="idcheck-dash-heading">Audited</p>
+            <div class="idcheck-dash-details">
+                {% if state === 'inprogress' %}
+                <span class="idcheck-dash-number bold-xxlarge">40</span>
+                {% else %}
+                <span class="idcheck-dash-number bold-xxlarge" id="progress-num">40</span>
+                {% endif%}
+            </div>
+        </div>
+    </div>
+
+
     <div class="column--one-quarter">
         <div class="idcheck-dash idcheck-dash-{{ queue}}" id="pending">
-            <p class="idcheck-dash-heading">Total</p>
+            <p class="idcheck-dash-heading">Total for period</p>
 
             <div class="idcheck-dash-details">
 
@@ -29,21 +45,10 @@
             </div>
         </div>
     </div>
-    <div class="column--one-quarter">
-        <div class="idcheck-dash {% if state === 'inprogress' %}u-inprogress{% endif %}"id="inprogress" >
-            <p class="idcheck-dash-heading">Completed</p>
-            <div class="idcheck-dash-details">
-                {% if state === 'inprogress' %}
-                <span class="idcheck-dash-number bold-xxlarge">40</span>
-                {% else %}
-                <span class="idcheck-dash-number bold-xxlarge" id="progress-num">40</span>
-                {% endif%}
-            </div>
-        </div>
-    </div>
+
     <div class="column--one-quarter">
         <div class="idcheck-dash {% if holding === 'inholding' %}u-inholding{% endif %}">
-            <p class="idcheck-dash-heading">Percentage</p>
+            <p class="idcheck-dash-heading">% completed</p>
 
             <div class="idcheck-dash-details">
 
@@ -54,7 +59,7 @@
     </div>
     <div class="column--one-quarter">
         <div class="idcheck-dash u-inholding">
-            <p class="idcheck-dash-heading">Contested</p>
+            <p class="idcheck-dash-heading">Disputed</p>
 
             <div class="idcheck-dash-details">
 
@@ -77,11 +82,39 @@
 <a class="button" id="cleared" href="id-checker-dashboard{{ params }}">Start next audit</a>
 {% elif queue === 'clear' %}
 {% else %}
-<a class="button" href="id-checker-review{{ params }}">Start next audit</a>
+<a class="button" href="id-checker-supervisor-review{{ params }}">Start next audit</a>
 {% endif%}
 
 <div>
-    <p><a class="" href="id-checker-supervisor-contested-periods{{ params }}">Open the contested list</a></p>
+    <p><a class="" href="id-checker-supervisor-contested-periods{{ params }}">Show disputed verification requests</a></p>
 </div>
+
+{% if devMode === "true" %}
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Testing scenarios</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+            <p>Manual</p>
+            <ol>
+                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker approved</a></li>
+                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker declined</a></li>
+            </ol>
+            <p>Automated</p>
+            <ol>
+                <li><a href="id-checker-review{{ params }}&result=fail&failreason=ocr">Automated approved</a></li>
+                <li><a href="id-checker-supervisor-review-auto?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Automated decline - Failed automation check with iProov</a></li>
+                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Automated decline - Failed automation check with Paycasso</a></li>
+            </ol>
+            <p>Part automated</p>
+            <ol>
+                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker approve</a></li>
+                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker decline</a></li>
+            </ol>
+        </div>
+    </div>
+</details>
+{% endif %}
 
 {% endblock %}

@@ -105,6 +105,11 @@
 </div>
 {% endif%}
 
+{% if role === 'Supervisor' %}
+<div>
+  <p><a class="" href="id-checker-supervisor-dashboard{{ params }}">Open auditing</a></p>
+</div>
+{% endif%}
 
 
 {% if devMode === "true" %}

@@ -3,7 +3,8 @@
 
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
-{% set signedin = '' %}
+{% set signedin = 'audit' %}
+{% set noabort = 'true' %}
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&idType=" + idType %}
 
 
@@ -11,8 +12,8 @@
 
 <p><a href="id-checker-supervisor-contested-periods{{ params }}" class="link-back">Back</a></p>
 
-<h1>Contested list</h1>
-<p>11th March 2019 - 17th March 2019</p>
+<h1><span class="heading-secondary">Verification request disputes for the period:</span> 11th March 2019 - 17th March 2019</h1>
+<!--<p>11th March 2019 - 17th March 2019</p>-->
 
 <table>
     <thead>
@@ -31,7 +32,7 @@
         <td>Maria Anders</td>
         <td>Numbers didn't show</td>
         <td>12th March 2019</td>
-        <td><a href="id-checker-supervisor-review-pds{{ params }}" class="">View</a> </td>
+        <td><a href="id-checker-supervisor-review-auto{{ params }}" class="">View</a> </td>
         <td></td>
     </tr>
     <tr>
@@ -39,7 +40,7 @@
         <td><i style="color: grey;">Not available</i></td>
         <td>Details on the document were fine, rejected due to OCR issue</td>
         <td>13th March 2019</td>
-        <td><a href="id-checker-supervisor-review-pds{{ params }}" class="">View</a> </td>
+        <td><a href="id-checker-supervisor-review{{ params }}" class="">View</a> </td>
         <td></td>
     </tr>
     <tr>
@@ -47,7 +48,7 @@
         <td>5990060173</td>
         <td>The video won't play on my computer</td>
         <td>14th March 2019</td>
-        <td><a href="id-checker-supervisor-review-pds{{ params }}" class="">View</a> </td>
+        <td><a href="id-checker-supervisor-review-auto{{ params }}" class="">View</a> </td>
         <td></td>
     </tr>
     </tbody>

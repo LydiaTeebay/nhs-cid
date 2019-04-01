@@ -3,7 +3,8 @@
 
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
-{% set signedin = 'true' %}
+{% set signedin = 'audit' %}
+{% set noabort = 'true' %}
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason %}
 
 {% block content %}

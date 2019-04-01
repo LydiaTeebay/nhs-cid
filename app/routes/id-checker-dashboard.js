@@ -9,11 +9,6 @@ module.exports = function (router) {
         var result = req.param('result')
         var demographics = req.param('demographics')
         var devmode = req.param('devMode')
-
-        if (role === 'Supervisor') {
-            res.redirect('/id-checker/id-checker-supervisor-dashboard?role=Supervisor' + '&emailLink=' + emailLink + '&state=' + state + '&result=' + result + '&demographics=' + demographics + '&queue=' + queue + '&holding=' + holding )
-            return
-        }
         res.render('id-checker/id-checker-dashboard', {state: state, emailLink: emailLink, role: role, result: result, demographics: demographics, devMode: devmode, queue: queue, holding: holding  }, function(err, html) {
             res.send(html)
         })

@@ -3,7 +3,8 @@
 
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
-{% set signedin = '' %}
+{% set signedin = 'audit' %}
+{% set noabort = 'true' %}
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&idType=" + idType %}
 
 
@@ -11,35 +12,31 @@
 
 <p><a href="id-checker-supervisor-dashboard{{ params }}" class="link-back">Back</a></p>
 
-<h1>Contested lists</h1>
+<h1>Disputed verification requests</h1>
 
 <table>
     <thead>
     <tr>
         <th>Audit period</th>
-        <th>number</th>
-        <th>&nbsp;</th>
+        <th>Disputes</th>
         <th>&nbsp;</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>11th March 2019 - 17th March 2019</td>
+        <td><a href="id-checker-supervisor-contested{{ params }}" class="">11th March 2019 - 17th March 2019</a></td>
         <td>3</td>
-        <td><span style="color: grey;">Current period</span></td>
-        <td><a href="id-checker-supervisor-contested{{ params }}" class="">View</a> </td>
+        <td style="text-align: right;"><span style="color: grey;">Current period</span></td>
     </tr>
     <tr>
-        <td>4th March 2019 - 10th March 2019</td>
+        <td><a href="id-checker-supervisor-contested{{ params }}" class="">4th March 2019 - 10th March 2019</a></td>
         <td>14</td>
         <td>&nbsp;</td>
-        <td><a href="id-checker-supervisor-contested{{ params }}" class="">View</a> </td>
     </tr>
     <tr>
-        <td>25th February 2019 - 3rd March 2019</td>
+        <td><a href="id-checker-supervisor-contested{{ params }}" class="">25th February 2019 - 3rd March 2019</a></td>
         <td>11</td>
         <td>&nbsp;</td>
-        <td><a href="id-checker-supervisor-contested{{ params }}" class="">View</a> </td>
     </tr>
     </tbody>
 </table>
