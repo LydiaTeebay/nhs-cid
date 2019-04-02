@@ -7,7 +7,9 @@
 
 <div class="first-item">
 
-  <p><a href="patient-online-start{{ params }}" class="link-back">Back</a></p>
+  {% if hideBack !== 'true' %}
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+  {% endif %}
 
   <div class="reading-width">
     <h1>We need to connect your NHS login to your GP surgery</h1>
@@ -58,6 +60,8 @@
     </div>
 
   </form>
+
+
 </div>
 
 {% endblock %}
