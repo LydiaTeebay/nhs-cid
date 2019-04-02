@@ -17,7 +17,8 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        res.render('patient-online/v16/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        var hideBack = req.param('hideBack')
+        res.render('patient-online/v16/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack }, function(err, html) {
             res.send(html)
         })
     })
@@ -59,7 +60,8 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        res.render('patient-online/demo/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        var hideBack = req.param('hideBack')
+        res.render('patient-online/demo/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack }, function(err, html) {
             res.send(html)
         })
     })
@@ -124,7 +126,8 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
-        res.render('patient-online/pb/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service }, function(err, html) {
+        var hideBack = req.param('hideBack')
+        res.render('patient-online/pb/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, hideBack: hideBack }, function(err, html) {
             res.send(html)
         })
     })
