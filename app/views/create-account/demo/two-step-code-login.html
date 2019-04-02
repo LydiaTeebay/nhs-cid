@@ -1,6 +1,6 @@
 {% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Enter security code{% endblock %}
+{% block page_title %}Check your phone{% endblock %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result + "&reason=" + reason %}
 
 
@@ -36,17 +36,7 @@
 
     <div class="form-group">
 
-      {% if reason === 'idpending' %}
-      <a id="securitycodeContinue" href="error-id-not-checked{{ params }}" target="_parent" class="button">Continue</a>
-      {% elif reason === 'nam' %}
-      <a id="securitycodeContinue" href="/service-access/pb/service-access-connect-gp{{ params }}" target="_parent" class="button">Continue</a>
-      {% elif reason === 'termsupdated' %}
-      <a id="securitycodeContinue" href="terms-updated{{ params }}" target="_parent" class="button">Continue</a>
-      {% elif reason === 'consent' %}
-      <a id="securitycodeContinue" href="consent{{ params }}" target="_parent" class="button">Continue</a>
-      {% else %}
-      <a id="securitycodeContinue" href="{{ backlink.link() }}" target="_parent" class="button">Continue</a>
-      {% endif%}
+      <a id="securitycodeContinue" href="login-spinner{{ params }}" class="button">Continue</a>
 
     </div>
 
