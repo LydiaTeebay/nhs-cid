@@ -1,15 +1,36 @@
-{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% import '_macros/_macro_app.html' as backlink with context %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Checking your details{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
 
-{% block content %}
+{% block extrastyles %}
 
+{% if reason === 'idpending' %}
+<meta http-equiv="refresh" content="3;url=error-id-not-checked{{ params }}">
+{% elif reason === 'nam' %}
+<meta http-equiv="refresh" content="3;url=/service-access/demo/service-access-connect-gp{{ params }}">
+{% elif reason === 'termsupdated' %}
+<meta http-equiv="refresh" content="3;url=terms-updated{{ params }}">
+{% elif reason === 'consent' %}
+<meta http-equiv="refresh" content="3;url=consent{{ params }}">
+{% elif reason === 'pyi' %}
+<meta http-equiv="refresh" content="5;url=/patient-online/demo/patient-online-details{{ params }}&hideBack=true">
+{% elif reason === 'dead' %}
+<meta http-equiv="refresh" content="3;url=login-dead{{ params }}">
+{% else %}
+<meta http-equiv="refresh" content="3;url={{ backlink.link() }}">
+{% endif %}
+
+{% endblock %}
+
+
+{% block content %}
 
 <div class="first-item">
 
-  <section class="loading-container" id="scan-id-0">
+  <section class="loading-container" id="gp-connect-0" style="display:block; min-height: 16em;">
 
     <h1 id="spinner-heading" style="padding-bottom: 0; display:block;">Checking your details</h1>
 
@@ -27,6 +48,37 @@
     </div>
 
   </section>
+
+
+  <section class="loading-container" id="gp-connect-1" style="display:none; min-height: 16em;">
+
+    <h1 id="spinner-heading" style="padding-bottom: 0; display:block;">&nbsp;</h1>
+
+    <div class="bar_container">
+      <div id="main_container">
+        <div id="pbar" class="progress-spinner" data-percent="0">
+          <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
+          <div class="ppc-loading">
+            <div class="pcc-percents-wrapper">
+              <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <script type="text/javascript">
+    //show then hide the spinner animation
+    setTimeout(function(){
+      document.getElementById('gp-connect-0').style.display = 'none'
+    }, 3100)
+    setTimeout(function(){
+      document.getElementById('gp-connect-1').style.display = 'block'
+    }, 3100)
+  </script>
 
 </div>
 
