@@ -36,17 +36,7 @@
 
     <div class="form-group">
 
-      {% if reason === 'idpending' %}
-      <a id="securitycodeContinue" href="error-id-not-checked{{ params }}" target="_parent" class="button">Continue</a>
-      {% elif reason === 'nam' %}
-      <a id="securitycodeContinue" href="/service-access/pb/service-access-connect-gp{{ params }}" target="_parent" class="button">Continue</a>
-      {% elif reason === 'termsupdated' %}
-      <a id="securitycodeContinue" href="terms-updated{{ params }}" target="_parent" class="button">Continue</a>
-      {% elif reason === 'consent' %}
-      <a id="securitycodeContinue" href="consent{{ params }}" target="_parent" class="button">Continue</a>
-      {% else %}
-      <a id="securitycodeContinue" href="{{ backlink.link() }}" target="_parent" class="button">Continue</a>
-      {% endif%}
+      <a id="securitycodeContinue" href="login-spinner{{ params }}" class="button">Continue</a>
 
     </div>
 
