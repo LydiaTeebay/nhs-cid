@@ -3,7 +3,8 @@
 {% block page_title %}Access {{ serviceName }} - Connecting to your GP{% endblock %}
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason %}
 
-{% block content %}
+
+{% block extrastyles %}
 
 {% if result === '200' %}
 <meta http-equiv="refresh" content="5;url={{ backlink.link() }}">
@@ -29,6 +30,10 @@
 <meta http-equiv="refresh" content="3.8;url=service-access-nam-error-504{{ params }}">
 {% endif%}
 
+{% endblock %}
+
+
+{% block content %}
 
 <h1><legend>Trying to connect to your GP surgery</legend></h1>
 
