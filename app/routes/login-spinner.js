@@ -17,8 +17,9 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
+        var result = req.param('result')
         // re-render the page along with the parameter
-        res.render('create-account/v16/login-spinner', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('create-account/v16/login-spinner', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result }, function(err, html) {
             res.send(html)
         })
     })
@@ -83,8 +84,9 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
+        var result = req.param('result')
         // re-render the page along with the parameter
-        res.render('create-account/demo/login-spinner', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('create-account/demo/login-spinner', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result }, function(err, html) {
             res.send(html)
         })
     })
@@ -169,8 +171,9 @@ module.exports = function (router) {
         var poluser = req.param('poluser')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var result = req.param('result')
         // re-render the page along with the parameter
-        res.render('create-account/pb/login-spinner', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser }, function(err, html) {
+        res.render('create-account/pb/login-spinner', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, result: result }, function(err, html) {
             res.send(html)
         })
     })
