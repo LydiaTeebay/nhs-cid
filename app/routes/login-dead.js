@@ -13,7 +13,7 @@ module.exports = function (router) {
     var poluser = req.param('poluser')
     // re-render the page along with the parameter
     res.render('create-account/v16/login-dead', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser }, function(err, html) {
-       res.send(html)
+      res.send(html)
     })
   })
 
