@@ -22,6 +22,161 @@
 <!--[if IE 8]>
 <link rel='stylesheet' id='ie8-css'  href='https://myhelm.org/wp-content/themes/Helm/css/legacy/ie.css?ver=4.9.8' type='text/css' media='all' />
 <![endif]-->
+
+    <style type="text/css">
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            height: 100%;
+            left: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            overflow: auto;
+            padding: 1.5em;
+            position: fixed;
+            top: 0;
+            -webkit-transition: opacity .2s;
+            transition: opacity .2s;
+            width: 100%;
+            z-index: -1
+            font-family: "Frutiger W01", Arial, Helvetica, sans-serif !important;
+        }
+
+        .modal-overlay.no-fade {
+            /*background: transparent;*/
+            /*top: 15%*/
+        }
+
+        .modal-overlay[aria-hidden=true] {
+            opacity: 0;
+            visibility: hidden
+        }
+
+        .modal-overlay[aria-hidden=false] {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2
+        }
+
+        .modal-content {
+            background: #ffffff;
+            margin: auto;
+            max-width: 480px;
+            overflow: auto;
+            overflow-x: hidden;
+            padding: 1.5em;
+            position: relative;
+            -webkit-transform: scale(.8);
+            -ms-transform: scale(.8);
+            transform: scale(.8);
+            -webkit-transition: -webkit-transform .3s;
+            transition: -webkit-transform .3s;
+            transition: transform .3s;
+            transition: transform .3s, -webkit-transform .3s;
+            width: 100%
+        }
+
+        .modal-content * + * {
+            margin-top: 32px
+        }
+
+        .modal-content .form-label__hint {
+            margin-top: 0
+        }
+
+        .modal-content .button {
+            width: 100%
+        }
+
+        .no-fade .modal-content {
+            -webkit-box-shadow: rgba(0, 0, 0, .5) 2px 1px 5px;
+            box-shadow: 2px 1px 5px rgba(0, 0, 0, .5)
+        }
+
+        .modal-overlay[aria-hidden=false] .modal-content {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1)
+        }
+
+        .modal-title {
+            margin-top: 0;
+            padding-right: 1.25em;
+            font-size: 21px;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: arial;
+            font-size: 2em;
+            font-weight: 800;
+            line-height: 1;
+            padding: 0;
+            position: absolute;
+            right: .25em;
+            top: -.6em;
+            z-index: 2
+        }
+
+        .btn-close:hover {
+            color: #c12f48
+        }
+
+        .btn-close:focus {
+            outline: 1px dotted
+        }
+
+        @font-face{
+            font-family:"Frutiger W01";
+            src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix");
+            src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix") format("eot"),
+            url("https://assets.nhs.uk/fonts/0811514e-6660-4043-92c1-23d0b8caaa2f.woff2") format("woff2"),
+            url("https://assets.nhs.uk/fonts/aeae8cac-ba4d-40d2-bbcf-936f2c7dcfe6.woff") format("woff"),
+            url("https://assets.nhs.uk/fonts/caedf2e6-fbef-4928-b08e-1f975981ae8d.ttf") format("truetype"),
+            url("https://assets.nhs.uk/fonts/7def0e34-f28d-434f-b2ec-472bde847115.svg") format("svg");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .nhs-login {
+            background-size: 63px 26px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 17px 18px 15px 90px;
+            border-radius: 4px;
+            box-shadow: 0 4px 0 #003087;
+            width: 100%;
+            text-align: left;
+            max-width: 325px;
+            font-family: "Frutiger W01", Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            background-color: #005eb8;
+            background-repeat: no-repeat;
+            background-position: 13px center;
+        }
+
+        .nhs-login--svg {
+            background-image:url("data:image/svg+xml,%3Csvg%20height%3D%2226px%22%20viewBox%3D%220%200%2063%2026%22%20width%3D%2263px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22m0%200h62.262v26h-62.262z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22m6.084%202.50714286h6.768l4.158%2014.51357144h.09l2.817-14.51357144h5.112l-4.329%2020.93000004h-6.705l-4.248-14.47642861h-.054l-2.817%2014.47642861h-5.076zm20.916%200h5.4l-1.53%208.00428574h6.426l1.602-8.00428574h5.4l-4.185%2020.93000004h-5.4l1.8-8.9607143h-6.453l-1.8%208.9607143h-5.4zm31.626%204.73571428c-1.413-.65928571-2.952-.975-4.5-.92857143-2.151%200-3.897.325-3.897%202.00571429%200%202.9714286%207.875%201.8571429%207.875%208.2178571%200%205.785-5.202%207.2892858-9.9%207.2892858-2.1384-.0510715-4.2597-.4141429-6.3-1.0771429l1.296-4.29c1.5444.8171429%203.2598%201.2275714%204.995%201.1978571%201.683%200%204.329-.325%204.329-2.4885714%200-3.3614286-7.875-2.0985714-7.875-8.0042857%200-5.395%204.59-7.02%209-7.02%202.1114-.10492857%204.2228.21078571%206.219.92857143z%22%20fill%3D%22%23005eb8%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        }
+
+        .nhs-login:hover, .nhs-login:focus {
+            background-color: #0153a1;
+        }
+
+        .nhs-login:focus {
+            outline: none;
+            box-shadow: 0 0 0 3pt #ffb81c;
+        }
+
+        .nhs-login:link, .nhs-login:visited, .nhs-login:hover, .nhs-login:active  {
+            color: white;
+        }
+
+    </style>
 </head>
 
 
@@ -52,7 +207,7 @@
 					<div class="site-header__menu-holder"><ul id="primary-menu" class="site-header__menu"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="#scroll-about">About</a></li>
 <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="#scroll-features">Features</a></li>
 <li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="#scroll-contact">Contact</a></li>
-<li id="menu-item-10" class="site-header__login menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="helm-login{{ params }}">Create account / Login</a></li>
+<li id="modal_create" class="site-header__login menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="helm-login{{ params }}">Log in or create an account</a></li>
 </ul></div>				</nav>
 			</div>
 		</div>
@@ -327,9 +482,31 @@
 </div><!-- /wrapper -->
 
 
+<div class="modal-overlay no-fade" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="modal-content" id="modal_holder" role="document">
+        <div class="first-item">
+
+            <h2 class="modal-titles">NHS login</h2>
+
+            <p>NHS login is a new way to log in to health websites and apps.</p>
+            <p>If you do not have an NHS login, you'll need to set one up. Then you can access online health services wherever you see 'NHS login'.</p>
+
+            <div clas="federated-box">
+                <a href="http://nhslogin-demo.herokuapp.com/create-account/demo/start?service=app4&serviceName=Leeds%Helm&returnUrl=/start/v10/helm" class="nhs-login nhs-login--svg">Continue with NHS login</a>
+            </div>
+
+        </div>
+    </div> <!-- end .modal-content -->
+</div> <!-- end .modal-overlay -->
+
+
+
 <script type='text/javascript' src='https://myhelm.org/wp-content/themes/Helm/js/vendors.js?ver=4.9.8'></script>
 <script type='text/javascript' src='https://myhelm.org/wp-content/themes/Helm/js/site.js?ver=4.9.8'></script>
 <script type='text/javascript' src='https://myhelm.org/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+<script src="/app.js"></script>
 
 </body>
 </html>
