@@ -21,6 +21,8 @@
             <div class="idcheck-dash-details">
                 {% if state === 'inprogress' %}
                 <span class="idcheck-dash-number bold-xxlarge">40</span>
+                {% elif state === 'approved' or state === 'declined' %}
+                <span class="idcheck-dash-number bold-xxlarge">41</span>
                 {% else %}
                 <span class="idcheck-dash-number bold-xxlarge" id="progress-num">40</span>
                 {% endif%}
@@ -52,7 +54,12 @@
 
             <div class="idcheck-dash-details">
 
+                {% if state === 'approved' or state === 'declined' %}
+                <span class="idcheck-dash-number bold-xxlarge">3.7%</span>
+                {% else %}
                 <div class="idcheck-dash-number bold-xxlarge">3.6%</div>
+                {% endif %}
+
 
             </div>
         </div>
@@ -63,7 +70,7 @@
 
             <div class="idcheck-dash-details">
 
-                {% if state === 'declined' or state === 'approved' %}
+                {% if state === 'declined' %}
                 <div class="idcheck-dash-number bold-xxlarge">4</div>
                 {% else %}
                 <div class="idcheck-dash-number bold-xxlarge">3</div>
@@ -76,13 +83,13 @@
 
 {% if state === 'inprogress' %}
 <p>You still have a verification in progress</p>
-<a class="button" href="id-checker-review{{ params }}">Continue verification</a>
-<p><a href="id-checker-dashboard{{ params }}&state=none">Abort</a></p>
+<a class="button" href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=success&devMode={{ devMode }}&holding=clear">Continue audit</a>
+<p><a href="id-checker-supervisor-dashboard{{ params }}&state=none">Abort</a></p>
 {% elif queue === 'cleared' %}
-<a class="button" id="cleared" href="id-checker-dashboard{{ params }}">Start next audit</a>
+<a class="button" id="cleared" href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=success&devMode={{ devMode }}&holding=clear">Start next audit</a>
 {% elif queue === 'clear' %}
 {% else %}
-<a class="button" href="id-checker-supervisor-review{{ params }}">Start next audit</a>
+<a class="button" href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=success&devMode={{ devMode }}&holding=clear">Start next audit</a>
 {% endif%}
 
 <div>
@@ -98,19 +105,25 @@
         <div class="reading-width">
             <p>Manual</p>
             <ol>
-                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker approved</a></li>
-                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker declined</a></li>
-            </ol>
-            <p>Automated</p>
-            <ol>
-                <li><a href="id-checker-review{{ params }}&result=fail&failreason=ocr">Automated approved</a></li>
-                <li><a href="id-checker-supervisor-review-auto?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Automated decline - Failed automation check with iProov</a></li>
-                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Automated decline - Failed automation check with Paycasso</a></li>
+                <li><a href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker approved</a></li>
+                <li><a href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=fail&failreason=likeness&devMode={{ devMode }}&holding=clear">Manual ID checker declined - likeness</a></li>
+                <li><a href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=fail&failreason=liveness&devMode={{ devMode }}&holding=clear">Manual ID checker declined - liveness</a></li>
+                <li><a href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=fail&failreason=document&devMode={{ devMode }}&holding=clear">Manual ID checker declined - document </a></li>
+                <li><a href="id-checker-supervisor-review?demographics=false&role=Supervisor&result=fail&failreason=pds&devMode={{ devMode }}&holding=clear">Manual ID checker declined - PDS match</a></li>
             </ol>
             <p>Part automated</p>
             <ol>
-                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker approve</a></li>
-                <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">Manual ID checker decline</a></li>
+                <li><a href="id-checker-supervisor-review-partauto?role=Supervisor&result=success&devMode={{ devMode }}">Part automated ID checker approved</a></li>
+                <li><a href="id-checker-supervisor-review-partauto?role=Supervisor&result=fail&failreason=iproov&devMode={{ devMode }}">Part automated ID checker - declined likeness</a></li>
+                <li><a href="id-checker-supervisor-review-partauto?role=Supervisor&result=fail&failreason=paycasso&devMode={{ devMode }}">Part automated ID checker declined - document</a></li>
+                <li><a href="id-checker-supervisor-review-partauto?role=Supervisor&result=fail&failreason=pds&devMode={{ devMode }}">Part automated ID checker declined - PDS</a></li>
+            </ol>
+            <p>Automated</p>
+            <ol>
+                <li><a href="id-checker-supervisor-review-auto?role=Supervisor&result=success&devMode={{ devMode }}">Automated approved</a></li>
+                <li><a href="id-checker-supervisor-review-auto?role=Supervisor&result=fail&failreason=iproov&devMode={{ devMode }}">Automated declined - Failed automation check with iProov</a></li>
+                <li><a href="id-checker-supervisor-review-auto?role=Supervisor&result=fail&failreason=paycasso&devMode={{ devMode }}">Automated declined - Failed automation check with Paycasso</a></li>
+<!--                <li><a href="id-checker-supervisor-review-auto?role=Supervisor&result=fail&failreason=pds&devMode={{ devMode }}">Automated decline - Failed automation check with PDS</a></li>-->
             </ol>
         </div>
     </div>

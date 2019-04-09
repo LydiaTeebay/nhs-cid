@@ -183,6 +183,46 @@
       transform: rotate(-45deg);
     }
   }
+
+  &.u-no-icon  {
+    padding-left: 0px;
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+
+
+.idcheck-panel-actioned {
+  font-weight: bold;
+  position: relative;
+  padding-left: 30px;
+  margin: 0em 0 0.25em;
+  text-indent: -9999px;
+  &::before,
+  &::after {
+    content: "";
+    left: 0.5em;
+    top: 0;
+    position: absolute;
+    zoom: 1;
+  }
+  &::before {
+    background: transparent;
+    border: solid;
+    border-color: #005eb8;
+    border-width: 0 0 7px 7px;
+    height: 14px;
+    top: 0.1em;
+    transform: rotate(-45deg);
+    width: 24px;
+  }
+}
+
+
+.idcheck-match-reason {
+  padding-left: 34px;
 }
 
 .idcheck-result-reason {

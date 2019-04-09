@@ -18,38 +18,34 @@
 <table>
     <thead>
     <tr>
-        <th>ID</th>
         <th>User</th>
-        <th>Reason for review</th>
-        <th>Submitted</th>
-        <th></th>
-        <th></th>
+        <th>Original decision</th>
+        <th>Reason for dispute</th>
+        <th>Date</th>
+        <th>&nbsp;</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>5f9c1b41</td>
-        <td>Maria Anders</td>
-        <td>Numbers didn't show</td>
-        <td>12th March 2019</td>
-        <td><a href="id-checker-supervisor-review-auto{{ params }}" class="">View</a> </td>
-        <td></td>
+        <td><a href="id-checker-panel-review?demographics=true&role=Supervisor&result=fail&failreason=document&devMode={{ devMode }}&holding=clear" class="">Joe Bloggs</a></td>
+        <td>Auto approved</td>
+        <td>Identity document - Fingers over the corners</td>
+        <td>12/03/19</td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
-        <td>134a4214</td>
-        <td><i style="color: grey;">Not available</i></td>
-        <td>Details on the document were fine, rejected due to OCR issue</td>
-        <td>13th March 2019</td>
-        <td><a href="id-checker-supervisor-review{{ params }}" class="">View</a> </td>
-        <td></td>
+        <td><a href="id-checker-panel-review?demographics=true&role=Supervisor&result=fail&failreason=document&devMode={{ devMode }}&holding=clear" class="">Maria Anders</a></td>
+        <td>Approved by ID checker</td>
+        <td>Facial comparison - they don't look like the same person</td>
+        <td>13/03/19</td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
-        <td>7fc61a11</td>
-        <td>5990060173</td>
-        <td>The video won't play on my computer</td>
-        <td>14th March 2019</td>
-        <td><a href="id-checker-supervisor-review-auto{{ params }}" class="">View</a> </td>
-        <td></td>
+        <td><a href="id-checker-panel-review?demographics=true&role=Supervisor&result=fail&failreason=document&devMode={{ devMode }}&holding=clear" class="">Pete Smith</a></td>
+        <td>Auto rejected</td>
+        <td>Identity document - Glare was minimal so could read the details</td>
+        <td>14/03/19</td>
+        <td><div class="idcheck-panel-actioned">Actioned</div></td>
     </tr>
     </tbody>
 </table>

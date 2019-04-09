@@ -9,21 +9,43 @@
 
 {% block content %}
 
-<div class="id-check_automated">Audit - Automated journey</div>
+<div class="id-check_automated">Disputed - Automated journey</div>
 
 <div class="panel" style="margin: 0;">
     <div class="panel__content panel__content--half">
         <h3>Details</h3>
 
         <h4>Submission date</h4>
-        <p style="margin: 0;">11th March 2019 - 11:18</p>
+        <p style="margin: 0;">12th March 2019 - 11:18</p>
 
-<!--        <h4>Decision made</h4>-->
-<!--        <p style="margin: 0;">11:21 - 11th March 2019</p>-->
+<!--        <h4>ID checker decision made</h4>-->
+<!--        <p style="margin: 0;">11th March 2019 - 12:21</p>-->
+
+        <h4>Audited</h4>
+        <p style="margin: 0;">16th March 2019 - 10:41</p>
+
+
+        <details class="" role="group" style="margin-top: 32px;">
+            <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                <h4 style="display: inline;"><span class="details__summary">Further details?</span></h4>
+            </summary>
+            <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+                <h5>GUID</h5>
+                <p class="small" style="margin: 0;">9c10518f-fc4f-4768-8481-28897b166658</p>
+
+                <h5>Auditer ID</h5>
+                <p class="small" style="margin: 0;">9c10518f-fc4f-4768-8481-28897b166658</p>
+
+                <h5>User's NHS number</h5>
+                <p class="small" style="margin: 0;">485 777 3456</p>
+            </div>
+        </details>
+
+
 
     </div>
     <div class="panel__content panel__content--half">
-        <h3>Result</h3>
+        <h3>Original decision</h3>
 
         <div class="bar_container" id="loader" style="display: none;">
             <div id="main_container">
@@ -38,13 +60,39 @@
             </div>
         </div>
 
-        <div id="trace" class="idcheck-match {{ result }}">
+        <div id="trace" class="idcheck-match success">
             <div class="idcheck-result" style="margin-top: 0.25em;">
+                Auto approved
+            </div>
+
+            {% if result !== 'fail' %}
+
+            <ul class="idcheck-match-reason">
+
+                {% if failreason === 'likeness' %}
+                    <li>Failed PDS match</li>
+                {% elif failreason === 'iproov' %}
+                    <li>Failed iProov</li>
+                {% elif failreason === 'paycasso' %}
+                    <li>Failed document check</li>
+                {% elif failreason === 'pds' %}
+                    <li>Failed document check</li>
+                {% endif %}
+            </ul>
+
+            {% endif %}
+
+        </div>
+
+        <h3>Audit result</h3>
+
+        <div id="trace" class="idcheck-match {{ result }}">
+            <div class="idcheck-result u-no-icon" style="margin-top: 0.25em;">
 
                 {% if result === 'success' %}
-                    Approved
+                Approved by ID checker
                 {% else %}
-                    Auto rejected
+                Disputed in audit
                 {% endif %}
             </div>
 
@@ -52,13 +100,29 @@
 
             <ul class="idcheck-match-reason">
 
-                {% if failreason === 'iproov' %}
+                {% if failreason === 'likeness' %}
 
-                    <li>Failed iProov</li>
+                <li>Failed facial comparison</li>
+
+                {% elif failreason === 'iproov' %}
+
+                <li>Failed likeness</li>
+
+                {% elif failreason === 'liveness' %}
+
+                <li>Failed challenge response</li>
 
                 {% elif failreason === 'paycasso' %}
 
-                    <li>Failed document check</li>
+                <li>Failed document check</li>
+
+                {% elif failreason === 'document' %}
+
+                <li>Identity document</li>
+
+                {% elif failreason === 'pds' %}
+
+                <li>Failed PDS match</li>
 
                 {% endif %}
 
@@ -105,6 +169,19 @@
 
             {% endif %}
 
+
+            <div id="trace" class="idcheck-match {{ result }}">
+                <div class="idcheck-result" style="margin-top: 0.25em;">
+
+                    {% if result === 'success' %}
+                    Approved by ID checker
+                    {% else %}
+                    Finger over document corner
+                    {% endif %}
+                </div>
+
+            </div>
+
         </div>
     </div>
     <div class="panel__content panel__content--half">
@@ -147,7 +224,7 @@
         <div id="id-buttons">
             <div id="id-approve">
                 <a href="id-checker-dashboard?state=approved&emailLink=email-idcheck-approved&devMode={{ devMode }}"
-                   data-target="modal" id="approveBtn" class="button button--approve" style="display: none;">Approve</a>
+                   data-target="modal" id="approveBtn" class="button" style="display: none;">Agree with original decision</a>
             </div>
             <div id="id-decline">
                 <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}"
@@ -164,6 +241,19 @@
         <h3>OCR results</h3>
         <div class="reading-width">
 
+            {% if failreason === 'paycasso' or failreason === 'pds' %}
+
+            <h4>First names</h4>
+            <p style="margin: 0;">--</p>
+
+            <h4>Last names</h4>
+            <p style="margin: 0;">--</p>
+
+            <h4>Date of Birth</h4>
+            <p style="margin: 0;">--</p>
+
+            {% else %}
+
             <h4>First names</h4>
             <p style="margin: 0;">Joe Billy</p>
 
@@ -173,15 +263,16 @@
             <h4>Date of Birth</h4>
             <p style="margin: 0;">08/02/1979</p>
 
+            {% endif %}
+
         </div>
     </div>
-
     <div class="panel__content panel__content--half">
 
         <h3>PDS data retrieved</h3>
         <div class="reading-width">
 
-            {% if failreason === 'pds' %}
+            {% if failreason === 'paycasso' %}
 
             <p>PDF match was not completed </p>
 
@@ -210,10 +301,10 @@
 
 <div id="id-buttons">
     <span id="id-approve">
-        <a href="id-checker-supervisor-dashboard{{ params }}&state=approved" data-target="modal" id="approveBtn" class="button button--approve">Agree with decision</a>
+        <a href="id-checker-supervisor-dashboard{{ params }}&state=approved" data-target="modal" id="approveBtn" class="button ">Original decision still stands</a>
     </span>&nbsp;&nbsp;
     <span id="id-decline">
-        <a href="id-checker-supervisor-dashboard{{ params }}&state=declined" data-target="modal" id="disputeBtn" class="button button--decline">Add to dispute list</a>
+        <a href="id-checker-supervisor-dashboard{{ params }}&state=declined" data-target="modal" id="disputeBtn" class="button button">Overrule Original decision</a>
     </span>
 </div>
 
@@ -371,10 +462,10 @@
 
         var buttonType = object.text
 
-            heading.innerText = 'Information about this disputed verification'
-            // setSubReasons('')
-            // setReasons(target)
-            document.getElementById('modal_create').click()
+        heading.innerText = 'Information about this disputed verification'
+        // setSubReasons('')
+        // setReasons(target)
+        document.getElementById('modal_create').click()
 
     }
 

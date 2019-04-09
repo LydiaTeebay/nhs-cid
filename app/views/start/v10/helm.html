@@ -43,11 +43,6 @@
             font-family: "Frutiger W01", Arial, Helvetica, sans-serif !important;
         }
 
-        .modal-overlay.no-fade {
-            /*background: transparent;*/
-            /*top: 15%*/
-        }
-
         .modal-overlay[aria-hidden=true] {
             opacity: 0;
             visibility: hidden
@@ -62,7 +57,7 @@
         .modal-content {
             background: #ffffff;
             margin: auto;
-            max-width: 480px;
+            max-width: 400px;
             overflow: auto;
             overflow-x: hidden;
             padding: 1.5em;
@@ -77,11 +72,7 @@
             width: 100%
         }
 
-        .modal-content * + * {
-            margin-top: 32px
-        }
-
-        .modal-content .form-label__hint {
+        .modal-content {
             margin-top: 0
         }
 
@@ -102,46 +93,23 @@
 
         .modal-title {
             margin-top: 0;
+            margin-bottom: 16px;
             padding-right: 1.25em;
-            font-size: 21px;
+            font-size: 32px;
         }
 
-        .btn-close {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: arial;
-            font-size: 2em;
-            font-weight: 800;
-            line-height: 1;
-            padding: 0;
-            position: absolute;
-            right: .25em;
-            top: -.6em;
-            z-index: 2
+        @media (min-width: 768px) {
+            .modal-title {
+                margin-bottom: 24px;
+            }
         }
 
-        .btn-close:hover {
-            color: #c12f48
-        }
-
-        .btn-close:focus {
-            outline: 1px dotted
-        }
-
-        @font-face{
-            font-family:"Frutiger W01";
-            src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix");
-            src:url("https://assets.nhs.uk/fonts/fe232554-5489-4874-bb45-bd966c8c5932.eot?#iefix") format("eot"),
-            url("https://assets.nhs.uk/fonts/0811514e-6660-4043-92c1-23d0b8caaa2f.woff2") format("woff2"),
-            url("https://assets.nhs.uk/fonts/aeae8cac-ba4d-40d2-bbcf-936f2c7dcfe6.woff") format("woff"),
-            url("https://assets.nhs.uk/fonts/caedf2e6-fbef-4928-b08e-1f975981ae8d.ttf") format("truetype"),
-            url("https://assets.nhs.uk/fonts/7def0e34-f28d-434f-b2ec-472bde847115.svg") format("svg");
-            font-weight: 400;
-            font-style: normal;
+        .federated-box {
+            margin-top: 32px;
         }
 
         .nhs-login {
+            position: relative;
             background-size: 63px 26px;
             color: #fff;
             text-decoration: none;
@@ -150,10 +118,9 @@
             border-radius: 4px;
             box-shadow: 0 4px 0 #003087;
             width: 100%;
-            text-align: left;
-            max-width: 325px;
-            font-family: "Frutiger W01", Arial, Helvetica, sans-serif;
+            text-align: center;
             font-size: 18px;
+            font-weight: bold;
             background-color: #005eb8;
             background-repeat: no-repeat;
             background-position: 13px center;
@@ -483,17 +450,15 @@
 
 
 <div class="modal-overlay no-fade" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
     <div class="modal-content" id="modal_holder" role="document">
         <div class="first-item">
 
-            <h2 class="modal-titles">NHS login</h2>
+            <h2 class="modal-title">NHS login</h2>
 
             <p>NHS login is a new way to log in to health websites and apps.</p>
             <p>If you do not have an NHS login, you'll need to set one up. Then you can access online health services wherever you see 'NHS login'.</p>
 
-            <div clas="federated-box">
+            <div class="federated-box">
                 <a href="http://nhslogin-demo.herokuapp.com/create-account/demo/start?service=app4&serviceName=Leeds%Helm&returnUrl=/start/v10/helm" class="nhs-login nhs-login--svg">Continue with NHS login</a>
             </div>
 
