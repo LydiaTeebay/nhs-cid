@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Agree to share your NHS login information{% endblock %}
 {% set signedin = '' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser + "&reason=" + reason %}
 
 {% block extrastyles %}
 
@@ -38,7 +38,7 @@
 
     <div class="form-group">
         <h1>Agree to share your NHS login information</h1>
-        
+
 
         <dl>
             <dt><span>Your NHS login is:</span>
@@ -53,9 +53,10 @@
             <li>date of birth</li>
             <li>NHS number</li>
         </ul>
+        <p>Before you agree, you should read their terms of use and privacy policy to check how they will use your information.</p>
     </div>
 
-    <a class="button" href="https://nhs-audit.herokuapp.com/release-login" id="">Agree and continue</a>
+    <a class="button" href="login-spinner{{ params }}" id="">Agree and continue</a>
     <p><a href="https://nhs-audit.herokuapp.com">I do not want to use my NHS login</a></p>
 
 </div>
