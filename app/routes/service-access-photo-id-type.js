@@ -579,7 +579,7 @@ module.exports = function (router) {
         if (idType === 'passport') {
             // var formerror = 'undefined'
         }
-        if (idType === 'passport' || idType === 'driving licence') {
+        if (idType === 'passport' || idType === 'driving licence' || idType === 'European driving licence' || idType === 'European national identity card') {
             res.redirect('/service-access/pb/service-access-photo-id-camera?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&genericButton=' + genericButton )
         } else {
             res.redirect('/service-access/pb/service-access-no-documents?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&genericButton=' + genericButton )
