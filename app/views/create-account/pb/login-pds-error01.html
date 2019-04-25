@@ -1,0 +1,18 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}We are unable to log you in at this time{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>We are unable to log you in at this time</h1>
+    <p>Contact 0300 303 5035 and quote reference number CID2002 for help.</p>
+    <p class="small">Reference: CID2002</p>
+  </div>
+    
+</div>
+
+{% endblock %}

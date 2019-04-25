@@ -11,6 +11,14 @@
 <meta http-equiv="refresh" content="3;url=error-id-not-checked{{ params }}">
 {% elif reason === 'nam' %}
 <meta http-equiv="refresh" content="3;url=/service-access/pb/service-access-connect-gp{{ params }}">
+{% elif reason === 'multiplepdsmatches' %}
+<meta http-equiv="refresh" content="3;url=login-pds-error01{{ params }}">
+{% elif reason === 'superceded' %}
+<meta http-equiv="refresh" content="3;url=login-pds-error02{{ params }}">
+{% elif reason === 'invalidnumber' %}
+<meta http-equiv="refresh" content="3;url=login-pds-error03{{ params }}">
+{% elif reason === 'genericpdserror' %}
+<meta http-equiv="refresh" content="3;url=login-pds-error04{{ params }}">
 {% elif reason === 'termsupdated' %}
 <meta http-equiv="refresh" content="3;url=terms-updated{{ params }}">
 {% elif reason === 'consent' %}
