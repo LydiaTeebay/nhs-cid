@@ -1,0 +1,19 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}We are unable to log you in at this time{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>We cannot log you in</h1>
+    <p>Please call our helpline on 0300 303 5035 so we can try to fix the problem.</p>
+    <p>Tell them you are getting error CID2011.</p>
+    <p class="small">Reference: CID2011</p>
+  </div>
+    
+</div>
+
+{% endblock %}
