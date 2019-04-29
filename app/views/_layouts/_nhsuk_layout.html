@@ -67,11 +67,11 @@
     {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
 
       {% if service === 'app3' %}
-        {% include '_partials/_global_footer-plain.html'%}
+        {% include '_partials/_global_footer-terms.html'%}
       {% elif lsId or service === 'app4' %}
         {% include '_partials/_global_footer-terms.html'%}
       {% else %}
-        {% include '_partials/_global_footer.html'%}
+        {% include '_partials/_global_footer-terms.html'%}
       {% endif %}
 
     {% endif %}
