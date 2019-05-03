@@ -31,11 +31,21 @@
 
 <div class="first-item account-mgmt">
 
-	<h2>Change your email address</h2>
+	<h2>Check your phone</h2>
 
-	<p>johnny-london@gmail.com</p> 
+	<p>Enter the security code we have emailed to john-vasarelli@gmail.com.</p>
 
-	<a class="button" href="account-email-password">Change your email address</a>
+	<fieldset class="inline">
+		<div class="form-group">
+	        <label class="form-label" for="code">Security code</label>
+	        <p class="form-label__hint">The code is 6 numbers</p>
+	        <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+	    </div>
+	</fieldset>
+	<a class="button" href="account-email-done">Continue</a>
+
+
+	<p>If you do not get an email, check your spam folder.</p>
 
 </div>
 
