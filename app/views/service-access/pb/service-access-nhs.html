@@ -20,6 +20,14 @@
 <section class="service-access-wrapper">
 
 	<ol class="service-access">
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Set up an NHS login</h3>
+			<!--<div class="service-access__item__desc">-->
+			<!--<p>You will need your phone.</p>-->
+			<!--<p>{% include '_partials/_components/_name.html' %} will allow you to sign into multiple health services in the future.</p>-->
+			<!--</div>-->
+			<span class="service-access__item__status">Done</span>
+		</li>
 		<li class="service-access__item active">
 			<h3 class="service-access__item__title">Help us find your NHS record</h3>
 			<div class="service-access__item__desc">
@@ -30,7 +38,7 @@
 		<li class="service-access__item ">
 			<h3 class="service-access__item__title">Send a photo of your I.D.</h3>
 			<div class="service-access__item__desc">
-				<p>You will need to take a photo of your passport, UK or European driving licence, or your European national identity card.</p>
+				<p>You will need to take a photo of your passport, UK driving licence or European driving licence.</p>
 			</div>
 		</li>
 		<li class="service-access__item">
@@ -41,7 +49,7 @@
 		</li>
 	</ol>
 
-	<p>If you do you not have any photo I.D. or you do not want to do this, you can <a href="service-access-no-documents{{ params }}">go to your GP surgery to prove who you are.</a></p>
+	<p>If you do not have any photo I.D. or you do not want to do this, you can <a href="service-access-no-documents{{ params }}">go to your GP surgery to prove who you are.</a></p>
 
 	{% if devMode === 'true' %}
 	<div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
