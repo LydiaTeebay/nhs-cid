@@ -1,36 +1,38 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Sorry - we cannot connect you to your GP surgery{% endblock %}
+{% block page_title %}We cannot connect your NHS login to your GP surgery{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&pyiuser=true" %}
 
 {% block content %}
 
 <div class="first-item">
-    <h1>Sorry - we cannot connect you to your GP surgery</h1>
+    <h1>We cannot connect your NHS login to your GP surgery</h1>
 
-    <p>There's a problem with your details, or with your GP surgery's system.</p>
+    <p>We can try another way. You need to follow these steps:</p>
 
-    <details class="" role="group">
-        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-            <span class="details__summary">Try another way to connect your NHS login to your GP surgery</span>
-        </summary>
-        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+    <ol>
+        <li>Tell your GP surgery that you want to sign up for their online services.</li>
+        <li>Your surgery will ask you to fill in a form.</li>
+        <li>Your surgery will give you registration details. You will need:
 
-            <p>Ask your GP surgery for your registration details for GP online services. These are different to your username and password. You will need:</p>
             <ul>
                 <li>account ID</li>
                 <li>O.D.S. code (sometimes called organisation code or practice ID)</li>
                 <li>linkage key (sometimes called passphrase)</li>
             </ul>
-            <p>When you have these details, log in again and enter your registration details.</p>
 
-            <a class="button" href="/patient-online/pb/patient-online-linkage-key{{ params }}">Enter your registration details</a>
+        </li>
 
-        </div>
-    </details>
+        {% if serviceName !== '' %}
+        <li>When you have these 3 registration details, go to <b>'{{ serviceName }}'</b>. Use your NHS login. You will see this message again. You need to enter your registration details.</li>
+        {% else %}
+        <li>When you have these 3 registration details, go to the website or app you were trying to access. Use your NHS login. You will see this message again. You need to enter your registration details.</li>
+        {% endif %}
+    </ol>
+
+    <a class="button" href="/patient-online/pb/patient-online-linkage-key{{ params }}">Enter your registration details</a>
 
     <p class="small">Reference: CID7022</p>
-
 
 </div>
 
