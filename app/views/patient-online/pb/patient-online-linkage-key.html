@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Enter the details your GP surgery gave you{% endblock %}
+{% block page_title %}Enter the details your GP surgery gave you{% endblock %}
 
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID %}
 
@@ -53,6 +53,7 @@
                         <li><a href="patient-online-about-you-name{{ params }}&result=501">[501] Technical - No GP system was found for ODS Code</a></li>
                         <li><a href="patient-online-about-you-name{{ params }}&result=502">[502] Technical - The GP system is currently unavailable</a></li>
                         <li><a href="patient-online-about-you-name{{ params }}&result=504">[504] Technical - The GP system did not respond in a timely fashion</a></li>
+                        <li><a href="patient-online-about-you-name{{ params }}&result=slow">The GP system responds very slowly</a></li>
                     </ol>
                 </div>
             </div>
@@ -64,12 +65,7 @@
 
       {% else %}
 
-      <p>If you do not have all 3 registration details, you can <a href="/service-access/v13/service-access-nhs{{ params }}&poluser=false&loggedin=true">use photo I.D. to prove who you are.</a></p>
-
-
-      <!--div class="callout callout--info">
-          <p>If you do not have the details, we can <a href="/service-access/v13/service-access-nhs{{ params }}&poluser=false&loggedin=true">connect your NHS login to your GP surgery, and check who you are another way.</a></p>
-      </div-->
+      <p>If you do not have all 3 registration details, you can <a href="/service-access/pb/service-access-photo-id-interuption{{ params }}&poluser=false&loggedin=true">use photo I.D. to prove who you are.</a></p>
 
       {% endif %}
 

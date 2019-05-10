@@ -23,7 +23,13 @@
         <li>Account I.D.</li>
       </ul>
     </li>
+
+    {% if serviceName !== '' %}
     <li>When you have your registration details, go to <b>'{{ serviceName }}'</b>. Use your NHS login. You will need to enter these 3 details to prove who you are.</li>
+    {% else %}
+    <li>When you have your registration details, go to the website or app you were trying to access. Use your NHS login. You will need to enter these 3 details to prove who you are.</li>
+    {% endif %}
+
   </ol>
 
 

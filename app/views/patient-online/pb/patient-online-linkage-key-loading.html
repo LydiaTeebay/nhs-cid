@@ -27,6 +27,8 @@
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-502{{ params }}">
 {% elif result === '504' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-504{{ params }}">
+{% elif result === 'slow' %}
+<meta http-equiv="refresh" content="15;url={{ backlink.link() }}">
 {% endif%}
 
 

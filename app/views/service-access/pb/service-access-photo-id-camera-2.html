@@ -38,22 +38,21 @@
 
         {% endif %}
 
-        <p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>
+        <!--<p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>-->
 
         <!--<div class="callout callout&#45;&#45;alert camera-file-format" style="display:block">-->
         <!--<h2 class="h3">There's a problem</h2>-->
         <!--<p>Your photo is a file type we cannot accept. When you click <em style="font-style: normal">Open camera</em>, pick your photo camera.</p>-->
         <!--</div>-->
 
-
         <form>
             <fieldset class="">
                 <legend for="radio-inline-group">
                     <h1 style="padding-bottom: 0;">
                         {% if mobileOsV === 11.2 and devMode === 'true' %}
-                        Upload a photo of your {{ idType }}
+                        Now upload a photo of the back of your {{ idType }}
                         {% else %}
-                        Take a photo of your {{ idType }}
+                        Now take a photo of the back of your {{ idType }}
                         {% endif %}
                     </h1>
                 </legend>
@@ -62,7 +61,7 @@
 
                 <p>You'll need to:</p>
                 <ol>
-                    <li>Open your phone's camera and take a photo of your {{ idType }}:
+                    <li>Open your phone's camera and take a photo of the back of your {{ idType }}:
                         <ul class="list list-bullet">
                             <li>hold the {{ idType }} in the palm of your hand as this will reduce glare from above</li>
                             <li>make sure all the details are clear and readable</li>
@@ -77,7 +76,7 @@
                 <p>Make sure:</p>
                 <ul class="list list-bullet">
                     <li>you do not cover any of the corners</li>
-                    <li>you can clearly see your face and all the text</li>
+                    <li>all the text is clear</li>
                     <li>there's no shine from a light or window</li>
                 </ul>
 
@@ -86,17 +85,17 @@
                 <div class="form-group">
 
                     {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
-                    {% set instruction = 'Choose a file' %}
+                      {% set instruction = 'Choose a file' %}
                     {% else %}
-                    {% if mobileOsV === 11.2 and devMode === 'true' %}
-                    {% set instruction = 'Open your Photo Library' %}
-                    {% else %}
-                    {% if genericButton === 'true' %}
-                    {% set instruction = 'Take a photo' %}
-                    {% else %}
-                    {% set instruction = 'Open camera' %}
-                    {% endif %}
-                    {% endif %}
+                      {% if mobileOsV === 11.2 and devMode === 'true' %}
+                         {% set instruction = 'Open your Photo Library' %}
+                      {% else %}
+                         {% if genericButton === 'true' %}
+                            {% set instruction = 'Take a photo' %}
+                         {% else %}
+                            {% set instruction = 'Open camera' %}
+                         {% endif %}
+                      {% endif %}
                     {% endif %}
 
                     <label for="photo-id-document-auto" class="camera-button">{{ instruction }}
@@ -146,7 +145,7 @@
 
         <h1 style="padding-bottom: 0;">Check your photo</h1>
 
-        <p>Is the photo and all the text clear? Can you see all 4 corners?</p>
+        <p>Is all the text clear? Can you see all 4 corners?</p>
 
         <div class="reading-width">
             <div id="scan-id-preview">
@@ -167,6 +166,50 @@
         </div>
 
     </section>
+
+
+    {# section to show the AWS face check validation errors - no face #}
+    <section class="preview-container" id="scan-id-7b" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
+
+        <p>We could not detect a face in your photo</p>
+
+        <p>Try again and make sure:</p>
+        <ul>
+            <li>all the details on your I.D are visible</li>
+            <li>there is no blur or glare on the image</li>
+            <li>the image isn't too dark or light</li>
+        </ul>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CIDXXXX</p>
+    </section>
+
+
+    {# section to show the AWS face check validation errors - multiple face #}
+    <section class="preview-container" id="scan-id-7c" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
+
+        <p>We detected more than one face in your photo</p>
+
+        <p>Try again and make sure:</p>
+        <ul>
+            {% if idType == 'passport' %}
+            <li>you only take a photo of the details page of your passport</li>
+            {% endif %}
+            <li>there are no faces visible to the sides</li>
+        </ul>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CIDXXXX</p>
+    </section>
+
 
     {# section to show uploading error #}
     <section class="preview-container" id="scan-id-6" style="display:none">
@@ -192,66 +235,6 @@
 
     </section>
 
-
-    {# section to show the AWS face check validation errors - no face #}
-    <section class="preview-container" id="scan-id-7b" style="display:none">
-
-        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
-
-        <p>We cannot see all the information we need.</p>
-
-        <p>Make sure you follow the instructions when you take another photo of your I.D.</p>
-
-        {#
-        <p>Try again and make sure:</p>
-        <ul>
-            <li>all the details on your I.D are visible</li>
-            <li>there is no blur or glare on the image</li>
-            <li>the image isn't too dark or light</li>
-        </ul>
-
-        #}
-
-        <div class="form-group">
-            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
-        </div>
-        <p class="small" style="margin-top: 28px;">Reference: CID8005</p>
-    </section>
-
-
-    {# section to show the AWS face check validation errors - multiple face #}
-    <section class="preview-container" id="scan-id-7c" style="display:none">
-
-        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
-
-        <p>It looks like there's more than one face.</p>
-
-        {% if idType == 'passport' %}
-        <p>Make sure you only take a photo of the page that has your photo and personal information on it.</p>
-        {% endif %}
-
-        <p>Check there are no other faces in the photo that you send us.</p>
-
-        {#
-
-        <p>Try again and make sure:</p>
-        <ul>
-            {% if idType == 'passport' %}
-            <li>you only take a photo of the details page of your passport</li>
-            {% endif %}
-            <li>there are no faces visible to the sides</li>
-        </ul>
-
-        #}
-
-        <div class="form-group">
-            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
-        </div>
-        <p class="small" style="margin-top: 28px;">Reference: CID8006</p>
-    </section>
-
-
-
     {# section to show the file saving and server-side validation errors #}
     <section class="preview-container" id="scan-id-7" style="display:none">
 
@@ -275,7 +258,7 @@
 
         <h1 style="padding-bottom: 0;">Something went wrong</h1>
 
-        <p>We are having technical problems.</p>
+        <p>We're having technical problems.</p>
 
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Try again</a>
@@ -285,7 +268,7 @@
             <p>If you keep getting this message, please try again later.</p>
         </div>
 
-        <p class="small">Reference: CID8001</p>
+        <p class="small">Reference: CID4002</p>
     </section>
 
     {% if formerror === 'invalid' %}
@@ -297,15 +280,8 @@
             onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
     </button>
 
-        {% if idType === 'European national identity card' %}
-
-        <a id="continueButton2" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue</a>
-
-        {% else %}
-
-        <a id="continueButton2" style="visibility:hidden;" href="service-access-video-selfie-interuption{{ params }}">Continue</a>
-
-        {% endif %}
+    <a id="continueButton2" style="visibility:hidden;" href="service-access-video-selfie-interuption{{ params }}">Continue
+    </a>
 
     {% endif %}
 

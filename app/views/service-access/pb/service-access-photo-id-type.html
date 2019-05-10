@@ -5,7 +5,6 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
 
 
-
 {% block content %}
 
 <div class="first-item">
@@ -30,7 +29,7 @@
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="idType" value="driving licence">
+            <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
             UK driving licence
           </label>
         </div>
@@ -72,7 +71,7 @@
         <div class="reading-width">
           <p>Photo upload errors</p>
           <ol>
-            <li><a href="service-access-photo-id-type{{ params }}challenge=undefined">Photo ID upload successfull</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}challenge=undefined">Photo ID upload successful</a></li>
             <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Validation Failure</a></li>
             <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Upload Failure</a></li>
           </ol>
