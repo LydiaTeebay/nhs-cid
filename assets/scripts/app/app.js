@@ -182,6 +182,54 @@ function activateLoader4(speed) {
     }, time)
 }
 
+function activateLoader5(speed) {
+    // console.log("activate")
+    var progressbar = $('#progress_bar')
+    var $ppc = $('.progress-pie-chart')
+    document.getElementById("progressbar-heading").innerHTML = "Uploading your video";
+    document.getElementById("spinner-status").innerHTML = "Please wait";
+    $ppc.removeClass('gt-50')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate)
+            $("#spinner-heading").css("display", "block")
+            $("#scan-id-0").css("display", "block")
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-5").css("display", "none")
+            $("#scan-id-6").css("display", "none")
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 4000)
+            setTimeout(function(){
+                $('#confirmButton').click()
+            }, 5000)
+        }
+    }
+    var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function reactivateLoader(speed) {
     // console.log("activate")
     var $ppc = $('.progress-pie-chart')
@@ -522,6 +570,10 @@ $('#video-overlay').change(function(){
     playSelectedFile(this)
 })
 
+$('#video-overlay2').change(function(){
+    playSelectedFile(this)
+})
+
 $("#id-document").change(function(){
   readURL(this, "id")
 })
@@ -665,6 +717,14 @@ $('#uploaded-video').on('ended', function(){
     $('#uploaded-video').currentTime = 0
 })
 
+$('#recorded').on('ended', function(){
+    // alert('Video has ended!')
+    $("#submit-videoSelfie3-button").attr("disabled", false)
+    $("#submit-videoSelfie4-button").attr("disabled", false)
+    $('#video-overlay2').fadeIn()
+    $('#recorded').currentTime = 0
+})
+
 // submit button action post v12 version - preview first
 $("#submit-videoSelfie3-button").on("click", function(e) {
     e.preventDefault()
@@ -692,6 +752,21 @@ $("#submit-videoSelfie4-button").on("click", function(e) {
         $("#scan-id-3").css("display", "block")
         document.body.scrollTop = document.documentElement.scrollTop = 0
     }
+})
+
+// submit button action HTML% version - preview first
+$("#submit-videoSelfie5-button").on("click", function(e) {
+    e.preventDefault()
+    console.log($("#submit-videoSelfie5-button").prop)
+
+    // if ($("#submit-videoSelfie5-button").prop('disabled') === false) {
+        activateLoader5(2)
+        $("#scan-id-0").css("display", "none")
+        $("#scan-id-5").css("display", "none")
+        $("#scan-id-6").css("display", "none")
+        $("#scan-id-3").css("display", "block")
+        document.body.scrollTop = document.documentElement.scrollTop = 0
+    // }
 })
 
 // submit button action post v8 version
@@ -965,6 +1040,18 @@ $(document).ready(function () {
         } else {
             console.log('show up')
             $('#uploaded-video').get(0).pause()
+            $('#video-overlay').fadeIn()
+        }
+    })
+
+    $('#video-overlay2').click(function () {
+
+        if ($('#recorded').get(0).paused) {
+            $('#recorded').get(0).play()
+            $('#video-overlay').fadeOut()
+        } else {
+            console.log('show up')
+            $('#recorded').get(0).pause()
             $('#video-overlay').fadeIn()
         }
     })
