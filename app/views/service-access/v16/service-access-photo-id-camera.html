@@ -297,8 +297,15 @@
             onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
     </button>
 
-    <a id="continueButton2" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue
-    </a>
+    {% if idType === 'European national identity card' %}
+
+    <a id="continueButton2" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue</a>
+
+    {% else %}
+
+    <a id="continueButton2" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
+
+    {% endif %}
 
     {% endif %}
 
