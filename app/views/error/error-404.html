@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Sorry - we're having technical problems - CID-9001{% endblock %}
+{% block page_title %}We cannot find that page{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
@@ -10,11 +10,23 @@
 
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
-  <h1 class="">Sorry - we're having technical problems</h1>
+  <h1 class="">We cannot find that page</h1>
 
-  <p>Please try again later.</p>
+  <p>If you typed the web address, check it is correct.</p>
 
-  <p class="small">Reference: CID-9001</p>
+  <p>Contact us to let us know there is a problem with this page, if:</p>
+
+  <ul style="margin-top: 1em;">
+    <li>you are sure you typed or pasted the correct web address</li>
+    <li>you selected a link or a button</li>
+  </ul>
+
+  <p><b>Email:</b> <a href="mailto:ssd.nationalservicedesk@nhs.net">ssd.nationalservicedesk@nhs.net</a><br>
+
+  <b>Phone:</b> 0300 303 5035<br>
+  (opening times TBC)</p>
+
+  <p class="small">Reference: CID0004</p>
 
 </div>
 
