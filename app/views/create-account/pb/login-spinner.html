@@ -21,6 +21,10 @@
 <meta http-equiv="refresh" content="5;url=/patient-online/pb/patient-online-start{{ params }}&hideBack=true">
 {% elif reason === 'dead' %}
 <meta http-equiv="refresh" content="3;url=login-dead{{ params }}">
+{% elif reason === 'namnotfoundPOL' %}
+<meta http-equiv="refresh" content="3;url=login-nam-error-pol{{ params }}">
+{% elif reason === 'namnotfoundPYI' %}
+<meta http-equiv="refresh" content="3;url=login-nam-error-pyi{{ params }}">
 {% else %}
 <meta http-equiv="refresh" content="3;url={{ backlink.link() }}">
 {% endif %}
