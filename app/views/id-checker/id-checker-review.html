@@ -133,41 +133,46 @@
 
         <!--<p class="small" id="loader"><img src="/images/ajax-loader.gif" style="width: 30px" alt="loading">&nbsp; Running trace</p>-->
 
-        <div id="trace" class="idcheck-match {{ result }}"
-             style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
-
-
             {% if result !== 'fail' and result !== 'spine' %}
 
-            <table class="">
-                {% if demographics === 'true' %}
-                <tr>
-                    <td>NHS Number:</td>
-                    <td><b>485 777 3456</b></td>
-                </tr>
-                {% endif %}
-                <tr>
-                    <td>First name:</td>
-                    <td><b>Joe</b></td>
-                </tr>
-                <tr>
-                    <td>Middle names:</td>
-                    <td><b>Frederick</b></td>
-                </tr>
-                <tr>
-                    <td>Last name:</td>
-                    <td><b>Bloggs</b></td>
-                </tr>
-                <tr>
-                    <td>Date of birth:</td>
-                    <td><b>9th February, 1979</b></td>
-                </tr>
-            </table>
+                <div id="trace" class=" {{ result }}" style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
+
+                    <table class="">
+                        {% if demographics === 'true' %}
+                        <tr>
+                            <td>NHS Number:</td>
+                            <td><b>485 777 3456</b></td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <td>First name:</td>
+                            <td><b>Joe</b></td>
+                        </tr>
+                        <tr>
+                            <td>Middle names:</td>
+                            <td><b>Frederick</b></td>
+                        </tr>
+                        <tr>
+                            <td>Last name:</td>
+                            <td><b>Bloggs</b></td>
+                        </tr>
+                        <tr>
+                            <td>Date of birth:</td>
+                            <td><b>9th February, 1979</b></td>
+                        </tr>
+                    </table>
+
+                {% else %}
+
+                <div id="trace" class="idcheck-match {{ result }}"
+                     style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
+
 
             {% endif %}
 
+            {% if result === 'fail' %}
             <div class="idcheck-result">
-                {% if result === 'fail' %}
+
                 {% if failreason === 'expired' %}
                 Match not possible
                 {% else %}
@@ -184,10 +189,11 @@
                 {% else %}
                 System error - SMSP-0004
                 {% endif %}
-                {% else %}
-                Match
+
                 {% endif %}
             </div>
+
+
 
             {% if result === 'fail' %}
 
@@ -369,9 +375,33 @@
 
             <div class="idcheck-image">
                 <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+
+                {% if idType === 'driving' %}
+
+                <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a driving licence"/>
+
+                {% else %}
+
                 <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
                      alt="Image of a passport"/>
+
+                {% endif %}
+
             </div>
+
+            {% if idType === 'driving' %}
+
+            <div class="idcheck-image">
+                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+
+                <img src="/images/DL-back.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a driving licence"/>
+
+            </div>
+
+            {% endif %}
+
         </div>
     </div>
     <div class="panel__content panel__content--half">
@@ -457,6 +487,8 @@
 
         <h4>PDS results</h4>
 
+        <div class="idcheck-match {{ result }}">
+
         <table class="">
             {% if demographics === 'true' %}
             <tr>
@@ -481,6 +513,8 @@
                 <td><b>9th February, 1979</b></td>
             </tr>
         </table>
+
+        </div>
 
         <div class="qa-questions-group" data-complete="false">
             <div class="qa-questions-question" id="pds-1" data-answered="false" data-group="decline-4">
