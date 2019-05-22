@@ -364,7 +364,7 @@
 
 <div class="panel" style="display: block;">
     <div class="panel__content panel__content--half">
-        <h3>Identity document</h3>
+        <h3>Check identity document</h3>
         <div class="reading-width">
 
             <div class="idcheck-image">
@@ -404,12 +404,12 @@
                 <p class="qa-questions-question-text">Does the photo ID look genuine?</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="0" aria-checked="false">
+                           for="2" aria-checked="false">
                         <input type="radio" id="2" name="a-2" class="multiple-choice__input" tabindex="2">Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="1" aria-checked="false">
+                           for="3" aria-checked="false">
                         <input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="3">No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
@@ -423,13 +423,13 @@
                 <p class="qa-questions-question-text">Is the photo ID valid?</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="0" aria-checked="false">
+                           for="4" aria-checked="false">
                         <input type="radio" id="4" name="a-3" class="multiple-choice__input" tabindex="4" {% if
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="1" aria-checked="false">
+                           for="5" aria-checked="false">
                         <input type="radio" id="5" name="a-3" class="multiple-choice__input" tabindex="5" {% if
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
@@ -438,25 +438,156 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="panel" style="display: block;">
+    <div class="panel__content panel__content--half">
+        <h3>Compare the document photo's details against the PDS result</h3>
+        <div class="reading-width">
+
+            <div class="idcheck-image">
+                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a passport"/>
+            </div>
+        </div>
+    </div>
+    <div class="panel__content panel__content--half">
+
+        <h4>PDS results</h4>
+
+        <table class="">
+            {% if demographics === 'true' %}
+            <tr>
+                <td>NHS Number:</td>
+                <td><b>485 777 3456</b></td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td>First name:</td>
+                <td><b>Joe</b></td>
+            </tr>
+            <tr>
+                <td>Middle names:</td>
+                <td><b>Frederick</b></td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td><b>Bloggs</b></td>
+            </tr>
+            <tr>
+                <td>Date of birth:</td>
+                <td><b>9th February, 1979</b></td>
+            </tr>
+        </table>
+
         <div class="qa-questions-group" data-complete="false">
-            <div class="qa-questions-question" id="document-4" data-answered="false" data-group="decline-4">
-                <p class="qa-questions-question-text">Does the name and date of birth in the PDS record match the
+            <div class="qa-questions-question" id="pds-1" data-answered="false" data-group="decline-4">
+                <p class="qa-questions-question-text">Does the date of birth in the PDS record match the
                     details in the photo ID?</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="0" aria-checked="false">
+                           for="6" aria-checked="false">
                         <input type="radio" id="6" name="a-4" class="multiple-choice__input" tabindex="6" {% if
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="1" aria-checked="false">
+                           for="7" aria-checked="false">
                         <input type="radio" id="7" name="a-4" class="multiple-choice__input" tabindex="7" {% if
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
             </div>
+        </div>
+        <div class="qa-questions-group" data-complete="false">
+            <div class="qa-questions-question" id="pds-2" data-answered="false" data-group="decline-5">
+                <p class="qa-questions-question-text">Does the first name in the PDS record match the
+                    details in the photo ID?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="8" aria-checked="false">
+                        <input type="radio" id="8" name="a-5" class="multiple-choice__input" tabindex="8" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="9" aria-checked="false">
+                        <input type="radio" id="9" name="a-5" class="multiple-choice__input" tabindex="9" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="qa-questions-group" data-complete="false">
+            <div class="qa-questions-question" id="pds-3" data-answered="false" data-group="decline-6">
+                <p class="qa-questions-question-text">Does the last name in the PDS record match the
+                    details in the photo ID?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="0" aria-checked="false">
+                        <input type="radio" id="10" name="a-6" class="multiple-choice__input" tabindex="10" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="1" aria-checked="false">
+                        <input type="radio" id="11" name="a-6" class="multiple-choice__input" tabindex="11" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="callout callout--info" style="padding-top: 0px; margin-top: 0; display: none;" id="manual-pds">
+
+                <div class="form-group">
+
+                    <fieldset>
+
+                        <p style="padding-bottom: 32px;">Can you find a historical name match using a manual PDS check?</p>
+
+                        <div class="selection-button-radio-inline">
+                            <div class="multiple-choice" data-target="">
+                                <input id="radio-inline-1" type="radio" name="radio-inline-group" value="yes"
+                                       aria-controls="pds-yes">
+                                <label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
+                            </div>
+                        </div>
+                        <div class="selection-button-radio-inline" data-group="decline-0">
+                            <div class="multiple-choice" data-target="">
+                                <input id="radio-inline-2" type="radio" name="radio-inline-group" value="no"
+                                       aria-controls="pds-no">
+                                <label for="radio-inline-2" class="block-label" style="position: static;">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                </div>
+
+
+                <div aria-hidden="true" aria-expanded="false" class=" js-hidden" id="pds-yes" style="margin: 0;">
+
+                    <div class="form-group">
+                        <label class="" for="field3">Reason for mismatch?</label>
+                        <textarea class="" id="field3" name="field3" type="text" rows="3"
+                                  style="margin-top: 16px; border-color: #005eb8;" onkeyup='checkText(this.value);'></textarea>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="pds-no" style="margin: 32px 0 0px;" data-group="decline-0">
+                    <div id="id-decline2">
+                        <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}"
+                           id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
@@ -485,48 +616,8 @@
     <div class="panel__content panel__content--half">
 
         <div class="qa-questions-group" data-complete="false">
-            <div class="qa-questions-question" id="selfie-1" data-answered="false" data-group="decline-5">
+            <div class="qa-questions-question" id="selfie-1" data-answered="false" data-group="decline-7">
                 <p class="qa-questions-question-text">Can you clearly see the face in the video?</p>
-                <div class="qa-questions-answer-group multiple-choice__container">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="8" name="a-5" class="multiple-choice__input" tabindex="8" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="9" name="a-5" class="multiple-choice__input" tabindex="9" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="qa-questions-group" data-complete="false">
-            <div class="qa-questions-question" id="selfie-2" data-answered="false" data-group="decline-6">
-                <p class="qa-questions-question-text">Does the face in the photo ID match the face in the video?</p>
-                <div class="qa-questions-answer-group multiple-choice__container">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="10" name="a-6" class="multiple-choice__input" tabindex="10" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           aria-checked="false">
-                        <input type="radio" id="11" name="a-6" class="multiple-choice__input" tabindex="11" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="qa-questions-group" data-complete="false">
-            <div class="qa-questions-question" id="selfie-3" data-answered="false" data-group="decline-7">
-                <p class="qa-questions-question-text">Are these 4 numbers clearly read out: 4-2-2-8?</p>
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            aria-checked="false">
@@ -537,6 +628,46 @@
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            aria-checked="false">
                         <input type="radio" id="13" name="a-7" class="multiple-choice__input" tabindex="13" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="qa-questions-group" data-complete="false">
+            <div class="qa-questions-question" id="selfie-2" data-answered="false" data-group="decline-8">
+                <p class="qa-questions-question-text">Does the face in the photo ID match the face in the video?</p>
+                <div class="qa-questions-answer-group multiple-choice__container">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           aria-checked="false">
+                        <input type="radio" id="14" name="a-8" class="multiple-choice__input" tabindex="14" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           aria-checked="false">
+                        <input type="radio" id="15" name="a-8" class="multiple-choice__input" tabindex="15" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="qa-questions-group" data-complete="false">
+            <div class="qa-questions-question" id="selfie-3" data-answered="false" data-group="decline-9">
+                <p class="qa-questions-question-text">Are these 4 numbers clearly read out: 4-2-2-8?</p>
+                <div class="qa-questions-answer-group multiple-choice__container">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           aria-checked="false">
+                        <input type="radio" id="16" name="a-9" class="multiple-choice__input" tabindex="16" {% if
+                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           aria-checked="false">
+                        <input type="radio" id="17" name="a-9" class="multiple-choice__input" tabindex="17" {% if
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
@@ -569,7 +700,7 @@
     </div>
 </div>
 
-<div id="slideout-value">
+<div id="slideout-value" style="visibility: hidden">
     <div id="slideout-value_tab">
         <p>Comparison<br>Score</p>
         <div id="slideout-value_tab_spinner">&nbsp</div>
@@ -684,23 +815,36 @@
 
                         <select id="decline-5" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-060" data-question="">--- Please select ---</option>
-                            <option value="IDC-061" data-question="decline-text-8">There is a face, but it’s not clear</option>
-                            <option value="IDC-062" data-question="decline-text-9">There is no face in the video</option>
+                            <option value="IDC-061" data-question="decline-text-7">Driving licence - details do not match</option>
+                            <option value="IDC-062" data-question="decline-text-7">Passport - details do not match</option>
                         </select>
 
                         <select id="decline-6" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-070" data-question="">--- Please select ---</option>
-                            <option value="IDC-071" data-question="decline-text-10">Driving licence - face in photo ID does not match face in video</option>
-                            <option value="IDC-072" data-question="decline-text-10">Passport - face in photo ID does not match face in video</option>
+                            <option value="IDC-071" data-question="decline-text-7">Driving licence - details do not match</option>
+                            <option value="IDC-072" data-question="decline-text-7">Passport - details do not match</option>
                         </select>
+
 
                         <select id="decline-7" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-080" data-question="">--- Please select ---</option>
-                            <option value="IDC-081" data-question="">There is no sound at all</option>
-                            <option value="IDC-082" data-question="decline-text-11">Cannot hear the numbers clearly</option>
-                            <option value="IDC-083" data-question="decline-text-12">Missing first or last number</option>
-                            <option value="IDC-084" data-question="decline-text-13">Numbers are wrong</option>
-                            <option value="IDC-085" data-question="decline-text-14">Says something other than numbers</option>
+                            <option value="IDC-081" data-question="decline-text-8">There is a face, but it’s not clear</option>
+                            <option value="IDC-082" data-question="decline-text-9">There is no face in the video</option>
+                        </select>
+
+                        <select id="decline-8" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-090" data-question="">--- Please select ---</option>
+                            <option value="IDC-091" data-question="decline-text-10">Driving licence - face in photo ID does not match face in video</option>
+                            <option value="IDC-092" data-question="decline-text-10">Passport - face in photo ID does not match face in video</option>
+                        </select>
+
+                        <select id="decline-9" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-100" data-question="">--- Please select ---</option>
+                            <option value="IDC-101" data-question="">There is no sound at all</option>
+                            <option value="IDC-102" data-question="decline-text-11">Cannot hear the numbers clearly</option>
+                            <option value="IDC-103" data-question="decline-text-12">Missing first or last number</option>
+                            <option value="IDC-104" data-question="decline-text-13">Numbers are wrong</option>
+                            <option value="IDC-105" data-question="decline-text-14">Says something other than numbers</option>
                         </select>
                     </div>
                 </div>
@@ -1091,8 +1235,8 @@
         var nextSectionPosition = currentSectionPosition + 1
         var lastSection = sections[groups.length-1]
 
-        console.log(currentSectionPosition)
-        console.log(lastSection)
+       console.log("unlock " + nextSectionPosition)
+        // console.log(lastSection)
 
         if (currentSectionPosition < groups.length-1 ){
             var nextSection = sections[nextSectionPosition]
@@ -1112,7 +1256,15 @@
         // pull in the answer array
         var idCheck = JSON.parse(localStorage['idchecker'])
 
-        if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[11] === true || idCheck[13] === true ) {
+        if (idCheck[11] === true ) {
+            document.getElementById('manual-pds').style.display = 'block'
+        }
+
+        else if (idCheck[10] === true ) {
+            document.getElementById('manual-pds').style.display = 'none'
+        }
+
+        else if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[13] === true || idCheck[15] === true || idCheck[17] === true ) {
             document.getElementById('approveBtn').style.display = 'none'
             document.getElementById('declineBtn').style.display = 'inline-block'
 
@@ -1123,22 +1275,26 @@
             } else if (idCheck[5] === true) {
                 $("#id-decline").appendTo('#document-3')
             } else if (idCheck[7] === true) {
-                $("#id-decline").appendTo('#document-4')
+                $("#id-decline").appendTo('#pds-1')
             } else if (idCheck[9] === true) {
-                $("#id-decline").appendTo('#selfie-1')
-            } else if (idCheck[11] === true) {
-                $("#id-decline").appendTo('#selfie-2')
+                $("#id-decline").appendTo('#pds-2')
             } else if (idCheck[13] === true) {
+                $("#id-decline").appendTo('#selfie-1')
+            } else if (idCheck[15] === true) {
+                $("#id-decline").appendTo('#selfie-2')
+            } else if (idCheck[17] === true) {
                 $("#id-decline").appendTo('#selfie-3')
             } else {
                 $("#id-decline").appendTo('#id-buttons')
             }
         }
 
-        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true && idCheck[6] === true && idCheck[8] === true && idCheck[10] === true && idCheck[12] === true) {
+        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true && idCheck[6] === true && idCheck[8] === true && idCheck[12] === true && idCheck[14] === true && idCheck[16] === true) {
             document.getElementById('approveBtn').style.display = 'inline-block'
             document.getElementById('declineBtn').style.display = 'none'
         }
+
+
 
         else {
             document.getElementById('approveBtn').style.display = 'none'
