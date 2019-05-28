@@ -297,7 +297,7 @@
             onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
     </button>
 
-        {% if idType === 'European national identity card' %}
+        {% if idType === 'European national identity card' or idType === 'European driving licence' %}
 
         <a id="continueButton2" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue</a>
 
