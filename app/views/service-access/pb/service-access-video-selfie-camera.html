@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Record a short video{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Say these 4 numbers when you record your video{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&challenge=" + challenge + "&pinCode=" + pinCode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
@@ -90,7 +90,7 @@
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
-            Record a short video
+            Say these 4 numbers when you record your video
           </h1>
         </legend>
 
@@ -106,7 +106,7 @@
 
         {% else %}
 
-        <p>Say these 4 numbers when you record your video</p>
+        <p>Make sure we can see all of your face in the video.</p>
         <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
 
         {% endif %}
