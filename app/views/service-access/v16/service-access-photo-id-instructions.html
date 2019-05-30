@@ -8,61 +8,75 @@
 
 <div class="first-item">
 
-  <section class="" id="scan-id-1">
+  {% if hideBack !== 'true' %}
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+  {% endif %}
 
-    <p><a href="service-access-photo-id-type{{ params }}" class="link-back">Back</a></p>
+  <div class="reading-width">
+    <h1>Submitting a photo of your {{ idType }}</h1>
 
-    <form>
+    {% if idType == 'passport' %}
+    <p>We only need a photo of the page with your personal details.</p>
+
+    <img src="/images/passport-guide@2x.png" alt="take a photo of just the details page of the passport " width="299" style="display:block;margin-left:auto;margin-right:auto;">
+    {% else %}
+    <p>We only need a photo </p>
+
+    {% endif %}
+
+
+  <form>
+
+    {# devices with camera will get option to use it. Others will not get the option. #}
+
+    {% if mobile %}
+
+    <div class="form-group">
+
       <fieldset class="">
-        <legend for="radio-inline-group">
-          <h1 style="padding-bottom: 0;">
-            <span class="heading-secondary">Video 1 of 2</span> Take a video of your {{ idType }}
-          </h1>
+
+        <legend>
+          <h2 class="h3" style="padding:0.5em 0;">How do you want to submit your photo?</h2>
         </legend>
 
-        <ul class="list list-bullet">
-          <li>you will need to film your {{ idType }}</li>
-          <li>you will need to perform a simple action that involves speaking out loud</li>
-        </ul>
+        <label class="block-label selection-button-radio" for="radio-inline-1">
 
-        <div class="form-group">
-          <script type="application/javascript">
-              if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia) {
-
-                  if(window.MediaRecorder !== undefined) {
-                      document.write('<a href="service-access-photo-id-html5{{ params }}" class="button camera-button">Continue</a>');
-                  } else {
-
-                      {% if mobile %}
-                        document.write('<a href="service-access-photo-id-camera{{ params }}" class="button camera-button">Continue</a>');
-                      {% else %}
-                        document.write('<a href="service-access-switchtomobile{{ params }}" class="button camera-button">Continue</a>');
-                      {% endif %}
-                  }
-            } else {
-                document.write('<a href="service-access-switchtomobile{{ params }}" class="button camera-button">Continue</a>');
-            }
-          </script>
-        </div>
+          {% if idType === 'passport' %}
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-photo-id-passport{{ params }}&upload=camera">
+          {% else %}
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=camera">
+          {% endif %}
+          Take a photo using your device's camera
+        </label>
+        <label class="block-label selection-button-radio" for="radio-inline-2">
+          {% if idType === 'passport' %}
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-photo-id-passport{{ params }}&upload=file">
+          {% else %}
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=file">
+          {% endif %}
+          Choose a photo from your device
+        </label>
 
       </fieldset>
+    </div>
 
-    </form>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
 
-    <details class="" role="group">
-      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-        <span class="details__summary">What will happen to the video?</span>
-      </summary>
+    {% else %}
 
-      <div id="details-content-0" aria-hidden="false" class="callout callout--info callout--friendly">
-        <div class="reading-width">
-          <p>The video clip will be held securely on our server and used only for the purpose of verifying your identity. When the identity check is complete the video clip will be securely deleted.</p>
-        </div>
-      </div>
+    <div class="form-group">
+      {% if idType === 'passport' %}
+      <a class="button" href="service-access-photo-id-passport{{ params }}&upload=file" id="">Continue</a>
+      {% else %}
+      <a class="button" href="service-access-photo-id-camera{{ params }}&upload=file" id="">Continue</a>
+      {% endif %}
+    </div>
 
-    </details>
+    {% endif %}
 
-  </section>
+  </form>
 
 </div>
 
