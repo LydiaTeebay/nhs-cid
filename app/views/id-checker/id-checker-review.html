@@ -1302,6 +1302,15 @@
         // pull in the answer array
         var idCheck = JSON.parse(localStorage['idchecker'])
 
+        if (idCheck[11] === true ) {
+            document.getElementById('manual-pds').style.display = 'block'
+        }
+
+        else if (idCheck[10] === true ) {
+            document.getElementById('manual-pds').style.display = 'none'
+        }
+
+
         if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[13] === true || idCheck[15] === true || idCheck[17] === true  ) {
 
             if (document.getElementById('radio-inline-3') !== true ) {
@@ -1332,21 +1341,11 @@
                 }
             }
         }
-
-        else if (idCheck[10] === true ) {
-            document.getElementById('manual-pds').style.display = 'none'
-        }
-
-        else if (idCheck[11] === true ) {
-            document.getElementById('manual-pds').style.display = 'block'
-        }
-
-        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true && idCheck[6] === true && idCheck[8] === true && document.getElementById('radio-inline-3') === true && idCheck[12] === true && idCheck[14] === true && idCheck[16] === true) {
+            
+        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true && idCheck[6] === true && idCheck[8] === true && idCheck[12] === true && idCheck[14] === true && idCheck[16] === true) {
             document.getElementById('approveBtn').style.display = 'inline-block'
             document.getElementById('declineBtn').style.display = 'none'
         }
-
-
 
         else {
             document.getElementById('approveBtn').style.display = 'none'
