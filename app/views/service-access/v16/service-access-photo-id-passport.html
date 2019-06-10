@@ -38,7 +38,7 @@
 
         {% endif %}
 
-        <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back">Back</a></p>
+        <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back">Choose a different way to send your photo</a></p>
 
         <form>
             <fieldset class="">
@@ -85,7 +85,7 @@
                 {% else %}
 
 
-                <p>We only need a photo of the page with your personal details.</p>
+                <p>We only need a photo of the page with your face and personal details.</p>
 
                 <img src="/images/passport-guide@2x.png" alt="take a photo of just the details page of the passport " width="299" style="display:block;margin-left:auto;margin-right:auto;">
 
@@ -132,13 +132,15 @@
                       {% endif %}
                     {% endif %}
 
+                    <p><a href="service-access-photo-id-guidance-holding-passport{{ params }}">See our step-by-step guide to get your photo right.</a></p>
+
                     <label for="photo-id-document-auto" class="camera-button">{{ instruction }}
                         <input type="file" id="photo-id-document-auto" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
                     </label>
 
                 </div>
 
-                <p><a href="service-access-photo-id-guidance-holding-passport{{ params }}">See further help for taking good pictures of a passport</a></p>
+                <!-- <p><a href="service-access-photo-id-guidance-holding-passport{{ params }}">See our step-by-step guide to get your photo right.</a></p> -->
 
             </fieldset>
 
