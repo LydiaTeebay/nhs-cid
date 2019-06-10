@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Step 2 - Avoiding blured images{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <div class="reading-width">
+    <h1 class="heading-large"><span class="heading-secondary">Help page - 3 of 3</span> Make sure the photo isn't blured</h1>
+
+    <p>Hold the passport and camera still so the information is clearly visible and not blured.</p>
+
+    <img src="/images/blur.png" alt="take a photo of just the details page of the passport " width="299" style="display:block;margin-left:auto;margin-right:auto;">
+
+    <div class="form-group">
+      <a class="button" href="service-access-photo-id-passport{{ params }}" id="">Take your photo </a>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
