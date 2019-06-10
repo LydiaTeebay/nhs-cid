@@ -134,9 +134,9 @@
 
                     <p><a href="service-access-photo-id-guidance-holding-passport{{ params }}">See our step-by-step guide to get your photo right.</a></p>
 
-                    <label for="photo-id-document-auto" class="camera-button">{{ instruction }}
+                    <p><label for="photo-id-document-auto" class="camera-button">{{ instruction }}
                         <input type="file" id="photo-id-document-auto" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
-                    </label>
+                    </label></p>
 
                 </div>
 
