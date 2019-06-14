@@ -18,19 +18,21 @@
 
 		<p>This is so we can check your face matches the face on your photo I.D.</p>
 
-		<div class="form-control" style="margin: 32px 0 16px;">
+		<div class="form-control" id="buttonContainer" style="margin: 32px 0 16px;">
 
 			<script type="application/javascript">
 				if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia) {
 
 					if(window.MediaRecorder !== undefined) {
-						document.write('<a href="service-access-video-selfie-html5{{ params }}" class="button button--information">Continue</a>')
+						var theButton = '<a href="service-access-video-selfie-html5{{ params }}" class="button button--information">Continue</a>'
 					} else {
-						document.write('<a href="service-access-video-selfie-camera{{ params }}" class="button button--information">Continue</a>')
+						var theButton = '<a href="service-access-video-selfie-camera{{ params }}" class="button button--information">Continue</a>'
 					}
 				} else {
-					document.write('<a href="service-access-video-selfie-camera{{ params }}" class="button button--information">Continue</a>')
+					var theButton = '<a href="service-access-video-selfie-camera{{ params }}" class="button button--information">Continue</a>'
 				}
+
+				document.getElementById('buttonContainer').innerHTML += theButton
 			</script>
 
 		</div>
