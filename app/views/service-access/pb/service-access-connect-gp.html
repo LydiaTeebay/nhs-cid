@@ -34,7 +34,12 @@
 
       <h1 class="heading-large">We need to connect your NHS login to your GP surgery</h1>
 
-      <p>This is so you can use your GP surgery's online services.</p>
+
+      {% if serviceName %}
+      <p>This is so you can use <strong>"{{ serviceName }}"</strong>.</p>
+      {% else %}
+      <p>This is so you can use the website or app you are trying to access.</p>
+      {% endif %}
 
       <div class="form-control" style="margin: 32px 0 16px;">
         <a class="button--information" href="service-access-connect-gp-working{{ params }}">Connect to GP surgery</a>
