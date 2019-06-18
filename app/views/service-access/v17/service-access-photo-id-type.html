@@ -1,0 +1,95 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - What type of ID do you have?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="service-access-start{{ params }}" class="link-back">Back to step 1: send a photo of your I.D.</a></p>
+
+  <form action="service-access-photo-id-type{{ params }}" method="POST">
+    <div class="form-group">
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            What type of photo I.D. do you have?
+          </h1>
+        </legend>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="idType" value="passport">
+            Passport
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
+            UK driving licence
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="idType" value="European driving licence">
+            European driving licence
+            <span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back.</span>
+          </label>
+
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-4">
+            <input id="radio-inline-4" type="radio" name="idType" value="European national identity card">
+            European national identity card
+            <span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back.</span>
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-5">
+            <input id="radio-inline-5" type="radio" name="idType" value="none">
+            None of these
+          </label>
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="form-group">
+      <button class="button" id="">Continue</button>
+    </div>
+
+
+    <!--<p class=""><a href="service-access-no-documents{{ params }}">I don't have a photo ID document.</a></p>-->
+
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Reload this page with a testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+          <p>Photo upload errors</p>
+          <ol>
+            <li><a href="service-access-photo-id-type{{ params }}challenge=undefined">Photo ID upload successfull</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Validation Failure</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Upload Failure</a></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    {% endif %}
+
+
+  </form>
+
+
+
+</div>
+
+{% endblock %}
