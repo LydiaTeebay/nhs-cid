@@ -31,7 +31,13 @@
 
     <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
 
-        <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><span class="u-visuallyhidden"><i>Back to:</i></span> Take a photo of the front of your I.D.</a></p>
+        {% if upload === 'file' %}
+        <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><span class="u-visuallyhidden">Back to </span> Upload a photo of the front of your I.D.</a></p>
+        {% else %}
+        <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><span class="u-visuallyhidden">Back to </span> Take a photo of the front of your I.D.</a></p>
+        {% endif %}
+
+
 
         <!--        <div class="callout callout&#45;&#45;alert camera-file-format" style="display:block">-->
         <!--            <h2 class="h3">There is a problem</h2>-->
