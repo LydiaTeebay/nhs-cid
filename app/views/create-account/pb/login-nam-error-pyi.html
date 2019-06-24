@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}We are unable to log you in at this time{% endblock %}
+{% block page_title %}We cannot log you in{% endblock %}
 {% set signedin = '' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 
@@ -9,7 +9,7 @@
 
   <div class="form-group">
     <h1>We cannot log you in</h1>
-    <p>This is because some of your registration details have been removed.</p>
+    <p>The registration details you used to prove who you are have been removed.</p>
     <p>Speak to your GP to get new registration details.</p>
     <p>Other websites and apps may allow you to log in without new registration details. Some may allow limited access until your details have been updated.</p>
     <p class="small">Reference: CID7110</p>
