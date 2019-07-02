@@ -46,7 +46,7 @@ module.exports = function (router) {
         })
     })
 
-    router.post('/create-account/v16/two-step', function (req, res) {
+    router.post('/create-account/v17/two-step', function (req, res) {
         var emailAddress = req.param('emailAddress')
         var mobileNum = req.body.mobileNum
         var service = req.param('service')
@@ -60,7 +60,7 @@ module.exports = function (router) {
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
         var theReason = req.param('reason')
-        res.redirect('/create-account/v16/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&reason=' + theReason)
+        res.redirect('/create-account/v17/two-step-code-pincode?terms=yes&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&reason=' + theReason)
     })
 
     router.get('/create-account/v16/two-step', function (req, res) {
