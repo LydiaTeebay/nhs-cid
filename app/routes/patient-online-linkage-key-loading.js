@@ -9,6 +9,22 @@ module.exports = function (router) {
             res.send(html)
         })
     })
+    router.get('/patient-online/v17/patient-online-linkage-key-loading', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var system = req.param('system')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var result = req.param('result')
+        var lsId = req.param('lsId')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v17/patient-online-linkage-key-loading', { serviceName: serviceName, service: service, system: system, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
     router.get('/patient-online/v16/patient-online-linkage-key-loading', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
