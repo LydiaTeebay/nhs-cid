@@ -1,0 +1,44 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked-nhsone.html' %}
+{% block page_title %}Account - profile{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+	<div class="smaller-h1">Email address</div>
+</h1>
+<hr>
+
+<style>
+	.c-page-contents__link.link-email { 
+		font-weight: bold; 
+		text-decoration: none; 
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item account-mgmt">
+
+	<h2>Email address</h2>
+
+	<p>jo************@**ail.com</p>
+
+	<a class="button" href="email-2fa">Edit email address</a>
+
+</div>
+
+{% endblock %}
+
+
