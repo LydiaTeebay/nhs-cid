@@ -199,21 +199,10 @@
         <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
 
         <p>We cannot see all the information we need.</p>
-
-        <p>Make sure you follow the instructions when you take another photo of your I.D.</p>
-
-        {#
-        <p>Try again and make sure:</p>
-        <ul>
-            <li>all the details on your I.D are visible</li>
-            <li>there is no blur or glare on the image</li>
-            <li>the image isn't too dark or light</li>
-        </ul>
-
-        #}
+        <p>Make sure you follow the photo instructions.</p>
 
         <div class="form-group">
-            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
         </div>
         <p class="small" style="margin-top: 28px;">Reference: CID8005</p>
     </section>
@@ -224,33 +213,29 @@
 
         <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
 
-        <p>It looks like there's more than one face.</p>
-
-        {% if idType == 'passport' %}
-        <p>Make sure you only take a photo of the page that has your photo and personal information on it.</p>
-        {% endif %}
-
-        <p>Check there are no other faces in the photo that you send us.</p>
-
-        {#
-
-        <p>Try again and make sure:</p>
-        <ul>
-            {% if idType == 'passport' %}
-            <li>you only take a photo of the details page of your passport</li>
-            {% endif %}
-            <li>there are no faces visible to the sides</li>
-        </ul>
-
-        #}
+        <p>It looks like there is more than 1 face in your photo.</p>
+        <p>Make sure there are no other faces in the photo you send us.</p>
 
         <div class="form-group">
-            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
         </div>
         <p class="small" style="margin-top: 28px;">Reference: CID8006</p>
     </section>
 
 
+    {# section to show the AWS technical errors or timeouts #}
+    <section class="preview-container" id="scan-id-7d" style="display:none">
+
+        <h1 style="padding-bottom: 0;">Something went wrong</h1>
+
+        <p>There was a technical problem.</p>
+
+        <div class="form-group">
+            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CID8007</p>
+    </section>
+    
 
     {# section to show the file saving and server-side validation errors #}
     <section class="preview-container" id="scan-id-7" style="display:none">
