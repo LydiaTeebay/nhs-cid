@@ -23,6 +23,10 @@
 <meta http-equiv="refresh" content="3;url=login-dead{{ params }}">
 {% elif reason === 'namnotfoundPOL' %}
 <meta http-equiv="refresh" content="3;url=login-nam-error-pol{{ params }}">
+{% elif reason === 'polCreds' %}
+<meta http-equiv="refresh" content="3;url=/service-access/v17/service-access-pol-creds-invalid{{ params }}">
+{% elif reason === 'pyiCreds' %}
+<meta http-equiv="refresh" content="3;url=/service-access/v17/service-access-pyi-creds-invalid{{ params }}">
 {% elif reason === 'namnotfoundPYI' %}
 <meta http-equiv="refresh" content="3;url=login-nam-error-pyi{{ params }}">
 {% else %}

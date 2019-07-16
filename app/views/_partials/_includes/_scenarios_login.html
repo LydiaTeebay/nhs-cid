@@ -14,6 +14,13 @@
 
             <p>PYI GP-Connect endpoint</p>
             <ol>
+                <li><a href="two-step-code-login{{ params }}&reason=polCreds&result=200">[200] User has credentials revoked with proofing level not equal to 9</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=pyiCreds&result=200">[200] User has credentials revoked with proofing level equal to 9</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=idpending">User has no creds, with proofing level equal to 0</a></li>
+            </ol>
+
+            <p>PYI GP-Create endpoint</p>
+            <ol>
                 <li><a href="two-step-code-login{{ params }}&reason=nam&result=200">[200] Validation success</a></li>
                 <li><a href="two-step-code-login{{ params }}&reason=idpending">User logs in whilst Identity check is in progress [REF: CID-2001]</a></li>
                 <li><a href="two-step-code-login{{ params }}&reason=nam&result=400">[400] Functional - ODS Code or NHS Number was invalid [REF: CID7020]</a></li>
