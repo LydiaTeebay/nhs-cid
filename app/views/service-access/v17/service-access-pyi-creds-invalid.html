@@ -8,7 +8,15 @@
 <div class="first-item">
     <h1>We need to connect your NHS login to your GP surgery</h1>
 
-    <p>This is so you can access <b>'{{ serviceName }}'</b>.</p> <!-- this needs an else statement which displays 'This is so you can access this service.' -->
+      {% if serviceName === "The NHS app" %}
+
+    <p>This is so you can access<b>'{{ serviceName }}'.</b></p>
+
+    {% else %}
+
+    <p>This is so you can access this service.</p>
+
+    {% endif %}<!-- this needs an else statement which displays 'This is so you can access this service.' -->
 
     <p>We need to do this again because either:</p>
 
