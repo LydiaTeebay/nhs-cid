@@ -7,6 +7,8 @@
 
 {% if result === '200' %}
 <meta http-equiv="refresh" content="5;url={{ backlink.link() }}">
+{% elif result === 'unknown' %}
+<meta http-equiv="refresh" content="5;url=patient-online-nam-error-unknown{{ params }}">
 {% elif result === '400' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-400{{ params }}">
 {% elif result === '403' %}
@@ -27,6 +29,8 @@
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-502{{ params }}">
 {% elif result === '504' %}
 <meta http-equiv="refresh" content="5;url=patient-online-nam-error-504{{ params }}">
+{% elif result === 'nhsmismatch' %}
+<meta http-equiv="refresh" content="5;url=patient-online-nam-error-nhsmismatch{{ params }}">
 {% elif result === 'slow' %}
 <meta http-equiv="refresh" content="15;url={{ backlink.link() }}">
 {% endif%}
