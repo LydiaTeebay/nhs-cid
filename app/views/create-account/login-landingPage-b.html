@@ -1,0 +1,67 @@
+{% extends '_layouts/_grids/_grid-1-stacked2.html' %}
+
+{% block page_title %}Your NHS login{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% endif %}
+
+{% block content %}
+
+<h1>Your NHS login</h1>
+
+<div class="account-info">
+  <div class="first-item loginPage">
+    <img src="/images/user.png" style="height: 60px; width: auto; display: inline-block; position: relative; top: -25px; margin: 0 10px 0 0;"</img>
+    <div class="account-name-link" style="display: inline-block; margin-top: 0px;">
+      <h2 style="font-size: 28px;">Jonathan Liam Kingston</h2>
+      <p class="accountDetails" style="margin-top: 0px;"><a href="/account/v5/account">Manage your account</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block leftcol %}
+
+
+<h3>What does NHS login do?</h3>
+  <p>NHS login lets you access multiple digital health and social care services whenever you want, with a simple, one-time sign-up process. This means you don't have to prove who you are each time.</p>
+
+<h3>What can I use my NHS login for?</h3>
+  <p>You can use your NHS login to access services such as The NHS app. Once you are set-up, you can:</p>
+    <ul style="margin-top: 16px;">
+      <li>manage your prescriptions</li>
+      <li>book GP appointments</li>
+      <li>recording your child's development</li>
+    </ul>
+  <p>You can also use your NHS login with a number of services, such as <a href="https://www.eredbook.org.uk/">eRedbook</a>, <a href="#">Helm</a> and <a href="#">Patient Access</a>.</p>
+
+    <h3>What are the benefits of using NHS login?</h3>
+      <p>NHS login is secure and can be used repeatedly without you having to prove who you are each time. NHS login follows the UK government's data storage standards to keep your information secure.</p>
+
+      <p style="margin-bottom: 1em;"><a href="https://www.nhs.uk/using-the-nhs/nhs-services/nhs-login/">Find more information about NHS login</a></p>
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="column-list" style="border-top: 4px solid #025FB8; padding-top: 16px;">
+  <h3>Not what you are looking for?</h3>
+    <ul style="list-style: none; padding-left: 0px; margin-top: 16px;">
+      <li style="color: #025FB8; margin-bottom: 8px;"><b>NHS staff only<b></li>
+      <li><p><a href="https://portal.nhs.net/Home/Login">Login - NHSmail</a></p></li>
+      <li><p><a href="#">NHS mail - NHS Digital</a></p></li>
+      <li><p><a href="#">Login - NHS Health Check</a></p></li>
+    </ul>
+    <ul style="list-style: none; padding-left: 0px; margin-top: 16px; border-top: 1px solid #768692 ">
+      <li><p style="margin-top: 8px;"><a href="#">Candidate login - NHS Jobs</a></p></li>
+      <li><p><a href="#">Login - My Health Online</a> (Welsh nationals only)</p></li>
+    </ul>
+</div>
+
+{% endblock %}
