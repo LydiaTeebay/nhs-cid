@@ -152,27 +152,7 @@
 
     <section class="preview-container" id="scan-id-5" style="display:none">
 
-        <h1 style="padding-bottom: 0;">Check your photo</h1>
-
-        <p>Is the photo and all the text clear? Can you see all 4 corners?</p>
-
-        <div class="reading-width">
-            <div id="scan-id-preview">
-                <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
-            </div>
-        </div>
-
-        <div class="form-group">
-
-            {% if formerror === 'invalid' %}
-            <a class="button" href="" id="submit-photoId-button-error">Yes - continue</a>
-            {% else %}
-            <a class="button" href="" id="submit-photoId-button">Yes - continue</a>
-            {% endif %}
-
-
-            <p><a href="service-access-photo-id-camera{{ params }}" id="">No - try again</a></p>
-        </div>
+        {% include '_partials/_includes/_check-photo.html' %}
 
     </section>
 
@@ -253,7 +233,7 @@
         <p>If this keeps happening, you could take a photo using a different device or mobile phone app, then upload it.</p>
 
         <div class="form-group">
-            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Try again</a>
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="tryagain">Try again</a>
         </div>
         <p class="small" style="margin-top: 28px;">Reference: CID4003</p>
     </section>
@@ -277,21 +257,21 @@
     </section>
 
     {% if formerror === 'invalid' %}
-    <button id="confirmButton" style="visibility:hidden">Continue to error</button>
+    <button id="confirmButton" class="u-visuallyhidden" style="visibility:hidden">Continue to error</button>
     {% elif formerror === 'invalid' %}
-    <button id="confirmButton" style="visibility:hidden">Continue to error</button>
+    <button id="confirmButton" class="u-visuallyhidden" style="visibility:hidden">Continue to error</button>
     {% else %}
-    <button id="continueButton" style="visibility:hidden;"
+    <button id="continueButton" class="u-visuallyhidden" style="visibility:hidden;"
             onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
     </button>
 
     {% if idType === 'European national identity card' or idType === 'European driving licence' %}
 
-    <a id="continueButton2" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue</a>
+    <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue</a>
 
     {% else %}
 
-    <a id="continueButton2" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
+    <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
 
     {% endif %}
 

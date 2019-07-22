@@ -147,27 +147,7 @@
 
     <section class="preview-container" id="scan-id-5" style="display:none">
 
-        <h1 style="padding-bottom: 0;">Check your photo</h1>
-
-        <p>Is the photo and all the text clear? Can you see the full page, and the edges?</p>
-
-        <div class="reading-width">
-            <div id="scan-id-preview">
-                <img id="uploaded-id" src="#" alt="your image" style="height:auto;"/>
-            </div>
-        </div>
-
-        <div class="form-group">
-
-            {% if formerror === 'invalid' %}
-            <a class="button" href="" id="submit-photoId-button-error">Yes - continue</a>
-            {% else %}
-            <a class="button" href="" id="submit-photoId-button">Yes - continue</a>
-            {% endif %}
-
-
-            <p><a href="service-access-photo-id-passport{{ params }}" id="">No - try again</a></p>
-        </div>
+        {% include '_partials/_includes/_check-photo.html' %}
 
     </section>
 
