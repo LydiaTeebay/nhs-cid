@@ -3,16 +3,6 @@
 
     <h1 style="padding-bottom: 0;">Check your photo before you send it</h1>
 
-    {% if idType === 'passport' %}
-
-    <p>We need to see all the details on the main page of your passport which has your name and face on it.</p>
-
-    {% else %}
-
-    <p>We need to see all the details on the side of your {{ idType }} that has your face on it.</p>
-
-    {% endif %}
-
     <p>We will ask you some questions to help you check your photo before you send it to us.</p>
 
     <p><a href="#">Are you visually impaired?</a></p>
@@ -28,7 +18,13 @@
 
 <fieldset id="check-1" class="photo-check">
 
-    <legend id="check-1-title"><h2 class="h3 check-title">can you see the photo of your {{ idType }}?</h2></legend>
+    <legend id="check-1-title"><h2 class="h3 check-title">
+        {% if idType === 'passport' %}
+        Can you see all 4 edges of the page with your name and face on it?
+        {% else %}
+        Can you see all 4 edges of your licence?
+        {% endif %}
+    </h2></legend>
 
     <div class="selection-button-radio-inline" style="margin-top: 16px;">
         <div class="multiple-choice" data-target="check-1-yes" style="margin-bottom: 0;">
@@ -52,7 +48,7 @@
 
 <fieldset id="check-2" class="photo-check" style="display: none;">
 
-    <legend id="check-2-title"><h2 class="h3 check-title">Have you covered any part of the {% if idType === 'passport' %}page{% else %}card{% endif %}?</h2></legend>
+    <legend id="check-2-title"><h2 class="h3 check-title">Are you touching any part of the {% if idType === 'passport' %}page{% else %}card{% endif %} with your hands?</h2></legend>
 
     <div class="selection-button-radio-inline" style="margin-top: 16px;">
         <div class="multiple-choice" data-target="check-2-yes" style="margin-bottom: 0;">
@@ -102,7 +98,7 @@
 
 <fieldset id="check-4" class="photo-check" style="display: none;">
 
-    <legend id="check-4-title"><h2 class="h3 check-title">Is there shine on the hologram?</h2></legend>
+    <legend id="check-4-title"><h2 class="h3 check-title">Does the shiny hologram (security mark) cover any of your face or any text?</h2></legend>
 
     <div class="selection-button-radio-inline" style="margin-top: 16px;">
         <div class="multiple-choice" data-target="check-4-yes" style="margin-bottom: 0;">
@@ -151,9 +147,20 @@
 
 <fieldset id="advice-1" class="photo-check" style="margin-top: 0; display: none;">
 
-    <legend><h1 id="advice-title-1">Tell us why you cannot see the photo</h1></legend>
+    <legend><h1 id="advice-title-1">
+        {% if idType === 'passport' %}
+        Make sure the whole page is in your photo
+        {% else %}
+        Make sure the whole licence is in your photo
+        {% endif %}
+    </h1></legend>
 
-    <p style="margin-top: 0;">If you cannot see the photo because you are blind or partially sighted, you can send your photo without checking it.</p>
+    <p style="margin-top: 0;">
+        {% if idType === 'passport' %}
+        If we cannot see all the details of your passport then we cannot check if it is valid. 
+        {% else %}
+        If we cannot see all the details of your licence then we cannot check if it is valid. 
+        {% endif %}</p>
 
     <div class="selection-button-radio-inline" style="margin-top: 16px;">
         <div class="multiple-choice" data-target="advice-1-yes" style="margin-bottom: 0;">
@@ -176,12 +183,12 @@
 
 <div id="advice-2" class="photo-check" style="margin-top: 0; display: none;">
 
-    <h1 id="advice-title-2">Make sure that you do not cover any part of the {% if idType === 'passport' %}page{% else %}card{% endif %}</h1>
+    <h1 id="advice-title-2">Make sure you do not hide any part of the {% if idType === 'passport' %}page{% else %}licence{% endif %} with your hands</h1>
 
     {% if idType === 'passport' %}
-    <p>If we cannot see every part of the page and all the text and images, then we cannot check if your passport is valid.</p>
+    <p>If we cannot see all the details of your passport then we cannot check if your passport is valid.</p>
     {% else %}
-    <p>If we cannot see all the text and images on the page, then we cannot check if your {{ idType }} is valid.</p>
+    <p>If we cannot see all the details of your licence then we cannot check if it is valid.</p>
     {% endif %}
 
     <fieldset>
@@ -216,7 +223,7 @@
     {% if idType === 'passport' %}
     <p>If there is shine covering any part of your face or any text, then we cannot check if your passport is valid.</p>
     {% else %}
-    <p>If there is shine covering any part of your face or any text, then we cannot check if your {{ idType }} is valid.</p>
+    <p>If there is any shine over your face or any text, then we cannot check if your {{ idType }} is valid.</p>
     {% endif %}
 
     <fieldset>
@@ -246,12 +253,12 @@
 
 <div id="advice-4" class="photo-check" style="margin-top: 0; display: none;">
 
-    <h1 id="advice-title-4">Hologram stuff</h1>
+    <h1 id="advice-title-4">Make sure you can clearly see your face and all the text</h1>
 
     {% if idType === 'passport' %}
-    <p>If the text is blurry, we might not be able to check if your passport is valid.</p>
+    <p>If the hologram covers any part of your face or text, then we cannot check if your passport is valid.</p>
     {% else %}
-    <p>If the text is blurry, we might not be able to check if your {{ idType }} is valid.</p>
+    <p>If the hologram covers any part of your face or text, then we cannot check if your {{ idType }} is valid.</p>
     {% endif %}
 
     <fieldset>

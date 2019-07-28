@@ -8,15 +8,17 @@
 <div class="first-item">
 
   {% if hideBack !== 'true' %}
-  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+  <p><a href="javascript:history.go(-1)" class="link-back">Use details from your GP surgery to prove who you are</a></p>
   {% endif %}
 
   <div class="reading-width">
-    <h1>Photo ID page</h1>
+    <h1>Use photo I.D. to prove who you are</h1>
     
-    <p class="reading-width">This explains why we need the following types of ID to verify your identity.</p>
+    <p>You can only do this online.</p>
+    <p>You need to send us a photo of your I.D. We will check that it’s valid, and use the information on it to match you to your NHS record.</p>
+    <p>You will also need to record a short video of your face. We will compare your face with the face on your photo I.D.</p>
 
-    <p>You need one of these:</p>
+    <p>You can use your:</p>
       <ul>
         <li>passport</li>
         <li>UK driving licence</li>
@@ -31,7 +33,7 @@
       <fieldset class="">
 
         <legend>
-          <p class="" style="padding:0.5em 0; font-size: 28px; font-weight: bold;">Do you have any of these types of I.D.?</p>
+          <p class="" style="padding:0.5em 0; font-size: 28px; font-weight: bold;">Do you have any of these I.D. types?</p>
         </legend>
 
 
@@ -40,8 +42,8 @@
           Yes
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-2">
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/v17/service-access-offline-triage{{ params }}&poluser=false">
-          No - try another way
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/pb/service-access-no-documents{{ params }}&poluser=false">
+          No - I need to prove who I am another way
         </label>
 
       </fieldset>
