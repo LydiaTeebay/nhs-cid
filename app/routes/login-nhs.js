@@ -42,8 +42,15 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var hideBack = req.param('hideBack')
+        var clientId = req.param('clientId')
+        if (clientId === 'false') {
+            var reason = 'noclientid'
+        } else {
+            var reason = req.param('reason')
+        }
+        
         // re-render the page along with the parameter
-        res.render('create-account/v17/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, hideBack: hideBack }, function(err, html) {
+        res.render('create-account/v17/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, hideBack: hideBack, reason: reason }, function(err, html) {
             res.send(html)
         })
     })

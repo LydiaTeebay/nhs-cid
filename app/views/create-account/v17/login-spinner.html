@@ -29,6 +29,8 @@
 <meta http-equiv="refresh" content="3;url=/service-access/v17/service-access-pyi-creds-invalid{{ params }}">
 {% elif reason === 'namnotfoundPYI' %}
 <meta http-equiv="refresh" content="3;url=login-nam-error-pyi{{ params }}">
+{% elif reason === 'noclientid' %}
+<meta http-equiv="refresh" content="3;url=login-landingPage-b{{ params }}">
 {% else %}
 <meta http-equiv="refresh" content="3;url={{ backlink.link() }}">
 {% endif %}
