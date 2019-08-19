@@ -1,0 +1,99 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Choose a Post Office{% endblock %}
+
+{% set signedin = 'false' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&idType=" + idType + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&postcode=" + postcode %}
+
+{% block header %}
+<style>
+  .block-label.selection-button-radio {
+    padding: 32px;
+    padding-left: 80px;
+    background-color: #f0f4f5;
+    border: 1px solid #f0f4f5;
+  }
+  .block-label.selection-button-radio.selected {
+    border: 1px solid black;
+  }
+  .block-label.selection-button-radio:before {
+    top: 24px;
+    left: 24px;
+  }
+  .block-label.selection-button-checkbox.selected:after, .block-label.selection-button-radio.selected:after {
+    top: 34px;
+    left: 34px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <form action="service-access-offline-find-place{{ params }}" method="POST">
+    <div class="form-group">
+      <fieldset>
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            Choose a Post Office
+          </h1>
+        </legend>
+        <p>Post Offices that do <abbr title="National health service">NHS</abbr> <abbr title="National health service">ID</abbr> checks near {{ postcode }} </p>
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="place" value="postoffice1">
+                <h3 style="margin-top: 0px; line-height:27px">Holbeck</h3>
+                <p>95 - 97 Domestic Street, Leeds, LS11 9NS</p>
+                <p class="small">0.2 miles away - Open today 08:00-18:00</p>
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="place" value="postoffice2">
+              <h3 style="margin-top: 0px; line-height:27px">The Markets</h3>
+              <p>6 - 16 New York Street, Leeds, LS2 7DZ</p>
+              <p class="small">0.3 miles away - Open today 09:30-17:30</p>
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="place" value="postoffice3">
+              <h3 style="margin-top: 0px; line-height:27px">St Johns</h3>
+              <p>116 Albion Street, Leeds, LS2 8LP</p>
+              <p class="small">0.4 miles away - Open today 09:30-17:30</p>
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-4">
+            <input id="radio-inline-4" type="radio" name="place" value="postoffice4">
+              <h3 style="margin-top: 0px; line-height:27px">Beeston Hill</h3>
+              <p>2 Lodge Lane, Leeds, LS11 6AZ</p>
+              <p class="small">0.4 miles away - Open today 09:00-17:30</p>
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-5">
+            <input id="radio-inline-5" type="radio" name="place" value="postoffice5">
+              <h3 style="margin-top: 0px; line-height:27px">Victoria Terrace</h3>
+              <p>163-165 Dewsbury Road, Leeds, LS11 5EG</p>
+              <p class="small">0.5 miles away - Open today 08:00-18:00</p>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+      <button class="button" id="">Continue</button>
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock %}

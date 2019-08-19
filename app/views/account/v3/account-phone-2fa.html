@@ -1,0 +1,42 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Change your phone number{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+    <div class="smaller-h1">Phone number</div>
+</h1>
+<hr>
+
+<style>
+  .c-page-contents__link.link-phone {
+    font-weight: bold;
+    text-decoration: none;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu-pb.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item">
+
+	<h2>Enter your password to change your phone number</h2>
+
+		<div class="form-group">
+	        <input autocomplete="off" class="form-control" id="password" name="password" type="password">
+	    </div>
+
+	<a class="button" href="account-phone-edit">Continue</a>
+
+</div>
+
+{% endblock %}

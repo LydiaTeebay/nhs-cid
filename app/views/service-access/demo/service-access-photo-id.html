@@ -1,0 +1,50 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 3: Take a photo of your ID{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&idType=" + idType %}
+
+{% block content %}
+
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+<h1>Follow these steps</h1>
+<p>You'll need to give us some information so that we can connect you to your NHS record, and keep your NHS login secure.</p>
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Set up your NHS login</h3>
+			<div class="service-access__item__desc">
+				<p>You will need your phone.</p>
+				<p>{% include '_partials/_components/_name.html' %} will allow you to sign into multiple health services in the future.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Help us find your NHS record</h3>
+			<div class="service-access__item__desc">
+				<p>You'll need to give us some information so that we can connect you to your NHS record.</p>
+			</div>
+			<span class="service-access__item__status">Completed</span>
+		</li>
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Take a photo of your ID</h3>
+			<div class="service-access__item__desc">
+				<p>You'll need to take a photo of your passport or driving licence. We'll check that it matches your NHS record.</p>
+			</div>
+			<a href="service-access-photo-id-type{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Record a short video</h3>
+			<div class="service-access__item__desc">
+				<p>We'll check that your face matches your photo ID.</p>
+			</div>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

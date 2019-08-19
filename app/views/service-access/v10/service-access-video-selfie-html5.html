@@ -1,8 +1,8 @@
-{% extends '_layouts/_grids/_grid-1-hotjar.html.html' %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
 
 
 {% block extrascripts %}
@@ -41,7 +41,7 @@
         <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
             <div class="camera-preview-feed">
-                <video id="gum" muted autoplay></video>
+                <video data-hj-suppress id="gum" muted autoplay></video>
             </div>
         </div>
 
@@ -89,7 +89,7 @@
 
         <div class="reading-width">
             <div id="scan-video-preview">
-                <video id="recorded" controls="" autoplay loop style="width:100%;height:auto;"></video>
+                <video data-hj-suppress id="recorded" controls="" autoplay loop style="width:100%;height:auto;"></video>
             </div>
             <div class="camera-instructions">
                 <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>

@@ -1,0 +1,41 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('login') }}{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+   <form>
+
+        <div class="form-group">
+            <h2>Log in</h2>
+
+            <fieldset class="">
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Email address</label>
+                    <input class="form-control" id="field1" name="field1" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Password</label>
+                    <input class="form-control" id="field2" name="field2" type="password">
+                </div>
+
+                <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
+
+            </fieldset>
+        </div>
+
+        <a class="button" href="two-step{{ params }}" id="">Continue</a>
+
+        <p><a href="create-acc-terms{{ params }}">Set up an <abbr>NHS</abbr> login</a></p>
+
+       {% include '_partials/_includes/_scenarios_login.html' %}
+
+    </form>
+</div>
+
+{% endblock %}

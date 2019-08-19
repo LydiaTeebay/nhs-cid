@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
 
 {% block content %}
 
@@ -93,7 +93,7 @@
 
     <div class="reading-width">
       <div id="scan-video-preview">
-        <video id="uploaded-video" controls autoplay style="max-width:100%;max-height:400px;">
+        <video data-hj-suppress id="uploaded-video" controls autoplay style="max-width:100%;max-height:400px;">
           <source src="#" type="video/mp4">
           Your browser does not support the video tag.
         </video>

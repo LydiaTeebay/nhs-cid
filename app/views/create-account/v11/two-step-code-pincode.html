@@ -1,0 +1,53 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - Check your phone{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
+{% elif vouch %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&newUser=" + newUser + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&poluser=" + poluser + "&resend=" + resend %}
+{% endif %}
+
+{% block topRow %}
+  {% if resend == "yes" %}
+  {% import "_partials/_components/_callout.html" as callout %}
+  {{ callout.pattern('','Your security code has been resent.','attention') }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+  
+  <form>
+
+    <div class="form-group">
+      <fieldset class="inline">
+        <h1>Check your phone</h1>
+
+        <p>Enter the security code we sent to {{ mobileNum }}. The code expires in 2 minutes.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="code">Security code</label>
+          <span class="form-label__hint">The code is 6 numbers</span>
+          <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+        </div>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+
+      <a id="securitycodeContinue" href="/patient-online/v11/patient-online-start{{ params }}" class="button">Continue</a>
+
+    </div>
+    <p class="">If you do not get a code, <a href="two-step{{ params }}">enter your number to try again.</a></p>
+
+
+  </form>
+</div>
+
+{% endblock %}
+

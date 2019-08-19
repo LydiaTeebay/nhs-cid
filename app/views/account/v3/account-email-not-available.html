@@ -1,0 +1,42 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Account - profile{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+	<div class="smaller-h1">Email address</div>
+</h1>
+<hr>
+
+<style>
+	.c-page-contents__link.link-email {
+		font-weight: bold;
+		text-decoration: none;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu-pb.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item account-mgmt">
+
+	<h2>The email address you entered is already in use</h2>
+
+	<p>The email address you entered has already been used to set up an NHS login.</p>
+
+	<p><a href="account-email-edit">Enter another email address and try again.</a></p>
+
+</div>
+
+{% endblock %}

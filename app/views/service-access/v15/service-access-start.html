@@ -1,0 +1,56 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - To access this service we'll need to do the following{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+
+{% block content %}
+
+<div class="first-item">
+
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+	<section class="intructions">
+
+		<div class="reading-width">
+
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 3</span> Send a photo of your I.D.</h1>
+
+			<p>This is so we can check you match your photo I.D. We'll help you with this.</p>
+
+			<p>You'll need one of these:</p>
+			<ul class="instructions-list-unordered">
+				<li class="instructions-list-unordered__item">passport</li>
+				<li class="instructions-list-unordered__item">UK driving licence</li>
+				<li class="instructions-list-unordered__item">European driving licence</li>
+				<li class="instructions-list-unordered__item">European national identity card</li>
+			</ul>
+
+			<div class="form-control" style="margin: 32px 0 16px;">
+				<a class="button--information" href="service-access-photo-id-type{{ params }}">Continue</a>
+			</div>
+
+			<p class="instructions--link"><a href="service-access-offline{{ params }}">I do not have any of these</a></p>
+
+		</div>
+
+	</section>
+
+	{% if devMode === "true" %}
+	<details class="dev-mode" role="group" >
+		<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+			<span class="details__summary">Continue with testing scenario</span>
+		</summary>
+		<div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+			<div class="reading-width">
+				<ol>
+					<li><a href="service-access-photo-id-type{{ params }}&iproov=true&desk=false">Feature detection passed</a></li>
+					<li><a href="service-access-photo-id-type{{ params }}&iproov=false&desk=false">Feature detection fail (iProov not supported by platform)</a></li>
+					<li><a href="service-access-photo-id-type{{ params }}&iproov=true&desk=true">Feature detection passed but user is on a desktop browser</a></li>
+				</ol>
+			</div>
+		</div>
+	</details>
+	{% endif %}
+
+</div>
+
+{% endblock %}

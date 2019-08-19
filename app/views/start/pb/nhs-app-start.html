@@ -1,6 +1,6 @@
 {% extends '_layouts/_blank_layout.html' %}
 
-{% set params = "?service=app2&serviceName=NHS%20App" %}
+{% set params = "?service=app3&serviceName=NHS%20app" + "&devMode=" + devMode %}
 
 {% block body %}
 
@@ -887,7 +887,7 @@ header.home-header {
   top: 0em;
   left: 0em;
   right: 0em;
-  bottom: 16.5em;
+  bottom: 12.5em;
   box-sizing: border-box;
   text-align: center;
   box-shadow: inset 0em -0.375em 0.5em rgba(0, 0, 0, 0.15);
@@ -944,7 +944,7 @@ main.home-main {
   bottom: 0em;
   left: 0em;
   right: 0em;
-  height: 16.5em;
+  height: 13.5em;
   padding: 1em;
   box-sizing: border-box; }
   main.home-main h2 {
@@ -953,7 +953,8 @@ main.home-main {
     font-size: 1.375em;
     line-height: 1.375em;
     color: #005EB8;
-    margin-bottom: 0.750em;
+    margin-bottom: 1em;
+    margin-top: 0.750em;
     font-size: 1.2em;
     color: #4A4A4A;
     text-align: center;
@@ -1078,7 +1079,34 @@ body.web {
   body.web main.logged {
     height: 16.5em;
     overflow: auto; }
-
+.button, main.home-main a.button {
+	font-family: "FrutigerLTW01-65Bold", Arial, sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 32px;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #007f3b;
+	border: 0;
+	-webkit-box-shadow: 0 2px 0 #003317;
+	box-shadow: 0 2px 0 #003317;
+	cursor: pointer;
+	display: inline-block;
+	letter-spacing: .5px;
+	line-height: 1.25;
+	outline: 1px solid transparent;
+	outline-offset: -1px;
+	padding: 12px 24px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	border-radius: 0;
+	color: #fff;
+}
 /*# sourceMappingURL=home.css.map */
 </style>
 
@@ -1096,9 +1124,9 @@ body.web {
 
 
 		<div class="symptom_banner">
-			<h2>How are you feeling right now?</h2>
-			<button class="button white" id="btn_symptoms">
-				Check your symptoms
+			<h2 style="font-weight: normal;">How are you feeling today?</h2>
+			<button class="button white" id="btn_symptoms" style="font-weight: normal;">
+				Check symptoms
 			</button>
 		</div>
 	</header>
@@ -1108,18 +1136,23 @@ body.web {
 	</div>
 
 	<main class="home-main">
-		<h2>Want to book an appointment or order a repeat prescription?</h2>
-            <a href="/create-account/pb/login-nhs{{ params }}" class="button green" id="btn_login" style="
-        color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
-                Log in with {% include '_partials/_components/_name.html' %}
-            </a>
+		<h2 style="font-weight: normal;">To access your GP services</h2>
+
+		<a href="/create-account/pb/start{{ params }}" class="button" id="btn_login" style="font-weight: normal;">
+            Log in or create account
+        </a>
+        
+        <!-- <a href="/create-account/pb/login-nhs{{ params }}" class="button green" id="btn_login" style="
+    color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
+            Log in with {% include '_partials/_components/_name.html' %}
+        </a>
 
         <a href="/create-account/pb/create-acc-terms{{ params }}" class="button" id="btn_register" style="
         color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
             Create an account
-        </a>
+        </a> -->
 
-		<a href="#">Terms and conditions</a>
+		<!--<a href="#">Terms and conditions</a>-->
 	</main>
 </body>
 </html>

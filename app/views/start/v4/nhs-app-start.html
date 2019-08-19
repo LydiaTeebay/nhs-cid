@@ -1,6 +1,7 @@
+{% import '_macros/_macro_service.html' as theService with context %}
 {% extends '_layouts/_blank_layout.html' %}
 
-{% set params = "?service=app3&serviceName=NHS%20App" %}
+{% set params = "?service=app3&serviceName=NHS%20App" + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
 
 {% block body %}
 
@@ -1083,6 +1084,11 @@ body.web {
 </style>
 
 
+    {% if service === "app2" or service === "app3" or lsStudy or lsId %}
+    {% include "_partials/_includes/_hotjar-tracking-v9.html" %}
+    {% endif %}
+
+
 </head>
 
 <body>
@@ -1111,15 +1117,10 @@ body.web {
 		<h2>Want to book an appointment or order a repeat prescription?</h2>
             <a href="/create-account/v10/login-nhs{{ params }}" class="button green" id="btn_login" style="
         color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
-                Log in with NHS
+                Log in or create account
             </a>
 
-        <a href="/patient-online/v10/patient-online-details{{ params }}" class="button" id="btn_register" style="
-        color: #ffffff;text-decoration: none;font-weight: 700;font-size: 1.125em;">
-            Create an account
-        </a>
-
-		<a href="#">Terms and conditions</a>
+		<a href="javascript:void(0)">Terms and conditions</a>
 	</main>
 </body>
 </html>

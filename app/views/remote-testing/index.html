@@ -1,0 +1,122 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Welcome - Name Survey{% endblock %}
+
+{% set params = "?lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+
+{% block topRow %}
+<div id="javascript-message">
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','You will not be able to continue if you have disabled Javascript in your browser.','warning') }}
+</div>
+<div id="blocking-message" style="display:none">
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','<p>You will not be able to continue if your web browser blocks pop-ups or adverts.</p><p>Please disable your ad-blockers and pop-up blockers and then refresh this page.</p>','warning') }}
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+
+        <h1 class="heading-large">Welcome</h1>
+
+        <p>Thank you for taking the time to help us test a new NHS app.</p>
+        <p>Before you start, we need to make sure you can take part by asking you some questions.</p>
+
+        <a href="/remote-testing/screening-1{{ params }}" class="button--information" id="blocking-continue" style="display:none">Continue</a>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+{% block extrascripts %}
+<script>
+    // We inline abt.min.js rather than link to it so that it's harder for an Ad Blocker to whitelist
+    function ad_block_test(a,b){if("undefined"!=typeof document.body){var c="0.1.2-dev",b=b?b:"sponsorText",d=document.createElement("DIV");d.id=b,d.style.position="absolute",d.style.left="-999px",d.appendChild(document.createTextNode("&nbsp;")),document.body.appendChild(d),setTimeout(function(){if(d){var b=0==d.clientHeight;try{}catch(e){}a(b,c),document.body.removeChild(d)}},175)}}
+
+    function ad_block_test_callback(ads_blocked, abt_version_string) {
+        // Update text on the page based on the results of the ad block test
+        if (ads_blocked) {
+            console.log("ad blocking detected")
+            blockContinue()
+        } else {
+            console.log("no ad blocking detected")
+            // now check for popup blockers
+            PopupWarning.init()
+        }
+    }
+    // document.body should exist when you call this, that's why it's not in <head>
+
+    var PopupWarning = {
+        init: function() {
+            var popups_are_disabled = this.popups_are_disabled()
+            if (popups_are_disabled == true) {
+                console.log("pop-up blocking detected")
+                this.redirect_to_instruction_page()
+            } else {
+                console.log("no pop-up blocking detected")
+                allowContinue()
+            }
+        },
+        redirect_to_instruction_page: function() {
+            blockContinue()
+        },
+        popups_are_disabled: function() {
+            var popup = window.open("http://www.google.com", "popup_tester", "width=1,height=1,left=0,top=0")
+            if (!popup || popup.closed || typeof popup == 'undefined' || typeof popup.closed == 'undefined') {
+                return true
+            }
+            window.focus()
+            popup.blur()
+            if (navigator && (navigator.userAgent.toLowerCase()).indexOf("chrome") > -1) {
+                var on_load_test = function() { PopupWarning.test_chrome_popups(popup)
+                }
+                var timer = setTimeout(on_load_test, 5)
+                return;
+            }
+            popup.close()
+            return false
+        },
+        test_chrome_popups: function(popup) {
+            if (popup && popup.chrome_popups_permitted && popup.chrome_popups_permitted() == true) {
+                popup.close()
+                return true
+            }
+            this.redirect_to_instruction_page()
+        }
+    }
+    // PopupWarning.init()
+
+    function allowContinue() {
+        console.log("not blocking")
+        $("#blocking-continue").show()
+        $("#javascript-message").hide()
+    }
+
+    function blockContinue() {
+        console.log("blocking")
+        var button = document.getElementById('no-blocking')
+        $("#blocking-continue").hide()
+        $("#blocking-message").show()
+        $("#javascript-message").hide()
+    }
+
+    // first check if the hotjar js file has been downloaded.
+    window.onload = function() {
+        if( window.hjSiteSettings === undefined ){
+            blockContinue()
+        } else {
+            // check for other blockers
+            // ad_block_test(ad_block_test_callback)
+            allowContinue()
+        }
+    }
+</script>
+
+{% endblock %}

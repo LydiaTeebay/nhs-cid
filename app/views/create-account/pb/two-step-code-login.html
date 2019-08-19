@@ -1,6 +1,7 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Enter security code - {{serviceName}}{% endblock %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend %}
+{% block page_title %}Enter security code{% endblock %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result + "&reason=" + reason %}
 
 
 {% block topRow %}
@@ -13,19 +14,6 @@
 
 {% block content %}
 
-<style>
-.global-header__inner {
-  padding-left: 16px;
-}
-.page-section {
-    padding: 0 16px 16px 16px;
-}
-
-input.form-control {
-    margin-top: 0;
-    margin-bottom:16px;
-}
-</style>
 
 <p><a href="login-nhs{{ params }}" class="link-back">back</a></p>
 
@@ -34,12 +22,12 @@ input.form-control {
     <div class="form-group">
       <fieldset class="inline">
 
-        <h1>Enter security code</h1>
+        <h1>Check your phone</h1>
 
-        <p>We have sent a security code to your phone</p>
+        <p>Enter the security code we sent to {{ mobileNum }}.</p>
 
         <div class="form-group">
-          <label class="form-label" for="securityCode">Security code</label>
+          <label class="form-label" for="securityCodes">Security code</label>
           <input autocomplete="off" type="tel" class="form-control" name="code" id="securityCodes" value="" class="code">
         </div>
 
@@ -47,9 +35,15 @@ input.form-control {
     </div>
 
     <div class="form-group">
-      <a id="securitycodeContinue" href="https://nhsa.herokuapp.com/template.php?page=welcome.php&logged=true&feature=welcome&pageCode=SC02b" class="button">Continue</a>
+
+      <a id="securitycodeContinue" href="login-spinner{{ params }}" class="button">Continue</a>
+
     </div>
-    <p class="">Text messages sometimes take a few minutes to arrive. If you do not receive the text message, <a href="two-step-code-login{{ params }}&resend=yes">you can resend it</a>.</p>
+
+    <p class="">If you do not get a code, <a href="login-nhs{{ params }}">log in again to get a new code.</a></p>
+
+    {% include '_partials/_includes/_scenarios_2fa.html' %}
+
   </form>
 </div>
 

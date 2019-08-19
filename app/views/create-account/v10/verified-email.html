@@ -4,7 +4,7 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
 {% elif vouch %}
 {% set params = "?vouch=" + vouch %}
 {% endif %}
@@ -19,7 +19,7 @@
         <h3>Your email address has been validated.</h3>
       </div>
 
-      <h1><legend>Log in with NHS Access</legend></h1>
+      <h1>{{ theService.name('login') }}</h1>
 
       <div class="form-group">
         <label class="form-label" for="field3">Email address</label>

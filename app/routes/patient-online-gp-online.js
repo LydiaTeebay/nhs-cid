@@ -8,6 +8,18 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/patient-online/demo/patient-online-gp-online', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var system = req.param('system')
+        var surgery = req.param('surgery')
+        var practiceID = req.param('practiceID')
+        res.render('patient-online/demo/patient-online-gp-online', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, surgery: surgery, practiceID: practiceID }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/patient-online/v10/patient-online-gp-online', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -15,7 +27,10 @@ module.exports = function (router) {
         var system = req.param('system')
         var surgery = req.param('surgery')
         var practiceID = req.param('practiceID')
-        res.render('patient-online/v10/patient-online-gp-online', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, surgery: surgery, practiceID: practiceID }, function(err, html) {
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-gp-online', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, surgery: surgery, practiceID: practiceID, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

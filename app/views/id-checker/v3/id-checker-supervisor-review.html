@@ -1,0 +1,336 @@
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}NHS Identity Verification and Matching Service{% endblock %}
+
+{% set service = "idchecker" %}
+{% set serviceName = "Identity Verification and Matching Service" %}
+{% set signedin = 'true' %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason %}
+
+{% block content %}
+
+<div class="panel">
+    <div class="panel__content panel__content--half">
+        <h3>Submitted details</h3>
+
+        {% if demographics !== 'true' %}
+
+        <div class="form-group">
+            <label class="form-label">NHS Number</label>
+            <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fails' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <fieldset style="display: inline-block; margin-bottom: 0;">
+                <legend class="form-label">
+                Date of birth
+                </legend>
+                <div class="form-group -date" style="margin-top: 10px;">
+                    <div class="form-date-field">
+                        <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day" maxlength="2" min="1" max="31" readonly>
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
+                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month" maxlength="2" min="1" max="12" readonly>
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
+                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year" maxlength="4" min="1900" max="2018" readonly>
+                    </div>
+                </div>
+            </fieldset>
+            {% if result == 'fails' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+
+        {% else %}
+
+        <div class="form-group">
+            <label class="form-label">first name</label>
+            <input type="text" id="" name="" value="Mark" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fails' %}
+                <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Middle names</label>
+            <input type="text" id="" name="" value="" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fails' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Last name</label>
+            <input type="text" id="" name="" value="Young" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fails' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <fieldset style="display: inline-block">
+                <legend class="form-label">
+                    Date of birth
+                </legend>
+                <div class="form-group -date" style="margin-top: 10px;">
+                    <div class="form-date-field">
+                        <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day" maxlength="2" min="1" max="31" readonly style="margin-bottom: 0;">
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
+                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month" maxlength="2" min="1" max="12" readonly style="margin-bottom: 0;">
+                    </div>
+                    <div class="form-date-field">
+                        <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
+                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year" maxlength="4" min="1900" max="2018" readonly style="margin-bottom: 0;">
+                    </div>
+                </div>
+            </fieldset>
+            {% if result == 'fails' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Postcode</label>
+            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly style="display: inline-block; margin-bottom: 0;">
+            {% if result == 'fails' %}
+            <a href="#" class="idcheck-edit">Edit</a>
+            {% endif %}
+        </div>
+
+        {% endif %}
+    </div>
+    <div class="panel__content panel__content--half">
+        <h3>PDS match</h3>
+
+        <div id="trace" class="idcheck-match {{ result }}" >
+
+
+            {% if result !== 'fail' and result !== 'spine' %}
+
+            <table class="">
+
+                {% if demographics === 'true' %}
+                <tr>
+                    <td>NHS Number:</td>
+                    <td><b>485 777 3456</b></td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td>First name:</td>
+                    <td><b>Mark</b></td>
+                </tr>
+                <tr>
+                    <td>Middle names:</td>
+                    <td><b>Frederick</b></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><b>Young</b></td>
+                </tr>
+                <tr>
+                    <td>Date of birth:</td>
+                    <td><b>9th February, 1979</b></td>
+                </tr>
+            </table>
+
+            {% endif %}
+
+            <div class="idcheck-result">
+                {% if result === 'fail' %}
+                    {% if failreason === 'expired' %}
+                        Match not possible
+                    {% else %}
+                        Match not found
+                    {% endif %}
+                {% elif result === 'spine' %}
+                    Lookup error
+                {% else %}
+                    Match
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panel" style="display: block;">
+    <div class="panel__content panel__content--half">
+        <h3>Identity document</h3>
+        <div class="reading-width">
+
+            <div class="idcheck-image">
+                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a passport"/>
+            </div>
+        </div>
+    </div>
+    <div class="panel__content panel__content--half">
+
+        <div class="qa-questions-group" id="document" data-complete="false">
+
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Does the Name and DOB on the PDS trace match those on the Photo ID?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio is-selected" for="0" aria-checked="true" >
+                        <input type="radio" id="0" name="a-1" class="multiple-choice__input" checked tabindex="0" disabled>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" for="1" aria-checked="false">
+                        <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1" disabled>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel" style="display: block;">
+    <div class="panel__content panel__content--half">
+        <h3>Watch the video</h3>
+        <div class="idcheck-media">
+            <div class="idcheck-video">
+                <div class="idcheck-video-paired"><a href="#" class="idcheck-video-paired-button">Show document</a></div>
+                <video id="uploaded-video" controls autoplay="" name="media" style="width:100%;height:auto;">
+                    <source src="/images/challenge.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="idcheck-image" style="display: none;">
+                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a passport"/>
+            </div>
+        </div>
+
+    </div>
+    <div class="panel__content panel__content--half">
+
+        <div class="qa-questions-group" id="selfie" data-complete="false">
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Are the 4 numbers read out 4-0-6-6?</p>
+                <div class="qa-questions-answer-group multiple-choice__container">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio is-selected" aria-checked="false">
+                        <input type="radio" id="2" name="b-1" class="multiple-choice__input" checked tabindex="2" disabled>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="3" name="b-1" class="multiple-choice__input" tabindex="3" disabled>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="qa-questions-question" data-answered="false">
+                <p class="qa-questions-question-text">Does the video clearly show it's the same person pictured in the identity document?</p>
+                <div class="qa-questions-answer-group multiple-choice__container">
+
+                    {% if demographics === 'false' %}
+
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio is-selected" aria-checked="false">
+                        <input type="radio" id="4" name="b-2" class="multiple-choice__input" checked tabindex="4" disabled>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="5" name="b-2" class="multiple-choice__input" tabindex="5" disabled>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+
+                    {% else %}
+
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio" aria-checked="false">
+                        <input type="radio" id="4" name="b-2" class="multiple-choice__input"  tabindex="4" disabled>Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio is-selected" aria-checked="false">
+                        <input type="radio" id="5" name="b-2" class="multiple-choice__input" checked tabindex="5" disabled>No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="id-buttons">
+    <span id="id-approve">
+        <a href="id-checker-supervisor-dashboard?state=approved" data-target="modal" id="approveBtn" class="button button--approve">Agree</a>
+    </span>
+    <span id="id-decline">
+        <a href="id-checker-supervisor-dashboard?state=declined" data-target="modal" id="declineBtn" class="button button--decline">Overrule</a>
+    </span>
+</div>
+
+
+<div class="modal-overlay no-fade" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="modal-content" id="modal_holder" role="document">
+        <h3 id="modal-header">Additional information about this assurance request</h3>
+        <div class="first-item">
+            <form>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label class="form-label" for="field3">Comments (optional)</label>
+
+                        <textarea class="form-control form-textbox" id="field3" name="field3" type="text" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <a class="button" id="modal-link" href="id-checker-supervisor-dashboard?role=Supervisor">Submit</a>
+                    <p><a href="#" id="modal_close">Cancel</a></p>
+                </div>
+            </form>
+        </div>
+    </div> <!-- end .modal-content -->
+</div> <!-- end .modal-overlay -->
+
+<p><a id="modal_create" class="smartcard" href="#">.</a></p>
+
+<script type="text/javascript">
+
+    // hide or show the buttons based on selections
+    // localStorage.removeItem("idchecker")
+    addButtonListeners()
+
+    var buttonClick = function(object, event) {
+        event.preventDefault()
+
+        console.log(object.text)
+
+        var link = object.href
+        var heading = document.getElementById('modal-header')
+        heading.text = 'Additional information about this declined assurance request'
+        var a = document.getElementById('modal-link')
+        a.href = link
+        document.getElementById('modal_create').click()
+
+        var buttonType = object.text
+
+        if (buttonType === 'Overrule') {
+            heading.innerText = 'Additional information about this overruled assurance request'
+        } else {
+            heading.innerText = 'Additional information about this agreed assurance request'
+        }
+    }
+
+    function addButtonListeners() {
+        var inputs = document.querySelectorAll('.button--approve, .button--decline')
+        for (i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('click', function(event){
+                buttonClick(this, event)
+            })
+        }
+    }
+
+
+</script>
+
+{% endblock %}

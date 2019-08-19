@@ -1,0 +1,58 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Scanning{% endblock %}
+
+{% set signedin = 'true' %}
+{% set hideBeta = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&iproovFailReason=" + iproovFailReason + "&iProovSecondAttempt=" + iProovSecondAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt %}
+
+{% set devMode = 'false' %}
+
+{% block extrastyles %}
+  <style>
+    html {
+      background-color: #fff;
+    }
+    .page-section {
+      margin: 0;
+      padding: 0;
+    }
+    #scan-id-1 {
+      position: relative;
+      height: 100vh;
+    }
+    #scan-id-1 img {
+      height: 100%;
+      width: 100%;
+    }
+    .global-header {
+      display: none;
+      background-color: transparent;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<section class="" id="scan-id-1" data-random="{{ pinCode }}">
+  <!--<img id="iproov-img" src="/images/iproov.gif" />-->
+</section>
+
+<meta http-equiv="refresh" content="6;url=service-access-iproov-checking{{ params }}">
+
+<script type="text/javascript">
+  var img = document.createElement('img'), imageUrl = '/images/iproov3.gif?dummy={{ pinCode }}'
+  img.src = '/images/iproov.gif'
+  document.getElementById('scan-id-1').appendChild(img)
+
+  setTimeout(function(){
+    $('.global-header').addClass('u-hide')
+    $('.global-footer').addClass('u-hide')
+  }, 0.01)
+
+  document.addEventListener('DOMContentLoaded', function(event) {
+    img.src = imageUrl
+  })
+</script>
+
+{% endblock %}

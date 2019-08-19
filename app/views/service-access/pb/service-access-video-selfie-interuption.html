@@ -1,0 +1,47 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Step 2 of 3 - Record a short video{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&idType=" + idType %}
+
+{% block content %}
+
+
+{% if hideBack !== 'true' %}
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endif %}
+
+<section class="intructions">
+
+	<div class="reading-width">
+
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3 </span>Record a short video</h1>
+
+		<p>You'll need to record a video of your face, and say 4 numbers.</p>
+
+		<p>This is so we can check your face matches the face on your photo I.D.</p>
+
+		<div class="form-control" id="buttonContainer" style="margin: 32px 0 16px;">
+
+			<script type="application/javascript">
+				if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia) {
+
+					if(window.MediaRecorder !== undefined) {
+						var theButton = '<a href="service-access-video-selfie-html5{{ params }}" class="button button--information">Continue</a>'
+					} else {
+						var theButton = '<a href="service-access-video-selfie-camera{{ params }}" class="button button--information">Continue</a>'
+					}
+				} else {
+					var theButton = '<a href="service-access-video-selfie-camera{{ params }}" class="button button--information">Continue</a>'
+				}
+
+				document.getElementById('buttonContainer').innerHTML += theButton
+			</script>
+
+		</div>
+
+	</div>
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

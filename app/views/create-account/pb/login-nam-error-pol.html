@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}We cannot log you in{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>We cannot log you in</h1>
+    <p>The registration details you used to prove who you are have changed.</p>
+    <p>This may be because:</p>
+    <ul>
+    	<li>you have changed your GP surgery</li>
+    	<li>your GP surgery has changed GP systems</li>
+    	<li>your GP surgery has merged with another or split</li>
+    </ul>
+    <p>Speak to your GP to get updated registration details or <a href="../../service-access/pb/service-access-photo-id-interuption{{ params }}">use photo I.D. to prove who you are instead.</a></p>
+    <p>Other websites and apps may allow you to log in without new registration details. Some may allow limited access until your details have been updated.</p>
+    <p class="small">Reference: CID7100</p>
+  </div>
+    
+</div>
+
+{% endblock %}
+

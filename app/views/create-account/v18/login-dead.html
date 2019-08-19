@@ -1,0 +1,25 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}You cannot use this NHS login{% endblock %}
+{% set signedin = 'true' %}
+
+{# work out where to send users #}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>We cannot log you in</h1>
+    <p>This NHS login has been disabled.</p>
+    <p>Contact the National Service Desk to find out why. You will need to make note of the reference below.</p>
+    <p>Email: <a href="mailto:ssd.nationalservicedesk@nhs.net">nationalservicedesk@nhs.net</a></p>
+    <p>Phone: 0300 303 5035</p>
+    <p>Reference: CID2012</p>
+
+  </div>
+
+</div>
+
+{% endblock %}

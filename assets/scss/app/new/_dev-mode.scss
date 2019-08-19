@@ -1,0 +1,14 @@
+.dev-mode, details.dev-mode {
+  background-color: $focus-colour;
+  border: #666 dashed 1px;
+  border-radius: 3px;
+  padding: 15px;
+}
+.dev-mode:hover, details.dev-mode:hover {
+  background-color: #deebfd;
+  border: #39629f dashed 1px;
+}
+
+details.dev-mode summary, details.dev-mode ol {
+  font-size: 15px;
+}

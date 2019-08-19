@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - What's your date of birth?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType %}
 
 {% block content %}
 
@@ -44,10 +44,34 @@
 
 
     <div class="form-group">
-      <a class="button" href="service-access-photo-id{{ params }}">Continue</a>
+      <a class="button" href="service-access-confirmation{{ params }}" id="button--save">Continue</a>
     </div>
   </form>
 
 </div>
+
+<script type="text/javascript">
+  submitSpinner()
+  function submitSpinner() {
+    var selects = document.getElementById('button--save')
+    selects.addEventListener('click', function (event) {
+      event.preventDefault()
+      if (selects.getAttribute('disabled') === 'disabled') {
+        console.log('already clicked')
+      } else {
+        event.preventDefault()
+        console.log(selects.getAttribute('disabled'))
+        buttonClicked(selects)
+      }
+    })
+  }
+  function buttonClicked(target) {
+    target.setAttribute('disabled', 'disabled')
+    target.className += ' button--save'
+    setTimeout(function () {
+      window.location.href = target.getAttribute('href')
+    }, 2500)
+  }
+</script>
 
 {% endblock %}

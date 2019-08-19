@@ -1,0 +1,67 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked-nhsone.html' %}
+{% block page_title %}Account - manage phone number{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+  <div class="smaller-h1">Phone number</div>
+</h1>
+<hr>
+
+<style>
+  .c-page-contents__link.link-phone { 
+    font-weight: bold; 
+    text-decoration: none; 
+  }
+
+@media (min-width:925px) {
+    .callout.callout--attention {
+        margin-top: -32px;
+    }
+}
+@media (min-width:925px) {
+    .account-mgmt {
+        margin-top: 10px;
+    }
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% block alert %}{% endblock %}
+
+{% include '_partials/_components/_account-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+<div class="callout callout--attention">
+	<p>Your security code has been resent.</p>
+</div>
+
+<div class="first-item account-mgmt">
+
+	<h2>Check your phone</h2>
+
+	<p>We've sent you a message with a security code to 077*** ***123.</p>
+
+	<fieldset class="inline">
+		<div class="form-group">
+	        <label class="form-label" for="code">Security code</label>
+	        <input autocomplete="off" type="tel" class="form-control" name="code" id="code" value="" class="code">
+	    </div>
+	</fieldset>
+	<a class="button" href="phone">Continue</a>
+
+
+	<p>Messages sometimes take a few minutes to arrive. If you do not receive the message, <a href="phone-resend">you can resend it</a>.</p>
+
+</div>
+
+{% endblock %}
+
+

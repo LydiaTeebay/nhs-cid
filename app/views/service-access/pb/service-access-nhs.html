@@ -2,45 +2,60 @@
 {% block page_title %}Access {{ serviceName }} - Step 2: Help us find your NHS record{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType %}
 
 {% block content %}
 
+{% if mobileOsV === 11.2 and devMode === 'true' %}
+
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('Your phone does not have the latest version of iOS','<p>So when we ask you to take a photo of your I.D. and record a video, you\'ll need to do 2 extra steps. We\'ll help you with that.</p><p>To update your phone instead, go to your phone\'s Settings. Select General then Software Update. After you\'ve updated, come back and try again.</p>','warning') }}
+
+{% endif %}
+
 <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
-<p>Follow these steps to create your account</p>
+<h1>Use photo I.D. to prove who you are</h1>
+
 <section class="service-access-wrapper">
 
 	<ol class="service-access">
 		<li class="service-access__item completed">
-			<h3 class="service-access__item__title">Set up {% include '_partials/_components/_name.html' %}</h3>
-			<div class="service-access__item__desc">
-				<p>You will need your phone.</p>
-				<p>{% include '_partials/_components/_name.html' %} will allow you to sign into multiple health services in the future.</p>
-			</div>
-			<span class="service-access__item__status">Completed</span>
+			<h3 class="service-access__item__title">Set up an NHS login</h3>
+			<!--<div class="service-access__item__desc">-->
+			<!--<p>You will need your phone.</p>-->
+			<!--<p>{% include '_partials/_components/_name.html' %} will allow you to sign into multiple health services in the future.</p>-->
+			<!--</div>-->
+			<span class="service-access__item__status">Done</span>
 		</li>
 		<li class="service-access__item active">
 			<h3 class="service-access__item__title">Help us find your NHS record</h3>
 			<div class="service-access__item__desc">
-				<p>You'll need to give us some details so we can connect to your GP.</p>
+				<p>It's better if you have your NHS number - but you do not need it.</p>
 			</div>
 			<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
 		</li>
 		<li class="service-access__item ">
-			<h3 class="service-access__item__title">Take a photo of your ID document</h3>
+			<h3 class="service-access__item__title">Send a photo of your I.D.</h3>
 			<div class="service-access__item__desc">
-				<p>You will need to take a photo of your passport or driving licence.</p>
+				<p>You will need to take a photo of your passport, UK driving licence or European driving licence.</p>
 			</div>
-			<!--<a href="service-access-photo-id-type{{ params }}" class="service-access__item__button button">Start</a>-->
 		</li>
 		<li class="service-access__item">
 			<h3 class="service-access__item__title">Record a short video</h3>
 			<div class="service-access__item__desc">
-				<p>This is so we can check that your face matches your photo ID.</p>
+				<p>This is so we can check your face matches the face on your photo I.D.</p>
 			</div>
 		</li>
 	</ol>
+
+	<p>If you do not have any photo I.D. or you do not want to do this, you can <a href="service-access-no-documents{{ params }}">go to your GP surgery to prove who you are.</a></p>
+
+	{% if devMode === 'true' %}
+	<div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
+		<small>OS version: {{ mobileOsV }}</small>
+	</div>
+	{% endif %}
 
 </section>
 

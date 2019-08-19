@@ -1,15 +1,15 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
+{% block page_title %}Access {{serviceName}} - Check your email{% endblock %}
 {% set signedin = '' %}
 {% set newUser = 'yes' %}
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% elif vouch %}
-{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% elif newUser %}
-{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% endif %}
 
 {% block content %}
@@ -18,8 +18,10 @@
 
   <div class="form-group">
     <h1>Check your email</h1>
-    <p>We've sent an <a href="/emails/pb/email-validate{{ params }}">email</a> to {{ emailAddress }}. You'll need to confirm your email address to continue.</p>
-    <p>If you have not received your email check your spam folder.</p>
+    <p>We've sent an <a href="/emails/pb/email-validate{{ params }}" target="_blank">email</a> to {{ emailAddress }}.</p>
+    <p>Click confirm in the email then come back here to continue.</p>
+    <a class="button" href="login-nhs-create{{ params }}" id="">Continue</a>
+    <p>If you do not get an email, check your spam folder.</p>
   </div>
     
 </div>

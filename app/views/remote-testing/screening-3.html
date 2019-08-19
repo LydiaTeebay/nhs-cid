@@ -1,0 +1,53 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}In relation to your healthcare, which of these apply to you?  - Name Survey{% endblock %}
+
+{% set params = "?age=" + age + "&country=" + country + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&hidehead=" + hidehead %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <p><a href="screening-2{{ params }}" class="link-back">Back</a></p>
+
+    <form action="screening-3{{ params }}" method="POST">
+        <div class="form-group">
+            <fieldset class="">
+                <legend for="radio-inline-group">
+                    <h1 style="padding-bottom: 0;">
+                        In relation to your healthcare, which of these apply to you?
+                    </h1>
+                </legend>
+
+                <div>
+                    <label class="block-label selection-button-radio" for="radio-inline-1">
+                        <input id="radio-inline-1" type="radio" name="healthcare" value="nhs">
+                        I use the NHS
+                    </label>
+                </div>
+
+                <div>
+                    <label class="block-label selection-button-radio" for="radio-inline-2">
+                        <input id="radio-inline-2" type="radio" name="healthcare" value="nhs-private">
+                        I use the NHS and private health care
+                    </label>
+                </div>
+
+                <div>
+                    <label class="block-label selection-button-radio" for="radio-inline-3">
+                        <input id="radio-inline-3" type="radio" name="healthcare" value="private">
+                        I do not use the NHS
+                    </label>
+                </div>
+
+            </fieldset>
+
+        </div>
+        <div class="form-group">
+            <button class="button" id="">Continue</button>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

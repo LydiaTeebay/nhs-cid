@@ -1,0 +1,37 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Instructions - Name Survey{% endblock %}
+
+{% set params = "?healthcare=" + healthcare + "&age=" + age + "&country=" + country + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+
+        <h3>What this survey is for</h3>
+        <p>We’re looking for people to have a go at using a prototype of a new NHS app.</p>
+        <p>Your answers to the survey will help us understand how we can make the app better.</p>
+        <h3>How to do this survey </h3>
+        <p>We’d like you to pretend you’ve been to your GP surgery and the receptionist has told you about the new NHS app. You have downloaded the app on your mobile phone. The app lets you do things such as:</p>
+        <ul>
+            <li>book GP appointments</li>
+            <li>order prescriptions</li>
+            <li>view your medical record</li>
+        </ul>
+        <p>In some of the pages you’ll see questions pop up towards the bottom of the screen. Please answer those before you go to the next page.</p>
+        <p>You can stop doing the survey at any time, but you will not get paid.</p>
+        <h3>Personal details</h3>
+        <p>We ask you for personal details such as your name, date of birth and email address.</p>
+        <p>We will not keep any of these details. If you do not want to give us your personal details you can make these details up.</p>
+        <h3>ID documents</h3>
+        <p>We may ask you to take a photo of your driving licence or passport.</p>
+        <p>We will not keep any of these details. If you do not want to take a photo of your driving licence or passport, take a photo of something else such as a blank sheet of paper.</p>
+
+        <a href="/start/v4/nhs-app-start{{ params }}" class="button--information">Continue</a>
+
+    </section>
+
+</div>
+
+{% endblock %}

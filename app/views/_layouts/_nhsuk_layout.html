@@ -1,5 +1,7 @@
-{% if hidehead == 'true' %}
-{% set htmlClass = 'body-webview' %}
+{% import '_macros/_macro_service.html' as theService with context %}
+
+{% if hidehead === 'true' %}
+  {% set htmlClass = 'body-webview' %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -10,7 +12,7 @@
   <title>{% block page_title %}{% endblock %}</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <!--[if IE]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
   <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -20,28 +22,81 @@
   <!--<meta name="apple-mobile-web-app-capable" content="yes">-->
   <meta name="format-detection" content="telephone=no">
 
-  {% block extrastyles %}{% endblock %}
   <link rel="stylesheet" href="/nhsuk.css">
   <link rel="stylesheet" href="/app.css">
+  {% block extrastyles %}{% endblock %}
 
 </head>
 
 
 
 <body class="{{ bodyClass }}" {{ dataAtt|safe }}>
+    <!-- <div id="nhsuk-cookie-banner">
+      <div class="page-section" style="padding: 0 !important;">
+          <div class="nhsuk-cookie-banner" id="cookiebanner" aria-label="Cookie banner" role="banner">
+            <div class="nhsuk-width-container">
+              <p>We've put small files called cookies on your device to make the website better.</p>
+              <ul>
+                <li id="nhsuk-cookie-banner__link_accept"><a href="#" tabindex="1"><strong>I'm OK with cookies</strong></a></li>
+                <li id="nhsuk-cookie-banner__link"><a href="/terms-of-use/cookies{{ params }}" tabindex="2">Turn cookies on or off</a></li>
+              </ul>
+            </div>
+          </div>
+        
+          <div class="nhsuk-success-banner" id="nhsuk-cookie-confirmation-banner" style="display:none;" role="banner">
+            <div class="nhsuk-width-container">
+              <p>Your cookie settings have been saved. <a href="/policy/cookies" style="color: #ffffff;">Turn cookies on or off</a></p>
+            </div>
+          </div>
+      </div>
+    </div> -->
+    <div id="nhsuk-cookie-banner">
+        <div style="padding: 0 !important;">
+            <div class="nhsuk-cookie-banner" id="cookiebanner" aria-label="Cookie banner" role="banner">
+              <div class="page-section" style="padding: 0 !important;">
+                <div class="nhsuk-width-container">
+                  <p>We've put small files called cookies on your device to make the website better.</p>
+                  <ul>
+                    <li id="nhsuk-cookie-banner__link_accept"><a href="#" tabindex="1"><strong>I'm OK with cookies</strong></a></li>
+                    <li id="nhsuk-cookie-banner__link"><a href="/terms-of-use/cookies{{ params }}" tabindex="2">Turn cookies on or off</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          
+            <div class="nhsuk-success-banner" id="nhsuk-cookie-confirmation-banner" style="display:none;" role="banner">
+              <div class="page-section" style="padding: 0 !important;">
+                <div class="nhsuk-width-container">
+                  <p>Your cookie settings have been saved. <a href="/terms-of-use/cookies{{ params }}" style="color: #ffffff;">Turn cookies on or off</a></p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+  <div class="skiplinks">
+    <div class="skiplinks__inner">
+      <a href="#content" class="skiplinks__link">Skip to main content</a>
+    </div>
+  </div>
 
   {% include '_partials/_service-alert.html' %}
 
   {# slightly different design for emails #}
-    {% if not hidehead === "true" or not hidehead or hidehead === "undefined" %}
-      {% include '_partials/_global_header.html'%}
+    {% if not hidehead === 'true' or not hidehead or hidehead === 'undefined' %}
+
+      {# if PB or later use the latest header design #}
+
+      {% if lsId or service === 'app3' or service === 'app4' or service === 'app5' %}
+        {% include '_partials/_global_header-plain.html'%}
+      {% else %}
+        {% include '_partials/_global_header.html'%}
+      {% endif %}
     {% endif %}
 
-    {% if service === "nhsonlinepol" %}
+    {% if service === 'nhsonlinepol' %}
       {% include '_partials/_global_header-nhsonlinepol.html'%}
     {% endif %}
-
-
 
   <main id="content" role="main" tab-index="-1">
 
@@ -52,20 +107,33 @@
     </div>
   </main>
 
-
     {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
-      {% include '_partials/_global_footer.html' %}
-    {% endif %}
 
+      {% if service === 'app3' %}
+        {% include '_partials/_global_footer-terms.html'%}
+      {% elif lsId or service === 'app4' %}
+        {% include '_partials/_global_footer-terms.html'%}
+      {% else %}
+        {% include '_partials/_global_footer-terms.html'%}
+      {% endif %}
+
+    {% endif %}
 
   <script src="/scripts/jquery-1.12.4.min.js"></script>
   {% block extrascripts %}{% endblock %}
   <script src="/show-hide-content.js"></script>
+  <script src="/exif.js"></script>
   <script src="/pop.js"></script>
   <script src="/app.js"></script> 
   <script src="/nhsuk.js"></script>
   <script src="/scripts/selection-buttons.js"></script>
   <script src="/scripts/smooth-scroll.js"></script>
+  <script src="/cookieBanner.js"></script>
+
+
+  <script>
+    setCookieBanner()
+  </script>
 
 </body>
 

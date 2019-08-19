@@ -1,0 +1,40 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Change your phone number{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+    <div class="smaller-h1">Phone number</div>
+</h1>
+<hr>
+
+<style>
+  .c-page-contents__link.link-phone {
+    font-weight: bold;
+    text-decoration: none;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu-pb.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item">
+
+	<h2>Change your phone number</h2>
+
+	<p>07*** ***123</p> 
+
+	<a class="button" href="account-phone-2fa">Change your phone number</a>
+
+</div>
+
+{% endblock %}

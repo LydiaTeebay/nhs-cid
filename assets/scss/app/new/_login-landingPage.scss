@@ -1,0 +1,23 @@
+.accountDetails {
+  margin-top: 6px;
+}
+
+.account-name-link {
+  display: inline-block;
+}
+
+@media (min-width:925px) {
+  .column-list {
+      margin-top: 70px !important;
+  }
+}
+
+@media (max-width:925px) {
+  .column-list {
+      border-top: none !important;
+  }
+}
+
+.second-list {
+  margin-top: 16px;
+}

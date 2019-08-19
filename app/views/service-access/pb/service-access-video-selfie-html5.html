@@ -1,17 +1,52 @@
-{% extends '_layouts/_grids/_grid-1-hotjar.html.html' %}
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Start recording a short video{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&pinCode=" + pinCode %}
 
 
 {% block extrascripts %}
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="/getUserMedia.js"></script>
+<style>
+    .camera-instructions {
+        display: flex;
+    }
+    .camera-instructions-numbers,
+    .camera-instructions-text {
+        display: block;
+        margin: 0;
+    }
+</style>
 {% endblock %}
 
-{% block header %}
+{% block extrastyles %}
 
+<style>
+    .video-wrapper { position: relative; margin: 0;}
+    #recorded { outline: 5px solid #f7e214; max-width:100%; height:auto; margin: 0;}
+    #video-overlay2 {
+        background-image:url(/images/play-button.png);
+        background-repeat:no-repeat;
+        width:100%;
+        height:100%;
+        position:absolute;
+        left:0%;
+        right:0%;
+        top:0%;
+        bottom:0%;
+        margin:auto;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        vertical-align: bottom;
+        cursor: pointer;
+    }
+    section {
+        margin: 0 !important;
+    }
+
+</style>
 
 {% endblock %}
 
@@ -54,7 +89,7 @@
             <button id="record" class="button" disabled>Start recording</button>
         </div>
 
-        <p><a class="" href="service-access-video-selfie-instructions{{ params }}">Cancel</a></p>
+        <p><a class="" href="service-access-video-selfie-interuption{{ params }}">Cancel</a></p>
 
         <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
     </section>
@@ -85,29 +120,32 @@
 
     <section class="preview-container" id="scan-id-5" style="display:none">
 
-        <h1 style="padding-bottom: 0;">Review the short video</h1>
+        <h1 style="padding-bottom: 0;">Check your video</h1>
 
         <div class="reading-width">
-            <div id="scan-video-preview">
-                <video id="recorded" controls="" autoplay loop style="width:100%;height:auto;"></video>
-            </div>
-            <div class="camera-instructions">
-                <div class="camera-instructions-text">Is the video clear and can you hear these 4 numbers? </div>
-                <div class="camera-instructions-numbers">{{ pinCode }}</div>
+            <div id="scan-video-preview" class="video-wrapper" style="display: inline-block;">
+                <video id="recorded" webkit-playsinline="true" playsinline="true" style="max-width:100%;max-height:400px;" aria-label="Video player displaying your short video." type="video/mp4"></video>
+                <div id="video-overlay2" role="button"></div>
             </div>
         </div>
 
-        <button class="button" id="submitvideo">Yes, submit this video</button>
+        <div class="form-group">
+            <p>Can you see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly?</p>
+            <p>You need to watch the video before you can continue.</p>
 
+            <a class="button" disabled="disabled" href="" id="submit-videoSelfie5-button">Yes - continue</a>
+            <p><a href="#" id="retakevideo">No - record video again</a></p>
+        </div>
 
+        <button class="button" id="submitvideo" style="visibility: hidden;">Yes, submit this video</button>
 
-        <p><a href="#" id="retakevideo">Retake</a> or <a class="" href="service-access-video-selfie-instructions{{ params }}">Cancel</a></p>
+<!--        <p><a href="#" id="retakevideo">Retake</a> or <a class="" href="service-access-video-selfie-interuption{{ params }}">Cancel</a></p>-->
 
     </section>
 
     <button id="download" disabled style="visibility:hidden;">Download</button>
     <button id="play" disabled style="visibility:hidden;">Play</button>
-    <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';" >Continue</button>
+    <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-nhs-interuption{{ params }}';" >Continue</button>
 
 </div>
 
@@ -119,6 +157,25 @@
     setTimeout(function(){
         document.getElementById('camera-container').style.display = 'block'
     }, 2500)
+</script>
+
+<script>
+    function fakeClick(event, anchorObj) {
+        if (anchorObj.click) {
+            anchorObj.click()
+        } else if(document.createEvent) {
+            if(event.target !== anchorObj) {
+                var evt = document.createEvent("MouseEvents");
+                evt.initMouseEvent("click", true, true, window,
+                    0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                var allowDefault = anchorObj.dispatchEvent(evt);
+                // you can check allowDefault for false to see if
+                // any handler called evt.preventDefault().
+                // Firefox will *not* redirect to anchorObj.href
+                // for you. However every other browser will.
+            }
+        }
+    }
 </script>
 
 {% endblock %}

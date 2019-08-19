@@ -1,0 +1,41 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+
+      <span class="section-header">Patient Q&As</span>
+
+      <h1 class="">
+        <legend>
+          <span class="heading-secondary">Question 1 of 3</span>
+        When did you register at this practice?
+        </legend>
+      </h1>
+      <fieldset>
+        <div class="form-group -date">
+          <div class="form-date-field">
+            <label for="dob-month">Month</label>
+            <input type="number" id="dob-month" name="dob-month" value="" class="month" maxlength="2">
+          </div>
+          <div class="form-date-field">
+            <label for="dob-year">Year</label>
+            <input type="number" id="dob-year" name="dob-year" value="" class="year" maxlength="4">
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+      <a class="button" href="vouching-qanda-question-2" id="">Continue</a>
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock %}

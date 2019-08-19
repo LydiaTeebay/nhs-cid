@@ -1,0 +1,60 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+
+      <span class="section-header">Patient Q&As</span>
+
+      <h1 class="">
+        <legend>
+          <span class="heading-secondary">Question 3 of 3</span>
+          Are you on any medication?
+        </legend>
+      </h1>
+      <fieldset>
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice" data-target="qanda-3">
+            <input aria-controls="qanda-3" id="radio-inline-1" type="radio" name="radio-inline-group" value="yes">
+            <label class="block-label" for="radio-inline-1">Yes</label>
+          </div>
+        </div>
+        <div class="selection-button-radio-inline">
+          <div class="multiple-choice">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="yes">
+            <label class="block-label" for="radio-inline-2">No</label>
+          </div>
+        </div>
+
+
+        <div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="qanda-3">
+
+          <label class="form-label" for="qanda-3d">What is it for?</label>
+          <input class="form-control" type="text" id="qanda-3d" name="qanda-3d">
+
+          <label class="form-label" for="qanda-3b">How long is the course for?</label>
+          <input class="form-control" type="text" id="qanda-3b" name="qanda-3b">
+
+          <label class="form-label" for="qanda-3c">How many times do you need to take it?</label>
+          <input class="form-control" type="text" id="qanda-3c" name="qanda-3c">
+
+        </div>
+
+
+
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+      <a class="button" href="vouching-qanda-accept" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a photo of your ID{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&idType=" + idType %}
+
+{% block content %}
+
+
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+	<section class="intructions">
+
+		<div class="reading-width">
+
+
+
+			<h1 class="heading-large"><span class="heading-secondary">Step 1 of 3</span> - take a photo of your I.D document</h1>
+
+			<!--<p>We need to find your NHS record, and keep it secure.​</p>-->
+
+			<p>You will need:</p>
+			<ul class="instructions-list-unordered">
+				<li class="instructions-list-unordered__item">your passport or driving licence</li>
+			</ul>
+
+
+			<div class="form-control" style="margin: 32px 0 16px;">
+				<a class="button--information" href="service-access-photo-id-type{{ params }}">Continue</a>
+			</div>
+
+			<h3 style="margin-top: 32px;">Don't want to do this?</h3>
+			<p class="instructions--link">If you do not want to do this, you can <a href="service-access-offline{{ params }}">take your ID to the Post Office instead.</a></p>
+
+		</div>
+		</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

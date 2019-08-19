@@ -1,0 +1,67 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked-nhsone.html' %}
+{% block page_title %}Account settings - Name{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+	<div class="smaller-h1">Manage devices</div>
+</h1>
+<hr>
+
+<style>
+	.c-page-contents__link.link-devices {
+		font-weight: bold;
+		text-decoration: none;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+
+{% include '_partials/_components/_account-menu.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+<div class="first-item account-mgmt">
+
+	<h2 class="">Manage devices</h2>
+
+			<div class="nhsuk-table-responsive">
+		  <table class="nhsuk-table">
+		    <caption class="nhsuk-table__caption">You have asked us not to send a security code when you use NHS login on these devices.</caption>
+		    <thead class="nhsuk-table__head">
+		      <tr class="nhsuk-table__row">
+		        <th class="nhsuk-table__header" scope="col">Remembered devices</th>
+						<th class="nhsuk-table__header" scope="col">First enabled</th>
+		        <th class="nhsuk-table__header" scope="col">Options</th>
+		      </tr>
+		    </thead>
+		    <tbody class="nhsuk-table__body">
+		      <tr class="nhsuk-table__row">
+		        <td class="nhsuk-table__cell">Samsung phone</td>
+						<td class="nhsuk-table__cell">18 February 2019</td>
+		        <td class="nhsuk-table__cell "><a href="devices-remove">Remove device</a></td>
+		      </tr>
+		      <tr class="nhsuk-table__row">
+		        <td class="nhsuk-table__cell">iPad</td>
+						<td class="nhsuk-table__cell">25 March 2019</td>
+		        <td class="nhsuk-table__cell "><a href="devices-remove">Remove device</a></td>
+		      </tr>
+		      <tr class="nhsuk-table__row">
+		        <td class="nhsuk-table__cell">Windows PC</td>
+						<td class="nhsuk-table__cell">3 March 2019</td>
+		        <td class="nhsuk-table__cell "><a href="devices-remove">Remove device</a></td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</div>
+
+</div>
+
+{% endblock %}

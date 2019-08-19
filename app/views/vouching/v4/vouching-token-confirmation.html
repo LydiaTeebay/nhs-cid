@@ -1,0 +1,36 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+  <h1><legend>Are you satisfied that the patient in front of you is the actual patient?</legend></h1>
+  <form>
+    <div class="form-group">
+
+      {% include '_partials/_vouching-disclaimer.html'%}
+
+      <fieldset class="">
+        <div class="selection-button-radio-inline">
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="vouching-token-delivered">
+            Yes
+          </label>
+        </div>
+        
+        <div class="selection-button-radio-inline">
+          <label class="block-label selection-button-radio selection-button-radio-inline" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="vouching-3?reason=notsatisfied">
+            No
+          </label>
+        </div>
+      </fieldset>
+
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}

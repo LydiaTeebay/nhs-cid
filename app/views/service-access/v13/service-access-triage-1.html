@@ -1,0 +1,51 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Do you have a UK passport or UK driving licence?{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+
+{% block content %}
+
+<div class="first-item">
+	<form>
+		<div class="form-group">
+
+			<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+			<fieldset>
+
+				<legend for="radio-inline-group" style="margin: 0;">
+					<h1 class="" style="padding: 0;">
+						What kind of photo ID do you have?
+					</h1>
+				</legend>
+
+				<div class="selection-button-radio" style="margin-top: 32px;">
+					<div class="multiple-choice">
+						<input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-start{{ params }}">
+						<label for="radio-inline-1" class="block-label" style="position: static;">UK passport or driving licence​</label>
+					</div>
+				</div>
+				<div class="selection-button-radio">
+					<div class="multiple-choice">
+						<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-offline{{ params }}">
+						<label for="radio-inline-2"class="block-label" style="position: static;">Non-UK passport, driving licence or identity card </label>
+					</div>
+				</div>
+				<div class="selection-button-radio">
+					<div class="multiple-choice">
+						<input id="radio-inline-3" type="radio" name="radio-inline-group" value="service-access-no-documents{{ params }}">
+						<label for="radio-inline-3"class="block-label" style="position: static;">None of the above</label>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<div class="form-group">
+			<a class="button" href="#" id="continue">Continue</a>
+		</div>
+
+	</form>
+</div>
+
+{% endblock %}

@@ -8,12 +8,41 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/patient-online/demo/patient-online-british-id', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var system = req.param('system')
+        res.render('patient-online/demo/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, system: system }, function(err, html) {
+            res.send(html)
+        })
+    })
+    router.get('/patient-online/v11/patient-online-british-id', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var system = req.param('system')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v11/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, system: system, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/patient-online/v10/patient-online-british-id', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
         var system = req.param('system')
-        res.render('patient-online/v10/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, service: service, system: system }, function(err, html) {
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v10/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, service: service, system: system, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
@@ -22,8 +51,10 @@ module.exports = function (router) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
         var system = req.param('system')
-        res.render('patient-online/pb/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, service: service, system: system }, function(err, html) {
+        res.render('patient-online/pb/patient-online-british-id', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, system: system }, function(err, html) {
             res.send(html)
         })
     })

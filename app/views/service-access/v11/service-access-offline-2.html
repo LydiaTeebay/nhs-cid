@@ -1,0 +1,46 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 1: Photo ID document details{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&postcode=" + postcode  %}
+
+{% block content %}
+
+<style>
+@media (min-width: 641px) {
+	.service-access__item__title {
+		width: 50%;
+	}
+}
+
+@media (min-width: 641px) {
+	.service-access__item__desc {
+		width: 50%;
+	}
+}
+</style>
+
+<p><a href="service-access-triage-1" class="link-back">Back</a></p>
+<h1>Complete these steps</h1>
+
+<section class="service-access__wrapper">
+	<ol class="service-access">
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Help us find your NHS record​</h3>
+			<div class="service-access__item__desc">
+			</div>
+			<span class="service-access__item__status">Done</span>
+		</li>
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Find a Post Office​</h3>
+			<div class="service-access__item__desc">
+				<p>We'll help you find a Post Office that does <abbr title="identity document">ID</abbr> checks for the <abbr title="national health service">NHS</abbr>.</p>
+			</div>
+			<a href="service-access-offline-find-place-postcode{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

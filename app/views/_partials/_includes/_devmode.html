@@ -1,0 +1,35 @@
+{% if devMode === "true" %}
+
+{% if emailLink %}
+<div class="proto-action">
+    <a href="/emails/{{ emailLink }}{{ params }}">
+        <div class="proto-action-icon"></div>
+        <div class="proto-action-text">Email sent</div>
+    </a>
+</div>
+{% endif %}
+
+<div class="proto-error">
+    <div class="proto-error-icon"></div>
+    <div class="proto-error-text">Dev mode</div>
+</div>
+
+
+<div>
+    <details class="dev-mode" role="group" >
+        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">Service errors pages</span>
+        </summary>
+        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+                <ol>
+                    <li><a href="/error/error-404{{ params }}">[404] Page not found</a></li>
+                    <li><a href="/error/error-500{{ params }}">[403] Page not found</a></li>
+                    <li><a href="/error/error-504{{ params }}">Logged in user time out</a></li>
+                </ol>
+            </div>
+        </div>
+    </details>
+</div>
+
+{% endif %}

@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}We cannot find that page{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <h1 class="">We cannot find that page</h1>
+
+  <p>If you typed the web address, check it is correct.</p>
+
+  <p>If you pasted the web address, check you copied the full address.</p>
+
+  <p>Contact us to let us know there is a problem with this page, if:</p>
+
+  <ul style="margin-top: 1em;">
+    <li>you are sure you typed or pasted the correct web address</li>
+    <li>you selected a link or a button</li>
+  </ul>
+
+  <p>Email: <a href="mailto:help.nhslogin@nhs.net?subject=NHS%20login%20-%20error%20CID0404">help.nhslogin@nhs.net</a><br>
+
+  <p>Include this code in your email: <em style="font-weight:bold;font-style:normal;">CID0404</em></p>
+
+</div>
+
+{% endblock %}
+

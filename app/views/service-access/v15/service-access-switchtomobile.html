@@ -1,0 +1,42 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}You'll need to open another web page{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+
+  <form action="service-access-switchtomobile{{ params }}" method="POST">
+      <fieldset class="">
+        <legend for="radio-inline-group">
+          <h1 style="padding-bottom: 0;">
+            You'll need to open another web page
+          </h1>
+        </legend>
+
+        <p>This is because our instant photo I.D. check will not work on your phone.</p>
+        <p>We'll send a link to {{ mobileNum|default("*******2645", true) }}.</p>
+
+
+        <!--<div class="form-group">-->
+          <!--<label class="form-label" for="mob_number">Your mobile number</label>-->
+          <!--<input class="form-control code" id="mob_number" name="mob_number" value="{{ mobileNum }}" type="text" disabled="disabled">-->
+        <!--</div>-->
+
+        <div class="form-group">
+          <button class="button">Send link</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+</div>
+
+{% endblock %}

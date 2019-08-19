@@ -1,0 +1,57 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - {{ theService.name('setup') }}{% endblock %}
+{% set signedin = '' %}
+{% set terms = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&poluser=" + poluser %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+
+        <legend>
+          <h1 class="">
+            Do you have an <abbr>NHS</abbr> login?
+          </h1>
+        </legend>
+
+        <div class="form-group" style="margin-top: 0;">
+          <label class="block-label selection-button-radio" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="login-nhs{{ params }}">
+            Yes
+          </label>
+        </div>
+        <div class="form-group" style="margin-top: 0;">
+          <label class="block-label selection-button-radio" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="create-acc-terms{{ params }}">
+            No - I need to set one up
+          </label>
+        </div>
+
+      </fieldset>
+
+      <div class="callout callout--info" id="details-content-0" aria-hidden="false">
+        <h2 class="h3">What is an NHS login?</h2>
+        <p>From September 2018, NHS login is a new way to log in to health websites and apps.</p>
+        <p>If you do not have an NHS login, you'll need to set one up. Then you can access online health services wherever you see 'NHS login'.</p>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <a class="button" href="#" id="continue">Continue</a>
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock %}

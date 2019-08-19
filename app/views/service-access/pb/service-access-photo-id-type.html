@@ -2,7 +2,8 @@
 {% block page_title %}Access {{ serviceName }} - What type of ID do you have?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+
 
 {% block content %}
 
@@ -15,7 +16,7 @@
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
-            What type of photo ID do you have?
+            What type of photo I.D. do you have?
           </h1>
         </legend>
 
@@ -28,8 +29,29 @@
 
         <div>
           <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="idType" value="driving licence">
-            Driving Licence
+            <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
+            UK driving licence
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-3">
+            <input id="radio-inline-3" type="radio" name="idType" value="European driving licence">
+            European driving licence
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-4">
+            <input id="radio-inline-4" type="radio" name="idType" value="European national identity card">
+            European national identity card
+          </label>
+        </div>
+
+        <div>
+          <label class="block-label selection-button-radio" for="radio-inline-5">
+            <input id="radio-inline-5" type="radio" name="idType" value="none">
+            None of these
           </label>
         </div>
 
@@ -40,7 +62,29 @@
       <button class="button" id="">Continue</button>
     </div>
 
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Reload this page with a testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+          <p>Photo upload errors</p>
+          <ol>
+            <li><a href="service-access-photo-id-type{{ params }}challenge=undefined">Photo ID upload successful</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Validation Failure</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Upload Failure</a></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    {% endif %}
+
+
   </form>
+
+
+
 </div>
 
 {% endblock %}

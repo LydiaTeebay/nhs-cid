@@ -5,11 +5,11 @@
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% elif vouch %}
-  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
+  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% elif newUser %}
-  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
+  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead %}
 {% endif %}
 
 {% block content %}
@@ -21,13 +21,13 @@
 
 <<<<<<< HEAD:app/views/emails/v8/email-validate-create-mob.html
   {% if service === "nhsonline" or service === "mvp" %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=undefined"  + "&poluser=" + poluser %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=undefined"  + "&poluser=" + poluser %}
   <p><a class="button" href="/create-account/v8/two-step{{ params }}">Validate my email</a></p>
   {% else %}
   <p><a class="button" href="/create-account/v8/two-step{{ params }}">Validate my email</a></p>
 =======
   {% if service === "nhsonline"%}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=undefined" %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=undefined" %}
   <p><a class="button" href="/create-account/two-step{{ params }}">Validate my email</a></p>
   {% else %}
   <p><a class="button" href="/create-account/two-step{{ params }}">Validate my email</a></p>

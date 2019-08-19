@@ -4,7 +4,7 @@
 {% set signedin = 'true' %}
 {% set verified = 'true' %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 
 {% block header %}
 
@@ -17,7 +17,7 @@
 <section class="service-access-wrapper">
 
 	<p>By clicking submit, you agree to send us your photo, video and personal information. It will be stored securely.</p>
-	<p>See <a href="/create-account/v10/terms{{ params }}">terms and conditions</a> for how long we'll store your information.</p>
+	<!--p>See <a href="/create-account/v10/terms{{ params }}">terms and conditions</a> for how long we'll store your information.</p-->
 	<a href="service-access-complete{{ params }}" class="button">Submit information</a>
 	
 </section>

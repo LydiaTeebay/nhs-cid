@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Instructions to record a short video{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&pinCode=" + pinCode %}
 
 {% block content %}
 
@@ -21,15 +21,33 @@
         </legend>
 
         <p>You'll need to record a video of your face while you say 4 numbers.</p>
-        <p>We'll show you the numbers on the next page.</p>
+        <p>We'll show the numbers on the next page.</p>
 
         <div class="form-group">
-          <a href="service-access-video-selfie-camera{{ params }}" class="button camera-button">Continue</a>
+          <a href="service-access-video-selfie-camera{{ params }}&formerror=undefined" class="button camera-button">Continue</a>
         </div>
 
       </fieldset>
 
     </form>
+
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with a testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+          <p>Photo upload errors</p>
+          <ol>
+            <li><a href="service-access-video-selfie-camera{{ params }}&formerror=undefined">Video upload successfull</a></li>
+            <li><a href="service-access-video-selfie-camera{{ params }}&formerror=invalid">Video Validation Failure</a></li>
+            <li><a href="service-access-video-selfie-camera{{ params }}&formerror=invalid">Video Upload Failure</a></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    {% endif %}
 
 
   </section>

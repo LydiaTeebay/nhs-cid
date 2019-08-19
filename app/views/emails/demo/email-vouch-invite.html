@@ -1,0 +1,29 @@
+{% extends '_layouts/_grids/_grid-email-hotjar.html' %}
+{% block page_title %}{% include '_partials/_components/_name.html' %}{% endblock %}
+{% set hidehead = "true" %}
+{% set hideBeta = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;">
+  <h2 class="heading-large">Invite to Helm</h2>
+
+  <p>You have been invited to join Helm. You will need to set up your NHS login to get access.</p>
+
+  <p>This invite is only valid for 30 days.</p>
+
+  <p><a class="button" href="/create-account/v12/set-password{{ params }}">Set up NHS login</a></p>
+  <p><a href="/create-account/v12/set-password{{ params }}">http:/anyoldlink/create-account/v12/set-password</a></p>
+
+
+</div>
+
+
+{% endblock %}

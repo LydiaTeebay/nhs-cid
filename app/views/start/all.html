@@ -1,0 +1,157 @@
+{% extends '_layouts/_grids/_grid-1-1-1-stacked.html' %}
+{% block page_title %}Citizen ID Prototypes{% endblock %}
+
+{% block header %}
+{% import "_partials/_components/_local-header.html" as localHeader %}
+{{ localHeader.pattern('Citizen ID Prototypes','') }}
+{% endblock %}
+
+
+{% block content %}
+<a href="/start" class="button">Journeys start here</a>
+
+<hr>
+
+<h3>Useful links</h3>
+<ul class="list--chevron">
+    <li><a href="/account">Account / Dashboard pages</a></li>
+    <li><a href="/patterns">NHS UK design patterns</a></li>
+</ul>
+
+<hr>
+{% endblock %}
+
+{% block middlecol %}
+
+<dl>
+    <dt><a href="/service-access/service-access-create-account?serviceName=Access%20your%20medical%20record">Create account</a> - <a href="service-access/service-access-create-account?serviceName=Access%20your%20medical%20record&hidehead=true">Web View</a></dt>
+    <dd>Customer journey to log in or sign up for a new NHS account
+
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>MVP version for GDS</strong><br>
+            <a href="/service-access/mvp/service-access-create-account?service=mvp&serviceName=NHS%20App">30 Apr '18 - GDS MVP</a><br>
+
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+            <a href="/service-access/v3/service-access-create-account?serviceName=Access%20your%20medical%20record">19 Feb '18 - User testing</a><br>
+            <a href="/create-account/v6/sign-on">11 Jan '18 - User testing</a><br>
+            <a href="/start/service-childs-health-record">17 Dec '17 - User testing</a><br>
+            <a href="/create-account/v3/sign-on">7 Dec '17 - User testing</a><br>
+            <a href="/create-account/v2/sign-on">15 Nov '17 - User testing</a><br>
+            <a href="/create-account/v1/create-1">14 Nov '17 - 2 columns</a>
+        </p></dd>
+    <hr>
+    <dt><a href="/vouching/vouching-service-start">Offline Vouching Service</a></dt>
+    <dd>Used by clinicians for offline vouching services
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+            <a href="/vouching/v2/vouching-service-start">3 Nov '17 - Token codes</a><br>
+            <a href="/vouching/v1/index">18 Oct '17 - London hack </a>
+        </p></dd>
+    <hr>
+    <dt><a href="/id-verification/id-verification-log-in">Patient ID Verification Service</a></dt>
+    <dd>Used by third parties to verify patient identity and uplift accounts
+        <p></p><!--<p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>-->
+        <!--<a href="vouching/v2/vouching-service-start">3 Nov '17 - Token codes</a><br>-->
+        <!--<a href="vouching/v1/index">18 Oct '17 - London hack </a>-->
+        <!--</p></dd>-->
+        <hr>
+    <dt><a href="/token-manager/token-manager-index">Revoke Patient Access</a></dt>
+    <dd>Used by clinicians for removing access to patients
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+            <a href="/token-manager/v1/token-manager-index">20 Dec '17 - Design v1</a><br>
+        </p></dd>
+    <hr>
+    <dt><a href="/id-checker/id-checker-log-in">ID Checker</a> ( <a href="/id-checker/id-checker-log-in?devMode=true">Dev Mode</a> )<br>
+        <a href="/id-checker/id-checker-log-in?role=Supervisor">Supervisor</a> ( <a href="/id-checker/id-checker-log-in?role=Supervisor&devMode=true">Dev Mode</a> )</dt>
+    <dd>Used by RAs to approve/reject identity applications
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+            <a href="/id-checker/v5/id-checker-log-in">20 May '19</a> ( <a href="/id-checker/v5/id-checker-log-in?devMode=true">Dev Mode</a> )<br>
+            <a href="/id-checker/v4/id-checker-log-in">19 Feb '19</a> ( <a href="/id-checker/v4/id-checker-log-in?devMode=true">Dev Mode</a> )<br>
+            <a href="/id-checker/v3/id-checker-log-in">25 Oct '18</a> ( <a href="/id-checker/v3/id-checker-log-in?devMode=true">Dev Mode</a> )<br>
+            <a href="/id-checker/v2/id-checker-log-in">20 Mar '18</a><br>
+            <a href="/id-checker/v1/id-checker-index">15 Jan '18</a><br>
+        </p></dd>
+    <hr>
+    <dt><a href="/name-study/?lsId=00001&lsStudy=000001&lsAccess=00001">Short name study</a></dt>
+    <dd><p>Hotjar tracked, remote unmoderated survey about the service name using just a video clip</p>
+    </dd>
+    <hr>
+    <dt><a href="/start/v4/nhs-app-start?lsId=00001&lsStudy=000001&lsAccess=00001">Long name study</a></dt>
+    <dd><p>Hotjar tracked, remote unmoderated survey about the service name using the full end-to-end journey</p>
+
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Name versions</strong><br>
+            <a href="/start/v4/nhs-app-start?lsId=00001&lsStudy=000001&lsAccess=00001">No name</a>
+            | <a href="/start/v4/nhs-app-start?lsId=00001&lsStudy=000002&lsAccess=00001">NHS only</a>
+            | <a href="/start/v4/nhs-app-start?lsId=00001&lsStudy=000003&lsAccess=00001">NHS Access</a>
+        </p>
+    </dd>
+    <hr>
+</dl>
+
+
+{% endblock %}
+
+{% block rightcol %}
+
+<dl>
+    <dt><a href="/patient-online/patient-online-start?serviceName=Access%20health%20services">Access your medical record using POL</a></dt>
+    <dd>Customer journey using POL credentials to log in
+
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>MVP version for GDS</strong><br>
+            <a href="/patient-online/mvp/patient-online-start?service=mvp&serviceName=NHS%20App">30 Apr '18 - GDS MVP</a><br>
+
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+            <!--<a href="patient-online/v9/patient-online-start?serviceName=Access%20your%20medical%20record">?? '18 - Popup - camscan</a> - <a href="patient-online/v6/patient-online-start?serviceName=Access%20your%20medical%20record&hidehead=true">WebView</a><br>-->
+            <a href="/patient-online/v8/patient-online-start?serviceName=Access%20your%20medical%20record">?? '18 - Popup - service journey</a><br>
+            <a href="/patient-online/v7/service-access-nhs-acc?serviceName=Access%20your%20medical%20record">14 Mar '18 - Reginald Popup</a><br>
+            <a href="/patient-online/v5/patient-online-start?serviceName=Access%20your%20medical%20record">19 Feb '18 - User testing</a><br>
+            <a href="/patient-online/v4/start">7 Dec '17 - User testing</a><br>
+            <a href="/patient-online/v3/start">15 Nov '17 - User testing</a><br>
+            <a href="/patient-online/v2/start">08 Nov '17 - User testing</a><br>
+            <a href="/patient-online/v1/start">03 Nov '17 - Token codes</a>
+        </p></dd>
+    <hr>
+    <dt><a href="/prove-your-identity/pyi-uplift">Prove your Identity</a></dt>
+    <dd>Online journey for uplifting accounts and physical comparison without an app
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+            <a href="/prove-your-identity/v4/pyi-uplift">07 Dec '17 - User testing</a><br>
+            <a href="/prove-your-identity/v3/pyi-uplift">03 Dec '17 - Pre uplift changes</a><br>
+            <a href="/prove-your-identity/v2/pyi-details-name">21 Nov '17 - User testing</a><br>
+            <a href="/prove-your-identity/v1/pyi-details-name">15 Nov '17 - User testing</a>
+        </p></dd>
+    <hr>
+    <dt><a href="/service-access/service-access-account?service=nhsonline2&serviceName=Create%20an%20NHS%20Account">Service Access</a> | Step <a
+            href="/service-access/service-access-stepup?service=nhsonline2&serviceName=Create%20an%20NHS%20Account&emailAddress=&mobileNum=">2</a> | <a
+            href="/service-access/service-access-photo-id?service=nhsonline2&serviceName=Create%20an%20NHS%20Account&emailAddress=&mobileNum=">3</a>
+    </dt>
+    <dd>Online task list journey for creating accounts for service access
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>MVP version for GDS</strong><br>
+
+            <a href="/service-access/mvp/service-access-account?serviceName=NHS%20App&service=mvp&system=undefined&hidehead=undefined">30 Apr '18 </a> | <a
+                    href="/service-access/mvp/service-access-stepup?service=mvp&serviceName=NHS%20App&emailAddress=&mobileNum=">POL</a> | <a
+                    href="service-access/mvp/service-access-photo-id?service=mvp&serviceName=NHS%20App&emailAddress=&mobileNum=">PYI</a> <br>
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Older versions</strong><br>
+            <a href="/create-account/create-acc-terms?service=nhsonline&serviceName=NHS%20Online">26 Mar '18</a> | <a
+                    href="/service-access/v4/service-access-stepup?service=nhsonline&serviceName=Service%20Name&emailAddress=&mobileNum=">1</a> | <a
+                    href="/service-access/v4/service-access-photo-id?service=nhsonline&serviceName=Service%20Name&emailAddress=&mobileNum=">2</a> | <a
+                    href="/service-access/v4/service-access-video-selfie?service=nhsonline&serviceName=Service%20Name&emailAddress=&mobileNum=&idType=passport&formerror=undefined">3</a> |
+            <a href="/create-account/create-acc-terms?service=nhsonline&serviceName=NHS%20Online&hidehead=true">App</a> |
+            <a href="/create-account/create-acc-terms?service=nhsonline3&serviceName=NHS%20App">Demo</a><br>
+            <a href="/service-access/v3/service-access-eredbook">19 Feb '18 - User testing</a><br>
+            <a href="/service-access/v2/service-access-eredbook">23 Jan '18 - User testing</a><br>
+            <a href="/service-access/v1/service-access-eredbook">10 Jan '18 - User testing</a><br>
+        </p></dd>
+
+    <hr>
+
+    <dt><a href="/find-nhs-number/start">Find my NHS number</a>
+    </dt>
+    <dd>Service for allowing a user to recover their NHS Number via PDS
+        <p style="font-size: smaller;margin-top: 0.5em;"><strong>Initial Version</strong><br>
+            <a href="/find-nhs-number/start">03 May '18 </a>
+        </p></dd>
+
+    <hr>
+
+</dl>
+
+{% endblock %}
+

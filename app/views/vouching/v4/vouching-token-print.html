@@ -1,0 +1,37 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="">
+        <h1><legend>Click below to print the token and corresponding instructions</legend></h1>
+
+        <div class="share-code-outer share-code">
+          <div class="share-code-left">
+            <p><strong>Your NHS token code is:</strong></p>
+            <h2>HH Zz N4 9m</h2>
+            <p><a href="#">Print or save your NHS token code</a></p>
+          </div>
+          <div class="share-code-right">
+            <p><strong>This code:</strong></p>
+            <ul class="list-bullet">
+              <li>is case sensitive</li>
+              <li>is valid for 21 days</li>
+              <li>can only be used once</li>
+            </ul>
+          </div>
+        </div>
+        
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <a class="button" href="vouching-token-delivered" id="continue">Print</a>
+    </div>
+    
+  </form>
+</div>
+
+{% endblock %}

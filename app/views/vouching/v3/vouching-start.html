@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Patient Identity Vouching Service{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+   <form>
+
+       <div class="form-group">
+           <h1>Patient identity vouching</h1>
+           <p>If the patient does not have UK photo ID, ask them to go to the service you are inviting them to use and set up a login.</p>
+           <p>Use vouching only if your patient:</p>
+           <ul>
+           	<li>does not have UK photo ID, such as a passport or drivers licence</li>
+           	<li>cannot set up an NHS login on their own</li>
+           </ul>
+           <p>You will need to do separate vouching for each service you give access to.</p>
+           <a class="button" href="vouching-nhs-number" id="">Start</a>
+       </div>
+
+    </form>
+</div>
+
+{% endblock %}

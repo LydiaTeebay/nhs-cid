@@ -112,6 +112,65 @@
   }
 }
 
+.button--play {
+  @include button($green);
+  position: relative;
+  padding: ($baseline-grid-unit * 4) ($baseline-grid-unit * 8);
+  padding-left: ($baseline-grid-unit * 18);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1em;
+    left: 1.6em;
+    height: 24px;
+    width: 24px;
+    background: transparent url("/images/play-button.svg") no-repeat;
+    background-size: 25px 25px;
+    background-position: middle;
+  }
+  &:active::before {
+    top: 1.3em;
+    height: 30px;
+  }
+}
+
+
+.button--save {
+  position: relative;
+  transition: width ease 5s;
+  &::before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: -6px;
+    height: 25px;
+    width: 25px;
+    background: transparent url("/images/mini-button-spinner.svg") no-repeat;
+    background-size: 25px 25px;
+    animation-name: spin;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    // spin the svg image
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  // override opacity of disabled button so spinner is more visible
+  &[disabled],
+  &[disabled]:hover {
+    background-color: #9abda0;
+    opacity: 1;
+    box-shadow: 0 2px 0 #88988c
+  }
+}
+
 
 .button--recording {
   background-color: $red !important;
@@ -155,4 +214,8 @@
 #onfido-button,
 button.onfido-sdk-ui-Theme-btn.onfido-sdk-ui-Theme-btn-centered.onfido-sdk-ui-Theme-btn-primary {
   @include button($green);
+}
+
+.button--information {
+    @include button($white);
 }

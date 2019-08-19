@@ -1,0 +1,68 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Enter your NHS login details{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser + "&reason=" + reason %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    {% if hideBack !== 'true' %}
+    <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+    {% endif %}
+
+
+   <form>
+
+        <div class="form-group">
+            <h1>Enter your NHS login details</h1>
+
+            <fieldset class="">
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Email address</label>
+                    <input class="form-control" id="field1" name="field1" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="field1">Password</label>
+                    <input class="form-control" id="field2" name="field2" type="password">
+                </div>
+
+                <p><a href="forgotten-password{{ params }}">Forgotten your password?</a></p>
+
+            </fieldset>
+        </div>
+
+        <a class="button" href="two-step-code-login{{ params }}&result=200" id="">Continue</a>
+
+       <p><a href="create-acc-terms{{ params }}">Set up an <abbr>NHS</abbr> login</a></p>
+
+    </form>
+</div>
+
+{% include '_partials/_includes/_scenarios_login.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+    {% if reason === 'noclientid' %}
+        <div class="column-list" style="border-top: 4px solid #025FB8; padding-top: 16px;">
+            <h3>Not what you are looking for?</h3>
+              <ul style="list-style: none; padding-left: 0px; margin-top: 32px;">
+                <li style="margin-bottom: 12px; font-size: 22px;"><b>NHS staff only<b></li>
+                <li><p><a href="https://portal.nhs.net/Home/Login">Login - NHSmail</a></p></li>
+                <li><p><a href="https://digital.nhs.uk/services/nhsmail">About NHS mail - NHS Digital</a></p></li>
+                <li><p><a href="https://www.myhealthonline-inps2.wales.nhs.uk/web/ps/login">Login - My Health Online</a><br><span style="color: #768692; font-size: 16px; margin: 0px;">(Welsh nationals only)</span></p></li>
+              </ul>
+              <ul class="second-list" style="list-style: none; padding-left: 0px; border-top: 1px solid #aeb7bd">
+                <li><p style="margin-top: 16px;"><a href="https://www.jobs.nhs.uk/cgi-bin/login_applicant.cgi">Candidate login - NHS Jobs</a></p></li>
+                <li><p><a href="https://www.healthcheck.nhs.uk/login/">Login - NHS Health Check</a></p></li>
+              </ul>
+          </div>
+
+    {% endif %}
+
+{% endblock %}

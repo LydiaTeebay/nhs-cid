@@ -1,8 +1,8 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Step 2: Help us find your NHS record{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Step 2: Help us find your {{ theService.name('') }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
 
 {% block content %}
 
@@ -15,17 +15,17 @@
 
 	<ol class="service-access">
 		<li class="service-access__item completed">
-			<h3 class="service-access__item__title">Set up NHS Access</h3>
+			<h3 class="service-access__item__title">{{ theService.name('setup') }}</h3>
 			<div class="service-access__item__desc">
 				<p>You will need your phone.</p>
-				<p>Your NHS account will allow you to sign into multiple health services in the future.</p>
+				<p>Your {{ theService.name('account') }} will allow you to sign into multiple health services in the future.</p>
 			</div>
 			<span class="service-access__item__status">Completed</span>
 		</li>
 		<li class="service-access__item active">
 			<h3 class="service-access__item__title">Help us find your NHS record</h3>
 			<div class="service-access__item__desc">
-				<p>You'll need to give us some details so we can connect to your GP.</p>
+				<p>You'll need to give us some details so we can connect to your doctor's surgery.</p>
 			</div>
 			<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
 		</li>

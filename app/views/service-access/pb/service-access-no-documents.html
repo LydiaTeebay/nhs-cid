@@ -1,0 +1,40 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - What is your NHS number?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <h1 class="">Go to your GP surgery to prove who you are</h1>
+
+  <p>Follow these steps:</p>
+  <ol>
+    <li> Tell your GP surgery that you want to sign up for their online services.</li>
+    <li>Your surgery will ask you to fill in a form.</li>
+    <li>Your surgery will give you registration details. You will need:
+      <ul>
+        <li>Linkage Key (could be called a Passphrase)</li>
+        <li>O.D.S. Code (could be called an Organisation Code or Practice I.D.)</li>
+        <li>Account I.D.</li>
+      </ul>
+    </li>
+
+    {% if serviceName !== '' %}
+    <li>When you have your registration details, go to <b>'{{ serviceName }}'</b>. Use your NHS login. You will need to enter these 3 details to prove who you are.</li>
+    {% else %}
+    <li>When you have your registration details, go to the website or app you were trying to access. Use your NHS login. You will need to enter these 3 details to prove who you are.</li>
+    {% endif %}
+
+    <p>If you have already done this, you can ask your GP surgery for your registration details.</p>
+
+  </ol>
+
+
+</div>
+
+{% endblock %}

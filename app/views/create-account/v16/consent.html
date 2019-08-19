@@ -1,0 +1,65 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Agree to share your NHS login information{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser + "&reason=" + reason %}
+
+
+{% block extrastyles %}
+
+<style>
+
+    dl {
+        display: block;
+        padding-left: 50px;
+        padding-top: 0px;
+        line-height: 0.75em;
+        background: transparent url("https://nhs-cid.herokuapp.com/images/user.png") no-repeat 0 0;
+        background-size: 45px 45px;
+        height: 70px;
+        margin-bottom: -20px;
+    }
+
+    dl dt span {
+        display: block;
+        font-size: 0.8em;
+        font-weight: normal;
+        line-height: 0.9em;
+    }
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <!-- <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p> -->
+
+    <div class="form-group">
+        <h1>Agree to share your NHS login information</h1>
+
+
+        <dl>
+            <dt><span>Your NHS login is:</span>
+                james.randerson@gmail.com</dt>
+        </dl>
+        <!-- <p class="small"><a href="login-nhs">Use a different NHS login</a></p> -->
+
+        <p>To continue, you need to agree to share your NHS login information.</p>
+        <p><b>'Find out who looked at your medical records'</b> will use your:</p>
+        <ul>
+            <li>last name</li>
+            <li>date of birth</li>
+            <li>NHS number</li>
+        </ul>
+        <p>Before you agree, you should read their terms of use and privacy policy to check how they will use your information.</p>
+    </div>
+
+    <a class="button" href="login-spinner{{ params }}" id="">Agree and continue</a>
+    <p><a href="https://nhs-audit.herokuapp.com">I do not want to use my NHS login</a></p>
+
+</div>
+
+{% endblock %}

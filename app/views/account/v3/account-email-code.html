@@ -1,0 +1,47 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Account - profile{% endblock %}
+
+{% set signedin = 'true' %}
+
+{% block topRow %}
+
+<h1>Account settings
+	<div class="smaller-h1">Email address</div>
+</h1>
+<hr>
+
+<style>
+	.c-page-contents__link.link-email {
+		font-weight: bold;
+		text-decoration: none;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include '_partials/_components/_account-menu-pb.html' %}
+
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item account-mgmt">
+
+	<h2>Check your email</h2>
+
+	<p>We've sent an email to <a href="/emails/pb/email-confirm-new-email" target="_blank">john-vasarelli@gmail.com</a>.</p>
+
+	<p>Follow the instructions in the email and then come back here.</p>
+	<!-- <a class="button" href="account-email-done">Continue</a> -->
+
+
+	<p>Check your spam folder if you do not see the email in your main inbox.</p>
+	<!--p><a href="account-email-edit">Send the email again.</a></p-->
+
+</div>
+
+{% endblock %}

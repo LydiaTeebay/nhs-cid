@@ -20,6 +20,7 @@
 @import "overrides/step-list";
 @import "overrides/error";
 @import "overrides/link";
+@import "overrides/global-footer";
 
 // Pull in old prototype styles
 // classes not needed in production
@@ -43,5 +44,10 @@
 @import "new/idcheck";
 @import "new/proto-action";
 @import "new/pop";
+@import "new/banners";
+@import "new/dev-mode";
+@import "new/slideout";
 
 // Add your custom CSS here
+@import 'new/cookie-banner';
+@import 'new/login-landingPage'

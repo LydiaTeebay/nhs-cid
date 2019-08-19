@@ -1,0 +1,31 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Welcome - Name Survey{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+
+        <p>Please complete the survey by answering the questions you can see below.</p>
+        <p>Only AFTER you have answered all the questions click the button below.</p>
+
+        <a href="survey{{ params }}" class="button--information" id="hideMe">I have answered all the questions</a>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+    //show the button
+    setTimeout(function(){
+        document.getElementById('hideMe').style.display = 'block'
+    }, 15000)
+</script>
+{% endblock %}
+

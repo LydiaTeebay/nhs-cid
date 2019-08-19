@@ -1,0 +1,21 @@
+{% if devMode === "true" %}
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+
+            <p>2FA errors</p>
+            <ol>
+                <li><a href="otp-expired{{ params }}&reason=codeexpired">Wrong code or code expired</a></li>
+            </ol>
+            <p>Terms updated</p>
+            <ol>
+                <li><a href="terms-updated{{ params }}&reason=termsupdated">Updated terms interruption card</a></li>
+            </ol>
+
+        </div>
+    </div>
+</details>
+{% endif %}

@@ -1,0 +1,21 @@
+{% extends '_layouts/_grids/_grid-1-plain-hotjar.html' %}
+{% block page_title %}Welcome - Name Survey{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy  + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+    <section class="intructions">
+        <h1 class="heading-large">You can view your medical record on the NHS App:</h1>
+
+        <p><img src="/images/app-03.jpg" style="border: 2px #000 solid" /></p>
+
+        <a href="pyi-card-5{{ params }}" class="button--information">Continue</a>
+
+    </section>
+
+</div>
+
+{% endblock %}

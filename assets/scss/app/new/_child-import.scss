@@ -3,9 +3,25 @@
   font-size: 0.8em;
   margin-top: 4px;
 }
-.child-import .block-label.selection-button-checkbox:before {
-  top: 13px
+
+@media (max-width: 40.0625em) {
+  .child-import .block-label.selection-button-checkbox:before {
+    top: 13px
+  }
 }
+
 .child-import .block-label.selection-button-checkbox:after {
-  top: 24px;
+  top: 13px;
+}
+
+div .child-import {
+  margin-right: 0px;
+}
+
+div .form-group.remember-me {
+  margin-right: 0px;
+}
+
+div .nhsuk-details__text {
+  margin-right: 0px;
 }

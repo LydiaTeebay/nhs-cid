@@ -27,7 +27,12 @@
     <p>An email has been sent to {{ emailAddress }}</p>
 
     {% if service === "nhsonline" or service === "mvp" %}
-      <p>Click the link in the <a href="/emails/mvp/email-validate-create-mob{{ params }}">email</a> to continue your registration.</p>
+      {% if emailAddress !== "" %}
+        <p>Click the link in the <!--<a href="/emails/mvp/email-validate-create-mob{{ params }}">-->email<!--</a>--> to continue your registration.</p>
+      {% else %}
+        <p>Click the link in the <a href="/emails/mvp/email-validate-create-mob{{ params }}">email</a> to continue your registration.</p>
+      {% endif %}
+
     {% else %}
         <p>Click the link in the <a href="/emails/mvp/email-validate-create{{ params }}">email</a> to continue your registration.</p>
       {% endif %}

@@ -1,0 +1,77 @@
+{% extends '_layouts/_grids/_grid-2-1.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+
+        <h1><legend>Patient details</legend></h1>
+
+      {% import "_partials/_components/_callout.html" as callout %}
+      {{ callout.pattern('NHS number: 214 265 8075','Check the following details are correct','info') }}
+      {# callout.pattern('NHS number: 214 265 8075','<ol><li>Check the following details are correct.</li><li>Add patient\'s mobile number</li></ol>','info') #}
+
+        <div class="form-group">
+          <label class="form-label" for="field1">First name</label>
+          <input class="form-control" id="field1" name="field1" type="text" value="Kathleen" readonly>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field2">Middle name</label>
+          <input class="form-control" id="field2" name="field2" type="text" value="G" readonly>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field3">Surname</label>
+          <input class="form-control" id="field3" name="field3" type="text" value="Watson" readonly>
+        </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field3">Address</label>
+        <textarea class="form-control form-textbox" id="field3" name="field3" type="text" rows="4" readonly>60 Prince Consort Road
+KELVEDON HATCH
+CM15 8AX</textarea>
+      </div>
+
+
+      <fieldset>
+        <legend class="form-label">
+          Date of birth
+        </legend>
+        <div class="form-group -date">
+          <div class="form-date-field">
+            <label for="dob-day">Day</label>
+            <input type="text" id="dob-day" name="dob-day" value="16" class="day" maxlength="2" readonly>
+          </div>
+          <div class="form-date-field">
+            <label for="dob-month">Month</label>
+            <input type="text" id="dob-month" name="dob-month" value="11" class="month" maxlength="2" readonly>
+          </div>
+          <div class="form-date-field">
+            <label for="dob-year">Year</label>
+            <input type="text" id="dob-year" name="dob-year" value="1990" class="year" maxlength="4" readonly>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <label class="form-label" for="field4">Email address</label>
+        <input class="form-control" id="field4" name="field4" type="text" value="KathleenGWatson@rhyta.com">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field5">Contact number</label>
+        <input class="form-control" id="field5" name="field5" type="text" value="07050 810208">
+      </div>
+
+
+    </div>
+
+
+    <div class="form-group">
+      <a class="button" href="vouching-1" id="">Continue</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

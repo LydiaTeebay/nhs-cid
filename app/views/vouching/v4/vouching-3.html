@@ -1,0 +1,62 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Offline Vouching Identity Service{% endblock %}
+
+
+{% block topRow %}
+
+  {% if reason == "strength" %}
+
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','Your relationship with the patient isn\'t strong enough for you to vouch for them.','alert') }}
+
+    {% elif reason == "notsatisfied" %}
+
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','You have chosen not to \'person vouch\' for your patient. You may however still verify their identity.','alert') }}
+
+    {% elif reason == "id" %}
+
+    {% import "_partials/_components/_callout.html" as callout %}
+    {{ callout.pattern('','The photo ID may not be reliable but you may however still verify their identity.','alert') }}
+
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<form method="GET">
+
+  <div class="form-group">
+
+
+    <h1>Prove your patient's identity</h1>
+
+    <fieldset class="">
+
+      <h2><legend>How would you like to verify your patient's identity?</legend></h2>
+
+      <div>
+        <label class="block-label selection-button-radio" for="radio-inline-1">
+          <input id="radio-inline-1" type=radio name=radio-inline-group value="vouching-id-1">
+          Check patient's photo ID
+        </label>
+      </div>
+
+      <div>
+        <label class="block-label selection-button-radio" for="radio-inline-2">
+          <input id="radio-inline-2" type=radio name=radio-inline-group value="vouching-qanda-intro">
+          Question the patient about their clinical record
+        </label>
+      </div>
+    </fieldset>
+  </div>
+  <!--<input class="button" type=submit value=Submit>-->
+
+  <div class="form-group">
+    <a class="button" href="#" id="continue">Continue</a>
+  </div>
+
+</form>
+
+{% endblock %}

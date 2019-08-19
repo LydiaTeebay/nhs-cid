@@ -1,25 +1,26 @@
 {% extends '_layouts/_grids/_grid-email-hotjar.html' %}
-{% block page_title %}NHS account{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Confirm your email address{% endblock %}
 {% set hidehead = "true" %}
+{% set hideBeta = "true" %}
 {% set bodyClass = "body-email" %}
 
 {# work out where to send users #}
 {% if service %}
-  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&poluser=" + poluser%}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&poluser=" + poluser%}
 {% elif vouch %}
-  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&terms=" + terms + "&emailAddress=" + emailAddress %}
 {% elif newUser %}
-  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&terms=" + terms + "&emailAddress=" + emailAddress %}
 {% endif %}
 
 {% block content %}
-<div class="first-item" style="padding-bottom: 100px;" >
+<div class="first-item" style="padding-bottom: 100px;">
   <h1>Confirm your email address</h1>
-  <p>To continue setting up {% include '_partials/_components/_name.html' %}, you need to confirm your email address.</p>
-  <p>If you did not try to set up {% include '_partials/_components/_name.html' %} using this email address, please ignore this email. We will delete your information after 48 hours.</p>
-
-  <p><a class="button" href="/create-account/pb/two-step{{ params }}">Confirm your email address</a></p>
-  <!--<p>Or copy and paste this link:<br><a href="/create-account/login-nhs{{ params }}">https://nhs-cid.herokuapp.com/create-account/login-nhs{{ params }}</a></p>-->
+  <p>To continue setting up your NHS login, you need to confirm your email address.</p>
+  <p>If you did not try to set up your NHS login using this email address, please ignore this email. We will delete your information after 24 hours.</p>
+  <p><a class="button" href="/create-account/pb/email-confirmed{{ params }}">Confirm your email address</a></p>
+  <p>If the link does not work, copy and paste this into your browser:</p>
+  <p><a href="/create-account/pb/email-confirmed{{ params }}">http:/anyoldlink/create-account/pb/confirm-email</a></p>
 </div>
 
 {% endblock %}
