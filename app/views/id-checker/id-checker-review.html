@@ -162,10 +162,6 @@
                         </tr>
                     </table>
 
-                {% else %}
-
-                <div id="trace" class="idcheck-match {{ result }}"
-                     style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
 
 
             {% endif %}
@@ -805,13 +801,6 @@
                     <div class="govuk-form-group" id="rejection-reasons">
                         <label class="form-label" for="sort">Rejection reason</label>
 
-                        <select id="decline-4c" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                            <option value="IDC-050" data-question="">--- Please select ---</option>
-                            <option value="IDC-051" data-question="decline-text-15">Driving licence - last names do not match</option>
-                            <option value="IDC-052" data-question="decline-text-15">Passport - last names do not match</option>
-                            <option value="IDC-053" data-question="decline-text-15">National identity card - last names do not match</option>
-                        </select>
-
                         <select id="decline-0" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-010" data-question="">--- Please select ---</option>
                             <option value="IDC-011" data-question="decline-text-1">Driving licence - cannot see information in ID</option>
@@ -859,7 +848,12 @@
                             <option value="IDC-053" data-question="decline-text-15">National identity card - first names do not match</option>
                         </select>
 
-
+                        <select id="decline-4c" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
+                            <option value="IDC-050" data-question="">--- Please select ---</option>
+                            <option value="IDC-051" data-question="decline-text-15">Driving licence - last names do not match</option>
+                            <option value="IDC-052" data-question="decline-text-15">Passport - last names do not match</option>
+                            <option value="IDC-053" data-question="decline-text-15">National identity card - last names do not match</option>
+                        </select>
 
                         <select id="decline-5" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-080" data-question="">--- Please select ---</option>
@@ -1304,12 +1298,9 @@
 
         if (idCheck[11] === true ) {
             document.getElementById('manual-pds').style.display = 'block'
-        }
-
-        else if (idCheck[10] === true ) {
+        } else if (idCheck[10] === true ) {
             document.getElementById('manual-pds').style.display = 'none'
         }
-
 
         if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[13] === true || idCheck[15] === true || idCheck[17] === true  ) {
 
@@ -1328,7 +1319,7 @@
                     $("#id-decline").appendTo('#pds-1')
                 } else if (idCheck[9] === true) {
                     $("#id-decline").appendTo('#pds-2')
-                } else if (idCheck[9] === true) {
+                } else if (idCheck[11] === true) {
                     $("#id-decline").appendTo('#pds-2')
                 } else if (idCheck[13] === true) {
                     $("#id-decline").appendTo('#selfie-1')
