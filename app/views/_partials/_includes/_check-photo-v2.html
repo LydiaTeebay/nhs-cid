@@ -70,31 +70,6 @@
 </fieldset>
 
 
-
-<fieldset id="check-3" class="photo-check" style="display: none;">
-
-    <legend id="check-3-title"><h2 class="h3 check-title">Is there any shine (glare) over your face, or any of the text?</h2></legend>
-
-    <div class="selection-button-radio-inline" style="margin-top: 16px;">
-        <div class="multiple-choice" data-target="check-3-yes" style="margin-bottom: 0;">
-            <input id="radio-inline-5" type="radio" name="radio-inline-group-3" value="yes">
-            <label for="radio-inline-5" class="block-label" style="position: static;">Yes</label>
-        </div>
-    </div>
-    <div class="selection-button-radio-inline" style="margin-top: 0px;">
-        <div class="multiple-choice" data-target="check-3-no" style="margin-bottom: 0;" >
-            <input id="radio-inline-6" type="radio" name="radio-inline-group-3" value="no">
-            <label for="radio-inline-6"class="block-label" style="position: static;">No</label>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <a class="button button--next" href="#" id="check-3-submit">Continue</a>
-    </div>
-
-</fieldset>
-
-
 <fieldset id="advice-1" class="photo-check" style="margin-top: 0; display: none;">
 
     <legend><h1 id="advice-title-1">
@@ -114,19 +89,19 @@
 
     <div class="selection-button-radio-inline" style="margin-top: 16px;">
         <div class="multiple-choice" data-target="advice-1-yes" style="margin-bottom: 0;">
-            <input id="radio-inline-9" type="radio" name="radio-inline-group-5" value="continue">
-            <label for="radio-inline-9" class="block-label" style="position: static;">I am blind or partially sighted - send without checking</label>
+            <input id="radio-inline-5" type="radio" name="radio-inline-group-3" value="retry">
+            <label for="radio-inline-5" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
         </div>
     </div>
     <div class="selection-button-radio-inline" style="margin-top: 0;">
         <div class="multiple-choice" data-target="advice-1-no" style="margin-bottom: 0;">
-            <input id="radio-inline-10" type="radio" name="radio-inline-group-5" value="retry">
-            <label for="radio-inline-10"class="block-label" style="position: static;">I think there was a technical problem - try again (back to photo instructions page)</label>
+            <input id="radio-inline-6" type="radio" name="radio-inline-group-3" value="startover">
+            <label for="radio-inline-6"class="block-label" style="position: static;">Choose a different type of I.D.</label>
         </div>
     </div>
 
     <div class="form-group">
-        <a class="button button--next" href="#" id="check-4-submit">Continue</a>
+        <a class="button button--next" href="#" id="check-3-submit">Continue</a>
     </div>
 
 </fieldset>
@@ -147,60 +122,24 @@
 
         <div class="selection-button-radio-inline" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-2-yes" style="margin-bottom: 0;">
-                <input id="radio-inline-11" type="radio" name="radio-inline-group-6" value="retry">
-                <label for="radio-inline-11" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
+                <input id="radio-inline-7" type="radio" name="radio-inline-group-4" value="retry">
+                <label for="radio-inline-7" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
             </div>
         </div>
         <div class="selection-button-radio-inline" style="margin-top: 0;">
             <div class="multiple-choice" data-target="advice-2-no" style="margin-bottom: 0;">
-                <input id="radio-inline-12" type="radio" name="radio-inline-group-6" value="startover">
-                <label for="radio-inline-12"class="block-label" style="position: static;">Choose a different type of I.D.</label>
+                <input id="radio-inline-8" type="radio" name="radio-inline-group-4" value="startover">
+                <label for="radio-inline-8"class="block-label" style="position: static;">Choose a different type of I.D.</label>
             </div>
         </div>
 
         <div class="form-group">
-            <a class="button button--next" href="#" id="check-5-submit">Continue</a>
+            <a class="button button--next" href="#" id="check-4-submit">Continue</a>
         </div>
 
     </fieldset>
 
 </div>
-
-<div id="advice-3" class="photo-check" style="margin-top: 0; display: none;">
-
-    <h1 id="advice-title-3">Make sure there is no shine (glare) on your face or any of the text</h1>
-
-    {% if idType === 'passport' %}
-    <p>If there is shine covering any part of your face or any text, then we cannot check if your passport is valid.</p>
-    {% else %}
-    <p>If there is any shine over your face or any text, then we cannot check if your {{ idType }} is valid.</p>
-    {% endif %}
-
-    <fieldset>
-
-        <legend><h2 class="h3">Choose one of the following options</h2></legend>
-
-        <div class="selection-button-radio-inline" style="margin-top: 16px;">
-            <div class="multiple-choice" data-target="advice-3-yes" style="margin-bottom: 0;">
-                <input id="radio-inline-13" type="radio" name="radio-inline-group-7" value="retry">
-                <label for="radio-inline-13" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
-            </div>
-        </div>
-        <div class="selection-button-radio-inline" style="margin-top: 0;">
-            <div class="multiple-choice" data-target="advice-3-no" style="margin-bottom: 0;">
-                <input id="radio-inline-14" type="radio" name="radio-inline-group-7" value="startover">
-                <label for="radio-inline-14"class="block-label" style="position: static;">Choose a different type of I.D.</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <a class="button button--next" href="#" id="check-6-submit">Continue</a>
-        </div>
-
-    </fieldset>
-
-</div>
-
 
 <a class="u-visuallyhidden" href="" style="visibility:hidden;" id="submit-photoId-button">Yes - continue</a>
 <a href="service-access-photo-id-type{{ params }}" class="u-visuallyhidden" id="startover">Choose the photo I.D. you want to use</a>
@@ -231,10 +170,10 @@
 
         console.log(nextQuestion)
 
-        if (nextQuestion === 4) {
+        if (nextQuestion === 3) {
             fakeClick(event, document.getElementById('submit-photoId-button'))
         } else {
-            for (var i = 1; i < 4; i++) {
+            for (var i = 1; i < 3; i++) {
                 document.getElementById('check-' + i).style.display = 'none'
             }
             document.getElementById('check-' + nextQuestion).style.display = 'block'
@@ -250,7 +189,7 @@
     function getAdvice(num) {
         // show relevent advice page
         document.getElementById('check-intro').style.display = 'none'
-        for (var i = 1; i < 4; i++) {
+        for (var i = 1; i < 3; i++) {
             document.getElementById('check-' + i).style.display = 'none'
         }
 
@@ -284,6 +223,7 @@
         var num = parseInt(target.substr(6, 1), 10)
         var value = getRadioCheckedValue('radio-inline-group-' + num)
 
+        console.log("button number= " + num)
         if (value == null) {
             // do nothing if radio not selected
         } else {
