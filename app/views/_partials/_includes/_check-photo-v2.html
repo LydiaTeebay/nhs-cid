@@ -5,7 +5,7 @@
 
     <p>We will ask you some questions to help you check your photo before you send it to us.</p>
 
-    <p><a href="#">Are you visually impaired?</a></p>
+    <p><a href="#" id="visually-impaired">Are you visually impaired?</a></p>
 
     <div class="reading-width">
         <div id="scan-id-preview">
@@ -141,6 +141,37 @@
 
 </div>
 
+
+<div id="visually-impaired-advice" class="photo-check" style="display: none;">
+
+    <fieldset>
+
+        <legend><h2 class="h3">Do you want to send without making the visual checks?</h2></legend>
+
+        <div class="selection-button-radio-inline" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="check-3-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-9" type="radio" name="radio-inline-group-5" value="continue">
+                <label for="radio-inline-9" class="block-label" style="position: static;">Yes, send without checking</label>
+            </div>
+        </div>
+        <div class="selection-button-radio-inline" style="margin-top: 0;">
+            <div class="multiple-choice" data-target="check-3-no" style="margin-bottom: 0;">
+                <input id="radio-inline-10" type="radio" name="radio-inline-group-5" value="undo">
+                <label for="radio-inline-10"class="block-label" style="position: static;">No, I will make the checks</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button button--next" href="#" id="check-5-submit">Continue</a>
+        </div>
+
+    </fieldset>
+
+
+
+</div>
+
+
 <a class="u-visuallyhidden" href="" style="visibility:hidden;" id="submit-photoId-button">Yes - continue</a>
 <a href="service-access-photo-id-type{{ params }}" class="u-visuallyhidden" id="startover">Choose the photo I.D. you want to use</a>
 
@@ -244,6 +275,9 @@
                     fakeClick(event, document.getElementById('tryagain'))
                 } else if (value === 'startover') {
                     fakeClick(event, document.getElementById('startover'))
+                } else if (value === 'undo') {
+                    document.getElementById('visually-impaired-advice').style.display = 'none'
+                    document.getElementById('check-1').style.display = 'block'
                 } else {
                     answerNo(num)
                 }

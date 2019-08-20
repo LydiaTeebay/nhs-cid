@@ -593,7 +593,7 @@ $("#document").change(function(){
 $("#linkage-key-loader").on("load", function() {
     reactivateLoader(2);
     console.log("is this firing!!");
-}) 
+})
 
 // submit photo button action
 $("#submit-id-button").on("click", function(e) {
@@ -806,6 +806,18 @@ $("#create-video-back-button").on("click", function(e) {
     $("#scan-id-3").css("display","none")
     $("#scan-id-2").css("display","block")
     document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Visually impaired button action
+$("#visually-impaired").on("click", function(e) {
+    e.preventDefault()
+    for (var i = 1; i < 3; i++) {
+        document.getElementById('check-' + i).style.display = 'none'
+    }
+    $("#visually-impaired-advice").css("display","block")
+    $("#visually-impaired-advice").focus()
+    document.body.scrollTop = document.documentElement.scrollTop = 9999
+
 })
 
 $("#id-selfie").change(function(){
