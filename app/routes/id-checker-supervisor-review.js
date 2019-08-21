@@ -11,8 +11,8 @@ module.exports = function (router) {
         var devmode = req.param('devMode')
         var noabort = req.param('noabort')
         var failreason = req.param('failreason')
-
-        res.render('id-checker/id-checker-supervisor-review', { state: state, emailLink: emailLink, role: role, result: result, demographics: demographics, devMode: devmode, queue: queue, holding: holding, noabort: noabort, failreason: failreason }, function(err, html) {
+        var readOnly = req.param('readOnly')
+        res.render('id-checker/id-checker-supervisor-review', { state: state, emailLink: emailLink, role: role, result: result, demographics: demographics, devMode: devmode, queue: queue, holding: holding, noabort: noabort, failreason: failreason, readOnly: readOnly }, function(err, html) {
             res.send(html)
         })
     })

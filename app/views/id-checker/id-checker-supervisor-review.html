@@ -5,7 +5,7 @@
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = 'audit' %}
 {% set noabort = '' %}
-{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&idType=" + idType %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&idType=" + idType + "&readOnly=" + readOnly %}
 
 {% block content %}
 
@@ -211,6 +211,9 @@
 
             {% else %}
 
+            <h4>NHS number</h4>
+            <p style="margin: 0;">485 777 3456</p>
+
             <h4>First name</h4>
             <p style="margin: 0;">Joe</p>
 
@@ -231,6 +234,7 @@
 
 </div>
 
+{% if readOnly !== 'true' %}
 
 <div id="id-buttons">
     <span id="id-approve">
@@ -241,7 +245,7 @@
     </span>
 </div>
 
-
+{% endif %}
 
 
 <div id="slideout" style="display: none;">

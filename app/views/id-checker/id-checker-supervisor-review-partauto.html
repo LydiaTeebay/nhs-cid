@@ -145,7 +145,7 @@
     </div>
     <div class="panel__content panel__content--half">
 
-        <h3>iProov scan image</h3>
+        <h3>Image from face scan</h3>
         <div class="reading-width">
 
             <div class="idcheck-image">
@@ -237,6 +237,9 @@
 
             {% else %}
 
+            <h4>NHS number</h4>
+            <p style="margin: 0;">485 777 3456</p>
+
             <h4>First name</h4>
             <p style="margin: 0;">Joe</p>
 
@@ -257,6 +260,8 @@
 
 </div>
 
+{% if readOnly !== 'true' %}
+
 
 <div id="id-buttons">
     <span id="id-approve">
@@ -267,7 +272,7 @@
     </span>
 </div>
 
-
+{% endif %}
 
 
 <div id="slideout" style="display: none;">
