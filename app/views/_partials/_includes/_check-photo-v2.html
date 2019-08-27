@@ -1,14 +1,36 @@
 <div class="" id="check-intro">
 
+    {% if idType === 'passport' or idType === 'UK driving licence' %}
+    <p><a href="#" class="link-back" id="usercheck-back-button">
+        <span class="u-visuallyhidden"><i>Back to:</i></span>
+        {% if upload === 'file' %}
+        Upload a photo of your {{ idType }}
+        {% else %}
+        Take a photo of your {{ idType }}
+        {% endif %}
+    </a>
+    </p>
+    {% else %}
+    <p><a href="#" class="link-back" id="usercheck-back-button">
+        <span class="u-visuallyhidden"><i>Back to:</i></span>
+        {% if upload === 'file' %}
+        Upload a photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your {{ idType }}
+        {% else %}
+        Take a photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your {{ idType }}
+        {% endif %}
+    </a>
+    </p>
+    {% endif %}
+
 
     <h1 style="padding-bottom: 0;">Check your photo before you send it</h1>
 
-    <p>We will ask you some questions to help you check your photo before you send it to us.</p>
+    <p>We will ask you 2 questions to help you check your photo is correct.</p>
 
-    <p><a href="#" id="visually-impaired">Are you visually impaired?</a></p>
+    <p><a href="#" id="visually-impaired">What to do if you are visually impaired</a></p>
 
     <div class="reading-width">
-        <div id="scan-id-preview">
+        <div id="scan-id-preview" style="padding-top: 16px;">
             <img id="uploaded-id" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
         </div>
     </div>
@@ -18,13 +40,23 @@
 
 <fieldset id="check-1" class="photo-check">
 
-    <legend id="check-1-title"><h2 class="h3 check-title">
-        {% if idType === 'passport' %}
-        Can you see all 4 edges of the page with your name and face on it?
-        {% else %}
-        Can you see all 4 edges of your licence?
-        {% endif %}
-    </h2></legend>
+    <legend id="check-1-title">
+        <h2 class="h3 check-title">
+            {% if idType === 'passport' %}
+                Can you see all 4 edges of the page with your name on it?
+            {% elif idType === 'European driving licence' %}
+                {% if licenceSide === 'back' %}
+                    Can you see all 4 corners of the back of your driving licence?
+                {% else %}
+                    Can you see all 4 corners of the front of your driving licence?
+                {% endif %}
+            {% elif idType === 'European national identity card' %}
+                Can you see all 4 corners of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card?
+            {% else %}
+                Can you see all 4 corners of your driving licence?
+            {% endif %}
+        </h2>
+    </legend>
 
     <div class="selection-button-radio-inline" style="margin-top: 16px;">
         <div class="multiple-choice" data-target="check-1-yes" style="margin-bottom: 0;">
@@ -48,7 +80,17 @@
 
 <fieldset id="check-2" class="photo-check" style="display: none;">
 
-    <legend id="check-2-title"><h2 class="h3 check-title">Are you touching any part of the {% if idType === 'passport' %}page{% else %}card{% endif %} with your hands?</h2></legend>
+    <legend id="check-2-title">
+        <h2 class="h3 check-title">
+            {% if idType === 'passport' %}
+                Have you covered any part of the page with hands or fingers?
+            {% elif idType === 'European national identity card' %}
+                Have you covered any part of your identity card with hands or fingers?
+            {% else %}
+                Have you covered any part of your driving licence with hands or fingers?
+            {% endif %}
+        </h2>
+    </legend>
 
     <div class="selection-button-radio-inline" style="margin-top: 16px;">
         <div class="multiple-choice" data-target="check-2-yes" style="margin-bottom: 0;">
@@ -70,55 +112,75 @@
 </fieldset>
 
 
-<fieldset id="advice-1" class="photo-check" style="margin-top: 0; display: none;">
+<div id="advice-1" class="photo-check" style="margin-top: 0; display: none;">
 
-    <legend><h1 id="advice-title-1">
-        {% if idType === 'passport' %}
-        Make sure the whole page is in your photo
-        {% else %}
-        Make sure the whole licence is in your photo
-        {% endif %}
-    </h1></legend>
-
-    <p style="margin-top: 0;">
-        {% if idType === 'passport' %}
-        If we cannot see all the details of your passport then we cannot check if it is valid. 
-        {% else %}
-        If we cannot see all the details of your licence then we cannot check if it is valid. 
-        {% endif %}</p>
-
-    <div class="selection-button-radio-inline" style="margin-top: 16px;">
-        <div class="multiple-choice" data-target="advice-1-yes" style="margin-bottom: 0;">
-            <input id="radio-inline-5" type="radio" name="radio-inline-group-3" value="retry">
-            <label for="radio-inline-5" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
-        </div>
-    </div>
-    <div class="selection-button-radio-inline" style="margin-top: 0;">
-        <div class="multiple-choice" data-target="advice-1-no" style="margin-bottom: 0;">
-            <input id="radio-inline-6" type="radio" name="radio-inline-group-3" value="startover">
-            <label for="radio-inline-6"class="block-label" style="position: static;">Choose a different type of I.D.</label>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <a class="button button--next" href="#" id="check-3-submit">Continue</a>
-    </div>
-
-</fieldset>
-
-<div id="advice-2" class="photo-check" style="margin-top: 0; display: none;">
-
-    <h1 id="advice-title-2">Make sure you do not hide any part of the {% if idType === 'passport' %}page{% else %}licence{% endif %} with your hands</h1>
+    <p><a href="#" class="link-back button--back" id="backlink-1">
+        <span class="u-visuallyhidden"><i>Back to:</i></span>
+        Check your photo before you send it
+        </a>
+    </p>
 
     {% if idType === 'passport' %}
-    <p>If we cannot see all the details of your passport then we cannot check if your passport is valid.</p>
-    {% else %}
-    <p>If we cannot see all the details of your licence then we cannot check if it is valid.</p>
+        <h1 id="advice-title-2">Make sure all 4 edges of the page are in your photo</h1>
+        <p>We need to see the full page so we can check it’s a valid passport.</p>
+    {% elif idType === 'UK driving licence' or idType === 'European driving licence' %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your licence are in your photo</h1>
+        <p>We need to see the full card so we can check it's a valid licence.</p>
+    {% elif idType === 'European national identity card' %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your identity card are in your photo</h1>
+        <p>We need to see the full card so we can check it’s a valid national identity card.</p>
     {% endif %}
 
     <fieldset>
 
-        <legend><h2 class="h3">Choose one of the following options</h2></legend>
+        <legend><h2 class="h3">What do you want to do?</h2></legend>
+
+        <div class="selection-button-radio-inline" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-1-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-5" type="radio" name="radio-inline-group-3" value="retry">
+                <label for="radio-inline-5" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
+            </div>
+        </div>
+        <div class="selection-button-radio-inline" style="margin-top: 0;">
+            <div class="multiple-choice" data-target="advice-1-no" style="margin-bottom: 0;">
+                <input id="radio-inline-6" type="radio" name="radio-inline-group-3" value="startover">
+                <label for="radio-inline-6"class="block-label" style="position: static;">Choose a different type of I.D.</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button button--next" href="#" id="check-3-submit">Continue</a>
+        </div>
+
+    </fieldset>
+
+</div>
+
+<div id="advice-2" class="photo-check" style="margin-top: 0;display: none;">
+
+    <p><a href="#" class="link-back button--back" id="backlink-2">
+        <span class="u-visuallyhidden"><i>Back to:</i></span>
+        Check your photo before you send it
+    </a>
+    </p>
+
+    {% if idType === 'passport' %}
+        <h1 id="advice-title-2">Make sure you do not hide any part of the page with your name on it</h1>
+        <p>We need to see all the details on the page so we can check it's a valid passport.</p>
+        <p>Be careful if you hold your passport to take a photo of it.</p>
+    {% elif idType === 'UK driving licence' or idType === 'European driving licence' %}
+        <h1 id="advice-title-2">Make sure you do not hide any part of the page with your name on it</h1>
+        <p>We need to see all the details so we can check it's a valid licence.</p>
+        <p>Be careful if you hold your licence to take a photo of it.</p>
+    {% elif idType === 'European national identity card' %}
+        <h1 id="advice-title-2">Make sure you do not hide any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card</h1>
+        <p>We need to see all the details so we can check it's a identity card.</p>
+        <p>Be careful if you hold your card to take a photo of it.</p>
+    {% endif %}
+
+    <fieldset>
+
+        <legend><h2 class="h3">What do you want to do?</h2></legend>
 
         <div class="selection-button-radio-inline" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-2-yes" style="margin-bottom: 0;">
@@ -142,22 +204,32 @@
 </div>
 
 
-<div id="visually-impaired-advice" class="photo-check" style="display: none;">
+<div id="visually-impaired-advice" class="photo-check" style="margin-top: 0;display: none;">
+
+    <p><a href="#" class="link-back button--back" id="backlink-3">
+        <span class="u-visuallyhidden"><i>Back to:</i></span>
+        Check your photo before you send it
+    </a>
+    </p>
+
+    <h1 id="advice-title-2">What to do if you are visually impaired</h1>
+    <p>You do not need to answer the 2 questions if you cannot see your photo. You can send your photo now.</p>
+    <p>Or you could ask someone to help you check your photo.</p>
 
     <fieldset>
 
-        <legend><h2 class="h3">Do you want to send without making the visual checks?</h2></legend>
+        <legend><h2 class="h3">Do you want to send your photo without checking it?</h2></legend>
 
         <div class="selection-button-radio-inline" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="check-3-yes" style="margin-bottom: 0;">
                 <input id="radio-inline-9" type="radio" name="radio-inline-group-5" value="continue">
-                <label for="radio-inline-9" class="block-label" style="position: static;">Yes, send without checking</label>
+                <label for="radio-inline-9" class="block-label" style="position: static;">Yes, send photo now</label>
             </div>
         </div>
         <div class="selection-button-radio-inline" style="margin-top: 0;">
             <div class="multiple-choice" data-target="check-3-no" style="margin-bottom: 0;">
                 <input id="radio-inline-10" type="radio" name="radio-inline-group-5" value="undo">
-                <label for="radio-inline-10"class="block-label" style="position: static;">No, I will make the checks</label>
+                <label for="radio-inline-10"class="block-label" style="position: static;">No, answer questions to check photo</label>
             </div>
         </div>
 
@@ -166,8 +238,6 @@
         </div>
 
     </fieldset>
-
-
 
 </div>
 
@@ -181,6 +251,7 @@
     // radio button functionality
 
     addButtonListeners()
+    addBackButtonListeners()
     addQuestionNumbers()
 
     function getRadioCheckedValue (radioName) {
@@ -249,6 +320,16 @@
         }
     }
 
+    function addBackButtonListeners() {
+        var buttons = document.querySelectorAll('.button--back')
+        for (j = 0; j < buttons.length; j++) {
+            buttons[j].addEventListener('click', function (event) {
+                event.preventDefault()
+                backButtonClick(this, event)
+            })
+        }
+    }
+
     function buttonClick(element) {
         var target = element.id
         var num = parseInt(target.substr(6, 1), 10)
@@ -278,10 +359,30 @@
                 } else if (value === 'undo') {
                     document.getElementById('visually-impaired-advice').style.display = 'none'
                     document.getElementById('check-1').style.display = 'block'
+                    document.getElementById('check-intro').style.display = 'block'
                 } else {
                     answerNo(num)
                 }
             }
+        }
+    }
+
+    function backButtonClick(element) {
+        var target = element.id
+        var num = parseInt(target.substr(9, 1), 10)
+
+        if (num === 1) {
+            document.getElementById('advice-1').style.display = 'none'
+            document.getElementById('check-intro').style.display = 'block'
+            document.getElementById('check-1').style.display = 'block'
+        } else if (num === 2) {
+            document.getElementById('advice-2').style.display = 'none'
+            document.getElementById('check-intro').style.display = 'block'
+            document.getElementById('check-2').style.display = 'block'
+        } else if (num === 3) {
+            document.getElementById('visually-impaired-advice').style.display = 'none'
+            document.getElementById('check-intro').style.display = 'block'
+            document.getElementById('check-1').style.display = 'block'
         }
     }
 
@@ -290,8 +391,9 @@
 
         for (i = 0; i < titles.length; i++) {
             var questionNum = i + 1
-            titles[i].innerHTML = '<span>Question ' + questionNum + ': </span>' + titles[i].innerHTML
+            titles[i].innerHTML = '<span class="heading-secondary">Question ' + questionNum + '</span>' + titles[i].innerHTML
         }
 
     }
+
 </script>

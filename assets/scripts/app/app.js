@@ -558,6 +558,15 @@ function loadSelectedFile(event) {
     spinner(2)
 }
 
+function clearFileInput(ctrl) {
+    try {
+        ctrl.value = null;
+    } catch(ex) { }
+    if (ctrl.value) {
+        ctrl.parentNode.replaceChild(ctrl.cloneNode(true), ctrl);
+    }
+}
+
 $("#short-video").change(function(){
     loadSelectedFile(this)
 })
@@ -643,6 +652,18 @@ $("#submit-document-back-button").on("click", function(e) {
     e.preventDefault()
     $("#scan-id-3").css("display","none")
     $("#scan-id-1").css("display","block")
+    document.getElementById("id-document").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+
+// submit photo button action
+$("#usercheck-back-button").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-3").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-1").css("display","block")
+    clearFileInput(document.getElementById("photo-id-document-auto"))
     document.getElementById("id-document").value = ''
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
@@ -814,9 +835,10 @@ $("#visually-impaired").on("click", function(e) {
     for (var i = 1; i < 3; i++) {
         document.getElementById('check-' + i).style.display = 'none'
     }
+    $("#check-intro").css("display","none")
     $("#visually-impaired-advice").css("display","block")
     $("#visually-impaired-advice").focus()
-    document.body.scrollTop = document.documentElement.scrollTop = 9999
+    document.body.scrollTop = document.documentElement.scrollTop = 0
 
 })
 

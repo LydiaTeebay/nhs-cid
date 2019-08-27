@@ -2,6 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
+{% set licenceSide = 'back' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&upload=" + upload %}
 
 {% block content %}
