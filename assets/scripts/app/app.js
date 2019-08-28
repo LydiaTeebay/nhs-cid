@@ -411,13 +411,14 @@ function readURL(input, idType) {
             $("#scan-id-1").css("display", "none")
             $("#scan-id-0").css("display", "block")
             //show then hide the spinner animation
+            document.body.scrollTop = document.documentElement.scrollTop = 0
             setTimeout(function(){
                 document.getElementById('scan-id-0').style.display = 'none'
             }, 1000)
             setTimeout(function(){
                 if (Validate(input)) {
                     document.getElementById('scan-id-5').style.display = 'block'
-                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                    // document.body.scrollTop = document.documentElement.scrollTop = 0
                     console.log('validated')
                 } else {
                     $(".camera-file-format").css("display", "block")
@@ -434,12 +435,13 @@ function readURL(input, idType) {
         if (idType == "photoIdAuto") {
             $("#scan-id-1").css("display", "none")
             $("#scan-id-5").css("display", "block")
+            document.body.scrollTop = document.documentElement.scrollTop = 0
             //show then hide the spinner animation
             setTimeout(function(){
                 if (Validate(input)) {
                     document.getElementById('scan-id-5').style.display = 'block'
-                    document.body.scrollTop = document.documentElement.scrollTop = 0
-                    console.log('validated')
+                    // document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('validated 1')
                 } else {
                     $(".camera-file-format").css("display", "block")
                     document.getElementById('scan-id-1').style.display = 'block'
