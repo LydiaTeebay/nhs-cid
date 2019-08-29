@@ -45,17 +45,13 @@
     <legend id="check-1-title">
         <h2 class="h3 check-title">
             {% if idType === 'passport' %}
-                Can you see all 4 edges of the page with your name on it?
+                Can you see all 4 edges of the passport page that has your name on it?
             {% elif idType === 'European driving licence' %}
-                {% if licenceSide === 'back' %}
-                    Can you see all 4 corners of the back of your driving licence?
-                {% else %}
-                    Can you see all 4 corners of the front of your driving licence?
-                {% endif %}
+                Can you see all 4 corners of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your driving licence?
             {% elif idType === 'European national identity card' %}
                 Can you see all 4 corners of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card?
             {% else %}
-                Can you see all 4 corners of your driving licence?
+                Can you see all 4 corners of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your driving licence?
             {% endif %}
         </h2>
     </legend>
@@ -85,11 +81,11 @@
     <legend id="check-2-title">
         <h2 class="h3 check-title">
             {% if idType === 'passport' %}
-                Have you covered any part of the page with hands or fingers?
+                Have you covered up any part of the passport page that has your name on it?
             {% elif idType === 'European national identity card' %}
-                Have you covered any part of your identity card with hands or fingers?
+                Have you covered up any part of your identity card with hands or fingers?
             {% else %}
-                Have you covered any part of your driving licence with hands or fingers?
+                Have you covered up any part of your driving licence with hands or fingers?
             {% endif %}
         </h2>
     </legend>
@@ -113,11 +109,11 @@
 
 
     <div class="nhsuk-back-link" style="margin-bottom: 16px;">
-        <a class="nhsuk-back-link__link button--back" href="#" id="backlink-4" style="font-size: 14px;font-size: .875rem;line-height: 1.71429;display: inline-block;padding-left: 16px;position: relative;text-decoration: none;">
+        <a class="nhsuk-back-link__link button--back" href="#" id="backlink-4" style="font-size: 16px;font-size: .875rem;line-height: 1.71429;display: inline-block;padding-left: 16px;position: relative;text-decoration: underline;">
             <svg class="nhsuk-icon nhsuk-icon__chevron-left" style="height: 24px;left: -8px;position: absolute;top: -1px;width: 24px;fill: #005eb8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
             </svg>
-            Go back to the previous question</a>
+            Change answer to question 1</a>
     </div>
 
 
@@ -135,14 +131,17 @@
     </p>
 
     {% if idType === 'passport' %}
-        <h1 id="advice-title-2">Make sure all 4 edges of the page are in your photo</h1>
-        <p>We need to see the full page so we can check it’s a valid passport.</p>
-    {% elif idType === 'UK driving licence' or idType === 'European driving licence' %}
-        <h1 id="advice-title-2">Make sure all 4 corners of your licence are in your photo</h1>
-        <p>We need to see the full card so we can check it's a valid licence.</p>
+        <h1 id="advice-title-2">Make sure all 4 edges of the passport page are in your photo</h1>
+        <p>We need to see the full page so we can check it's a valid passport.</p>
+    {% elif idType === 'UK driving licence' %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your driving licence are in your photo</h1>
+        <p>We need to see all of the front of your licence, so we can check it's valid.</p>
+    {% elif idType === 'European driving licence' %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your driving licence are in your photo</h1>
+        <p>We need to see all of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your licence, so we can check it’s valid.</p>
     {% elif idType === 'European national identity card' %}
         <h1 id="advice-title-2">Make sure all 4 corners of your identity card are in your photo</h1>
-        <p>We need to see the full card so we can check it’s a valid national identity card.</p>
+        <p>We need to see all of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card, so we can check it's valid.</p>
     {% endif %}
 
     <fieldset>
@@ -152,7 +151,19 @@
         <div class="selection-button-radio-inline" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-1-yes" style="margin-bottom: 0;">
                 <input id="radio-inline-5" type="radio" name="radio-inline-group-3" value="retry">
-                <label for="radio-inline-5" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
+                <label for="radio-inline-5" class="block-label" style="position: static;">
+
+                    {% if idType === 'passport' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my passport
+                    {% elif idType === 'UK driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my licence
+                    {% elif idType === 'European driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my licence
+                    {% elif idType === 'European national identity card' %}
+                    {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my identity card
+                    {% endif %}
+
+                </label>
             </div>
         </div>
         <div class="selection-button-radio-inline" style="margin-top: 0;">
@@ -179,17 +190,17 @@
     </p>
 
     {% if idType === 'passport' %}
-        <h1 id="advice-title-2">Make sure you do not hide any part of the page with your name on it</h1>
+        <h1 id="advice-title-2">Do not cover up any part of the passport page that has your name on it</h1>
         <p>We need to see all the details on the page so we can check it's a valid passport.</p>
-        <p>Be careful if you hold your passport to take a photo of it.</p>
-    {% elif idType === 'UK driving licence' or idType === 'European driving licence' %}
-        <h1 id="advice-title-2">Make sure you do not hide any part of the page with your name on it</h1>
+    {% elif idType === 'UK driving licence' %}
+        <h1 id="advice-title-2">Do not cover up any details on the front of your licence</h1>
         <p>We need to see all the details so we can check it's a valid licence.</p>
-        <p>Be careful if you hold your licence to take a photo of it.</p>
+    {% elif idType === 'European driving licence' %}
+        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your licence</h1>
+        <p>We need to see all the details so we can check it's a valid licence.</p>
     {% elif idType === 'European national identity card' %}
-        <h1 id="advice-title-2">Make sure you do not hide any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card</h1>
-        <p>We need to see all the details so we can check it's a identity card.</p>
-        <p>Be careful if you hold your card to take a photo of it.</p>
+        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card</h1>
+        <p>We need to see all the details so we can check it's a valid identity card.</p>
     {% endif %}
 
     <fieldset>
@@ -199,7 +210,19 @@
         <div class="selection-button-radio-inline" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-2-yes" style="margin-bottom: 0;">
                 <input id="radio-inline-7" type="radio" name="radio-inline-group-4" value="retry">
-                <label for="radio-inline-7" class="block-label" style="position: static;">Go back to the photo instructions and try again</label>
+                <label for="radio-inline-7" class="block-label" style="position: static;">
+
+                    {% if idType === 'passport' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my passport
+                    {% elif idType === 'UK driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my licence
+                    {% elif idType === 'European driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my licence
+                    {% elif idType === 'European national identity card' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my identity card
+                    {% endif %}
+
+                </label>
             </div>
         </div>
         <div class="selection-button-radio-inline" style="margin-top: 0;">
@@ -227,23 +250,23 @@
     </p>
 
     <h1 id="advice-title-2">What to do if you are visually impaired</h1>
-    <p>You do not need to answer the 2 questions if you cannot see your photo. You can send your photo now.</p>
+    <p>If you cannot see your photo clearly, you do not need to check it. Instead, you can send it now.</p>
     <p>Or you could ask someone to help you check your photo.</p>
 
     <fieldset>
 
-        <legend><h2 class="h3">Do you want to send your photo without checking it?</h2></legend>
+        <legend><h2 class="h3">Do you want to check your photo?</h2></legend>
 
         <div class="selection-button-radio-inline" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="check-3-yes" style="margin-bottom: 0;">
                 <input id="radio-inline-9" type="radio" name="radio-inline-group-5" value="continue">
-                <label for="radio-inline-9" class="block-label" style="position: static;">Yes, send photo now</label>
+                <label for="radio-inline-9" class="block-label" style="position: static;">Yes - check photo</label>
             </div>
         </div>
         <div class="selection-button-radio-inline" style="margin-top: 0;">
             <div class="multiple-choice" data-target="check-3-no" style="margin-bottom: 0;">
                 <input id="radio-inline-10" type="radio" name="radio-inline-group-5" value="undo">
-                <label for="radio-inline-10"class="block-label" style="position: static;">No, answer questions to check photo</label>
+                <label for="radio-inline-10"class="block-label" style="position: static;">No - send photo now</label>
             </div>
         </div>
 
