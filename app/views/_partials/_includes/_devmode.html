@@ -22,11 +22,17 @@
         </summary>
         <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
             <div class="reading-width">
-                <ol>
+                <ul>
                     <li><a href="/error/error-404{{ params }}">[404] Page not found</a></li>
                     <li><a href="/error/error-500{{ params }}">[403] Page not found</a></li>
                     <li><a href="/error/error-504{{ params }}">Logged in user time out</a></li>
-                </ol>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="#" class="clear-cookies" title="Clear cookies" onclick="deleteCookie()">Clear cookie</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </details>
