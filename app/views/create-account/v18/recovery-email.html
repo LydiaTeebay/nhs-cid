@@ -1,0 +1,73 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Add a recovery email{% endblock %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result + "&reason=" + reason %}
+
+
+{% block topRow %}
+{% if resend === "yes" %}
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','Your security code has been resent.','attention') }}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+{% if formerror === 'true' %}
+  {% import "_partials/_components/_callout.html" as callout %}
+        {{ callout.pattern('','<strong>There\'s a problem</strong><br> You\'ve already used this email address to set up an NHS login. Please log in.','alert') }}
+{% endif %}
+
+<p><a href="login-nhs{{ params }}" class="link-back">Back</a></p>
+
+<div class="first-item">
+  <form>
+      <fieldset>
+
+        <h1>Add a recovery email</h1>
+
+        <p>Adding a recovery email address will help to secure your account. It will be used if you need to recover your account in future.</p>
+
+        <p>A recovery email address can be a second email you have. It is not recommended to use an email address where you may lose access over time, for example a work email.</p>
+
+        <div class="form-group">
+            <label class="form-label" for="recoveryEmail">Recovery email</label>
+            <input class="form-control" id="recoveryEmail" name="recoveryEmail" type="email">
+        </div>
+        
+
+      </fieldset>
+
+    <div class="form-group">
+
+       <a id="securitycodeContinue" href="login-spinner{{ params }}" class="button">Continue</a>
+
+    </div>
+
+    <p> 
+      <a href="login-spinner{{ params }}">Skip this step</a>
+    </p>
+    
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">Continue with testing scenario</span>
+        </summary>
+        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+    
+                <p>Email validation</p>
+                <ol>
+                    <li><a href="recovery-email{{ params }}&formerror=true">Recovery email is the same as existing email</a></li>
+                </ol>
+
+            </div>
+        </div>
+    </details>
+    {% endif %}
+
+  </form>
+</div>
+
+{% endblock %}

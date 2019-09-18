@@ -1,0 +1,30 @@
+{% extends '_layouts/_grids/_grid-1-stacked2.html' %}
+
+{% block page_title %}Your NHS login{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% endif %}
+
+{% block content %}
+
+<h1>There is a problem</h1>
+
+{% endblock %}
+{% block leftcol %}
+
+<p>Email our support team to find out what the problem is.</p>
+<p>Email: <a href="mailto:ssd.nationalservicedesk@nhs.net">ssd.nationalservicedesk@nhs.net</a></p>
+<p>Include this code in your email:<br><b>CID1234</b><br></p>
+
+{% endblock %}
+
+{% block rightcol %}
+
+{% endblock %}

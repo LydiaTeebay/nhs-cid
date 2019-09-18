@@ -10,11 +10,12 @@
                 <li><a href="login-nhs-error{{ params }}&reason=noaccount">No account found</a></li>
                 <li><a href="login-no-service{{ params }}&reason=noservice">We don't know which service to connect them to</a></li>
                 <li><a href="login-nhs-reset{{ params }}&reason=resetaccount">User needs to reset their password</a></li>
+                <li><a href="two-step-code-login{{ params }}&reason=recoveryemail">User does not have recovery email</a></li>
             </ol>
 
             <p>Service</p>
             <ol>
-                <li><a href="login-nhs{{ params }}&clientId=false">Accessing service with no client ID</a></li>
+                <li><a href="../no-client-error{{ params }}&clientId=false">Accessing service with no client ID</a></li>
             </ol>
 
             <p>PYI GP-Connect endpoint</p>

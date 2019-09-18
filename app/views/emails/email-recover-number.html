@@ -1,0 +1,25 @@
+{% extends '_layouts/_grids/_grid-email.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&poluser=" + poluser%}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% elif newUser %}
+  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+  <h1>Phone number successfully changed</h1>
+  
+  <p>Your phone number has been changed to {{newMobileNum}}</p>
+
+  <p>Go back to the service you were trying to use and log back in.</p>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Enter your NHS number{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+<div class="first-item">
+   <p><a href="/recover-account/enter-number{{ params }}" class="link-back">Back</a></p>
+  <form action="/account-recovery/enter-new-number">
+    <div class="form-group">
+        <legend>
+          <h1 class="heading-large">Enter your NHS number</h1>
+        </legend>
+        <p style="margin: 0;">We need you to confirm your NHS number so you can change your phone number.</p>
+        <p>If you do not know your NHS number, you can get it by going to your local GP surgery with photo I.D.</p>
+        <label class="form-label" for="">NHS number</label>
+        <input style="width: 20em;" aria-label="Phone number" class="form-control" id="mobileNum" name="mobileNum" type="tel">
+    </div>
+    <div class="form-group">
+      <button class="button">Continue</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
+

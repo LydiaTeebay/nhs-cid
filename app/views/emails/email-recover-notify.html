@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-email.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&poluser=" + poluser%}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% elif newUser %}
+  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+  <h1>Change your phone number</h1>
+  <p>You have requested to change your number.</p>
+  
+  <p>If you did not request to change your number, contact the National Service Desk. You will need to make note of the reference below.</p>
+  <p><b>Email:</b> <a href="mailto:ssd.nationalservicedesk@nhs.net">nationalservicedesk@nhs.net</a></p>
+  <p style="margin-top: 8px;"><b>Phone:</b> 0300 303 5035</p>
+  <p style="margin-top: 8px;"><b>Reference:</b> ABC1234</p>
+
+</div>
+
+{% endblock %}
