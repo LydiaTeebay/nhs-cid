@@ -26,6 +26,19 @@ select {
   line-height: 32px;
 }
 
+/* Overrides to remove number input spinners */
+
+/* For Firefox */
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 select{
   background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right 10px center white;
   //background-position: right 10px 20px 0;

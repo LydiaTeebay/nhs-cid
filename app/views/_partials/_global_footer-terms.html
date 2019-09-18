@@ -2,6 +2,17 @@
   <div class="global-footer">
     <div class="global-footer__inner__no-logo ">
       <ul class="link-list">
+
+        {# Show a link to sharepoint in the footer of the ID checker application #}
+
+        {% if service == 'idchecker' %}
+
+        <li>
+          <a href="#" class="id-check_external-link" title="open sharepoint site in new tab" target="_blank">ID checking guidance</a>
+        </li>
+
+        {% else %}
+
         <li>
           <a href="/terms-of-use/terms-conditions{{ params }}" title="Terms of use">Terms of use</a>
         </li>
@@ -11,9 +22,12 @@
         <li>
           <a href="/terms-of-use/accessibility{{ params }}" title="Accessibility">Accessibility</a>
         </li>
-        <li>
-          <a href="#" class="clear-cookies" title="Clear cookies" onclick="deleteCookie()">Clear cookie</a>
-        </li>
+        <!--<li> --> {# Moved this to _devmode.html #}
+          <!--<a href="#" class="clear-cookies" title="Clear cookies" onclick="deleteCookie()">Clear cookie</a>-->
+        <!--</li>-->
+
+        {% endif %}
+
       </ul>
     </div>
   </div>
