@@ -50,7 +50,7 @@ module.exports = function (router) {
         }
 
         // re-render the page along with the parameter
-        res.render('create-account/v18/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, hideBack: hideBack, reason: reason }, function(err, html) {
+        res.render('create-account/v18/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, hideBack: hideBack, reason: reason}, function(err, html) {
             res.send(html)
         })
     })

@@ -5,7 +5,7 @@
 
 {# work out where to send users #}
 {% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&newUser=" + newUser  + "&terms=" + terms + "&mobileNum=" + mobileNum + "&reason=" + reason %}
 {% elif vouch %}
 {% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&mobileNum=" + mobileNum %}
 {% elif newUser %}
@@ -16,12 +16,20 @@
 
 <h1>There is a problem</h1>
 
+{% if emailParam === 'true' %}
+  <p>Email our support team to find out what the problem is.</p>
+  <p>Email: <a href="help.nhslogin@nhs.net">help.nhslogin@nhs.net</a></p>
+  <p>Include this code in your email:<br><b>CID2024</b><br></p>
+
+{% elif emailParam === 'false' %}
+  <p>Go back to the service you wish to access and try again.</p>
+
+{% endif %}
+
+
 {% endblock %}
 {% block leftcol %}
 
-<p>Email our support team to find out what the problem is.</p>
-<p>Email: <a href="mailto:ssd.nationalservicedesk@nhs.net">ssd.nationalservicedesk@nhs.net</a></p>
-<p>Include this code in your email:<br><b>CID2024</b><br></p>
 
 {% endblock %}
 
