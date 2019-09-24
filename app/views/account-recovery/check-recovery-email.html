@@ -1,0 +1,27 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Check your recovery email{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&newMobileNum=" + newMobileNum + "&recoveryEmail=" + recoveryEmail + "&securityCode=" + securityCode %}
+{% elif vouch %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser + "&newMobileNum=" + newMobileNum %}
+{% endif %}
+
+{% block content %}
+<div class="first-item">
+    <form action="/emails/email-recover-notify{{params}}">
+      <div class="form-group">
+          <legend>
+            <h1 class="heading-large">Check your recovery email</h1>
+          </legend>
+          <p style="margin: 0;">We've sent an<button class="link" style="text-decoration: none; color: black;"><p>email</p></button>to ws&bull;&bull;&bull;&bull;&bull;&bull;@gmail.com with a link to confirm the change in your phone number.</p>
+          <p>If you haven't received the email, check your spam folder.</p>
+          <p>You have 48 hours to validate your email before the link expires.</p>
+          <input style="display:none" aria-label="Phone number" class="form-control" id="newMobileNum" name="newMobileNum" value={{newMobileNum}} type="tel">
+      </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -5,11 +5,13 @@
      font-size: 16px;
      line-height: 1.5; 
      margin: 0 !important;
-     background-color: #f0f4f5
+     background-color: #f0f4f5;
+     box-shadow: 0 0 4px 0 #212b32;
  }
 
  #nhsuk-cookie-banner {
     background-color: #f0f4f5;
+    box-shadow: 0 0 4px 0 #212b32;
  }
  
  #nhsuk-cookie-banner .nhsuk-cookie-banner {
@@ -18,7 +20,7 @@
      padding: 24px 0 24px 0;
      width: 100%;
      z-index: 1;
-     
+     box-shadow: 0 0 4px 0 #212b32;
  }
 
  #nhsuk-cookie-banner .nhsuk-cookie-banner ul {

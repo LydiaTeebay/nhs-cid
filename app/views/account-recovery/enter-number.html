@@ -12,20 +12,20 @@
 {% block content %}
 <div class="first-item">
    <p><a href="/create-account/v18/two-step-code-login{{ params }}" class="link-back">Back</a></p>
-  <form action="/account-recovery/enter-recovery-email">
-    <div class="form-group">
-        <legend>
-          <h1 class="heading-large">Enter your mobile phone number</h1>
-        </legend>
-        <p style="margin: 0;">We need you to confirm the number associated with your account.</p>
-        <p>We will not text a security code to this number.</p>
-        <label class="form-label" for="">Mobile number</label>
-        <input style="width: 20em;" aria-label="Phone number" class="form-control" id="mobileNum" name="mobileNum" type="tel">
-    </div>
-    <div class="form-group">
-      <button class="button">Continue</button>
-    </div>
-  </form>
+    <form action="enter-new-number{{ params }}">
+      <div>
+          <legend>
+            <h1 class="heading-large">Enter your mobile phone number</h1>
+          </legend>
+          <p style="margin: 0;">We need you to confirm the number associated with your account.</p>
+          <p>We will not text a security code to this number.</p>
+          <label class="form-label" for="">Mobile number</label>
+          <input style="width: 20em;" aria-label="Phone number" class="form-control" id="mobileNum" name="mobileNum" type="tel">
+      </div>
+      <div class="form-group">
+        <button class="button">Continue</button>
+      </div>
+    </form>
 </div>
 
 {% if devMode === "true" %}
@@ -39,7 +39,9 @@
             <p>Recovery email</p>
             <ol>
                 <li><a href="enter-nhs-number{{ params }}">If a user does not have recovery email enabled</a></li>
+                <li><a href="enter-phone-number{{ params }}">User with P=0 and doesn't have a recovery email</a></li>
             </ol>
+            
 
         </div>
     </div>

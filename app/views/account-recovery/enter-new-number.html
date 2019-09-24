@@ -11,19 +11,20 @@
 
 {% block content %}
 <div class="first-item">
-  <form action="/account-recovery/new-number-OTP">
-    <div class="form-group">
-        <legend>
-          <h1 class="heading-large">Enter your new mobile phone number</h1>
-        </legend>
-        <p style="margin: 0;">We will send a 6 digit security code to your new phone number.</p>
-        <label class="form-label" for="">New number</label>
-        <input style="width: 20em;" aria-label="Phone number" class="form-control" id="newMobileNum" name="newMobileNum" type="tel">
-    </div>
-    <div class="form-group">
-      <button class="button">Continue</button>
-    </div>
-  </form>
+  <p><a href="enter-number{{ params }}" class="link-back">Back</a></p>
+  <form action="new-number-OTP{{params}}">
+      <div class="form-group">
+          <legend>
+            <h1 class="heading-large">Enter your new mobile phone number</h1>
+          </legend>
+          <p style="margin: 0;">We will send a 6 digit security code to your new phone number.</p>
+          <label class="form-label" for="">New number</label>
+          <input style="width: 20em;" aria-label="Phone number" class="form-control" id="newMobileNum" name="newMobileNum" type="tel">
+        <div class="form-group">
+          <button class="button" style="margin: 0px;">Continue</button>
+        </div>
+      </div>
+    </form>
 </div>
 
 {% endblock %}

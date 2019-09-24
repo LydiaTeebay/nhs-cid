@@ -11,21 +11,21 @@
 
 {% block content %}
 <div class="first-item">
-   <p><a href="/account-recovery/enter-new-number" class="link-back">Back</a></p>
-  <form action="/account-recovery/number-changed">
+  <p><a href="/account-recovery/enter-new-number" class="link-back">Back</a></p>
+  <form action="check-recovery-email{{params}}">
     <div class="form-group">
         <legend>
           <h1 class="heading-large">Check your phone</h1>
         </legend>
-        <p style="margin: 0;">Enter the security code we've sent to {{newMobileNum}}</p>
+        <p style="margin: 0;">Enter the security code we've sent to {{ newMobileNum }}</p>
         <label class="form-label" for="">Security code</label>
         <p class="hint" style="margin-top: 0px;">The code is 6 digits</p>
-        <input style="width: 15em;" aria-label="Phone number" class="form-control" id="securityCode name="securityCode" type="tel">
+        <input style="width: 20em;" aria-label="Security Code" class="form-control" id="securityCode" name="securityCode" type="tel">
+        <input style="display:none" aria-label="Phone number" class="form-control" id="newMobileNum" name="newMobileNum" value={{newMobileNum}} type="tel">
+      <div class="form-group">
+        <button class="button" style="margin: 0px;">Continue</button>
+      </div>
     </div>
-    <div class="form-group">
-      <button class="button">Continue</button>
-    </div>
-    <input style="display: none; width: 20em;" aria-label="Phone number" class="form-control" id="newMobileNum" name="newMobileNum" value="{{newMobileNum}}" type="tel">
   </form>
 </div>
 

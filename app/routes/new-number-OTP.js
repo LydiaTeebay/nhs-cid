@@ -10,15 +10,14 @@ module.exports = function (router) {
     var terms = req.param('terms')
     var resend = req.param('resend')
     var mobileNum = req.param('mobileNum')
-    var newMobileNum = req.param('newMobileNum')
     var emailAddress = req.param('emailAddress')
     var verified = req.param('verified')
     var recoveryEmail = req.param('recoveryEmail')
-    var pinCode = Math.floor(1000 + Math.random() * 9000)
     var poluser = req.param('poluser')
+    var newMobileNum = req.param('newMobileNum')
 
     // re-render the page along with the parameter
-    res.render('account-recovery/new-number-OTP', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, newMobileNum: newMobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, recoveryEmail: recoveryEmail }, function(err, html) {
+    res.render('account-recovery/new-number-OTP', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, recoveryEmail: recoveryEmail, newMobileNum: newMobileNum }, function(err, html) {
       res.send(html)
     })
   })
