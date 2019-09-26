@@ -11,17 +11,35 @@
 
 {% block content %}
 <div class="first-item">
-    <form action="/emails/email-recover-notify{{params}}">
+    <form action="/emails/email-recover-confirm{{params}}">
       <div class="form-group">
           <legend>
             <h1 class="heading-large">Check your recovery email</h1>
           </legend>
-          <p style="margin: 0;">We've sent an<button class="link" style="text-decoration: none; color: black;"><p>email</p></button>to ws&bull;&bull;&bull;&bull;&bull;&bull;@gmail.com with a link to confirm the change in your phone number.</p>
+          <p style="margin: 0;">We've sent an email to ws&bull;&bull;&bull;&bull;&bull;&bull;@gmail.com with a link to confirm the change in your phone number.</p>
           <p>If you haven't received the email, check your spam folder.</p>
-          <p>You have 48 hours to validate your email before the link expires.</p>
+          <p>You have 48 hours to follow the link before it expires.</p>
           <input style="display:none" aria-label="Phone number" class="form-control" id="newMobileNum" name="newMobileNum" value={{newMobileNum}} type="tel">
       </div>
     </form>
 </div>
+
+{% if devMode === 'true' %}
+  <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+          <span class="details__summary">Continue with testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+          <div class="reading-width">
+
+              <p>Email</p>
+              <ol>
+                  <li><a target="_blank" href="/emails/email-recover-confirm{{ params }}">Confirmation email sent to the users recovery email address</a></li>
+              </ol>
+              
+          </div>
+      </div>
+  </details>
+{% endif %}
 
 {% endblock %}

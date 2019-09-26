@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-email.html' %}
-{% block page_title %}Change phone number process started{% endblock %}
+{% block page_title %}Phone number not changed{% endblock %}
 {% set hidehead = "true" %}
 {% set bodyClass = "body-email" %}
 
@@ -14,14 +14,17 @@
 
 {% block content %}
 <div class="first-item" style="padding-bottom: 100px;" >
-  <h1>Change phone number process started</h1>
+  <h1>We have not been able to change your phone number</h1>
   
-  <p>Someone has started the process to change your phone number.</p>
+  <p>Your request to change your phone number was not successful.</p>
 
-  <p style="border-top: 1px solid #768692; padding-top: 24px;">If this was not you, contact the National Service Desk. You will need to make note of the reference below.</p>
-  <p><b>Email:</b> <a href="mailto:ssd.nationalservicedesk@nhs.net">nationalservicedesk@nhs.net</a></p>
-  <p style="margin-top: 8px;"><b>Phone:</b> 0300 303 5035</p>
-  <p style="margin-top: 8px;"><b>Reference:</b> ABC1234</p>
+  <p>This could be because:</p>
+    <ul>
+      <li>a technical error happened</li>
+      <li>you logged in and changed your phone number in your NHS login settings</li>
+    </ul>
+
+  <p>If you did not log in and change your phone number, please <a href="/account-recovery/enter-number">try again</a></p>
 
 </div>
 

@@ -14,12 +14,7 @@
 
 {% block content %}
 
-{% if formerror === 'true' %}
-  {% import "_partials/_components/_callout.html" as callout %}
-        {{ callout.pattern('','<strong>There\'s a problem</strong><br> You\'ve already used this email address to set up an NHS login. Please log in.','alert') }}
-{% endif %}
-
-<p><a href="login-nhs{{ params }}" class="link-back">Back</a></p>
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
 <div class="first-item">
   <form>
@@ -41,7 +36,7 @@
 
     <div class="form-group">
 
-       <a id="securitycodeContinue" href="login-spinner{{ params }}" class="button">Continue</a>
+       <a id="securitycodeContinue" href="login-spinner{{ params }}&reason=pyi" class="button">Continue</a>
 
     </div>
 

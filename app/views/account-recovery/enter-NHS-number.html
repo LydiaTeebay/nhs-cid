@@ -3,16 +3,15 @@
 {% set signedin = '' %}
 
 {# work out where to send users #}
-{% if service %}
+{% if recoveryEmail %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 + "&recoveryEmail=" + recoveryEmail %}
+{% else %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
-{% elif vouch %}
-{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% endif %}
 
 {% block content %}
 <div class="first-item">
-   <p><a href="/recover-account/enter-number{{ params }}" class="link-back">Back</a></p>
-  <form action="/account-recovery/enter-new-number">
+    <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
     <div class="form-group">
         <legend>
           <h1 class="heading-large">Enter your NHS number</h1>
@@ -20,13 +19,31 @@
         <p style="margin: 0;">We need you to confirm your NHS number so you can change your phone number.</p>
         <p>If you do not know your NHS number, you can get it by going to your local GP surgery with photo I.D.</p>
         <label class="form-label" for="">NHS number</label>
-        <input style="width: 20em;" aria-label="Phone number" class="form-control" id="mobileNum" name="mobileNum" type="tel">
+        <input style="width: 20em;" aria-label="Phone number" class="form-control" id="nhsNumber" name="nhsNumber" type="tel">
     </div>
     <div class="form-group">
-      <button class="button">Continue</button>
+      <a href="enter-new-number{{params}}" class="button">Continue</a>
     </div>
-  </form>
 </div>
+
+{% if devMode === 'true' %}
+  <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+          <span class="details__summary">Continue with testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+          <div class="reading-width">
+
+              <p>Email</p>
+              <ol>
+                  <li><a href="/emails/email-recover-notify{{ params }}">Notification email sent to the users primary email address</a></li>
+              </ol>
+              
+
+          </div>
+      </div>
+  </details>
+{% endif %}
 
 {% endblock %}
 

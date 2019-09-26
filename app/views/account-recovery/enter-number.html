@@ -3,28 +3,28 @@
 {% set signedin = '' %}
 
 {# work out where to send users #}
-{% if service %}
+{% if identityLevel0 === 'true' or identityLevel9 === 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 + "&recoveryEmail=" + recoveryEmail %}
+{% else %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
-{% elif vouch %}
-{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% endif %}
 
 {% block content %}
 <div class="first-item">
-   <p><a href="/create-account/v18/two-step-code-login{{ params }}" class="link-back">Back</a></p>
-    <form action="enter-new-number{{ params }}">
-      <div>
-          <legend>
-            <h1 class="heading-large">Enter your mobile phone number</h1>
-          </legend>
-          <p style="margin: 0;">We need you to confirm the number associated with your account.</p>
-          <p>We will not text a security code to this number.</p>
-          <label class="form-label" for="">Mobile number</label>
-          <input style="width: 20em;" aria-label="Phone number" class="form-control" id="mobileNum" name="mobileNum" type="tel">
-      </div>
+    <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+    <form action="enter-number{{params}}" method="POST">
       <div class="form-group">
-        <button class="button">Continue</button>
-      </div>
+            <legend>
+            <h1 class="heading-large">Enter your mobile phone number</h1>
+            </legend>
+            <p style="margin: 0;">We need you to confirm the number associated with your account.</p>
+            <p>We will not text a security code to this number.</p>
+            <label class="form-label" for="">Mobile number</label>
+            <input style="width: 20em;" aria-label="Phone number" class="form-control" id="mobileNum" name="mobileNum" type="tel">
+        </div>
+        <div class="form-group">
+            <button class="button" style="margin: 0px;">Continue</button>
+        </div>
     </form>
 </div>
 
@@ -38,8 +38,8 @@
 
             <p>Recovery email</p>
             <ol>
-                <li><a href="enter-nhs-number{{ params }}">If a user does not have recovery email enabled</a></li>
-                <li><a href="enter-phone-number{{ params }}">User with P=0 and doesn't have a recovery email</a></li>
+                <li><a href="enter-number{{ params }}&recoveryEmail=false&identityLevel9=true">If a user does not have recovery email enabled</a></li>
+                <li><a href="enter-number{{ params }}&recoveryEmail=false&identityLevel0=true">User with P=0 and doesn't have a recovery email</a></li>
             </ol>
             
 
