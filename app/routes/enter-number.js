@@ -39,7 +39,7 @@ module.exports = function (router) {
     var identityLevel9 = req.param('identityLevel9')
     var identityLevel0 = req.param('identityLevel0')
     if (identityLevel9 == 'true' && recoveryEmail == 'false') {
-      res.redirect('/account-recovery/enter-NHS-number?' + '&reason=' + theReason + '&service=' + service + '&serviceName=' + serviceName + '&devMode=' + devMode + "&terms=" + terms + "&resend=" + resend + '&mobileNum=' + mobileNum + "&newMobileNum=" + newMobileNum + '&emailAddress=' + emailAddress + "&recoveryEmail=" + recoveryEmail + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 )
+      res.redirect('/account-recovery/enter-nhs-number?' + '&reason=' + theReason + '&service=' + service + '&serviceName=' + serviceName + '&devMode=' + devMode + "&terms=" + terms + "&resend=" + resend + '&mobileNum=' + mobileNum + "&newMobileNum=" + newMobileNum + '&emailAddress=' + emailAddress + "&recoveryEmail=" + recoveryEmail + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 )
     }
     else {
       res.redirect('/account-recovery/enter-new-number?' + '&reason=' + theReason + '&service=' + service + '&serviceName=' + serviceName + '&devMode=' + devMode + "&terms=" + terms + "&resend=" + resend + '&mobileNum=' + mobileNum + "&newMobileNum=" + newMobileNum + '&emailAddress=' + emailAddress + "&recoveryEmail=" + recoveryEmail + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 )
