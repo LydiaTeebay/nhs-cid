@@ -15,7 +15,6 @@ module.exports = function (router) {
     var emailAddress = req.param('emailAddress')
     var verified = req.param('verified')
     var recoveryEmail = req.param('recoveryEmail')
-    var pinCode = Math.floor(1000 + Math.random() * 9000)
     var poluser = req.param('poluser')
     var identityLevel9 = req.param('identityLevel9')
     var identityLevel0 = req.param('identityLevel0')
