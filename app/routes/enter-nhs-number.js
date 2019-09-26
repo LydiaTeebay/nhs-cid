@@ -18,7 +18,7 @@ module.exports = function (router) {
     var identityLevel0 = req.param('identityLevel0')
 
     // re-render the page along with the parameter
-    res.render('account-recovery/enter-nhs-number', {reason: theReason, service: service, serviceName: serviceName, devMode: devMode, terms: terms, resend: resend, mobileNum: mobileNum, newMobileNum: newMobileNum, emailAddress: emailAddress, recoveryEmail: recoveryEmail,  poluser: poluser, identityLevel9: identityLevel9, identityLevel0: identityLevel0 }, function(err, html) {
+    res.render('account-recovery/enter-nhs-number', {reason: theReason, service: service, serviceName: serviceName, devMode: devMode, terms: terms, resend: resend, mobileNum: mobileNum, newMobileNum: newMobileNum, emailAddress: emailAddress, recoveryEmail: recoveryEmail,  poluser: poluser, identityLevel9: identityLevel9, identityLevel0: identityLevel0}, function(err, html) {
       res.send(html)
     })
   })
