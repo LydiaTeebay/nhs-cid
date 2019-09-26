@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{serviceName}} - Enter your mobile phone number{% endblock %}
+{% block page_title %}Enter your mobile phone number{% endblock %}
 {% set signedin = '' %}
 
 {# work out where to send users #}
@@ -12,7 +12,8 @@
 {% block content %}
 <div class="first-item">
     <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-    <form action="enter-number{{params}}" method="POST">
+    
+    <form action="enter-number{{ params }}" method="POST">
       <div class="form-group">
             <legend>
             <h1 class="heading-large">Enter your mobile phone number</h1>

@@ -27,23 +27,24 @@
     </div>
 </div>
 
-  {% if devMode === "true" %}
-    <details class="dev-mode" role="group" >
-        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-            <span class="details__summary">Continue with testing scenario</span>
-        </summary>
-        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-            <div class="reading-width">
+{% if devMode === "true" %}
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
 
-                <p>Email</p>
-                <ol>
-                    <li><a href="/emails/email-recover-notify{{ params }}">Notification email sent to the users primary email address</a></li>
-                </ol>
-                
+            <p>Email</p>
+            <ol>
+                <li><a href="/emails/email-recover-notify{{ params }}">Notification email sent to the users primary email address</a></li>
+            </ol>
+            
 
-            </div>
         </div>
-    </details>
-  {% endif %}
+    </div>
+</details>
+{% endif %}
 
 {% endblock %}
+

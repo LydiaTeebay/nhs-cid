@@ -3,10 +3,10 @@
 {% set signedin = '' %}
 
 {# work out where to send users #}
-{% if service %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&newMobileNum=" + newMobileNum + "&recoveryEmail=" + recoveryEmail + "&securityCode=" + securityCode %}
-{% elif vouch %}
-{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser + "&newMobileNum=" + newMobileNum %}
+{% if identityLevel0 === 'true' or identityLevel9 === 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 + "&recoveryEmail=" + recoveryEmail %}
+{% else %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% endif %}
 
 {% block content %}
