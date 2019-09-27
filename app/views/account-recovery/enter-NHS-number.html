@@ -21,12 +21,34 @@
         <p style="margin: 0;">We need you to confirm your NHS number so you can change your phone number.</p>
         <p>If you do not know your NHS number, you can get it by going to your local GP surgery with photo I.D.</p>
         <label class="form-label" for="">NHS number</label>
+            <span class="form-label__hint">Example: 485 777 3456</span>
         <input style="width: 20em;" aria-label="Phone number" class="form-control" id="nhsNumber" name="nhsNumber" type="tel">
+        <details class="" role="group" style="margin-top: 0px;">
+        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Where can I find my NHS number?</span>
+        </summary>
+        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+                <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+                <ul>
+                <li>prescriptions</li>
+                <li>test results</li>
+                <li>hospital referral letters</li>
+                <li>appointment letters</li>
+                <li>your NHS medical card</li>
+                </ul>
+                <p>Ask your GP for help if you can't find your NHS number</p>
+            </div>
+        </div>
+    </details>
     </div>
-    <div class="form-group">
+
+    <div class="form-group" style="margin-top: 30px">
       <a href="enter-new-number{{ params }}" class="button">Continue</a>
     </div>
 </div>
+
+
 
 {% if devMode === "true" %}
 <details class="dev-mode" role="group" >
