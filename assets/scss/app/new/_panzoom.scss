@@ -1,0 +1,10 @@
+.panzoom {
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+.panzoom .img {
+  //background: url('http://blog.millermedeiros.com/wp-content/uploads/2010/04/awesome_tiger.svg') no-repeat 0 0 fixed;
+  min-height: auto;
+  min-width: 100%;
+}
