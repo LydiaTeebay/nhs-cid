@@ -4,13 +4,109 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = 'true' %}
-{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&automation=" + automation  %}
+{% set dataResult = 'data-result=' + result %}
 
 {% block content %}
 
+<div class="panel" style="display: block;" id="result" {{ dataResult }}>
+    <div class="panel__content panel__content--half">
+        <h3>Check identity document</h3>
+        <div class="reading-width">
+
+            <div class="idcheck-image">
+                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+
+                {% if idType === 'driving' %}
+
+                <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a driving licence"/>
+
+                {% else %}
+
+                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a passport"/>
+
+                {% endif %}
+
+            </div>
+
+            {% if idType === 'driving' %}
+
+            <div class="idcheck-image">
+                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+
+                <img src="/images/DL-back.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a driving licence"/>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+
+
+
+    <div class="panel__content panel__content--half">
+
+        <div class="qa-questions-group" data-complete="false">
+
+            <div class="qa-questions-question" id="document-1" data-answered="false" data-group="decline-1">
+                <p class="qa-questions-question-text">Is it an accepted document?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="0" aria-checked="false">
+                        <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0">Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="1" aria-checked="false">
+                        <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1">No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="2" aria-checked="false">
+                        <input type="radio" id="2" name="a-1" class="multiple-choice__input" tabindex="3">Can't tell
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="qa-questions-group" data-complete="false">
+
+            <div class="qa-questions-question" id="document-2" data-answered="false" data-group="decline-2">
+                <p class="qa-questions-question-text">Is it a valid document?</p>
+                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="3" aria-checked="false">
+                        <input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="2">Yes
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="4" aria-checked="false">
+                        <input type="radio" id="4" name="a-2" class="multiple-choice__input" tabindex="3">No
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           for="5" aria-checked="false">
+                        <input type="radio" id="5" name="a-2" class="multiple-choice__input" tabindex="3">Can't tell
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="panel">
     <div class="panel__content panel__content--half">
-        <h3>Submitted details</h3>
+        <h3>User submitted details</h3>
 
         {% if demographics !== 'true' %}
 
@@ -114,8 +210,11 @@
 
         {% endif %}
     </div>
+
+
+
     <div class="panel__content panel__content--half">
-        <h3>PDS record</h3>
+        <h3>PDS result</h3>
 
         <div class="bar_container" id="loader">
             <div id="main_container">
@@ -133,42 +232,17 @@
 
         <!--<p class="small" id="loader"><img src="/images/ajax-loader.gif" style="width: 30px" alt="loading">&nbsp; Running trace</p>-->
 
+        <div id="trace" class="idcheck-match {{ result }}"
+             style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
+
+
             {% if result !== 'fail' and result !== 'spine' %}
-
-                <div id="trace" class=" {{ result }}" style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
-
-                    <table class="">
-                        {% if demographics === 'true' %}
-                        <tr>
-                            <td>NHS Number:</td>
-                            <td><b>485 777 3456</b></td>
-                        </tr>
-                        {% endif %}
-                        <tr>
-                            <td>First name:</td>
-                            <td><b>Joe</b></td>
-                        </tr>
-                        <tr>
-                            <td>Middle names:</td>
-                            <td><b>Frederick</b></td>
-                        </tr>
-                        <tr>
-                            <td>Last name:</td>
-                            <td><b>Bloggs</b></td>
-                        </tr>
-                        <tr>
-                            <td>Date of birth:</td>
-                            <td><b>9th February, 1979</b></td>
-                        </tr>
-                    </table>
-
 
 
             {% endif %}
 
-            {% if result === 'fail' %}
             <div class="idcheck-result">
-
+                {% if result === 'fail' %}
                 {% if failreason === 'expired' %}
                 Match not possible
                 {% else %}
@@ -185,11 +259,10 @@
                 {% else %}
                 System error - SMSP-0004
                 {% endif %}
-
+                {% else %}
+                Single record found
                 {% endif %}
             </div>
-
-
 
             {% if result === 'fail' %}
 
@@ -281,14 +354,14 @@
                 <div class="selection-button-radio-inline">
                     <div class="multiple-choice" data-target="">
                         <input id="radio-inline-1" type="radio" name="radio-inline-group" value="yes"
-                               aria-controls="nhs-yes">
+                               aria-controls="nhs-yes" disabled>
                         <label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
                     </div>
                 </div>
                 <div class="selection-button-radio-inline" data-group="decline-0">
                     <div class="multiple-choice" data-target="">
                         <input id="radio-inline-2" type="radio" name="radio-inline-group" value="no"
-                               aria-controls="nhs-no">
+                               aria-controls="nhs-no" disabled>
                         <label for="radio-inline-2" class="block-label" style="position: static;">No</label>
                     </div>
                 </div>
@@ -303,7 +376,7 @@
                     <div class="form-group">
 
                         <div id="nhs-number" class="has-error form-row-error-active">
-                            <label class="has-error form-label" for="nhs_number">NHS Number</label>
+                            <label class="has-error form-label" for="nhs_number">NHS Numbers</label>
                             <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
 
                             <div id="nhs-number" class="has-error form-row-error-active">
@@ -311,14 +384,53 @@
                                       id="nhs-number-error">This NHS Number looks wrong. Please check that you've entered exactly 10 numbers.</span>
                             </div>
                         </div>
+
                     </div>
 
+                    <div class="form-group">
+
+                        <fieldset>
+                            <legend class="form-label">Date of birth</legend>
+                            <span class="form-label__hint" style="margin-top: 10px;">Example: 31 3 1980</span>
+                            <div class="form-group -date" style="margin-top: 10px;">
+                                <div class="form-date-field has-error">
+                                    <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
+                                    <input type="number" class="day form-control" id="dob-day" name="dob-day" pattern="[0-9]*" value="9" class="day" maxlength="2" min="1" max="31" style="margin: 0;">
+                                </div>
+                                <div class="form-date-field has-error">
+                                    <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
+                                    <input type="number" class="month form-control" id="dob-month" name="dob-month" pattern="[0-9]*" value="2" class="month" maxlength="2" min="1" max="12" style="margin: 0;">
+                                </div>
+                                <div class="form-date-field has-error">
+                                    <label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>
+                                    <input type="number" class="year form-control" id="dob-year" name="dob-year" pattern="[0-9]*" value="79" class="year" maxlength="4" min="1900" max="2018" style="margin: 0;">
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <div class="has-error form-row-error-active" style="margin-top:1em;">
+                                <span class="error error-message error-label error-text error-message-active"
+                                      id="nhs-number-error">Please enter the full date of birth.</span>
+                        </div>
+
+                    </div>
+
+
+
                     <div id="id-approve2">
-                        <a href="id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
+                        <a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=undefined&failreason=ocr&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
                            id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
                     </div>
 
 
+                </div>
+
+                <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-no" style="margin: 0 0 32px;" data-group="decline-0">
+                    <div id="id-decline2">
+                        <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}"
+                           id="declineBtn2" data-target="modal" class="button button--decline">Decline</a>
+                    </div>
                 </div>
 
             </form>
@@ -329,11 +441,31 @@
 
                 <div class="form-group">
                     <label class="form-label" for="nhs_number">NHS Number</label>
-                    <input class="form-control code" id="nhs_number" name="nhs_number" type="text">
+                    <input class="form-control code" id="nhs_number" name="nhs_number" type="text" value="{% if demographics === 'false' %}485 777 3456{% endif%}">
                 </div>
+
+                <fieldset>
+                    <legend class="form-label">Date of birth</legend>
+                    <span class="form-label__hint" style="margin-top: 10px;">Example: 31 3 1980</span>
+                    <div class="form-group -date" style="margin-top: 10px;">
+                        <div class="form-date-field">
+                            <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
+                            <input type="number" id="dob-day" name="dob-day" pattern="[0-9]*" value="" class="day" maxlength="2" min="1" max="31">
+                        </div>
+                        <div class="form-date-field">
+                            <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
+                            <input type="number" id="dob-month" name="dob-month" pattern="[0-9]*" value="" class="month" maxlength="2" min="1" max="12">
+                        </div>
+                        <div class="form-date-field">
+                            <label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>
+                            <input type="number" id="dob-year" name="dob-year" pattern="[0-9]*" value="" class="year" maxlength="4" min="1900" max="2018">
+                        </div>
+                    </div>
+                </fieldset>
+
                 <div id="id-approve2">
-                    <a href="id-checker-review?demographics=undefined&role=undefined&result=undefined&state=undefined&devMode={{ devMode }}"
-                       id="approveBtn2" data-target="modal" class="button button--retry">Re-run trace</a>
+                    <a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=success&state=undefined&devMode={{ devMode }}&idType={{ idType }}"
+                       id="approveBtn2b" data-target="modal" class="button button--retry">Re-run trace</a>
                 </div>
             </div>
 
@@ -346,6 +478,7 @@
 
             {% endif %}
 
+
             {% endif %}
 
         </div>
@@ -355,7 +488,7 @@
         {% if result === 'spine' %}
         <div id="retrybtn-1" style="display:none;">
             <div id="id-retry">
-                <a href="id-checker-review?demographics=false&role=undefined&result=spine&devMode={{ devMode }}"
+                <a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=spine&devMode={{ devMode }}&idType={{ idType }}"
                    id="retryBtn" class="button button--retry">Retry</a>
             </div>
         </div>
@@ -364,108 +497,6 @@
     </div>
 </div>
 
-<div class="panel" style="display: block;">
-    <div class="panel__content panel__content--half">
-        <h3>Check identity document</h3>
-        <div class="reading-width">
-
-            <div class="idcheck-image">
-                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
-
-                {% if idType === 'driving' %}
-
-                <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
-                     alt="Image of a driving licence"/>
-
-                {% else %}
-
-                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
-                     alt="Image of a passport"/>
-
-                {% endif %}
-
-            </div>
-
-            {% if idType === 'driving' %}
-
-            <div class="idcheck-image">
-                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
-
-                <img src="/images/DL-back.jpg" class="idcheck-image-img" style="width: 100%;"
-                     alt="Image of a driving licence"/>
-
-            </div>
-
-            {% endif %}
-
-        </div>
-    </div>
-    <div class="panel__content panel__content--half">
-
-        <div class="qa-questions-group" data-complete="false">
-
-            <div class="qa-questions-question" id="document-1" data-answered="false" data-group="decline-1">
-                <p class="qa-questions-question-text">Can you clearly see the face and all the information on the photo ID?</p>
-                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="0" aria-checked="false">
-                        <input type="radio" id="0" name="a-1" class="multiple-choice__input" tabindex="0" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="1" aria-checked="false">
-                        <input type="radio" id="1" name="a-1" class="multiple-choice__input" tabindex="1" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="qa-questions-group" data-complete="false">
-
-            <div class="qa-questions-question" id="document-2" data-answered="false" data-group="decline-2">
-                <p class="qa-questions-question-text">Does the photo ID look genuine?</p>
-                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="2" aria-checked="false">
-                        <input type="radio" id="2" name="a-2" class="multiple-choice__input" tabindex="2">Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="3" aria-checked="false">
-                        <input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="3">No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="qa-questions-group" data-complete="false">
-
-            <div class="qa-questions-question" id="document-3" data-answered="false" data-group="decline-3">
-                <p class="qa-questions-question-text">Is the photo ID valid?</p>
-                <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="4" aria-checked="false">
-                        <input type="radio" id="4" name="a-3" class="multiple-choice__input" tabindex="4" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
-                           for="5" aria-checked="false">
-                        <input type="radio" id="5" name="a-3" class="multiple-choice__input" tabindex="5" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
-                        <div class="qa-questions-answer-radio-indicator"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 <div class="panel" style="display: block;">
     <div class="panel__content panel__content--half">
@@ -473,10 +504,18 @@
         <div class="reading-width">
 
             <div class="idcheck-image">
-                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
-                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
-                     alt="Image of a passport"/>
+
+                <div class="panzoom">
+                    <div class="idcheck-image-expand">
+                        <a href="#" class="idcheck-image-expand-button">Expand image</a>
+                    </div>
+
+                    <div class="img" style="background: url('http://blog.millermedeiros.com/wp-content/uploads/2010/04/awesome_tiger.svg') no-repeat 0 0 fixed;"></div>
+                    <!--<img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a passport"/>-->
+                </div>
+                <input id="zoom" type="range" class="zoom-range" step="1" min="200" max="1500">
             </div>
+
         </div>
     </div>
     <div class="panel__content panel__content--half">
@@ -485,30 +524,30 @@
 
         <div class="idcheck-match {{ result }}">
 
-        <table class="">
-            {% if demographics === 'true' %}
-            <tr>
-                <td>NHS Number:</td>
-                <td><b>485 777 3456</b></td>
-            </tr>
-            {% endif %}
-            <tr>
-                <td>First name:</td>
-                <td><b>Joe</b></td>
-            </tr>
-            <tr>
-                <td>Middle names:</td>
-                <td><b>Frederick</b></td>
-            </tr>
-            <tr>
-                <td>Last name:</td>
-                <td><b>Bloggs</b></td>
-            </tr>
-            <tr>
-                <td>Date of birth:</td>
-                <td><b>9th February, 1979</b></td>
-            </tr>
-        </table>
+            <table class="">
+                {% if demographics === 'true' %}
+                <tr>
+                    <td>NHS Number:</td>
+                    <td><b>485 777 3456</b></td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>First name:</td>
+                    <td><b>Joe</b></td>
+                </tr>
+                <tr>
+                    <td>Middle names:</td>
+                    <td><b>Frederick</b></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><b>Bloggs</b></td>
+                </tr>
+                <tr>
+                    <td>Date of birth:</td>
+                    <td><b>9th February, 1979</b></td>
+                </tr>
+            </table>
 
         </div>
 
@@ -518,14 +557,12 @@
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="6" aria-checked="false">
-                        <input type="radio" id="6" name="a-4" class="multiple-choice__input" tabindex="6" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <input type="radio" id="6" name="a-4" class="multiple-choice__input" tabindex="6">Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="7" aria-checked="false">
-                        <input type="radio" id="7" name="a-4" class="multiple-choice__input" tabindex="7" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <input type="radio" id="7" name="a-4" class="multiple-choice__input" tabindex="7">No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -537,14 +574,12 @@
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="8" aria-checked="false">
-                        <input type="radio" id="8" name="a-5" class="multiple-choice__input" tabindex="8" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <input type="radio" id="8" name="a-5" class="multiple-choice__input" tabindex="8">Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="9" aria-checked="false">
-                        <input type="radio" id="9" name="a-5" class="multiple-choice__input" tabindex="9" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <input type="radio" id="9" name="a-5" class="multiple-choice__input" tabindex="9">No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -556,14 +591,12 @@
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="0" aria-checked="false">
-                        <input type="radio" id="10" name="a-6" class="multiple-choice__input" tabindex="10" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
+                        <input type="radio" id="10" name="a-6" class="multiple-choice__input" tabindex="10">Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="1" aria-checked="false">
-                        <input type="radio" id="11" name="a-6" class="multiple-choice__input" tabindex="11" {% if
-                               result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
+                        <input type="radio" id="11" name="a-6" class="multiple-choice__input" tabindex="11">No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -1034,7 +1067,6 @@
         document.getElementById('slideout-value_tab_value').style.display = 'block'
     }, 4000)
 
-
     // when a radio button is clicked
     var processClick = function (e) {
         // update local storage straight away
@@ -1082,8 +1114,6 @@
             document.getElementById('rejection-reasons').style.display = 'none'
         }
     }
-
-
 
     function setReasons(target) {
         // first do a reset
@@ -1171,28 +1201,19 @@
         unlockFirstQuestion()
     }
 
-    {% if result !== 'fail' and result !== 'spine' %}
     function unlockFirstQuestion() {
-        console.log("unlock")
-
-        // get an array of all the question groups
+        // console.log("unlock")
+        //
+        // // get an array of all the question groups
         var questionGroup = document.getElementById('document-1')
-
+        //
         var inputs = questionGroup.getElementsByTagName('input')
-        // loop through all the inputs and uncheck them
+        // // loop through all the inputs and uncheck them
         for (l = 0; l < inputs.length; l++) {
             inputs[l].checked = false
             inputs[l].disabled = false
         }
     }
-
-    {% else %}
-
-    function unlockFirstQuestion() {
-    }
-
-    {% endif %}
-
 
     function addEventListeners() {
         var inputs = document.getElementsByTagName('input')
@@ -1257,12 +1278,19 @@
         if (sectionComplete) {
             section.setAttribute('data-complete', true)
             unlockNextSection(section)
-
             return true
         }
     }
 
     function unlockNextSection(section) {
+
+        var resultDiv = document.getElementById('result')
+        var theResult = resultDiv.getAttribute('data-result')
+        if (theResult === 'fail' ){
+
+        } else {
+            
+        }
 
         var id = section.getElementsByClassName('qa-questions-question')[0].getAttribute('id')
         var sections = []
@@ -1302,16 +1330,16 @@
             document.getElementById('manual-pds').style.display = 'none'
         }
 
-        if (idCheck[1] === true || idCheck[3] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[13] === true || idCheck[15] === true || idCheck[17] === true  ) {
+        if (idCheck[1] === true || idCheck[2] === true || idCheck[4] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[13] === true || idCheck[15] === true || idCheck[17] === true  ) {
 
             if (document.getElementById('radio-inline-3') !== true ) {
 
                 document.getElementById('approveBtn').style.display = 'none'
                 document.getElementById('declineBtn').style.display = 'inline-block'
 
-                if (idCheck[1] === true) {
+                if (idCheck[1] === true || idCheck[2] === true ) {
                     $("#id-decline").appendTo('#document-1')
-                } else if (idCheck[3] === true) {
+                } else if (idCheck[4] === true || idCheck[5] === true) {
                     $("#id-decline").appendTo('#document-2')
                 } else if (idCheck[5] === true) {
                     $("#id-decline").appendTo('#document-3')
@@ -1344,6 +1372,11 @@
         }
 
     }
+
 </script>
 
+{% endblock %}
+
+{% block extrascripts %}
+<script src="/panzoom.js"></script>
 {% endblock %}
