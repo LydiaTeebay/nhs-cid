@@ -8,61 +8,72 @@
 
 <div class="first-item">
 
-  <p><a href="service-access-start{{ params }}" class="link-back"><span class="u-visuallyhidden">Back to </span>Step 1 - send a photo of your I.D.</a></p>
+  <p><a href="service-access-what-you-need{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> What you will need</a></p>
 
-  <form action="service-access-photo-id-type{{ params }}" method="POST">
-    <div class="form-group">
-      <fieldset class="">
-        <legend for="radio-inline-group">
-          <h1 style="padding-bottom: 0;">
-            Choose the photo I.D. you want to use
-          </h1>
-        </legend>
+  <div class="reading-width">
+    <h1 class="heading-large"><span class="heading-secondary">Step 1 of 3 </span>Send a photo of your I.D.</h1>
 
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-1">
-            <input id="radio-inline-1" type="radio" name="idType" value="passport">
-            Passport
-          </label>
+
+    <form action="service-access-photo-id-type{{ params }}" method="POST">
+      <div class="form-group">
+        <fieldset class="">
+
+          <legend for="radio-inline-group">
+            <h2 class="" style="padding:0.5em 0 0; font-size: 20px; font-weight: 600; line-height: 32px;">
+              Choose the photo I.D. you want to use
+            </h2>
+          </legend>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-1">
+              <input id="radio-inline-1" type="radio" name="idType" value="passport">
+              Passport
+            </label>
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
+              UK driving licence
+            </label>
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-3">
+              <input id="radio-inline-3" type="radio" name="idType" value="European driving licence">
+              European driving licence
+              <!--<span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back.</span>-->
+            </label>
+
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-4">
+              <input id="radio-inline-4" type="radio" name="idType" value="European national identity card">
+              European national identity card
+              <!--<span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back.</span>-->
+            </label>
+          </div>
+
+          <!--<div>-->
+            <!--<label class="block-label selection-button-radio" for="radio-inline-5">-->
+              <!--<input id="radio-inline-5" type="radio" name="idType" value="none">-->
+              <!--None of these-->
+            <!--</label>-->
+          <!--</div>-->
+
+        </fieldset>
+
+
+        <div class="form-group">
+          <button class="button" id="">Continue</button>
         </div>
 
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-2">
-            <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
-            UK driving licence
-          </label>
-        </div>
+        <p><a href="/patient-online/v18/patient-online-details{{ params }}&drop=type">How to prove who you are without sending a photo of your I.D.</a></p>
 
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-3">
-            <input id="radio-inline-3" type="radio" name="idType" value="European driving licence">
-            European driving licence
-            <span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back.</span>
-          </label>
+      </div>
 
-        </div>
-
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-4">
-            <input id="radio-inline-4" type="radio" name="idType" value="European national identity card">
-            European national identity card
-            <span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back.</span>
-          </label>
-        </div>
-
-        <div>
-          <label class="block-label selection-button-radio" for="radio-inline-5">
-            <input id="radio-inline-5" type="radio" name="idType" value="none">
-            None of these
-          </label>
-        </div>
-
-      </fieldset>
-
-    </div>
-    <div class="form-group">
-      <button class="button" id="">Continue</button>
-    </div>
+    </form>
 
 
     <!--<p class=""><a href="service-access-no-documents{{ params }}">I don't have a photo ID document.</a></p>-->
@@ -85,10 +96,7 @@
     </details>
     {% endif %}
 
-
-  </form>
-
-
+  </div>
 
 </div>
 

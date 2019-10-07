@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Go to your GP surgery to prove who you are{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&drop=" + drop %}
 
 {% block content %}
 
@@ -10,13 +10,11 @@
 
   <div class="first-item">
 
-    <p><a href="service-access-start{{ params }}" class="link-back">Back</a></p>
+    <p><a href="/patient-online/v18/patient-online-details{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you have these registration details?</a></p>
 
-    <h1>Go to your GP surgery to prove who you are</h1>
+    <h1>Going to your GP surgery to prove who you are</h1>
 
     <p>If you have signed up to use your GP surgery's online services, then we know you've proved who you are to someone we trust. We can use the registration details from your GP surgery to check you've done this.</p>
-
-    <p>You told us that you do not have these registration details.</p>
 
     <form>
       <div class="form-group">
@@ -29,20 +27,14 @@
 
           <div class="selection-button-radio" style="margin-top: 32px;">
             <div class="multiple-choice" data-target="nhs-yes">
-              <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-offline-create{{ params }}">
-              <label for="radio-inline-1" class="block-label" style="position: static;">I have not signed up for my GP's online services</label>
-            </div>
-          </div>
-          <div class="selection-button-radio" style="margin-top: 0px;">
-            <div class="multiple-choice" data-target="nhs-no">
-              <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-offline-retrieve{{ params }}">
-              <label for="radio-inline-2"class="block-label" style="position: static;">I signed up, but I do not have the registration details</label>
+              <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-offline-retrieve{{ params }}">
+              <label for="radio-inline-1" class="block-label" style="position: static;">I signed up, but I do not have the registration details</label>
             </div>
           </div>
           <div class="selection-button-radio" style="margin-top: 0px;">
             <div class="multiple-choice" data-target="nhs-no">
               <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-offline-create{{ params }}">
-              <label for="radio-inline-2"class="block-label" style="position: static;">I'm not sure</label>
+              <label for="radio-inline-2"class="block-label" style="position: static;">I have not signed up for my GP's online services</label>
             </div>
           </div>
 
@@ -52,6 +44,8 @@
       <div class="form-group">
         <a class="button" href="#" id="continue">Continue</a>
       </div>
+
+
 
     </form>
 

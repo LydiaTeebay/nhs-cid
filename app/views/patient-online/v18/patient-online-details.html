@@ -1,20 +1,27 @@
 {% extends '_layouts/_grids/_grid-1-hotjar.html' %}
-{% block page_title %}We need to connect your NHS login to your GP surgery{% endblock %}
+{% block page_title %}You can use details from your GP surgery to prove who you are{% endblock %}
 
-{% set params = "?serviceName=" + serviceName + "&service=" + service + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&system=" + system + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&surgery=" + surgery + "&practiceID=" + practiceID %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&system=" + system + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&surgery=" + surgery + "&practiceID=" + practiceID + "&drop=" + drop %}
 
 {% block content %}
 
 <div class="first-item">
 
   {% if hideBack !== 'true' %}
-  <p><a href="javascript:history.go(-1)" class="link-back">You need to prove who you are</a></p>
+
+    {% if drop === 'type' %}
+      <p><a href="/service-access/v18/service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose the photo I.D. you want to use</a></p>
+    {% else %}
+      <p><a href="/service-access/v18/service-access-what-you-need{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> What you will need</a></p>
+
+    {% endif %}
+
   {% endif %}
 
   <div class="reading-width">
-    <h1>Use details from your GP surgery to prove who you are</h1>
+    <h1>You can use details from your GP surgery to prove who you are</h1>
 
-    <p>If you have signed up for your GP surgery's online services, you might have these registration details:</p>
+    <p>When you sign up for your GP surgery's online services, they may give you the following registration details:</p>
   </div>
 
   <ul>
@@ -23,28 +30,29 @@
     <li>Account I.D.</li>
   </ul>
 
-  <div class="reading-width">
-    <p>You can use these details to prove who you are.</p>
-    <p>If you do not have all 3 details (or you have something different) you can try another way.</p>
-  </div>
+  <!--<div class="reading-width">-->
+    <!--<p>You can use these details to prove who you are.</p>-->
+    <!--<p>If you do not have all 3 details (or you have something different) you can try another way.</p>-->
+  <!--</div>-->
 
   <form>
     <div class="form-group">
 
       <fieldset class="">
 
-        <legend>
-          <p class="" style="padding:0.5em 0; font-size: 28px; font-weight: bold;">Do you have all 3 registration details?</p>
+        <legend for="radio-inline-group">
+          <h2 class="" style="padding:0.5em 0 0; font-size: 20px; font-weight: 600; line-height: 32px;">
+            Do you have these registration details?
+          </h2>
         </legend>
 
-
-        <label class="block-label selection-button-radio" for="radio-inline-1">
+        <label class="block-label selection-button-radio" for="radio-inline-1" style="margin-top: 32px;">
           <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-linkage-key{{ params }}&poluser=true">
-          Yes
+          Yes - I have all 3 details
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-2">
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/v18/service-access-triage{{ params }}&poluser=false">
-          No - try another way
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="/service-access/v18/service-access-offline-triage{{ params }}">
+          No - I've either lost or never had these details
         </label>
 
       </fieldset>
@@ -54,7 +62,14 @@
       <a class="button" href="#" id="continue">Continue</a>
     </div>
 
-  {% if devMode === "true" %}
+
+    {% if drop === 'type' %}
+    <p><a href="/service-access/v18/service-access-photo-id-type{{ params }}">Use photo I.D. to prove who you are.</a></p>
+    {% else %}
+    <p><a href="/service-access/v18/service-access-what-you-need{{ params }}">Use photo I.D. to prove who you are.</a></p>
+    {% endif %}
+
+    {% if devMode === "true" %}
   <details class="dev-mode" role="group" >
     <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
       <span class="details__summary">Continue with testing scenario</span>
