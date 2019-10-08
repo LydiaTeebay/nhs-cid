@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Go to your GP surgery to prove who you are{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Going to your GP surgery to prove who you are{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&drop=" + drop %}
@@ -14,7 +14,7 @@
 
     <h1>Going to your GP surgery to prove who you are</h1>
 
-    <p>If you have signed up to use your GP surgery's online services, then we know you've proved who you are to someone we trust. We can use the registration details from your GP surgery to check you've done this.</p>
+    <p>When you sign up to use your GP surgery's online services, we know you've proved who you are to someone we trust. We can use the registration details from your GP surgery to check you've done this.</p>
 
     <form>
       <div class="form-group">
@@ -34,9 +34,16 @@
           <div class="selection-button-radio" style="margin-top: 0px;">
             <div class="multiple-choice" data-target="nhs-no">
               <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-offline-create{{ params }}">
-              <label for="radio-inline-2"class="block-label" style="position: static;">I have not signed up for my GP's online services</label>
+              <label for="radio-inline-2"class="block-label" style="position: static;">I have never signed up for my GP's online services</label>
             </div>
           </div>
+          <div class="selection-button-radio" style="margin-top: 0px;">
+            <div class="multiple-choice" data-target="nhs-no">
+              <input id="radio-inline-3" type="radio" name="radio-inline-group" value="service-access-offline-create{{ params }}">
+              <label for="radio-inline-3"class="block-label" style="position: static;">I am not sure if I signed up</label>
+            </div>
+          </div>
+
 
         </fieldset>
 
