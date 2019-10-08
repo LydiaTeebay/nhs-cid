@@ -58,7 +58,7 @@ module.exports = function (router) {
         var personalisation = {
             'pincode': pinCode
         }
-        var reason = req.param('reason')
+        // var reason = req.param('reason')
         var result = req.param('result')
         // send text message
 
@@ -71,7 +71,7 @@ module.exports = function (router) {
         .catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v18/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, reason: reason }, function(err, html) {
+        res.render('create-account/v18/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result }, function(err, html) {
             res.send(html)
         })
     })

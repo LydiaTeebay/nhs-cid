@@ -1,7 +1,7 @@
 {% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Add a recovery email{% endblock %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result + "&reason=" + reason %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result %}
 
 
 {% block topRow %}
@@ -36,12 +36,20 @@
 
     <div class="form-group">
 
-       <a id="securitycodeContinue" href="login-spinner{{ params }}&reason=pyi" class="button">Continue</a>
+        {% if reason === "recoveryemail" %}
+        <a id="securitycodeContinue" href="login-spinner{{ params }}" class="button">Continue</a>
+        {% else %}
+        <a id="securitycodeContinue" href="login-spinner{{ params }}&reason=pyi" class="button">Continue</a>
+        {% endif %}
 
     </div>
 
-    <p> 
-      <a href="login-spinner{{ params }}">Skip this step</a>
+    <p>
+        {% if reason === "recoveryemail" %}
+        <a href="login-spinner{{ params }}">Skip this step</a>
+        {% else %}
+        <a href="login-spinner{{ params }}&reason=pyi">Skip this step</a>
+        {% endif %}
     </p>
     
     {% if devMode === "true" %}
