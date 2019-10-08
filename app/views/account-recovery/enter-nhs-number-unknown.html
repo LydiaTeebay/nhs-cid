@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Enter your mobile phone number{% endblock %}
+{% block page_title %}Enter your NHS number{% endblock %}
 {% set signedin = '' %}
 
 {# work out where to send users #}
@@ -9,25 +9,19 @@
 {% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
 {% endif %}
 
+
 {% block content %}
 <div class="first-item">
     <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
-    
-    <form action="enter-number{{ params }}" method="POST">
-      <div class="form-group">
-            <legend>
-            <h1 class="heading-large">Enter your mobile phone number</h1>
-            </legend>
-            <p style="margin: 0;">We need you to confirm the number associated with your account.</p>
-            <p>We will not text a security code to this number.</p>
-            <label class="form-label" for="">Mobile number</label>
-            <input style="width: 20em;" aria-label="Phone number" class="form-control" id="mobileNum" name="mobileNum" type="tel">
-        </div>
-        <div class="form-group">
-            <button class="button" style="margin: 0px;">Continue</button>
-        </div>
-    </form>
+
+    <div class="form-group">
+        <legend>
+          <h1 class="heading-large">Placeholder - you do not know your NHS number</h1>
+        </legend>
+        <p style="margin: 0;">Placeholder</p>
+        
 </div>
+
 
 {% if devMode === "true" %}
 <details class="dev-mode" role="group" >
@@ -37,10 +31,9 @@
     <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
         <div class="reading-width">
 
-            <p>Recovery email</p>
+            <p>Email</p>
             <ol>
-                <li><a href="enter-number{{ params }}&recoveryEmail=false&identityLevel9=true">User is P>0 and does not have recovery email</a></li>
-                <li><a href="enter-number{{ params }}&recoveryEmail=false&identityLevel0=true">User with P=0</a></li>
+                <li><a href="/emails/email-recover-notify{{ params }}">Notification email sent to the users primary email address</a></li>
             </ol>
             
 
@@ -50,5 +43,4 @@
 {% endif %}
 
 {% endblock %}
-
 
