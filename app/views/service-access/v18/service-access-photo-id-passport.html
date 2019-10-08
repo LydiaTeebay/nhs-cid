@@ -75,7 +75,9 @@
                     <p>Take a photo of the page with your face and name on it.</p>
                 {% endif %}
 
-                <img src="/images/passport-guide@2x.png" alt="take a photo of just the details page of the passport " width="299" style="display:block;margin-left:auto;margin-right:auto;">
+                {% if upload !== 'file' %}
+                <img src="/images/passport-guide3@2x.png" alt="take a photo of just the details page of the passport " width="600" style="display:block;margin-left:auto;margin-right:auto;">
+                {% endif %}
 
                 <p>Make sure:</p>
 
