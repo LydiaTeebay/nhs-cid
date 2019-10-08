@@ -67,7 +67,7 @@
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="2" aria-checked="false">
-                        <input type="radio" id="2" name="a-1" class="multiple-choice__input" tabindex="3">Can't tell
+                        <input type="radio" id="2" name="a-1" class="multiple-choice__input" tabindex="2">Can't tell
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -82,17 +82,17 @@
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="3" aria-checked="false">
-                        <input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="2">Yes
+                        <input type="radio" id="3" name="a-2" class="multiple-choice__input" tabindex="3">Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="4" aria-checked="false">
-                        <input type="radio" id="4" name="a-2" class="multiple-choice__input" tabindex="3">No
+                        <input type="radio" id="4" name="a-2" class="multiple-choice__input" tabindex="4">No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="5" aria-checked="false">
-                        <input type="radio" id="5" name="a-2" class="multiple-choice__input" tabindex="3">Can't tell
+                        <input type="radio" id="5" name="a-2" class="multiple-choice__input" tabindex="5">Can't tell
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                 </div>
@@ -503,17 +503,34 @@
         <h3>Compare the photo ID and the PDS record</h3>
         <div class="reading-width">
 
+            <!--<div class="idcheck-image">-->
+
+                <!--<div class="panzoom">-->
+                    <!--<div class="idcheck-image-expand">-->
+                        <!--<a href="#" class="idcheck-image-expand-button">Expand image</a>-->
+                    <!--</div>-->
+
+                    <!--<div class="img" style="background: url('http://blog.millermedeiros.com/wp-content/uploads/2010/04/awesome_tiger.svg') no-repeat 0 0 fixed;"></div>-->
+                    <!--&lt;!&ndash;<img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a passport"/>&ndash;&gt;-->
+                <!--</div>-->
+                <!--<input id="zoom" type="range" class="zoom-range" step="1" min="200" max="1500">-->
+            <!--</div>-->
+
             <div class="idcheck-image">
+                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
 
-                <div class="panzoom">
-                    <div class="idcheck-image-expand">
-                        <a href="#" class="idcheck-image-expand-button">Expand image</a>
-                    </div>
+                {% if idType === 'driving' %}
 
-                    <div class="img" style="background: url('http://blog.millermedeiros.com/wp-content/uploads/2010/04/awesome_tiger.svg') no-repeat 0 0 fixed;"></div>
-                    <!--<img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a passport"/>-->
-                </div>
-                <input id="zoom" type="range" class="zoom-range" step="1" min="200" max="1500">
+                <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a driving licence"/>
+
+                {% else %}
+
+                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
+                     alt="Image of a passport"/>
+
+                {% endif %}
+
             </div>
 
         </div>
@@ -1361,7 +1378,7 @@
             }
         }
             
-        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true && idCheck[6] === true && idCheck[8] === true && idCheck[12] === true && idCheck[14] === true && idCheck[16] === true) {
+        else if (idCheck[0] === true && idCheck[3] === true && idCheck[6] === true && idCheck[8] === true && idCheck[10] === true && idCheck[12] === true && idCheck[14] === true && idCheck[16] === true) {
             document.getElementById('approveBtn').style.display = 'inline-block'
             document.getElementById('declineBtn').style.display = 'none'
         }
