@@ -17,8 +17,9 @@
   <form>
 
     {# devices with camera will get option to use it. Others will not get the option. #}
+    {# if mobile currently disabled #}
 
-    {% if mobile %}
+    {% if 1 === 1 %}
 
     <div class="form-group">
 
@@ -30,7 +31,6 @@
           {% else %}
           <h1 class="h3" style="padding:0.5em 0;">Choose how to send the photos of your {{ idType }}</h1>
           {% endif %}
-
 
         </legend>
 

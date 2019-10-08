@@ -1,0 +1,209 @@
+{% extends '_layouts/_grids/_grid-1-stacked.html' %}
+{% block page_title %}NHS Identity Verification and Matching Service{% endblock %}
+
+{% set service = "idchecker" %}
+{% set serviceName = "Identity Verification and Matching Service" %}
+{% set signedin = '' %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state + "&devMode=" + devMode %}
+
+{% block topRow %}
+
+<div class="callout callout--warning idcheck-message u_hidden" id="idcheck-message">
+  <p>There is nothing in the queue</p>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Dashboard</h1>
+
+<div class="grid-row">
+  <div class="column--one-quarter">
+    <div class="idcheck-dash idcheck-dash-{{ queue}}" id="pending">
+      <p class="idcheck-dash-heading">Queue</p>
+
+      <div class="idcheck-dash-details">
+
+        {% if state === 'inprogress' or state === 'declined' or state === 'approved' %}
+        <div class="idcheck-dash-number bold-xxlarge">14</div>
+        {% else %}
+
+          {% if queue === 'clear' %}
+            <div class="idcheck-dash-number bold-xxlarge ">0</div>
+          {% elif queue === 'cleared' %}
+            <div class="idcheck-dash-number bold-xxlarge" id="pending-num">1</div>
+          {% else %}
+            <div class="idcheck-dash-number bold-xxlarge">15</div>
+          {% endif %}
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+  <div class="column--one-quarter">
+    <div class="idcheck-dash {% if state === 'inprogress' %}u-inprogress{% endif %}"id="inprogress" >
+      <p class="idcheck-dash-heading">In progress</p>
+      <div class="idcheck-dash-details">
+        {% if state === 'inprogress' %}
+        <span class="idcheck-dash-number bold-xxlarge">2</span>
+        {% else %}
+        <span class="idcheck-dash-number bold-xxlarge" id="progress-num">1</span>
+        {% endif%}
+      </div>
+    </div>
+  </div>
+  <div class="column--one-quarter">
+    <div class="idcheck-dash idcheck-dash-{{holding|default('clear') }} {% if holding === 'inholding' %}u-inholding{% endif %}">
+      <p class="idcheck-dash-heading">Holding list</p>
+
+      <div class="idcheck-dash-details">
+
+        {% if holding === 'inholding' %}
+        <div class="idcheck-dash-number bold-xxlarge">3</div>
+        {% else %}
+        <div class="idcheck-dash-number bold-xxlarge">0</div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+  <div class="column--one-quarter">
+    <div class="idcheck-dash">
+      <p class="idcheck-dash-heading">Completed today</p>
+
+      <div class="idcheck-dash-details">
+
+        {% if state === 'declined' or state === 'approved' %}
+        <div class="idcheck-dash-number bold-xxlarge">9</div>
+        {% else %}
+        <div class="idcheck-dash-number bold-xxlarge">8</div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if state === 'inprogress' %}
+<p>You still have a verification in progress</p>
+<a class="button" href="id-checker-review{{ params }}">Continue verification</a>
+<p><a href="id-checker-dashboard{{ params }}&state=none">Abort</a></p>
+{% elif queue === 'cleared' %}
+<a class="button" id="cleared" href="id-checker-dashboard{{ params }}">Start next verification</a>
+{% elif queue === 'clear' %}
+{% else %}
+<a class="button" href="id-checker-review{{ params }}">Start next verification</a>
+{% endif%}
+
+
+
+{% if holding === 'inholding' %}
+<div>
+  <a class="" href="id-checker-holding{{ params }}&noabort=true">Open the holding list</a>
+</div>
+{% endif%}
+
+{% if role === 'Supervisor' %}
+<div>
+  <p><a class="" href="id-checker-supervisor-dashboard{{ params }}">Open auditing</a></p>
+</div>
+{% endif%}
+
+
+{% if devMode === "true" %}
+<details class="dev-mode" role="group" >
+  <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+    <span class="details__summary">Testing scenarios</span>
+  </summary>
+  <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+    <div class="reading-width">
+      <p>NHS number</p>
+      <ol>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits NHS Number and match found</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User submits NHS Number and match <b>not</b> found</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">DEMOG-0017: User submits NHS Number and PDS returns superseded NHS number</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}&holding=clear">DEMOG-0022: User submits NHS Number and PDS returns invalid NHS number</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}&holding=clear">DEMOG-0040: User submits NHS Number and PDS returns NHS Number not verified</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0042: User submits NHS Number and PDS returns NHS Number is old style</li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}&holding=clear">DEMOG-9999: User submits NHS Number and PDS returns unspecified error</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=invalid&devMode={{ devMode }}&holding=clear">SMSP-0001: User submits NHS Number and PDS trace fails - Invalid parameters</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=validation&devMode={{ devMode }}&holding=clear">SMSP-0002: User submits NHS Number and PDS trace fails - Response message validation error</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&failreason=unavailable&devMode={{ devMode }}&holding=clear">SMSP-0003: User submits NHS Number and PDS trace fails - Problem with Spine, PDS, N3 network, or local network</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=spine&devMode={{ devMode }}&holding=clear">SMSP-0004: User submits NHS Number and PDS trace fails - Could not connect to Spine</a></li>
+        <li><a href="id-checker-review?demographics=false&role=undefined&result=fail&failreason=expired&devMode={{ devMode }}&holding=clear">User submits NHS Number and PDS returns informally or formally dead</a></li>
+      </ol>
+      <p>Demographics</p>
+      <ol>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000: User submits demographics and match found</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User submits demographics and match <b>not</b> found</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=multiple&devMode={{ devMode }}&holding=clear">DEMOG-0007: User submits demographics and PDS returns multiple matches</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=invalid&devMode={{ devMode }}&holding=clear">DEMOG-9999: User submits demographics and PDS returns unspecified error</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=invalid&devMode={{ devMode }}&holding=clear">SMSP-0001: User submits demographics and PDS trace fails - Invalid parameters</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=validation&devMode={{ devMode }}&holding=clear">SMSP-0002: User submits demographics and PDS trace fails - Response message validation error</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&failreason=unavailable&devMode={{ devMode }}&holding=clear">SMSP-0003: User submits demographics and PDS trace fails - Problem with Spine, PDS, N3 network, or local network</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=spine&devMode={{ devMode }}&holding=clear">SMSP-0004: User submits demographics and PDS trace fails - Could not connect to Spine</a></li>
+        <li><a href="id-checker-review?demographics=true&role=undefined&result=fail&failreason=expired&devMode={{ devMode }}&holding=clear">User submits demographics and PDS returns informally or formally dead</a></li>
+      </ol>
+      <p>Automated - Auto approve - but lands in ID checker queue</p>
+      <ol>
+        <li><a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=success&failreason=none&devMode={{ devMode }}&holding=clear">User <b>did not</b> submit NHS number</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&failreason=none&devMode={{ devMode }}&holding=clear">User submitted NHS number</a></li>
+      </ol>
+      <p>Automated - Document check success - PDS fail or PDS data mismatch with OCR</p>
+      <ol>
+        <li><a href="id-checker-review-automated-pds?demographics=true&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User <b>did not</b> submit NHS Number, PDS match not found using OCR details</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear">DEMOG-0001: User submits NHS Number, PDS match not found</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=fail&devMode={{ devMode }}&holding=clear&idType=driving">DEMOG-0001: User submits <b>Non-UK Driving licence</b> with NHS Number, PDS match not found</a></li>
+        <li><a href="id-checker-review-automated-pds?demographics=false&role=undefined&result=success&devMode={{ devMode }}&holding=clear">SMSP-0000/DEMOG-0017: User submits NHS Number, PDS match found but doesn't match OCR results</a></li>
+      </ol>
+      <p>Automated - Document check failure</p>
+      <ol>
+        <li><a href="id-checker-review-automated-ocr?demographics=true&role=undefined&result=fail&failreason=ocr&devMode={{ devMode }}&holding=clear">User <b>did not</b> submit NHS number</a></li>
+        <li><a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=fail&failreason=ocr&devMode={{ devMode }}&holding=clear">User submitted NHS number</a></li>
+        <li><a href="id-checker-review-automated-ocr?demographics=false&role=undefined&result=fail&failreason=ocr&devMode={{ devMode }}&holding=clear&idType=driving">User submits <b>Non-UK Driving licence</b> with NHS Number</a></li>
+      </ol>
+      <p>Other</p>
+      <ol>
+        <li><a href="id-checker-dashboard{{ params }}&queue=clear&holding=clear">The queue is empty</a></li>
+        <li><a href="id-checker-dashboard{{ params }}&holding=clear">The queue is empty but shows 1 pending</a></li>
+        <li><a href="id-checker-dashboard{{ params }}&holding=inholding">The dashboard shows 3 in holding list</a></li>
+        <li><a href="id-checker-http-error{{ params }}">HTTP response status code errors</a></li>
+      </ol>
+    </div>
+  </div>
+</details>
+{% endif %}
+
+<script type="text/javascript">
+    // pull parameter values from url
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href
+        name = name.replace(/[\[\]]/g, "\\$&")
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url)
+        if (!results) return null
+        if (!results[2]) return ''
+        return decodeURIComponent(results[2].replace(/\+/g, " "))
+    }
+    var queue = getParameterByName('queue')
+
+    document.getElementById('cleared').addEventListener("click", function(event){
+        event.preventDefault()
+        document.getElementById('idcheck-message').classList.remove('u_hidden')
+        document.getElementById('cleared').style.display = 'none'
+        document.getElementById('pending').classList.add('idcheck-dash-clear')
+        document.getElementById('pending-num').innerHTML = '0'
+        document.getElementById('progress-num').innerHTML = '2'
+    })
+
+    if (queue === 'cleared') {
+
+        setTimeout(function(){
+            document.getElementById('idcheck-message').classList.add('u_hidden')
+        }, 5000)
+    }
+</script>
+
+{% endblock %}
