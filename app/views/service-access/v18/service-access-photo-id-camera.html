@@ -35,9 +35,9 @@
             <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><span class="u-visuallyhidden">Back to </span>Choose the photo I.D. you want to use</a></p>
         {% else %}
             {% if idType === 'passport' or idType === 'UK driving licence' %}
-                <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><span class="u-visuallyhidden"><i>Back to:</i></span> Choose how to send a photo of your I.D.</a></p>
+                <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose how to send a photo of your I.D.</a></p>
             {% else %}
-                <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><span class="u-visuallyhidden"><i>Back to:</i></span> Choose how to send the photos of your I.D.</a></p>
+                <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose how to send the photos of your I.D.</a></p>
             {% endif %}
         {% endif %}
 
@@ -79,24 +79,18 @@
                     </h1>
                 </legend>
 
-                <p>
-                    {% if upload === 'file' %}
-                        Upload a photo of the side of your licence with your face on it.
-                    {% else %}
-                        Take a photo of the side of your licence with your face on it.
-                    {% endif %}
-                </p>
-
                 {% if upload !== 'file' %}
                 <img src="/images/DL-guide@2x.png" alt="Take a photo of your Driving Licence avoiding covering up the details " width="600" style="display:block;margin-left:auto;margin-right:auto;">
                 {% endif %}
 
-                <p>Make sure:</p>
                 <ul class="list list-bullet">
-                    <li>the whole licence is in your photo</li>
-                    <li>no part of the licence is hidden by your hands</li>
-                    <li>there is no shine or glare over any of the text or your face</li>
-                    <li>none of the text is blurry</li>
+                    {% if upload === 'file' %}
+                    <li>you have not covered any of the corners</li>
+                    {% else %}
+                    <li>you do not cover any of the corners</li>
+                    {% endif %}
+                    <li>you can clearly see your face and all the text</li>
+                    <li>there's no shine from a light or window</li>
                 </ul>
 
                 <div class="form-group">
