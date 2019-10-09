@@ -8,10 +8,13 @@
   .child-import .block-label.selection-button-checkbox:before {
     top: 13px
   }
+  .child-import .block-label.selection-button-checkbox:after {
+    top: 22px !important;
+  }
 }
 
 .child-import .block-label.selection-button-checkbox:after {
-  top: 13px;
+  top: 11px;
 }
 
 div .child-import {
