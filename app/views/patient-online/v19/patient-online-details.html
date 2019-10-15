@@ -58,14 +58,7 @@
     <div class="form-group">
       <a class="button" href="#" id="continue">Continue</a>
     </div>
-
-    <div class="reading-width">
-    {% if drop === 'type' %}
-    <p><a href="/service-access/v19/service-access-photo-id-type{{ params }}">Use photo I.D. to prove who you are.</a></p>
-    {% else %}
-    <p><a href="/service-access/v19/service-access-what-you-need{{ params }}">Use photo I.D. to prove who you are.</a></p>
-    {% endif %}
-    </div>
+    
     {% if devMode === "true" %}
   <details class="dev-mode" role="group" >
     <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
