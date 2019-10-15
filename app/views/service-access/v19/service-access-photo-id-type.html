@@ -1,0 +1,96 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - What type of ID do you have?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="service-access-what-you-need{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> How to prove who you are</a></p>
+
+  <div class="reading-width">
+    <h1 class="heading-large"><span class="heading-secondary">Step 1 of 3 </span>Send a photo of your I.D.</h1>
+
+
+    <form action="service-access-photo-id-type{{ params }}" method="POST">
+      <div class="form-group">
+        <fieldset class="">
+
+          <legend for="radio-inline-group">
+            <h2 class="" style="padding:0.5em 0 0; font-size: 20px; font-weight: 600; line-height: 32px;">
+              Choose the I.D. you want to use
+            </h2>
+          </legend>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-1">
+              <input id="radio-inline-1" type="radio" name="idType" value="passport">
+              Passport
+            </label>
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
+              UK driving licence (full or provisional)
+            </label>
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-3">
+              <input id="radio-inline-3" type="radio" name="idType" value="European driving licence">
+              European driving licence (full)
+              <span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back</span>
+            </label>
+
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-4">
+              <input id="radio-inline-4" type="radio" name="idType" value="European national identity card">
+              European national identity card
+              <span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back</span>
+            </label>
+          </div>
+
+        </fieldset>
+
+
+        <div class="form-group">
+          <button class="button" id="">Continue</button>
+        </div>
+
+        <p><a href="/patient-online/v19/patient-online-details{{ params }}&drop=type">How to prove who you are without sending a photo of your I.D.</a></p>
+
+      </div>
+
+    </form>
+
+
+    <!--<p class=""><a href="service-access-no-documents{{ params }}">I don't have a photo ID document.</a></p>-->
+
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Reload this page with a testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+          <p>Photo upload errors</p>
+          <ol>
+            <li><a href="service-access-photo-id-type{{ params }}challenge=undefined">Photo ID upload successfull</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Validation Failure</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Upload Failure</a></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    {% endif %}
+
+  </div>
+
+</div>
+
+{% endblock %}

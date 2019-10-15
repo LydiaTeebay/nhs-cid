@@ -1,0 +1,47 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 1: Set up an NHS login{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+<h1>Follow these steps</h1>
+<p>You'll need to give us some information so that we can connect you to your NHS record, and keep your NHS login secure.</p>
+<section class="service-access-wrapper">
+
+	<!-- <h1>Proving your identity</h1> -->
+
+	<ol class="service-access">
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Set up an NHS login</h3>
+			<a href="/create-account/v18/create-acc-terms{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Help us find your NHS record</h3>
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>You'll need to give us some information so that we can connect you to your NHS record.</p>-->
+			<!--</div>-->
+			<!--<span class="service-access__item__status">Completed</span>-->
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Take a photo of your identity document</h3>
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>You'll need to take a photo of your passport or driving licence.</p>-->
+			<!--</div>-->
+			<!--<span class="service-access__item__status">Completed</span>-->
+		</li>
+		<li class="service-access__item">
+			<h3 class="service-access__item__title">Record a short video</h3>
+			<!--<div class="service-access__item__desc">-->
+				<!--<p>This is so we can check that your face matches your photo ID.</p>-->
+			<!--</div>-->
+			<!--<a href="service-access-video-selfie-instructions-2{{ params }}" class="service-access__item__button button">Start</a>-->
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
