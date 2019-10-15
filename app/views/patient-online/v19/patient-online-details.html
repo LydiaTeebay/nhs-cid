@@ -34,8 +34,11 @@
           </h2>
         </legend>
 
+        <div class="reading-width">
+
         <p>Online services include booking appointments, ordering repeat prescriptions and seeing your GP record.</p>
 
+        </div>
         <label class="block-label selection-button-radio" for="radio-inline-1" style="margin-top: 32px;">
           <input id="radio-inline-1" type="radio" name="radio-inline-group" value="patient-online-details-2{{ params }}&poluser=true">
           Yes - I use online services
@@ -56,13 +59,13 @@
       <a class="button" href="#" id="continue">Continue</a>
     </div>
 
-
+    <div class="reading-width">
     {% if drop === 'type' %}
     <p><a href="/service-access/v19/service-access-photo-id-type{{ params }}">Use photo I.D. to prove who you are.</a></p>
     {% else %}
     <p><a href="/service-access/v19/service-access-what-you-need{{ params }}">Use photo I.D. to prove who you are.</a></p>
     {% endif %}
-
+    </div>
     {% if devMode === "true" %}
   <details class="dev-mode" role="group" >
     <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
