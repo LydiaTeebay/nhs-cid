@@ -1,0 +1,82 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Check your phone{% endblock %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result + "&reason=" + reason %}
+
+
+{% block topRow %}
+{% if resend === "yes" %}
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','Your security code has been resent.','attention') }}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<p><a href="login-nhs{{ params }}" class="link-back">Back</a></p>
+
+<div class="first-item">
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+
+        <h1>Check your phone</h1>
+
+        <p>Enter the security code we sent to {{ mobileNum }}.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="securityCodes">Security code</label>
+          <input autocomplete="off" type="number" pattern="[0-9]*" class="form-control" name="code" id="securityCodes" value="" style="margin-bottom: 8px;">
+        </div>
+
+        <div class="form-group remember-me" style="margin-top: 0px;">
+
+            <h1 style="display: none;"><legend>Do not send me SMS codes on this device</legend></h1>
+
+          <fieldset style="margin: 0px;">
+
+            <div class="child-import">
+              <label class="block-label selection-button-checkbox" for="radio-inline-1">
+                <input id="radio-inline-1" type="checkbox" name="radio-inline-group" value="rmd">
+              Remember this device and stop sending security codes
+              </label>
+            </div>
+
+          </fieldset>
+
+        </div>
+
+      <details class="nhsuk-details" style="margin: 0px;">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            What does this mean?
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>We can remember the device you are using now, so you won’t need to enter a security code when you log in with this device in the future.</p>
+          <p>To keep your NHS login secure, you should only do this on your own personal or trusted devices.</p>
+          <p>We may ask if you still want us to remember this device in the future.</p>
+          
+
+        </div>
+      </details>
+
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+
+       <a id="securitycodeContinue" href="login-spinner{{ params }}" class="button">Continue</a>
+
+    </div>
+
+    <p class="">If you don't have access to your phone, you can <a href="/account-recovery/enter-number{{ params }}">change your phone number</a> securely.</p>
+
+    {% include '_partials/_includes/_scenarios_2fa.html' %}
+
+  </form>
+</div>
+
+{% endblock %}

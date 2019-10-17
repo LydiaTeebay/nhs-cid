@@ -1,0 +1,19 @@
+{% if devMode === "true" %}
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+
+            <p>Partners</p>
+            <ol>
+                <li><a href="email-confirmed?devMode=true&serviceName=eRedbook">eRedbook</a></li>
+                <li><a href="email-confirmed?devMode=true&serviceName=Helm">Helm</a></li>
+                <li><a href="email-confirmed?devMode=true&serviceName=eConsult">eConsult</a></li>
+            </ol>
+
+        </div>
+    </div>
+</details>
+{% endif %}

@@ -1,0 +1,37 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - Check your email{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+      <h1>This link has already been used</h1>
+
+      <p>You have already used this link to confirm your NHS login.</p>
+      <p>If you want to access {{ serviceName }}, select continue to log in.</p>
+        
+    </div>
+    <div class="form-group">
+      <div class="form-group">
+        <a href="login-nhs-create{{ params }}" class="button">Continue to {{ serviceName }}</a>
+      </div>
+    </div>
+    <p>Reference: <b>CID1234</b></p>
+  </form>
+
+</div>
+
+{% endblock %}
