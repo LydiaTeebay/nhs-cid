@@ -1,4 +1,4 @@
-{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% extends '_layouts/_grids/_grid-1.html' %}
 {% block page_title %}You now have an NHS login{% endblock %}
 {% set signedin = '' %}
 {% set newUser = 'yes' %}
@@ -26,11 +26,15 @@
 			<ol>
 				<li>Go back to {{ serviceName }}.</li>
 				<li>Enter your NHS login details.</li>
+				<!-- {% if reason === 'uplift' %}
+					<li>Prove who you are. You will need photo ID or registration details from your GP's surgery.</li>
+				{% endif %} --> 
 			</ol>
 
 			<h2 class="heading-medium">What you can do with your NHS login</h2>
 
 			<p>You can use your NHS login to access health websites and apps wherever you see 'NHS login'.</p>
+
 
 
 		</div>
