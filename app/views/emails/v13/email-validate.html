@@ -22,7 +22,25 @@
   <p>If nothing happens when you click the button, try this link instead. You might need to copy and paste it into an internet browser:</p>
   <p><a href="/create-account/v19/email-confirmed{{ params }}">http://login.nhs.uk/create-account/v19/confirm-email</a></p>
   <p>If you did not try to set up an NHS login using this email address, then ignore this email. We will delete your information after 48 hours.</p>
-  {% include '_partials/_includes/_scenarios_setup.html' %}
+
+  {% if devMode === "true" %}
+  <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+          <span class="details__summary">Continue with testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+          <div class="reading-width">
+
+              <p>Email link</p>
+              <ol>
+                  <li><a href="../../create-account/v19/email-error-link-used{{ params }}&reason=linkused">User follows link more than once</a></li>
+                  <li><a href="../../create-account/v19/email-expired{{ params }}&reason=linkexpired">Link expired</a></li>
+              </ol>
+
+          </div>
+      </div>
+  </details>
+{% endif %}
 
 </div>
 
