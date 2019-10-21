@@ -22,12 +22,12 @@
           <p style="margin-top: 0px;">Your phone number has been changed to {{ newMobileNum }}</p>
           <a class="button">Continue back to {{serviceName}}</a>
         {% else %}
-          <p style="margin-top: 0px;">Your phone number has been changed to {{ newMobileNum }}</p>
+          <p style="margin-top: 0px;">Your phone number will be changed to {{ newMobileNum }}</p>
           <p>For security reasons, it will take 24 hours for the change to happen.</p>
           <p>If you need to change your number in future, you can <a href="/create-account/v18/recovery-email">create a recovery email</a> to make this easier.</p>
         {% endif %}
       {% else %}
-        <p style="margin-top: 0px;">Your phone number has been changed to {{ newMobileNum }}</p>
+        <p style="margin-top: 0px;">Your phone number will be changed to {{ newMobileNum }}</p>
         <p>For security reasons, it will take 24 hours for the change to happen.</p>
         <p>You will receive a confirmation email when the change is confirmed.</p>
       {% endif %}
