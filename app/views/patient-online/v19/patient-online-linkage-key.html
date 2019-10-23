@@ -7,7 +7,16 @@
 
 <div class="first-item">
 
-    <p><a href="/patient-online/v19/patient-online-details-2{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you have the 3 registration details?</a></p>
+    {% if pyiuser === "true" %}
+
+    <p><a href="/patient-online/v19/patient-online-details-2{{ params }}" class="link-back">Back</a></p>
+
+    {% else %}
+
+    <p><a href="java" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you have the 3 registration details?</a></p>
+
+    {% endif %}
+
 
   <form>
     <div class="form-group">
@@ -65,9 +74,17 @@
 
       {% if pyiuser === "true" %}
 
+      <p>If you do not have these 3 details or your details do not work, <a href="/service-access/v19/service-access-offline-dunno{{ params }}">check that you are registered, and that you have the correct registration details.</a></p>
+
       {% else %}
 
-      <p>If you do not have these 3 details or your details do not work, you can <a href="/service-access/v19/service-access-what-you-need{ params }}">send a photo of your I.D.</a>, or <a href="/service-access/v19/service-access-offline-retrieve{{ params }}">ask your GP surgery for your registration details</a> so you can prove who you are.</a></p>
+      <p>If you do not have these 3 details or your details do not work, you can <a href="/service-access/v19/service-access-what-you-need{ params }}">send a photo of your I.D.</a>,</p>
+
+      <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin-bottom: 24px;">
+          <span style="font-size: 18px; background-color: #fff; padding: 0 10px;">Or</span>
+      </div>
+
+      <p><a href="/service-access/v19/service-access-offline-retrieve{{ params }}">ask your GP surgery for your registration details</a> so you can prove who you are.</a></p>
 
       {% endif %}
   </form>
