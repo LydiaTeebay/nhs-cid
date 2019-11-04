@@ -86,18 +86,19 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var iproov = req.param('iproov')
         var desk = req.param('desk')
+        var linkback = req.param('linkback')
         // re-render the page along with the parameter
 
         if (iproov === 'false') {
-            res.redirect('/service-access/v19/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk )
+            res.redirect('/service-access/v19/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk + '&linkback=' + linkback )
         }
 
         else if (desk === 'true') {
-            res.redirect('/service-access/v19/service-access-switchtomobile-desktop?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk )
+            res.redirect('/service-access/v19/service-access-switchtomobile-desktop?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk + '&linkback=' + linkback)
         }
 
         else {
-            res.render('service-access/v19/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, idType: idType, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile, iproov: iproov, desk: desk }, function(err, html) {
+            res.render('service-access/v19/service-access-photo-id-type', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, idType: idType, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile, iproov: iproov, desk: desk, linkback: linkback }, function(err, html) {
                 res.send(html)
             })
         }
