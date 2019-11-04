@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
-{% block page_title %}Access {{ serviceName }} - Sorry, we are having technical problems - CID0001{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Sorry, NHS login is currently unavailable - CID0002{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
@@ -10,13 +10,13 @@
 
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
-  <h1 class="">Sorry, we are having technical problems</h1>
+  <h1 class="">Sorry, NHS login is currently unavailable</h1>
 
-  <p>We are working to fix this.</p>
+  <p>This is because we are making some changes and improvements.</p>
 
   <p>Please try again later.</p>
 
-  <p>Reference: <b>CID0001</b></p>
+  <p>Reference: <b>CID0002</b></p>
 
 </div>
 
