@@ -38,7 +38,8 @@
 }
 
 .button--approve,
-.button--decline {
+.button--decline,
+.button--decline--clarity {
   @include button($green);
   position: relative;
   padding: ($baseline-grid-unit * 6) ($baseline-grid-unit * 12);
@@ -68,7 +69,8 @@
   }
 }
 
-.button--decline {
+.button--decline,
+.button--decline--clarity {
   @include button($red);
   padding: ($baseline-grid-unit * 6) ($baseline-grid-unit * 12);
   padding-left: ($baseline-grid-unit * 17);

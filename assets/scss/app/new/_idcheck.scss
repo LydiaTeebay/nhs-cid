@@ -276,8 +276,9 @@
   }
 }
 
-#id-decline {
-  margin: 0 0 32px 0;
+#id-decline,
+#id-canttell {
+  margin: 0 0 0 0;
 }
 
 // remove video player play icon in Chrome browsers

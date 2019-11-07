@@ -230,16 +230,7 @@
         </div>
 
 
-        <!--<p class="small" id="loader"><img src="/images/ajax-loader.gif" style="width: 30px" alt="loading">&nbsp; Running trace</p>-->
-
-        <div id="trace" class="idcheck-match {{ result }}"
-             style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
-
-
-            {% if result !== 'fail' and result !== 'spine' %}
-
-
-            {% endif %}
+        <div id="trace" class="idcheck-match {{ result }}" style="display:none;-webkit-animation-delay: 2s;-moz-animation-delay: 2s;animation-delay: 2s;">
 
             <div class="idcheck-result">
                 {% if result === 'fail' %}
@@ -347,25 +338,23 @@
 
             {% else %}
 
-            <fieldset>
-
-                <p style="padding-bottom: 32px;">Can you find the person's NHS Number using a manual PDS check, so you can re-run the trace?</p>
-
-                <div class="selection-button-radio-inline">
-                    <div class="multiple-choice" data-target="">
-                        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="yes"
-                               aria-controls="nhs-yes" disabled>
-                        <label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
+            <div class="qa-questions-group" data-complete="false">
+                <div class="qa-questions-question" id="trace-1" data-answered="false" data-group="decline-4a">
+                    <p class="qa-questions-question-text">Can you find the person's NHS Number using a manual PDS check, so you can re-run the trace?</p>
+                    <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
+                        <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                               for="6" aria-checked="false" data-target="">
+                            <input type="radio" id="6" name="a-4" class="multiple-choice__input" tabindex="6" aria-controls="nhs-yes">Yes
+                            <div class="qa-questions-answer-radio-indicator"></div>
+                        </label>
+                        <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                               for="7" aria-checked="false" data-target="">
+                            <input type="radio" id="7" name="a-4" class="multiple-choice__input" tabindex="7" aria-controls="nhs-no">No
+                            <div class="qa-questions-answer-radio-indicator"></div>
+                        </label>
                     </div>
                 </div>
-                <div class="selection-button-radio-inline" data-group="decline-0">
-                    <div class="multiple-choice" data-target="">
-                        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="no"
-                               aria-controls="nhs-no" disabled>
-                        <label for="radio-inline-2" class="block-label" style="position: static;">No</label>
-                    </div>
-                </div>
-            </fieldset>
+            </div>
 
             {% if formerror === "true" %}
 
@@ -387,7 +376,9 @@
 
                     </div>
 
-                    <div class="form-group">
+
+
+                    <div class="form-group" style="display:none;">
 
                         <fieldset>
                             <legend class="form-label">Date of birth</legend>
@@ -437,14 +428,14 @@
 
             {% else %}
 
-            <div aria-hidden="true" aria-expanded="false" class=" js-hidden" id="nhs-yes" style="margin: 0;">
+            <div aria-hidden="true" aria-expanded="false" class="js-hidden" id="nhs-yes" style="margin: 0;">
 
                 <div class="form-group">
                     <label class="form-label" for="nhs_number">NHS Number</label>
                     <input class="form-control code" id="nhs_number" name="nhs_number" type="text" value="{% if demographics === 'false' %}485 777 3456{% endif%}">
                 </div>
 
-                <fieldset>
+                <fieldset  style="display:none;">
                     <legend class="form-label">Date of birth</legend>
                     <span class="form-label__hint" style="margin-top: 10px;">Example: 31 3 1980</span>
                     <div class="form-group -date" style="margin-top: 10px;">
@@ -728,6 +719,11 @@
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
+                    <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
+                           aria-checked="false">
+                        <input type="radio" id="16" name="a-8" class="multiple-choice__input" tabindex="16">Can't tell
+                        <div class="qa-questions-answer-radio-indicator"></div>
+                    </label>
                 </div>
             </div>
         </div>
@@ -738,13 +734,13 @@
                 <div class="qa-questions-answer-group multiple-choice__container">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            aria-checked="false">
-                        <input type="radio" id="16" name="a-9" class="multiple-choice__input" tabindex="16" {% if
+                        <input type="radio" id="17" name="a-9" class="multiple-choice__input" tabindex="17" {% if
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>Yes
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            aria-checked="false">
-                        <input type="radio" id="17" name="a-9" class="multiple-choice__input" tabindex="17" {% if
+                        <input type="radio" id="18" name="a-9" class="multiple-choice__input" tabindex="18" {% if
                                result=== 'fail' or result === 'spine' %}disabled{% endif %}>No
                         <div class="qa-questions-answer-radio-indicator"></div>
                     </label>
@@ -760,6 +756,10 @@
             <div id="id-decline">
                 <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}"
                    data-target="modal" id="declineBtn" class="button button--decline" style="display: none;">Decline</a>
+            </div>
+            <div id="id-canttell">
+                <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}"
+                   data-target="modal" id="canttellBtn" class="button button--decline--clarity" style="display: none;">Decline</a>
             </div>
         </div>
     </div>
@@ -838,8 +838,6 @@
 
 
 <div class="modal-overlay no-fade" id="modal_window" aria-hidden="true" role="dialog" aria-labelledby="modal_title">
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
     <div class="modal-content" id="modal_holder" role="document">
         <h3 id="modal-header">Additional information about this assurance request</h3>
 
@@ -848,37 +846,137 @@
 
                 <div class="form-group">
 
+                    <div id="modal-clarity" style="display:none;">
+
+                        <div class="grid-row">
+                            <div class="column--two-thirds">
+                                <div class="idcheck-image" style="margin-top:0;">
+                                    <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
+                                         alt="Image of a passport"/>
+                                </div>
+                            </div>
+
+                            <div class="column--one-third" style="margin-top:0;">
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+                                            <h3 class="govuk-fieldset__heading">
+                                                Reasons
+                                            </h3>
+                                        </legend>
+                                        <div class="govuk-checkboxes govuk-checkboxes--small">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-1" name="clarity" type="checkbox" value="blurry">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-1">
+                                                    Too blurry
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-2" name="clarity" type="checkbox" value="glare">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-2">
+                                                    Too much Glare
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-3" name="clarity" type="checkbox" value="light">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-3">
+                                                    Too light
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-4" name="clarity" type="checkbox" value="dark">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-4">
+                                                    Too dark
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-5" name="clarity" type="checkbox" value="hologram">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-5">
+                                                    Hologram over something
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-6" name="clarity" type="checkbox" value="cropped">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-6">
+                                                    Cropped too much
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-7" name="clarity" type="checkbox" value="covered">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-7">
+                                                    Covered up too much
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-8" name="clarity" type="checkbox" value="DfT">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-8">
+                                                    Too small
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-9" name="clarity" type="checkbox" value="dirty">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-9">
+                                                    Too dirty
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-10" name="clarity" type="checkbox" value="filter">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-10">
+                                                    Photo filter
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="clarity-11" name="clarity" type="checkbox" value="other">
+                                                <label class="govuk-label govuk-checkboxes__label" for="clarity-11">
+                                                    Other
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <div class="govuk-form-group" id="rejection-reasons">
                         <label class="form-label" for="sort">Rejection reason</label>
 
                         <select id="decline-0" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-010" data-question="">--- Please select ---</option>
-                            <option value="IDC-011" data-question="decline-text-1">Driving licence - cannot see information in ID</option>
-                            <option value="IDC-012" data-question="decline-text-2">Driving licence - cannot find NHS Number</option>
-                            <option value="IDC-013" data-question="decline-text-1">Passport - cannot see information in ID</option>
-                            <option value="IDC-014" data-question="decline-text-2">Passport - cannot find NHS Number</option>
-                            <option value="IDC-015" data-question="decline-text-3">User's submitted date of birth does not match the date of birth in PDS</option>
+                            <option value="IDC-011" data-question="none">Cannot find the user in PDS</option>
+                            <option value="IDC-012" data-question="none">More than 1 PDS record for same person</option>
+                            <option value="IDC-013" data-question="none">More than 1 date of bith on record</option>
+                            <option value="IDC-014" data-question="none">More than 1 person on PDS record</option>
+                            <option value="IDC-015" data-question="none">First name on PDS record does not match first name on ID document</option>
                         </select>
 
                         <select id="decline-1" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-020" data-question="">--- Please select ---</option>
-                            <option value="IDC-021" data-question="decline-text-1">Driving licence - cannot see everything clearly</option>
-                            <option value="IDC-022" data-question="decline-text-1">Passport - cannot see everything clearly</option>
+                            <option value="IDC-021" data-question="none">Not a photo ID</option>
+                            <option value="IDC-022" data-question="none">Not a photo or it's a scan of the original</option>
+                            <option value="IDC-023" data-question="none">Not an accepted type of photo ID</option>
+                            <option value="IDC-024" data-question="none">It's a visa sticker</option>
+                            <option value="IDC-025" data-question="none">It's a passport we cannot accept</option>
+                            <option value="IDC-026" data-question="decline-text-1">Other</option>
                         </select>
 
                         <select id="decline-2" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-030" data-question="">--- Please select ---</option>
-                            <option value="IDC-031" data-question="decline-text-4">Driving licence - whole document is a fake</option>
-                            <option value="IDC-032" data-question="decline-text-5">Driving licence - photo or information has been tampered with</option>
-                            <option value="IDC-033" data-question="decline-text-4">Passport - whole document is a fake</option>
-                            <option value="IDC-034" data-question="decline-text-5">Passport - photo or information has been tampered with</option>
+                            <option value="IDC-031" data-question="decline-text-4c">Looks false</option>
+                            <option value="IDC-032" data-question="none">Expired</option>
+                            <option value="IDC-033" data-question="none">Cut up</option>
+                            <option value="IDC-034" data-question="decline-text-4b"">Damaged</option>
+                            <option value="IDC-035" data-question="decline-text-4a">Other</option>
                         </select>
 
                         <select id="decline-3" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-040" data-question="">--- Please select ---</option>
-                            <option value="IDC-041" data-question="">Driving licence - expired</option>
+                            <option value="IDC-041" data-question="none">Driving licence - expired</option>
                             <option value="IDC-042" data-question="decline-text-6">Driving licence - not a UK licence</option>
-                            <option value="IDC-043" data-question="">Passport - expired</option>
+                            <option value="IDC-043" data-question="none">Passport - expired</option>
                             <option value="IDC-044" data-question="decline-text-6">Passport - not a UK passport</option>
                             <option value="IDC-045" data-question="decline-text-6">Unsupported UK document</option>
                             <option value="IDC-046" data-question="decline-text-6">Unsupported non-UK document</option>
@@ -919,29 +1017,25 @@
 
                         <select id="decline-7" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
                             <option value="IDC-100" data-question="">--- Please select ---</option>
-                            <option value="IDC-101" data-question="">There is no sound at all</option>
+                            <option value="IDC-101" data-question="none">There is no sound at all</option>
                             <option value="IDC-102" data-question="decline-text-11">Cannot hear the numbers clearly</option>
                             <option value="IDC-103" data-question="decline-text-12">Missing first or last number</option>
                             <option value="IDC-104" data-question="decline-text-13">Numbers are wrong</option>
                             <option value="IDC-105" data-question="decline-text-14">Says something other than numbers</option>
                         </select>
+
+
+
                     </div>
+
+
                 </div>
 
 
                 <div class="form-group" id="rejection-text" style="display:none;">
 
                     <div id="decline-text-1" style="display:none;">
-                        <label class="form-label" for="field3">Which part of the ID is affected, and how?</label>
-                        <span class="form-hint">Tell us if:<br>
-                            &#9679; anything is covered up, and how<br>
-                            &#9679; anything is cut off<br>
-                            &#9679; there is glare<br>
-                            &#9679; there is blur<br>
-                            &#9679; it's too light<br>
-                            &#9679; it's too dark<br>
-                            &#9679; anything else is making it difficult for you to see the information clearly<br>
-                        </span>
+                        <label class="form-label" for="field3">Why is this not an accepted document? (required)</label>
                     </div>
 
                     <div id="decline-text-2" style="display:none;">
@@ -957,12 +1051,16 @@
                             </span>
                     </div>
 
-                    <div id="decline-text-4" style="display:none;">
-                        <label class="form-label" for="field3">How did you identify that it's a fake? (required)</label>
+                    <div id="decline-text-4a" style="display:none;">
+                        <label class="form-label" for="field3">Why is this document invalid? (required)</label>
                     </div>
 
-                    <div id="decline-text-5" style="display:none;">
-                        <label class="form-label" for="field3">What has been tampered with, and how? (required)</label>
+                    <div id="decline-text-4b" style="display:none;">
+                        <label class="form-label" for="field3">How was the document damaged? (required)</label>
+                    </div>
+
+                    <div id="decline-text-4c" style="display:none;">
+                        <label class="form-label" for="field3">How does the document look false? (required)</label>
                     </div>
 
                     <div id="decline-text-6" style="display:none;">
@@ -1037,6 +1135,7 @@
     // localStorage.removeItem("idchecker")
     addEventListeners()
     addButtonListeners()
+    addClarityButtonListeners()
     addRejectionListeners()
     addToHolding()
     resetAllSections()
@@ -1084,7 +1183,7 @@
         document.getElementById('slideout-value_tab_value').style.display = 'block'
     }, 4000)
 
-    // when a radio button is clicked
+    // when any radio button is clicked
     var processClick = function (e) {
         // update local storage straight away
         updateStorageFromElements()
@@ -1108,13 +1207,19 @@
     // when an approve or decline button is clicked
     var buttonClick = function (object, event) {
         event.preventDefault()
-        console.log(object)
+        console.log('bang')
         var target = object.parentElement.parentElement.getAttribute('data-group')
         // console.log(target)
 
         var link = object.href
         var heading = document.getElementById('modal-header')
-        heading.text = 'Information about this declined verification'
+
+        var content = document.getElementById('modal_holder')
+        content.classList.remove('modal-content--clarity')
+
+        document.getElementById('modal-clarity').style.display = 'none'
+
+        heading.innerText = 'Information about this declined verification'
         var a = document.getElementById('modal-link')
         a.href = link
         document.getElementById('modal_create').click()
@@ -1130,6 +1235,40 @@
             heading.innerText = 'Information about this approved verification'
             document.getElementById('rejection-reasons').style.display = 'none'
         }
+    }
+
+    // when a don't know button is clicked
+    var clarityClick = function (object, event) {
+        event.preventDefault()
+
+        var link = object.href
+        var heading = document.getElementById('modal-header')
+
+        var clarityQuestion = object.parentNode.parentNode.getAttribute('id')
+
+        if (clarityQuestion === 'document-1') {
+            heading.innerText = 'Information about this declined verification (Can\'t tell if it\'s an accepted document)'
+        } else if (clarityQuestion === 'document-2') {
+            heading.innerText = 'Information about this declined verification (Can\'t tell if it\'s a valid document)'
+        } else if (clarityQuestion === 'selfie-2') {
+            heading.innerText = 'Information about this declined verification (Faces do not match)'
+        }
+
+        var content = document.getElementById('modal_holder')
+        content.classList.add('modal-content--clarity')
+
+        document.getElementById('modal-link').removeAttribute('disabled')
+
+        document.getElementById('modal-clarity').style.display = 'block'
+
+        var rejections = document.getElementById('rejection-reasons')
+        rejections.style.display = 'none'
+
+        var a = document.getElementById('modal-link')
+        a.href = link
+        document.getElementById('modal_create').click()
+
+        var buttonType = object.text
     }
 
     function setReasons(target) {
@@ -1160,7 +1299,7 @@
         }
         if (target){
 
-            if (target === "decline-text-15") {
+            if (target === "decline-text-15" || "none" ) {
                 document.getElementById('modal-link').removeAttribute("disabled")
             } else {
                 document.getElementById('rejection-text').style.display = 'block'
@@ -1178,14 +1317,14 @@
         if(text.length >= 1) {
             document.getElementById('modal-link').removeAttribute("disabled")
         } else if(text.length == 0) {
-            document.getElementById('modal-link').setAttribute("disabled", "")
+            document.getElementById('modal-link').setAttribute("disabled", '')
         }
     }
 
     function resetText() {
         var textarea = document.getElementById('field3')
-        textarea.value = "";
-        document.getElementById('modal-link').setAttribute("disabled", "")
+        textarea.value = ''
+        document.getElementById('modal-link').setAttribute("disabled", '')
     }
 
     // run through all sections checking for completeness
@@ -1246,6 +1385,15 @@
         for (i = 0; i < inputs.length; i++) {
             inputs[i].addEventListener('click', function (event) {
                 buttonClick(this, event)
+            })
+        }
+    }
+
+    function addClarityButtonListeners() {
+        var inputs = document.querySelectorAll('.button--decline--clarity')
+        for (i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('click', function (event) {
+                clarityClick(this, event)
             })
         }
     }
@@ -1347,16 +1495,17 @@
             document.getElementById('manual-pds').style.display = 'none'
         }
 
-        if (idCheck[1] === true || idCheck[2] === true || idCheck[4] === true || idCheck[5] === true || idCheck[7] === true || idCheck[9] === true || idCheck[13] === true || idCheck[15] === true || idCheck[17] === true  ) {
+        if (idCheck[1] === true || idCheck[4] === true || idCheck[7] === true || idCheck[9] === true || idCheck[13] === true || idCheck[15] === true || idCheck[18] === true  ) {
 
             if (document.getElementById('radio-inline-3') !== true ) {
 
                 document.getElementById('approveBtn').style.display = 'none'
                 document.getElementById('declineBtn').style.display = 'inline-block'
+                document.getElementById('canttellBtn').style.display = 'none'
 
-                if (idCheck[1] === true || idCheck[2] === true ) {
+                if (idCheck[1] === true) {
                     $("#id-decline").appendTo('#document-1')
-                } else if (idCheck[4] === true || idCheck[5] === true) {
+                } else if (idCheck[4] === true) {
                     $("#id-decline").appendTo('#document-2')
                 } else if (idCheck[5] === true) {
                     $("#id-decline").appendTo('#document-3')
@@ -1370,22 +1519,42 @@
                     $("#id-decline").appendTo('#selfie-1')
                 } else if (idCheck[15] === true) {
                     $("#id-decline").appendTo('#selfie-2')
-                } else if (idCheck[17] === true) {
+                } else if (idCheck[18] === true) {
                     $("#id-decline").appendTo('#selfie-3')
                 } else {
                     $("#id-decline").appendTo('#id-buttons')
                 }
             }
         }
-            
-        else if (idCheck[0] === true && idCheck[3] === true && idCheck[6] === true && idCheck[8] === true && idCheck[10] === true && idCheck[12] === true && idCheck[14] === true && idCheck[16] === true) {
+
+        else if (idCheck[2] === true || idCheck[5] === true || idCheck[16] === true ) {
+
+            document.getElementById('approveBtn').style.display = 'none'
+            document.getElementById('declineBtn').style.display = 'none'
+            document.getElementById('canttellBtn').style.display = 'inline-block'
+
+            console.log('sausages')
+            if (idCheck[2] === true) {
+                $("#id-canttell").appendTo('#document-1')
+            } else if (idCheck[5] === true) {
+                $("#id-canttell").appendTo('#document-2')
+            } else if (idCheck[16] === true) {
+                $("#id-canttell").appendTo('#selfie-2')
+            } else {
+                $("#id-decline").appendTo('#id-buttons')
+            }
+        }
+
+        else if (idCheck[0] === true && idCheck[3] === true && idCheck[6] === true && idCheck[8] === true && idCheck[10] === true && idCheck[12] === true && idCheck[14] === true && idCheck[17] === true) {
             document.getElementById('approveBtn').style.display = 'inline-block'
             document.getElementById('declineBtn').style.display = 'none'
+            document.getElementById('canttellBtn').style.display = 'none'
         }
 
         else {
             document.getElementById('approveBtn').style.display = 'none'
             document.getElementById('declineBtn').style.display = 'none'
+            document.getElementById('canttellBtn').style.display = 'none'
         }
 
     }
