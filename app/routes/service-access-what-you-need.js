@@ -17,8 +17,9 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var iproov = req.param('iproov')
         var desk = req.param('desk')
+        var drop = req.param('drop')
         // re-render the page along with the parameter
-        res.render('service-access/v19/service-access-what-you-need', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
+        res.render('service-access/v19/service-access-what-you-need', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, drop: drop }, function(err, html) {
             res.send(html)
         })
     })

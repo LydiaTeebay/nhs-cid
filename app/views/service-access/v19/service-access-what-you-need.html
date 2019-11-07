@@ -8,7 +8,13 @@
 <div class="first-item">
 
 	{% if hideBack !== 'true' %}
+
+	{% if drop === "chooseid" %}
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+	{% else %}
 	<p><a href="service-access-start{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> You need to prove who you are</a></p>
+	{% endif %}
+
 	{% endif %}
 
 	<div class="reading-width">
