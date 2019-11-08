@@ -4,7 +4,8 @@
 {% set service = "idchecker" %}
 {% set serviceName = "Identity Verification and Matching Service" %}
 {% set signedin = 'true' %}
-{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&state=" + state + "&devMode=" + devMode %}
+{% set noabort = 'true' %}
+{% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&devMode=" + devMode %}
 
 
 {% block content %}
@@ -28,28 +29,28 @@
       <td>Maria Anders</td>
       <td>"Numbers didn't show" - Rosie Waites</td>
       <td>1 hour, 15 minutes</td>
-      <td><a href="id-checker-review{{ params }}" class="">Pick up</a> </td>
+      <td><a href="id-checker-review{{ params }}&state=pickedup" class="">Pick up</a> </td>
     </tr>
     <tr>
       <td>134a4214</td>
       <td><i style="color: grey;">Not available</i></td>
-      <td>No information appeared for PDS check, I tried to refresh a couple of times and it still won't show.</td>
+      <td>"No information appeared for PDS check, I tried to refresh a couple of times and it still won't show." - Rosie Waites</td>
       <td>55 minutes</td>
-      <td><a href="id-checker-review{{ params }}" class="">Pick up</a> </td>
+      <td><a href="id-checker-review{{ params }}&state=pickedup" class="">Pick up</a> </td>
     </tr>
     <tr>
       <td>7fc61a11</td>
       <td>5990060173</td>
-      <td>The video won't play on my computer</td>
+      <td>"The video won't play on my computer" - Emily Claire</td>
       <td>29 minutes</td>
       <td><span style="color: grey;">In progress</span></td>
     </tr>
-    <tr class="">
+    <tr class="idcheck-pickedup">
       <td>3cb1f8d7</td>
       <td>Stuart Mittleman</td>
-      <td>The PDS result isn't showing</td>
+      <td>"The PDS result isn't showing, just a spinner!" - Paul Lloyd</td>
       <td>32 hours, 21 minutes</td>
-      <td><span style="color: grey;"><a href="id-checker-review{{ params }}" class="">Re-open</a></span></td>
+      <td><span style="color: grey;"><a href="id-checker-review{{ params }}&state=pickedup" class="">Re-open</a></span></td>
     </tr>
     </tbody>
   </table>

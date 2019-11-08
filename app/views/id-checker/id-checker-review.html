@@ -765,7 +765,8 @@
     </div>
 </div>
 
-<div id="slideout">
+
+<div id="slideout" {% if state === 'pickedup' %}style="display:none;"{% endif %}>
     <img src="/images/problem.png" alt="Feedback" height="173" width="32"/>
     <div id="slideout_inner">
         <h3>Move to holding list</h3>
