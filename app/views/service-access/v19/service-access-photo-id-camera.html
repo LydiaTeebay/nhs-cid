@@ -199,10 +199,22 @@
     </section>
 
 
+    {# section to show the antivirus error #}
+    <section class="preview-container" id="scan-id-7b" style="display:none">
+
+        <h1 style="padding-bottom: 0;">You cannot send this photo because the file is damaged</h1>
+
+        <p>You can <a class="" href="service-access-photo-id-camera{{ params }}" id="tryagain">{% if upload === 'file' %}upload{% else %}take{% endif %} another photo.</a></p>
+        <p>If this keeps happening, there might be a problem with your device. You could take a photo using a different device, and then upload it.</p>
+
+        <p class="small" style="margin-top: 28px;">Reference: CID4005</p>
+    </section>
+
+
     {# section to show the AWS face check validation errors - multiple face #}
     <section class="preview-container" id="scan-id-7c" style="display:none">
 
-        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
+        <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
 
         <p>It looks like there is more than 1 face in your photo.</p>
         <p>Make sure there are no other faces in the photo you send us.</p>
