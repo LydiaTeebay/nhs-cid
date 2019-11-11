@@ -7,16 +7,22 @@
 {% set params = "?demographics=" + demographics + "&role=" + role + "&result=" + result + "&failreason=" + failreason + "&devMode=" + devMode + "&automation=" + automation  %}
 {% set dataResult = 'data-result=' + result %}
 
+{% block extrastyles %}
+<script src='/panzoom.min.js'></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="panel" style="display: block;" id="result" {{ dataResult }}>
     <div class="panel__content panel__content--half">
         <h3>Check identity document</h3>
-        <div class="reading-width">
+        <p class="small idcheck-help">Hold down 'ALT' when scrolling to zoom the image in and out. <a href="#" id="reset">Reset</a> </p>
 
-            <div class="idcheck-image">
-                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+        <div class="reading-width idcheck-image-container">
 
+            <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+
+            <div class="idcheck-image zoomable1">
                 {% if idType === 'driving' %}
 
                 <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
@@ -29,20 +35,23 @@
 
                 {% endif %}
 
+
             </div>
+
 
             {% if idType === 'driving' %}
 
-            <div class="idcheck-image">
+            <div class="reading-width idcheck-image-container">
                 <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
-
-                <img src="/images/DL-back.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a driving licence"/>
-
+                <div class="idcheck-image zoomable2">
+                    <img src="/images/DL-back.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a driving licence"/>
+                </div>
             </div>
 
             {% endif %}
 
         </div>
+
     </div>
 
 
@@ -492,23 +501,11 @@
 <div class="panel" style="display: block;">
     <div class="panel__content panel__content--half">
         <h3>Compare the photo ID and the PDS record</h3>
-        <div class="reading-width">
+        <div class="reading-width idcheck-image-container">
+            <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
 
-            <!--<div class="idcheck-image">-->
+            <div class="idcheck-image zoomable3">
 
-                <!--<div class="panzoom">-->
-                    <!--<div class="idcheck-image-expand">-->
-                        <!--<a href="#" class="idcheck-image-expand-button">Expand image</a>-->
-                    <!--</div>-->
-
-                    <!--<div class="img" style="background: url('http://blog.millermedeiros.com/wp-content/uploads/2010/04/awesome_tiger.svg') no-repeat 0 0 fixed;"></div>-->
-                    <!--&lt;!&ndash;<img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;" alt="Image of a passport"/>&ndash;&gt;-->
-                <!--</div>-->
-                <!--<input id="zoom" type="range" class="zoom-range" step="1" min="200" max="1500">-->
-            <!--</div>-->
-
-            <div class="idcheck-image">
-                <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
 
                 {% if idType === 'driving' %}
 
@@ -1139,6 +1136,7 @@
     addClarityButtonListeners()
     addRejectionListeners()
     addToHolding()
+    reset()
     resetAllSections()
     questionsComplete = false
 
@@ -1415,6 +1413,13 @@
         })
     }
 
+    function reset() {
+        var reset = document.getElementById('reset')
+        reset.addEventListener('click', function (event) {
+            panzoom.reset
+        })
+    }
+
     function updateStorageFromElements() {
         var idCheck = []
         var inputs = document.getElementsByTagName('input')
@@ -1565,5 +1570,24 @@
 {% endblock %}
 
 {% block extrascripts %}
-<script src="/panzoom.js"></script>
+<script>
+    var area1 = document.querySelector('.zoomable1')
+    var area2 = document.querySelector('.zoomable2')
+    var area3 = document.querySelector('.zoomable3')
+    panzoom(area1, {
+        smoothScroll: false,
+        beforeWheel: function(e) {
+            // allow wheel-zoom only if altKey is down. Otherwise - ignore
+            var shouldIgnore = !e.altKey
+            return shouldIgnore
+        }
+    })
+    panzoom(area2, {
+        smoothScroll: false
+    })
+    panzoom(area3, {
+        smoothScroll: false
+    })
+
+</script>
 {% endblock %}
