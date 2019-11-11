@@ -1,0 +1,47 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Enter your NHS number{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if identityLevel0 === 'true' or identityLevel9 === 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 + "&recoveryEmail=" + recoveryEmail %}
+{% else %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+
+{% block content %}
+<div class="first-item">
+
+    <div class="form-group">
+        <legend>
+          <h1 class="heading-large">Stop your phone number being changed</h1>
+        </legend>
+        <p style="margin: 0;">If this wasn't you, then stop the phone number process happening.</p>
+        <p>Your phone number will remain as your current one.</p>
+        <p>Make sure your email and password are secure.</p>
+        <a class="button" href="cancel-process-done">Cancel the change number process</a>
+</div>
+
+
+{% if devMode === "true" %}
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+
+            <p>Email</p>
+            <ol>
+                <li><a href="/emails/email-recover-notify{{ params }}">Notification email sent to the users primary email address</a></li>
+            </ol>
+            
+
+        </div>
+    </div>
+</details>
+{% endif %}
+
+{% endblock %}
+
