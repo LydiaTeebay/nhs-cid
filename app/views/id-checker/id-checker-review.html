@@ -18,7 +18,7 @@
         <h3>Check identity document</h3>
         <p class="small idcheck-help">Hold down 'ALT' when scrolling to zoom the image in and out. <a href="#" id="reset">Reset</a> </p>
 
-        <div class="reading-width idcheck-image-container">
+        <div class="reading-width idcheck-image-container panzoom-parent">
 
             <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
 
@@ -506,7 +506,6 @@
 
             <div class="idcheck-image zoomable3">
 
-
                 {% if idType === 'driving' %}
 
                 <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
@@ -671,10 +670,31 @@
                         a <a href="hevc.mkv">link to the video</a> instead.</p>
                 </video>
             </div>
-            <div class="idcheck-image" style="display: none;">
-                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
-                     alt="Image of a passport"/>
+<!--            <div class="idcheck-image" style="display: none;">-->
+<!--                <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"-->
+<!--                     alt="Image of a passport"/>-->
+<!--            </div>-->
+
+            <div class="idcheck-image-container">
+
+                <div class="idcheck-image zoomable4" style="display: none;">
+                    {% if idType === 'driving' %}
+
+                    <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
+                         alt="Image of a driving licence"/>
+
+                    {% else %}
+
+                    <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
+                         alt="Image of a passport"/>
+
+                    {% endif %}
+
+
+                </div>
+
             </div>
+
         </div>
 
     </div>
@@ -848,9 +868,29 @@
 
                         <div class="grid-row">
                             <div class="column--two-thirds">
-                                <div class="idcheck-image" style="margin-top:0;">
-                                    <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
-                                         alt="Image of a passport"/>
+<!--                                <div class="idcheck-image" style="margin-top:0;">-->
+<!--                                    <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"-->
+<!--                                         alt="Image of a passport"/>-->
+<!--                                </div>-->
+
+                                <div class="idcheck-image-container panzoom-parent">
+
+                                    <div class="idcheck-image zoomable5">
+                                        {% if idType === 'driving' %}
+
+                                        <img src="/images/DL-front.jpg" class="idcheck-image-img" style="width: 100%;"
+                                             alt="Image of a driving licence"/>
+
+                                        {% else %}
+
+                                        <img src="/images/passport_redacted.jpg" class="idcheck-image-img" style="width: 100%;"
+                                             alt="Image of a passport"/>
+
+                                        {% endif %}
+
+
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -1136,7 +1176,6 @@
     addClarityButtonListeners()
     addRejectionListeners()
     addToHolding()
-    reset()
     resetAllSections()
     questionsComplete = false
 
@@ -1413,13 +1452,6 @@
         })
     }
 
-    function reset() {
-        var reset = document.getElementById('reset')
-        reset.addEventListener('click', function (event) {
-            panzoom.reset
-        })
-    }
-
     function updateStorageFromElements() {
         var idCheck = []
         var inputs = document.getElementsByTagName('input')
@@ -1571,22 +1603,76 @@
 
 {% block extrascripts %}
 <script>
-    var area1 = document.querySelector('.zoomable1')
-    var area2 = document.querySelector('.zoomable2')
-    var area3 = document.querySelector('.zoomable3')
-    panzoom(area1, {
+    const photo1 = document.querySelector('.zoomable1')
+    const photo2 = document.querySelector('.zoomable2')
+    const photo3 = document.querySelector('.zoomable3')
+    const photo4 = document.querySelector('.zoomable4')
+    const photo5 = document.querySelector('.zoomable5')
+
+    // photos.forEach(panzoom, { contain: 'outside', startScale: 1.5 })
+
+
+    let area1 = panzoom(photo1, {
         smoothScroll: false,
+        bounds: true,
+        boundsPadding: 0.75,
+        minZoom: 1,
+        maxZoom: 3,
         beforeWheel: function(e) {
             // allow wheel-zoom only if altKey is down. Otherwise - ignore
             var shouldIgnore = !e.altKey
             return shouldIgnore
         }
     })
-    panzoom(area2, {
-        smoothScroll: false
+    // let area2 = panzoom(photo2, {
+    //     smoothScroll: false,
+    //     beforeWheel: function(e) {
+    //         // allow wheel-zoom only if altKey is down. Otherwise - ignore
+    //         var shouldIgnore = !e.altKey
+    //         return shouldIgnore
+    //     }
+    // })
+    let area3 = panzoom(photo3, {
+        smoothScroll: false,
+        beforeWheel: function(e) {
+            // allow wheel-zoom only if altKey is down. Otherwise - ignore
+            var shouldIgnore = !e.altKey
+            return shouldIgnore
+        },
+        bounds: true,
+        boundsPadding: 0.75,
+        minZoom: 1,
+        maxZoom: 3
     })
-    panzoom(area3, {
-        smoothScroll: false
+    let area4 = panzoom(photo4, {
+        smoothScroll: false,
+        beforeWheel: function(e) {
+            // allow wheel-zoom only if altKey is down. Otherwise - ignore
+            var shouldIgnore = !e.altKey
+            return shouldIgnore
+        },
+        bounds: true,
+        boundsPadding: 0.75,
+        minZoom: 1,
+        maxZoom: 3
+    })
+    let area5 = panzoom(photo5, {
+        smoothScroll: false,
+        bounds: true,
+        boundsPadding: 0.75,
+        beforeWheel: function(e) {
+            // allow wheel-zoom only if altKey is down. Otherwise - ignore
+            var shouldIgnore = !e.altKey
+            return shouldIgnore
+        },
+        minZoom: 1,
+        maxZoom: 3
+    })
+
+    var reset = document.getElementById('reset')
+    reset.addEventListener('click', function (event) {
+        console.log('clicked')
+        panzoom.moveTo(0, 0)
     })
 
 </script>
