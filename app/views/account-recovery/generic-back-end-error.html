@@ -1,0 +1,42 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %} Enter your mobile phone number{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if identityLevel0 === 'true' or identityLevel9 === 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 + "&recoveryEmail=" + recoveryEmail %}
+{% else %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+<div class="first-item">
+  <h1>Something went wrong</h1>
+  <p>We're sorry. Go back to your email and try the link again.</p>
+  <p>If this does not work, contact the National Service Desk to cancel changing your phone number.</p>
+  <p><b>Email:</b> <a href="mailto:nationalservicedesk@nhs.net?subject=Reference:CID3003&body=Email">nationalservicedesk@nhs.net</a></p>
+  <p style="margin-top: 8px;"><b>Phone:</b> 0300 303 5035</p>
+  <p style="margin-top: 8px;"><b>Reference:</b> CID3003</p>
+</div>
+
+{% if devMode === 'true' %}
+  <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+          <span class="details__summary">Continue with testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+          <div class="reading-width">
+
+              <p>Email</p>
+              <ol>
+                  <li><a href="/emails/email-recover-notify{{ params }}">Notification email sent to the users primary email address</a></li>
+              </ol>
+              
+
+          </div>
+      </div>
+  </details>
+{% endif %}
+
+{% endblock %}
+

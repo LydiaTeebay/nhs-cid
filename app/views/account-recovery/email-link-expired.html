@@ -1,0 +1,25 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}This link does not work{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if identityLevel0 === 'true' or identityLevel9 === 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 + "&recoveryEmail=" + recoveryEmail %}
+{% else %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+<div class="first-item">
+  <h1>This link does not work</h1>
+  <p>It's been more than 24 hours since the link was sent and we may have already changed your phone number.</p>
+  <p>Contact the National Service Desk if you want to change your phone number again.</p>
+  <p><b>Email:</b> <a href="mailto:nationalservicedesk@nhs.net?subject=Reference:CID3002&body=Email">nationalservicedesk@nhs.net</a></p>
+  <p style="margin-top: 8px;"><b>Phone:</b> 0300 303 5035</p>
+  <p style="margin-top: 8px;"><b>Reference:</b> CID3002</p>
+</div>
+
+
+
+{% endblock %}
+

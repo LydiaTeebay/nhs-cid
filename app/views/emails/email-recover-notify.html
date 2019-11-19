@@ -21,4 +21,26 @@
   <p>If you did not ask for this, you can <a href="../account-recovery/cancel-process-confirm">cancel changing your phone number</a>.</p>
 </div>
 
+{% if devMode === "true" %}
+
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+
+            <p>Recovery email errors</p>
+            <ol>
+                <li><a href="../account-recovery/generic-back-end-error{{ params }}">Generic back-end error</a></li>
+                <li><a href="../account-recovery/email-link-expired{{ params }}">Link expired</a></li>
+            </ol>
+            
+
+        </div>
+    </div>
+</details>
+
+{% endif %}
+
 {% endblock %}

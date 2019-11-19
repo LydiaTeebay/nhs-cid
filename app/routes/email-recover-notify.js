@@ -15,9 +15,10 @@ module.exports = function (router) {
     var recoveryEmail = req.param('recoveryEmail')
     var poluser = req.param('poluser')
     var newMobileNum = req.param('newMobileNum')
+    var devMode = req.param('devMode')
 
     // re-render the page along with the parameter
-    res.render('emails/email-recover-notify', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, recoveryEmail: recoveryEmail, newMobileNum: newMobileNum }, function(err, html) {
+    res.render('emails/email-recover-notify', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, recoveryEmail: recoveryEmail, newMobileNum: newMobileNum, devMode: devMode }, function(err, html) {
       res.send(html)
     })
   })
