@@ -1337,7 +1337,7 @@
         }
         if (target){
 
-            if (target === "decline-text-15" || "none" ) {
+            if (target === "decline-text-15" || target === "none" ) {
                 document.getElementById('modal-link').removeAttribute("disabled")
             } else {
                 document.getElementById('rejection-text').style.display = 'block'
@@ -1571,7 +1571,7 @@
             document.getElementById('declineBtn').style.display = 'none'
             document.getElementById('canttellBtn').style.display = 'inline-block'
 
-            console.log('sausages')
+            // console.log('sausages')
             if (idCheck[2] === true) {
                 $("#id-canttell").appendTo('#document-1')
             } else if (idCheck[5] === true) {
