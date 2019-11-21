@@ -1,0 +1,53 @@
+{% extends '_layouts/_grids/_grid-email.html' %}
+{% block page_title %}Change phone number process started{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&passwordChange=" + passwordChange + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&poluser=" + poluser%}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% elif newUser %}
+  {% set params = "?newUser=" + newUser + "&service=" + service + "&serviceName=" + serviceName + "&terms=" + terms + "&emailAddress=" + emailAddress %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+  <h1>Recovery email added</h1>
+  
+  <p>You have added mail@mail.com to your NHS login as a recovery email address.</p>
+
+  <p>We will only contact you on this email address when you need to recover your NHS login.</p>
+
+  <p>Contact the National Service Desk if this is a mistake, or if you want to remove this recovery email address.</p>
+
+  <p><b>Email:</b> <a href="mailto:nationalservicedesk@nhs.net?subject=Reference:CID3002&body=Email">nationalservicedesk@nhs.net</a></p>
+  <p style="margin-top: 8px;"><b>Phone:</b> 0300 303 5035</p>
+  <p style="margin-top: 8px;"><b>Reference:</b> CID3004</p>
+
+</div>
+
+{% if devMode === "true" %}
+
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+
+            <p>Recovery email errors</p>
+            <ol>
+                <li><a href="../account-recovery/generic-back-end-error{{ params }}">Generic back-end error</a></li>
+                <li><a href="../account-recovery/email-link-expired{{ params }}">Link expired</a></li>
+            </ol>
+            
+
+        </div>
+    </div>
+</details>
+
+{% endif %}
+
+{% endblock %}

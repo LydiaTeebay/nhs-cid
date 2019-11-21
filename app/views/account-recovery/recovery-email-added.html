@@ -1,0 +1,50 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Add a recovery email{% endblock %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result %}
+
+
+{% block topRow %}
+{% if resend === "yes" %}
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','Your security code has been resent.','attention') }}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="first-item">
+  <form>
+      <fieldset>
+
+        <h1>Recovery email added</h1>
+
+        <p>You have added mail@mail.com as your recovery email address.</p>
+
+        <p>You must wait 24 hours before this recovery email address can be used.</p>
+        
+      </fieldset>
+    
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">Continue with testing scenario</span>
+        </summary>
+        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+    
+                <p>Recovery email</p>
+                <ol>
+                    <li><a href="/emails/email-recover-added{{ params }}">Recovery email added email - sent to users primary email address</a></li>
+                </ol>
+
+            </div>
+        </div>
+    </details>
+    {% endif %}
+
+  </form>
+</div>
+
+{% endblock %}
