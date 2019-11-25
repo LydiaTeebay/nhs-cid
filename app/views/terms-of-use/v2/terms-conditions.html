@@ -1,0 +1,295 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Terms and conditions{% endblock %}
+
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+ {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% elif vouch %}
+ {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% endif %}
+
+{% block extrastyles %}
+<style>
+	.terms-aside {
+		padding-bottom: 1em;
+	}
+
+	.c-page-contents__link.link-terms {
+		font-weight: bold;
+		text-decoration: none;
+	}
+	ol {
+		list-style-type: none;
+		counter-reset: item;
+		margin: 0;
+		padding: 0;
+	}
+
+	ol li {
+		padding-left: 0;
+	}
+
+	ol > li {
+		display: block;
+		counter-increment: item;
+		margin-bottom: 0.6em;
+	}
+
+	ol > li:first-of-type > p {
+			margin-top: 2em !important;
+	}
+
+	ol > li:before {
+		content: counters(item, ".") ". ";
+		padding-right: 0.6em;
+		font-weight: bold;
+	}
+
+	li ol > li {
+		margin: 0;
+
+	}
+
+	li ol > li > ol >li {
+		margin-left: 1.5em;
+
+	}
+
+	h1 ~ ol > li {
+		padding-top: 0 !important;
+	}
+
+	h2 {
+		padding-top: 16px !important;
+	}
+
+	.terms-heading {
+		padding-top: 1em;
+		font-size: 24px;
+		display: inline-block;
+	}
+
+	.terms-heading-secondary {
+		font-size: 20px;
+		display: inline-block;
+	}
+
+	h1 {
+		font-size: 48px;;
+	}
+</style>
+{% endblock %}
+
+{% block topRow %}
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endblock %}
+
+{% block content %}
+<aside class="terms-aside">
+	<nav role="navigation">
+		<h3>Terms and conditions</h3>
+		{% include '_partials/_components/_terms-menu.html' %}
+	</nav>
+	<hr>
+</aside>
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item">
+
+<h1>NHS login – terms and conditions</h1>
+
+<nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
+	<h3 class="nhsuk-u-visually-hidden">Contents</h3>
+	<ol class="nhsuk-contents-list__list">
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-intro">Introduction</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-summary">Summary</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-connected-services">Connected services</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-accessing-login">Accessing NHS login</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-passwordless-auth">Passwordless authentication</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-right-to-use">Your right to use</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-forbidden-uses">Forbidden uses</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-changes">Changes</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-liability">Our liability to you</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-general">General</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-changes2">Changes to our terms and conditions</a>
+		</li>
+		<li class="nhsuk-contents-list__item">
+		<a class="nhsuk-contents-list__link" href="#terms-contact">Contacting us</a>
+		</li>
+	</ol>
+	</nav>
+	
+	<div id="terms-intro">
+		<h2>1. Introduction</h2>
+		<p>NHS Digital (“we” or “us”) have developed an online platform (“NHS login”) for users to prove their I.D. and create their own NHS login account. With this, users can access and use various health and care related websites and apps (“Connected Services”) which are also registered to use NHS login.</p>
+		<p>NHS login is for use only by people who live in England. References to 'the NHS' mean 'the NHS in England' unless otherwise stated. Services and arrangements may differ elsewhere in the United Kingdom.</p>
+		<p>Please read these terms and conditions and our <a href="privacy-notice">privacy notice</a> and <a href="cookies">cookies policy</a> before using NHS login. By registering for and continuing to use NHS login, you agree to be bound by these terms and conditions.</p>
+	</div>
+
+	<div id="terms-summary">
+		<h2>2. Summary</h2>
+		<p>This summary provides a general overview of our terms and conditions. This information is not a substitute for reading the full terms and conditions, which contain more detailed information, rights, liabilities and responsibilities which you should be aware of. Please read the full terms and conditions before you start to use NHS login.</p>
+		<ul style="padding-top: 16px;">
+			<li>NHS login is for use only by people who live in England.</li>
+			<li>NHS login verifies your I.D. for the Connected Services you wish to access.</li>
+			<li>You must provide your own device, operating system and browser to access NHS login.</li>
+			<li>Your use of Connected Services is governed by their own terms and conditions.</li>
+			<li>We are not responsible for the delivery of Connected Services not provided by NHS Digital.</li>
+			<li>We may suspend, stop, remove, update or change NHS login without notice at any time.</li>
+			<li>You agree to take on certain responsibilities and comply with these terms and conditions when you register for and use NHS login. You may be liable to us for any losses or costs we suffer as a result of you failing to do so.</li>
+			<li>We limit our liability to you in respect of the use, content, availability, suitability and functionality of NHS login. You should read the section titled ‘our liability to you‘ carefully as it details the limits on our liability.</li>
+			<li>We may at any time amend these terms and conditions for any reason.</li>
+			<li>Biometric data, like facial or fingerprint recognition, can be used to access Connected Services. Using technology such as this, improves the overall security of the service delivered to you.</li>
+		</ul>
+		<p>Please also review our <a href="privacy-notice">privacy notice</a> and <a href="cookies">cookies policy</a>.</p>
+		<p>The privacy notice explains the terms on which we process any personal data we collect from you. It also explains the terms on which we process any personal data you provide to us. The cookie policy gives information about the cookies we use, and how we use them when you use NHS login.</p>
+	</div>
+
+	<div id="terms-connected-services">
+		<h2>3. Connected services</h2>
+		<p>When you have created your NHS login, it will be valid across the Connected Services you wish to access. We verify your I.D. for the Connected Services you wish to access.</p>
+		<p>Connected Services will always relate to the provision of NHS or social care services to you. They may be provided by an organisation directly commissioned to provide NHS or social care services, or by a supplier on behalf of a commissioned organisation.</p>
+		<p>The Connected Services you wish to access will also have their own terms and conditions and privacy notices. Some Connected Services may need you to complete extra compliance before giving you access. This may include extra verification processes. This is outside of our control and responsibility.</p>
+		<p>We have separate agreements in place with Connected Services to address responsibility for errors in I.D. checking processes. If you have a question, claim or complaint about any of the Connected Services or I.D. verification results, you should contact the Connected Service using the contact details they provide.</p>
+	</div>
+
+	<div id="terms-accessing-login">
+		<h2>4. Accessing NHS login</h2>
+		<p>You are responsible for making all arrangements necessary for you to access NHS login. This includes having an internet connection and an appropriate device for access, like a smartphone. We do not guarantee that NHS login will always be available, or that access to it will be error free. We may suspend, stop, remove or change all or any part of NHS login without notice.</p>
+		<p>For NHS login to work you must use a device, operating system and browser that match our minimum requirements. You can find these minimum requirements on the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/help-and-support/">NHS App help and support page</a>.</p>
+		<p>If you think that someone knows the username and password to your NHS login, you must quickly <a href="https://account.login.nhs.uk/#/account/forgotpassword">reset your password</a>. We have many measures in place to keep your information safe, but it is important that you also play your part - visit the <a href="https://www.getsafeonline.org/news/get-cyber-streetwise-says-government/">Government's Get Safe Online</a> app for advice on this.</p>
+	</div>
+
+	<div id="terms-passwordless-auth">
+		<h2>5. Passwordless authentication</h2>
+		<p>Once you have registered to use NHS login you may wish to use passwordless authentication to access your NHS login account and Connected Services. This is the verification of your identity by means of a physical trait, known as biometric data, such as fingerprint and facial recognition. If you do not wish to use passwordless authentication or your device does not support it, then you can still use your existing method, such as a username and password, to access your NHS login account and Connected Services.</p>
+		<p>We do not have access to, or control over, the biometric data you store on your device. You should make sure that only your own biometric data is stored on your device to prevent anyone else accessing your NHS login and Connected Services accounts. We have the right at any time, without notice, to block the use of passwordless authentication.</p>
+		<p>If you want to enable or disable passwordless authentication, you can:</p>
+		<ul>
+			<li>change the settings of the Connected Service on your device</li>
+			<li>contact the Connected Service</li>
+		</ul>
+	</div>
+
+	<div id="terms-rights-to-use">
+		<h2>6. Your right to use</h2>
+		<p>We own or have the right to use all intellectual property rights ("NHS IPR") used for the provision of NHS login. This includes rights in copyright, patents, database rights, trademarks and other intellectual property rights. </p>
+		<p>You have permission to use NHS login for the sole purposes described in these terms and conditions. You need written permission from us or any other owner of NHS IPR to use these items in any other way.</p>
+		<p>Unless permitted by law or under these terms and conditions, you will:</p>
+		<ul>
+			<li>not copy NHS login except where such copying is incidental to normal use</li>
+			<li>not rent, lease, sub-license, loan, translate, merge, adapt, vary or modify NHS login</li>
+			<li>not combine or incorporate NHS login with any other programs or services</li>
+			<li>not disassemble, decompile, reverse-engineer or create derivative works based on any part of NHS login</li>
+			<li>comply with all technology control or export laws that apply to the technology used by NHS login</li>
+		</ul>
+	</div>
+
+	<div id="terms-forbidden-uses">
+		<h2>7. Forbidding uses</h2>
+		<p>You shall not use NHS login:</p>
+		<ul>
+			<li>to transmit any material that is insulting or offensive</li>
+			<li>to collect any data or attempt to decipher any transmissions to or from the servers running NHS login</li>
+			<li>in a way that could damage, disable, overburden, impair or compromise our systems or security</li>
+			<li>in a way that interferes with other users</li>
+			<li>in any unlawful manner or for any unlawful purpose</li>
+			<li>in a manner that is improper use or inconsistent with these terms and conditions</li>
+			<li>to act fraudulently or maliciously by hacking into NHS login</li>
+			<li>to transmit, send or upload any data that contains viruses, Trojan horses, worms, spyware or any other harmful programs designed to adversely affect the operation of computer software or hardware</li>
+			<li>in connection with any kind of denial of service attack</li>
+			<li>with someone else’s registered details, unless you have had the authority to do so from them</li>
+		</ul>
+		<p>If you breach any of these terms and conditions, we may stop you from accessing NHS login. This does not necessarily mean you will be stopped from accessing all Connected Services. Some Connected Services may provide access without having to use NHS login.</p>
+		<p>In addition if you do any of the above acts you may also be committing a criminal offence, and we will report any such activity to the relevant law enforcement authorities. We will co-operate with those authorities by disclosing your identity to them.</p>
+	</div>
+
+	<div id="terms-changes">
+		<h2>8. Changes</h2>
+		<p>We reserve the right at any time and without notice to make changes and improvements to NHS login to:</p>
+		<ul>
+			<li>make technical improvements or corrections</li>
+			<li>improve performance of the service</li>
+			<li>enhance functionality</li>
+			<li>reflect changes to the operating system</li>
+			<li>address security issues</li>
+		</ul>
+	</div>
+
+	<div id="terms-liability">
+		<h2>9. Our liability to you</h2>
+		<h3>As is</h3>
+		<p>Although we make reasonable efforts to provide, maintain and update a robust NHS login service, it is provided 'as is'. To the extent allowed by law we make no expressed or implied representations, warranties or guarantees that your access to, or use of, NHS login will be unbroken or completely secure.</p>
+		<p>We will not be liable or responsible for any loss or damage caused by a virus, denial of service attack or any other harmful material that may infect your device, equipment, programs, data or other proprietary material due to your use of NHS login.</p>
+		
+		<h3>External links</h3>
+		<p>We are not responsible for external links to or from NHS login to or from Connected Services or other websites and we cannot guarantee that links to or from NHS login will always work. Connected Services will have a connection agreement with NHS Digital. Whilst the connection agreement and integration process used by NHS login is an assured mechanism of integrating Connected Services, this does not represent that the Connected Services have been endorsed by NHS Digital.</p>
+		<p>We are not responsible for the Connected Services or your ability to use them, unless they are also provided by NHS Digital.</p>
+		
+		<h3>Loss and damages</h3>
+		<p>Nothing in these terms and conditions excludes or limits our liability for i) death or personal injury as a result of our negligence, ii) fraud or fraudulent misrepresentation or iii) any other liability which cannot be excluded or limited under English law. This includes any loss or damage to a device or digital content belonging to you, provided that you can show that the loss or damage was caused by NHS login and that we failed to use reasonable skill or care to prevent it.</p>
+		<p>Subject to the previous paragraph we will not be liable or responsible for any:</p>
+		<ul>
+			<li>loss or damage not caused by our breach of these terms and conditions</li>
+			<li>business loss</li>
+			<li>loss or damage arising from an inability to access or use NHS login</li>
+			<li>indirect or subsequent losses that were not foreseeable to both you and us when you started using NHS login </li>
+		</ul>
+		<p>Business loss includes loss of profits, revenue, contracts, savings, data, goodwill and wasted expenditure. Loss or damages are ‘foreseeable’ when they are an obvious result of our breach of these terms and conditions. Loss or damages are also 'foreseeable' if they were considered by you and us when you began using NHS login.</p>
+		<p>This does not affect any legal rights you may have as a consumer in relation to faulty services or software. Advice about your legal rights is available from your local Citizen’s Advice or Trading Standards Office.</p>
+	</div>
+
+	<div id="terms-general">
+		<h2>10. General</h2>
+		<p>Each of the sections within these terms and conditions operate separately. If any provision within these terms and conditions is invalid or unenforceable pursuant to applicable law, it will be superseded by a valid and enforceable provision that most closely matches the intent of the original. This includes warranty disclaimers and exclusions, and limits of liability. The remainder of these terms and conditions shall continue in effect.</p>
+		<p>If we delay in enforcing these terms and conditions, we can still enforce them later. If we do not insist right away that you follow the requirements within these terms and conditions, or we delay in taking steps against you if you break them, this will not prevent us from taking steps against you or prevent your need to follow the requirements at a later date.</p>
+		<p>The laws of England apply exclusively to these terms and conditions and to all matters relating to use of NHS login. Any cause of action arising under or in connection with these terms and conditions or your use of NHS login shall be subject to the exclusive jurisdiction of the courts of England.</p>
+	</div>
+
+	<div id="terms-changes2">
+		<h2>11. Changes to our terms and conditions</h2>
+		<p>We may, at any time, change these terms and conditions for any reason. The latest version of our terms and conditions will be accessible through NHS login. We will let you know of any material changes on NHS login, and your continued use of NHS login will constitute your acceptance of these changes. </p>
+	</div>
+
+	<div id="terms-contact">
+		<h2>12. Contacting us</h2>
+		<p>To find out more about who we are and our role, visit the <a href="https://digital.nhs.uk/">NHS Digital website</a>.</p>
+	</div>
+
+	<br>
+
+	<p class="small"><em>Last updated: 25th November 2019</em></p>
+
+
+</div>
+
+{% endblock %}
+
+

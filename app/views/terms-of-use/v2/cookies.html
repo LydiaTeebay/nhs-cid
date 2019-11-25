@@ -1,0 +1,335 @@
+{% extends '_layouts/_grids/_grid-1-2-stacked.html' %}
+{% block page_title %}Cookies{% endblock %}
+
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% elif vouch %}
+  {% set params = "?vouch=" + vouch + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser %}
+{% endif %}
+
+{% block extrastyles %}
+<style>
+		.terms-aside {
+			padding-bottom: 1em;
+		}
+	
+		.c-page-contents__link.link-terms {
+			font-weight: bold;
+			text-decoration: none;
+		}
+		ol {
+			list-style-type: none;
+			counter-reset: item;
+			margin: 0;
+			padding: 0;
+		}
+	
+		ol li {
+			padding-left: 0;
+		}
+	
+		ol > li {
+			display: block;
+			counter-increment: item;
+			margin-bottom: 0.6em;
+		}
+	
+		ol > li:first-of-type > p {
+			 margin-top: 2em !important;
+		}
+	
+		ol > li:before {
+			content: counters(item, ".") ". ";
+			padding-right: 0.6em;
+			font-weight: bold;
+		}
+	
+		li ol > li {
+			margin: 0;
+	
+		}
+	
+		li ol > li > ol >li {
+			margin-left: 1.5em;
+	
+		}
+	
+		h1 ~ ol > li {
+			padding-top: 0 !important;
+		}
+	
+		h2 {
+			padding-top: 16px !important;
+		}
+	
+		.terms-heading {
+			padding-top: 1em;
+			font-size: 24px;
+			display: inline-block;
+		}
+	
+		.terms-heading-secondary {
+			font-size: 20px;
+			display: inline-block;
+		}
+	
+		h1 {
+			font-size: 48px;;
+		}
+	</style>
+{% endblock %}
+
+
+{% block topRow %}
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endblock %}
+
+{% block content %}
+<aside class="terms-aside">
+	<nav role="navigation">
+		<h3>Cookies</h3>
+		{% include '_partials/_components/_terms-menu.html' %}
+	</nav>
+	<hr>
+</aside>
+{% endblock %}
+
+{% block rightcol %}
+
+{% block alert %}{% endblock %}
+
+<div class="first-item">
+
+	<h1>NHS login - cookies</h1>
+
+	<nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
+			<h3 class="nhsuk-u-visually-hidden">Contents</h3>
+			<ol class="nhsuk-contents-list__list">
+			  <li class="nhsuk-contents-list__item">
+				<a class="nhsuk-contents-list__link" href="#cookies-summary">Summary</a>
+			  </li>
+			  <li class="nhsuk-contents-list__item">
+				<a class="nhsuk-contents-list__link" href="#cookies-necessary">Stricly necessary cookies</a>
+			  </li>
+			  <li class="nhsuk-contents-list__item">
+				<a class="nhsuk-contents-list__link" href="#cookies-analytics">Analytic cookies</a>
+			  </li>
+			  <li class="nhsuk-contents-list__item">
+				<a class="nhsuk-contents-list__link" href="#cookies-manage">Managing analytic cookies</a>
+			  </li>
+			  <li class="nhsuk-contents-list__item">
+				<a class="nhsuk-contents-list__link" href="#cookies-changes">Changes to cookies</a>
+			  </li>
+			</ol>
+		  </nav>
+
+	<div id="cookies-summary">
+		<h2>1. Summary</h2>
+		<p>NHS Digital (“we” or “us”) uses cookies to deliver the NHS login service. The information set out in this policy is provided in addition to our privacy notice and should be read alongside it.</p>
+		<p>We put small files called cookies onto your device, like your mobile phone or computer. Cookies are widely used to make websites and apps work, or work more efficiently, as well as to provide services and functionalities for users.</p>
+		<p>The cookies we use on NHS login fall into 2 categories, strictly necessary cookies and analytical cookies.</p>
+		<p>We put:</p>
+		<ul>
+			<li>strictly necessary cookies on your device for NHS login to work</li>
+			<li>analytic cookies on your device to collect information about how people use NHS login and help us make improvements to it</li>
+		</ul>
+		<p>We will ask for your explicit consent before putting strictly necessary cookies and analytic cookies on your device. Optional cookies will only be placed on your device when you request relevant added or alternative functionality.</p>
+		<p>You can stop the use of analytic cookies by following the guidance in the “managing analytic cookies” section of this policy.</p>
+	</div>
+
+	<div id="cookies-necessary">
+		<h2>2. Necessary cookies</h2>
+		<div class="cookie-table">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Purpose</th>
+							<th>Expires</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><b>id_token</b></td>
+							<td>
+								<p>This is set when you log in to NHS login.</p>
+								<p>It lets us know that you have logged in and tells us who you are so we can keep your information secure.</p></td>
+							<td>When you close your browser</td>
+						</tr>
+						<tr>
+							<td><b>nhs_authorization_cookie</b></td>
+							<td>
+								<p>This is set when you use NHS login for the first time.</p>
+								<p>It stores information passed to us from the health websites and apps you are using with NHS login. We use it to make sure only they can see your information.</p>
+								<p>It will only be set if the health websites and apps are approved by us.</p>
+							</td>
+							<td>When you close your browser</td>
+						</tr>
+						<tr>
+							<td><b>cookiePreference</b></td>
+							<td>
+								<p>This enables and disables the cookie banner</p>
+							</td>
+							<td>1 year</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+		<p>If you select ‘Remember my device’ as a method of authentication, we will store the ‘id_token’ cookie on your device for 180 days. This will prevent the need for a One Time Password (OTP) when logging in. This means you can log in with just a username and password.</p>
+	</div>
+
+	<div id="cookies-summary">
+		<h2>3. Analytic cookies</h2>
+		<p>We use software called Adobe Analytics and Hotjar to collect information about how you use NHS login. For example, we collect information on the steps you make, what you select and when you leave. This helps us identify what doesn’t work so we can improve it.</p>
+		<p>The only personal information processed by our analytical software is a unique visitor I.D. which is created for you each time you visit NHS login. The unique visitor I.D. is used to process events based on the ‘purpose’ of the cookie, so that we understand your interaction with the NHS login service. This unique visitor I.D. doesn’t directly identify you, but it does help us improve the service further.</p>
+		<p>We do not allow Adobe Analytics or Hotjar to use or share our analytics data. Visit the Adobe or Hotjar website for more information on how they handle your data.</p>
+		<p><a href="https://www.hotjar.com/">Visit the Hotjar website</a></p>
+		<p><a href="https://www.adobe.com/uk/analytics/adobe-analytics.html">Visit the Adobe website</a></p>
+
+		<h3>Adobe analytics</h3>
+		<div class="cookie-table">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Purpose</th>
+						<th>Expires</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><b>s_cc</b></td>
+						<td>
+							<p>This is set when you log in to NHS login.</p>
+							<p>It lets us know that you have logged in and tells us who you are so we can keep your information secure.</p></td>
+						<td>When you close your browser</td>
+					</tr>
+					<tr>
+						<td><b>s_sq</b></td>
+						<td>
+							<p>This is set when you use NHS login for the first time.</p>
+							<p>It stores information passed to us from the health websites and apps you are using with NHS login. We use it to make sure only they can see your information.</p>
+							<p>It will only be set if the health websites and apps are approved by us.</p>
+						</td>
+						<td>When you close your browser</td>
+					</tr>
+					<tr>
+						<td><b>s_vi</b></td>
+						<td>
+							<p>This lets us know your unique visitor I.D. time/date stamp that tells us the time and date you first visit NHS login.</p>
+						</td>
+						<td>2 years</td>
+					</tr>
+					<tr>
+						<td><b>s_fid</b></td>
+						<td>
+							<p>This lets us know your unique visitor I.D. time/date stamp. It is only used if the s_vi cookie is blocked by your browser.</p>
+						</td>
+						<td>2 years</td>
+					</tr>
+					<tr>
+						<td><b>AMCV_###@AdobeOrg</b></td>
+						<td>
+							<p>This lets us know your unique visitor I.D. when you use NHS login.</p>
+						</td>
+						<td>2 years</td>
+					</tr>
+					<tr>
+						<td><b>s_ppv and s_ppvl</b></td>
+						<td>
+							<p>This stores information which lets us know how far you scroll down the page.</p>
+						</td>
+						<td>When you leave NHS login</td>
+					</tr>
+					<tr>
+						<td><b>s_nr</b></td>
+						<td>
+							<p>This stores information which lets us know the dates you visit NHS login and if you have used it before.</p>
+						</td>
+						<td>2 years</td>
+					</tr>
+					<tr>
+						<td><b>gpv</b></td>
+						<td>
+							<p>This stores information which lets us know how many of our pages you visited.</p>
+						</td>
+						<td>The end of session</td>
+					</tr>
+					<tr>
+						<td><b>AMCVS</b></td>
+						<td>
+							<p>This is set when you first log in. It lets us know your unique visitor I.D. each time you use NHS login.</p>
+						</td>
+						<td>2 years</td>
+					</tr>
+					<tr>
+						<td><b>Demdex</b></td>
+						<td>
+							<p>This uses a tool called Audience Manager which allows us to know your unique visitor I.D. each time you use NHS login and other NHS online services.</p>
+						</td>
+						<td>2 years</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Hotjar</h3>
+		<div class="cookie-table">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Purpose</th>
+						<th>Expires</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><b>_hjShownFeedbackMessage</b></td>
+						<td>
+							<p>This is set when you complete feedback or minimise the feedback option.</p>
+							<p>It keeps the feedback option minimised, so you do not see it open when you go to another page.</p>
+						<td>1 year</td>
+					</tr>
+					<tr>
+						<td><b>_hjIncludedInSample</b></td>
+						<td>
+							<p>This is set to tell Hotjar if you are included in a sample of user journeys used to generate heatmaps and funnels (ways to display data), and recordings.</p>
+						</td>
+						<td>1 year</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div id="cookies-manage">
+		<h2>4. Managing analytics cookies</h2>
+		<p>Collecting data on how people use NHS login helps us to improve it. But you can choose to stop your data being collected if you want to. The majority of devices and browsers will allow you to alter the settings used for cookies and disable or enable them as you require.</p>
+		<p>You can reject all cookies except essential cookies, if you prefer not to receive them. You can also delete the cookies already on your device and set your browser or device to prevent them being placed. Please be aware that if you set your device to reject cookies, it could limit the functionality of NHS login.</p>
+
+		<h3>Turning off analytics cookies</h3>
+		<p>Visit the Adobe or Hotjar website for more information on how you can reject analytical cookies.</p>
+		<p><a href="http://nhs.d3.sc.omtrdc.net/optout.html">Stop analytical cookies from Adobe Analytics</a></p>
+		<p><a href="https://www.hotjar.com/legal/compliance/opt-out">Stop analytical cookies from Hotjar</a></p>
+
+	</div>
+
+	<div id="cookies-changes">
+		<h2>5. Changes to cookies</h2>
+		<p>Our cookie policy may change. The latest version of our cookie policy will be accessible through NHS login. We will inform you through NHS login if we make any material changes to our cookies policy, privacy notice or terms and conditions. This will allow you to refresh your consent if you wish to continue using NHS login.</p>
+		<p>You can reject all cookies except essential cookies, if you prefer not to receive them. You can also delete the cookies already on your device and set your browser or device to prevent them being placed. Please be aware that if you set your device to reject cookies, it could limit the functionality of NHS login.</p>
+	</div>
+
+	<br>
+
+	<p class="small"><em>Last updated: 25th November 2019</em></p>
+
+</div>
+
+{% endblock %}
+
+
