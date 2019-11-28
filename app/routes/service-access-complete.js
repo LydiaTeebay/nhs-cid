@@ -1,3 +1,9 @@
+// notify integration
+let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'
+let templateId = 'cfd80520-3410-4cfc-b448-987a854c102b'
+const NotifyClient = require('notifications-node-client').NotifyClient, notifyClient = new NotifyClient(apiKey)
+
+
 module.exports = function (router) {
     router.get('/service-access/service-access-complete', function (req, res) {
         // pull in the url parameters
@@ -13,7 +19,7 @@ module.exports = function (router) {
         })
     })
 
-    router.get('/service-access/v18/service-access-complete', function (req, res) {
+    router.get('/service-access/v19/service-access-complete', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -28,6 +34,41 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var emailLink = req.param('emailLink')
         var complete = req.param('complete')
+        // re-render the page along with the parameter
+        res.render('service-access/v19/service-access-complete', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, emailLink: emailLink, complete: complete }, function(err, html) {
+            res.send(html)
+        })
+    })
+
+    router.get('/service-access/v18/service-access-complete', function (req, res) {
+        // pull in the url parameters
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = 'crawford.h.2019@gmail.com'
+        var hidehead = req.param('hidehead')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var emailLink = req.param('emailLink')
+        var complete = req.param('complete')
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&hidehead=' + hidehead
+        var personalisation = {
+            'email_address': emailAddress,
+            'params': params
+        }
+        if (emailAddress !== '' || emailAddress !== 'undefined') {
+            notifyClient
+                .sendEmail(templateId, emailAddress, {
+                    personalisation: personalisation
+                })
+                .then(response => console.log(response)
+                ).catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
         // re-render the page along with the parameter
         res.render('service-access/v18/service-access-complete', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, emailLink: emailLink, complete: complete }, function(err, html) {
             res.send(html)

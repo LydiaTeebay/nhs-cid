@@ -1,8 +1,9 @@
 // notify integration
 let apiKey = 'cidprototype-96856a46-bebf-4032-881a-d7b35262e5c8-8433d391-d07a-484d-86b0-0406a2203a01'
 let templateId = 'b54b3862-3aef-4237-9b5d-358f43ec95c0'
-let templateIdMVP = '9abb61db-3232-4ba8-95cd-2f91b66855ec'
+let templateIdMVP = '0c3677d8-2146-4cd3-9123-4c3e667d401e' //9abb61db-3232-4ba8-95cd-2f91b66855ec
 let templateIdPreview = '9d65f5f2-81e6-4dea-9a62-4e021dddd12a'
+let templateIdDelegated = '0c3677d8-2146-4cd3-9123-4c3e667d401e'
 const NotifyClient = require('notifications-node-client').NotifyClient, notifyClient = new NotifyClient(apiKey)
 
 module.exports = function (router) {
@@ -61,7 +62,7 @@ module.exports = function (router) {
         }
         if (emailAddress !== '' || emailAddress !== 'undefined') {
             notifyClient
-                .sendEmail(templateIdMVP, emailAddress, {
+                .sendEmail(templateIdDelegated, emailAddress, {
                     personalisation: personalisation
                 })
                 .then(response => console.log(response)
@@ -97,7 +98,7 @@ module.exports = function (router) {
         }
         if (emailAddress !== '' || emailAddress !== 'undefined') {
             notifyClient
-                .sendEmail(templateIdMVP, emailAddress, {
+                .sendEmail(templateIdDelegated, emailAddress, {
                     personalisation: personalisation
                 })
                 .then(response => console.log(response)

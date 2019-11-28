@@ -17,7 +17,7 @@
 
   <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
-  <form>
+  <form action="create-acc-terms{{ params }}" method="POST">
 
     <div class="form-group">
       <h1>Set up your NHS login</h1>
@@ -46,7 +46,7 @@
       <p class="small">By continuing you confirm that you agree to our <a href="/terms-of-use/privacy-notice{{ params }}">privacy notice</a> and <a href="/terms-of-use/terms-conditions{{ params }}">terms and conditions</a>.</p>
 
     </div>
-    <a class="button" href="check-email{{ params }}&terms=yes">Agree and continue</a>
+    <button class="button" href="check-email{{ params }}&terms=yes">Agree and continue</button>
   </form>
 
   {% include '_partials/_includes/_scenarios_setup.html' %}
