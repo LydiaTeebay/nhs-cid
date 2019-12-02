@@ -20,14 +20,14 @@
     <div class="form-group">
       <h1>Check your email</h1>
 
-      <p>We've sent an email to {{ emailAddress | default("crawford.h.2019@gmail.com", true) }}.</p>
-      <p>Click confirm in the <!--<a href="/emails/v12/email-validate" target="_blank">email</a>-->email then come back here to continue.</p>
+      <p>We've sent an email to {{ emailAddress | default("your-email@mail.com", true) }}.</p>
+      <p>Click confirm in the <a href="/emails/v12/email-validate" target="_blank">email</a> then come back here to continue.</p>
         
     </div>
-   <!-- <div class="form-group">
+    <div class="form-group">
       <div class="form-group">
         <a href="login-nhs-create{{ params }}" class="button">Continue</a>
-      </div> -->
+      </div>
 
       <p>If you do not get an email, check your spam folder.</p>
     </div>
