@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - We're checking your details{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Thank you - now we will check your information{% endblock %}
 
 {% set signedin = 'true' %}
 {% set verified = 'true' %}
@@ -8,11 +8,19 @@
 
 {% block header %}
 <div class="local-header">
-	<h1 class="local-header__title">We're checking your details</h1>
+	<h1 class="local-header__title">Thank you - now we will check your information</h1>
 	<div class="local-header__intro">
 		<div class="reading-width">
-			<p>We'll <a href="/emails/v12/email-idcheck-approved{{ params }}">email</a> you to tell you if you have passed our checks.</p>
-			<p>This usually takes between 5 minutes and an hour but can sometimes take up to to 2 hours.</p>
+			<p>We will email you to tell you if your information has or has not passed our checks.</p>
+			<p>You might have to wait 2 hours.</p>
+			<p>Between 9pm and 9am, you might have to wait more than 2 hours.</p>
+
+
+			{# available modifiers 'muted','info','attention','warning','alert','severe','error','compact' #}
+			<div class="callout callout--warning">
+				<p>Christmas hours: On 25, 26 and 27 December, you might have to wait more than 2 hours.</p>
+			</div>
+
 		</div>
 	</div>
 </div>
