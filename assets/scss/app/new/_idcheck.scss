@@ -362,3 +362,34 @@
   }
 }
 
+.id-check_pickup {
+  cursor: default;
+  color: $grey-2;
+  &:hover {
+    color: $grey-2;
+  }
+  &::after {
+    content: "";
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: -4px;
+    height: 20px;
+    width: 20px;
+    background: transparent url("/images/mini-button-spinner-green.svg") no-repeat;
+    background-size: 20px 20px;
+    animation-name: spin;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    // spin the svg image
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
