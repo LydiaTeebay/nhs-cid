@@ -15,7 +15,7 @@
   <table>
     <thead>
     <tr>
-      <th>ID</th>
+      <th>Verification ID</th>
       <th>User</th>
       <th>Reason</th>
       <th>Submitted</th>
@@ -27,33 +27,34 @@
     <tr {% if state === 'inprogress' %}class="idcheck-pickedup"{% endif %}>
       <td>5f9c1b41</td>
       <td>Maria Anders</td>
-      <td>"Numbers didn't show" - Rosie Waites</td>
+      <td>Numbers didn't show - Rosie</td>
       <td>1 hour, 15 minutes</td>
-      <td><a href="id-checker-review{{ params }}&state=pickedup" class="">{% if state === 'aborted' or state === 'undefined' %}Start{% else %}Continue{% endif %}</a> </td>
+      <td><a class="id-check_pickup">{% if state === 'aborted' or state === 'undefined' %}Pick up{% else %}Re-open{% endif %}</a> </td>
     </tr>
     <tr>
       <td>134a4214</td>
       <td><i style="color: grey;">Not available</i></td>
-      <td>"No information appeared for PDS check, I tried to refresh a couple of times and it still won't show." - Rosie Waites</td>
+      <td>No information appeared for PDS check, I tried to refresh a couple of times and it still won't show. - Rosie</td>
       <td>55 minutes</td>
-      <td><a href="id-checker-review{{ params }}&state=pickedup" class="">Start</a> </td>
+      <td><a href="id-checker-review{{ params }}&state=pickedup" class="">Pick up</a> </td>
     </tr>
     <tr>
       <td>7fc61a11</td>
       <td>5990060173</td>
-      <td>"The video won't play on my computer" - Emily Claire</td>
+      <td>The video won't play on my computer</td>
       <td>29 minutes</td>
-      <td><span style="color: grey;">In progress</span></td>
+      <td><span style="color: grey;">Picked up by: <br>345734954503</span></td>
     </tr>
     <tr class="idcheck-pickedup">
       <td>3cb1f8d7</td>
       <td>Stuart Mittleman</td>
-      <td>"The PDS result isn't showing, just a spinner!" - Paul Lloyd</td>
-      <td>32 hours, 21 minutes</td>
-      <td><span style="color: grey;"><a href="id-checker-review{{ params }}&state=pickedup" class="">Continue</a></span></td>
+      <td>The PDS result isn't showing, just a spinner! - Paul</td>
+      <td>1 day, 8 hours, 21 minutes</td>
+      <td><span style="color: grey;"><a href="id-checker-review{{ params }}&state=pickedup" class="">Re-open</a></span></td>
     </tr>
     </tbody>
   </table>
 
+<!--<p>No items</p>-->
 
 {% endblock %}
