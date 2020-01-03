@@ -1,0 +1,23 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}This link does not work{% endblock %}
+{% set signedin = '' %}
+
+{# work out where to send users #}
+{% if identityLevel0 === 'true' or identityLevel9 === 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser + "&identityLevel0=" + identityLevel0 + "&identityLevel9=" + identityLevel9 + "&recoveryEmail=" + recoveryEmail %}
+{% else %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+<div class="first-item">
+  <h1>You have already changed your phone number</h1>
+  <p>You can use your new phone number to log in to NHS login.</p>
+  <p>If you didn't change your phone number, contact the National Service Desk. You will need to make a note of the reference below.</p>
+  <p><b>Email:</b> <a href="mailto:nationalservicedesk@nhs.net?subject=Reference:CID3007">nationalservicedesk@nhs.net</a></p>
+  <p style="margin-top: 8px;"><b>Phone:</b> 0300 303 5035</p>
+  <p style="margin-top: 8px;"><b>Reference:</b> CID3007</p>
+</div>
+
+{% endblock %}
+

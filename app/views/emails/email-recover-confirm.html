@@ -28,8 +28,31 @@
   <p style="border-top: 1px solid #768692; padding-top: 24px;">If you did not ask to change your phone number, contact the National Service Desk. You will need to make note of the reference below.</p>
   <p><b>Email:</b> <a href="mailto:ssd.nationalservicedesk@nhs.net">nationalservicedesk@nhs.net</a></p>
   <p style="margin-top: 8px;"><b>Phone:</b> 0300 303 5035</p>
-  <p style="margin-top: 8px;"><b>Reference:</b> ABC1234</p>
+  <p style="margin-top: 8px;"><b>Reference:</b> CID3005</p>
 
 </div>
+
+{% if devMode === "true" %}
+
+<details class="dev-mode" role="group" >
+    <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Continue with testing scenario</span>
+    </summary>
+    <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+
+            <p>Recovery email errors</p>
+            <ol>
+                <li><a href="../account-recovery/generic-back-end-error{{ params }}">Generic back-end error</a></li>
+                <li><a href="../account-recovery/email-confirm-link-expired{{ params }}">Link expired</a></li>
+                <li><a href="../account-recovery/email-confirm-link-used{{ params }}">Link already used</a></li>
+            </ol>
+            
+
+        </div>
+    </div>
+</details>
+
+{% endif %}
 
 {% endblock %}
