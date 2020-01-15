@@ -13,6 +13,20 @@ module.exports = function (router) {
             res.send(html)
         })
     })
+    router.get('/id-checker/v7/id-checker-review', function (req, res) {
+        // pull in the url parameter
+        var state = req.param('state')
+        var role = req.param('role')
+        var result = req.param('result')
+        var demographics = req.param('demographics')
+        var failreason = req.param('failreason')
+        var formerror = req.param('formerror')
+        var devMode = req.param('devMode')
+        var automation = req.param('automation')
+        res.render('id-checker/v7/id-checker-review', { state: state, role: role, result: result, demographics: demographics, failreason: failreason, formerror: formerror, devMode: devMode, automation: automation }, function(err, html) {
+            res.send(html)
+        })
+    })
     router.get('/id-checker/v6/id-checker-review', function (req, res) {
         // pull in the url parameter
         var state = req.param('state')
@@ -22,7 +36,7 @@ module.exports = function (router) {
         var failreason = req.param('failreason')
         var formerror = req.param('formerror')
         var devMode = req.param('devMode')
-        res.render('id-checker/id-checker-review', { state: state, role: role, result: result, demographics: demographics, failreason: failreason, formerror: formerror, devMode: devMode }, function(err, html) {
+        res.render('id-checker/v6/id-checker-review', { state: state, role: role, result: result, demographics: demographics, failreason: failreason, formerror: formerror, devMode: devMode }, function(err, html) {
             res.send(html)
         })
     })
