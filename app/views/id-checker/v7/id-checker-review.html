@@ -81,6 +81,7 @@
 
             <div class="qa-questions-question" id="document-2" data-answered="false" data-group="decline-2">
                 <p class="qa-questions-question-text">Does the photo ID look genuine?</p>
+                <p class="idcheck-important">Use the 2 person rule to carry out <br>additional document checks.</p>
                 <div class="qa-questions-answer-group multiple-choice__container" data-answered="false">
                     <label class="qa-questions-answer multiple-choice multiple-choice--inline multiple-choice--radio"
                            for="2" aria-checked="false">
@@ -350,9 +351,11 @@
         <div class="form-group" id="declinebtn-2" style="display: none;">
             {% if failreason === 'expired' %}
 
-            <div id="id-decline3">
-                <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-goto-gp&devMode={{ devMode }}"
-                   data-target="modal" id="declineBtn3" class="button button--decline">Decline</a>
+            <div style="margin: 0 0 32px;" data-group="decline-0">
+                <div id="id-decline3" style="display: none;">
+                    <a href="id-checker-dashboard?state=declined&emailLink=pb/email-idcheck-declined-try-again&devMode={{ devMode }}"
+                       id="declineBtn3" data-target="modal" class="button button--decline">Decline</a>
+                </div>
             </div>
 
             {% else %}
@@ -542,24 +545,24 @@
                 {% if demographics === 'true' %}
                 <tr>
                     <td>NHS Number:</td>
-                    <td><b>485 777 3456</b></td>
+                    <td><b>{% if result === 'fail' %}-{% else %}485 777 3456{% endif %}</b></td>
                 </tr>
                 {% endif %}
                 <tr>
                     <td>First name:</td>
-                    <td><b>Joe</b></td>
+                    <td><b>{% if result === 'fail' %}-{% else %}Joe{% endif %}</b></td>
                 </tr>
                 <tr>
                     <td>Middle names:</td>
-                    <td><b>Frederick</b></td>
+                    <td><b>{% if result === 'fail' %}-{% else %}Frederick{% endif %}</b></td>
                 </tr>
                 <tr>
                     <td>Last name:</td>
-                    <td><b>Bloggs</b></td>
+                    <td><b>{% if result === 'fail' %}-{% else %}Bloggs{% endif %}</b></td>
                 </tr>
                 <tr>
                     <td>Date of birth:</td>
-                    <td><b>9th February, 1979</b></td>
+                    <td><b>{% if result === 'fail' %}-{% else %}9th February, 1979{% endif %}</b></td>
                 </tr>
             </table>
 
@@ -1438,6 +1441,11 @@
         //         $("#id-decline").appendTo('#id-buttons')
         //     }
         // }
+
+        // date of death rejection button
+        else if (idCheck[0] === true && idCheck[2] === true && idCheck[4] === true) {
+            document.getElementById('id-decline3').style.display = 'inline-block'
+        }
 
         else if (idCheck[0] === true && idCheck[3] === true && idCheck[6] === true && idCheck[8] === true && idCheck[10] === true && idCheck[12] === true && idCheck[14] === true && idCheck[17] === true) {
             document.getElementById('approveBtn').style.display = 'inline-block'
