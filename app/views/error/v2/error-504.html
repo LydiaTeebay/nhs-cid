@@ -1,0 +1,21 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Please log in and try again{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <!--<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>-->
+
+  <h1 class="">Log in and try again</h1>
+
+  <p>We’ve logged you out as you have been on NHS login for more than 60 minutes. This is to keep your information secure.</p>
+
+  <p>To continue, close this window and log in again to the service you were trying to access.</p>
+
+</div>
+
+{% endblock %}
