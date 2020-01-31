@@ -288,6 +288,18 @@
 
   </section>
 
+
+  {# section to show the antivirus error #}
+  <section class="preview-container" id="scan-id-7" style="display:none">
+
+    <h1 style="padding-bottom: 0;">You cannot send this video because the file is damaged</h1>
+
+    <p>You can <a class="" href="service-access-video-selfie{{ params }}" id="tryagain">record another video</a> to try again.</p>
+
+    <p class="small" style="margin-top: 28px;">Reference: CID4016</p> <!-- CID4015 for Automation -->
+  </section>
+
+
   {% if formerror === 'invalid' %}
   <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-confirmation{{ params }}';">Continue</button>
   {% else %}

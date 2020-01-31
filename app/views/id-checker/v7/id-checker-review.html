@@ -16,7 +16,11 @@
 <div class="panel" style="display: block;" id="result" {{ dataResult }}>
     <div class="panel__content panel__content--half">
         <h3>Check identity document</h3>
+
+        <p class="small idcheck-help">To zoom in either double click on the picture, or position your cursor on the image, then hold 'ALT' + scroll with your mouse wheel. <a href="#" id="reset">Reset</a></p>
+
         <div class="reading-width" style="position:relative;">
+
 
             <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
 
@@ -514,8 +518,8 @@
 <div class="panel" style="display: block;">
     <div class="panel__content panel__content--half">
         <h3>Compare the photo ID and the PDS record</h3>
-        <div class="reading-width idcheck-image-container">
-            <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
+        <div class="idcheck-image-container">
+<!--            <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>-->
 
             <div class="idcheck-image zoomable3">
 
@@ -882,22 +886,26 @@
 
                             <option value="IDC-011" data-question="decline-text-2">Driving licence - DSA lookup does not return a record</option>
                             <option value="IDC-012" data-question="decline-text-2">Driving licence - Date of birth user entered does not match PDS (re-trace failed)</option>
-                            <option value="IDC-013" data-question="decline-text-2">Driving licence - PDS confusion [or postcode issue]</option>
+                            <option value="IDC-013" data-question="decline-text-2">Driving licence - Multiple matches or PDS confusion</option>
+                            <option value="IDC-014" data-question="decline-text-2">Driving licence - Cannot match postcodes</option>
 
-                            <option value="IDC-014" data-question="decline-text-2">Passport - DSA lookup does not return a record</option>
-                            <option value="IDC-015" data-question="decline-text-2">Passport - Date of birth user entered does not match PDS (re-trace failed)</option>
-                            <option value="IDC-016" data-question="decline-text-2">Passport - PDS confusion [or postcode issue]</option>
 
-                            <option value="IDC-017" data-question="decline-text-2">National identity card - DSA lookup does not return a record</option>
-                            <option value="IDC-018" data-question="decline-text-2">National identity card - Date of birth user entered does not match PDS (re-trace failed)</option>
-                            <option value="IDC-019" data-question="decline-text-2">National identity card - PDS confusion [or postcode issue]</option>
+                            <option value="IDC-015" data-question="decline-text-2">Passport - DSA lookup does not return a record</option>
+                            <option value="IDC-016" data-question="decline-text-2">Passport - Date of birth user entered does not match PDS (re-trace failed)</option>
+                            <option value="IDC-017" data-question="decline-text-2">Passport - Multiple matches or PDS confusion</option>
+                            <option value="IDC-018" data-question="decline-text-2">Passport - Cannot match postcodes</option>
+
+                            <option value="IDC-019" data-question="decline-text-2">National identity card - DSA lookup does not return a record</option>
+                            <option value="IDC-020" data-question="decline-text-2">National identity card - Date of birth user entered does not match PDS (re-trace failed)</option>
+                            <option value="IDC-021" data-question="decline-text-2">National identity card - Multiple matches or PDS confusion</option>
+                            <option value="IDC-022" data-question="decline-text-2">National identity card - Cannot match postcodes</option>
 
                         </select>
 
                         <select id="decline-1" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
-                            <option value="IDC-020" data-question="">--- Please select ---</option>
-                            <option value="IDC-021" data-question="decline-text-1">Driving licence - cannot see everything clearly</option>
-                            <option value="IDC-022" data-question="decline-text-1">Passport - cannot see everything clearly</option>
+                            <option value="IDC-023" data-question="">--- Please select ---</option>
+                            <option value="IDC-024" data-question="decline-text-1">Driving licence - cannot see everything clearly</option>
+                            <option value="IDC-025" data-question="decline-text-1">Passport - cannot see everything clearly</option>
                         </select>
 
                         <select id="decline-2" class="govuk-select decline-group" id="sort" name="sort" style="margin-top:16px;width:100%;display:none;">
