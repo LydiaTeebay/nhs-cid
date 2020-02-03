@@ -41,11 +41,25 @@
       </summary>
       <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
           <div class="reading-width">
-
-              <p>Email</p>
+            {% if recoveryEmail === 'false' %}
+              {% if identityLevel0 === "true"%}
+              <p>Emails</p>
               <ol>
-                  <li><a target="_blank" href="/emails/email-recover-success{{ params }}">Success email sent to the users primary email address</a></li>
+                <li><a target="_blank" href="/emails/email-recover-success{{ params }}">Success email sent to the users primary email address</a></li>
               </ol>
+              {% else %}
+              <p>Emails</p>
+              <ol>
+                <li><a target="_blank" href="/emails/email-recover-success{{ params }}">Notification email sent to the users primary email address immediately</a></li>
+                <li><a target="_blank" href="/emails/email-recover-success{{ params }}">Success email sent to the users primary email address <b>after 24 hours</b></a></li>
+              </ol>
+              {% endif %}
+            {% else %}
+            <p>Email</p>
+            <ol>
+                <li><a target="_blank" href="/emails/email-recover-success{{ params }}">Success email sent to the users primary email address</a></li>
+            </ol>
+            {% endif %}
               
           </div>
       </div>
