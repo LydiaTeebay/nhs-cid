@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - What's your postcode?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&iproovPass=" + iproovPass %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&iproovPass=" + iproovPass + "&manual=" + manual %}
 
 {% block content %}
 
@@ -11,13 +11,17 @@
   <form>
     <div class="form-group">
 
-      <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+      {% if manual === 'true' %}
+      <p><a href="javascript:history.go(-1)" class="link-back"><span class="u-visuallyhidden">Back to </span>Step 3 - Help us match you to your NHS record</a></p>
+      {% else %}
+      <p><a href="javascript:history.go(-1)" class="link-back"><span class="u-visuallyhidden">Back to </span>Step 3 - Enter your date of birth</a></p>
+      {% endif %}
 
-      <h1><legend>What's your postcode?</legend></h1>
+      <h1><legend>Enter your postcode</legend></h1>
 
       <div class="form-group">
 
-        <span class="form-label__hint" style="">This must be the postcode registered with your GP</span>
+        <span class="form-label__hint" style="">You must enter the postcode that is registered with your GP surgery.</span>
         <input class="form-control postcode" type="text" id="postcode" name="postcode">
 
       </div>
