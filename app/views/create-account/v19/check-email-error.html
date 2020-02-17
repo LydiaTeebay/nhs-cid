@@ -20,11 +20,9 @@
     <div class="form-group">
       <h1>There is a problem</h1>
 
-      <p>Your email has not been confirmed.</p>
+      <p>You have not confirmed your email address.</p>
       <p>To continue setting up your NHS login, confirm your email address using the link we sent to {{ emailAddress }}</p>
       <p>You can <a href="create-acc-terms">enter your email address again</a> if you got it wrong.</p>
-      <p>When you have confimed your email you can continue to access the <b>'NHS App'</b>.</p> 
-
     </div>
     <div class="form-group">
       <div class="form-group">
@@ -35,24 +33,7 @@
     </div>
   </form>
   
-  {% if devMode === "true" %}
-  <details class="dev-mode" role="group" >
-      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-          <span class="details__summary">Continue with testing scenario</span>
-      </summary>
-      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-          <div class="reading-width">
-  
-              <p>Note</p>
-              <ol>
-                  <li>Any instance of 'NHS App' must be prefaced by the word 'the'. This is the only service name which requires 'the'.</li>
-              </ol>
-  
-  
-          </div>
-      </div>
-  </details>
-  {% endif %}
+  {% include '_partials/_includes/_scenarios_setup.html' %}
 
 </div>
 
