@@ -12,16 +12,16 @@
     <div class="form-group">
 
       {% if manual === 'true' %}
-      <p><a href="javascript:history.go(-1)" class="link-back"><span class="u-visuallyhidden">Back to </span>Step 3 - Help us match you to your NHS record</a></p>
+      <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 3 - Help us match you to your NHS record</a></p>
       {% else %}
-      <p><a href="javascript:history.go(-1)" class="link-back"><span class="u-visuallyhidden">Back to </span>Step 3 - Enter your date of birth</a></p>
+      <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Enter your date of birth</a></p>
       {% endif %}
 
       <h1><legend>Enter your postcode</legend></h1>
 
       <div class="form-group">
 
-        <span class="form-label__hint" style="">You must enter the postcode that is registered with your GP surgery.</span>
+        <span class="form-label__hint" style="">You must enter the postcode you registered with your GP surgery.</span>
         <input class="form-control postcode" type="text" id="postcode" name="postcode">
 
       </div>

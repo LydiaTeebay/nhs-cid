@@ -32,7 +32,7 @@
     <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
 
         {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
-            <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><span class="u-visuallyhidden">Back to </span>Choose the photo I.D. you want to use</a></p>
+            <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose the photo I.D. you want to use</a></p>
         {% else %}
             {% if idType === 'passport' or idType === 'UK driving licence' %}
                 <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose how to send a photo of your I.D.</a></p>
@@ -220,7 +220,7 @@
         <p>Make sure there are no other faces in the photo you send us.</p>
 
         <div class="form-group">
-            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
+            <a class="button" href="service-access-start{{ params }}" id=""><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 1 - send a photo of your I.D.</a>
         </div>
         <p class="small" style="margin-top: 28px;">Reference: CID8006</p>
     </section>
@@ -233,7 +233,7 @@
         <p>There was a technical problem.</p>
 
         <div class="form-group">
-            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
+            <a class="button" href="service-access-start{{ params }}" id=""><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 1 - send a photo of your I.D.</a>
         </div>
         <p class="small" style="margin-top: 28px;">Reference: CID8007</p>
     </section>
