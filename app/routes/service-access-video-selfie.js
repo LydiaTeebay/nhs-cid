@@ -27,10 +27,18 @@ module.exports = function (router) {
         var idType = req.param('idType')
         var returnUrl = req.param('returnUrl')
         var genericButton = req.param('genericButton')
+        var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v19/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton }, function(err, html) {
-            res.send(html)
-        })
+        //
+        if (manual == 'true') {
+            res.render('service-access/v19/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
+                res.send(html)
+            })
+        } else {
+            res.render('service-access/v19/service-access-iproov-start', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
+                res.send(html)
+            })
+        }
     })
 
     router.get('/service-access/v18/service-access-video-selfie', function (req, res) {

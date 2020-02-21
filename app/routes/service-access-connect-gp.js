@@ -1,4 +1,26 @@
 module.exports = function (router) {
+    router.get('/service-access/v19/service-access-connect-gp', function (req, res) {
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var resend = req.param('resend')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = req.param('emailAddress')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var result = req.param('result')
+        var manual = req.param('manual')
+        res.render('service-access/v19/service-access-connect-gp', { reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, manual: manual }, function(err, html) {
+            res.send(html)
+        })
+    })
     router.get('/service-access/v18/service-access-connect-gp', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')

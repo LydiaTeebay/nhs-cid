@@ -6,18 +6,14 @@
 
 {% block extrastyles %}
 
-  {% if (manual === "true") %}
-    <meta http-equiv="refresh" content="3;url=service-access-iproov-failure{{ params }}">
-  {% else %}
-    <meta http-equiv="refresh" content="7;url=service-access-nhs{{ params }}">
-  {% endif %}
+<meta http-equiv="refresh" content="3;url=service-access-photo-id-type{{ params }}">
 
 {% endblock %}
 
 
 {% block content %}
 
-<h1><legend>Checking your face and your I.D.</legend></h1>
+<h1><legend> </legend></h1>
 
 <!--<p style="">This should only take a few seconds</p>-->
 
@@ -33,18 +29,6 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-
-  setTimeout(function(){
-    $("#spinner-status").addClass("done")
-    $("#spinner").addClass("done")
-    document.getElementById("spinner-status").innerHTML = "Done"
-
-  }, 6000)
-</script>
-
-</script>
 
 {% endblock %}
 

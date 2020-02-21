@@ -6,11 +6,7 @@
 
 {% block extrastyles %}
 
-  {% if (manual === "true") %}
-    <meta http-equiv="refresh" content="3;url=service-access-iproov-failure{{ params }}">
-  {% else %}
-    <meta http-equiv="refresh" content="7;url=service-access-nhs{{ params }}">
-  {% endif %}
+    <meta http-equiv="refresh" content="2;url=service-access-video-selfie-test{{ params }}">
 
 {% endblock %}
 
@@ -33,18 +29,6 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-
-  setTimeout(function(){
-    $("#spinner-status").addClass("done")
-    $("#spinner").addClass("done")
-    document.getElementById("spinner-status").innerHTML = "Done"
-
-  }, 6000)
-</script>
-
-</script>
 
 {% endblock %}
 
