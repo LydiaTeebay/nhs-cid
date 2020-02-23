@@ -22,8 +22,9 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('start/v12/nhs-app-start', { service: service, serviceName: serviceName, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('start/v12/nhs-app-start', { service: service, serviceName: serviceName, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

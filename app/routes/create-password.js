@@ -14,13 +14,14 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var manual = req.param('manual')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/v19/create-password?vouch=yes')
             return
         }
         // re-render the page along with the parameter
-        res.render('create-account/v19/create-password', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('create-account/v19/create-password', { vouch: vouched, service: service, serviceName: serviceName, hidehead: hidehead, poluser: poluser, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, manual: manual }, function(err, html) {
             res.send(html)
         })
     })
@@ -37,12 +38,13 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var manual = req.param('manual')
 
         if (vouched === 'yes') {
             res.redirect('/create-account/v19/two-step-code?vouch=yes')
             return
         }
-        res.redirect('/create-account/v19/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy)
+        res.redirect('/create-account/v19/check-email?terms=yes&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&manual=' + manual )
     })
 
 }

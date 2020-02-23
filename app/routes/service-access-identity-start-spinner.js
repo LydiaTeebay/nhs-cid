@@ -15,8 +15,9 @@ module.exports = function (router) {
         var isMobile = req.useragent.isMobile
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v19/service-access-identity-start-spinner', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v19/service-access-identity-start-spinner', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

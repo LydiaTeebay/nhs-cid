@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - What's your NHS number?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&manual=" + manual %}
 
 {% block content %}
 
@@ -24,7 +24,7 @@
 
     <details class="" role="group" style="margin-top: 0;">
       <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-        <span class="details__summary">How to find your NHS number</span>
+        <span class="details__summary">Where can I find my NHS number?</span>
       </summary>
       <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
         <div class="reading-width">

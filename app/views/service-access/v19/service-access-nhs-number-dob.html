@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - What's your date of birth?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&manual=" + manual %}
 
 {% block content %}
 
@@ -44,7 +44,7 @@
 
 
     <div class="form-group">
-      <a class="button" href="service-access-confirmation{{ params }}">Continue</a>
+      <a class="button" href="service-access-nhs-number-demographics-postcode{{ params }}">Continue</a>
     </div>
   </form>
 

@@ -54,6 +54,7 @@ module.exports = function (router) {
     var poluser = req.param('poluser')
     var devMode = req.param('devMode')
     var returnUrl = req.param('returnUrl')
+      var manual = req.param('manual')
     var pinCode = Math.floor(100000 + Math.random() * 900000)
     var personalisation = {
         'pincode': pinCode
@@ -71,7 +72,7 @@ module.exports = function (router) {
     .catch(err => console.error(err))
     }
     // re-render the page along with the parameter
-    res.render('create-account/v19/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result }, function(err, html) {
+    res.render('create-account/v19/two-step-code-login', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, manual: manual }, function(err, html) {
         res.send(html)
     })
 })

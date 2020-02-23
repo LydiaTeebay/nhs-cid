@@ -11,7 +11,7 @@
   <form>
     <div class="form-group">
 
-      {% if manual === 'true' %}
+      {% if manual !== 'true' %}
       <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 3 - Help us match you to your NHS record</a></p>
       {% else %}
       <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Enter your date of birth</a></p>
@@ -29,7 +29,11 @@
     </div>
 
     <div class="form-group">
+      {% if manual === 'true' %}
+      <a class="button" href="service-access-confirmation{{ params }}">Continue</a>
+      {% else %}
       <a class="button" href="service-access-nhs-number-automated{{ params }}">Continue</a>
+      {% endif %}
     </div>
   </form>
 

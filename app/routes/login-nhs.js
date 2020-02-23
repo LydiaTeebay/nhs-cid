@@ -43,6 +43,7 @@ module.exports = function (router) {
     var returnUrl = req.param('returnUrl')
     var hideBack = req.param('hideBack')
     var clientId = req.param('clientId')
+    var manual = req.param('manual')
     if (clientId === 'false') {
         var reason = 'noclientid'
     } else {
@@ -50,7 +51,7 @@ module.exports = function (router) {
     }
 
     // re-render the page along with the parameter
-    res.render('create-account/v19/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, hideBack: hideBack, reason: reason}, function(err, html) {
+    res.render('create-account/v19/login-nhs', { emailAddress: emailAddress, mobileNum: mobileNum, vouch: vouched, passwordChange: passwordChange, newUser: newUser, service: service, serviceName: serviceName, terms: terms, verified: verified, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, hideBack: hideBack, reason: reason, manual: manual }, function(err, html) {
         res.send(html)
     })
 })

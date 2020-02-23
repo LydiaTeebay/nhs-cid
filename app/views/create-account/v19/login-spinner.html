@@ -33,6 +33,8 @@
 <meta http-equiv="refresh" content="3;url=no-client-error{{ params }}">
 {% elif reason === 'recoveryemail' %}
 <meta http-equiv="refresh" content="3;url=recovery-email{{ params }}">
+{% elif manual === 'true' %}
+<meta http-equiv="refresh" content="5;url=/service-access/v19/service-access-start{{ params }}&hideBack=true"
 {% else %}
 <meta http-equiv="refresh" content="3;url={{ backlink.link() }}">
 {% endif %}

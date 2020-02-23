@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - What's your full name?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&manual=" + manual %}
 
 {% block content %}
 
@@ -13,49 +13,28 @@
 
       <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
 
-      <h1><legend>Are these details correct?</legend></h1>
+      <!--<span class="section-header">About you</span>-->
 
-      <p>We automatically captured your details from your submitted ID document. Only small changes will be allowed. </p>
+      <h1><legend>Enter your full name</legend></h1>
 
       <div class="form-group">
         <label class="form-label" for="field1">First name</label>
-        <input class="form-control" id="field1" name="field1" type="text" value="Jonathon">
+        <input class="form-control" id="field1" name="field1" type="text" value="">
       </div>
       <div class="form-group">
-        <label class="form-label" for="field2">Middle name</label>
-        <input class="form-control" id="field2" name="field2" type="text" value="Paul">
+        <label class="form-label" for="field2">Middle name (if you have one)</label>
+        <input class="form-control" id="field2" name="field2" type="text" value="">
       </div>
       <div class="form-group">
         <label class="form-label" for="field3">Last name</label>
-        <input class="form-control" id="field3" name="field3" type="text" value="Annerseed">
-      </div>
-
-      <div class="form-group">
-        <fieldset>
-          <legend class="form-label">Date of birth</legend>
-
-          <div class="form-group -date" style="margin-top: 10px;">
-            <div class="form-date-field">
-              <label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>
-              <input type="number" id="dob-day" name="dob-day" pattern="[0-9]*" value="09" class="day" maxlength="2" min="1" max="31">
-            </div>
-            <div class="form-date-field">
-              <label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>
-              <input type="number" id="dob-month" name="dob-month" pattern="[0-9]*" value="02" class="month" maxlength="2" min="1" max="12">
-            </div>
-            <div class="form-date-field">
-              <label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>
-              <input type="number" id="dob-year" name="dob-year" pattern="[0-9]*" value="1979" class="year" maxlength="4" min="1900" max="2018">
-            </div>
-          </div>
-        </fieldset>
+        <input class="form-control" id="field3" name="field3" type="text" value="">
       </div>
 
     </div>
 
 
     <div class="form-group">
-      <a class="button" href="service-access-nhs-number-demographics-postcode{{ params }}">Yes - continue</a>
+      <a class="button" href="service-access-nhs-number-demographics-dob{{ params }}">Continue</a>
     </div>
   </form>
 
