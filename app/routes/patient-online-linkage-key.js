@@ -30,7 +30,8 @@ module.exports = function (router) {
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
         var pyiuser = req.param('pyiuser')
-        res.render('patient-online/v19/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, pyiuser : pyiuser }, function(err, html) {
+        var manual = req.param('manual')
+        res.render('patient-online/v19/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, pyiuser : pyiuser, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

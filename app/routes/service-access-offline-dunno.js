@@ -15,8 +15,9 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var pyiuser = req.param('pyiuser')
+        var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v19/service-access-offline-dunno', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, signedin: signedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, pyiuser : pyiuser }, function(err, html) {
+        res.render('service-access/v19/service-access-offline-dunno', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, signedin: signedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, pyiuser : pyiuser, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

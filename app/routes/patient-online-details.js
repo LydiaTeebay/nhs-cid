@@ -19,7 +19,8 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var hideBack = req.param('hideBack')
         var drop = req.param('drop')
-        res.render('patient-online/v19/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack, drop: drop }, function(err, html) {
+        var manual = req.param('manual')
+        res.render('patient-online/v19/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack, drop: drop, manual: manual }, function(err, html) {
             res.send(html)
         })
     })
