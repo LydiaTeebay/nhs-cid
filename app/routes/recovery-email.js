@@ -20,9 +20,10 @@ module.exports = function (router) {
 
         // var reason = req.param('reason')
         var result = req.param('result')
+        var manual = req.param('manual')
         
         // re-render the page along with the parameter
-        res.render('create-account/v19/recovery-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, formerror: formerror }, function(err, html) {
+        res.render('create-account/v19/recovery-email', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, devMode: devMode, returnUrl: returnUrl, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, verified: verified, poluser: poluser, result: result, formerror: formerror, manual: manual }, function(err, html) {
             res.send(html)
         })
     })
