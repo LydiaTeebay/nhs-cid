@@ -7,7 +7,7 @@ const NotifyClient = require('notifications-node-client').NotifyClient, notifyCl
 
 module.exports = function (router) {
 
-    router.get('/create-account/v20/email-error-link-used', function (req, res) {
+    router.get('/create-account/v20/email-error-expired', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')
         var vouched = req.param('vouch')
@@ -38,12 +38,12 @@ module.exports = function (router) {
                 ).catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v20/email-error-link-used', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('create-account/v20/email-error-expired', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/create-account/v19/email-error-link-used', function (req, res) {
+    router.get('/create-account/v19/email-error-expired', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')
         var vouched = req.param('vouch')
@@ -74,7 +74,7 @@ module.exports = function (router) {
         ).catch(err => console.error(err))
         }
         // re-render the page along with the parameter
-        res.render('create-account/v19/email-error-link-used', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('create-account/v19/email-error-expired', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

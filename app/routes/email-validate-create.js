@@ -8,6 +8,20 @@ module.exports = function (router) {
     })
   })
 
+    router.get('/emails/v14/email-validate-create', function (req, res) {
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        res.render('emails/v14/email-validate-create', { serviceName: serviceName, service: service, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+
         router.get('/emails/v13/email-validate-create', function (req, res) {
         var service = req.param('service')
         var serviceName = req.param('serviceName')
