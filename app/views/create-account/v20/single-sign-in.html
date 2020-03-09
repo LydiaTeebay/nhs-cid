@@ -1,0 +1,24 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access Online Consultations using your NHS login{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&poluser=" + poluser %}
+
+
+{% block content %}
+
+<div class="first-item">
+
+    <!-- <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p> -->
+
+    <div class="form-group">
+        <h1>Access Online Consultations using your NHS login</h1>
+        <p>This allows you to set up an account with &quot;Online Consultations&quot; using your NHS login registered to <b>chris******@gmail.com</b>.</p>
+        
+    </div>
+
+    <a class="button" href="consent-v2{{ params }}" id="">Agree</a>
+    <p><a href="#">Do not agree</a> - you will not be able to use Online Consultations now.</p>
+
+</div>
+
+{% endblock %}

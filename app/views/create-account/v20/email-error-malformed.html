@@ -1,0 +1,32 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Sign in with {% include '_partials/_components/_name.html' %} - {{serviceName}}{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>This link does not work</h1>
+    <p>This could be because:</p>
+      <ul>
+        <li>you copied or typed the link from the email and made a mistake</li>
+        <li>a technical error occured</li>
+      </ul>
+    <p>You can try again by selecting the link in the email.</p>
+    <p>Reference: <b>CID1234</b></p>
+  </div>
+    
+</div>
+
+{% endblock %}

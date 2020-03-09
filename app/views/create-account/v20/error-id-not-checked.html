@@ -1,0 +1,18 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{serviceName}} - We have not checked your I.D. yet{% endblock %}
+{% set signedin = '' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <div class="form-group">
+    <h1>We have not checked your I.D. yet</h1>
+    <p>We will email you when we have finished our checks.</p>
+    <p class="small">Reference: CID2001</p>
+  </div>
+    
+</div>
+
+{% endblock %}

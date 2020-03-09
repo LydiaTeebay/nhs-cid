@@ -1,0 +1,30 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Add a recovery email{% endblock %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&verified=" + verified + "&poluser=" + poluser + "&resend=" + resend + "&result=" + result + "&reason=" + reason %}
+
+
+{% block topRow %}
+{% if resend === "yes" %}
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('','Your security code has been resent.','attention') }}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+<div class="first-item">
+  <form>
+    <h1>We cannot log you in</h1>
+
+    <p>You have requested to change your phone number through the recovery process.</p>
+
+    <p>The 24 hour period has not yet finished. Please try to log in again soon.</p>
+
+  </form>
+</div>
+
+{% endblock %}
