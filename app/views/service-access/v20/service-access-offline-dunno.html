@@ -1,0 +1,62 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}You can ask your GP surgery if you are registered for their online services{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&pyiuser=" + pyiuser + "&manual=" + manual %}
+
+{% block content %}
+
+<div class="first-item">
+
+  {% if pyiuser === "true" %}
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  {% else %}
+
+  <p><a href="/patient-online/v20/patient-online-details{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you use your GP surgery's online services</a></p>
+
+  {% endif %}
+
+
+  <h1 class="">You can ask your GP surgery if you are registered for their online services</h1>
+
+  <p>People who are registered for online services can use their registration details to prove who they are.</p>
+
+  <h2 class="h3" style="margin-top:32px;"> If you are not registered</h2>
+
+  <p>If you are not registered for online services, you can register by filling in a form that your GP surgery will give you.</p>
+
+  <p>Your surgery will give you some registration details. You need all 3 of the following details:</p>
+
+  <ul>
+    <li>Linkage Key (could be called Passphrase)</li>
+    <li>O.D.S. Code (could be called Organisation Code or Practice I.D.)</li>
+    <li>Account I.D.</li>
+  </ul>
+
+  <p>You can use these 3 registration details to prove who you are instead of sending a photo of your I.D.</p>
+
+  <h2 class="h3" style="margin-top:32px;">If you are registered</h2>
+
+  <p>If you are already registered, ask your GP surgery for the 3 registration details you need for their online services. Make sure you get all 3 details.</p>
+
+  <p>You can use these 3 details to prove who you are instead of sending a photo of your I.D.</p>
+
+  {% if pyiuser === "true" %}
+
+
+  {% else %}
+
+  <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin: 40px 0;">
+    <span style="font-size: 18px; background-color: #fff; padding: 0 10px;">Or</span>
+  </div>
+
+  <p>You can <a href="service-access-what-you-need{{ params }}">send a photo of your I.D. to prove who you are.</a></p>
+
+  {% endif %}
+
+
+</div>
+
+{% endblock %}

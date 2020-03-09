@@ -1,0 +1,42 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - What's your postcode?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&iproovPass=" + iproovPass + "&manual=" + manual %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <form>
+    <div class="form-group">
+
+      {% if manual !== 'true' %}
+      <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 3 - Help us match you to your NHS record</a></p>
+      {% else %}
+      <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Enter your date of birth</a></p>
+      {% endif %}
+
+      <h1><legend>Enter your postcode</legend></h1>
+
+      <div class="form-group">
+
+        <span class="form-label__hint" style="">You must enter the postcode you registered with your GP surgery.</span>
+        <input class="form-control postcode" type="text" id="postcode" name="postcode">
+
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      {% if manual === 'true' %}
+      <a class="button" href="service-access-confirmation{{ params }}">Continue</a>
+      {% else %}
+      <a class="button" href="service-access-nhs-number-automated{{ params }}">Continue</a>
+      {% endif %}
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}
