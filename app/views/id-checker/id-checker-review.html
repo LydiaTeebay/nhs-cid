@@ -8,6 +8,11 @@
 {% set dataResult = 'data-result=' + result %}
 
 {% block extrastyles %}
+<style>
+    .page-section {
+        max-width: 1100px;
+    }
+</style>
 <script src='/panzoom.min.js'></script>
 {% endblock %}
 
@@ -16,7 +21,7 @@
 <div class="panel" style="display: block;" id="result" {{ dataResult }}>
     <div class="panel__content panel__content--half">
         <h3>Check identity document</h3>
-        <p class="small idcheck-help">Hold down 'ALT' when scrolling to zoom the image in and out. <a href="#" id="reset">Reset</a> </p>
+        <p class="small idcheck-help">To zoom in either double click on the picture, or position your cursor on the image, then hold 'Alt' + scroll with your mouse wheel. <a href="#" id="reset">Reset</a> </p>
 
         <div class="reading-width idcheck-image-container panzoom-parent">
 
@@ -120,12 +125,9 @@
         {% if demographics !== 'true' %}
 
         <div class="form-group">
-            <label class="form-label">NHS Number</label>
+            <label class="form-label">NHS number</label>
             <input type="text" id="nhsnum" name="" value="485 777 3456" class="year" maxlength="10" readonly
                    style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
         </div>
         <div class="form-group">
             <fieldset style="display: inline-block; margin-bottom: 0;">
@@ -136,37 +138,49 @@
                     <div class="form-date-field">
                         <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
                         <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day"
-                               maxlength="2" min="1" max="31" readonly>
+                               maxlength="2" min="1" max="31" readonly style="margin: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
                         <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month"
-                               maxlength="2" min="1" max="12" readonly>
+                               maxlength="2" min="1" max="12" readonly style="margin: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
                         <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year"
-                               maxlength="4" min="1900" max="2018" readonly>
+                               maxlength="4" min="1900" max="2018" readonly style="margin: 0;">
                     </div>
                 </div>
+
             </fieldset>
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
+
+            <p class="small" style="margin-top: 12px;">Document OCR result: 8 - 2 - 1979</p>
+            <div class="form-group">
+                <label class="form-label">Postcode</label>
+                <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
+                       style="display: inline-block; margin-bottom: 0;">
+                {% if result == 'fails' %}
+                <a href="#" class="idcheck-edit">Edit</a>
+                {% endif %}
+            </div>
         </div>
 
         {% else %}
 
         <div class="form-group">
-            <label class="form-label">First name</label>
-            <input type="text" id="" name="" value="Joe" class="" maxlength="" readonly
+            <label class="form-label">NHS number</label>
+            <input type="text" id="nhsnum" name="" value="" class="year" maxlength="10" readonly
                    style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">First name</label>
+            <input type="text" id="" name="" value="" class="" maxlength="" readonly
+                   style="display: inline-block; margin-bottom: 0;">
+<!--            <p class="small" style="margin-top: 12px;">Document OCR result: <b>Joe</b></p>-->
         </div>
         <div class="form-group">
-            <label class="form-label">Middle names</label>
+            <label class="form-label">Middle name</label>
             <input type="text" id="" name="" value="" class="" maxlength="" readonly
                    style="display: inline-block; margin-bottom: 0;">
             {% if result == 'fails' %}
@@ -175,46 +189,40 @@
         </div>
         <div class="form-group">
             <label class="form-label">Last name</label>
-            <input type="text" id="" name="" value="Bloggs" class="" maxlength="" readonly
+            <input type="text" id="" name="" value="" class="" maxlength="" readonly
                    style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
+<!--            <p class="small" style="margin-top: 12px;">Document OCR result: <b>8loggs</b></p>-->
         </div>
         <div class="form-group">
             <fieldset style="display: inline-block">
                 <legend class="form-label">
                     Date of birth
                 </legend>
-                <div class="form-group -date" style="margin-top: 10px;">
+                <div class="form-group -date" style="margin-top: 0px;">
                     <div class="form-date-field">
                         <!--<label for="dob-day" style="margin-bottom: 5px; display: block;">Day</label>-->
-                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="9" class="day"
+                        <input type="tel" id="dob-day" name="dob-day" pattern="[0-9]" value="" class="day"
                                maxlength="2" min="1" max="31" readonly style="margin-bottom: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-month" style="margin-bottom: 5px; display: block;">Month</label>-->
-                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="2" class="month"
+                        <input type="tel" id="dob-month" name="dob-month" pattern="[0-9]" value="" class="month"
                                maxlength="2" min="1" max="12" readonly style="margin-bottom: 0;">
                     </div>
                     <div class="form-date-field">
                         <!--<label for="dob-year" style="margin-bottom: 5px; display: block;">Year</label>-->
-                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="1979" class="year"
+                        <input type="tel" id="dob-year" name="dob-year" pattern="[0-9]" value="" class="year"
                                maxlength="4" min="1900" max="2018" readonly style="margin-bottom: 0;">
                     </div>
                 </div>
             </fieldset>
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
+<!--            <p class="small" style="margin-top: 12px;">Document OCR result: <b>8 - 2 - 1979</b></p>-->
+
         </div>
         <div class="form-group">
             <label class="form-label">Postcode</label>
-            <input type="text" id="" name="" value="BD7 1DP" class="" maxlength="" readonly
+            <input type="text" id="" name="" value="" class="" maxlength="" readonly
                    style="display: inline-block; margin-bottom: 0;">
-            {% if result == 'fails' %}
-            <a href="#" class="idcheck-edit">Edit</a>
-            {% endif %}
         </div>
 
         {% endif %}
@@ -500,7 +508,7 @@
 
 <div class="panel" style="display: block;">
     <div class="panel__content panel__content--half">
-        <h3>Compare the photo ID and the PDS record</h3>
+        <h3 style="margin-bottom: 32px;">Compare the photo ID and the PDS record</h3>
         <div class="reading-width idcheck-image-container">
             <div class="idcheck-image-expand"><a href="#" class="idcheck-image-expand-button">Expand image</a></div>
 

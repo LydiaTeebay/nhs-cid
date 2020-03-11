@@ -81,6 +81,10 @@ p.instructions--link {
   list-style: none;
 }
 
+.instructions-list--small {
+  @include core-font(21);
+}
+
 .instructions-list__item {
   position: relative;
   border-bottom: 1px solid $blue;

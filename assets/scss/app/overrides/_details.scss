@@ -1,0 +1,13 @@
+details.details--small {
+    p, ul>li {
+      @include core-font(20);
+    }
+  summary {
+    @include core-font(20);
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

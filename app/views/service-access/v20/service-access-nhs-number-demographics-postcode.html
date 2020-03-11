@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - What's your postcode?{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Enter your postcode{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&iproovPass=" + iproovPass + "&manual=" + manual %}
@@ -11,7 +11,7 @@
   <form>
     <div class="form-group">
 
-      <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> What's your date of birth?</a></p>
+      <p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Enter your full name</a></p>
 
       <h1><legend>Enter your postcode</legend></h1>
 
