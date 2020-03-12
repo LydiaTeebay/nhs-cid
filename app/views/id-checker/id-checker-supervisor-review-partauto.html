@@ -196,45 +196,73 @@
 
 <div class="panel">
 
-    <div class="panel__content panel__content--half">
+    <div class="panel__content panel__content--third">
         <h3>OCR results</h3>
         <div class="reading-width">
 
             {% if failreason === 'paycasso' or failreason === 'pds' %}
 
-            <h4>First names</h4>
+            <h4>First name</h4>
             <p style="margin: 0;">--</p>
 
-            <h4>Last names</h4>
+            <h4>Middle name</h4>
             <p style="margin: 0;">--</p>
 
-            <h4>Date of Birth</h4>
+            <h4>Last name</h4>
+            <p style="margin: 0;">--</p>
+
+            <h4>Date of birth</h4>
             <p style="margin: 0;">--</p>
 
             {% else %}
 
-            <h4>First names</h4>
-            <p style="margin: 0;">Joe Billy</p>
+            <h4>First name</h4>
+            <p style="margin: 0;">Joe</p>
 
-            <h4>Last names</h4>
+            <h4>Middle name</h4>
+            <p style="margin: 0;">Billy</p>
+
+            <h4>Last name</h4>
             <p style="margin: 0;">Bloggs</p>
 
-            <h4>Date of Birth</h4>
+            <h4>Date of birth</h4>
             <p style="margin: 0;">08/02/1979</p>
 
             {% endif %}
 
-            <h3>User submitted details</h3>
-            <div class="reading-width">
 
-                <h4>Postcode</h4>
-                <p style="margin: 0;">BD7 1DP</p>
-
-            </div>
 
         </div>
     </div>
-    <div class="panel__content panel__content--half">
+
+    <div class="panel__content panel__content--third">
+
+        <h3>User submitted details</h3>
+        <div class="reading-width">
+
+            <h4>First name</h4>
+            <p style="margin: 0;">Joe</p>
+
+            <h4>Middle name</h4>
+            <p style="margin: 0;">Billy</p>
+
+            <h4>Last name</h4>
+            <p style="margin: 0;">Bloggs</p>
+
+            <h4>Date of birth</h4>
+            <p style="margin: 0;">08/02/1979</p>
+
+<!--            <h4>NHS number</h4>-->
+<!--            <p style="margin: 0;">485 777 3456</p>-->
+
+            <h4>Postcode</h4>
+            <p style="margin: 0;">BD7 1DP</p>
+
+        </div>
+
+    </div>
+
+    <div class="panel__content panel__content--third">
 
         <h3>PDS data retrieved</h3>
         <div class="reading-width">
@@ -248,13 +276,13 @@
             <h4>First name</h4>
             <p style="margin: 0;">Joe</p>
 
-            <h4>Middle names</h4>
+            <h4>Middle name</h4>
             <p style="margin: 0;">Billy</p>
 
-            <h4>Last names</h4>
+            <h4>Last name</h4>
             <p style="margin: 0;">Bloggs</p>
 
-            <h4>Date of Birth</h4>
+            <h4>Date of birth</h4>
             <p style="margin: 0;">08/02/1979</p>
 
             <h4>NHS number</h4>
