@@ -230,6 +230,54 @@ function activateLoader5(speed) {
     }, time)
 }
 
+function activateLoader6(speed) {
+    console.log("activate loader 6")
+    var progressbar = $('#progress_bar')
+    var $ppc = $('.progress-pie-chart')
+    document.getElementById("progressbar-heading").innerHTML = "Checking your photo";
+    document.getElementById("spinner-status").innerHTML = "Please wait";
+    $ppc.removeClass('gt-50')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate)
+            $("#spinner-heading").css("display", "block")
+            $("#scan-id-0").css("display", "block")
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-5").css("display", "none")
+            $("#scan-id-6").css("display", "none")
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 4000)
+            setTimeout(function(){
+                $('#confirmButton').click()
+            }, 5000)
+        }
+    }
+    var animate = setInterval(function() {
+        loading()
+    }, time)
+}
+
 function reactivateLoader(speed) {
     // console.log("activate")
     var $ppc = $('.progress-pie-chart')
@@ -347,6 +395,205 @@ function uploadLoader2(speed) {
     }, time)
 }
 
+function uploadLoader3(speed) {
+    var $ppc = $('.progress-pie-chart')
+    $ppc.removeClass('gt-50')
+    var progressbar = $('#progress_bar')
+    max = progressbar.attr('max')
+    time = (1000 / max) * speed
+    value = 0
+
+    var loading = function() {
+        value += 1
+        addValue = progressbar.val(value)
+
+        $('.progress-value').html(value + '%')
+        var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100
+        if (value > 50) {
+            $ppc.addClass('gt-50')
+        }
+
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)')
+        $('.ppc-percents span').html(value + '%')
+
+        if (value == max) {
+            clearInterval(animate2)
+            $("#spinner-heading").css("display", "block")
+            document.getElementById("spinner-status").innerHTML = "Please wait";
+            $("#scan-id-3").css("display", "none")
+            $("#scan-id-0").css("display", "block")
+            $("#scenarios").css("display", "block")
+
+            setTimeout(function(){
+                $("#spinner-status").addClass("done")
+                $("#spinner").addClass("done")
+                document.getElementById("spinner-status").innerHTML = "Done"
+
+            }, 700000)
+            // setTimeout(function(){
+            //     // $('#confirmButton').click()
+            //     document.getElementById('scan-id-0').style.display = 'none'
+            //     document.getElementById('scan-id-5').style.display = 'block'
+            // }, 708000)
+        }
+    }
+    var animate2 = setInterval(function() {
+        loading()
+    }, time)
+}
+
+// handlers for the devmode scenarios (v20 onwards)
+
+
+// Image fine
+
+$("#image-fine").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-5').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// couldn't generate secure S3 url
+
+$("#image-s3error").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-6').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Paycasso - no image
+
+$("#image-notfound").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-4a').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Paycasso - blurred
+
+$("#image-blurred").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-4b').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+
+// AWS no face detected
+
+$("#image-noface").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-7a').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// AWS multiple faces detected
+
+$("#image-multiplefaces").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-7b').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// AWS technical error
+
+$("#image-technical").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-7c').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// AWS virus detected
+
+$("#image-virus").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-8').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Doesn't pass backend validation
+
+$("#image-backend").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-9a').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Technical or timeout during backend validation
+
+$("#image-backendtechnical").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-9b').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+
+
+
+
+
+
+
 function spinner() {
     setTimeout(function(){
         document.getElementById('scan-id-0').style.display = 'none'
@@ -452,6 +699,30 @@ function readURL(input, idType) {
             $('#uploaded-id').attr('src', e.target.result)
             $('#uploaded-id-error').attr('src', e.target.result)
             // activateLoader(2)
+        }
+
+        if (idType == "photoIdAny") {
+            $("#scan-id-1").css("display", "none")
+            $("#scan-id-0").css("display", "block")
+            document.body.scrollTop = document.documentElement.scrollTop = 0
+            //show then hide the spinner animation
+            setTimeout(function(){
+                if (Validate(input)) {
+                    document.getElementById('scan-id-3').style.display = 'block'
+                    document.getElementById('scan-id-0').style.display = 'none'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('validated 1')
+                    uploadLoader3(2)
+                } else {
+                    $(".camera-file-format").css("display", "block")
+                    document.getElementById('scan-id-1').style.display = 'block'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('not validated')
+                }
+            }, 3000)
+            $('#uploaded-id').attr('src', e.target.result)
+            $('#uploaded-id-error').attr('src', e.target.result)
+
         }
 
         if (idType == "videoSelfie") {
@@ -597,6 +868,10 @@ $("#photo-id-document-auto").change(function(){
     readURL(this, "photoIdAuto")
 })
 
+$("#photo-id-document-any").change(function(){
+    readURL(this, "photoIdAny")
+})
+
 $("#document").change(function(){
     readURL(this, "doc")
 })
@@ -670,6 +945,21 @@ $("#usercheck-back-button").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+// submit photo button action
+$("#usercheck-back-button2").on("click", function(e) {
+    e.preventDefault()
+    $("#scan-id-3").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-1").css("display","block")
+    clearFileInput(document.getElementById("photo-id-document-any"))
+    $("#spinner").removeClass("done")
+    $("#spinner-status").removeClass("done")
+    $('.progress-value').html('0%')
+    document.getElementById("spinner-status").innerHTML = "Please wait"
+    document.getElementById("id-document").value = ''
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 // submit back button action
 $("#submit-id-back-button").on("click", function(e) {
     e.preventDefault()
@@ -683,6 +973,17 @@ $("#submit-id-back-button").on("click", function(e) {
 $("#submit-photoId-button").on("click", function(e) {
     e.preventDefault()
     activateLoader2(2)
+    $("#scan-id-0").css("display","none")
+    $("#scan-id-5").css("display","none")
+    $("#scan-id-6").css("display","none")
+    $("#scan-id-3").css("display","block")
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// submit button action for combined page
+$("#submit-photoId-button").on("click", function(e) {
+    e.preventDefault()
+    // activateLoader2(2)
     $("#scan-id-0").css("display","none")
     $("#scan-id-5").css("display","none")
     $("#scan-id-6").css("display","none")

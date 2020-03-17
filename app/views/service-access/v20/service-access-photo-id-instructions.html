@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&side=front" %}
 
 {% block content %}
 
@@ -17,6 +17,7 @@
   <form>
 
     {# devices with camera will get option to use it. Others will not get the option. #}
+
     {# if mobile currently disabled #}
 
     {% if 1 === 1 %}
@@ -36,11 +37,8 @@
 
         <label class="block-label selection-button-radio" for="radio-inline-1">
 
-          {% if idType === 'passport' %}
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-photo-id-passport{{ params }}&upload=camera">
-          {% else %}
-            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=camera">
-          {% endif %}
+
+        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=camera">
 
           {% if idType === 'passport' or idType === 'Driving licence' %}
           Take a photo on this device
@@ -50,11 +48,7 @@
 
         </label>
         <label class="block-label selection-button-radio" for="radio-inline-2">
-          {% if idType === 'passport' %}
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-photo-id-passport{{ params }}&upload=file">
-          {% else %}
           <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=file">
-          {% endif %}
 
           {% if idType === 'passport' or idType === 'Driving licence' %}
           Upload a photo
@@ -74,11 +68,7 @@
     {% else %}
 
     <div class="form-group">
-      {% if idType === 'passport' %}
-      <a class="button" href="service-access-photo-id-passport{{ params }}&upload=file" id="">Continue</a>
-      {% else %}
       <a class="button" href="service-access-photo-id-camera{{ params }}&upload=file" id="">Continue</a>
-      {% endif %}
     </div>
 
     {% endif %}

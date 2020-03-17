@@ -41,8 +41,9 @@ module.exports = function (router) {
         var manual = req.param('manual')
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
+        var side = 'front'
         // re-render the page along with the parameter
-        res.render('service-access/v20/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v20/service-access-photo-id-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual, side: side }, function(err, html) {
             res.send(html)
         })
     })

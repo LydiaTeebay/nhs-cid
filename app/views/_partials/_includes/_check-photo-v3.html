@@ -1,0 +1,437 @@
+<div class="" id="check-intro">
+
+    {% if idType === 'passport' or idType === 'UK driving licence' %}
+    <p><a href="#" class="link-back" id="usercheck-back-button2">
+        <!--<span class="u-visuallyhidden"><i>Back to:</i></span>-->
+        {% if upload === 'file' %}
+        Back to: Upload a photo
+        {% else %}
+        Back to: Take a photo
+        {% endif %}
+    </a>
+    </p>
+    {% else %}
+    <p><a href="#" class="link-back" id="usercheck-back-button2">
+        <!--<span class="u-visuallyhidden"><i>Back to:</i></span>-->
+        {% if upload === 'file' %}
+        {# Upload a photo of the {% if side === 'back' %}back{% else %}front{% endif %} of your {{ idType }} #}
+        Back to: Upload a photo
+        {% else %}
+        {# Take a photo of the {% if side === 'back' %}back{% else %}front{% endif %} of your {{ idType }} #}
+        Back to: Take a photo
+        {% endif %}
+    </a>
+    </p>
+    {% endif %}
+
+
+    <h1 style="padding-bottom: 0;">Check your photo</h1>
+
+    <p>We will ask you 2 questions to help you check your photo is correct.</p>
+
+    <p><a href="#" id="visually-impaired">What to do if you are visually impaired</a></p>
+
+    <div class="reading-width">
+        <div id="scan-id-preview" style="padding-top: 16px;">
+            <img id="uploaded-id" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
+        </div>
+    </div>
+
+</div>
+
+
+<fieldset id="check-1" class="photo-check">
+
+    <legend id="check-1-title">
+        <h2 class="h3 check-title">
+            {% if idType === 'passport' %}
+                Can you see all 4 edges of the passport page that has your name on it?
+            {% elif idType === 'European driving licence' %}
+                Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your driving licence?
+            {% elif idType === 'European national identity card' %}
+                Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your identity card?
+            {% else %}
+                Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your driving licence?
+            {% endif %}
+        </h2>
+    </legend>
+
+    <div class="selection-button-radio-inline" style="margin-top: 16px;">
+        <div class="multiple-choice" data-target="check-1-yes" style="margin-bottom: 0;">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group-1" value="yes">
+            <label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
+        </div>
+    </div>
+    <div class="selection-button-radio-inline" style="margin-top: 0px;">
+        <div class="multiple-choice" data-target="check-1-no" style="margin-bottom: 0;">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group-1" value="no">
+            <label for="radio-inline-2"class="block-label" style="position: static;">No</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a class="button button--next" href="#" id="check-1-submit">Continue</a>
+    </div>
+
+</fieldset>
+
+
+<fieldset id="check-2" class="photo-check" style="display: none;">
+
+    <legend id="check-2-title">
+        <h2 class="h3 check-title">
+            {% if idType === 'passport' %}
+                Have you covered up any part of the passport page that has your name on it?
+            {% elif idType === 'European national identity card' %}
+                Have you covered up any part of your identity card with hands or fingers?
+            {% else %}
+                Have you covered up any part of your driving licence with hands or fingers?
+            {% endif %}
+        </h2>
+    </legend>
+
+    <div class="selection-button-radio-inline" style="margin-top: 16px;">
+        <div class="multiple-choice" data-target="check-2-yes" style="margin-bottom: 0;">
+            <input id="radio-inline-3" type="radio" name="radio-inline-group-2" value="yes">
+            <label for="radio-inline-3" class="block-label" style="position: static;">Yes</label>
+        </div>
+    </div>
+    <div class="selection-button-radio-inline" style="margin-top: 0px;">
+        <div class="multiple-choice" data-target="check-2-no" style="margin-bottom: 0;">
+            <input id="radio-inline-4" type="radio" name="radio-inline-group-2" value="no">
+            <label for="radio-inline-4"class="block-label" style="position: static;">No</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a class="button button--next" href="#" id="check-2-submit">Continue</a>
+    </div>
+
+
+    <div class="nhsuk-back-link" style="margin-bottom: 16px;">
+        <a class="nhsuk-back-link__link button--back" href="#" id="backlink-4" style="font-size: 16px;font-size: .875rem;line-height: 1.71429;display: inline-block;padding-left: 16px;position: relative;text-decoration: underline;">
+            <svg class="nhsuk-icon nhsuk-icon__chevron-left" style="height: 24px;left: -8px;position: absolute;top: -1px;width: 24px;fill: #005eb8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+            </svg>
+            Change answer to question 1</a>
+    </div>
+
+
+</fieldset>
+
+
+
+
+<div id="advice-1" class="photo-check" style="margin-top: 0; display: none;">
+
+    <p><a href="#" class="link-back button--back" id="backlink-1">
+        <!--<span class="u-visuallyhidden"><i>Back to:</i></span>-->
+        Back to: Check your photo
+        </a>
+    </p>
+
+    {% if idType === 'passport' %}
+        <h1 id="advice-title-2">Make sure all 4 edges of the passport page are in your photo</h1>
+        <p>We need to see the full page so we can check it's a valid passport.</p>
+    {% elif idType === 'UK driving licence' %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your driving licence are in your photo</h1>
+        <p>We need to see all of the front of your licence, so we can check it's valid.</p>
+    {% elif idType === 'European driving licence' %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your driving licence are in your photo</h1>
+        <p>We need to see all of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your licence, so we can check it’s valid.</p>
+    {% elif idType === 'European national identity card' %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your identity card are in your photo</h1>
+        <p>We need to see all of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card, so we can check it's valid.</p>
+    {% endif %}
+
+    <fieldset>
+
+        <legend><h2 class="h3">What do you want to do?</h2></legend>
+
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-1-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-5" type="radio" name="radio-inline-group-3" value="retry">
+                <label for="radio-inline-5" class="block-label" style="position: static;">
+
+                    {% if idType === 'passport' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my passport
+                    {% elif idType === 'UK driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my licence
+                    {% elif idType === 'European driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my licence
+                    {% elif idType === 'European national identity card' %}
+                    {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my identity card
+                    {% endif %}
+
+                </label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 0;">
+            <div class="multiple-choice" data-target="advice-1-no" style="margin-bottom: 0;">
+                <input id="radio-inline-6" type="radio" name="radio-inline-group-3" value="startover">
+                <label for="radio-inline-6"class="block-label" style="position: static;">Choose a different type of I.D.</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button button--next" href="#" id="check-3-submit">Continue</a>
+        </div>
+
+    </fieldset>
+
+</div>
+
+<div id="advice-2" class="photo-check" style="margin-top: 0;display: none;">
+
+    <p><a href="#" class="link-back button--back" id="backlink-2">
+        <!--<span class="u-visuallyhidden"><i>Back to:</i></span>-->
+        Back to: Check your photo
+    </a>
+    </p>
+
+    {% if idType === 'passport' %}
+        <h1 id="advice-title-2">Do not cover up any part of the passport page that has your name on it</h1>
+        <p>We need to see all the details on the page so we can check it's a valid passport.</p>
+    {% elif idType === 'UK driving licence' %}
+        <h1 id="advice-title-2">Do not cover up any details on the front of your licence</h1>
+        <p>We need to see all the details so we can check it's a valid licence.</p>
+    {% elif idType === 'European driving licence' %}
+        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your licence</h1>
+        <p>We need to see all the details so we can check it's a valid licence.</p>
+    {% elif idType === 'European national identity card' %}
+        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card</h1>
+        <p>We need to see all the details so we can check it's a valid identity card.</p>
+    {% endif %}
+
+    <fieldset>
+
+        <legend><h2 class="h3">What do you want to do?</h2></legend>
+
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-2-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-7" type="radio" name="radio-inline-group-4" value="retry">
+                <label for="radio-inline-7" class="block-label" style="position: static;">
+
+                    {% if idType === 'passport' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my passport
+                    {% elif idType === 'UK driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my licence
+                    {% elif idType === 'European driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my licence
+                    {% elif idType === 'European national identity card' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my identity card
+                    {% endif %}
+
+                </label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 0;">
+            <div class="multiple-choice" data-target="advice-2-no" style="margin-bottom: 0;">
+                <input id="radio-inline-8" type="radio" name="radio-inline-group-4" value="startover">
+                <label for="radio-inline-8"class="block-label" style="position: static;">Choose a different type of I.D.</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button button--next" href="#" id="check-4-submit">Continue</a>
+        </div>
+
+    </fieldset>
+
+</div>
+
+
+<div id="visually-impaired-advice" class="photo-check" style="margin-top: 0;display: none;">
+
+    <p><a href="#" class="link-back button--back" id="backlink-3">
+        <!--<span class="u-visuallyhidden"><i>Back to:</i></span>-->
+        Back to: Check your photo
+    </a>
+    </p>
+
+    <h1 id="advice-title-2">What to do if you are visually impaired</h1>
+    <p>If you cannot see your photo clearly, you do not need to check it. Instead, you can submit it.</p>
+    <p>Or you could ask someone to help you check your photo.</p>
+
+    <fieldset>
+
+        <legend><h2 class="h3">Do you want to check your photo?</h2></legend>
+
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="check-3-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-9" type="radio" name="radio-inline-group-5" value="undo">
+                <label for="radio-inline-9" class="block-label" style="position: static;">Yes - check photo</label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 0;">
+            <div class="multiple-choice" data-target="check-3-no" style="margin-bottom: 0;">
+                <input id="radio-inline-10" type="radio" name="radio-inline-group-5" value="continue">
+                <label for="radio-inline-10"class="block-label" style="position: static;">No - submit photo</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button button--next" href="#" id="check-5-submit">Continue</a>
+        </div>
+
+    </fieldset>
+
+</div>
+
+
+<a class="u-visuallyhidden" href="" style="visibility:hidden;" id="submit-photoId-button">Yes - continue</a>
+<a href="service-access-photo-id-type{{ params }}&linkback=true" class="u-visuallyhidden" id="startover">Choose the photo I.D. you want to use</a>
+
+
+
+<script lang="js">
+// radio button functionality
+
+addButtonListeners()
+addBackButtonListeners()
+addQuestionNumbers()
+
+function getRadioCheckedValue (radioName) {
+    // finds out if checked yes or no
+    var oRadio = document.getElementsByName(radioName)
+
+    for (var i = 0; i < oRadio.length; i++) {
+        if (oRadio[i].checked) {
+            return oRadio[i].value
+        }
+    }
+    return ''
+}
+
+function answerNo(num){
+    // if yes, show next question or the spinners
+    var nextQuestion = num + 1
+
+    console.log(nextQuestion)
+
+    if (nextQuestion === 3) {
+        fakeClick(event, document.getElementById('continueButton2'))
+    } else {
+        for (var i = 1; i < 3; i++) {
+            document.getElementById('check-' + i).style.display = 'none'
+        }
+        document.getElementById('check-' + nextQuestion).style.display = 'block'
+        document.getElementById('check-' + nextQuestion).focus()
+    }
+}
+
+function answerYes(num){
+    resetRadios()
+    getAdvice(num)
+}
+
+function getAdvice(num) {
+    // show relevent advice page
+    document.getElementById('check-intro').style.display = 'none'
+    for (var i = 1; i < 3; i++) {
+        document.getElementById('check-' + i).style.display = 'none'
+    }
+
+    console.log('advice-' + num)
+    document.getElementById('advice-' + num).style.display = 'block'
+    // document.getElementById('advice-' + num).focus()
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+}
+
+function resetRadios() {
+    // reset all questions
+
+    // var radios =
+    // for (var i = 1; i < 4; i++) {
+    //     document.getElementByName('radio-inline-group-' + i).checked = false
+    // }
+}
+
+function addButtonListeners() {
+    var buttons = document.querySelectorAll('.button--next')
+    for (j = 0; j < buttons.length; j++) {
+        buttons[j].addEventListener('click', function (event) {
+            event.preventDefault()
+            buttonClick(this, event)
+        })
+    }
+}
+
+function addBackButtonListeners() {
+    var buttons = document.querySelectorAll('.button--back')
+    for (j = 0; j < buttons.length; j++) {
+        buttons[j].addEventListener('click', function (event) {
+            event.preventDefault()
+            backButtonClick(this, event)
+        })
+    }
+}
+
+function buttonClick(element) {
+    var target = element.id
+    var num = parseInt(target.substr(6, 1), 10)
+    var value = getRadioCheckedValue('radio-inline-group-' + num)
+
+    console.log("button number= " + num)
+    if (value == null) {
+        // do nothing if radio not selected
+    } else {
+
+        if (num === 1) {
+            // question one 'happy path' is a yes
+            if (value === 'yes') {
+                answerNo(num)
+            } else {
+                answerYes(num)
+            }
+        } else {
+            if (value === 'yes') {
+                answerYes(num)
+            } else if (value === 'continue') {
+                fakeClick(event, document.getElementById('submit-photoId-button'))
+            } else if (value === 'retry') {
+                fakeClick(event, document.getElementById('tryagain'))
+            } else if (value === 'startover') {
+                fakeClick(event, document.getElementById('startover'))
+            } else if (value === 'undo') {
+                document.getElementById('visually-impaired-advice').style.display = 'none'
+                document.getElementById('check-1').style.display = 'block'
+                document.getElementById('check-intro').style.display = 'block'
+            } else {
+                answerNo(num)
+            }
+        }
+    }
+}
+
+function backButtonClick(element) {
+    var target = element.id
+    var num = parseInt(target.substr(9, 1), 10)
+
+    if (num === 1) {
+        document.getElementById('advice-1').style.display = 'none'
+        document.getElementById('check-intro').style.display = 'block'
+        document.getElementById('check-1').style.display = 'block'
+    } else if (num === 2) {
+        document.getElementById('advice-2').style.display = 'none'
+        document.getElementById('check-intro').style.display = 'block'
+        document.getElementById('check-2').style.display = 'block'
+    } else if (num === 3) {
+        document.getElementById('visually-impaired-advice').style.display = 'none'
+        document.getElementById('check-intro').style.display = 'block'
+        document.getElementById('check-1').style.display = 'block'
+    } else if (num === 4) {
+        document.getElementById('check-2').style.display = 'none'
+        document.getElementById('check-1').style.display = 'block'
+    }
+}
+
+function addQuestionNumbers() {
+    var titles = document.querySelectorAll('.check-title')
+
+    for (i = 0; i < titles.length; i++) {
+        var questionNum = i + 1
+        titles[i].innerHTML = '<span class="heading-secondary">Question ' + questionNum + '</span>' + titles[i].innerHTML
+    }
+}
+</script>
