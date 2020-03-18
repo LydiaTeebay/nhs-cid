@@ -483,6 +483,21 @@ $("#image-notfound").on("click", function(e) {
     document.getElementById("spinner-status").innerHTML = "Done"
     setTimeout(function(){
         document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-4d').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+
+// Paycasso - blurred
+
+$("#image-blurred-1").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
         document.getElementById('scan-id-4a').style.display = 'block'
     }, 1000)
     document.body.scrollTop = document.documentElement.scrollTop = 0
@@ -490,7 +505,7 @@ $("#image-notfound").on("click", function(e) {
 
 // Paycasso - blurred
 
-$("#image-blurred").on("click", function(e) {
+$("#image-blurred-2").on("click", function(e) {
     e.preventDefault()
     $("#spinner-status").addClass("done")
     $("#spinner").addClass("done")
@@ -498,6 +513,20 @@ $("#image-blurred").on("click", function(e) {
     setTimeout(function(){
         document.getElementById('scan-id-0').style.display = 'none'
         document.getElementById('scan-id-4b').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Paycasso - blurred
+
+$("#image-blurred-3").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-4c').style.display = 'block'
     }, 1000)
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
@@ -722,6 +751,9 @@ function readURL(input, idType) {
             }, 3000)
             $('#uploaded-id').attr('src', e.target.result)
             $('#uploaded-id-error').attr('src', e.target.result)
+            $('#uploaded-id-2').attr('src', e.target.result)
+            $('#uploaded-id-3').attr('src', e.target.result)
+            $('#uploaded-id-4').attr('src', e.target.result)
 
         }
 
