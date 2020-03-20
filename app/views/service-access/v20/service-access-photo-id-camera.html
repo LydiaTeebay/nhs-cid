@@ -42,6 +42,7 @@
                         <li><a href="#" id="image-blurred-2">Image is blurred (v2)</a></li>
                         <li><a href="#" id="image-blurred-3">Image is blurred (v3)</a></li>
                         <li><a href="#" id="image-notfound">No Document found</a></li>
+                        <li><a href="#" id="image-notfound-2">No Document found (no radios)</a></li>
                         <li><a href="#" id="image-noface">No face detected</a></li>
                         <li><a href="#" id="image-multiplefaces">Multiple faces detected</a></li>
                         <li><a href="#" id="image-technical">AWSTechnical error</a></li>
@@ -370,6 +371,42 @@
 
         <div class="form-group">
             <a class="button button--next" href="#" id="check-9-submit">Continue</a>
+        </div>
+
+        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>
+
+    </section>
+
+
+    {# section to show paycasso preflight no-image error try again only #}
+    <section class="preview-container" id="scan-id-7e" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
+
+        <p>We could not detect a {{ idType }} in the photo</p>
+
+        <p>This might be because:</p>
+
+        <ul class="list list-bullet">
+            <li>we cannot see the edges of the details page of the {{ idType }}</li>
+            <li>we cannot see all the information we need</li>
+            <li>you did not take a photo of a {{ idType }}</li>
+        </ul>
+
+        <div class="reading-width">
+            <div id="scan-id-preview" style="padding-top: 16px;">
+
+                {% if idType === 'passport' %}
+                <img src="/images/how-to-hold-a-passport.png" alt="how to take a photo of your {{ idType }} " width="600" style="display:block;margin-left:auto;margin-right:auto;">
+                {% else %}
+                <img src="/images/DL-guide@2x.png" alt="how to take a photo of your {{ idType }} " width="600" style="display:block;margin-left:auto;margin-right:auto;">
+                {% endif %}
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
 
         <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>
