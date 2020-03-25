@@ -35,6 +35,7 @@
                     <p>No issues</p>
                     <ol>
                         <li><a href="#" id="image-fine">Image is fine</a></li>
+                        <li><a href="#" id="image-fine-enrol-error">Image is fine - but fails enrolment</a></li>
                     </ol>
                     <p>Photo issues</p>
                     <ol>
@@ -522,6 +523,7 @@
 
 
 
+
     {# section to show the antivirus error #}
     <section class="preview-container" id="scan-id-8" style="display:none">
 
@@ -532,6 +534,9 @@
 
         <p class="small" style="margin-top: 28px;">Reference: {% if manual === 'true' %}CID4015{% else %}CID8015{% endif %}</p> <!-- CID4015 for Automation -->
     </section>
+
+
+
 
 
 
@@ -572,14 +577,22 @@
             onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
     </button>
 
+    <button id="confirmButton2" class="u-visuallyhidden" style="visibility:hidden;"
+            onclick="fakeClick(event, document.getElementById('continueButton3'))">Continue
+    </button>
+
     {% if idType === 'European driving licence' or idType === 'European driving licence' %}
         {% if side === 'back' %}
             <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
+            <a id="continueButton3" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}&manual=true&enrol=fail">Continue</a>
         {% else %}
             <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-photo-id-camera{{ params }}&front=done">Continue</a>
+            <a id="continueButton3" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-photo-id-camera{{ params }}&front=done&manual=true&enrol=fail">Continue</a>
         {% endif %}
     {% else %}
+
     <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
+    <a id="continueButton3" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}&manual=true&enrol=fail">Continue</a>
     {% endif %}
 
 

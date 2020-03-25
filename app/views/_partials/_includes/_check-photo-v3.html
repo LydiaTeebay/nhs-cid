@@ -309,8 +309,14 @@ function answerNo(num){
 
     console.log(nextQuestion)
 
+
     if (nextQuestion === 3) {
-        fakeClick(event, document.getElementById('continueButton2'))
+        if (window.enrolmentError === "true" ) {
+            fakeClick(event, document.getElementById('continueButton3'))
+            console.log(window.enrolmentError)
+        } else {
+            fakeClick(event, document.getElementById('continueButton2'))
+        }
     } else {
         for (var i = 1; i < 3; i++) {
             document.getElementById('check-' + i).style.display = 'none'
@@ -368,6 +374,7 @@ function addBackButtonListeners() {
 }
 
 function buttonClick(element) {
+
     var target = element.id
     var num = parseInt(target.substr(6, 1), 10)
     var value = getRadioCheckedValue('radio-inline-group-' + num)
@@ -388,7 +395,12 @@ function buttonClick(element) {
             if (value === 'yes') {
                 answerYes(num)
             } else if (value === 'continue') {
-                fakeClick(event, document.getElementById('confirmButton'))
+                console.log(enrolmentError)
+                if (enrolmentError = "true" ) {
+                    fakeClick(event, document.getElementById('confirmButton2'))
+                } else {
+                    fakeClick(event, document.getElementById('confirmButton'))
+                }
             } else if (value === 'retry') {
                 fakeClick(event, document.getElementById('tryagain'))
             } else if (value === 'startover') {

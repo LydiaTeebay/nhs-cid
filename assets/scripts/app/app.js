@@ -183,7 +183,7 @@ function activateLoader4(speed) {
 }
 
 function activateLoader5(speed) {
-    // console.log("activate")
+    console.log("activate")
     var progressbar = $('#progress_bar')
     var $ppc = $('.progress-pie-chart')
     document.getElementById("progressbar-heading").innerHTML = "Uploading your video";
@@ -456,6 +456,19 @@ $("#image-fine").on("click", function(e) {
     setTimeout(function(){
         document.getElementById('scan-id-0').style.display = 'none'
         document.getElementById('scan-id-5').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+$("#image-fine-enrol-error").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-5').style.display = 'block'
+        var enrolmentError = 'true'
     }, 1000)
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
