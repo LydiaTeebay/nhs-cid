@@ -25,7 +25,7 @@
     {% endif %}
 
 
-    <h1 style="padding-bottom: 0;">Check your photo</h1>
+    <h1 style="padding-bottom: 0;">Check your photo before you send it</h1>
 
     <p>We will ask you 2 questions to help you check your photo is correct.</p>
 
@@ -45,7 +45,7 @@
     <legend id="check-1-title">
         <h2 class="h3 check-title">
             {% if idType === 'passport' %}
-                Can you see all 4 edges of the passport page that has your name on it?
+                Can you see the whole page and all 4 edges?
             {% elif idType === 'European driving licence' %}
                 Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your driving licence?
             {% elif idType === 'European national identity card' %}
@@ -81,11 +81,11 @@
     <legend id="check-2-title">
         <h2 class="h3 check-title">
             {% if idType === 'passport' %}
-                Have you covered up any part of the passport page that has your name on it?
+                Is there any light reflection or bright spots on your photo?
             {% elif idType === 'European national identity card' %}
-                Have you covered up any part of your identity card with hands or fingers?
+                Is there any light reflection or bright spots on your photo?
             {% else %}
-                Have you covered up any part of your driving licence with hands or fingers?
+                Is there any light reflection or bright spots on your photo?
             {% endif %}
         </h2>
     </legend>
@@ -190,17 +190,22 @@
     </p>
 
     {% if idType === 'passport' %}
-        <h1 id="advice-title-2">Do not cover up any part of the passport page that has your name on it</h1>
-        <p>We need to see all the details on the page so we can check it's a valid passport.</p>
+        <h1 id="advice-title-2">Make sure there are no bright spots on your photo</h1>
+        <p>Bright spots caused by reflection from a bright light can make it difficult for us to see your passport clearly.</p>
+        <p>It might help if you move away from direct light, and turn off your flash.</p>
+        <p>If there is a shiny security mark on your passport photo, try to stop any reflection covering your face too much.</p>
     {% elif idType === 'UK driving licence' %}
-        <h1 id="advice-title-2">Do not cover up any details on the front of your licence</h1>
-        <p>We need to see all the details so we can check it's a valid licence.</p>
+        <h1 id="advice-title-2">Make sure there are no bright spots on your photo</h1>
+        <p>Bright spots caused by reflection from a bright light can make it difficult for us to see your UK driving licence clearly. </p>
+        <p>It might help if you move away from direct light, and turn off your flash.</p>
     {% elif idType === 'European driving licence' %}
-        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your licence</h1>
-        <p>We need to see all the details so we can check it's a valid licence.</p>
+        <h1 id="advice-title-2">Make sure there are no bright spots on your photo {% if licenceSide === 'back' %}on the back{% else %}front{% endif %} of the licence</h1>
+        <p>Bright spots caused by reflection from a bright light can make it difficult for us to see your European driving licence clearly. </p>
+        <p>It might help if you move away from direct light, and turn off your flash.</p>
     {% elif idType === 'European national identity card' %}
-        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card</h1>
-        <p>We need to see all the details so we can check it's a valid identity card.</p>
+        <h1 id="advice-title-2">Make sure there are no bright spots on your photo {% if licenceSide === 'back' %}one the back{% else %}front{% endif %} of the identity card</h1>
+        <p>Bright spots caused by reflection from a bright light can make it difficult for us to see your European national identity card clearly. </p>
+        <p>It might help if you move away from direct light, and turn off your flash.</p>
     {% endif %}
 
     <fieldset>
