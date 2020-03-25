@@ -38,11 +38,11 @@
                     </ol>
                     <p>Photo issues</p>
                     <ol>
-                        <li><a href="#" id="image-blurred-1">Image is blurred (v1)</a></li>
-                        <li><a href="#" id="image-blurred-2">Image is blurred (v2)</a></li>
-                        <li><a href="#" id="image-blurred-3">Image is blurred (v3)</a></li>
-                        <li><a href="#" id="image-notfound">No Document found</a></li>
-                        <li><a href="#" id="image-notfound-2">No Document found (no radios)</a></li>
+                        <li><a href="#" id="image-blurred-1" style="display: none;">Image is blurred - 1st attempt(v1)</a></li>
+                        <li><a href="#" id="image-blurred-4">Image is blurred - 1st attempt- Show ALL users</a></li>
+                        <li><a href="#" id="image-blurred-2">Image is blurred - 2nd attempt img-visible (v1)</a></li>
+                        <li><a href="#" id="image-blurred-3">Image is blurred - 2nd attempt-img hidden(v2)</a></li>
+                        <li><a href="#" id="image-notfound-2">No Document found</a></li>
                         <li><a href="#" id="image-noface">No face detected</a></li>
                         <li><a href="#" id="image-multiplefaces">Multiple faces detected</a></li>
                         <li><a href="#" id="image-technical">AWSTechnical error</a></li>
@@ -202,16 +202,14 @@
     {# section to show paycasso blurred error version 1 #}
     <section class="preview-container" id="scan-id-4a" style="display:none">
 
-        <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
+        <h1 style="padding-bottom: 0;">Your photo is blurred</h1>
 
-        <p>Your photo is blurred.</p>
-
-        <p>Help avoid blur by:</p>
+        <p>To avoid blur you should:</p>
 
         <ul class="list list-bullet">
-            <li>keeping your camera as still as possible</li>
-            <li>making sure the image is in focus</li>
-            <li>ensuring the camera lens is clean</li>
+            <li>focus the camera. You may need to tap the middle of the screen</li>
+            <li>ensure the camera lens is clean</li>
+            <li>use a well lit environment</li>
         </ul>
 
         <div class="form-group">
@@ -226,9 +224,9 @@
     {# section to show paycasso blurred error version 2 #}
     <section class="preview-container" id="scan-id-4b" style="display:none">
 
-        <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
+        <h1 style="padding-bottom: 0;">Your photo is blurred</h1>
 
-        <p>Your photo is blurred. We may be unable to complete your application with this photo.</p>
+        <p>To use this photo, all written details and portrait photographs need to be clear.</p>
 
         <div class="reading-width">
             <div id="scan-id-preview" style="padding-top: 16px;">
@@ -236,30 +234,29 @@
             </div>
         </div>
 
-        <p>Help avoid blur by:</p>
+        <p>To avoid blur you should:</p>
 
         <ul class="list list-bullet">
-            <li>keeping your camera as still as possible</li>
-            <li>making sure the image is in focus</li>
-            <li>ensuring the camera lens is clean</li>
+            <li>focus the camera. You may need to tap the middle of the screen</li>
+            <li>ensure the camera lens is clean</li>
+            <li>use a well lit environment</li>
         </ul>
 
 
-        <legend><h2 class="h3" style="margin-top: 32px;">What do you want to do?</h2></legend>
+        <legend><h2 class="h3" style="margin-top: 32px;">Are the details and portrait clear?</h2></legend>
 
         <div class="selection-button-radio" style="margin-top: 16px;">
-            <div class="multiple-choice" data-target="advice-7-yes" style="margin-bottom: 0;">
-                <input id="radio-inline-11" type="radio" name="radio-inline-group-7" value="retry">
-                <label for="radio-inline-11" class="block-label" style="position: static;">Take another photo</label>
+            <div class="multiple-choice" data-target="advice-8-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-13" type="radio" name="radio-inline-group-8" value="retry">
+                <label for="radio-inline-13" class="block-label" style="position: static;">No - take another photo</label>
             </div>
         </div>
         <div class="selection-button-radio" style="margin-top: 8px;">
-            <div class="multiple-choice" data-target="advice-7-no" style="margin-bottom: 0;">
-                <input id="radio-inline-12" type="radio" name="radio-inline-group-7" value="continue">
-                <label for="radio-inline-12"class="block-label" style="position: static;">Use this photo</label>
+            <div class="multiple-choice" data-target="advice-8-no" style="margin-bottom: 0;">
+                <input id="radio-inline-14" type="radio" name="radio-inline-group-8" value="continue">
+                <label for="radio-inline-14"class="block-label" style="position: static;">Yes - use this photo</label>
             </div>
         </div>
-
 
         <div class="form-group">
             <a class="button button--next" href="#" id="check-7-submit">Continue</a>
@@ -274,10 +271,9 @@
     {# section to show paycasso blurred error version 3 #}
     <section class="preview-container" id="scan-id-4c" style="display:none">
 
-        <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
+        <h1 style="padding-bottom: 0;">Your photo is blurred</h1>
 
-        <p>Your photo is blurred. We may be unable to complete your application with this photo.</p>
-
+        <p>To use this photo, all written details and portrait photographs need to be clear.</p>
 
         <details class="" role="group" >
             <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
@@ -285,32 +281,32 @@
             </summary>
             <div class="reading-width">
                 <div id="scan-id-preview" style="padding-top: 16px;">
-                    <img id="uploaded-id-3" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
+                    <img id="uploaded-id-4" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
                 </div>
             </div>
         </details>
 
-        <p>Help avoid blur by:</p>
+        <p>To avoid blur you should:</p>
 
         <ul class="list list-bullet">
-            <li>keeping your camera as still as possible</li>
-            <li>making sure the image is in focus</li>
-            <li>ensuring the camera lens is clean</li>
+            <li>focus the camera. You may need to tap the middle of the screen</li>
+            <li>ensure the camera lens is clean</li>
+            <li>use a well lit environment</li>
         </ul>
 
 
-        <legend><h2 class="h3" style="margin-top: 32px;">What do you want to do?</h2></legend>
+        <legend><h2 class="h3" style="margin-top: 32px;">Are the details and portrait clear?</h2></legend>
 
         <div class="selection-button-radio" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-8-yes" style="margin-bottom: 0;">
                 <input id="radio-inline-13" type="radio" name="radio-inline-group-8" value="retry">
-                <label for="radio-inline-13" class="block-label" style="position: static;">Take another photo</label>
+                <label for="radio-inline-13" class="block-label" style="position: static;">No - take another photo</label>
             </div>
         </div>
         <div class="selection-button-radio" style="margin-top: 8px;">
             <div class="multiple-choice" data-target="advice-8-no" style="margin-bottom: 0;">
                 <input id="radio-inline-14" type="radio" name="radio-inline-group-8" value="continue">
-                <label for="radio-inline-14"class="block-label" style="position: static;">Use this photo</label>
+                <label for="radio-inline-14"class="block-label" style="position: static;">Yes - use this photo</label>
             </div>
         </div>
 
@@ -324,54 +320,38 @@
 
     </section>
 
+    {# section to show paycasso blurred error version 4#}
+    <section class="preview-container" id="scan-id-4k" style="display:none">
 
+        <h1 style="padding-bottom: 0;">Your photo is blurred</h1>
 
-    {# section to show paycasso preflight no-image error #}
-    <section class="preview-container" id="scan-id-4d" style="display:none">
-
-        <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
-
-        <p>We could not detect a {{ idType }} in the photo</p>
-
-        <p>This might be because:</p>
+        <p>To avoid blur you should:</p>
 
         <ul class="list list-bullet">
-            <li>we cannot see the edges of the details page of the {{ idType }}</li>
-            <li>we cannot see all the information we need</li>
-            <li>you did not take a photo of a {{ idType }}</li>
+            <li>focus the camera. You may need to tap the middle of the screen</li>
+            <li>ensure the camera lens is clean</li>
+            <li>use a well lit environment</li>
         </ul>
 
-        <div class="reading-width">
-            <div id="scan-id-preview" style="padding-top: 16px;">
+        <details class="" role="group" >
+            <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                
+                <span class="details__summary">What to do if you have a motor impairment</span>
+               
 
-                {% if idType === 'passport' %}
-                <img src="/images/how-to-hold-a-passport.png" alt="how to take a photo of your {{ idType }} " width="600" style="display:block;margin-left:auto;margin-right:auto;">
-                {% else %}
-                <img src="/images/DL-guide@2x.png" alt="how to take a photo of your {{ idType }} " width="600" style="display:block;margin-left:auto;margin-right:auto;">
-                {% endif %}
+            </summary>
+            <div class="callout callout--info callout--friendly" id="details-content-1" aria-hidden="false">
+                <div class="reading-width">
+                    <p>If you are unable to take a sufficient photo for reasons such as a motor impairment, you can use the photo.</p>
+                    <p><a href="javascript:fakeClick(event, document.getElementById('continueButton2'))" id="check-6-submit">Use this photo</a></p>
+                </div>
             </div>
-        </div>
-
-
-        <legend><h2 class="h3" style="margin-top: 32px;">What do you want to do?</h2></legend>
-
-        <div class="selection-button-radio" style="margin-top: 16px;">
-            <div class="multiple-choice" data-target="advice-9-yes" style="margin-bottom: 0;">
-                <input id="radio-inline-15" type="radio" name="radio-inline-group-9" value="retry">
-                <label for="radio-inline-15" class="block-label" style="position: static;">Take another photo</label>
-            </div>
-        </div>
-        <div class="selection-button-radio" style="margin-top: 8px;">
-            <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
-                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="continue">
-                <label for="radio-inline-16"class="block-label" style="position: static;">Use this photo</label>
-            </div>
-        </div>
-
+        </details>
 
         <div class="form-group">
-            <a class="button button--next" href="#" id="check-9-submit">Continue</a>
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
+
 
         <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>
 
@@ -387,11 +367,24 @@
 
         <p>This might be because:</p>
 
-        <ul class="list list-bullet">
-            <li>we cannot see the edges of the details page of the {{ idType }}</li>
-            <li>we cannot see all the information we need</li>
-            <li>you did not take a photo of a {{ idType }}</li>
-        </ul>
+        <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+
+            {% if idType === 'passport' %}
+            <ul class="list list-bullet">
+                <li>we cannot see the edges of the details page of the {{ idType }}</li>
+                <li>we cannot see all the information we need</li>
+                <li>you did not take a photo of a {{ idType }}</li>
+            </ul>
+            {% else %}
+            <ul class="list list-bullet">
+                <li>we cannot see the edges of the corners of the {{ idType }}</li>
+                <li>we cannot see all the information we need</li>
+                <li>you did not take a photo of a {{ idType }}</li>
+            </ul>
+            {% endif %}
+
+        </summary>
+
 
         <div class="reading-width">
             <div id="scan-id-preview" style="padding-top: 16px;">
@@ -539,9 +532,6 @@
 
         <p class="small" style="margin-top: 28px;">Reference: {% if manual === 'true' %}CID4015{% else %}CID8015{% endif %}</p> <!-- CID4015 for Automation -->
     </section>
-
-
-
 
 
 
