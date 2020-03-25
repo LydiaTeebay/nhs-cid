@@ -376,10 +376,12 @@ function addBackButtonListeners() {
 function buttonClick(element) {
 
     var target = element.id
+    var targetSection = element.parentElement.parentElement.id
+    console.log("section: " + targetSection)
     var num = parseInt(target.substr(6, 1), 10)
     var value = getRadioCheckedValue('radio-inline-group-' + num)
 
-    console.log("button number= " + num)
+    console.log("button number = " + num)
     if (value == null) {
         // do nothing if radio not selected
     } else {
@@ -395,12 +397,18 @@ function buttonClick(element) {
             if (value === 'yes') {
                 answerYes(num)
             } else if (value === 'continue') {
-                console.log(enrolmentError)
-                if (enrolmentError = "true" ) {
-                    fakeClick(event, document.getElementById('confirmButton2'))
-                } else {
-                    fakeClick(event, document.getElementById('confirmButton'))
-                }
+
+                // if (enrolmentError = "true" ) {
+                //     fakeClick(event, document.getElementById('confirmButton2'))
+                // } else {
+                    console.log("clicked to continue")
+                    document.getElementById('scan-id-5').style.display = 'block'
+                    document.getElementById(targetSection).style.display = 'none'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+
+
+                    // fakeClick(event, document.getElementById('confirmButton'))
+                // }
             } else if (value === 'retry') {
                 fakeClick(event, document.getElementById('tryagain'))
             } else if (value === 'startover') {
