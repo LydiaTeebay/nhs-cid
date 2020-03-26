@@ -11,7 +11,7 @@
 
     <section class="loading-container" id="scan-id-0" style="display:none">
 
-        <h1 id="spinner-heading" style="padding-bottom: 0;">Checking your photo</h1>
+        <h1 id="spinner-heading" style="padding-bottom: 0;">Saving your photo</h1>
 
         <div class="bar_container">
             <div id="main_container">
@@ -185,7 +185,7 @@
     <section class="uploader-container" id="scan-id-3" style="display:none">
 
         <h1 style="padding-bottom: 0;">
-            Checking your photo
+            Saving your photo
         </h1>
 
         <div class="bar_container">
@@ -226,9 +226,15 @@
         <p><a href="javascript:void(0)" >What to do if you have problems with movement</a></p>
 
 
+        {% if upload === 'file' %}
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-type{{ params }}" id="">Try again - choose the photo I.D. you want to use</a>
+        </div>
+        {% else %}
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
+        {% endif %}
 
 
 <!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
@@ -264,10 +270,15 @@
 
         <p><a href="javascript:void(0)">What to do if you have problems with movement</a></p>
 
-
+        {% if upload === 'file' %}
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-type{{ params }}" id="">Try again - choose the photo I.D. you want to use</a>
+        </div>
+        {% else %}
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
+        {% endif %}
 
 
 <!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
@@ -293,12 +304,22 @@
 
         <legend><h2 class="h3" style="margin-top: 32px;">Is the text clear enough?</h2></legend>
 
+        {% if upload === 'file' %}
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-8-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-13" type="radio" name="radio-inline-group-8" value="startover">
+                <label for="radio-inline-13" class="block-label" style="position: static;">No - try again</label>
+            </div>
+        </div>
+        {% else %}
         <div class="selection-button-radio" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-8-yes" style="margin-bottom: 0;">
                 <input id="radio-inline-13" type="radio" name="radio-inline-group-8" value="retry">
                 <label for="radio-inline-13" class="block-label" style="position: static;">No - take another photo</label>
             </div>
         </div>
+        {% endif %}
+
         <div class="selection-button-radio" style="margin-top: 8px;">
             <div class="multiple-choice" data-target="advice-8-no" style="margin-bottom: 0;">
                 <input id="radio-inline-14" type="radio" name="radio-inline-group-8" value="continue">
