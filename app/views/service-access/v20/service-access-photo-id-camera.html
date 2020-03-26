@@ -35,11 +35,10 @@
                     <p>No issues</p>
                     <ol>
                         <li><a href="#" id="image-fine">Image is fine</a></li>
-                        <li><a href="#" id="image-fine-enrol-error">Image is fine - but fails enrolment</a></li>
+                        {# <li><a href="#" id="image-fine-enrol-error">Image is fine - but fails enrolment</a></li> #}
                     </ol>
                     <p>Photo issues</p>
                     <ol>
-                        {#<li><a href="#" id="image-blurred-1">Image is blurred - 1st attempt(v1)</a></li>#}
                         <li><a href="#" id="image-blurred-4">Image is blurred - 1st attempt- Show ALL users - no photo</a></li>
                         <li><a href="#" id="image-blurred-5">Image is blurred - 1st attempt- Show ALL users - with photo</a></li>
                         <li><a href="#" id="image-blurred-2">Image is blurred - 2nd attempt img-visible (v1)</a></li>
@@ -114,25 +113,33 @@
 <!--                <img src="/images/DL-guide@2x.png" alt="Take a photo of your Driving Licence avoiding covering up the details " width="600" style="display:block;margin-left:auto;margin-right:auto;">-->
                 {% endif %}
 
+                {% if idType === 'passport' %}
+                <p>We need a clear photo of the page in your passport that has your name and face on it.</p>
+                {% else %}
+                <p>We need a clear photo of your {{ idType }}</p>
+                {% endif %}
+
+                {% if upload !== 'file' %}
+                <p>When you take your photo make sure:</p>
+                {% else %}
+                <p>Make sure:</p>
+                {% endif %}
+
                 <ul class="list list-bullet">
 
                     {% if idType === 'passport' %}
 
-                        <li>you have not covered any part of the page</li>
-                        <li>all 4 edges of the page are in your photo</li>
-                        <li>you can clearly see your face and all the text</li>
-                        <li>there's no shine from a light or window</li>
+                        <li>your photo is of the whole page</li>
+                        <li>you can see all words, numbers and codes</li>
+                        <li>there is no reflection or shine from a bright light</li>
+                        <li>the text is not blurred</li>
 
                     {% else %}
 
-                        {% if upload === 'file' %}
-                            <li>you have not covered any of the corners</li>
-                        {% else %}
-                            <li>you do not cover any of the corners</li>
-                        {% endif %}
-
-                        <li>you can clearly see your face and all the text</li>
-                        <li>there's no shine from a light or window</li>
+                        <li>your photo includes all 4 corners</li>
+                        <li>you can see all words, numbers and codes </li>
+                        <li>there are no bright spots caused by reflection from a bright light</li>
+                        <li>the text is not blurred</li>
 
                     {% endif %}
 
@@ -201,29 +208,75 @@
     </section>
 
 
-    {# section to show paycasso blurred error version 1 #}
-    <section class="preview-container" id="scan-id-4a" style="display:none">
+    <!-- Image is blurred - 1st attempt- Show ALL users - no photo -->
+    <section class="preview-container" id="scan-id-4k" style="display:none">
 
-        <h1 style="padding-bottom: 0;">Your photo is blurred</h1>
+        <h1 style="padding-bottom: 0;">Your photo is too blurry - you need to take another photo</h1>
 
-        <p>To avoid blur you should:</p>
+        <p>A blurry photo can make it hard for us to see your {{ idType }} clearly, and we may not be able to approve you.</p>
+
+        <p>You should:</p>
 
         <ul class="list list-bullet">
-            <li>focus the camera. You may need to tap the middle of the screen</li>
-            <li>ensure the camera lens is clean</li>
-            <li>use a well lit environment</li>
+            <li>take your photo in a light place (a bright room or outside) </li>
+            <li>clean the camera lens </li>
+            <li>focus on your passport (try tapping your phone or tablet screen)</li>
         </ul>
+
+        <p><a href="javascript:void(0)" >What to do if you have problems with movement</a></p>
+
 
         <div class="form-group">
             <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
         </div>
 
-        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>
+
+<!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
 
     </section>
 
 
-    {# section to show paycasso blurred error version 2 #}
+    <!-- Image is blurred - 1st attempt- Show ALL users - with photo -->
+    <section class="preview-container" id="scan-id-4m" style="display:none">
+
+        <h1 style="padding-bottom: 0;">Your photo is too blurry - you need to take another photo</h1>
+
+        <details class="" role="group" >
+            <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                <span class="details__summary">Show photo</span>
+            </summary>
+            <div class="reading-width">
+                <div id="scan-id-preview" style="padding-top: 16px;">
+                    <img id="uploaded-id-3" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
+                </div>
+            </div>
+        </details>
+
+        <p>A blurry photo can make it hard for us to see your {{ idType }} clearly, and we may not be able to approve you.</p>
+
+        <p>You should:</p>
+
+        <ul class="list list-bullet">
+            <li>take your photo in a light place (a bright room or outside) </li>
+            <li>clean the camera lens </li>
+            <li>focus on your passport (try tapping your phone or tablet screen)</li>
+        </ul>
+
+        <p><a href="javascript:void(0)">What to do if you have problems with movement</a></p>
+
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Take another photo</a>
+        </div>
+
+
+<!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
+
+    </section>
+
+
+
+    <!-- Image is blurred - 2nd attempt img-visible (v1) -->
     <section class="preview-container" id="scan-id-4b" style="display:none">
 
         <h1 style="padding-bottom: 0;">Your photo is too blurry</h1>
@@ -234,16 +287,16 @@
             </div>
         </div>
 
-        <p>A blurry photo can make it hard for us to see your passport clearly, and we may not be able to approve you.</p>
+        <p>A blurry photo can make it hard for us to see your {{ idType }} clearly, and we may not be able to approve you.</p>
 
-        <p>If this keeps happening but you think the text on your passport is clear, then you do not need to try another photo.</p>
+        <p>If this keeps happening but you think the text on your {{ idType }} is clear, then you do not need to take another photo.</p>
 
         <legend><h2 class="h3" style="margin-top: 32px;">Is the text clear enough?</h2></legend>
 
         <div class="selection-button-radio" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-8-yes" style="margin-bottom: 0;">
                 <input id="radio-inline-13" type="radio" name="radio-inline-group-8" value="retry">
-                <label for="radio-inline-13" class="block-label" style="position: static;">No - try again</label>
+                <label for="radio-inline-13" class="block-label" style="position: static;">No - take another photo</label>
             </div>
         </div>
         <div class="selection-button-radio" style="margin-top: 8px;">
@@ -254,8 +307,8 @@
         </div>
         <div class="selection-button-radio" style="margin-top: 8px;">
             <div class="multiple-choice" data-target="advice-8-no" style="margin-bottom: 0;">
-                <input id="radio-inline-14" type="radio" name="radio-inline-group-8" value="continue">
-                <label for="radio-inline-14"class="block-label" style="position: static;">I am not sure - use this photo</label>
+                <input id="radio-inline-15" type="radio" name="radio-inline-group-8" value="continue">
+                <label for="radio-inline-15"class="block-label" style="position: static;">I am not sure - use this photo</label>
             </div>
         </div>
 
@@ -266,7 +319,7 @@
     </section>
 
 
-    {# section to show paycasso blurred error version 3 #}
+    <!-- Image is blurred - 2nd attempt-img hidden(v2) -->
     <section class="preview-container" id="scan-id-4c" style="display:none">
 
         <h1 style="padding-bottom: 0;">Your photo is too blurry</h1>
@@ -291,20 +344,20 @@
 
         <div class="selection-button-radio" style="margin-top: 16px;">
             <div class="multiple-choice" data-target="advice-9-yes" style="margin-bottom: 0;">
-                <input id="radio-inline-15" type="radio" name="radio-inline-group-9" value="retry">
-                <label for="radio-inline-15" class="block-label" style="position: static;">No - try again</label>
+                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="retry">
+                <label for="radio-inline-16" class="block-label" style="position: static;">No - take another photo</label>
             </div>
         </div>
         <div class="selection-button-radio" style="margin-top: 8px;">
             <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
-                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="continue">
-                <label for="radio-inline-16"class="block-label" style="position: static;">Yes - use this photo</label>
+                <input id="radio-inline-17" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-17"class="block-label" style="position: static;">Yes - use this photo</label>
             </div>
         </div>
         <div class="selection-button-radio" style="margin-top: 8px;">
             <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
-                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="continue">
-                <label for="radio-inline-16"class="block-label" style="position: static;">I am not sure - use this photo</label>
+                <input id="radio-inline-18" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-18"class="block-label" style="position: static;">I am not sure - use this photo</label>
             </div>
         </div>
 
@@ -315,74 +368,9 @@
 
     </section>
 
-    {# section to show paycasso blurred error version 4#}
-    <section class="preview-container" id="scan-id-4k" style="display:none">
-
-        <h1 style="padding-bottom: 0;">Your photo is too blurry - you need to take another photo</h1>
-
-        <p>A blurry photo can make it hard for us to see your passport clearly, and we may not be able to approve you.</p>
-
-        <p>You should:</p>
-
-        <ul class="list list-bullet">
-            <li>take your photo in a light place (a bright room or outside) </li>
-            <li>clean the camera lens </li>
-            <li>focus on your passport (try tapping your phone or tablet screen)
-            </li>
-        </ul>
-
-        <p><a href="#">What to do if you have problems with movement</a></p>
 
 
-        <div class="form-group">
-            <a class="button" href="/service-access-photo-id-type.html" id="">[Try again - choose the photo I.D. you want to use]</a>
-        </div>
-
-
-        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>
-
-    </section>
-
-    {# section to show paycasso blurred error version 5#}
-    <section class="preview-container" id="scan-id-4m" style="display:none">
-
-        <h1 style="padding-bottom: 0;">Your photo is too blurry - you need to take another photo</h1>
-
-        <details class="" role="group" >
-            <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
-                <span class="details__summary">Show photo</span>
-            </summary>
-            <div class="reading-width">
-                <div id="scan-id-preview" style="padding-top: 16px;">
-                    <img id="uploaded-id-6" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
-                </div>
-            </div>
-        </details>
-
-        <p>A blurry photo can make it hard for us to see your passport clearly, and we may not be able to approve you.</p>
-
-        <p>You should:</p>
-
-        <ul class="list list-bullet">
-            <li>take your photo in a light place (a bright room or outside) </li>
-            <li>clean the camera lens </li>
-            <li>focus on your passport (try tapping your phone or tablet screen)
-            </li>
-        </ul>
-
-        <p><a href="#">What to do if you have problems with movement</a></p>
-
-
-        <div class="form-group">
-            <a class="button" href="service-access-photo-id-type.html{{ params }}" id="">[Try again - choose the photo I.D. you want to use]</a>
-        </div>
-
-
-        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>
-
-    </section>
-
-    {# section to show paycasso preflight no-image error try again only #}
+    <!-- section to show paycasso preflight no-image error try again only -->
     <section class="preview-container" id="scan-id-7e" style="display:none">
 
         <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
@@ -433,8 +421,7 @@
 
 
 
-    {# section to show user driven checks #}
-
+    <!-- section to show user driven checks -->
     <section class="preview-container" id="scan-id-5" style="display:none">
 
         {% include '_partials/_includes/_check-photo-v3.html' %}
@@ -443,7 +430,7 @@
 
 
 
-    {# section to show uploading error #}
+    <!-- section to show uploading error -->
     <section class="preview-container" id="scan-id-6" style="display:none">
 
         <h1 style="padding-bottom: 0;">Something went wrong</h1>
