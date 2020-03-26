@@ -28,14 +28,16 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var genericButton = req.param('genericButton')
         var manual = req.param('manual')
+        var enrol = req.param('enrol')
+
         // re-render the page along with the parameter
         //
         if (manual == 'true') {
-            res.render('service-access/v20/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
+            res.render('service-access/v20/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
                 res.send(html)
             })
         } else {
-            res.render('service-access/v20/service-access-iproov-start', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
+            res.render('service-access/v20/service-access-iproov-start', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
                 res.send(html)
             })
         }
