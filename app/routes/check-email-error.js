@@ -7,6 +7,42 @@ const NotifyClient = require('notifications-node-client').NotifyClient, notifyCl
 
 module.exports = function (router) {
 
+    router.get('/create-account/v21/check-email-error', function (req, res) {
+        // pull in the url parameters
+        var theReason = req.param('reason')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var terms = req.param('terms')
+        var emailAddress = req.param('emailAddress')
+        var mobileNum = req.param('mobileNum')
+        var hidehead = req.param('hidehead')
+        var poluser = req.param('poluser')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        // send email message
+        var params = '?service=' + service + '&serviceName=' + '&vouch=' + vouched + '&terms=' + terms + '&emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&reason=' + theReason + '&hidehead=' + hidehead + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&poluser=' + poluser + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy
+        var personalisation = {
+            'email_address': emailAddress,
+            'params': params
+        }
+        if (emailAddress !== '' || emailAddress !== 'undefined') {
+            notifyClient
+                .sendEmail(templateIdMVP, emailAddress, {
+                    personalisation: personalisation
+                })
+                .then(response => console.log(response)
+                ).catch(err => console.error(err))
+        }
+        // re-render the page along with the parameter
+        res.render('create-account/v21/check-email-error', {reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/create-account/v20/check-email-error', function (req, res) {
         // pull in the url parameters
         var theReason = req.param('reason')
