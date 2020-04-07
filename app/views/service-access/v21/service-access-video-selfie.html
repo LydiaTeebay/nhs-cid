@@ -1,0 +1,36 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 2 of 3 - Match your face to your I.D document{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual %}
+
+
+{% block content %}
+
+<section class="intructions">
+
+	<div class="reading-width">
+
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Record a short video</h1>
+
+		<p>Now you need to record a video of your face while you say 4 numbers. We will tell you how to do this on the next page.</p>
+		<p>We will use the video to check your face matches the face on your photo I.D.</p>
+
+<!--		<p>You need to record a video this time, instead of using your camera to scan your face. This is because a lot of people are using the service, and we are having some problems with the scan.</p>-->
+		{% if enrol === 'fail' %}
+		<div class="callout callout--warning" id="details-content-0" aria-hidden="false">
+			<!-- <h2 class="h3">What is an NHS login?</h2> -->
+			<span class="">We are asking you to record a video this time, instead of using your camera to scan your face. This is because we are having some problems with the scan.</span>
+		</div>
+		{% endif %}
+
+		<div class="form-control" style="margin: 32px 0 16px;">
+			<a class="button--information" href="service-access-video-selfie-camera{{ params }}">Continue</a>
+		</div>
+
+	</div>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
