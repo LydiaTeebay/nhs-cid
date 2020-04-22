@@ -4,7 +4,7 @@
 {% set signedin = 'true' %}
 {% set hideBeta = 'true' %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&iproovFailReason=" + iproovFailReason + "&iProovSecondAttempt=" + iProovSecondAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&iproovFailReason=" + iproovFailReason + "&iProovThirdAttempt=" + iProovThirdAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt %}
 
 {% set devMode = 'false' %}
 
@@ -17,14 +17,34 @@
       margin: 0;
       padding: 0;
     }
+
+    @media (min-width:1024px){
+      .page-section {
+        max-width: 100%;
+      }
+    }
+
     #scan-id-1 {
       position: relative;
       height: 100vh;
     }
+
+    @media (min-width:1024px){
+      #scan-id-1 {
+        text-align: center;
+      }
+    }
+
     #scan-id-1 img {
       height: 100%;
       width: 100%;
     }
+    @media (min-width:1024px){
+      #scan-id-1 img {
+        width: auto;
+      }
+    }
+
     .global-header {
       display: none;
       background-color: transparent;

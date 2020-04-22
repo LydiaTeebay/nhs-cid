@@ -16,8 +16,12 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
+        var iproovEnrolFailReason = req.param('iproovEnrolFailReason')
+        var iproovTokenFailReason = req.param('iproovTokenFailReason')
+        var iProovThirdAttempt = req.param('iProovThirdAttempt')
+        var pyiSecondAttempt = req.param('pyiSecondAttempt')
         // re-render the page along with the parameter
-        res.render('service-access/v21/service-access-iproov-test', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v21/service-access-iproov-test', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, manual: manual, iproovEnrolFailReason: iproovEnrolFailReason, iproovTokenFailReason: iproovTokenFailReason, iProovThirdAttempt: iProovThirdAttempt, pyiSecondAttempt: pyiSecondAttempt }, function(err, html) {
             res.send(html)
         })
     })
