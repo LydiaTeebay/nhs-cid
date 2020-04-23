@@ -2,8 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Step 2 of 3 - Match your face to your photo I.D.{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&iproovFailReason=" + iproovFailReason + "&iProovThirdAttempt=" + iProovThirdAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt %}
-
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual %}
 
 {% block content %}
 
@@ -12,9 +11,10 @@
 	<div class="reading-width">
 
 		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Match your face to your photo I.D.</h1>
-		<p>We need to match your face with your photo I.D. so we know it’s you.</p>
 
-		<p>We will use your device’s camera to scan your face. We will tell you what to do on the next page. </p>
+		<p>We need to match your face with your photo I.D. so we know it's you.</p>
+
+		<p>We will use your device's camera to scan your face. We will tell you what to do on the next page. </p>
 
 		<p>During the scan the screen will flash and change colour.</p>
 
@@ -34,7 +34,7 @@
 					</div>
 					<div class="selection-button-radio-inline" style="margin-top: 0px;">
 						<div class="multiple-choice" data-target="nhs-no">
-							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-camera{{ params }}">
+							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-camera{{ params }}&hideBack=true">
 							<label for="radio-inline-2"class="block-label" style="position: static;">Flashing colours make me feel unwell - record a video instead</label>
 						</div>
 					</div>
@@ -60,19 +60,19 @@
 
 				<p>Happy path</p>
 				<ol>
-					<li><a href="service-access-iproov-enrolment{{ params }}&iproovFailReason=undefined&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined">Enrolment and scan token success</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}">Enrolment and scan token success</a></li>
 				</ol>
 
 				<p>Enrolment errors</p>
 				<ol>
-					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=500&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined">Enrolment fail - 500 error</a></li>
-					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=tps&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined">Enrolment fail - TPS error</a></li>
-					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=face&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined">Enrolment fail - no face</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=500">Enrolment fail - 500 error</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=tps">Enrolment fail - TPS error</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=face">Enrolment fail - no face</a></li>
 				</ol>
 
-				<p>Scan token generation errors</p>
+				<p>Scan token generation errors (possibly not needed)</p>
 				<ol>
-					<li><a href="service-access-iproov-enrolment{{ params }}&iproovTokenFailReason=400&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined">Scan token generation error</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovTokenFailReason=400">Scan token generation error</a></li>
 				</ol>
 			</div>
 		</div>

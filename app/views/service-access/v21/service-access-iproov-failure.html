@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
+{% block page_title %}The scan cannot match your face to your photo I.D.{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&iproovFailReason=" + iproovFailReason + "&iProovThirdAttempt=" + iProovThirdAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt %}
@@ -32,7 +32,7 @@
                     <p>We will tell you what to do on the next page.</p>
 
                       <div class="form-group">
-                          <a href="service-access-start{{ params }}" class="button camera-button">Continue to video</a>
+                          <a href="service-access-video-selfie-camera{{ params }}" class="button camera-button">Continue to video</a>
                       </div>
 
                 {% else %}

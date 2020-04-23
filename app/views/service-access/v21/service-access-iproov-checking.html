@@ -11,6 +11,16 @@
 
 {% block content %}
 
+{% if iproovFailReason !== 'undefined' %}
+<meta http-equiv="refresh" content="4;url=service-access-iproov-failure{{ params }}">
+{% elif iProovThirdAttempt !== 'undefined' or pyiSecondAttempt !== 'undefined' %}
+<meta http-equiv="refresh" content="4;url=service-access-iproov-failure{{ params }}">
+{% else %}
+<meta http-equiv="refresh" content="5;url=service-access-nhs{{ params }}">
+{% endif %}
+
+
+
 <h1><legend>Checking your face and your I.D.</legend></h1>
 
 <div class="bar_container">
@@ -33,7 +43,7 @@
     $("#spinner").addClass("done")
     document.getElementById("spinner-status").innerHTML = "Done"
 
-  }, 6000)
+  }, 4200)
 </script>
 
 </script>

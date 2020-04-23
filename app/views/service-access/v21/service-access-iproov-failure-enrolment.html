@@ -12,17 +12,47 @@
 
       <form>
 
-          {% if iproovEnrolFailReason === "500" %}
+          {% if iproovEnrolFailReason === "500" or iproovEnrolFailReason === "tps" %}
 
             <h1>Something went wrong</h1>
 
-            <p>This is because you stopped the scan.</p>
+            <p>It is taking a long time to prepare the scan because lots of people are using the service.</p>
 
-          {% elif iproovEnrolFailReason === "tps" %}
+          <form style="margin: 32px 0 16px;">
+              <div class="form-group">
+                  <fieldset>
 
-            <h1>Something went wrong</h1>
+                      <legend>
+                          <h2 class="h3">Choose what you want to do</h2>
+                      </legend>
 
-            <p>This is because you stopped the scan.</p>
+                      <div class="selection-button-radio-inline" style="margin-top: 32px;">
+                          <div class="multiple-choice">
+                              <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-iproov-test{{ params }}">
+                              <label for="radio-inline-1" class="block-label" style="position: static;">Try the scan again now</label>
+                          </div>
+                      </div>
+                      <div class="selection-button-radio-inline" style="margin-top: 0px;">
+                          <div class="multiple-choice">
+                              <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-iproov-later{{ params }}">
+                              <label for="radio-inline-2" class="block-label" style="position: static;">Come back later</label>
+                          </div>
+                      </div>
+                      <div class="selection-button-radio-inline" style="margin-top: 0px;">
+                          <div class="multiple-choice">
+                              <input id="radio-inline-3" type="radio" name="radio-inline-group" value="service-access-video-selfie-camera{{ params }}&hideBack=true">
+                              <label for="radio-inline-3" class="block-label" style="position: static;">Record a short video of my face, instead of the scan</label>
+                          </div>
+                      </div>
+
+                  </fieldset>
+              </div>
+
+              <div class="form-group">
+                  <a class="button" href="#" id="continue">Continue</a>
+              </div>
+
+          </form>
 
           {% elif iproovEnrolFailReason === "face" %}
 
