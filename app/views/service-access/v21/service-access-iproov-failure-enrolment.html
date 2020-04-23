@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Take a video selfie{% endblock %}
+{% block page_title %}It is taking too long to prepare the scan{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&iproovEnrolFailReason=" + iproovEnrolFailReason + "&iProovThirdAttempt=" + iProovThirdAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt %}
@@ -14,9 +14,9 @@
 
           {% if iproovEnrolFailReason === "500" or iproovEnrolFailReason === "tps" %}
 
-            <h1>Something went wrong</h1>
+            <h1>It is taking too long to prepare the scan</h1>
 
-            <p>It is taking a long time to prepare the scan because lots of people are using the service.</p>
+            <p>This is because lots of people are using the service.</p>
 
           <form style="margin: 32px 0 16px;">
               <div class="form-group">
@@ -28,7 +28,7 @@
 
                       <div class="selection-button-radio-inline" style="margin-top: 32px;">
                           <div class="multiple-choice">
-                              <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-iproov-test{{ params }}">
+                              <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-iproov-enrolment{{ params }}">
                               <label for="radio-inline-1" class="block-label" style="position: static;">Try the scan again now</label>
                           </div>
                       </div>
