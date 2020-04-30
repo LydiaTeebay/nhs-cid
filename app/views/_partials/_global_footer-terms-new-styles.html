@@ -1,0 +1,58 @@
+{% block extrastyles %}
+
+<style>
+
+  html {
+    background-color: #d8dde0;
+  }
+
+  .global-footer {
+    background-color: #d8dde0;
+    border-top: 4px solid #005EB8;
+    color: #425563;
+  }
+
+  .global-footer a:active,
+  .global-footer a:hover,
+  .global-footer a:link,
+  .global-footer a:visited {
+    color: #425563;
+  }
+
+</style>
+
+{% endblock %}
+
+<footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        {# Show a link to sharepoint in the footer of the ID checker application #}
+
+        {% if service == 'idchecker' %}
+
+        <li>
+          <a href="#" class="id-check_external-link" title="open sharepoint site in new tab" target="_blank">ID checking guidance</a>
+        </li>
+
+        {% else %}
+
+        <li>
+          <a href="/terms-of-use/v2/terms-conditions{{ params }}" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="/terms-of-use/v2/cookies{{ params }}" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="/terms-of-use/v2/accessibility{{ params }}" title="Accessibility">Accessibility</a>
+        </li>
+
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</footer>
+
+{% include '_partials/_includes/_devmode.html' %}

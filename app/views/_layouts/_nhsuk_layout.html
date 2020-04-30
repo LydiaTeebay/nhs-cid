@@ -87,7 +87,9 @@
 
       {# if PB or later use the latest header design #}
 
-      {% if lsId or service === 'app3' or service === 'app4' or service === 'app5' %}
+      {% if service === 'app6' %}
+        {% include '_partials/_global_header-new-styles.html'%}
+      {% elif lsId or service === 'app3' or service === 'app4' or service === 'app5' %}
         {% include '_partials/_global_header-plain.html'%}
       {% else %}
         {% include '_partials/_global_header.html'%}
@@ -108,8 +110,9 @@
   </main>
 
     {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
-
-      {% if service === 'app3' %}
+      {% if service === 'app6' %}
+        {% include '_partials/_global_footer-terms-new-styles.html'%}
+      {% elif service === 'app3' %}
         {% include '_partials/_global_footer-terms.html'%}
       {% elif lsId or service === 'app4' %}
         {% include '_partials/_global_footer-terms.html'%}

@@ -1,24 +1,57 @@
+{% if lsStudy %}
+{% if lsStudy === 'undefined' %}
+{% set logoLink = '/start' %}
+{% else %}
+{% set logoLink = 'javascript:void(0)' %}
+{% endif %}
+
+{% else %}
+{% set logoLink = '/start' %}
+{% endif %}
+
+{% block extrastyles %}
+
+<style>
+
+  body {
+    background-color: #f0f4f5;
+  }
+
+  .global-header {
+    background-color: #005EB8;
+  }
+
+  .global-header__link {
+    background: transparent url(/images/logotype-nhs-colour@2x.png) no-repeat;
+    height: 32px;
+    text-indent: -999em;
+    width: 79px;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .global-header__link {
+      background: transparent url(/images/logotype-nhs-colour@2x.png) no-repeat;
+      background-size: 79px 32px;
+    }
+  }
+
+  .callout--info {
+    background-color: #ffffff;
+    border: solid #768692;
+    border-width: 0 0 0 4px;
+  }
+
+</style>
+
+{% endblock %}
+
 <header role="banner">
-  <div class="global-header new">
+  <div class="global-header">
     <div class="global-header__inner">
-      <a href="{{ logoLink }}" class="global-header__link new">
-        <img src="/images/logotype-nhs-mono.png" alt="NHS">
+      <a href="{{ logoLink }}" class="global-header__link">
+        <img src="/images/logotype-nhs-white.png" alt="NHS Logo">
       </a>
 
     </div>
   </div>
 </header>
-
-
-<style>
-
-.global-header.new {
- background-color:  #005EB8;
-}
-
-.global-header__link.new {
-  background: url(/images/logotype-nhs-colour.png) no-repeat ;
-}
-
-</style>
-
