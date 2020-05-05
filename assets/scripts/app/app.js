@@ -439,6 +439,63 @@ $("#image-s3error").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+
+// Paycasso - blurred V2 screen 1
+
+$("#image-blurred-A").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-12a').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Paycasso - blurred V2 how to take a clearer photo
+
+$("#image-blurred-B").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-12b').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Paycasso - blurred V2 Make sure your photo is clear
+
+$("#image-blurred-C").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-12c').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
+// Paycasso - blurred V2 what to do if you cant check/ take
+
+$("#image-blurred-D").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-12d').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 // Paycasso - no image
 
 $("#image-notfound-2").on("click", function(e) {

@@ -39,6 +39,10 @@
                     </ul>
                     <p>Photo issues</p>
                     <ul>
+                        <li><a href="#" id="image-blurred-A"><b> A </b> Image is blurred - V2 (single screen) </a></li>
+                        <li><a href="#" id="image-blurred-B"><b> B </b> Image is blurred - V2 How to take a clearer photo </a></li>
+                        <li><a href="#" id="image-blurred-C"><b> C </b> Image is blurred - V2 Make sure photo is clear before sending </a></li>
+                        <li><a href="#" id="image-blurred-D"><b> D </b> Image is blurred - V2 If it's hard to check/take </a></li>
                         <li><a href="#" id="image-blurred-4"><b> 1 </b> Image is blurred - 1st attempt- Show ALL users - no photo </a></li>
                         <li><a href="#" id="image-blurred-5"><b> 2 </b> Image is blurred - 1st attempt- Show ALL users - with photo </a></li>
                         <li><a href="#" id="image-blurred-2"><b> 3 </b> Image is blurred - 2nd attempt img-visible (v1) </a></li>
@@ -206,6 +210,178 @@
         </div>
 
     </section>
+
+
+    <!-- Image is blurred - V2 screen 1 -->
+    <section class="preview-container" id="scan-id-12a" style="display:none">
+
+        <h1 style="padding-bottom: 0;">Your photo may be too blurry</h1>
+
+        <div class="reading-width">
+            <div id="scan-id-preview" style="padding-top: 16px;">
+                <img id="uploaded-id-2" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
+            </div>
+        </div>
+
+        <p>This can happen when you take your photo in a dark room, your camera lens is dirty, or your I.D. is not in focus.</p>
+        <p>Sometimes our checks detect blur by mistake. If you think the text is clear, you do not need to try again.</p>
+        <p>If your photo is too blurry, we may not be able to approve you.</p>
+
+        <h3>Choose one option:</h3>
+
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-9-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="retry">
+                <label for="radio-inline-16" class="block-label" style="position: static;">I will try again</label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 8px;">
+            <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
+                <input id="radio-inline-17" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-17"class="block-label" style="position: static;">I think the text is clear</label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 8px;">
+            <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
+                <input id="radio-inline-18" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-18"class="block-label" style="position: static;">It is hard for me to take a photo, or to check the photo I have taken</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Continue</a>
+        </div>
+
+
+<!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
+
+    </section>
+
+       <!-- Image is blurred - V2 screen - How to take a clearer photo -->
+       <section class="preview-container" id="scan-id-12b" style="display:none">
+
+        <p><a href="#" class="link-back">Back to: Your photo may be too blurry</a></p>
+
+        <h1 style="padding-bottom: 0;">How to take a clearer photo</h1>
+
+        <p>To take a clearer photo you should:</p>
+
+        <ul class="list list-bullet">
+            <li>take your photo in a light place (a bright room or outside) </li>
+            <li>clean the camera lens </li>
+            <li>focus on your I.D. (to focus, tap your screen before you take your photo)</li>
+        </ul>
+        
+        <h3>Do you want to try another photo of your passport</h3>
+
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-9-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="retry">
+                <label for="radio-inline-16" class="block-label" style="position: static;">Yes - try again with my passport</label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 8px;">
+            <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
+                <input id="radio-inline-17" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-17"class="block-label" style="position: static;">No - try again with a different I.D.</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Continue</a>
+        </div>
+
+
+<!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
+
+    </section>
+
+
+    <!-- Image is blurred - V2 screen - Make sure your photo is clear before you send it -->
+    <section class="preview-container" id="scan-id-12c" style="display:none">
+
+        <p><a href="#" class="link-back">Back to: Your photo may be too blurry</a></p>
+
+        <h1 style="padding-bottom: 0;">Make sure your photo is clear before you send it</h1>
+
+        <div class="reading-width">
+            <div id="scan-id-preview" style="padding-top: 16px;">
+                <img id="uploaded-id-3" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
+            </div>
+        </div>
+
+        <p>Make sure you can read all the text in your photo, including any numbers and codes.</p>
+
+        <p>If your photo is too blurry, we may not be able to approve you.</p>
+
+        
+        <h3>Do you want to send this photo?</h3>
+
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-9-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="retry">
+                <label for="radio-inline-16" class="block-label" style="position: static;">Yes - send this photo</label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 8px;">
+            <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
+                <input id="radio-inline-17" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-17"class="block-label" style="position: static;">No - try again</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Continue</a>
+        </div>
+
+
+<!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
+
+    </section>
+
+
+    <!-- Image is blurred - V2 screen - What to do if it is hard for you to take or check your photo  -->
+    <section class="preview-container" id="scan-id-12d" style="display:none">
+
+        <p><a href="#" class="link-back">Back to: Your photo may be too blurry</a></p>
+
+        <h1 style="padding-bottom: 0;">What to do if it's hard for you to take or check your photo</h1>
+
+        <p>You could ask someone to help you with your photo.</p>
+        <p>If you cannot get help and you do not want to try again, then you can send the photo you have already taken. We may not be able to approve you if your photo is too blurry.</p>
+        <p>Instead, you can prove who you are without sending a photo of your I.D. You may need to contact your GP surgery to do this.</p>
+ 
+        <h3>What do you want to do next?</h3>
+
+        <div class="selection-button-radio" style="margin-top: 16px;">
+            <div class="multiple-choice" data-target="advice-9-yes" style="margin-bottom: 0;">
+                <input id="radio-inline-16" type="radio" name="radio-inline-group-9" value="retry">
+                <label for="radio-inline-16" class="block-label" style="position: static;">I will try again </label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 8px;">
+            <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
+                <input id="radio-inline-17" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-17"class="block-label" style="position: static;">I want to send my photo</label>
+            </div>
+        </div>
+        <div class="selection-button-radio" style="margin-top: 8px;">
+            <div class="multiple-choice" data-target="advice-9-no" style="margin-bottom: 0;">
+                <input id="radio-inline-17" type="radio" name="radio-inline-group-9" value="continue">
+                <label for="radio-inline-17"class="block-label" style="position: static;">Prove who I am without sending a photo of my I.D. </label>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Continue</a>
+        </div>
+
+
+<!--        <p class="small">Reference: {% if manual === 'true' %}CIDXXXX{% else %}CIDXXXX{% endif %}</p>-->
+
+    </section>
+
 
 
     <!-- Image is blurred - 1st attempt- Show ALL users - no photo -->
