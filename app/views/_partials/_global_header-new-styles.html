@@ -45,13 +45,32 @@
 
 {% endblock %}
 
+{% if service === 'app6' %}
+<!-- webview close link -->
+<div class="global-header">
+  <div class="global-header__inner" style="padding: 0;">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% if verified === 'true' %}
+      <a href="https://nhs-contact.herokuapp.com/app/prescriptions/v7/p5-prescriptions?emailLink=email">
+      {% else %}
+        <a href="javascript:void(0)">
+      {% endif %}
+        <svg class="nhsuk-icon nhsuk-icon__close app-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
 <header role="banner">
   <div class="global-header">
     <div class="global-header__inner">
       <a href="{{ logoLink }}" class="global-header__link">
         <img src="/images/logotype-nhs-white.png" alt="NHS Logo">
       </a>
-
     </div>
   </div>
 </header>
