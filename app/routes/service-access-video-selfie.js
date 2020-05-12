@@ -82,6 +82,9 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var challenge = req.param('challenge')
         var devMode = req.param('devMode')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         var idType = req.param('idType')
         var returnUrl = req.param('returnUrl')
         var genericButton = req.param('genericButton')
@@ -89,11 +92,11 @@ module.exports = function (router) {
         // re-render the page along with the parameter
         //
         if (manual == 'true') {
-            res.render('service-access/v19/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
+            res.render('service-access/v19/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
                 res.send(html)
             })
         } else {
-            res.render('service-access/v19/service-access-iproov-start', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
+            res.render('service-access/v19/service-access-iproov-start', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual }, function(err, html) {
                 res.send(html)
             })
         }

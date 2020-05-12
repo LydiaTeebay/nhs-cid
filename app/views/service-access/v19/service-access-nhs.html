@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Step 3 of 3: Find your NHS record{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&iproovPass=" + iproovPass + "&manual=" + manual %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&iproovPass=" + iproovPass + "&manual=" + manual %}
 
 {% block content %}
 
@@ -28,4 +28,5 @@
 </section>
 
 {% endblock %}
+
 {% block rightcol %}{% endblock %}

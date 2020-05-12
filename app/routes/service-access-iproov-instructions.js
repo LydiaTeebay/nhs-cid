@@ -54,6 +54,9 @@ module.exports = function (router) {
         var formerror = req.param('formerror')
         var changetomobile = req.param('changetomobile')
         var hidehead = req.param('hidehead')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
         var idType = req.param('idType')
         var pinCode = Math.floor(1000 + Math.random() * 9000)
         // is the user on a mobile device?
@@ -61,7 +64,7 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/v19/service-access-iproov-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v19/service-access-iproov-instructions', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
