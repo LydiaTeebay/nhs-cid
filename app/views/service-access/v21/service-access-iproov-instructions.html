@@ -21,17 +21,31 @@
 
           <ol class="list--ordered">
             <li>Turn up the screen brightness on your device.</li>
-            <li>Make sure your face is directly in front of your screen, not at an angle.</li>
+{#             <li>Make sure your face is directly in front of your screen, not at an angle.</li>
                 <img src="/images/iproov-instructions.png" alt="Hold your device straight ahead of you face" width="600" style="display:block;margin-left:auto;margin-right:auto;">
-            </li>
-            <li>Select 'Start scan' and follow the instructions</li>
+            </li> #}
+            <li>Select 'start scan' and follow the instructions.</li>
           </ol>
-
 
 
           <div class="form-group" id="enable-camera" style="">
             <a href="service-access-iproov{{ params }}" id="allow-camera-button" class="button camera-button">Start scan</a>
           </div>
+
+
+          <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What you can do if the scan keeps failing</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+                      <p>If the face scan does not work, you can send us a short video instead.</p>
+                      <p><a href="service-access-iproov-bail{{ params }}">Try with a video instead</a></p>
+
+                  </div>
+              </div>
+          </details>
 
 
       </form>
