@@ -16,12 +16,15 @@
 
             <h1>Something went wrong</h1>
 
+          {% elif iproovFailReason === "two_faces" %}
+
+            <h1>We are having problems with the scan</h1>
+
           {% else %}
 
             <h1>The scan cannot match your face to your photo I.D.</h1>
 
           {% endif %}
-
 
           {% if iProovThirdAttempt === "true" %}
 
@@ -47,6 +50,16 @@
 
 
                 {% endif %}
+
+          {% elif iproovFailReason === "two_faces" %}
+          
+            <p>You will need to record a video of your face, because the scan is not working.</p>
+
+            <p>We will tell you what to do on the next page.</p>
+
+            <div class="form-group">
+              <a href="service-access-start{{ params }}" class="button camera-button">Continue to video</a>
+            </div>
 
           {% else %}
 
