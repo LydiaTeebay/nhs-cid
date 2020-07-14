@@ -57,7 +57,12 @@
         </summary>
         <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
           <div class="reading-width">
-            <p>Pass</p>
+          <ul>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=motion_too_much_movement">1</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iProovThirdAttempt=true">2</a></li>
+          </ul>
+
+            {# <p>Pass</p>
             <ol>
               <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined">iProov test passes</a></li>
             </ol>
@@ -95,6 +100,7 @@
                   <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iProovThirdAttempt=true&pyiSecondAttempt=true">Third attempt fails on 2nd enrolment</a></li>
                   <li><a href="service-access-iproov{{ params }}&iproovFailReason=two_faces">AWS 2 faces</a></li> 
               </ol>
+              #}
 
           </div>
         </div>
