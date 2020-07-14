@@ -1,0 +1,85 @@
+{% extends '_layouts/_grids/_grid-email-nofooter.html' %}
+{% block page_title %}NHS account{% endblock %}
+{% set hidehead = "true" %}
+{% set bodyClass = "body-email" %}
+
+{# work out where to send users #}
+{% if service %}
+  {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified %}
+{% endif %}
+
+{% block content %}
+<div class="first-item" style="padding-bottom: 100px;" >
+
+
+<p>You sent us some information to prove who you are.</p>
+
+<p>The photo you sent did not pass our checks.</p>
+
+<p>This may be because:
+<ul>
+<li>you sent a photo of a document we do not accept</li>
+<li>your photo I.D. has expired by more than 6 months</li>
+<li>you sent an image of a printout or screen showing your photo I.D.</li>
+<li>your photo I.D. is damaged or unclear</li>
+<li>you did not send a photo of an I.D.</li>
+</ul>
+</p>
+
+<h2> How to try again</h2>
+
+<p>Read the information in this email to make sure you understand which type of photo I.D. you can use.</p>
+
+<h2> Photo I.D. we can accept</h2>
+
+<p>Your photo I.D. must have a valid date. We cannot accept your photo I.D. if it expired more than 6 months ago.</p>
+
+<p>The image you send needs to be of your original photo I.D. You cannot send an image of a printout or screen showing your photo I.D.</p>
+
+<br>
+
+<p>You can send:
+<ul>
+<li>passport (except Syrian passport)</li>
+<li>UK driving licence (full or provisional)</li>
+<li>European driving licence (full)</li>
+<li>European national identity card (except paper Italian I.D. card or Greek I.D. card)</li>
+<li>UK residence card or biometric residence permit (BRP)</li>
+</ul>
+</p>
+
+<p>If you want to use a UK residence card or BRP, select ‘European national identity card’ on the page that asks you to choose the I.D. you want to use. You will need to send 2 photos, one of the front and one of the back.</p>
+
+<br>
+
+<h2>Photo I.D. we do not accept</h2>
+
+<p>We do not accept photo I.D. with any handwritten information other than a signature.</p>
+
+<p>You cannot send:
+<ul>
+<li>travel cards</li>
+<li>bus passes</li>
+<li>NHS I.D. cards</li>
+<li>visa stickers</li>
+<li>UK citizen I.D. cards</li>
+<li>proof of age cards</li>
+<li>university or school I.D. cards</li>
+<li>Syrian passports</li>
+<li>paper Italian I.D. cards</li>
+<li>Greek I.D. cards</li>
+<li>UK driver qualification cards</li>
+<li>an image of a printout or screen showing your photo I.D.</li>
+</ul>
+</p>
+
+<br>
+
+      <div class="callout callout--info" id="details-content-0" aria-hidden="false" style="border-width: 0 0 0 8px; background-color: #ffffff;">
+<h2>What you should do next</h2>
+<p>Go to the website or app you were trying to access. Enter your email address and NHS login password. You will be asked to prove who you are. Follow the instructions carefully when sending your information.</p>
+</div>
+
+</div>
+
+{% endblock %}

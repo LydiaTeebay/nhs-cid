@@ -1,0 +1,41 @@
+{% extends '_layouts/_nhsuk_layout.html' %}
+
+{% if lsStudy %}
+{% if lsStudy === 'undefined' %}
+{% set logoLink = '/start' %}
+{% else %}
+{% set logoLink = 'javascript:void(0)' %}
+{% endif %}
+
+{% else %}
+{% set logoLink = '/start' %}
+{% endif %}
+
+
+{% block body %}
+
+<div class="grid-row">
+
+  <section class="">
+    <header role="banner">
+      <div class="global-header">
+        <div class="global-header__inner">
+          <a href="{{ logoLink }}" class="global-header__link" style="width: 95px;">
+            <img src="/images/logotype-nhs-mono.png"  alt="NHS">
+          </a>
+
+          {% if isServiceStart !== 'true' %}
+            {% if (service !== 'app3' and service !== 'app4' and service !== 'app5') %}
+              <h4 class="global-header__service" style="margin: 0;">{{ serviceName|safe }}</h4>
+            {% endif %}
+          {% endif %}
+
+        </div>
+      </div>
+    </header>
+    {% block content %}{% endblock %}
+
+
+</section>
+
+{% endblock %}
