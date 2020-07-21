@@ -32,16 +32,17 @@
             </summary>
             <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
                 <div class="reading-width">
-                    {# Testing scenarios for 16/07/20 added below #}
+                    {# Testing scenarios for 16/07/20 added below
                     <li><a href="#" id="image-fine"><b> 1 </b></a></li>
                     <li><a href="service-access-video-selfie-camera{{ params }}&hideBack=true" ><b> A </b></a></li>
                     <li><a href="service-access-video-selfie-warning{{ params }}&serviceName=NHS%20App&service=app6&hidehead=undefined&idType=passport&devMode=true&returnUrl=undefined&result=undefined&reason=undefined&iproovFailReason=two_faces&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined&hideBack=true"><b> B </b></a></li>
+                    #}
 
-                    {# <p>No issues</p>
+                    <p>No issues</p>
                     <ul>
                         <li><a href="#" id="image-fine">Image is fine</a></li>
                         {# <li><a href="#" id="image-fine-enrol-error">Image is fine - but fails enrolment</a></li> #}
-                    {# </ul>
+                    </ul>
                     <p>Photo issues</p>
                     <ul>
                         <li><a href="#" id="image-blurred-A"><b> A </b> Image is blurred - V2 (single screen) </a></li>
@@ -60,7 +61,8 @@
                         <li><a href="#" id="image-backend">Failed backend validation</a></li>
                         <li><a href="#" id="image-backendtechnical">Backend validation error</a></li>
                         <li><a href="#" id="image-s3error">Couldn't generate S3 url</a></li>
-                    </ul> #}
+                        <li><a href="service-access-video-selfie-warning{{ params }}&serviceName=NHS%20App&service=app6&hidehead=undefined&idType=passport&devMode=true&returnUrl=undefined&result=undefined&reason=undefined&iproovFailReason=two_faces&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined&hideBack=true"><b> B </b> - User taken to video due to AWS 2 faces </a></li>
+                    </ul>
                 </div>
             </div>
         </details>
