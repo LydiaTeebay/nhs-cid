@@ -1,0 +1,33 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Thank you - your information was sent{% endblock %}
+
+{% set signedin = 'true' %}
+{% set verified = 'true' %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&verified=" + verified + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block header %}
+<div class="local-header">
+	<h1 class="local-header__title">Thank you - your information was sent</h1>
+	<div class="local-header__intro">
+		<div class="reading-width">
+			<p>We will email you to tell you if your information passed our checks or not.</p>
+			<p>Lots of people are using the service at the moment, so it may take <strong>12 hours</strong> to check your information.</p>
+			{# available modifiers 'muted','info','attention','warning','alert','severe','error','compact' #}
+			 <div class="callout callout--warning">
+				 <h2 class="h3">Coronavirus (COVID-19)</h2>
+				<p>For health information and advice, read <a href=“https://www.nhs.uk/conditions/coronavirus-covid-19/“ style="color: #005eb8;">NHS guidance about coronavirus.</p>
+			 </div>
+
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<!--<a href="https://nhsa.herokuapp.com/template.php??logged=true&nopadding=false&cid=undefined&message=undefined&error=undefined&summary=undefined&empty=undefined&optarr=default&pageCode=SC02b" target="_parent" class="service-access__item__button button" style="margin-top:0; ">Continue to NHS App</a>-->
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

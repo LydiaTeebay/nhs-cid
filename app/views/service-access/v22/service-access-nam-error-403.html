@@ -1,0 +1,17 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Sorry - we cannot connect you to your GP surgery{% endblock %}
+
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl %}
+
+{% block content %}
+
+<div class="first-item">
+    <h1>We cannot give you access to your GP surgery's online services</h1>
+
+    <p>Speak to your GP surgery. They can tell you why this has happened.</p>
+
+    <p class="small">Reference: CID7021</p>
+
+</div>
+
+{% endblock %}

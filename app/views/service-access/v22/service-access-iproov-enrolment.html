@@ -1,0 +1,40 @@
+{% import '_macros/_macro_app.html' as backlink with context %}
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Checking your face and your I.D.{% endblock %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&idType=" + idType + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&iproovTokenFailReason=" + iproovTokenFailReason + "&iproovEnrolFailReason=" + iproovEnrolFailReason %}
+
+
+{% block content %}
+
+{% if iproovEnrolFailReason === '500' %}
+<meta http-equiv="refresh" content="2.5;url=service-access-iproov-failure-enrolment{{ params }}}">
+{% elif iproovEnrolFailReason === 'tps' %}
+<meta http-equiv="refresh" content="2.5;url=service-access-iproov-failure-enrolment{{ params }}">
+{% elif iproovEnrolFailReason === 'face' %}
+<meta http-equiv="refresh" content="2.5;url=service-access-iproov-failure-enrolment{{ params }}">
+{% else %}
+<meta http-equiv="refresh" content="3;url=service-access-iproov-test{{ params }}">
+{% endif %}
+
+
+
+<h1><legend>Preparing scan instructions</legend></h1>
+
+<!--<p style="">This should only take a few seconds, but at busy times can take longer.</p>-->
+
+<div class="bar_container">
+  <div id="main_container">
+    <div id="pbar" class="progress-spinner" data-percent="0">
+      <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
+      <div class="ppc-loading">
+        <div class="pcc-percents-wrapper">
+          <span id="spinner-status">Please wait...</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</script>
+
+{% endblock %}

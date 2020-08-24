@@ -1,0 +1,91 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 2 of 3 - Match your face to your photo I.D.{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual %}
+
+{% block content %}
+
+<div class="first-item"> 
+
+	<div class="reading-width">
+
+		<h1 class="heading-large">Record a short video</h1>
+
+		<p>We are going to show you 4 numbers on the next page.</p>
+
+		<p>You will need to:
+		<ul>
+		<li>record a video of your face</li>
+		<li>tell us what the four numbers are</li>
+		</ul>
+		</p>
+
+		<form style="margin: 32px 0 16px;">
+			<div class="form-group">
+				<fieldset>
+
+					<legend>
+						<h2 class="h3">How do you want to do this?</h2>
+					</legend>
+
+					<div class="selection-button-radio-inline" style="margin-top: 16px;">
+						<div class="multiple-choice" data-target="nhs-1">
+							<input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-video-selfie-say-camera{{ params }}">
+							<label for="radio-inline-1" class="block-label" style="position: static;">Say the numbers</label>
+						</div>
+						<div class="multiple-choice" data-target="nhs-2">
+							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-sign-camera{{ params }}">
+							<label for="radio-inline-2"class="block-label" style="position: static;">Use my hand to sign the numbers</label>
+						</div>
+						<div class="multiple-choice" data-target="nhs-3">
+							<input id="radio-inline-3" type="radio" name="radio-inline-group" value="service-access-video-selfie-write-camera{{ params }}">
+							<label for="radio-inline-3"class="block-label" style="position: static;">Write the numbers down and show them</label>
+						</div>
+					</div>
+
+				</fieldset>
+			</div>
+
+			<div class="form-group">
+				<a class="button" href="#" id="continue">Continue</a>
+			</div>
+
+		</form>
+
+	</div>
+
+	{% if devMode === "true" %}
+	<details class="dev-mode" role="group" >
+		<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+			<span class="details__summary">Continue with testing scenario</span>
+		</summary>
+		<div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+			<div class="reading-width">
+
+				<p>Happy path</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}">Enrolment and scan token success</a></li>
+				</ol>
+
+				<p>Enrolment errors</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=500">Enrolment fail - (500 error)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=tps">Enrolment fail - (429 continuous TPS errors)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=face">Enrolment fail - (400 quality issue)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=disallowed">Enrolment fail - (400 error:Disallowed)</a></li>
+				</ol>
+
+				<p>Scan token generation errors (possibly not needed)</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovTokenFailReason=400">Scan token generation error</a></li>
+				</ol>
+			</div>
+		</div>
+	</details>
+	{% endif %}
+
+</div>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

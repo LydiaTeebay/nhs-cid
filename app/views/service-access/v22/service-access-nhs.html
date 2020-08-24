@@ -1,0 +1,54 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Step 3 of 3: Help us match you to your NHS record{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&iproovPass=" + iproovPass + "&manual=" + manual %}
+
+{% block content %}
+
+{% if mobileOsV === 11.2 and devMode === 'true' %}
+
+{% import "_partials/_components/_callout.html" as callout %}
+{{ callout.pattern('Your phone does not have the latest version of iOS','<p>So when we ask you to take a photo of your I.D. and record a video, you\'ll need to do 2 extra steps. We\'ll help you with that.</p><p>To update your phone instead, go to your phone\'s Settings. Select General then Software Update. After you\'ve updated, come back and try again.</p>','warning') }}
+
+{% endif %}
+<section class="intructions">
+
+	<div class="reading-width">
+
+		<h1 class="heading-large"><span class="heading-secondary">Step 3 of 3</span> Help us match you to your NHS record</h1>
+
+		<p>You will need to enter your:</p>
+		<ul class="instructions-list-unordered">
+			<li class="instructions-list-unordered__item">name</li>
+			<li class="instructions-list-unordered__item">date of birth</li>
+			<li class="instructions-list-unordered__item">postcode</li>
+			<li class="instructions-list-unordered__item">NHS number (if you know it)</li>
+		</ul>
+
+		<details class="details--small" role="group" style="margin-top: 0;">
+			<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+				<span class="details__summary details__summary--white">How to find your NHS number</span>
+			</summary>
+			<div class="callout callout--info callout--instructions" id="details-content-0" aria-hidden="false">
+				<div class="reading-width">
+					<p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+					<p>You can find your NHS number on any document the NHS has sent you, such as your:</p>
+					<ul>
+						<li>prescriptions</li>
+						<li>test results</li>
+						<li>hospital referral letters</li>
+						<li>appointment letters</li>
+					</ul>
+				</div>
+			</div>
+		</details>
+
+		<div class="form-control" style="margin: 32px 0 16px;">
+			<a class="button--information" href="service-access-nhs-number-demographics-name{{ params }}">Continue</a>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}
