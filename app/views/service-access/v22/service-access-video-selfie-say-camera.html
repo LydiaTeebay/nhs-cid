@@ -136,6 +136,25 @@
           {% endif %}
           {% endif %}
 
+                    {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
+          {% set instructionlowercase = 'choose a file' %}
+          {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
+          {% if mobileOsV === 11.2 and devMode === 'true' %}
+          {% set instructionlowercase = 'open your Photo Library' %}
+          {% else %}
+          {% set instructionlowercase = 'open camera' %}
+          {% endif %}
+          {% else %}
+          {% if genericButton === 'true' %}
+          {% set instructionlowercase = 'record a video' %}
+          {% else %}
+          {% set instructionlowercase = 'open camcorder' %}
+          {% endif %}
+          {% endif %}
+
+        <p>When you are ready to record your video, click {{ instructionlowercase }}.</p>
+        <br>
+
 
           <label for="short-video" class="camera-button">{{ instruction }}
             <input type="file" id="short-video" name="video" accept="video/mp4,video/x-m4v,video/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %}>
