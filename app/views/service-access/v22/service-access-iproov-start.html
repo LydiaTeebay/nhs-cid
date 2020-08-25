@@ -35,8 +35,15 @@
 					</div>
 					<div class="selection-button-radio-inline" style="margin-top: 0px;">
 						<div class="multiple-choice" data-target="nhs-no">
-							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-triage{{ params }}&hideBack=true">
-							<label for="radio-inline-2"class="block-label" style="position: static;">Flashing lights make me feel unwell - record a video instead</label>
+							<script type="application/javascript">
+								if(window.MediaRecorder !== undefined) {
+								document.write('<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-html5{{ params }}&hideBack=true"><label for="radio-inline-2"class="block-label" style="position: static;">HTML5 Flashing lights make me feel unwell - record a video instead</label>');
+								} else {
+								document.write('<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-triage{{ params }}&hideBack=true"><label for="radio-inline-2"class="block-label" style="position: static;">NORMAL Flashing lights make me feel unwell - record a video instead</label>');
+								}
+							</script>
+							{# <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-triage{{ params }}&hideBack=true"> #}
+							{# <label for="radio-inline-2"class="block-label" style="position: static;">Flashing lights make me feel unwell - record a video instead</label> #}
 						</div>
 					</div>
 
