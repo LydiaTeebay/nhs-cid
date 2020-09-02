@@ -207,6 +207,41 @@ input[type='tel'].code {
   width: 100%;
 }
 
+.selection-button-radio-inline-background {
+  display: inline-block;
+  padding-right: 2em;
+  margin-top: 0;
+  &:last-of-type {
+    padding-right: 0;
+  }
+}
+
+.block-label.selection-button-radio-background::before {
+  content: "";
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.block-label.selection-button-radio-background::after {
+  content: "";
+  border-radius: 50%;
+  background: currentColor;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
 .selection-button-radio-inline {
   display: inline-block;
   padding-right: 2em;
