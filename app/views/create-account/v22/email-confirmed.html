@@ -1,0 +1,48 @@
+{% extends '_layouts/_grids/_grid-1.html' %}
+{% block page_title %}You now have an NHS login{% endblock %}
+{% set signedin = '' %}
+{% set newUser = 'yes' %}
+
+{# work out where to send users #}
+{% if service %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName  + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif vouch %}
+{% set params = "?vouch=" + vouch + "&newUser=" + newUser + "&terms=" + terms + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&emailAddress=" + emailAddress + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% elif newUser %}
+{% set params = "?newUser=" + newUser  + "&terms=" + terms + "&emailAddress=" + emailAddress + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&hidehead=" + hidehead + "&poluser=" + poluser %}
+{% endif %}
+
+{% block content %}
+
+<div class="first-item">
+
+	<section class="intructions">
+
+		<div class="reading-width">
+
+			<h1 class="heading-large">You now have an NHS login</h1>
+
+			<p>You need to:</p>
+			<ol>
+				<li>Go back to {{ serviceName }}.</li>
+				<li>Enter your NHS login details.</li>
+				<!-- {% if reason === 'uplift' %}
+					<li>Prove who you are. You will need photo ID or registration details from your GP's surgery.</li>
+				{% endif %} --> 
+			</ol>
+
+			<h2 class="heading-medium">What you can do with your NHS login</h2>
+
+			<p>You can use your NHS login to access health websites and apps wherever you see 'NHS login'.</p>
+
+
+
+		</div>
+
+	</section>
+	{% include '_partials/_includes/_email-partners.html' %}
+</div>
+
+
+
+{% endblock %}
