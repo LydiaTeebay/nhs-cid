@@ -13,6 +13,7 @@ module.exports = function (router) {
   })
 
   router.get('/patient-online/v22/patient-online-linkage-key', function (req, res) {
+    var uplift = req.param('uplift')
     var vouched = req.param('vouch')
     var service = req.param('service')
     var serviceName = req.param('serviceName')
@@ -31,7 +32,7 @@ module.exports = function (router) {
     var lsStudy = req.param('lsStudy')
     var pyiuser = req.param('pyiuser')
     var manual = req.param('manual')
-    res.render('patient-online/v22/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, pyiuser : pyiuser, manual: manual }, function(err, html) {
+    res.render('patient-online/v22/patient-online-linkage-key', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, pyiuser : pyiuser, manual: manual }, function(err, html) {
         res.send(html)
     })
 })

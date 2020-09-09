@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Enter the details your GP surgery gave you{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID + "&pyiuser=" + pyiuser + "&manual=" + manual %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID + "&pyiuser=" + pyiuser + "&manual=" + manual + "&uplift=" + uplift %}
 
 {% block content %}
 
@@ -43,7 +43,17 @@
       </fieldset>
     </div>
     <div class="form-group">
+    	  {% if uplift !== 'true' %}
+
       <a class="button" href="patient-online-about-you-name{{ params }}&result=200">Continue</a>
+
+			{% else %}
+
+      <a class="button" href="patient-online-linkage-key-loading">Continue</a>
+
+
+			{% endif %}
+
         {% if devMode === "true" %}
         <details class="dev-mode" role="group" >
             <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">

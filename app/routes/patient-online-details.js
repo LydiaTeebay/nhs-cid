@@ -9,6 +9,7 @@ module.exports = function (router) {
   })
 
   router.get('/patient-online/v22/patient-online-details', function (req, res) {
+    var uplift = req.param('uplift')
     var service = req.param('service')
     var serviceName = req.param('serviceName')
     var hidehead = req.param('hidehead')
@@ -20,7 +21,7 @@ module.exports = function (router) {
     var hideBack = req.param('hideBack')
     var drop = req.param('drop')
     var manual = req.param('manual')
-    res.render('patient-online/v22/patient-online-details', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack, drop: drop, manual: manual }, function(err, html) {
+    res.render('patient-online/v22/patient-online-details', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack, drop: drop, manual: manual }, function(err, html) {
         res.send(html)
     })
 })

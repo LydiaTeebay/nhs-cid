@@ -769,10 +769,13 @@ function readURL(input, idType) {
                     // document.body.scrollTop = document.documentElement.scrollTop = 0
                     console.log('validated 1')
                 } else {
-                    $(".camera-file-format").css("display", "block")
+                    document.getElementById('scan-id-5').style.display = 'block'
+                    // document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('validated 1')
+/*                     $(".camera-file-format").css("display", "block")
                     document.getElementById('scan-id-1').style.display = 'block'
                     document.body.scrollTop = document.documentElement.scrollTop = 0
-                    console.log('not validated')
+                    console.log('not validated') */
                 }
             }, 1000)
             $('#uploaded-id').attr('src', e.target.result)
@@ -793,10 +796,15 @@ function readURL(input, idType) {
                     console.log('validated 1')
                     uploadLoader3(2)
                 } else {
-                    $(".camera-file-format").css("display", "block")
+/*                     $(".camera-file-format").css("display", "block")
                     document.getElementById('scan-id-1').style.display = 'block'
                     document.body.scrollTop = document.documentElement.scrollTop = 0
-                    console.log('not validated')
+                    console.log('not validated') */
+                    document.getElementById('scan-id-3').style.display = 'block'
+                    document.getElementById('scan-id-0').style.display = 'none'
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                    console.log('validated 1')
+                    uploadLoader3(2)
                 }
             }, 3000)
             $('#uploaded-id').attr('src', e.target.result)

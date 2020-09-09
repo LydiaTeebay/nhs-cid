@@ -2,6 +2,7 @@ module.exports = function (router) {
 
     router.get('/patient-online/v22/patient-online-about-you-dob', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -17,7 +18,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('patient-online/v22/patient-online-about-you-dob', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, manual: manual }, function(err, html) {
+        res.render('patient-online/v22/patient-online-about-you-dob', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, manual: manual }, function(err, html) {
             res.send(html)
         })
     })
