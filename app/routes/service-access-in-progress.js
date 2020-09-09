@@ -2,6 +2,7 @@ module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-in-progress', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -19,7 +20,7 @@ module.exports = function (router) {
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v22/service-access-in-progress', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v22/service-access-in-progress', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

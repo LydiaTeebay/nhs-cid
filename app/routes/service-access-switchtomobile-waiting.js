@@ -35,6 +35,7 @@ module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-switchtomobile-waiting', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -64,7 +65,7 @@ module.exports = function (router) {
                 .catch(err => console.error(err))
         }
 
-        res.render('service-access/v22/service-access-switchtomobile-waiting', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
+        res.render('service-access/v22/service-access-switchtomobile-waiting', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
             res.send(html)
         })
     })

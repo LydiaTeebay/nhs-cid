@@ -1,5 +1,6 @@
 module.exports = function (router) {
     router.get('/service-access/v22/service-access-pyi-creds-invalid', function (req, res) {
+        var uplift = req.param('uplift')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
         var hidehead = req.param('hidehead')
@@ -10,7 +11,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var reason = req.param('reason')
         var result = req.param('result')
-        res.render('service-access/v22/service-access-pyi-creds-invalid', { serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
+        res.render('service-access/v22/service-access-pyi-creds-invalid', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })

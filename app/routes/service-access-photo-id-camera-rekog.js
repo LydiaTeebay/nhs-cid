@@ -2,6 +2,7 @@ module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-photo-id-camera-rekog', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -20,6 +21,7 @@ module.exports = function (router) {
         var isMobileOsV = isMobileOsVer
         // re-render the page along with the parameter
         res.render('service-access/v22/service-access-photo-id-camera-rekog', {
+            uplift: uplift, 
             vouch: vouched,
             service: service,
             serviceName: serviceName,

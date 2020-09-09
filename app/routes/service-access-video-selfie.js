@@ -16,6 +16,7 @@ module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-video-selfie', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -33,11 +34,11 @@ module.exports = function (router) {
         // re-render the page along with the parameter
         //
         if (manual == 'true') {
-            res.render('service-access/v22/service-access-video-selfie', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
+            res.render('service-access/v22/service-access-video-selfie', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
                 res.send(html)
             })
         } else {
-            res.render('service-access/v22/service-access-iproov-start', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
+            res.render('service-access/v22/service-access-iproov-start', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
                 res.send(html)
             })
         }

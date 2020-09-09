@@ -1,6 +1,7 @@
 module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-connect-gp-working', function (req, res) {
+        var uplift = req.param('uplift')
         var theReason = req.param('reason')
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -18,7 +19,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var result = req.param('result')
         var manual = req.param('manual')
-        res.render('service-access/v22/service-access-connect-gp-working', { reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, manual: manual }, function(err, html) {
+        res.render('service-access/v22/service-access-connect-gp-working', { uplift: uplift, reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

@@ -2,6 +2,7 @@ module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-nhs-manual', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -23,7 +24,7 @@ module.exports = function (router) {
         var isMobileOsV = isMobileOsVer
         var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v22/service-access-nhs-manual', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, idType: idType, iproovPass: iproovPass, manual: manual }, function(err, html) {
+        res.render('service-access/v22/service-access-nhs-manual', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, idType: idType, iproovPass: iproovPass, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

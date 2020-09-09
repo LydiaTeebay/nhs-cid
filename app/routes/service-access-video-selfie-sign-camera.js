@@ -25,6 +25,7 @@ module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-video-selfie-sign-camera', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -78,7 +79,7 @@ module.exports = function (router) {
         var hideBack = req.param('hideBack')
 
         // re-render the page along with the parameter
-        res.render('service-access/v22/service-access-video-selfie-sign-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v22/service-access-video-selfie-sign-camera', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

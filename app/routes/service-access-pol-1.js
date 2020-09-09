@@ -38,6 +38,7 @@ module.exports = function (router) {
 
     router.get('/service-access/v22/service-access-pol-1', function (req, res) {
         // pull in the url parameters
+        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -53,7 +54,7 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/v22/service-access-pol-1', {vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v22/service-access-pol-1', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, system: system, practiceID: practiceID, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
