@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&upload=" + upload + "&manual=" + manual + "&side=back" + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&upload=" + upload + "&manual=" + manual %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
 
     <section class="loading-container" id="scan-id-0" style="display:none">
 
-        <h1 id="spinner-heading" style="padding-bottom: 0;">Saving your photo</h1>
+        <h1 id="spinner-heading" style="padding-bottom: 0; display:none;">Uploading your photo</h1>
 
         <div class="bar_container">
             <div id="main_container">
@@ -19,55 +19,15 @@
                     <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
                     <div class="ppc-loading">
                         <div class="pcc-percents-wrapper">
-                            <span id="spinner-status">Please wait</span><span aria-hidden="true">...</span>
+                            <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        {# DEV MODE SCENARIOS FOR TESTING
-        
-        <details class="dev-mode" role="group" id="scenarios" style="display: none;">
-            <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-                <span class="details__summary">Choose a testing scenario</span>
-            </summary>
-            <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-                <div class="reading-width">
-                    <li><a href="#" id="image-fine"><b> 1 </b></a></li>
-                    <li><a href="service-access-video-selfie-camera{{ params }}&hideBack=true" ><b> A </b></a></li>
-                    <li><a href="service-access-video-selfie-warning{{ params }}&serviceName=NHS%20App&service=app6&hidehead=undefined&idType=passport&devMode=true&returnUrl=undefined&result=undefined&reason=undefined&iproovFailReason=two_faces&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined&hideBack=true"><b> B </b></a></li>
-
-                    <p>No issues</p>
-                    <ul>
-                        <li><a href="#" id="image-fine">Image is fine</a></li>
-                        <li><a href="#" id="image-fine-enrol-error">Image is fine - but fails enrolment</a></li>
-                    </ul>
-                    <p>Photo issues</p>
-                    <ul>
-                        <li><a href="#" id="image-blurred-A"><b> A </b> Image is blurred - V2 (single screen) </a></li>
-                        <li><a href="#" id="image-blurred-B"><b> B </b> Image is blurred - V2 How to take a clearer photo </a></li>
-                        <li><a href="#" id="image-blurred-C"><b> C </b> Image is blurred - V2 Make sure photo is clear before sending </a></li>
-                        <li><a href="#" id="image-blurred-D"><b> D </b> Image is blurred - V2 If it's hard to check/take </a></li>
-                        <li><a href="#" id="image-blurred-4"><b> 1 </b> Image is blurred - 1st attempt- Show ALL users - no photo </a></li>
-                        <li><a href="#" id="image-blurred-5"><b> 2 </b> Image is blurred - 1st attempt- Show ALL users - with photo </a></li>
-                        <li><a href="#" id="image-blurred-2"><b> 3 </b> Image is blurred - 2nd attempt img-visible (v1) </a></li>
-                        <li><a href="#" id="image-blurred-3"><b> 4 </b> Image is blurred - 2nd attempt-img hidden(v2) </a></li>
-                        <li><a href="#" id="image-notfound-2"><b> 5 </b> No Document found </a></li>
-                        <li><a href="#" id="image-noface"><b> 6 </b> No face detected </a></li>
-                        <li><a href="#" id="image-multiplefaces"><b> 7 </b> Multiple faces detected </a></li>
-                        <li><a href="#" id="image-technical">AWSTechnical error</a></li>
-                        <li><a href="#" id="image-virus">Virus detected</a></li>
-                        <li><a href="#" id="image-backend">Failed backend validation</a></li>
-                        <li><a href="#" id="image-backendtechnical">Backend validation error</a></li>
-                        <li><a href="#" id="image-s3error">Couldn't generate S3 url</a></li>
-                        <li><a href="service-access-video-selfie-warning{{ params }}&serviceName=NHS%20App&service=app6&hidehead=undefined&idType=passport&devMode=true&returnUrl=undefined&result=undefined&reason=undefined&iproovFailReason=two_faces&iProovThirdAttempt=undefined&pyiSecondAttempt=undefined&hideBack=true"><b> B </b> - User taken to video due to AWS 2 faces </a></li>
-                    </ul>
-                </div>
-            </div>
-        </details>  #}
-
     </section>
+
 
     <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
 
@@ -188,6 +148,32 @@
 
     </section>
 
+    <section class="uploader-container" id="scan-id-3" style="display:none">
+
+        <h1 style="padding-bottom: 0;">
+            Uploading your photo
+        </h1>
+
+        <div class="bar_container">
+            <div id="main_container">
+                <div id="pbar" class="progress-pie-chart" data-percent="0">
+                    <div class="ppc-progress">
+                        <div class="ppc-progress-fill"></div>
+                    </div>
+                    <div class="ppc-percents">
+                        <div class="pcc-percents-wrapper">
+                            <span>%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
+            </div>
+        </div>
+
+    </section>
+
+ 
     <section class="uploader-container" id="scan-id-3" style="display:none">
 
         <h1 style="padding-bottom: 0;">
@@ -743,28 +729,25 @@
 
     </section>
 
-    <button id="confirmButton" class="u-visuallyhidden" style="visibility:hidden;"
+
+    {% if formerror === 'invalid' %}
+    <button id="confirmButton" class="u-visuallyhidden" style="visibility:hidden">Continue to error</button>
+    {% else %}
+    <button id="continueButton" class="u-visuallyhidden" style="visibility:hidden;"
             onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
     </button>
 
-    <button id="confirmButton2" class="u-visuallyhidden" style="visibility:hidden;"
-            onclick="fakeClick(event, document.getElementById('continueButton3'))">Continue
-    </button>
+    {% if idType === 'European national identity card' or idType === 'European driving licence' %}
 
-    {% if idType === 'European driving licence' or idType === 'European driving licence' %}
-        {% if side === 'back' %}
-            <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
-            <a id="continueButton3" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}&manual=true&enrol=fail">Continue</a>
-        {% else %}
-            <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-photo-id-camera{{ params }}&front=done">Continue</a>
-            <a id="continueButton3" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-photo-id-camera{{ params }}&front=done&manual=true&enrol=fail">Continue</a>
-        {% endif %}
+    <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-photo-id-camera-2{{ params }}">Continue</a>
+
     {% else %}
 
     <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
-    <a id="continueButton3" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}&manual=true&enrol=fail">Continue</a>
+
     {% endif %}
 
+    {% endif %}
 
     <script>
         function fakeClick(event, anchorObj) {
