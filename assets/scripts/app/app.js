@@ -771,7 +771,7 @@ function readURL(input, idType) {
                 } else {
                     document.getElementById('scan-id-5').style.display = 'block'
                     // document.body.scrollTop = document.documentElement.scrollTop = 0
-                    console.log('validated 1')
+                    console.log('not validated 1')
 /*                     $(".camera-file-format").css("display", "block")
                     document.getElementById('scan-id-1').style.display = 'block'
                     document.body.scrollTop = document.documentElement.scrollTop = 0
@@ -790,7 +790,7 @@ function readURL(input, idType) {
             //show then hide the spinner animation
             setTimeout(function(){
                 if (Validate(input)) {
-                    document.getElementById('scan-id-3').style.display = 'block'
+                    document.getElementById('scan-id-5').style.display = 'block'
                     document.getElementById('scan-id-0').style.display = 'none'
                     document.body.scrollTop = document.documentElement.scrollTop = 0
                     console.log('validated 1.2')
@@ -811,7 +811,6 @@ function readURL(input, idType) {
             $('#uploaded-id-2').attr('src', e.target.result)
             $('#uploaded-id-3').attr('src', e.target.result)
             $('#uploaded-id-4').attr('src', e.target.result)
-
         }
 
         if (idType == "videoSelfie") {
