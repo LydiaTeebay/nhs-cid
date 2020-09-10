@@ -12,9 +12,18 @@
 {{ callout.pattern('Your phone does not have the latest version of iOS','<p>So when we ask you to take a photo of your I.D. and record a video, you\'ll need to do 2 extra steps. We\'ll help you with that.</p><p>To update your phone instead, go to your phone\'s Settings. Select General then Software Update. After you\'ve updated, come back and try again.</p>','warning') }}
 
 {% endif %}
+
+    {% if uplift == 'true' %}
+
+  <meta http-equiv="refresh" content="3;url=service-access-nhs-pds-checking{{ params }}">
+
+    {% else %}
+
+
 <section class="intructions">
 
 	<div class="reading-width">
+   
 
 		<h1 class="heading-large"><span class="heading-secondary">Step 3 of 3</span> Help us match you to your NHS record</h1>
 
@@ -47,8 +56,12 @@
 		<div class="form-control" style="margin: 32px 0 16px;">
 			<a class="button--information" href="service-access-nhs-number-demographics-name{{ params }}">Continue</a>
 		</div>
+
+	
 	</div>
 </section>
+	{% endif %}
+
 
 {% endblock %}
 {% block rightcol %}{% endblock %}

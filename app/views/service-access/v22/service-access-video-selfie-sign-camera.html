@@ -273,6 +273,8 @@
 
   {% if formerror === 'invalid' %}
   <button id="confirmButton" style="visibility:hidden">Continue</button>
+  {% elif uplift === 'true' %}
+  <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-nhs-pds-checking{{ params }}';" >Continue</button>
   {% else %}
   <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-nhs{{ params }}';" >Continue</button>
   {% endif %}

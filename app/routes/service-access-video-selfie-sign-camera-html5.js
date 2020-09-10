@@ -1,7 +1,6 @@
 module.exports = function (router) {
-    router.get('/service-access/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
-        var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -19,12 +18,12 @@ module.exports = function (router) {
         var challenge = req.param('challenge')
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v22/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v22/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var uplift = req.param('uplift')
         var vouched = req.param('vouch')
@@ -80,13 +79,13 @@ module.exports = function (router) {
         var hideBack = req.param('hideBack')
 
         // re-render the page along with the parameter
-        res.render('service-access/v22/service-access-video-selfie-write-camera', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v22/service-access-video-selfie-sign-camera-html5', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
             res.send(html)
         })
     })
 
 
-    router.get('/service-access/v21/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v21/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -141,12 +140,12 @@ module.exports = function (router) {
         var hideBack = req.param('hideBack')
 
         // re-render the page along with the parameter
-        res.render('service-access/v21/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v21/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v20/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v20/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -200,12 +199,12 @@ module.exports = function (router) {
         var manual = req.param('manual')
 
         // re-render the page along with the parameter
-        res.render('service-access/v20/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual}, function(err, html) {
+        res.render('service-access/v20/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v19/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v19/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -259,12 +258,12 @@ module.exports = function (router) {
         var manual = req.param('manual')
 
         // re-render the page along with the parameter
-        res.render('service-access/v19/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual}, function(err, html) {
+        res.render('service-access/v19/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v18/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v18/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -317,12 +316,12 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
 
         // re-render the page along with the parameter
-        res.render('service-access/v18/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
+        res.render('service-access/v18/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v17/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v17/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -375,12 +374,12 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
 
         // re-render the page along with the parameter
-        res.render('service-access/v17/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
+        res.render('service-access/v17/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v16/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v16/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -433,12 +432,12 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
 
         // re-render the page along with the parameter
-        res.render('service-access/v16/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
+        res.render('service-access/v16/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v15/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v15/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -491,12 +490,12 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
 
         // re-render the page along with the parameter
-        res.render('service-access/v15/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
+        res.render('service-access/v15/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v14/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v14/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -549,12 +548,12 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
 
         // re-render the page along with the parameter
-        res.render('service-access/v14/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
+        res.render('service-access/v14/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/demo/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/demo/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -579,12 +578,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/demo/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/demo/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v13/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v13/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -637,12 +636,12 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
 
         // re-render the page along with the parameter
-        res.render('service-access/v13/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
+        res.render('service-access/v13/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl}, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v12/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v12/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -674,12 +673,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v12/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v12/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v11/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v11/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -711,12 +710,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v11/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v11/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v10/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v10/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -739,12 +738,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v10/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        res.render('service-access/v10/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/pb/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/pb/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -796,12 +795,12 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         // re-render the page along with the parameter
-        res.render('service-access/pb/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/pb/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v9/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v9/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -821,12 +820,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v9/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/v9/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v8/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v8/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -846,12 +845,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v8/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/v8/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/mvp/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/mvp/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -871,12 +870,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/mvp/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/mvp/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v4/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v4/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -896,12 +895,12 @@ module.exports = function (router) {
 
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/v4/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/v4/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
             res.send(html)
         })
     })
 
-    router.get('/service-access/v3/service-access-video-selfie-write-camera', function (req, res) {
+    router.get('/service-access/v3/service-access-video-selfie-sign-camera-html5', function (req, res) {
         // pull in the url parameters
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -913,7 +912,7 @@ module.exports = function (router) {
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v3/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile }, function(err, html) {
+        res.render('service-access/v3/service-access-video-selfie-sign-camera-html5', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile }, function(err, html) {
             res.send(html)
         })
     })

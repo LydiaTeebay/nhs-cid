@@ -19,7 +19,7 @@ module.exports = function (router) {
         var challenge = req.param('challenge')
         var pinCode = pinCode1 + ' ' + pinCode2 + ' ' + pinCode3 + ' ' + pinCode4
         // re-render the page along with the parameter
-        res.render('service-access/service-access-video-selfie-write-camera', { vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
+        res.render('service-access/service-access-video-selfie-write-camera', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge }, function(err, html) {
             res.send(html)
         })
     })
@@ -78,6 +78,7 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
         var hideBack = req.param('hideBack')
+        var uplift = req.param('uplift')
 
         // re-render the page along with the parameter
         res.render('service-access/v22/service-access-video-selfie-write-camera', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {

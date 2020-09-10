@@ -115,8 +115,11 @@
 
     <button id="download" disabled style="visibility:hidden;">Download</button>
     <button id="play" disabled style="visibility:hidden;">Play</button>
+    {% if uplift === 'true' %}
+    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-nhs-pds-checking{{ params }}';" >Continue</button>
+    {% else %}
     <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-nhs{{ params }}';" >Continue</button>
-
+    {% endif %}
 </div>
 
 <script type="text/javascript">
