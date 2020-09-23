@@ -19,43 +19,50 @@
   {% endif %}
 
 
-  <h1 class="">You can ask your GP surgery if you are registered for their online services</h1>
+  <h1 class="">Ask your GP surgery if you are registered for their online services</h1>
 
   <p>People who are registered for online services can use their registration details to prove who they are.</p>
 
-  <h2 class="h3" style="margin-top:32px;"> If you are not registered</h2>
-
-  <p>If you are not registered for online services, you can register by filling in a form that your GP surgery will give you.</p>
-
-  <p>Your surgery will give you some registration details. You need all 3 of the following details:</p>
-
+  <h2 class="h3" style="margin-top:32px;">What you need to do if you are not registered:</h2>
+  <ol>
+  <li>Contact your GP surgery by phone.</li>
+  <li>Tell your GP surgery that you need registration details for their online services. The 3 details you need are:
   <ul>
     <li>Linkage Key (could be called Passphrase)</li>
     <li>O.D.S. Code (could be called Organisation Code or Practice I.D.)</li>
     <li>Account I.D.</li>
   </ul>
+  </li>
+    {% if serviceName %}
+    <li>When you have all 3 details, use your NHS login to access <em style="font-weight: bold;font-style: normal;">{{ serviceName }}</em>. You can use the 3 registration details to prove who you are instead of sending a photo of your I.D.</li>
+    {% else %}
+    <li>When you have all 3 details, go to the website or app you were trying to access and use your NHS login. You can then prove who you are using the 3 registration details, instead of sending a photo of your I.D.</li>
+    {% endif %}
+  </ol>
 
-  <p>You can use these 3 registration details to prove who you are instead of sending a photo of your I.D.</p>
+  <h2 class="h3" style="margin-top:32px;">What you need to do if you are registered:</h2>
+  <ol>
+  <li>Contact your GP surgery by phone.</li>
+  <li>Ask your GP surgery for the 3 registration details you need for their online services.</li>
+      {% if serviceName %}
+    <li>When you have all 3 details, use your NHS login to access <em style="font-weight: bold;font-style: normal;">{{ serviceName }}</em>. You can use the 3 registration details to prove who you are instead of sending a photo of your I.D.</li>
+    {% else %}
+    <li>When you have all 3 details, go to the website or app you were trying to access and use your NHS login. You can then prove who you are using the 3 registration details, instead of sending a photo of your I.D.</li>
+    {% endif %}
+  </ol>
 
-  <h2 class="h3" style="margin-top:32px;">If you are registered</h2>
-
-  <p>If you are already registered, ask your GP surgery for the 3 registration details you need for their online services. Make sure you get all 3 details.</p>
-
-  <p>You can use these 3 details to prove who you are instead of sending a photo of your I.D.</p>
-
-  {% if pyiuser === "true" %}
+{% if pyiuser === "true" %}
 
 
   {% else %}
 
   <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin: 40px 0;">
-    <span style="font-size: 18px; background-color: #fff; padding: 0 10px;">Or</span>
+    <span style="font-size: 18px; background-color: #f0f4f5; padding: 0 10px;">Or</span>
   </div>
 
   <p>You can <a href="service-access-what-you-need{{ params }}">send a photo of your I.D. to prove who you are.</a></p>
 
   {% endif %}
-
 
 </div>
 
