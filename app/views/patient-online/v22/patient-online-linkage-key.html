@@ -13,7 +13,7 @@
 
     {% else %}
 
-    <p><a href="/patient-online/v21/patient-online-details-2{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you have the 3 registration details?</a></p>
+    <p><a href="patient-online-details-2{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you have the 3 registration details?</a></p>
 
     {% endif %}
 
@@ -84,15 +84,15 @@
 
       {% if pyiuser === "true" %}
 
-      <p>If you do not have these 3 details or your details do not work, you can <a href="/service-access/v21/service-access-offline-dunno{{ params }}">ask your GP surgery for help to get your registration details.</a></p>
+      <p>If you do not have these 3 details or your details do not work, you can <a href="/service-access/v22/service-access-offline-dunno{{ params }}">ask your GP surgery for help to get your registration details.</a></p>
 
       {% else %}
 
       <p>If you do not have these 3 details or your details do not work, you can either:</p>
 
       <ul>
-          <li><a href="/service-access/v21/service-access-what-you-need{ params }}">send a photo of your I.D. online</a> to prove who you are</li>
-          <li><a href="/service-access/v21/service-access-offline-retrieve{{ params }}">ask your GP surgery for help</a> to get your registration details</a></li>
+          <li><a href="/service-access/v22/service-access-what-you-need{ params }}">send a photo of your I.D. online</a> to prove who you are</li>
+          <li><a href="/service-access/v22/service-access-offline-retrieve{{ params }}">ask your GP surgery for help</a> to get your registration details</a></li>
       </ul>
 
       {% endif %}

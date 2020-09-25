@@ -14,7 +14,7 @@
 
   {% else %}
 
-  <p><a href="/patient-online/v21/patient-online-details{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you use your GP surgery's online services</a></p>
+  <p><a href="/patient-online/v22/patient-online-details{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Do you use your GP surgery's online services</a></p>
 
   {% endif %}
 
@@ -25,8 +25,9 @@
 
   <h2 class="h3" style="margin-top:32px;">What you need to do if you are not registered:</h2>
   <ol>
-  <li>Contact your GP surgery by phone.</li>
-  <li>Tell your GP surgery that you need registration details for their online services. The 3 details you need are:
+  <li>Contact your GP surgery. If you can, contact them without visiting in person.</li>
+  <li>Ask your GP surgery to register you for their online services.</li>
+  <li>Ask your GP surgery for the registration details that you need for their online services. The 3 details you need are:
   <ul>
     <li>Linkage Key (could be called Passphrase)</li>
     <li>O.D.S. Code (could be called Organisation Code or Practice I.D.)</li>
@@ -42,7 +43,7 @@
 
   <h2 class="h3" style="margin-top:32px;">What you need to do if you are registered:</h2>
   <ol>
-  <li>Contact your GP surgery by phone.</li>
+  <li>Contact your GP surgery. If you can, contact them without visiting in person.</li>
   <li>Ask your GP surgery for the 3 registration details you need for their online services.</li>
       {% if serviceName %}
     <li>When you have all 3 details, use your NHS login to access <em style="font-weight: bold;font-style: normal;">{{ serviceName }}</em>. You can use the 3 registration details to prove who you are instead of sending a photo of your I.D.</li>
@@ -52,7 +53,6 @@
   </ol>
 
 {% if pyiuser === "true" %}
-
 
   {% else %}
 
