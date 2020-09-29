@@ -2,9 +2,11 @@
 
 .callout--friendly {
   background-color: transparent;
-  border: solid #005eb8;
-  padding: 0 32px;
-  border-width: 0 0 0 4px;
+  border-left: 12px solid #005eb8;
+  max-width: 44em;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 16px;
 }
 
 .callout--instructions {
