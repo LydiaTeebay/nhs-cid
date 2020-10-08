@@ -16,3 +16,13 @@ p.16 {
 .reading-width {
   @include reading-width();
 }
+
+.hint {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4c6272;
+  display: block;
+  margin-bottom: 16px;
+}

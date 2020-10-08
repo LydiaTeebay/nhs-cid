@@ -14,12 +14,13 @@
   float: left;
   width: 100%;
   clear: both;
-  border-left-style: solid;
-  border-color: #bfc1c3;
+  border-left: 12px solid #005eb8;
+  max-width: 44em;
   background-color: transparent;
-  padding: 0.88947em;
+  padding: 16px;
   padding-bottom: 0;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
+  margin-top: 40px;
   border-left-width: 5px;
   &.js-hidden {
     display: none;

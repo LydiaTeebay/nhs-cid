@@ -20,11 +20,28 @@
 					</h1>
 				</legend>
 
+ 		  	<p> 
+            Your NHS number is a 10 digit number, like <span class="nowrap">485 777 3456</span>.
+          	</p>
+
+{#           <p>
+            You can find it on any letter the NHS has sent you. You can also find it on a prescription or by logging in to a GP surgery online service.
+          </p>  #}
+
+		<p>You can find it:
+		  	<ul>
+				<li>on any letter the NHS has sent you</li>
+				<li>on a prescription</li>
+				<li>by logging in to a GP surgery online service</li>
+			</ul>
+		</p>
+
+{# 
 				<details class="" role="group" style="margin-top: 0;">
 					<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
 						<span class="details__summary">How to find your NHS number</span>
 					</summary>
-					<div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+					<div class="callout callout--infonew callout--friendly" id="details-content-0" aria-hidden="false">
 						<div class="reading-width">
 							<p>Your NHS Number is a 10 digit number, like 485 777 3456.</p>
 							<p>You can find it on any document that the NHS has sent to you, such as:</p>
@@ -37,14 +54,14 @@
 							</ul>
 						</div>
 					</div>
-				</details>
+				</details> #}
 
 				<div class="form-group">
 
 					<div class="selection-button-radio" style="margin-top: 32px;">
 						<div class="multiple-choice" data-target="nhs-yes">
 							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-num{{ params }}">
-							<label for="radio-inline-1" class="block-label" style="position: static;">Yes</label>
+							<label for="radio-inline-1" class="block-label" style="position: static;">Yes - I know my NHS number</label>
 						</div>
 					</div>
 
@@ -58,7 +75,7 @@
 					<div class="selection-button-radio" style="margin-top: 0px;">
 						<div class="multiple-choice" data-target="nhs-no">
 							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-demographics-name{{ params }}">
-							<label for="radio-inline-2"class="block-label" style="position: static;">No</label>
+							<label for="radio-inline-2"class="block-label" style="position: static;">No - continue another way</label>
 						</div>
 					</div>
 

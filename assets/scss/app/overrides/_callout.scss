@@ -11,8 +11,16 @@
 
 .callout--instructions {
   background-color: transparent;
+  border-left: 12px solid #ffffff;
   border-color: $white;
   padding: 0 32px
+}
+
+.callout--infonew {
+  background-color: transparent;
+  max-width: 44em;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .callout--warning {
