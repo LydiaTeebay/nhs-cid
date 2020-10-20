@@ -10,22 +10,35 @@
 
   <section class="" id="scan-id-1">
 
-    <!--<p><a class="" href="service-access-video-selfie{{ params }}">Go back</a></p>-->
+    {% if hideBack !== 'true' %}
+    <p><a href="service-access-video-selfie-triage{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back</i></a></p>
+    {% endif %}
 
     <form>
       <fieldset class="">
         <legend for="radio-inline-group">
           <h1 style="padding-bottom: 0;">
-            Instructions
+            Get ready to say your numbers
+            <!-- Get ready to write your numbers-->
+          <!-- Get ready to sign your numbers-->
           </h1>
         </legend>
 
-        <p>To ensure someone can't pretend to be you:</p>
+
+         <p>Make sure:</p>
         <ul class="list list-bullet">
-          <li>you will need to film yourself</li>
-          <li>you will need to perform a simple action that involves speaking out loud</li>
-        </ul>
+          <li>your whole face is visible</li>
+          <!-- SAY <li>you say the 4 numbers on the next screen</li>-->
+          <!-- WRITE <li>you write the 4 numbers, shown on the next screen, clearly on a piece of paper</li>-->
+          <!-- WRITE <li>you show the piece of paper clearly</li>-->
+          <!-- SIGN <li>your hand can be seen clearly</li>-->
+          <!-- SIGN <li>you sign the 4 numbers, shown on the next screen, using British Sign Language</li>-->
+          <li>you follow the on-screen instructions</li>
+        </ul> 
+
         <div class="form-group">
+
+        <p>When you are ready to record your video, click <em>start recording</em> on the next screen.</p>
 
           <script type="application/javascript">
             if(window.MediaRecorder !== undefined) {
@@ -41,7 +54,7 @@
 
     </form>
 
-    <details class="" role="group">
+{#     <details class="" role="group">
       <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
         <span class="details__summary">What will happen to the video?</span>
       </summary>
@@ -52,7 +65,7 @@
         </div>
       </div>
 
-    </details>
+    </details> #}
 
   </section>
 

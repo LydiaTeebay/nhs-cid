@@ -74,9 +74,9 @@
     #}
     
 
-{#    ERROR MESSAGING IN THIS SECTION
+{#    ERROR MESSAGING IN THIS SECTION     #}
 
- <div class="callout callout--error camera-file-format" style="display:block; background-color:#fff0">
+ {# <div class="callout callout--error camera-file-format" style="display:block; background-color:#fff0">
     <h2 class="h3">There is a problem</h2>
 
           {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
@@ -97,7 +97,7 @@
     
     <!-- <p>You have taken a photo by mistake. When you click on <em>{{ instructionlowercase }}</em>, pick your video camcorder.</p> -->
 
-    <!-- <p>Your video is too small. Record your video again. When you click on <em>{{ instructionlowercase }}</em>, pick your video camcorder.</p> -->
+    <p>Your video is too short. Record your video again. When you click on <em>{{ instructionlowercase }}</em>, pick your video camcorder.</p>
 
     <!-- <p>Your video is too long. Record your video again and stop it when you’ve finished telling us the 4 numbers.</p> -->
 
@@ -108,7 +108,7 @@
     <!-- <p>When you select <em>open video camera</em>, make sure you record a video.</p> -->
 
 
-    </div> #}
+    </div>  #}
 
     {% if hideBack !== 'true' %}
     <p><a href="service-access-video-selfie-triage{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back</i></a></p>
