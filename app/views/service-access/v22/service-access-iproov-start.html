@@ -22,24 +22,32 @@
 			{% endif %}
 
 
-		<p>We will use your device’s camera to scan your face and match it to your photo I.D.</p>
+{#  For body copy, we would like the below ideally, but it's not in scope to update
+
+	<p>We will use your device’s camera to scan your face and match it to your photo I.D.</p>
 
 		<p>This is so we know it’s you.</p>
 
 		<p>During the scan the screen will flash and change colour.</p>
 
 		<p>If flashing lights or colours make you feel unwell, you can record a short video instead.</p>
+ #}
+
+		<p>We need to match your face with your photo I.D. so we know it's you.</p>
+		<p>We will use your device’s camera to scan your face. We will tell you what to do on the next page.</p>
+		<p>During the scan the screen will flash and change colour.</p>
+
 
 		<form style="margin: 32px 0 16px;">
 			<div class="form-group">
 				<fieldset>
 
 					<legend>
-{# 						<h2 class="h3">If flashing lights or colours make you feel unwell, you do not need to do the scan.
-							<br><br> What do you want to do?</h2> #}
+						<h2 class="h3">If flashing lights or colours make you feel unwell, you do not need to do the scan.
+							<br><br> What do you want to do?</h2>
 
-						<h2 class="h3">What do you want to do?</h2>
-					</legend>
+{# 						<h2 class="h3">What do you want to do?</h2>
+ #}					</legend>
 
 					<div class="selection-button-radio-inline">
 						<div class="multiple-choice" data-target="nhs-yes" style="margin-top: 16px;">
@@ -48,7 +56,7 @@
 						</div>
 						<div class="multiple-choice" data-target="nhs-no" style="margin-top: 16px; margin-bottom: 0px;">
 							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-triage{{ params }}&hideBack=true">
-							<label for="radio-inline-2"class="block-label" style="position: static;">Record a short video</label>
+							<label for="radio-inline-2"class="block-label" style="position: static;">Flashing lights make me feel unwell - record a video instead</label>
 						</div>
 					</div>
 
