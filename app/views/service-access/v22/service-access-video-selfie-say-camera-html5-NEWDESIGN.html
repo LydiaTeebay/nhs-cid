@@ -48,28 +48,36 @@
 
     </div> #}
 
-        <div class="camera-preview-wrapper">
+    {% if hideBack !== 'true' %}
+    <p><a href="service-access-video-selfie-triage{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back</i></a></p>
+    {% endif %}
+
+    <h1>Record your video</h1>
+
+        <p>Make sure your face is inside the oval.</p>
+        <p>Say these numbers whilst recording your video:</p>
+        <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">1 3 5 7</p>
+
+{#             <div class="camera-instructions-text">Say these numbers whilst recording your video: </div>
+            <div class="camera-instructions-numbers">{{ pinCode }} 1 3 5 7</div> #}
+        
+                <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
             <div class="camera-preview-feed">
                 <video id="gum" muted autoplay></video>
             </div>
         </div>
 
-        <div class="camera-instructions">
-            <div class="camera-instructions-text">Make sure your face is in the oval, then tell us these 4 numbers whilst recording your video:</div>
-<div class="camera-instructions-numbers">{{ pinCode }}</div>
-        </div>
+        <br>
 
         <div class="camera-record">
             <button id="record" class="button" disabled>Start recording</button>
         </div>
 
-        <p><a class="" href="service-access-video-selfie-instructions{{ params }}">Cancel</a></p>
+        <p><a class="" href="service-access-video-selfie-triage{{ params }}">Cancel</a></p>
 
         <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
     </section>
-
-
 
     <section class="uploader-container" id="scan-id-3" style="display:none">
 
@@ -109,7 +117,7 @@
         </div>
 
     <div class="form-group">
-      <p>If you can see all of your face and hear the numbers <strong>{{ pinCode }}</strong> clearly, click continue.</p>
+      <p>If you can see all of your face and hear the numbers <strong>1 3 5 7</strong> clearly, click continue.</p>
         <button class="button" id="submitvideo">Continue</button>
         </div>
         <br>
