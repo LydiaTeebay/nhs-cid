@@ -1,0 +1,114 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Scan instructions{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&uplift=" + uplift %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <section class="" id="scan-id-1">
+
+      {% if hideBack !== 'true' %}
+      <p><a href="service-access-iproov-start{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Match your face to your photo I.D.</a></p>
+      {% endif %}
+
+      <form>
+          <h1>Scan instructions</h1>
+
+          <p>Follow these steps:</p>
+
+          <ol class="list--ordered">
+            <li>Turn up the screen brightness on your device.</li>
+{#             <li>Make sure your face is directly in front of your screen, not at an angle.</li>
+                <img src="/images/iproov-instructions.png" alt="Hold your device straight ahead of you face" width="600" style="display:block;margin-left:auto;margin-right:auto;">
+            </li> #}
+            <li>Select 'start scan' and follow the instructions.</li>
+          </ol>
+
+
+          <div class="form-group" id="enable-camera" style="">
+            <a href="service-access-iproov{{ params }}" id="allow-camera-button" class="button camera-button">Start scan</a>
+          </div>
+
+
+          <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What you can do if the scan keeps failing</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+                      <p>If the face scan does not work, you can send us a short video instead.</p>
+                      <p><a href="service-access-iproov-bail{{ params }}">Try with a video instead</a></p>
+
+                  </div>
+              </div>
+          </details>
+
+
+      </form>
+
+      {% if devMode === "true" %}
+      <details class="dev-mode" role="group" >
+        <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+          <span class="details__summary">Continue with testing scenario</span>
+        </summary>
+        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+          <div class="reading-width">
+
+            <p>Pass</p>
+            <ol>
+              <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined">iProov test passes</a></li>
+            </ol>
+            <p>Fail - try again</p>
+            <ol>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=ambiguous_outcome">Sorry, ambiguous outcome</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=lighting_flash_reflection_too_low">Ambient light too strong or screen brightness too low</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=lighting_backlit">Strong light source detected behind you</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=lighting_too_dark">Lighting too dark</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=lighting_face_too_bright">Lighting on face too bright</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=motion_too_much_movement">too much movement</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=motion_too_much_mouth_movement">too much mouth movement</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=network_problem">Network problems</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=user_timeout">User timeout</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=client_api">Client API</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=client_camera">Client camera</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=client_stream">Client stream</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=client_error">Client error</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=server_abort">Server abort</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=user_abort">User aborted</a></li>
+            </ol>
+
+              <p>Fail - come back later</p>
+              <ol>
+                  <li><a href="service-access-iproov{{ params }}&iproovFailReason=client_config">Client config</a></li>
+              </ol>
+
+              <p>Fail - try new photo</p>
+              <ol>
+                  <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iProovThirdAttempt=true">Third attempt fails on 1st enrolment</a></li>
+              </ol>
+
+              <p>Fail - try video instead</p>
+              <ol>
+                  <li><a href="service-access-iproov{{ params }}&iproovFailReason=undefined&iProovThirdAttempt=true&pyiSecondAttempt=true">Third attempt fails on 2nd enrolment</a></li>
+                  <li><a href="service-access-iproov{{ params }}&iproovFailReason=two_faces">AWS 2 faces</a></li> 
+              </ol>
+
+          </div>
+        </div>
+      </details>
+      {% endif %}
+
+  </section>
+
+</div>
+
+<script type="text/javascript">
+
+
+</script>
+
+{% endblock %}

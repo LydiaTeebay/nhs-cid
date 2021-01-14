@@ -1,0 +1,24 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Browser error{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&uplift=" + uplift %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <h1 class="">There is a problem</h1>
+
+  <p>Your current device or browser does not allow you to record a video.</p>
+
+{#   <p class="small">Reference: CID-####</p> #}    
+  <p>Reference: <b>CID4017</b></p>
+
+  <p>Visit the <a href="https://support-nhslogin.herokuapp.com/takeandupload/article#unabletorecord">NHS login help centre</a> for advice on how to fix this problem.</p>
+
+</div>
+
+{% endblock %}
