@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Step 2 - Match your face to your photo I.D.{% endblock %}
+{% block page_title %}Access {{ serviceName }} - Scan your face{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&uplift=" + uplift %}
@@ -12,29 +12,18 @@
       
 	  {% if uplift !== 'true' %}
 
-		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Match your face to your photo I.D.</h1>
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span> Scan your face</h1>
 
 			{% else %}
 
-		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2</span> Match your face to your photo I.D.</h1>
+		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2</span> Scan your face</h1>
 
 
 			{% endif %}
 
 
-{#  For body copy, we would like the below ideally, but it's not in scope to update
-
-	<p>We will use your device’s camera to scan your face and match it to your photo I.D.</p>
-
-		<p>This is so we know it’s you.</p>
-
-		<p>During the scan the screen will flash and change colour.</p>
-
-		<p>If flashing lights or colours make you feel unwell, you can record a short video instead.</p>
- #}
-
-		<p>We need to match your face with your photo I.D. so we know it's you.</p>
-		<p>We will use your device’s camera to scan your face. We will tell you what to do on the next page.</p>
+		<p>We need to scan your face using your device’s camera. This is to match your face to your photo I.D.</p>
+		<p>You must allow us access to your camera for the scan.</p>
 		<p>During the scan the screen will flash and change colour.</p>
 
 
@@ -46,8 +35,7 @@
 						<h2 class="h3">If flashing lights or colours make you feel unwell, you do not need to do the scan.
 							<br><br> What do you want to do?</h2>
 
-{# 						<h2 class="h3">What do you want to do?</h2>
- #}					</legend>
+					</legend>
 
 					<div class="selection-button-radio-inline">
 						<div class="multiple-choice" data-target="nhs-yes" style="margin-top: 16px;">
