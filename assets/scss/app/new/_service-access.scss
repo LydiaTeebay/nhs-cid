@@ -114,17 +114,3 @@ $_step-width: $baseline-grid-unit * 8;
     margin-top: 0;
   }
 }
-
-// times
-.service-access__item__time {
-  position: relative;
-  text-align: right;
-  right: $gutter;
-  text-transform: uppercase;
-  font-size: 14px;
-  float: right;
-  display: inline-block;
-  //color: $grey-2;
-  }
-
-}
