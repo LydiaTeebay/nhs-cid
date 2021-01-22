@@ -1,0 +1,181 @@
+// TODO: maybe share this back to NHS UK
+// start page pattern
+
+$_step-width: $baseline-grid-unit * 8;
+
+.startpage__wrapper {
+  padding-bottom: 20px;
+}
+
+.startpage {
+  @include core-font(16);
+  counter-reset: li;
+  padding: $baseline-grid-unit 0;
+  list-style: none;
+}
+
+.startpage__item {
+  position: relative;
+  background-color: white;
+  border: 1px solid $blue;
+  margin: 0!important;
+  padding: $default-spacing-unit $gutter*1.5;
+  padding-right: $gutter*.5;
+  @include clearfix;
+
+  &.hide-number {
+    &:before {
+      content: none;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  // style the numbers
+  &:before {
+    background-color: $nhs-blue;
+    color: $white;
+    display: inline-block;
+    top: $default-spacing-unit;
+    left: $gutter*.25;
+    border-radius: 50%;
+    content: counter(li);
+    counter-increment: li;
+    height: $_step-width;
+    line-height: $_step-width;
+    position: absolute;
+    text-align: center;
+    width: $_step-width;
+  }
+
+  &.active {
+    background-color: white;
+  }
+  &.completed {
+    &:before {
+      background-color: $white;
+      color: $grey-2;
+      border: 2px solid $grey-2;
+      font-weight: bold;
+      line-height: 28px;
+    }
+  }
+
+  @include media(tablet) {
+    padding-top: $default-spacing-unit;
+    padding-left: $gutter*2;
+    &:before {
+      top: $default-spacing-unit;
+      left: $gutter*.5;
+    }
+  }
+}
+
+.startpage__item__title {
+  vertical-align: top;
+  display: block;
+  .completed & {
+    color: $grey-2;
+  }
+
+  @include media(tablet) {
+    width: 70%;
+    display: inline-block;
+  }
+
+  &.ticked {
+    position: relative;
+    //color: $grey-2;
+    &::before,
+    &::after {
+      content: "";
+      left: $gutter*-1.25;
+      top: 0.15em;
+      position: absolute;
+      zoom: 1;
+    }
+    &::before {
+      background: transparent;
+      border: solid;
+      border-color: $green;
+      border-width: 0 0 6px 6px;
+      height: 14px;
+      //top: .7em;
+      transform: rotate(-45deg);
+      width: 22px;
+    }
+  }
+}
+
+.startpage__item__desc {
+  display: inline-block;
+  margin-top: 0;
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: .5em;
+  }
+
+  .completed & {
+    display: none;
+  }
+
+  @include media(tablet) {
+    width: 70%;
+    margin-left: 0;
+  }
+}
+
+.startpage__item__button {
+  display: inline-block;
+
+  line-height: 20px;
+  margin-top: 1em;
+  @include media(tablet) {
+    float: right;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+
+// completed text
+.startpage__item__status {
+  position: relative;
+  //color: $grey-2;
+  &::before,
+  &::after {
+    content: "";
+    right: $gutter*-0.75;
+    top: 0.15em;
+    position: absolute;
+    zoom: 1;
+  }
+  &::before {
+    background: transparent;
+    border: solid;
+    border-color: $green;
+    border-width: 0 0 4px 4px;
+    height: 9px;
+    //top: .7em;
+    transform: rotate(-45deg);
+    width: 15px;
+  }
+
+  @include media(tablet) {
+    &::before,
+    &::after {
+      display: none;
+    }
+    display: inline-block;
+    float: right;
+    background-color: $nhs-blue;
+    color: $white;
+    margin: 0;
+    padding: 3px 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+    //font-weight: bold;
+  }
+}

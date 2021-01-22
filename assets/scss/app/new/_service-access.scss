@@ -16,11 +16,10 @@ $_step-width: $baseline-grid-unit * 8;
 
 .service-access__item {
   position: relative;
-  border-bottom: 1px solid $blue;
-  border-left: 0;
-  margin: 0!important;
-  padding: $default-spacing-unit $gutter*1.5;
-  padding-right: $gutter*.5;
+  background-color: white;
+  border: 1px solid #d8dde0;
+  margin-bottom: 8px;
+  padding: $default-spacing-unit;
   @include clearfix;
 
   &.hide-number {
@@ -32,46 +31,22 @@ $_step-width: $baseline-grid-unit * 8;
       border-bottom: none;
     }
   }
+}
 
-  // style the numbers
-  &:before {
-    background-color: $nhs-blue;
-    color: $white;
-    display: inline-block;
-    top: $default-spacing-unit;
-    left: $gutter*.25;
-    border-radius: 50%;
-    content: counter(li);
-    counter-increment: li;
-    height: $_step-width;
-    line-height: $_step-width;
-    position: absolute;
-    text-align: center;
-    width: $_step-width;
-  }
-
-  &.active {
-    background-color: $grey-5;
-  }
-  &.completed {
-    &:before {
-      background-color: $white;
-      color: $grey-2;
-      border: 2px solid $grey-2;
-      font-weight: bold;
-      line-height: 28px;
-    }
-  }
-
-  @include media(tablet) {
-    padding-top: $default-spacing-unit;
-    padding-left: $gutter*2;
-    &:before {
-      top: $default-spacing-unit;
-      left: $gutter*.5;
-    }
+.service-access__item__step {
+  .completed & {
+    display: none;
   }
 }
+
+.time {
+  text-align: right;
+  color: blue;
+  .completed & {
+    display: none;
+  }
+}
+
 
 .service-access__item__title {
   vertical-align: top;
@@ -81,17 +56,17 @@ $_step-width: $baseline-grid-unit * 8;
   }
 
   @include media(tablet) {
-    width: 70%;
+    width: 100%;
     display: inline-block;
   }
 
   &.ticked {
     position: relative;
-    //color: $grey-2;
+    color: $grey-2;
     &::before,
     &::after {
       content: "";
-      left: $gutter*-1.25;
+      right: 0;
       top: 0.15em;
       position: absolute;
       zoom: 1;
@@ -99,7 +74,7 @@ $_step-width: $baseline-grid-unit * 8;
     &::before {
       background: transparent;
       border: solid;
-      border-color: $green;
+      border-color: $grey-2;
       border-width: 0 0 6px 6px;
       height: 14px;
       //top: .7em;
@@ -123,7 +98,7 @@ $_step-width: $baseline-grid-unit * 8;
   }
 
   @include media(tablet) {
-    width: 70%;
+    width: 100%;
     margin-left: 0;
   }
 }
@@ -140,42 +115,16 @@ $_step-width: $baseline-grid-unit * 8;
   }
 }
 
-// completed text
-.service-access__item__status {
+// times
+.service-access__item__time {
   position: relative;
+  text-align: right;
+  right: $gutter;
+  text-transform: uppercase;
+  font-size: 14px;
+  float: right;
+  display: inline-block;
   //color: $grey-2;
-  &::before,
-  &::after {
-    content: "";
-    right: $gutter*-0.75;
-    top: 0.15em;
-    position: absolute;
-    zoom: 1;
-  }
-  &::before {
-    background: transparent;
-    border: solid;
-    border-color: $green;
-    border-width: 0 0 4px 4px;
-    height: 9px;
-    //top: .7em;
-    transform: rotate(-45deg);
-    width: 15px;
   }
 
-  @include media(tablet) {
-    &::before,
-    &::after {
-      display: none;
-    }
-    display: inline-block;
-    float: right;
-    background-color: $nhs-blue;
-    color: $white;
-    margin: 0;
-    padding: 3px 5px;
-    text-transform: uppercase;
-    font-size: 14px;
-    //font-weight: bold;
-  }
 }
