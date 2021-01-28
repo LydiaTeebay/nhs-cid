@@ -67,6 +67,20 @@
 
           <!-- no message -->
 
+          {% elif iproovFailReason === "permissions" %}
+
+          <p>This is because you did not allow us access to your camera.</p>
+          <p>You must allow us access to your camera so we can match your face to your I.D. </p>
+          <p>Once you have granted access, come back and try the face scan again.</p>
+            <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+              <p>Visit the <a href="https://help.login.nhs.uk/provewhoyouare/withid#how-to-give-your-web-browser-permission-to-access-the-camera-and-microphone">NHS login help centre</a> for information on how to grant access.</p>
+
+                  </div>
+              </div>
+
+
           {% elif iproovFailReason === "user_abort" %}
 
           <p>This is because you stopped the scan.</p>

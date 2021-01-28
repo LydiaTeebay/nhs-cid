@@ -136,8 +136,9 @@
         
     #}
 
-
+        <p>Before you start:</p>
         <ol>
+        <li><p>Allow us access to your camera so we can match your face to your I.D.</p></li>
         <li><p>Make sure we can see all of your face in the video.</p></li>
         <li><p>You will need to say these 4 numbers:</p></li>
         <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
@@ -167,7 +168,7 @@
           {% endif %}
           {% endif %}
 
-                    {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
+          {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
           {% set instructionlowercase = 'choose a file' %}
           {% elif mobileOs === 'iPhone' or mobileOs === 'iPad' %}
           {% if mobileOsV === 11.2 and devMode === 'true' %}
@@ -183,7 +184,7 @@
           {% endif %}
           {% endif %}
 
-        <p>When you are ready to record your video, click {{ instructionlowercase }}.</p>
+        <p>When you are ready to record your video, select <em>{{ instructionlowercase }}</em>.</p>
         <br>
 
 

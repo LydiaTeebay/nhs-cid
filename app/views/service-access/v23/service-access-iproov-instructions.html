@@ -28,11 +28,16 @@
             <li>Select <em>start scan</em> and follow the instructions.</li>
           </ol>
 
-
+      {% if iproovFailReason === 'permissions' %}
+        <h5>We could not access your camera</h5>
+        <p style="font-size:14px;line-height:20px">
+        To match you to your photo I.D. we need to scan your face using your device’s camera. 
+        Ensure you have granted access to your camera then reload this page.</p>
+      {% else %}
           <div class="form-group" id="enable-camera" style="">
             <a href="service-access-iproov{{ params }}" id="allow-camera-button" class="button camera-button">Start scan</a>
           </div>
-
+      {% endif %}
 
           <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
@@ -80,6 +85,7 @@
                 <li><a href="service-access-iproov{{ params }}&iproovFailReason=client_error">Client error</a></li>
                 <li><a href="service-access-iproov{{ params }}&iproovFailReason=server_abort">Server abort</a></li>
                 <li><a href="service-access-iproov{{ params }}&iproovFailReason=user_abort">User aborted</a></li>
+                <li><a href="service-access-iproov{{ params }}&iproovFailReason=permissions">User permissions denied</a></li>
             </ol>
 
               <p>Fail - come back later</p>
