@@ -122,20 +122,17 @@
           </h1>
         </legend>
 
+        <p>Before you start you must allow us access to your camera. This is so we can match your face to your I.D.</p>
+        <p>Ask someone to help you record the video if it is easier.</p>
+
+        <p>Make sure:
         <ol>
-        <li>Make sure we can see all of your face in the video.</li>
-        <li>You will need to write these numbers clearly on a piece of paper:</li>
+        <li>You can see all of your face in the video</li>
+        <li>You write these numbers clearly on a piece of paper:</li>
         <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
-        <li>Hold the paper to the camera to show us the numbers.</li>
+        <li>You hold the paper to the camera to show us the numbers</li>
         </ol>
         </p>
-
-{#         <p>Make sure we can see all of your face in the video.</p>
-        <p>You will need to write these numbers clearly on a piece of paper:</p>
-        <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
-        <p>Hold the paper to the camera to show us the numbers.</p> #}
-
-        <p>Ask someone to help you record the video if it is easier.</p>
 
 
         <div class="form-group">
@@ -172,7 +169,7 @@
           {% endif %}
           {% endif %}
 
-        <p>When you are ready to record your video, click {{ instructionlowercase }}.</p>
+        <p>When you are ready to record your video, select <em>{{ instructionlowercase }}</em>.</p>
         <br>
 
           <label for="short-video" class="camera-button">{{ instruction }}
@@ -184,6 +181,23 @@
       </fieldset>
 
     </form>
+
+        <br>
+              <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What you can do if your camera is not loading</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+          <p>Check you have allowed us access to your camera, then try again.</p>
+          <p>Visit the <a href="https://help.login.nhs.uk/provewhoyouare/withid#how-to-give-your-web-browser-permission-to-access-the-camera-and-microphone">NHS login help centre</a> for information on how to grant access.</p>
+              </div>
+
+                  </div>
+              </div>
+          </details>
+
 
     {% if devMode === 'true' %}
     <div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">

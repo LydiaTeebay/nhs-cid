@@ -121,17 +121,19 @@
           </h1>
         </legend>
 
-        <p>
+        <p>Before you start you must allow us access to your camera. This is so we can match your face to your I.D.</p>
+        <p>Ask someone to help you record the video if it is easier.</p>
+
+        <p>Make sure:
         <ol>
-        <li>Hold your hand up to the camera.</li>
-        <li>Make sure we can see all of your face in the video.</li>
-        <li>Be careful not to cover your face with your hand.</li>
-        <li>Use British Sign Language to sign the numbers:</li>
+        <li>You hold your hand up to the camera</li>
+        <li>You can see all of your face in the video</li>
+        <li>Not to cover your face with your hand</li>
+        <li>You use British Sign Language to sign the numbers:</li>
         </p>
         <p class="camera-challenge" style="font-size: 42px;padding-bottom: .5em;">{{ pinCode }}</p>
         </ol>
 
-        <p>Ask someone to help you record the video if it is easier.</p>
 
 
 
@@ -169,7 +171,7 @@
           {% endif %}
           {% endif %}
 
-        <p>When you are ready to record your video, click {{ instructionlowercase }}.</p>
+        <p>When you are ready to record your video, select <em>{{ instructionlowercase }}</em>.</p>
         <br>
 
           <label for="short-video" class="camera-button">{{ instruction }}
@@ -181,6 +183,24 @@
       </fieldset>
 
     </form>
+
+    <br>
+              <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What you can do if your camera is not loading</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+          <p>Check you have allowed us access to your camera, then try again.</p>
+          <p>Visit the <a href="https://help.login.nhs.uk/provewhoyouare/withid#how-to-give-your-web-browser-permission-to-access-the-camera-and-microphone">NHS login help centre</a> for information on how to grant access.</p>
+              </div>
+
+                  </div>
+              </div>
+          </details>
+
+
 
     {% if devMode === 'true' %}
     <div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
