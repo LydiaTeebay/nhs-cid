@@ -25,11 +25,24 @@ legend>h1 {
   font-weight: 400;
   text-transform: none;
   display: block;
-  color: #6f777b;
+  color: #7b6f77;
 }
 
 h3,
 .h3 {
   font-size: 24px;
   line-height: 32px;
+}
+
+// pink step numbers
+.heading-secondary-orange {
+  padding-top: 4px;
+  padding-bottom: 6px;
+  font-size: 24px;
+  line-height: 1.11111;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  color: #da7604;
 }
