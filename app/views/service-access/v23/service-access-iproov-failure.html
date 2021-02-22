@@ -20,6 +20,10 @@
 
             <h1>We are having problems with the scan</h1>
 
+          {% elif iproovFailReason === "user_cancelled" or iproovFailReason === "user_aborted" %}
+
+            <h1>We could not match your face to your photo I.D.</h1>
+
           {% else %}
 
             <h1>The scan cannot match your face to your photo I.D.</h1>
@@ -66,6 +70,16 @@
           {% if iproovFailReason === "ambiguous_outcome" or iproovFailReason === "network_problem" or iproovFailReason === "user_timeout" or iproovFailReason === "client_api" or iproovFailReason === "client_camera" or iproovFailReason === "client_stream" or iproovFailReason === "client_error" or iproovFailReason === "server_abort" %}
 
           <!-- no message -->
+
+          {% elif iproovFailReason === "user_cancelled" %}
+
+          <p>This is because you stopped the scan.</p>
+          <p>You must complete the scan so we can match your face to your photo I.D.</p>
+
+          {% elif iproovFailReason === "user_aborted" %}
+
+          <p>This could be due to a technical issue.</p>
+          <p>You must complete the scan so we can match your face to your photo I.D.</p>
 
           {% elif iproovFailReason === "permissions" %}
 
@@ -126,6 +140,24 @@
               <div class="form-group">
                   <a href="service-access-iproov-instructions{{ params }}" class="button camera-button">Try face scan again</a>
               </div>
+
+                    {% endif %}
+
+          {% if iproovFailReason === "user_cancelled" or iproovFailReason === "user_aborted" %}
+
+          <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What you can do if the scan keeps failing</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+                      <p>If the face scan does not work, you can send us a short video instead.</p>
+                      <p><a href="service-access-iproov-bail{{ params }}">Try with a video instead</a></p>
+
+                  </div>
+              </div>
+          </details>
 
           {% endif %}
 
