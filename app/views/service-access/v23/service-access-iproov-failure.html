@@ -74,12 +74,13 @@
           {% elif iproovFailReason === "user_cancelled" %}
 
           <p>This is because you stopped the scan.</p>
-          <p>You must complete the scan so we can match your face to your photo I.D.</p>
+          <p>If you did not mean to stop the scan, you can try again.</p>
 
           {% elif iproovFailReason === "user_interrupted" %}
-
+          
           <p>This could be due to a technical issue.</p>
-          <p>You must complete the scan so we can match your face to your photo I.D.</p>
+          <p>If you did not mean to stop the scan, you can try again.</p>
+
 
           {% elif iproovFailReason === "permissions" %}
 
@@ -144,20 +145,22 @@
                     {% endif %}
 
           {% if iproovFailReason === "user_cancelled" or iproovFailReason === "user_interrupted" %}
+          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
 
+{# 
           <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
-                  <span class="details__summary">What you can do if the scan keeps failing</span>
+                  <span class="details__summary">What to do if the scan was stopped</span>
               </summary>
               <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
                   <div class="reading-width">
 
-                      <p>If the face scan does not work, you can send us a short video instead.</p>
-                      <p><a href="service-access-iproov-bail{{ params }}">Try with a video instead</a></p>
+                      <p>If you stopped the scan, or the scan did not work, we can use a short video to match your face to your photo I.D.</p>
+                      <p><a href="service-access-iproov-bail{{ params }}">Send us a short video instead</a></p>
 
                   </div>
               </div>
-          </details>
+          </details> #}
 
           {% endif %}
 
