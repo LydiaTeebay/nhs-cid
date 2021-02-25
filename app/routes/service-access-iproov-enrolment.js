@@ -21,8 +21,9 @@ module.exports = function (router) {
         var iproovTokenFailReason = req.param('iproovTokenFailReason')
         var iProovThirdAttempt = req.param('iProovThirdAttempt')
         var pyiSecondAttempt = req.param('pyiSecondAttempt')
+        var iproovFailReason = req.param('iproovFailReason')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-iproov-enrolment', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovTokenFailReason: iproovTokenFailReason, iproovEnrolFailReason: iproovEnrolFailReason }, function(err, html) {
+        res.render('service-access/v23/service-access-iproov-enrolment', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovTokenFailReason: iproovTokenFailReason, iproovEnrolFailReason: iproovEnrolFailReason, iproovFailReason: iproovFailReason }, function(err, html) {
             res.send(html)
         })
     })

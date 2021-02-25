@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Scan your face{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&uplift=" + uplift + "&iproovFailReason=" + iproovFailReason %}
 
 {% block content %}
 
@@ -39,7 +39,7 @@
 
 					<div class="selection-button-radio-inline">
 						<div class="multiple-choice" data-target="nhs-yes" style="margin-top: 16px;">
-							<input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-iproov-enrolment{{ params }}">
+							<input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-iproov-enrolment?serviceName=NHS%20app&service=app6&iproovFailReason=permissions">
 							<label for="radio-inline-1" class="block-label" style="position: static;">Scan my face</label>
 						</div>
 						<div class="multiple-choice" data-target="nhs-no" style="margin-top: 16px; margin-bottom: 0px;">

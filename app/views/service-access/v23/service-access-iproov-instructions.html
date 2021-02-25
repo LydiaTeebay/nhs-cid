@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Scan instructions{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&uplift=" + uplift + "&iproovFailReason=" + iproovFailReason %}
 
 {% block content %}
 
@@ -28,7 +28,7 @@
             <li>Select <em>start scan</em> and follow the instructions.</li>
           </ol>
 
-      {% if iproovFailReason === 'permissions' %}
+      {% if iproovFailReason == 'permissions' %}
         <div class="callout callout--error" style="background-color: transparent">
         {# <svg class="nhsuk-icon nhsuk-icon__warning" viewBox="0 0 512 512" fill="none" aria-hidden="true" style="fill: #d5281b;padding: 4px" width="10%" height="10%">
   <g>

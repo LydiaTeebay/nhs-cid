@@ -15,15 +15,16 @@ module.exports = function (router) {
         var genericButton = req.param('genericButton')
         var manual = req.param('manual')
         var enrol = req.param('enrol')
+        var iproovFailReason = req.param('iproovFailReason')
 
         // re-render the page along with the parameter
         //
         if (manual == 'true') {
-            res.render('service-access/v23/service-access-video-selfie', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
+            res.render('service-access/v23/service-access-video-selfie', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
                 res.send(html)
             })
         } else {
-            res.render('service-access/v23/service-access-iproov-start', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol }, function(err, html) {
+            res.render('service-access/v23/service-access-iproov-start', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
                 res.send(html)
             })
         }

@@ -15,8 +15,9 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
+        var iproovFailReason = req.param('iproovFailReason')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-nhs-pds-checking', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v23/service-access-nhs-pds-checking', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, manual: manual, iproovFailReason: iproovFailReason }, function(err, html) {
             res.send(html)
         })
     })

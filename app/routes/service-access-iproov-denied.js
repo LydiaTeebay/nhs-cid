@@ -20,8 +20,9 @@ module.exports = function (router) {
         var iproovFailReason = req.param('iproovFailReason')
         var iProovThirdAttempt = req.param('iProovThirdAttempt')
         var pyiSecondAttempt = req.param('pyiSecondAttempt')
+        var iproovFailReason = req.param('iproovFailReason')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-iproov-denied', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovFailReason: iproovFailReason, iProovThirdAttempt: iProovThirdAttempt, pyiSecondAttempt: pyiSecondAttempt }, function(err, html) {
+        res.render('service-access/v23/service-access-iproov-denied', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovFailReason: iproovFailReason, iProovThirdAttempt: iProovThirdAttempt, pyiSecondAttempt: pyiSecondAttempt, iproovFailReason: iproovFailReason }, function(err, html) {
             res.send(html)
         })
     })
