@@ -1,0 +1,86 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Steps{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+
+{% block content %}
+
+{%if loggedin === "true" %}
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endif %}
+
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+	{# Placed css for containter rather than just image #}
+
+		{# <li class="service-access__item__icons completed"> 
+			<img class="icon__resize" src="/images/Person_PNG_White.png" alt="person icon"></img>
+			<h3 class="service-access__item__title__icons ticked">Create an account</h3>
+			<div class="service-access__item__desc">	
+			</div>	
+		</li> #}
+
+		<li class="service-access__item__icons completed"> 
+    <div class="center-image">
+            <img class="icon__resize" src="/images/Tick_circle_PNG_White.png" alt="tick icon"></img>
+    </div>
+            <h4 class="service-access__item__title__icons white_text">Jackie Weaver</h4>
+            <div class="service-access__item__desc">    
+            </div>  
+        </li>
+
+		<li class="service-access__item__icons completed"> 
+    <div class="center-image">
+            <img class="icon__resize" src="/images/Camera_PNG_White.png" alt="camera icon"></img>
+    </div>
+            <h4 class="service-access__item__title__icons ticked">Send your photo I.D.</h4>
+            <div class="service-access__item__desc">    
+            </div>  
+        </li>
+
+		<li class="service-access__item__icons completed"> 
+    <div class="center-image">
+            <img class="icon__resize" src="/images/Person_PNG_White.png" alt="person icon"></img>
+    </div>
+            <h4 class="service-access__item__title__icons ticked">Scan your face</h4>
+            <div class="service-access__item__desc">    
+            </div>  
+        </li>
+
+		<li class="service-access__item__icons completed">	
+	 <div class="center-image">
+            <img class="icon__resize" src="/images/clipboard.png" alt="record icon"></img>
+	</div>			
+				<h4 class="service-access__item__title__icons ticked">Help us find your NHS record</h4>
+				<div class="service-access__item__desc">
+				</div>
+	</li>
+
+		{# <li class="service-access__item__icons completed">
+			<h3 class="service-access__item__title__icons ticked">Scan your face</h3>
+			<div class="service-access__item__desc">
+				</div>
+		</li>
+
+		<li class="service-access__item__icons completed">	
+				<h3 class="service-access__item__title__icons ticked">Scan your face</h3>
+				<div class="service-access__item__desc">
+				</div> #}
+				
+		{# <li class="service-access__item active">		
+				<span class="service-access__item__title__text__leftandright"><b>Step 4 of 4</b>15 mins</span>
+				<h3 class="service-access__item__title">Help us find your NHS record</h3>
+				<div class="service-access__item__desc">
+					<p>You will need to tell us some details so that we can connect to your existing health records.</p>
+				</div>
+				<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
+	</li> #}
+
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

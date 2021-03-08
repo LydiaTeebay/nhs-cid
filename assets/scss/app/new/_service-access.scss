@@ -39,6 +39,50 @@ $_step-width: $baseline-grid-unit * 8;
   }
 }
 
+
+.service-access__item__title {
+  vertical-align: top;
+  display: block;
+  .completed & {
+    color: $grey-2;
+  }
+
+.service-access__item__title {
+  .completed & {
+    display: none;
+
+  }
+}
+  
+  @include media(tablet) {
+    width: 100%;
+    display: inline-block;
+  }
+
+  &.ticked {
+    position: relative;
+    color: $grey-2;
+    &::before,
+    &::after {
+      content: "";
+      right: 0;
+      top: 0.15em;
+      position: absolute;
+      zoom: 1;
+    }
+    &::before {
+      background: transparent;
+      border: solid;
+      border-color: $grey-1;
+      border-width: 0 0 6px 6px;
+      height: 14px;
+      //top: .7em;
+      transform: rotate(-45deg);
+      width: 22px;
+    }
+  }
+}
+
 .service-access__item__step__text__leftandright {
   display: flex;
   justify-content: space-between;
@@ -48,6 +92,95 @@ $_step-width: $baseline-grid-unit * 8;
   display: flex;
   justify-content: space-between;
 }
+
+// .service-access__icons - trialling icon & colour scheme for completed progressions in service access steps//
+
+//   '@at-root' - this may be an errant bit of code but will keep it here just in case //
+
+
+.service-access__item__icons {
+  position: relative;
+  background-color: $blue-50;
+  border: 1px solid #d8dde0;
+  margin-bottom: 8px;
+  padding: $default-spacing-unit;
+  @include clearfix;
+
+  &.hide-number {
+    &:before {
+      content: none;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+
+.service-access__item__title__icons {
+  vertical-align: top;
+  display: block;
+  .completed & {
+    color: $grey-5;
+  .name & {
+    color: $grey-5;
+  }  
+}
+
+.service-access__item__title__icons {
+  .completed & {
+    display: none;
+  .name & {
+      display: none;  
+
+  }
+}
+  
+  @include media(tablet) {
+    width: 100%;
+    display: inline-block;
+  }
+
+  &.white_text {
+    position: relative;
+    color: #ffffff;
+    &::before,
+    &::after {
+      content: "";
+      right: 0;
+      top: 0.15em;
+      position: absolute;
+      zoom: 1;
+    }
+
+  &.ticked {
+    position: relative;
+    color: #ffffff;
+    &::before,
+    &::after {
+      content: "";
+      right: 0;
+      top: 0.15em;
+      position: absolute;
+      zoom: 1;
+    }
+    &::before {
+      background: transparent;
+      border: solid;
+      // border-color: $grey-2; temporarily taken this out 
+      border-color: $grey-5;
+      border-width: 0 0 3px 3px;
+      height: 12px;
+      //top: .7em;
+      transform: rotate(-45deg);
+      width: 32px;
+    }
+  }
+}
+
+
+
 
 // Flex Box tests//
 
@@ -72,51 +205,6 @@ $_step-width: $baseline-grid-unit * 8;
   }
 }
 
-
-.service-access__item__title {
-  vertical-align: top;
-  display: block;
-  .completed & {
-    color: $grey-2;
-  }
-
-.service-access__item__title {
-  .completed & {
-    display: none;
-
-  }
-}
-
- 
-  
-  @include media(tablet) {
-    width: 100%;
-    display: inline-block;
-  }
-
-  &.ticked {
-    position: relative;
-    color: $grey-2;
-    &::before,
-    &::after {
-      content: "";
-      right: 0;
-      top: 0.15em;
-      position: absolute;
-      zoom: 1;
-    }
-    &::before {
-      background: transparent;
-      border: solid;
-      border-color: $grey-2;
-      border-width: 0 0 6px 6px;
-      height: 14px;
-      //top: .7em;
-      transform: rotate(-45deg);
-      width: 22px;
-    }
-  }
-}
 
 .service-access__item__desc {
   display: inline-block;
@@ -148,3 +236,20 @@ $_step-width: $baseline-grid-unit * 8;
     margin-top: 3%;
   }
 }
+
+img.icon__resize {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  max-width:20%;
+  max-height:20%;
+}
+
+.center-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
