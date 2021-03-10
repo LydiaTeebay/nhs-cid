@@ -33,6 +33,71 @@
   align-items: center;
 }
 
+
+.service-access__item__title__icons {
+  vertical-align: top;
+  display: block;
+  .completed & {
+    color: $grey-5;
+  .name & {
+    color: $grey-5;
+  }  
+}
+
+.service-access__item__title__icons {
+  .completed & {
+    display: none;
+  .name & {
+      display: none;  
+
+  }
+ }
+}
+
+  
+  @include media(tablet) {
+    width: 100%;
+    display: inline-block;
+  }
+
+  // &.white_text {
+  //   position: relative;
+  //   color: #ffffff;
+  //   &::before,
+  //   &::after {
+  //     content: "";
+  //     right: 0;
+  //     top: 0.15em;
+  //     position: absolute;
+  //     zoom: 1;
+  //   }
+
+  &.ticked {
+    position: relative;
+    color: #ffffff;
+    &::before,
+    &::after {
+      content: "";
+      right: 0;
+      top: 0.15em;
+      position: absolute;
+      zoom: 1;
+    }
+    &::before {
+      background: transparent;
+      border: solid;
+      // border-color: $grey-2; temporarily taken this out 
+      border-color: $grey-5;
+      border-width: 0 0 3px 3px;
+      height: 12px;
+      //top: .7em;
+      transform: rotate(-45deg);
+      width: 32px;
+    }
+  }
+}
+
+
 // Flex Box tests//
 
 // .parent {
@@ -54,6 +119,23 @@
   }
 }
 
+img.icon__resize {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  max-width:20%;
+  max-height:20%;
+}
 
+.center-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-
+h3.headerchange {
+  text-align: center;
+  color:$grey-1;
+}
