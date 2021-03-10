@@ -1,0 +1,59 @@
+// .service-access - trialling icon & colour scheme for completed progressions in service access steps//
+
+.service-access__item__icons {
+  position: relative;
+  background-color: #005eb8;
+  border: 1px solid #d8dde0;
+  margin-bottom: 8px;
+  padding: $default-spacing-unit;
+  @include clearfix;
+
+  &.hide-number {
+    &:before {
+      content: none;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+.service-access__item__step__text__leftandright {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-access__item__title__text__leftandright {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Flex Box tests//
+
+// .parent {
+//   display: flex;
+//   height: 300px; /* Or whatever */
+// }
+
+.child {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.time {
+  text-align: right;
+  color: blue;
+  .completed & {
+    display: none;
+  }
+}
+
+
+
+
