@@ -1,3 +1,65 @@
+
+
+details {
+  clear: both;
+  display: block;
+
+  > summary {
+    @include core-font(20);
+    color: $link-colour;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: $default-spacing-unit*1.75;
+    margin-bottom: em(5);
+    position: relative;
+
+    &:hover {
+      color: $link-hover-colour;
+    }
+
+    &:focus {
+      outline: 3px solid $focus-colour;
+    }
+  }
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+
+// Append our own open / closed marker using a pseudo-element
+details > summary:before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  border-width: 7px 0 7px 12.124px;
+  border-left-color: $link-colour;
+}
+
+
+details[open] > summary:before {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  border-width: 12.124px 7px 0 7px;
+  border-top-color: $link-colour;
+}
+
+
+
 details.details--small {
     p, ul>li {
       @include core-font(20);
