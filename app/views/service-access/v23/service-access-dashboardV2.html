@@ -1,0 +1,84 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Steps{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin %}
+
+{% block content %}
+
+{%if loggedin === "true" %}
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endif %}
+
+
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+	
+
+		<div class="center-image">
+            <img class="icon__resize" src="/images/users_photo_id.png" alt="user image"></img>
+    </div>
+            <h3 class="headerchange">Jackie Weaver</h3>
+            <div class="service-access__item__desc">    
+            </div>   
+
+		<li class="service-access__item"> 
+    <div class="center-image">
+            <img class="icon__resize" src="/images/blue_barchart.png" alt="account icon"></img>
+    </div>
+            <h3 class="headerchange">Account details</h3>
+            <div class="service-access__item__desc">    
+            </div>  
+        </li>
+
+		<li class="service-access__item"> 
+    <div class="center-image">
+            <img class="icon__resize" src="/images/Help_Blue.png" alt="helpicon"></img>
+    </div>
+           <h3 class="headerchange">Help centre</h3>
+            <div class="service-access__item__desc">    
+            </div>  
+        </li>
+
+    <div class="nhsuk-card nhsuk-card--clickable">
+  <div class="nhsuk-card__content">
+    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+      <a class="nhsuk-card__link" href="#">Introduction to care and support</a>
+    </h2>
+    <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+  </div>
+</div>    
+
+        <details class="" role="group" style="margin-top: 0;">
+          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+            <span class="details__summary">How to find your NHS number</span>
+          </summary>
+          <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+            <div class="reading-width">
+              <p>Your NHS Number is a 10 digit number, like 485 777 3456.</p>
+              <p>You can find it on any document that the NHS has sent to you, such as:</p>
+              <ul>
+                <li>prescriptions</li>
+                <li>test results</li>
+                <li>hospital referral letters</li>
+                <li>appointment letters</li>
+                <li>your NHS medical card</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+		<div>
+    <button class="nhsuk-button-style" type="submit">
+  Delete my account
+</button>
+  </div>
+ 
+
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

@@ -139,3 +139,38 @@ h3.headerchange {
   text-align: center;
   color:$grey-1;
 }
+
+
+.nhsuk-button-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #B3BBC1; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  // text-align: center;
+  text-decoration: none;
+  // display: inline-block;
+  font-size: 16px;
+
+}
+
+.service-access__item_delete {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #d8dde0;
+  margin-bottom: 4px;
+  padding: $default-spacing-unit;
+  @include clearfix;
+
+  &.hide-number {
+    &:before {
+      content: none;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
