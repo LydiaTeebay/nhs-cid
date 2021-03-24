@@ -20,24 +20,47 @@
           </h1>
         </legend>
 
-        <details class="" role="group" style="margin-top: 0;">
-          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-            <span class="details__summary">How to find your NHS number</span>
-          </summary>
-          <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
-            <div class="reading-width">
-              <p>Your NHS Number is a 10 digit number, like 485 777 3456.</p>
-              <p>You can find it on any document that the NHS has sent to you, such as:</p>
-              <ul>
-                <li>prescriptions</li>
-                <li>test results</li>
-                <li>hospital referral letters</li>
-                <li>appointment letters</li>
-                <li>your NHS medical card</li>
-              </ul>
-            </div>
-          </div>
-        </details>
+		
+		<p>Your NHS number is a 10 digit number, like 485 7777 3456.<br>
+    You can find it:
+		<ul>
+		<li>on any letter the NHS has sent you</li>
+		<li>on a prescription</li>
+    <li>by logging in to a GP surgery online service</li>
+		</ul>
+		</p>
+
+
+
+
+		<form style="margin: 32px 0 16px;">
+			<div class="form-group">
+				<fieldset>
+
+					<legend>
+						<h2 class="h3">How do you want to do this?</h2>
+					</legend>
+
+					<div class="selection-button-radio-inline" style="margin-top: 16px;">
+						<div class="multiple-choice" data-target="nhs-1">
+							<input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-video-selfie-say-camera{{ params }}"><label for="radio-inline-1" class="block-label" style="position: static;">Say the numbers</label>
+						</div>
+						<div class="multiple-choice" data-target="nhs-2" style="margin-top: 16px; margin-bottom: 0px;">
+						<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-video-selfie-sign-camera{{ params }}"><label for="radio-inline-2" class="block-label" style="position: static;">Sign the numbers using British Sign Language</label>
+							</div>
+						<div class="multiple-choice" data-target="nhs-3" style="margin-top: 16px; margin-bottom: 0px;">
+ 							<input id="radio-inline-3" type="radio" name="radio-inline-group" value="service-access-video-selfie-write-camera{{ params }}"><label for="radio-inline-3" class="block-label" style="position: static;">Write the numbers down and show them</label>
+						</div>
+					</div>
+
+				</fieldset>
+			</div>
+
+			<div class="form-group">
+				<a class="button" href="#" id="continue">Continue</a>
+			</div>
+
+		</form>
 
         <div class="selection-button-radio-inline" style="margin-top: 32px;">
           <div class="multiple-choice" data-target="nhs-yes">
