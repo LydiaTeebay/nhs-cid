@@ -61,21 +61,21 @@
 					<div class="selection-button-radio" style="margin-top: 32px;">
 						<div class="multiple-choice" data-target="nhs-yes">
 							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-num{{ params }}">
-							<label for="radio-inline-1" class="block-label" style="position: static;">Yes - I know my NHS number</label>
+							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I know my NHS number</label>
 						</div>
 					</div>
 
 					<div aria-hidden="true" aria-expanded="false" class="panel panel-border-narrow js-hidden" id="qanda-2" style="margin-top: 0;">
-						<label class="form-label" for="qanda-2b">NHS number</label>
-						<span class="form-label__hint">Example: 485 777 3456</span>
+						<label class="form-label__hint" for="qanda-2b">Example: 485 777 3456</label> 
+						{# <span class="form-label__hint">Example: 485 777 3456</span>#}
 						<input class="form-control" type="text" id="qanda-2b" name="qanda-2b">
-					</div>
+					</div> 
 
 
 					<div class="selection-button-radio" style="margin-top: 0px;">
 						<div class="multiple-choice" data-target="nhs-no">
 							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-demographics-name{{ params }}">
-							<label for="radio-inline-2"class="block-label" style="position: static;">No - continue another way</label>
+							<label for="radio-inline-2"class="block-label" style="position: static;">No, continue another way</label>
 						</div>
 					</div>
 
