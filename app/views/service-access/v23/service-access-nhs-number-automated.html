@@ -57,10 +57,10 @@
 				</details> #}
 
 				<div class="form-group">
-
+                <form action="service-access-nhs-number-automated" method="POST">
 					<div class="selection-button-radio" style="margin-top: 32px;">
 						<div class="multiple-choice" data-target="nhs-yes">
-							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-automated{{ params }}">
+							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="radio-inline-group" value="yes">
 							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I know my NHS number</label>
 						</div>
 					</div>
@@ -74,7 +74,7 @@
 
 					<div class="selection-button-radio" style="margin-top: 0px;">
 						<div class="multiple-choice" data-target="nhs-no">
-							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-demographics-name{{ params }}">
+							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="no">
 							<label for="radio-inline-2"class="block-label" style="position: static;">No, continue another way</label>
 						</div>
 					</div>
@@ -107,8 +107,8 @@
 		</div>
 
 		<div class="form-group">
-			<a class="button" href="service-access-nhs-number-demographics-dob{{ params }}">Continue</a>
-		</div>
+      <button class="button" id="">Continue</button>
+    </div>
 	</form>
 
 </div>
