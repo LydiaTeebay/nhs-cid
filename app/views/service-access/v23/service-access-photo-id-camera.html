@@ -139,6 +139,9 @@
                         <li>you can see all words, numbers and codes</li>
                         <li>there is no reflection or shine from a bright light</li>
                         <li>the text is not blurred</li>
+                        {% if upload !== 'file' %}
+                        <li>you do not use a front-facing camera</li>
+                        {% endif %}
 
                     {% else %}
 
@@ -146,6 +149,9 @@
                         <li>you can see all words, numbers and codes </li>
                         <li>there are no bright spots caused by reflection from a bright light</li>
                         <li>the text is not blurred</li>
+                        {% if upload !== 'file' %}
+                        <li>you do not use a front-facing camera</li>
+                        {% endif %}
 
                     {% endif %}
 
