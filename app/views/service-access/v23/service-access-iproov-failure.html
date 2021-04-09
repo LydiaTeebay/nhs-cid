@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}The scan cannot match your face to your photo I.D.{% endblock %}
+{% block page_title %}We could not match your face to your photo I.D.{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&iproovFailReason=" + iproovFailReason + "&iProovThirdAttempt=" + iProovThirdAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt + "&uplift=" + uplift + "&iproovFailReason=" + iproovFailReason %}
@@ -20,13 +20,9 @@
 
             <h1>We are having problems with the scan</h1>
 
-          {% elif iproovFailReason === "user_cancelled" or iproovFailReason === "user_interrupted" %}
-
-            <h1>We could not match your face to your photo I.D.</h1>
-
           {% else %}
 
-            <h1>The scan cannot match your face to your photo I.D.</h1>
+            <h1>We could not match your face to your photo I.D.</h1>
 
           {% endif %}
 
@@ -161,6 +157,22 @@
                   </div>
               </div>
           </details> #}
+
+          {% else %}
+
+                    <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What you can do if the scan keeps failing</span>
+              </summary>
+              <div class="callout callout--info callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+                      <p>If the face scan does not work, you can send us a short video instead.</p>
+                      <p><a href="service-access-nhs{{ params }}">Try with a video instead</a></p>
+
+                  </div>
+              </div>
+          </details>
 
           {% endif %}
 
