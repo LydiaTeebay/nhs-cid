@@ -8,7 +8,7 @@ node -v
 
 <div class="first-item">
 
-	{% if hideBack !== 'true' %}
+{# 	{% if hideBack !== 'true' %}
 
 	{% if drop === "chooseid" %}
 	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
@@ -16,45 +16,33 @@ node -v
 	<p><a href="service-access-start{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> You need to prove who you are</a></p>
 	{% endif %}
 
-	{% endif %}
+	{% endif %} #}
 	<div class="reading-width">
 		<h1>We're really busy at the moment</h1>
 		
-
-</div>
-	<section class="loading-container" id="gp-connect-0" style="display:block; min-height: 16em;">
-
 		<div class="bar_container">
 			<div id="main_container">
 				<div id="pbar" class="progress-spinner" data-percent="0">
 					<img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
 					<div class="ppc-loading">
 						<div class="pcc-percents-wrapper">
-							<span id="spinner-status" style="font-size: 14px;">Last refreshed: 10:49
-							<span id="spinner-status" style="font-size: 14px;">Next refresh: 10:59
+						    <span id="spinner-status">Please wait</span><span aria-hidden="true">...</span>
 						</div>
 					</div>
 				</div>
+			<div style="text-align: center;padding-bottom: 30px;">
+			<span id="spinner-status" style="font-size: 14px;">Next update: 2 seconds</span>
+			</div>
 			</div>
 		</div>
-	</section>
 
 
 
 
-<div class="grid-row">
-   <div class="column--one-third">
-   <p style="font-size: 18px">If it is not urgent, you can try again later.
-   <br><br>
-   If it is urgent, stay on this page, we will refresh it and keep trying for you.</p>
-  </div>
-</div>
-
-<div class="grid-row">
-   <div class="column--one-third">
-   <p style="font-size: 18px">If you use GP surgery's online services, you can use them instead.</p>
-  </div>
-</div>
+   	<p>You can continue to wait, or try again later.</p>
+   	<p>If you want to wait, stay on this page and it will update automatically.</p>
+	<p>Alternatively, if you have your GP surgery's online service registration details, you can use these instead.</p>
+	<p><a href=#>--> Try using GP surgery's online details</a></p>
 
 <!--
 <section class="service-access-wrapper">
