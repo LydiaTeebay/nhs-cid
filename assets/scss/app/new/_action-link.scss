@@ -12,9 +12,11 @@
  * 6. Text decoration underline used to override default <a> styling.
  */
  .action-link {
+    margin-top: 32px;
     margin-bottom: 32px; }
     @media (min-width: 40.0625em) {
       .action-link {
+        margin-top: 40px;
         margin-bottom: 40px; } }
   
   .action-link__link {
