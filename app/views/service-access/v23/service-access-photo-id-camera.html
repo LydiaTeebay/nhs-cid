@@ -74,20 +74,20 @@
         {% if front === 'done' %}
 
             {% if upload === 'file' %}
-            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Upload a photo of the front of your I.D.</a></p>
+            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Upload a photo of the front of your I.D.</a></p>
             {% else %}
-            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Take a photo of the front of your I.D.</a></p>
+            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Take a photo of the front of your I.D.</a></p>
             {% endif %}
 
         {% else %}
 
             {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
-                <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose the photo I.D. you want to use</a></p>
+                <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Choose the photo I.D. you want to use</a></p>
             {% else %}
                 {% if idType === 'passport' or idType === 'UK driving licence' %}
-                    <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose how to send a photo of your I.D.</a></p>
+                    <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Choose a different way to send your photo</a></p>
                 {% else %}
-                    <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose how to send the photos of your I.D.</a></p>
+                    <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Choose a different way to send your photo</a></p>
                 {% endif %}
             {% endif %}
 
@@ -122,7 +122,7 @@
                 {% if idType === 'passport' %}
                 <p>We need a clear photo of the page in your passport that has your name and face on it.</p>
                 {% else %}
-                <p>We need a clear photo of your {{ idType }}</p>
+                <p>We need a clear photo of your {{ idType }}.</p>
                 {% endif %}
 
                 {% if upload !== 'file' %}
