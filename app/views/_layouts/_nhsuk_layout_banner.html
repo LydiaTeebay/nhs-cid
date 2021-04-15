@@ -25,9 +25,7 @@
   <link rel="stylesheet" href="/nhsuk.css">
   <link rel="stylesheet" href="/app.css">
   {% block extrastyles %}{% endblock %}
-
 </head>
-
 
 
 <body class="{{ bodyClass }}" {{ dataAtt|safe }}>
@@ -84,7 +82,9 @@
     </div>
   </div>
 
-  
+
+
+  {% include '_partials/_service-alert.html' %}
 
   {# slightly different design for emails #}
     {% if not hidehead === 'true' or not hidehead or hidehead === 'undefined' %}
@@ -107,12 +107,15 @@
   <main id="content" role="main" tab-index="-1">
 
     {% block header %}{% endblock %}
-    {% include '_partials/_service-alert.html' %}
-    
+
     <div class="page-section">
       {% block body %}{% endblock %}
+    
     </div>
+ 
+
   </main>
+
 
     {% if not headhead === "true" or not hidehead or hidehead === "undefined" %}
       {% if service === 'app6' or service === 'undefined' %}

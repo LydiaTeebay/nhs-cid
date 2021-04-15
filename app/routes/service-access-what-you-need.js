@@ -1,6 +1,7 @@
 module.exports = function (router) {
     router.get('/service-access/v23/service-access-what-you-need', function (req, res) {
         // pull in the url parameters
+        var throttleAlert = req.param('throttleAlert')
         var uplift = req.param('uplift')
         var vouched = req.param('vouch')
         var service = req.param('service')
@@ -21,7 +22,7 @@ module.exports = function (router) {
         var drop = req.param('drop')
         var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-what-you-need', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, drop: drop, manual: manual }, function(err, html) {
+        res.render('service-access/v23/service-access-what-you-need', { throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, drop: drop, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

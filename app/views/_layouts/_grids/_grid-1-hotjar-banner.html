@@ -1,0 +1,10 @@
+{% extends '_layouts/_grids/_grid-1-banner.html' %}
+
+<p> dhfjdskhjkf
+</p>
+
+{% block extrastyles %}
+{% if service === "app2" or service === "app3"  %}
+{% include "_partials/_includes/_hotjar-tracking-v9.html" %}
+{% endif %}
+{% endblock %}
