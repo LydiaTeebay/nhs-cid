@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Enter the details your GP surgery gave you{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID + "&pyiuser=" + pyiuser + "&manual=" + manual + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID + "&pyiuser=" + pyiuser + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle %}
 
 {% block content %}
 
@@ -84,7 +84,11 @@
 
       {% if pyiuser === "true" %}
 
-      <p>If you do not have these 3 details or your details do not work, you can <a href="/service-access/v22/service-access-offline-dunno{{ params }}">ask your GP surgery for help to get your registration details.</a></p>
+      <p>If you do not have these 3 details or your details do not work, you can <a href="/service-access/v23/service-access-offline-dunno{{ params }}">ask your GP surgery for help to get your registration details.</a></p>
+
+      {% elif throttle === "true" %}
+
+      <p>If you do not have these 3 details or your details do not work, you can <a href="/service-access/v23/service-access-offline-retrieve{{ params }}">ask your GP surgery for help to get your registration details</a>.</p>
 
       {% else %}
 
