@@ -36,6 +36,17 @@
     </div>
   {% endif %}
 
+
+  {% if serviceAlert == 'true' %}
+  <div class="service-alert" id="service-alert">
+      <div class="grid-column-full">
+        <div class="service-alert__content">
+        <p style="padding:24px;background-color: rgb(248, 255, 149);" > This is a service alert.</p>
+       </div>
+      </div>
+ </div>
+ {% endif %}
+
   {% if throttleAlert == 'true' %}
     <div class="global-alert" id="global-alert">
         <div class="grid-column-full">
@@ -50,5 +61,5 @@
         </div>
         </div>
       </div>
-
+   
   {% endif %}
