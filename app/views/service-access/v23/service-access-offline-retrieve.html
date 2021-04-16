@@ -2,7 +2,7 @@
 {% block page_title %}Contact your GP surgery for your registration details{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&manual=" + manual + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle %}
 
 {% block content %}
 
@@ -38,12 +38,15 @@
     {% endif %}
   </ol>
 
+  {% if throttle !== "true" %}
+
   <div style="width: 100%; height: 12px; border-bottom: 1px solid black; text-align: center; margin: 40px 0;">
     <span style="font-size: 18px; background-color: #f0f4f5; padding: 0 10px;">Or</span>
   </div>
 
   <p>You can <a href="service-access-what-you-need{{ params }}">send a photo of your I.D. to prove who you are.</a></p>
 
+  {% endif %}
 
 </div>
 
