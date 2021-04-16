@@ -76,6 +76,29 @@
           <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
           <p>Videos can take a while to verify, so you may want to try scanning your face again first.</p>
 
+          {% elif iproovFailReason === "user_cancelled2" %}
+
+          <p>This is because you stopped the scan.</p>
+          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
+          <p>A video can take a while to be verified, so you may want to try the face scan again.</p>
+          <p>If you did not mean to stop the scan, you can try again below.</p>
+
+          
+          {% elif iproovFailReason === "user_cancelled3" %}
+
+          <p>This is because you stopped the scan.</p>
+          <p>If you did not mean to stop the scan, you can try again below.</p>
+          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
+          <p>Verifying your video could take a while, so you may want to try scanning your face again.</p>
+    
+
+          {% elif iproovFailReason === "user_cancelled4" %}
+
+          <p>This is because you stopped the scan.</p>
+          <p>If you did not mean to stop the scan, you can try again below.</p>
+     
+    
+          
 
 
           {% elif iproovFailReason === "user_interrupted" %}
@@ -150,7 +173,12 @@
         <!-- removed user_cancelled from here  v -->
           {% if iproovFailReason === "user_interrupted" %}
           <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
+          
+          {% endif %}
 
+
+          {% if iproovFailReason === "user_interrupted4" %}
+          <p>fhgjkdfhjghfdjk</p>>
 {# 
           <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
