@@ -67,10 +67,16 @@
 
           <!-- no message -->
 
+          <!-- Content changes for user_cancelled -->
+
           {% elif iproovFailReason === "user_cancelled" %}
 
           <p>This is because you stopped the scan.</p>
           <p>If you did not mean to stop the scan, you can try again.</p>
+          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
+          <p>Videos can take a while to verify, so you may want to try scanning your face again first.</p>
+
+
 
           {% elif iproovFailReason === "user_interrupted" %}
           
@@ -140,7 +146,9 @@
 
                     {% endif %}
 
-          {% if iproovFailReason === "user_cancelled" or iproovFailReason === "user_interrupted" %}
+
+        <!-- removed user_cancelled from here  v -->
+          {% if iproovFailReason === "user_interrupted" %}
           <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
 
 {# 
@@ -159,7 +167,7 @@
           </details> #}
 
           {% else %}
-
+<!-- 
                     <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
                   <span class="details__summary">What you can do if the scan keeps failing</span>
@@ -172,7 +180,7 @@
 
                   </div>
               </div>
-          </details>
+          </details> -->
 
           {% endif %}
 
