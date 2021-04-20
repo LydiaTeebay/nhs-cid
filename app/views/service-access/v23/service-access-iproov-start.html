@@ -24,10 +24,23 @@
 
 		<p>We need to scan your face using your device’s camera. This is to match your face to your photo I.D.</p>
 		<p>You must allow us access to your camera for the scan.</p>
-		<p>During the scan the screen will flash and change colour.</p>
+		<p><b>During the scan the screen will flash and change colour.</b></p>
+		<details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What you can do if flashing lights or colours make you feel unwell</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
 
+                      <p>If flashing lights or colours make you feel unwell, you do not need to do the scan. You can <a href="service-access-video-selfie-triage{{ params }}&hideBack=true">send us a short video instead</a>.</p>
 
-		<form style="margin: 32px 0 16px;">
+                  </div>
+              </div>
+          </details>
+
+		{# <p>If flashing lights or colours make you feel unwell, you do not need to do the scan. You can <a href="service-access-video-selfie-triage{{ params }}&hideBack=true">record a video instead</a>.</p> #}
+
+		{# <form style="margin: 32px 0 16px;">
 			<div class="form-group">
 				<fieldset>
 
@@ -55,7 +68,11 @@
 				<a class="button" href="#" id="continue">Continue</a>
 			</div>
 
-		</form>
+		</form> #}
+
+		<a class="button" href="service-access-iproov-enrolment{{ params }}&serviceName=NHS%20app&service=app6" id="continue">Continue to scan</a>
+
+
 
 	</div>
 
