@@ -87,7 +87,7 @@
           {% elif iproovFailReason === "user_cancelled3" %}
 
           <p>This is because you stopped the scan.</p>
-          <p>If you did not mean to stop the scan, you can try again below.</p>
+          <p>If you did not mean to stop the scan, you can try again.</p>
           <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
           <p>Verifying your video could take a while, so you may want to try scanning your face again.</p>
     
@@ -95,7 +95,7 @@
           {% elif iproovFailReason === "user_cancelled4" %}
 
           <p>This is because you stopped the scan.</p>
-          <p>If you did not mean to stop the scan, you can try again below.</p>
+          <p>If you did not mean to stop the scan, you can try again.</p>
      
     
           
@@ -178,9 +178,23 @@
 
 
           {% if iproovFailReason === "user_cancelled4" %}
-          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
-          <p>Videos can take a while to verify, so you may want to try the face scan again first.</p>
+          <details class="" role="group" >
+            <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                <span class="details__summary">Try another way</span>
+            </summary>
+            <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                <div class="reading-width">
 
+                    <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
+                    <p>Videos can take a while to verify, so you may want to try the face scan again first.</p>
+                   
+
+                </div>
+            </div>
+        </details>
+
+
+     
 
 
 {# 
