@@ -1,10 +1,26 @@
 module.exports = function (router) {
 
+// // routing for know NHS number in the PYI journey
+// router.post('/service-access/v23/service-access-nhs-number-automated', function (req, res) {
+//     // Make a variable and give it the value from 'know-nhs-number'
+//     var nhsNumber = req.session.data['nhsNumber']
+//     // Check whether the variable matches a condition
+//     if (nhsNumber == "yes") {
+//       // Send user to next page
+//       res.redirect('/service-access/v23/service-access-nhs-number-demographics-dob')
+//     } else {
+//       // Send user to ineligible page
+//       res.redirect('/service-access/v23/service-access-nhs-number-demographics-name')
+//     }
+//   })
+
 
 
     router.get('/service-access/v23/service-access-nhs-number-automated', function (req, res) {
         // pull in the url parameters
+        // var nhsNumber = req.param('nhsNumber')
         var uplift = req.param('uplift')
+        var nhsNumber = req.body.nhsNumber
         var vouched = req.param('vouch')
         var service = req.param('service')
         var serviceName = req.param('serviceName')
@@ -19,10 +35,13 @@ module.exports = function (router) {
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
-        // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-nhs-number-automated', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, idType: idType, manual: manual }, function(err, html) {
-            res.send(html)
-        })
+        if (nhsNumber === 'yes' ) {
+            res.redirect('/service-access/v23/service-access-nhs-number-demographics-dob' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual  + '&side=' + side + '&uplift=' + uplift + '&nhsNumber' + nhsNumber)
+        }
+        
+        else {
+            res.redirect('/service-access/v23/service-access-nhs-number-demographics-name' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual + '&side=' + side + '&uplift=' + uplift + '&nhsNumber' + nhsNumber)
+        }
     })
 
 

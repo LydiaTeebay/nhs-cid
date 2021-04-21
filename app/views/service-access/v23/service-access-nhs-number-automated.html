@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Do you know your NHS number?{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&manual=" + manual + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&manual=" + manual + "&uplift=" + uplift + "&nhsNumber=" + nhsNumber %}
 
 {% block content %}
 
@@ -10,7 +10,6 @@
 
 	<p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back</i></a></p>
 
-	<form>
 
 			<fieldset>
 
@@ -36,11 +35,46 @@
 		<p>Ask your GP surgery for help if you can't find your NHS number.</p>
 
 
-				<div class="form-group">
+			  <!-- Copied from photo-id-type -->
+
+		<form action="service-access-nhs-number-automated{{ params }}" method="POST">
+			<div class="form-group">
+			  <fieldset class="">
+	  
+	  
+				<div>
+				  <label class="block-label selection-button-radio" for="radio-inline-1">
+					<input id="radio-inline-1" type="radio" name="nhsNumber" value="yes">
+					Yes
+				  </label>
+				</div>
+	  
+				<div>
+				  <label class="block-label selection-button-radio" for="radio-inline-2">
+					<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
+					No
+				  </label>
+				</div>
+	  
+		
+	  
+			  </fieldset>
+			</div>
+			</form>
+			
+	  
+	  <!-- Original code -->
+
+			  <!-- <div class="form-group">
+				<button class="button" id="">Continue</button>
+			  </div>
+	  
+				<div class="form-group" method="post">
+
 
 					<div class="selection-button-radio" style="margin-top: 32px;">
-						<div class="multiple-choice" data-target="nhs-yes">
-							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-automated{{ params }}">
+						<div class="multiple-choice" data-target="yes">
+							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="radio-inline-group" value="nhsNumber{{ params }}">
 							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I know my NHS number</label>
 						</div>
 					</div>
@@ -52,29 +86,12 @@
 
 
 					<div class="selection-button-radio" style="margin-top: 0px;">
-						<div class="multiple-choice" data-target="nhs-no">
-							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-nhs-number-demographics-name{{ params }}">
+						<div class="multiple-choice" data-target="no">
+							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="nhsNumber{{ params }}">
 							<label for="radio-inline-2"class="block-label" style="position: static;">No, continue another way</label>
 						</div>
 					</div>
-
-
-
-					<!--<div class="selection-button-radio-inline">-->
-						<!--<div class="multiple-choice" data-target="delivery-text">-->
-							<!--<input aria-controls="qanda-2" id="radio-inline-1" type="radio" name="radio-inline-group" value="yes">-->
-							<!--<label class="block-label" for="radio-inline-1">Yes</label>-->
-						<!--</div>-->
-					<!--</div>-->
-
-					<!--<div class="selection-button-radio-inline">-->
-						<!--<div class="multiple-choice" data-target="delivery-text">-->
-							<!--<input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">-->
-							<!--<label class="block-label" for="radio-inline-2">No</label>-->
-						<!--</div>-->
-					<!--</div>-->
-
-
+					<a class="button" href="">Continue</a>
 
 				</div>
 
@@ -87,11 +104,13 @@
 		</div>
 
 		<div class="form-group">
-			<a class="button" href="service-access-nhs-number-demographics-dob{{ params }}">Continue</a>
 		</div>
 	</form>
 
-</div>
+</div> -->
+
+
+
 
 {% endblock %}
 
