@@ -33,48 +33,17 @@
 			</ul>
 		</p>
 		<p>Ask your GP surgery for help if you can't find your NHS number.</p>
-
-
-			  <!-- Copied from photo-id-type -->
-
-		<form action="service-access-nhs-number-automated{{ params }}" method="POST">
-			<div class="form-group">
-			  <fieldset class="">
-	  
-	  
-				<div>
-				  <label class="block-label selection-button-radio" for="radio-inline-1">
-					<input id="radio-inline-1" type="radio" name="nhsNumber" value="yes">
-					Yes
-				  </label>
-				</div>
-	  
-				<div>
-				  <label class="block-label selection-button-radio" for="radio-inline-2">
-					<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
-					No
-				  </label>
-				</div>
-	  
-		
-	  
-			  </fieldset>
-			</div>
-			</form>
 			
 	  
 	  <!-- Original code -->
 
-			  <!-- <div class="form-group">
-				<button class="button" id="">Continue</button>
-			  </div>
-	  
+	  	<form action="service-access-nhs-number-automated{{ params }}" method="POST">
+			<fieldset class="">
 				<div class="form-group" method="post">
-
-
+                  
 					<div class="selection-button-radio" style="margin-top: 32px;">
 						<div class="multiple-choice" data-target="yes">
-							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="radio-inline-group" value="nhsNumber{{ params }}">
+							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="nhsNumber" value="yes">
 							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I know my NHS number</label>
 						</div>
 					</div>
@@ -87,27 +56,20 @@
 
 					<div class="selection-button-radio" style="margin-top: 0px;">
 						<div class="multiple-choice" data-target="no">
-							<input id="radio-inline-2" type="radio" name="radio-inline-group" value="nhsNumber{{ params }}">
+							<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
 							<label for="radio-inline-2"class="block-label" style="position: static;">No, continue another way</label>
 						</div>
 					</div>
-					<a class="button" href="">Continue</a>
-
-				</div>
-
-
-
+				
 
 				</fieldset>
 
+				<div class="form-group">
+					<button class="button" id="">Continue</button>
+				  </div>
+	    </form>
 
-		</div>
-
-		<div class="form-group">
-		</div>
-	</form>
-
-</div> -->
+</div>
 
 
 

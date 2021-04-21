@@ -38,7 +38,7 @@ module.exports = function (router) {
                 res.send(html)
             })
         }
-    })
+    }) 
 
     router.post('/service-access/v23/service-access-photo-id-type', function (req, res) {
         // pull in the url parameters
@@ -53,7 +53,7 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var challenge = req.param('challenge')
         var lsId = req.param('lsId')
-        var lsAccess = req.param('lsAccess')
+        var lsAccess = req.param('lsAccess') 
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
