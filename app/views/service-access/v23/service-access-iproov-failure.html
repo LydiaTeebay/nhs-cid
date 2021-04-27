@@ -67,59 +67,17 @@
 
           <!-- no message -->
 
-          <!-- Content changes for user_cancelled -->
 
           {% elif iproovFailReason === "user_cancelled" %}
 
           <p>This is because you stopped the scan.</p>
           <p>If you did not mean to stop the scan, you can try again.</p>
-          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
-          <p>Videos can take a while to verify, so you may want to try scanning your face again first.</p>
-
-          {% elif iproovFailReason === "user_cancelled2" %}
-
-          <p>This is because you stopped the scan.</p>
-          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
-          <p>A video can take a while to be verified, so you may want to try the face scan again.</p>
-          <p>If you did not mean to stop the scan, you can try again below.</p>
-
-          
-          {% elif iproovFailReason === "user_cancelled3" %}
-
-          <p>This is because you stopped the scan.</p>
-          <p>If you did not mean to stop the scan, you can try again.</p>
-          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
-          <p>Verifying your video could take a while, so you may want to try scanning your face again.</p>
-    
-
-          {% elif iproovFailReason === "user_cancelled4" %}
-
-          <p>This is because you stopped the scan.</p>
-          <p>If you did not mean to stop the scan, you can try again.</p>
-     
-    
-          
 
 
           {% elif iproovFailReason === "user_interrupted" %}
           
           <p>This could be due to a technical issue.</p>
           <p>If you did not mean to stop the scan, you can try again.</p>
-
-
-          {% elif iproovFailReason === "permissions" %}
-
-          <p>This is because you did not allow us access to your camera.</p>
-          <p>You must allow us access to your camera so we can match your face to your I.D. </p>
-          <p>Once you have granted access, come back and try the face scan again.</p>
-            <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
-                  <div class="reading-width">
-
-              <p>Visit the <a href="https://help.login.nhs.uk/provewhoyouare/withid#how-to-give-your-web-browser-permission-to-access-the-camera-and-microphone">NHS login help centre</a> for information on how to grant access.</p>
-
-                  </div>
-              </div>
-
 
           {% elif iproovFailReason === "user_abort" %}
 
@@ -154,6 +112,20 @@
           <p>We are having technical problems. Try again later.</p>
           <p class="small">Reference: CID4010</p>
 
+          {% elif iproovFailReason === "permissions" %}
+
+          <p>This is because you did not allow us access to your camera.</p>
+          <p>You must allow us access to your camera so we can match your face to your I.D. </p>
+          <p>Once you have granted access, come back and try the face scan again.</p>
+            <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+
+              <p>Visit the <a href="https://help.login.nhs.uk/provewhoyouare/withid#how-to-give-your-web-browser-permission-to-access-the-camera-and-microphone">NHS login help centre</a> for information on how to grant access.</p>
+
+                  </div>
+              </div>
+
+
           {% else %}
 
           <!-- no message -->
@@ -169,15 +141,12 @@
 
                     {% endif %}
 
+                                      {% endif %}
 
-        <!-- removed user_cancelled from here  v -->
-          {% if iproovFailReason === "user_interrupted" %}
-          <p>If you do not want to scan your face, or the scan did not work, you can <a href="service-access-iproov-instructions{{ params }}" >send us a video instead</a>.</p>
+
           
-          {% endif %}
+          {% if iproovFailReason !== "permissions" %}
 
-
-          {% if iproovFailReason === "user_cancelled4" %}
           <details class="" role="group" >
             <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
                 <span class="details__summary">Try another way</span>
@@ -193,42 +162,9 @@
             </div>
         </details>
 
+        {% else %}
+        
 
-     
-
-
-{# 
-          <details class="" role="group" >
-              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
-                  <span class="details__summary">What to do if the scan was stopped</span>
-              </summary>
-              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
-                  <div class="reading-width">
-
-                      <p>If you stopped the scan, or the scan did not work, we can use a short video to match your face to your photo I.D.</p>
-                      <p><a href="service-access-iproov-bail{{ params }}">Send us a short video instead</a></p>
-
-                  </div>
-              </div>
-          </details> #}
-
-          {% else %}
-<!-- 
-                    <details class="" role="group" >
-              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
-                  <span class="details__summary">What you can do if the scan keeps failing</span>
-              </summary>
-              <div class="callout callout--info callout--friendly" id="details-content-1" aria-hidden="false">
-                  <div class="reading-width">
-
-                      <p>If the face scan does not work, you can send us a short video instead.</p>
-                      <p><a href="service-access-nhs{{ params }}">Try with a video instead</a></p>
-
-                  </div>
-              </div>
-          </details> -->
-
-          {% endif %}
 
           {% endif %}
 
