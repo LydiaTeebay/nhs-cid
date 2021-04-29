@@ -117,8 +117,9 @@
           {% elif iproovFailReason === "client_config" %}
 
           <p>We are having technical problems.</p>
-          <p>Instead, you can try <a href="#">sending us a video</a>.</p>
-          <p class="small">Reference: CID4010</p>
+          <p>You can try sending us a video instead.</p>
+          <p class="small">Reference: <b>CID4010</b></p>
+
 
           {% elif iproovFailReason === "permissions" %}
 
@@ -142,10 +143,10 @@
 
           {% if iproovFailReason === "client_config" %}
 
-{#               <p></p>
+               <p></p>
               <div class="form-group">
                   <a href="service-access-iproov-instructions{{ params }}" class="button camera-button">Send us a video</a>
-              </div> #}
+              </div> 
 
           {% else %}
 
@@ -166,7 +167,7 @@
           {% elif iproovFailReason === "client_config" %}
           <!-- no route to manual -->
 
-          
+
 
           {% else %}
           <!-- route to manual -->
