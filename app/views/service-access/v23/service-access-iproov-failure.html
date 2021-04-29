@@ -28,7 +28,7 @@
 
           {% endif %}
 
-
+<!-- need to rework and align this bit to prototype (see Nikkis message) -->
           {% if iProovThirdAttempt === "true" %}
 
                 {% if pyiSecondAttempt === "true" %}
@@ -64,7 +64,11 @@
               <a href="service-access-start{{ params }}" class="button camera-button">Continue to video</a>
             </div>
 
+            <!-- remove try another way on this message -->
+
           {% else %}
+
+<!-- up to here --> 
 
           {% if iproovFailReason === "ambiguous_outcome" or iproovFailReason === "network_problem" or iproovFailReason === "user_timeout" or iproovFailReason === "client_api" or iproovFailReason === "client_camera" or iproovFailReason === "client_stream" or iproovFailReason === "client_error" or iproovFailReason === "server_abort" %}
 
@@ -88,7 +92,7 @@
 
           {% elif iproovFailReason === "lighting_flash_reflection_too_low" %}
 
-          <p>Make sure your phone's screen brightness is on full.</p>
+          <p>Make sure your device's screen brightness is on full.</p>
 
           {% elif iproovFailReason === "lighting_backlit" %}
 
@@ -161,6 +165,8 @@
 
           {% elif iproovFailReason === "client_config" %}
           <!-- no route to manual -->
+
+          
 
           {% else %}
           <!-- route to manual -->

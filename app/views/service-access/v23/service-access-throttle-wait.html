@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-hotjar.html' %}
-{% block page_title %}How to prove who you are{% endblock %}
+{% block page_title %}We are really busy at the moment{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&system=" + system + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&surgery=" + surgery + "&practiceID=" + practiceID + "&supported=" + supported + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle %}
 
@@ -18,36 +18,24 @@
 	{% endif %} #}
 	<div class="reading-width">
 			{# <img src="/images/spinner.gif" style="height:30px"> #}
-			<img src="/images/loader-spinner.svg" width="40px" height="40px" id="spinner" />
-
+	<!-- Throttle spinner: -->
+{# 			<img src="/images/loader-spinner.svg" width="40px" height="40px" id="spinner" /> #}
 
 		<h1>We are really busy at the moment</h1>
 
- 		<p>You may want to try again later.</p>
-		<p>If you want to wait, stay here and we will update the page in <b>0 seconds</b>.</b>
+	<!-- Normal throttle messaging -->
+ 		{# <p>You may want to try again later.</p>
+		<p>If you want to wait, stay here and we will update the page in <b>0 seconds</b>.</b> 
+		<p>Alternatively, if you have your GP surgery's online details, you can use these instead.</p> #}
 
-		
-
-		{# <p>We will refresh this page in <b>2 seconds</b>, but if it is not urgent you may want to try again later.</p> #}
-		
-{# 		<div class="bar_container">
-			<div id="main_container">
-				<div id="pbar" class="progress-spinner" data-percent="0">
-					<img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
-					<div class="ppc-loading">
-						<div class="pcc-percents-wrapper">
-						    <span id="spinner-status">Please wait</span><span aria-hidden="true">...</span>
-						</div>
-					</div>
-				</div>
-			<div style="text-align: center;padding-bottom: 30px;">
-			<span id="spinner-status" style="font-size: 14px;">Next update: 2 seconds</span>
-			</div>
-			</div>
-		</div> #}
+	<!-- Throttle set at 0 messaging -->
+{# 		<p>You will need to come back later.</p>
+		<p>If you have your GP surgery's online details, you can use these instead.</p>
+ #}
+		<p>You should try again later.</p>
+		<p>If you have your GP surgery's online details, you can use these instead.</p>
 
 
-	<p>Alternatively, if you have your GP surgery's online details, you can use these instead.</p>
 
 	<div class="action-link">
         <a class="action-link__link" href="/patient-online/v23/patient-online-details-2{{ params }}&drop=need&throttle=true">
