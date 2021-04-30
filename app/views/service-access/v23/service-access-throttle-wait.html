@@ -16,7 +16,7 @@
 
 	<!-- Normal throttle messaging -->
  		<p>You may want to try again later.</p>
-		<p>If you want to wait, stay here and we will update the page in <b>10 seconds</b>.</b> 
+		<p>If you want to wait, stay here and we will update the page in <b><span id="countdowntimer">10</span> seconds</b>.</p> 
 		<p>Alternatively, if you have your GP surgery's online details, you can use these instead.</p>
 
 	<!-- Throttle set at 0 messaging -->
@@ -85,6 +85,17 @@ If it's not urgent: </h2>
 
 </div>
 </div>
---> 
+-->
+
+
+<script type="text/javascript">
+    var timeleft = 10;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+</script>
 
 {% endblock %}
