@@ -21,9 +21,9 @@ module.exports = function (router) {
         var desk = req.param('desk')
         var manual = req.param('manual')
         var throttleAlert = req.param('throttleAlert')
-        var scaling = req.param('scaling')
+        var throttle = req.param('throttle')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-identity-start', { scaling: scaling, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, manual: manual }, function(err, html) {
+        res.render('service-access/v23/service-access-identity-start', { throttle: throttle, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

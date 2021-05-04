@@ -1,16 +1,4 @@
 module.exports = function (router) {
-  router.get('/patient-online/patient-online-linkage-key', function (req, res) {
-      var vouched = req.param('vouch')
-      var service = req.param('service')
-      var serviceName = req.param('serviceName')
-      var mobileNum = req.param('mobileNum')
-      var emailAddress = req.param('emailAddress')
-      var hidehead = req.param('hidehead')
-      var poluser = req.param('poluser')
-    res.render('patient-online/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser }, function(err, html) {
-      res.send(html)
-    })
-  })
 
   router.get('/patient-online/v23/patient-online-linkage-key', function (req, res) {
     var throttle = req.param('throttle')
@@ -36,6 +24,19 @@ module.exports = function (router) {
     res.render('patient-online/v23/patient-online-linkage-key', { throttle: throttle, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, system: system, practiceID: practiceID, loggedin: loggedin, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, pyiuser : pyiuser, manual: manual }, function(err, html) {
         res.send(html)
     })
+})
+
+router.get('/patient-online/patient-online-linkage-key', function (req, res) {
+    var vouched = req.param('vouch')
+    var service = req.param('service')
+    var serviceName = req.param('serviceName')
+    var mobileNum = req.param('mobileNum')
+    var emailAddress = req.param('emailAddress')
+    var hidehead = req.param('hidehead')
+    var poluser = req.param('poluser')
+  res.render('patient-online/patient-online-linkage-key', { vouch: vouched, service: service, serviceName: serviceName, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, poluser: poluser }, function(err, html) {
+    res.send(html)
+  })
 })
 
   router.get('/patient-online/v22/patient-online-linkage-key', function (req, res) {

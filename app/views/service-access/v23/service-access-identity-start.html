@@ -1,13 +1,13 @@
 {% extends '_layouts/_grids/_grid-1-hotjar.html' %}
 {% block page_title %}Please wait{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&supported=" + supported + "&manual=" + manual + "&uplift=" + uplift + "&scaling=" + scaling %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&supported=" + supported + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle %}
 
 {% block extrastyles %}
 
 {% if supported === 'false' %}
 <meta http-equiv="refresh" content="1.5;url=service-access-switch-to-mobile{{ params }}">
-{% elif scaling === 'true' %}
+{% elif throttle === 'true' %}
 <meta http-equiv="refresh" content="1.5;url=service-access-what-you-need{{ params }}&throttleAlert=true">
 {% else %}
 <meta http-equiv="refresh" content="1.5;url=service-access-what-you-need{{ params }}">

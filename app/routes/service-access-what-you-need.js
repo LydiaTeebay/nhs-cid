@@ -23,9 +23,9 @@ module.exports = function (router) {
         var desk = req.param('desk')
         var drop = req.param('drop')
         var manual = req.param('manual')
-        var scaling = req.param('scaling')
+        var throttle = req.param('throttle')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-what-you-need', { scaling: scaling, serviceAlert: serviceAlert, showWarning: showWarning, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, drop: drop, manual: manual }, function(err, html) {
+        res.render('service-access/v23/service-access-what-you-need', { throttle: throttle, serviceAlert: serviceAlert, showWarning: showWarning, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, drop: drop, manual: manual }, function(err, html) {
             res.send(html)
         })
     })
