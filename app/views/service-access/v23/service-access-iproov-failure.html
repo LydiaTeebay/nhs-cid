@@ -22,6 +22,10 @@
 
             <h1>We are having problems with the scan</h1>
 
+          {% elif pyiSecondAttempt === "true" %}
+
+            <h1>The scan cannot match your face to your photo I.D.</h1>
+
           {% else %}
 
             <h1>We could not match your face to your photo I.D.</h1>
@@ -38,7 +42,7 @@
                     <p>We will tell you what to do on the next page.</p>
 
                       <div class="form-group">
-                          <a href="service-access-video-selfie-camera{{ params }}" class="button camera-button">Continue to video</a>
+                          <a href="service-access-video-selfie-triage{{ params }}" class="button camera-button">Continue to video</a>
                       </div>
 
                 {% else %}
@@ -54,6 +58,8 @@
 
                 {% endif %}
 
+<!-- this "two_faces" error doesn't actually occur at this point in the journey, need to move it to happen after you upload a photo ID. Also is not LIVE. -->
+
           {% elif iproovFailReason === "two_faces" %}
           
             <p>You will need to record a video of your face instead.</p>
@@ -63,8 +69,6 @@
             <div class="form-group">
               <a href="service-access-start{{ params }}" class="button camera-button">Continue to video</a>
             </div>
-
-            <!-- remove try another way on this message -->
 
           {% else %}
 
@@ -167,6 +171,8 @@
           {% elif iproovFailReason === "client_config" %}
           <!-- no route to manual -->
 
+          {% elif iproovFailReason === "two_faces" %}
+          <!-- no route to manual -->
 
 
           {% else %}
