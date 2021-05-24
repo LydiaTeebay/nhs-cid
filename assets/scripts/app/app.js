@@ -439,6 +439,20 @@ $("#image-s3error").on("click", function(e) {
     document.body.scrollTop = document.documentElement.scrollTop = 0
 })
 
+// Uploading error
+
+$("#upload-error").on("click", function(e) {
+    e.preventDefault()
+    $("#spinner-status").addClass("done")
+    $("#spinner").addClass("done")
+    document.getElementById("spinner-status").innerHTML = "Done"
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+        document.getElementById('scan-id-6a').style.display = 'block'
+    }, 1000)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+})
+
 
 // Paycasso - blurred V2 screen 1
 
