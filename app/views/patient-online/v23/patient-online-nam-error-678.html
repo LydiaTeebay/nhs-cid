@@ -9,32 +9,33 @@
 
     <p><a href="patient-online-about-you-dob{{ params }}" class="link-back"><em style="font-style: normal">Back to: </em>Enter your date of birth</a></p>
 
-    <h1>We need to see your photo I.D.</h1>
+    <h1>We need to see your photo ID</h1>
 
     <p>You need a smartphone or a tablet, and 1 of:</p>
 
     <ul>
         <li>passport</li>
         <li>UK driving licence (full or provisional)</li>
+        <li>UK residence card or biometric residence permit (BRP)</li>
         <li>European driving licence (full)</li>
         <li>European national identity card</li>
     </ul>
 
-    <a class="button" href="/service-access/v21/service-access-start{{ params }}">Use photo I.D. to prove who you are</a>
+    <a class="button" href="/service-access/v23/service-access-start{{ params }}">Use photo ID to prove who you are</a>
 
     <details class="" role="group">
         <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
             <span class="details__summary">I cannot do this</span>
         </summary>
-        <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="callout callout--friendly" id="details-content-0" aria-hidden="false">
 
             {% if serviceName !== '' %}
 
-            <p>You cannot access <b>'{{ serviceName }}'</b> without photo I.D. We are working on other ways you can prove who you are.</p>
+            <p>You cannot access <b>'{{ serviceName }}'</b> without photo ID. We are working on other ways you can prove who you are.</p>
 
             {% else %}
 
-            <p>You cannot access this service without photo I.D. We are working on other ways you can prove who you are.</p>
+            <p>You cannot access this service without photo ID. We are working on other ways you can prove who you are.</p>
 
             {% endif %}
 
@@ -45,7 +46,7 @@
         </div>
     </details>
 
-    <p class="small">Reference: CID7009</p>
+    <p class="small">Reference: <b>CID7009</b></p>
 
 </div>
 

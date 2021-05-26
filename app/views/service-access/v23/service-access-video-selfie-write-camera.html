@@ -275,26 +275,37 @@
 
   </section>
 
-  <section  class="" id="scan-id-8" style="display:none">
+  {# section to show technical uploading error #}
+  <section  class="" id="scan-id-5
+  " style="display:none">
 
     <h1 style="padding-bottom: 0;">Something went wrong</h1>
 
-    <p>We're having technical problems.</p>
+    <p>There was a technical problem which means we cannot validate your video.</p>
 
     <div class="form-group">
-      <a class="button" href="service-access-video-selfie-camera{{ params }}" id="">Try again</a>
+            <a class="button" href="" id="submit-photoId-back-button">Send video again</a>
+            <!-- this try again button allows user to reattempt uploading that image -->
     </div>
 
-    <div class="callout callout--info" style="margin-top: 28px;">
-      <p>If you keep getting this message, please try again later.</p>
-    </div>
+ <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What to do if you keep getting this message</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+                              <p>There might be a problem with your internet connection.</p>
+            <p>Try using a different internet connection if the one you are using doesn’t work.</p>
 
-    <p class="small" style="margin-top: 28px;">Reference: CID4012</p>
+              </div>
+        </details>
+
+    <p class="small">Reference: <b>CID4012</b></p>
 
   </section>
 
   {# section to show uploading error #}
-  <section class="preview-container" id="scan-id-5" style="display:none">
+  <section class="" id="scan-id-9" style="display:none">
 
     <h1 style="padding-bottom: 0;">Something went wrong</h1>
 
@@ -303,12 +314,28 @@
     </div>
 
     <div class="form-group">
-      <a class="button" href="" id="submit-photoId-back-button">Try again</a>
+            <a class="button" href="" id="submit-photoId-back-button">Send video again</a>
+            <!-- this try again button allows user to reattempt uploading that image -->
     </div>
 
-    <p class="small" style="margin-top: 28px;">Reference: CID4011</p>
+        <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What to do if you keep getting this message</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+                              <p>There might be a problem with your internet connection.</p>
+            <p>Try using a different internet connection if the one you are using doesn’t work.</p>
+
+              </div>
+        </details>
+        
+    <p class="small">Reference: <b>CID4011</b></p>
+
 
   </section>
+
+
 
   {% if formerror === 'invalid' %}
   <button id="confirmButton" style="visibility:hidden">Continue</button>
