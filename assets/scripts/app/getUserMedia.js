@@ -28,6 +28,7 @@ var downloadButton = document.querySelector('button#download');
 var submitButton = document.querySelector('button#submitvideo');
 var retakeButton = document.querySelector('a#retakevideo');
 recordButton.onclick = startStop;
+recordButton.onclick = toggleRecording;
 playButton.onclick = play;
 downloadButton.onclick = download;
 submitButton.onclick = showUploader;
@@ -92,12 +93,23 @@ function toggleRecording() {
         setTimeout(function(){
             startRecording();
         }, 500)
+        interval = window.setInterval(stopWatch, 1000);
+        document.getElementById("record");
+        status = "started";
+        dot.style.visibility="visible";
+
+
     } else {
         stopRecording();
         recordButton.textContent = 'Start recording';
         playButton.disabled = false;
         downloadButton.disabled = false;
         playSound();
+        window.clearInterval(interval);
+        document.getElementById("record");
+        status = "stopped";
+        dot.style.visibility="visible";
+
     }
 }
 
@@ -126,6 +138,7 @@ function startRecording() {
     }
     console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
     recordButton.textContent = 'Stop recording';
+    instructions.textContent = 'Say 7 3 0 8 then stop recording';
     recordButton.className += " button--recording";
     playButton.disabled = true;
     downloadButton.disabled = true;
@@ -133,6 +146,8 @@ function startRecording() {
     mediaRecorder.ondataavailable = handleDataAvailable;
     mediaRecorder.start(10); // collect 10ms of data
     console.log('MediaRecorder started', mediaRecorder);
+  
+
 }
 
 
@@ -144,6 +159,8 @@ function stopRecording() {
     showPrep();
     console.log('Recorded Blobs: ', recordedBlobs);
     recordedVideo.controls = false;
+    dot.style.visibility="visible"
+
 }
 
 function playSound() {
@@ -303,23 +320,20 @@ const dot = document.getElementById ("dot")
 
         //Start the stopwatch (by calling the setInterval() function)
         interval = window.setInterval(stopWatch, 1000);
-        document.getElementById("startStop").innerHTML = "Stop";
+        document.getElementById("record");
         status = "started";
         toggleRecording()
 
-        dot.style.visibility="hidden"
 
 
     }
     else{
 
         window.clearInterval(interval);
-        document.getElementById("startStop").innerHTML = "Start";
+        document.getElementById("record");
         status = "stopped";
         toggleRecording()
         
-        dot.style.visibility="visible"
-
     }
 
 }
@@ -332,6 +346,6 @@ function reset(){
     minutes = 0;
     hours = 0;
     document.getElementById("display").innerHTML = "00:00:00";
-    document.getElementById("startStop").innerHTML = "Start";
+    document.getElementById("record").innerHTML = "Start";
 
 }

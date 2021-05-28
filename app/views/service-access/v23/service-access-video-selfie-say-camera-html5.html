@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Record a short video{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&uplift=" + uplift + "&manual=" + manual %}
 
 
 {% block extrascripts %}
@@ -43,7 +43,7 @@
 
     <section id="camera-container" style="display:none">
     <div class="camera-instructions-2">
-    <div class="camera-instructions-text-2" id="instruction-1">Make sure your face is visible and within the oval.</div>
+    <div class="camera-instructions-text-2" id="instructions">Make sure your face is visible and within the oval.</div>
         </div>
 
 {#     <div class="callout callout--error camera-file-format" style="display:block; background-color:#fff0">
@@ -77,7 +77,7 @@
             </div>
 
             <div class="column">
-             <div class="timecode" id="display"> <span class="dot" id="dot"></span> 00:00:00 </div>
+             <div class="timecode" id="display"> <span class="dot" style="visibility: hidden;"  id="dot"></span> 00:00:00 </div>
             </div>
   
          </div>
