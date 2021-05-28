@@ -2,12 +2,12 @@
 {% block page_title %}Access {{ serviceName }} - Record a short video{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&uplift=" + uplift %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&uplift=" + uplift + "&manual=" + manual %}
 
 
 {% block extrascripts %}
-<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-<script src="/getUserMedia.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js">console.log()</script>
+<script src="/getUserMedia.js">console.log()</script>
 {% endblock %}
 
 {% block header %}
@@ -16,7 +16,10 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="first-item">
+  <p><a class="link-back" href="service-access-video-selfie-say-html5{{ params }}">Back</a></p>
+
 
     <section class="loading-container" id="scan-id-0" style="display:block">
 
@@ -37,7 +40,11 @@
 
     </section>
 
+
     <section id="camera-container" style="display:none">
+    <div class="camera-instructions-2">
+    <div class="camera-instructions-text-2" id="instructions">Make sure your face is visible and within the oval.</div>
+        </div>
 
 {#     <div class="callout callout--error camera-file-format" style="display:block; background-color:#fff0">
     <h2 class="h3">There is a problem</h2>
@@ -47,25 +54,54 @@
      <p>Your video is too long. Click <em>start recording</em> to record your video again. Click <em>stop recording</em> when you have finished telling us the 4 numbers.</p>
 
     </div> #}
+    
 
         <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
-            <div class="camera-preview-feed">
+               <div class="camera-preview-feed">
                 <video id="gum" muted autoplay></video>
             </div>
         </div>
 
-        <div class="camera-instructions">
-            <div class="camera-instructions-text">Make sure your face is in the oval, then tell us these 4 numbers whilst recording your video:</div>
-<div class="camera-instructions-numbers">{{ pinCode }}</div>
-        </div>
+   <div class="camera-instructions">
 
-        <div class="camera-record">
+            {# <div class="camera-instructions-text">Make sure your face is visible and within the oval.</div> #}
+        <div class="camera-record-2">
+        <div class="row">
+
+            <div class="column">
+            </div>
+
+            <div class="column">
+                            <button id="record" class="button" disabled>Start recording</button>
+            </div>
+
+            <div class="column">
+             <div class="timecode" id="display"> <span class="dot" style="visibility: hidden;"  id="dot"></span> 00:00:00 </div>
+            </div>
+  
+         </div>
+        </div>
+    </div>
+    
+    
+  
+  {# YouTube video timer code #}
+    {# <div class="container">
+        <div class="timestamp-button">
+            <button id="startStop" onclick="startStop()">Start</button> <button id="reset" onclick="reset()">Reset</button>
+        </div>
+    </div> #}
+
+      
+{# <div class="camera-instructions-numbers">{{ pinCode }}</div> #}
+    
+
+        {# <div class="camera-record">
             <button id="record" class="button" disabled>Start recording</button>
-        </div>
+        </div> #}
 
-        <p><a class="" href="service-access-video-selfie-say-html5{{ params }}">Cancel</a></p>
-
+      
         <br>
               <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
@@ -152,5 +188,8 @@
         document.getElementById('camera-container').style.display = 'block'
     }, 2500)
 </script>
+
+
+
 
 {% endblock %}

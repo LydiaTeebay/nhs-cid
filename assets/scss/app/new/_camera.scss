@@ -106,6 +106,7 @@ video#recorded {
 .camera-instructions-text {
   display: table-cell;
   vertical-align: top;
+  text-align: center;
 }
 
 .camera-instructions-numbers {
@@ -119,9 +120,66 @@ video#recorded {
   
 }
 
+.camera-instructions-2 {
+  display: table;
+  color: white;
+  background-color: #222222;
+  padding: 35px;
+  margin: 0;
+  width: 100%;
+}
+
+.camera-instructions-text-2 {
+  display: table-cell;
+  vertical-align: top;
+  text-align: center;
+  font-size: 20px;
+}
+
+
 .camera-record {
   margin: 0 auto;
 }
+
+.camera-record-2 {
+  margin: 0 auto;
+  display: absolute;
+  justify-content: center;
+  align-items: center;
+}
+
+.timecode {
+  margin: 0 auto;
+  justify-content: right;
+  align-items: right;
+  text-align:right;
+  padding: 0px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+  display: inline-block;
+  justify-content: right;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  margin: 0px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 
 button#record,
 button#play,

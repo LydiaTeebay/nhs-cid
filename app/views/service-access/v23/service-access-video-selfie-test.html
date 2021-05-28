@@ -1,7 +1,7 @@
 {% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Checking your face and your I.D.{% endblock %}
-{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&idType=" + idType + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&iproovFailReason=" + iproovFailReason + "&iProovSecondAttempt=" + iProovSecondAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt + "&uplift=" + uplift %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&idType=" + idType + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&iproovFailReason=" + iproovFailReason + "&iProovSecondAttempt=" + iProovSecondAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt + "&uplift=" + uplift + "&manual=" + manual %}
 
 
 {% block extrastyles %}
