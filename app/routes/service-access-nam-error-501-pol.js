@@ -11,7 +11,8 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var reason = req.param('reason')
         var result = req.param('result')
-        res.render('service-access/v23/service-access-nam-error-501-pol', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
+        var manual = req.param('manual')
+        res.render('service-access/v23/service-access-nam-error-501-pol', { manual: manual, uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })

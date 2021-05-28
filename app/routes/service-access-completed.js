@@ -18,8 +18,9 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var emailLink = req.param('emailLink')
         var complete = req.param('complete')
+        var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-completed', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, emailLink: emailLink, complete: complete }, function(err, html) {
+        res.render('service-access/v23/service-access-completed', { manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, emailLink: emailLink, complete: complete }, function(err, html) {
             res.send(html)
         })
     })

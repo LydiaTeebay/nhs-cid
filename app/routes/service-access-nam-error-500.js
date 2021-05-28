@@ -11,6 +11,7 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var reason = req.param('reason')
         var result = req.param('result')
+        var manual = req.param('manual')
         res.render('service-access/v23/service-access-nam-error-500', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })

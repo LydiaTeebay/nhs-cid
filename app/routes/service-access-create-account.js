@@ -14,7 +14,8 @@ module.exports = function (router) {
     var service = req.param('service')
     var serviceName = req.param('serviceName')
     var hidehead = req.param('hidehead')
-    res.render('service-access/v23/service-access-create-account', { uplift: uplift, service: service, serviceName: serviceName, hidehead: hidehead }, function(err, html) {
+    var manual = req.param('manual')
+    res.render('service-access/v23/service-access-create-account', { manual: manual, uplift: uplift, service: service, serviceName: serviceName, hidehead: hidehead }, function(err, html) {
         res.send(html)
     })
 })

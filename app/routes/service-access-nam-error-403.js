@@ -12,7 +12,8 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var reason = req.param('reason')
         var result = req.param('result')
-        res.render('service-access/v23/service-access-nam-error-403', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, service: service, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
+        var manual = req.param('manual')
+        res.render('service-access/v23/service-access-nam-error-403', { manual: manual, uplift: uplift, serviceName: serviceName, hidehead: hidehead, service: service, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })

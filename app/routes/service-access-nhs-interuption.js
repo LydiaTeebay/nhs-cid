@@ -17,7 +17,7 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v22/service-access-nhs-interuption', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, idType: idType }, function(err, html) {
+        res.render('service-access/v22/service-access-nhs-interuption', { manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, idType: idType }, function(err, html) {
             res.send(html)
         })
     })
