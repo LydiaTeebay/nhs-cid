@@ -83,6 +83,7 @@ function handleDataAvailable(event) {
     }
 }
 
+
 function handleStop(event) {
     console.log('Recorder stopped: ', event);
 }
