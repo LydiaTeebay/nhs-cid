@@ -18,15 +18,17 @@ mediaSource.addEventListener('sourceopen', handleSourceOpen, false);
 var mediaRecorder;
 var recordedBlobs;
 var sourceBuffer;
-
 var gumVideo = document.querySelector('video#gum');
 var recordedVideo = document.querySelector('video#recorded');
-
+var instructions = document.querySelector('div#instructions');
+var instructionsRecordingStarted = document.querySelector('div#instructions-recording-started');
+const dot = document.getElementById ("dot");
 var recordButton = document.querySelector('button#record');
 var playButton = document.querySelector('button#play');
 var downloadButton = document.querySelector('button#download');
 var submitButton = document.querySelector('button#submitvideo');
 var retakeButton = document.querySelector('a#retakevideo');
+// var signInstructions = document.querySelector('div#signinstructions');
 recordButton.onclick = startStop;
 recordButton.onclick = toggleRecording;
 playButton.onclick = play;
@@ -109,7 +111,7 @@ function toggleRecording() {
         window.clearInterval(interval);
         document.getElementById("record");
         status = "stopped";
-        dot.style.visibility="visible";
+        dot.style.visibility="hidden";
 
     }
 }
@@ -139,7 +141,8 @@ function startRecording() {
     }
     console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
     recordButton.textContent = 'Stop recording';
-    instructions.textContent = 'Say 7 3 0 8 then stop recording';
+    instructions.style.display = "none";
+    instructionsRecordingStarted.style.display = "table-cell";
     recordButton.className += " button--recording";
     playButton.disabled = true;
     downloadButton.disabled = true;
@@ -160,7 +163,7 @@ function stopRecording() {
     showPrep();
     console.log('Recorded Blobs: ', recordedBlobs);
     recordedVideo.controls = false;
-    dot.style.visibility="visible"
+    dot.style.visibility="visible";
 
 }
 
@@ -307,8 +310,7 @@ function stopWatch(){
     }
 
     //Display updated time values to user
-    document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
-
+    document.getElementById("time").textContent = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 }
 
 

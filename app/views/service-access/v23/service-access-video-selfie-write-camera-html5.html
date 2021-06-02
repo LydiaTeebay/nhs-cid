@@ -17,6 +17,8 @@
 
 {% block content %}
 <div class="first-item">
+  <p><a class="link-back" href="service-access-video-selfie-write-html5{{ params }}">Back</a></p>
+
 
     <section class="loading-container" id="scan-id-0" style="display:block">
 
@@ -37,7 +39,7 @@
 
     </section>
 
-    <section id="camera-container" style="display:none">
+
 
 {#     <div class="callout callout--error camera-file-format" style="display:block; background-color:#fff0">
     <h2 class="h3">There is a problem</h2>
@@ -48,23 +50,47 @@
 
     </div> #}
 
+
+    <section id="camera-container" style="display:none">
+         <div class="camera-instructions-2">
+        <div class="camera-instructions-text-2" id="instructions">Make sure your face is visible and within the oval.</div>
+        <div class="camera-instructions-text-2" id="instructions-recording-started" style="display:none">Write 7 3 0 8 then stop recording.</div>
+    </div>
+        
         <div class="camera-preview-wrapper">
             <div class="camera-preview-overlay"></div>
-            <div class="camera-preview-feed">
+               <div class="camera-preview-feed">
                 <video id="gum" muted autoplay></video>
             </div>
         </div>
 
-        <div class="camera-instructions">
-            <div class="camera-instructions-text">Make sure your face is in the oval, then tell us these 4 numbers whilst recording your video:</div>
-<div class="camera-instructions-numbers">{{ pinCode }}</div>
-        </div>
+     <div class="camera-instructions">
+        <div class="camera-record-2">
+             <div class="row">
 
-        <div class="camera-record">
-            <button id="record" class="button" disabled>Start recording</button>
-        </div>
+                        <div class="column">
+                        </div>
 
-        <p><a class="" href="service-access-video-selfie-write-html5{{ params }}">Cancel</a></p>
+                                <div class="column">
+                                    <button id="record" class="button" disabled>Start recording</button>
+                                </div>
+
+                        <div class="column">
+                            <div class="timecode" id="display"> 
+                                <span class="dot" style="visibility: hidden;" id="dot"></span>
+                                <span id="time">00:00:00 </span>
+                            </div>
+                        </div>
+  
+           </div>
+        </div>
+    </div>
+
+
+
+
+
+        {# <p><a class="" href="service-access-video-selfie-write-html5{{ params }}">Cancel</a></p> #}
 
          <br>
               <details class="" role="group" >
@@ -125,7 +151,7 @@
         </div>
 
     <div class="form-group">
-      <p>If you can see all of your face and the numbers <strong>{{ pinCode }}</strong> clearly, click continue.</p>
+      <p>If you can see all of your face and the numbers <strong>7 3 0 8</strong> clearly, click continue.</p>
         <button class="button" id="submitvideo">Continue</button>
         </div>
         <br>
