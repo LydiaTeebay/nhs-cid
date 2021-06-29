@@ -69,8 +69,6 @@ module.exports = function (router) {
             res.redirect('/service-access/v24/service-access-offline-triage?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual + '&side=' + side + '&uplift=' + uplift)
         }
     })
-
-}
     
     router.get('/service-access/v23/service-access-routes-question', function (req, res) {
         // pull in the url parameters
@@ -142,3 +140,4 @@ module.exports = function (router) {
         }
     })
 
+}
