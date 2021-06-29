@@ -1,0 +1,87 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Do you know your NHS number?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&idType=" + idType + "&manual=" + manual + "&uplift=" + uplift + "&nhsNumber=" + nhsNumber %}
+
+{% block content %}
+
+<div class="first-item">
+
+	<p><a href="javascript:history.go(-1)" class="link-back"><i style="font-weight: normal;font-style: normal;">Back</i></a></p>
+
+
+			<fieldset>
+
+				<legend>
+					<h1 class="">
+						Do you know your NHS number?
+					</h1>
+				</legend>
+
+ 		  	<p>Telling us your NHS number will give us the best chance of matching you to your NHS record.</p>
+			<p>You do not need to know your NHS number to continue. If you do not know it, you can tell us your full name instead.</p>
+
+			   
+			 <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">How to find your NHS number</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+                              <p>An NHS number is a 10 digit number, like <span class="nowrap">485 777 3456</span>.</p>
+
+		<p>You can find it:
+		  	<ul>
+				<li>on any letter the NHS has sent you</li>
+				<li>on a prescription</li>
+				<li>by logging in to a GP surgery online service</li>
+				<li>on a vaccination letter</li>
+			</ul>
+		</p>
+		<p>Ask your GP surgery for help if you can't find your NHS number.</p>
+		              </div>
+        </details>
+			
+	  
+	  <!-- Original code -->
+
+	  	<form action="service-access-nhs-number-automated{{ params }}" method="POST">
+			<fieldset class="">
+				<div class="form-group" method="post">
+                  
+					<div class="selection-button-radio" style="margin-top: 32px;">
+						<div class="multiple-choice" data-target="yes">
+							<input id="radio-inline-1" aria-controls="qanda-2" type="radio" name="nhsNumber" value="yes">
+							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I know my NHS number</label>
+						</div>
+					</div>
+
+					<div class="panel panel-border-narrow js-hidden" id="qanda-2" style="margin-top: 0;">
+						<label class="form-label__hint" >Example: 485 777 3456</label> 
+						<input class="form-control" type="text" aria-label="NHS Number" name="qanda-2b">
+					</div> 
+
+
+					<div class="selection-button-radio" style="margin-top: 0px;">
+						<div class="multiple-choice" data-target="no">
+							<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
+							<label for="radio-inline-2"class="block-label" style="position: static;">No, continue with my full name</label>
+						</div>
+					</div>
+				
+
+				</fieldset>
+
+				<div class="form-group">
+					<button class="button" id="">Continue</button>
+				  </div>
+	    </form>
+
+</div>
+
+
+
+
+{% endblock %}
+

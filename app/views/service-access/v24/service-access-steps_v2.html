@@ -1,0 +1,53 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Steps{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual %}
+
+{% block content %}
+
+{%if loggedin === "true" %}
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endif %}
+
+<span class="active">Register</span> - <span><a href="#">Upload I.D.</a></span> - <span>Record/scan face</span> - <span>Enter post code</span> - <span>Enter name</span> - <span>Enter NHS number</span>
+
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+		<li class="completed">
+			<span>Register</span>
+		</li>
+		<li class="completed">
+			<span class="service-access__item__status">I.D.</span>
+		</li>
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Prove who you are</h3>
+			<div class="service-access__item__desc">
+				<p>You will need to take a photo of your photo I.D.</p>
+			</div>
+						<span class="service-access__item__status">Completed</span>
+			{# <a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a> #}
+		</li>
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title">Match your face to your photo I.D.</h3>
+			<div class="service-access__item__desc">
+				<p>You will need to scan your face or record a video selfie.</p>
+				<p>This is so we can check that your face matches your photo ID.</p>
+			</div>
+									<span class="service-access__item__status">Completed</span>
+			{# <a href="service-access-photo-id-type{{ params }}" class="service-access__item__button button">Start</a> #}
+		</li>
+		<li class="service-access__item active">
+			<h3 class="service-access__item__title">Help us find your NHS record</h3>
+			<div class="service-access__item__desc">
+				<p>You'll need to give us some details so we can connect to your GP.</p>
+			</div>
+			<a href="service-access-photo-id-type{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

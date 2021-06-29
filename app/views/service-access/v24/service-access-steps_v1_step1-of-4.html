@@ -1,0 +1,54 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Steps{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual %}
+
+{% block content %}
+
+{%if loggedin === "true" %}
+	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+{% endif %}
+
+<section class="service-access-wrapper">
+
+	<ol class="service-access">
+		<li class="service-access__item active"> 
+			 {# <span class="service-access__item__step"><b>Step 1 of 4</b> <span class="service-access__item__step__child"> 7 mins</span>  #}
+			 
+			<span class="service-access__item__step__text__leftandright"><b>Step 1 of 4</b>7 mins</span>
+			<h3 class="service-access__item__title">Create an account</h3>
+			<div class="service-access__item__desc">
+				<p>Set up NHS login using your email and mobile phone.</p>
+			</div>
+			<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Start</a>
+		</li>
+
+		<li class="service-access__item active">
+		<h5 class="service-access__item__title">Next steps</h5>
+			<h3 class="service-access__item__title">Send your photo I.D.</h3>
+			<div class="service-access__item__desc">
+				<p>We will use this to confirm your identity.</p>
+			</div>
+		{# </li> #}
+			<hr>
+		
+				<h3 class="service-access__item__title">Scan your face</h3>
+				<div class="service-access__item__desc">
+					<p>This is to match you to your photo I.D.</p>
+				</div>
+			<hr>
+	
+				<h3 class="service-access__item__title">Help us find your NHS record</h3>
+				<div class="service-access__item__desc">
+					<p>You will need to tell us some details so that we can connect to your existing health records.</p>
+				</div>
+			
+	</li>
+
+	</ol>
+
+</section>
+
+{% endblock %}
+{% block rightcol %}{% endblock %}

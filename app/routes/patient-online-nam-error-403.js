@@ -1,5 +1,21 @@
 module.exports = function (router) {
 
+
+    router.get('/patient-online/v24/patient-online-nam-error-403', function (req, res) {
+        var uplift = req.param('uplift')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var hidehead = req.param('hidehead')
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var lsId = req.param('lsId')
+        var lsAccess = req.param('lsAccess')
+        var lsStudy = req.param('lsStudy')
+        res.render('patient-online/v24/patient-online-nam-error-403', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, service: service, devMode: devMode, returnUrl: returnUrl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+            res.send(html)
+        })
+    })
+
     router.get('/patient-online/v23/patient-online-nam-error-403', function (req, res) {
         var uplift = req.param('uplift')
         var service = req.param('service')
@@ -14,6 +30,7 @@ module.exports = function (router) {
             res.send(html)
         })
     })
+
     router.get('/patient-online/v22/patient-online-nam-error-403', function (req, res) {
         var uplift = req.param('uplift')
         var service = req.param('service')

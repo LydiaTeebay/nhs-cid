@@ -1,0 +1,44 @@
+{% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
+{% block page_title %}Access {{ serviceName }} - Browser error{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&uplift=" + uplift + "&manual=" + manual %}
+
+{% block content %}
+
+<div class="first-item">
+
+  <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+
+  <div class="warning-callout margin-top-3">
+        <h3 class="warning-callout__label">There is a problem</h3>
+        <p>We are unable to prove who you are using this device or browser.</p>
+        {# <p style="font-weight: bold;"> To proceed please open the link we have emailed you in a different browser or device.</p> #}
+
+        <p style="font-weight: bold;">To continue:</p>
+
+        <ul>
+          <li>Updating your browser</li>
+           <li>Using a different device (e.g. a smartphone or tablet)</li>
+        </ul>
+
+           <p style="font-weight: bold;">Alternatively: </p>
+
+        <ul>
+          <li><a href="/patient-online/v24/patient-online-details?serviceName=the NHS app&amp;service=undefined&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;system=undefined&amp;mobileNum=undefined&amp;hidehead=undefined&amp;devMode=undefined&amp;returnUrl=undefined&amp;surgery=undefined&amp;practiceID=undefined&amp;supported=undefined&amp;manual=undefined&amp;uplift=undefined?manual=true&amp;showWarning=undefined&amp;throttleAlert=undefined&amp;serviceAlert=undefined&amp;throttle=undefined&amp;manual=undefined&amp;drop=need">Prove who you are using your GP surgery’s online registration details</a> </li>
+        </ul>
+
+  </div>
+
+  {# <h1 class="">There is a problem</h1>
+
+  <p>Your current device or browser does not allow you to record a video.</p> #}
+
+{#   <p class="small">Reference: CID-####</p> #}    
+  {# <p>Reference: <b>CID4017</b></p> #}
+
+  {# <p>Visit the <a href="https://support-nhslogin.herokuapp.com/takeandupload/article#unabletorecord">NHS login help centre</a> for advice on how to fix this problem.</p> #}
+
+</div>
+
+{% endblock %}

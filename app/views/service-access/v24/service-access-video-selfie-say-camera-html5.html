@@ -1,0 +1,198 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Record a short video{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&uplift=" + uplift + "&manual=" + manual %}
+
+
+{% block extrascripts %}
+<script src="https://webrtc.github.io/adapter/adapter-latest.js">console.log()</script>
+<script src="/getUserMedia.js">console.log()</script>
+{% endblock %}
+
+{% block header %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+  <p><a class="link-back" href="service-access-video-selfie-say-html5{{ params }}">Back</a></p>
+
+
+    <section class="loading-container" id="scan-id-0" style="display:block">
+
+        <h1 id="spinner-heading" style="padding-bottom: 0; display:none;">Uploading your video</h1>
+
+        <div class="bar_container">
+            <div id="main_container">
+                <div id="pbar" class="progress-spinner" data-percent="0">
+                    <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" />
+                    <div class="ppc-loading">
+                        <div class="pcc-percents-wrapper">
+                            <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+{#     <div class="callout callout--error camera-file-format" style="display:block; background-color:#fff0">
+    <h2 class="h3">There is a problem</h2>
+    
+    <!-- <p>Your video is too short. Click <em>start recording</em> to record your video again. Click <em>stop recording</em> when you have finished telling us the 4 numbers.</p> -->
+
+     <p>Your video is too long. Click <em>start recording</em> to record your video again. Click <em>stop recording</em> when you have finished telling us the 4 numbers.</p>
+
+    </div> #}
+    
+    <section id="camera-container" style="display:none">
+         <div class="camera-instructions-2">
+        <div class="camera-instructions-text-2" id="instructions">Make sure your face is visible and within the oval.</div>
+        <div class="camera-instructions-text-2" id="instructions-recording-started" style="display:none">Say 7 3 0 8 then stop recording.</div>
+    </div>
+        
+        <div class="camera-preview-wrapper">
+            <div class="camera-preview-overlay"></div>
+               <div class="camera-preview-feed">
+                <video id="gum" muted autoplay></video>
+            </div>
+        </div>
+
+     <div class="camera-instructions">
+        <div class="camera-record-2">
+             <div class="row">
+
+                        <div class="column">
+                        </div>
+
+                                <div class="column">
+                                    <button id="record" class="button" disabled>Start recording</button>
+                                </div>
+
+                        <div class="column">
+                            <div class="timecode" id="display"> 
+                                <span class="dot" style="visibility: hidden;" id="dot"></span>
+                                <span id="time">00:00:00 </span>
+                            </div>
+                        </div>
+  
+           </div>
+        </div>
+    </div>
+    
+    
+  
+  {# YouTube video timer code #}
+    {# <div class="container">
+        <div class="timestamp-button">
+            <button id="startStop" onclick="startStop()">Start</button> <button id="reset" onclick="reset()">Reset</button>
+        </div>
+    </div> #}
+
+      
+{# <div class="camera-instructions-numbers">{{ pinCode }}</div> #}
+    
+
+        {# <div class="camera-record">
+            <button id="record" class="button" disabled>Start recording</button>
+        </div> #}
+
+      
+        <br>
+              <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">What to do if your screen is black</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+          <p>If the screen is black, this means we cannot access your camera.  
+          You must allow us access so we can match your face to your photo I.D.</p>
+          <p>Visit the <a href="https://help.login.nhs.uk/provewhoyouare/withid#how-to-give-your-web-browser-permission-to-access-the-camera-and-microphone" target="blank">NHS login help centre</a> for information on how to grant access.</p>
+              </div>
+
+                  </div>
+              </div>
+          </details>
+
+        <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
+    </section>
+
+
+
+    <section class="uploader-container" id="scan-id-3" style="display:none">
+
+        <h1 id="progressbar-heading" style="padding-bottom: 0;">Preparing your preview...</h1>
+
+        <div class="bar_container">
+            <div id="main_container">
+                <div id="pbar" class="progress-pie-chart" data-percent="0">
+                    <div class="ppc-progress">
+                        <div class="ppc-progress-fill"></div>
+                    </div>
+                    <div class="ppc-percents">
+                        <div class="pcc-percents-wrapper">
+                            <span>%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="preview-container" id="scan-id-5" style="display:none">
+
+        <h1 style="padding-bottom: 0;">Check your video</h1>
+
+        <div class="reading-width">
+            <p>You need to watch the video before you can continue.</p>
+
+
+            <div id="scan-video-preview">
+                <video id="recorded" controls="" autoplay loop style="width:100%;height:auto;"></video>
+            </div>
+        </div>
+
+    <div class="form-group">
+      <p>If you can see all of your face and hear the numbers <strong>7 3 0 8</strong> clearly, click continue.</p>
+        <button class="button" id="submitvideo">Continue</button>
+        </div>
+        <br>
+      <p>If you cannot see all of your face, or hear the numbers clearly, then <a href="#" id="retakevideo">record video again</a>.</p>
+
+    </section>
+
+    <button id="download" disabled style="visibility:hidden;">Download</button>
+    <button id="play" disabled style="visibility:hidden;">Play</button>
+    {% if uplift === 'true' %}
+    <button id="continueButton" style="visibility:hidden" onclick="window.location='service-access-nhs-pds-checking{{ params }}';" >Continue</button>
+    {% else %}
+    <button id="confirmButton" style="visibility:hidden" onclick="window.location='service-access-nhs{{ params }}';" >Continue</button>
+    {% endif %}
+
+</div>
+
+<script type="text/javascript">
+    //show then hide the spinner animation
+    setTimeout(function(){
+        document.getElementById('scan-id-0').style.display = 'none'
+    }, 2500)
+    setTimeout(function(){
+        document.getElementById('camera-container').style.display = 'block'
+    }, 2500)
+</script>
+
+
+
+
+{% endblock %}

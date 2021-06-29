@@ -1,5 +1,35 @@
 module.exports = function (router) {
 
+
+    router.get('/service-access/v24/service-access-iproov-test', function (req, res) {
+        // pull in the url parameters
+        var uplift = req.param('uplift')
+        var vouched = req.param('vouch')
+        var service = req.param('service')
+        var serviceName = req.param('serviceName')
+        var mobileNum = req.param('mobileNum')
+        var emailAddress = req.param('emailAddress')
+        var formerror = req.param('formerror')
+        var changetomobile = req.param('changetomobile')
+        var hidehead = req.param('hidehead')
+        var idType = req.param('idType')
+        var pinCode = Math.floor(1000 + Math.random() * 9000)
+        // is the user on a mobile device?
+        var isMobile = req.useragent.isMobile
+        var devMode = req.param('devMode')
+        var returnUrl = req.param('returnUrl')
+        var manual = req.param('manual')
+        var iproovEnrolFailReason = req.param('iproovEnrolFailReason')
+        var iproovTokenFailReason = req.param('iproovTokenFailReason')
+        var iproovFailReason = req.param('iproovFailReason')
+        var manual = req.param('manual')
+        // re-render the page along with the parameter
+        res.render('service-access/v24/service-access-iproov-test', { manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, manual: manual, iproovEnrolFailReason: iproovEnrolFailReason, iproovTokenFailReason: iproovTokenFailReason, iproovFailReason: iproovFailReason }, function(err, html) {
+            res.send(html)
+        })
+    })
+
+
     router.get('/service-access/v23/service-access-iproov-test', function (req, res) {
         // pull in the url parameters
         var uplift = req.param('uplift')

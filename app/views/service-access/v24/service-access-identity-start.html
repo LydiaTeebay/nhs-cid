@@ -1,0 +1,41 @@
+{% extends '_layouts/_grids/_grid-1-hotjar.html' %}
+{% block page_title %}Please wait{% endblock %}
+
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&mobileNum=" + mobileNum + "&system=" + system + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&supported=" + supported + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle %}
+
+{% block extrastyles %}
+
+{% if supported === 'false' %}
+<meta http-equiv="refresh" content="1.5;url=service-access-switch-to-mobile{{ params }}">
+{% elif throttle === 'true' %}
+<meta http-equiv="refresh" content="1.5;url=service-access-what-you-need{{ params }}&throttleAlert=true">
+{% else %}
+<meta http-equiv="refresh" content="1.5;url=service-access-what-you-need{{ params }}">
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="first-item">
+
+	<section class="loading-container" id="gp-connect-0" style="display:block; min-height: 16em;">
+
+		<div class="bar_container">
+			<div id="main_container">
+				<div id="pbar" class="progress-spinner" data-percent="0">
+					<img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
+					<div class="ppc-loading">
+						<div class="pcc-percents-wrapper">
+							<span id="spinner-status">Please wait</span><span aria-hidden="true">&hellip;</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+</div>
+
+{% endblock %}
