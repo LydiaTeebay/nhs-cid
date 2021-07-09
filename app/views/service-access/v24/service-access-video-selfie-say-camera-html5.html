@@ -18,7 +18,7 @@
 {% block content %}
 
 <div class="first-item">
-  <p><a class="link-back" href="service-access-video-selfie-say-html5{{ params }}">Back</a></p>
+  <p><a class="link-back" href="service-access-video-selfie-triage{{ params }}">Back</a></p>
 
 
     <section class="loading-container" id="scan-id-0" style="display:block">
@@ -63,15 +63,22 @@
 
              <div class="row" style="margin: 0px">
 
-                  <div class="column left"></div>
-                  
-                  <div class="column middle">
-                        <div class="camera-instructions-text-2" id="instructions" style="text-align: center;">Make sure your face is visible.</div>
+                  <div class="column left">
+                    <div class="camera-instructions-text-2" id="instructions" style="text-align: center;">Make sure your face is visible.</div>
                         <div class="camera-instructions-text-2" id="instructions-recording-started" style="display:none">Say <span class="bignum">7 - 3 - 0 - 8</span> then stop recording.</div>
-                        <button id="record" class="button topcentre" style ="margin-top: 80px" disabled>Start recording</button> 
+                  </div>
+                  
+                  <div class="column right">
+                      
+                        <button id="record" class="button" disabled>Start recording</button> 
+                       
+                         <div class="timecode" id="display" style="margin-top: 20px"> 
+                                <span class="dot" style="visibility: hidden;" id="dot"></span>
+                                <span id="time" style="font-size: 20px">00:00:00 </span>
+                      </div>
                   </div>
                 
-                <div class="column right"></div>
+             
 
             </div>
 
@@ -92,13 +99,7 @@
         </div>
 
     
-      <div class="row">
-                     <div class="timecode" id="display"> 
-                                <span class="dot" style="visibility: hidden;" id="dot"></span>
-                                <span id="time">00:00:00 </span>
-                      </div>
-                </div>
-    
+
   
   {# YouTube video timer code #}
     {# <div class="container">
