@@ -53,40 +53,51 @@
     </div> #}
     
     <section id="camera-container" style="display:none">
-         <div class="camera-instructions-2">
-        <div class="camera-instructions-text-2" id="instructions">Make sure your face is visible and within the oval.</div>
-        <div class="camera-instructions-text-2" id="instructions-recording-started" style="display:none">Say 7 3 0 8 then stop recording.</div>
-    </div>
+         
         
         <div class="camera-preview-wrapper">
-            <div class="camera-preview-overlay"></div>
+            <div class="camera-preview-overlay">
+
+              <div class="camera-instructions-2">
+                
+
+             <div class="row" style="margin: 0px">
+
+                  <div class="column left"></div>
+                  
+                  <div class="column middle">
+                        <div class="camera-instructions-text-2" id="instructions" style="text-align: center;">Make sure your face is visible.</div>
+                        <div class="camera-instructions-text-2" id="instructions-recording-started" style="display:none">Say <span class="bignum">7 - 3 - 0 - 8</span> then stop recording.</div>
+                        <button id="record" class="button topcentre" style ="margin-top: 80px" disabled>Start recording</button> 
+                  </div>
+                
+                <div class="column right"></div>
+
+            </div>
+
+{# 
+       
+               <div class="row" style="margin-top: 20px;">
+                 <button id="record" class="button topcentre" disabled>Start recording</button>
+                </div> #}
+
+              </div>
+            </div>
+            
                <div class="camera-preview-feed">
                 <video id="gum" muted autoplay></video>
             </div>
+
+
         </div>
 
-     <div class="camera-instructions">
-        <div class="camera-record-2">
-             <div class="row">
-
-                        <div class="column">
-                        </div>
-
-                                <div class="column">
-                                    <button id="record" class="button" disabled>Start recording</button>
-                                </div>
-
-                        <div class="column">
-                            <div class="timecode" id="display"> 
+    
+      <div class="row">
+                     <div class="timecode" id="display"> 
                                 <span class="dot" style="visibility: hidden;" id="dot"></span>
                                 <span id="time">00:00:00 </span>
-                            </div>
-                        </div>
-  
-           </div>
-        </div>
-    </div>
-    
+                      </div>
+                </div>
     
   
   {# YouTube video timer code #}
