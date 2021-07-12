@@ -6,8 +6,8 @@
 
 
 {% block extrascripts %}
-<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-<script src="/getUserMedia.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js">console.log()</script>
+<script src="/getUserMedia.js">console.log()</script>
 {% endblock %}
 
 {% block header %}
@@ -16,8 +16,9 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="first-item">
-  <p><a class="link-back" href="service-access-video-selfie-sign-html5{{ params }}">Back</a></p>
+  <p><a class="link-back" href="service-access-video-selfie-triage{{ params }}">Back</a></p>
 
 
     <section class="loading-container" id="scan-id-0" style="display:block">
@@ -40,6 +41,8 @@
     </section>
 
 
+
+
 {#     <div class="callout callout--error camera-file-format" style="display:block; background-color:#fff0">
     <h2 class="h3">There is a problem</h2>
     
@@ -48,47 +51,73 @@
      <p>Your video is too long. Click <em>start recording</em> to record your video again. Click <em>stop recording</em> when you have finished telling us the 4 numbers.</p>
 
     </div> #}
-
-
+    
     <section id="camera-container" style="display:none">
-         <div class="camera-instructions-2">
-        <div class="camera-instructions-text-2" id="instructions">Make sure your face is visible and within the oval.</div>
-        <div class="camera-instructions-text-2" id="instructions-recording-started" style="display:none">Sign 7 3 0 8 then stop recording.</div>
-    </div>
+         
         
         <div class="camera-preview-wrapper">
-            <div class="camera-preview-overlay"></div>
+            <div class="camera-preview-overlay">
+
+              <div class="camera-instructions-2">
+                
+
+             <div class="row" style="margin: 0px">
+
+                  <div class="column left">
+                    <div class="camera-instructions-text-2" id="instructions" style="text-align: center;">Make sure your face is visible.</div>
+                        <div class="camera-instructions-text-2" id="instructions-recording-started" style="display:none">Sign <span class="bignum">7 - 3 - 0 - 8</span> then stop recording.</div>
+                  </div>
+                  
+                  <div class="column right">
+                      
+                        <button id="record" class="button" disabled>Start recording</button> 
+                       
+                         <div class="timecode" id="display" style="margin-top: 20px"> 
+                                <span class="dot" style="visibility: hidden;" id="dot"></span>
+                                <span id="time" style="font-size: 20px">00:00:00 </span>
+                      </div>
+                  </div>
+                
+             
+
+            </div>
+
+{# 
+       
+               <div class="row" style="margin-top: 20px;">
+                 <button id="record" class="button topcentre" disabled>Start recording</button>
+                </div> #}
+
+              </div>
+            </div>
+            
                <div class="camera-preview-feed">
                 <video id="gum" muted autoplay></video>
             </div>
+
+
         </div>
 
-     <div class="camera-instructions">
-        <div class="camera-record-2">
-             <div class="row">
+    
 
-                        <div class="column">
-                        </div>
-
-                                <div class="column">
-                                    <button id="record" class="button" disabled>Start recording</button>
-                                </div>
-
-                        <div class="column">
-                            <div class="timecode" id="display"> 
-                                <span class="dot" style="visibility: hidden;" id="dot"></span>
-                                <span id="time">00:00:00 </span>
-                            </div>
-                        </div>
   
-           </div>
+  {# YouTube video timer code #}
+    {# <div class="container">
+        <div class="timestamp-button">
+            <button id="startStop" onclick="startStop()">Start</button> <button id="reset" onclick="reset()">Reset</button>
         </div>
-    </div>
-        
+    </div> #}
 
-        {# <p><a class="" href="service-access-video-selfie-sign-html5{{ params }}">Cancel</a></p> #}
+      
+{# <div class="camera-instructions-numbers">{{ pinCode }}</div> #}
+    
 
-         <br>
+        {# <div class="camera-record">
+            <button id="record" class="button" disabled>Start recording</button>
+        </div> #}
+
+      
+        <br>
               <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
                   <span class="details__summary">What to do if your screen is black</span>
@@ -106,6 +135,7 @@
 
         <audio id="audio" volume="0.1" src="/images/beep-3.wav" autostart="false" ></audio>
     </section>
+
 
 
     <section class="uploader-container" id="scan-id-3" style="display:none">
@@ -150,7 +180,7 @@
         <button class="button" id="submitvideo">Continue</button>
         </div>
         <br>
-      <p>If you cannot see all of your face, or the numbers clearly, then <a href="#" id="retakevideo">record video again</a>.</p>
+      <p>If you cannot see all of your face and the numbers clearly, then <a href="#" id="retakevideo">record video again</a>.</p>
 
     </section>
 
@@ -173,5 +203,8 @@
         document.getElementById('camera-container').style.display = 'block'
     }, 2500)
 </script>
+
+
+
 
 {% endblock %}

@@ -97,8 +97,8 @@ video#recorded {
 .camera-instructions {
   display: table;
   color: white;
-  background-color: #222222;
-  padding: 16px;
+  // background-color: #222222;
+  padding: 0px;
   margin: 0;
   width: 100%;
 }
@@ -123,8 +123,8 @@ video#recorded {
 .camera-instructions-2 {
   display: table;
   color: white;
-  background-color: #222222;
-  padding: 35px;
+  // background-color: #222222;
+  padding: 20px;
   margin: 0;
   width: 100%;
 }
@@ -132,8 +132,9 @@ video#recorded {
 .camera-instructions-text-2 {
   display: table-cell;
   vertical-align: top;
-  text-align: center;
-  font-size: 20px;
+  width: 100%;
+  text-align: left;
+  font-size: 25px;
 }
 
 
@@ -165,20 +166,43 @@ video#recorded {
   justify-content: right;
 }
 
-/* Create three equal columns that floats next to each other */
+.bottomcentre {
+  position:absolute;
+  background:#063;
+  bottom:10px;
+  right:35%;
+}
+
+.topcentre {
+  position:absolute;
+  background:#063;
+  top:10px;
+  right:29%;
+  margin: 60px;
+}
+
+.bignum {
+  font-size: 35px;
+  font-weight: 300;
+}
+
 .column {
   float: left;
-  width: 33.33%;
-  padding: 5px;
+  padding: 0px;
   margin: 0px;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.left {
+  width: 73%;
+  margin: 0px;
+
 }
+
+.right {
+  width: 27%;
+  margin: 0px;
+}
+
 
 
 button#record,
