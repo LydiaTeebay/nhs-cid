@@ -43,32 +43,23 @@
             <h2 class="" style="padding:0.5em 0 0; font-size: 20px; font-weight: 600; line-height: 32px;">
               What type of ID do you have?
             </h2>
+            <span class="form-label__hint">type your ID in the box below</span>
           </legend>
 
 
-<div id="tt-showAllValues" class="autocomplete-wrapper">
-  <div class="autocomplete__wrapper">
-    <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-      <div id="autocomplete-showAllValues__status--A" role="status" aria-atomic="true" aria-live="polite">
-      </div>
-      <div id="autocomplete-showAllValues__status--B" role="status" aria-atomic="true" aria-live="polite">
-      </div>
-    </div>
-    <input aria-expanded="false" aria-owns="autocomplete-showAllValues__listbox" aria-autocomplete="list" aria-describedby="autocomplete-showAllValues__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="autocomplete-showAllValues" name="input-autocomplete" placeholder="" type="text" role="combobox">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
-        <g stroke="none" fill="none" fill-rule="evenodd">
-          <polygon fill="#000000" points="0 0 22 0 11 17">
-          </polygon>
-        </g>
-      </svg>
-      <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="autocomplete-showAllValues__listbox" role="listbox">
-      </ul>
-      <span id="autocomplete-showAllValues__assistiveHint" style="display: none;">
-      When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.
-      </span>
-    </div>
+{# <form action="/action_page.php" method="get"> #}
+        <div class="form-group">
+  <input list="photo-id" name="id-list" id="id-list">
+  <datalist id="photo-id">
+    <option value="Passport">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
   </div>
-</div>
+  {# <input type="submit"> #}
+{# </form> #}
 
 {# 
           <div>

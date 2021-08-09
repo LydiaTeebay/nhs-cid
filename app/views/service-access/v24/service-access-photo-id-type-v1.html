@@ -46,12 +46,14 @@
           </legend>
 
 <select id="location-picker">
+  <optgroup label="Accepted forms of photo ID">
   <option value="passport">Passport</option>
   <option value="UK driving licence">UK driving licence</option>
   <option value="UK driving licence">Provisional UK driving licence</option>
-  <option value="UK residence card or BRP">UK residence card or BRP</option>
+  <option value="UK residence card, BRP or BRC">Biometric residence permit (BRP), UK residence card, or EEA biometric residence card (BRC)</option>
   <option value="European driving licence">European driving licence</option>
   <option value="European national identity card">European national identity card</option>
+  </optgroup>
 </select>
 
 
@@ -100,7 +102,8 @@
           <button class="button" id="">Continue</button>
         </div>
 <br>
-		<p><a href="/patient-online/v24/patient-online-details{{ params }}&drop=need">If you do not have a photo ID, you can prove who you are using your details for your GP online services.</a></p>
+    <p><a href="/patient-online/v24/patient-online-details{{ params }}&drop=need">How to prove who you are without sending a photo of your ID</a></p>
+		{# <p>If you do not have an accepted photo ID you can <a href="/patient-online/v24/patient-online-details{{ params }}&drop=need">prove who you are without sending a photo of your ID.</a></p> #}
 
       </div>
 
