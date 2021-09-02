@@ -22,21 +22,23 @@
 
 		<p>We will help you send a photo of your ID online.</p>
 
-		<p>We accept [insert forms of photo ID we accept here].</p>
+		<p>We accept most passports, driving licences and national identity or residence cards.</p>
+
+		{# <p>The image you send needs to be of your original photo ID. You cannot send an image of a printout or screen showing your photo ID.</p> #}
 
 		<p>We can accept an expired photo ID if it expired less than 12 months ago.</p>
-
-		<p><a href="HELPCENTRELINK">Accepted forms of photo ID link</a>.</p>
 
 	</div>
 
 	<div class="form-group">
-		<a class="button" href="service-access-identity-start-spinner{{ params }}">Change this CTA - continue?</a>
+		<a class="button" href="service-access-identity-start-spinner{{ params }}">Continue</a>
 	</div>
 
 <br>
-		<p><a href="/patient-online/v24/patient-online-details{{ params }}&drop=need">If you do not have a photo ID, you can prove who you are using your details for your GP online services.</a></p>
+		<p><a href="/patient-online/v24/patient-online-details{{ params }}&drop=need">How to prove who you are without sending a photo of your ID</a></p>
 
+		{# <p>If you do not have an accepted photo ID, you can <a href="/patient-online/v24/patient-online-details{{ params }}&drop=need">prove who you are using your details for your GP online services.</a></p> #}
+{# <a href="https://help.login.nhs.uk/provewhoyouare/withid/#photo-id-we-can-accept"> #}
 </div>
 
 {% endblock %}
