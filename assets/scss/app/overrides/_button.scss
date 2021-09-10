@@ -136,6 +136,28 @@
   }
 }
 
+.button--help {
+  @include button($green);
+  position: relative;
+  padding: ($baseline-grid-unit * 4) ($baseline-grid-unit * 8);
+  padding-left: ($baseline-grid-unit * 18);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1em;
+    left: 1.6em;
+    height: 24px;
+    width: 24px;
+    background: transparent url("/images/question.png") no-repeat;
+    background-size: 25px 25px;
+    background-position: middle;
+  }
+  &:active::before {
+    top: 1.3em;
+    height: 30px;
+  }
+}
+
 
 .button--save {
   position: relative;

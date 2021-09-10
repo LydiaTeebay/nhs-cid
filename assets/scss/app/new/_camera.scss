@@ -336,3 +336,22 @@ button#download {
   filter: FlipH;
   -ms-filter: "FlipH";
 }
+
+//video preview help button 
+
+#scan-video-preview{
+  position:relative;
+}
+#video-help {
+  position:absolute;
+  width:50px;
+  min-height:50px;
+  background-image:url(/images/question.png);
+  background-size: 40px 40px;
+  opacity: 0.6;
+  background-repeat:no-repeat;
+  z-index:300000;
+  bottom:8px;
+  left:480px;
+  text-align:center;
+}

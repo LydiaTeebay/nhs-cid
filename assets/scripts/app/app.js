@@ -958,6 +958,10 @@ $('#video-overlay2').change(function(){
     playSelectedFile(this)
 })
 
+$('#video-overlay3').change(function(){
+    playSelectedFile(this)
+})
+
 $("#id-document").change(function(){
   readURL(this, "id")
 })
@@ -1140,6 +1144,7 @@ $('#uploaded-video').on('ended', function(){
     $("#submit-videoSelfie3-button").attr("disabled", false)
     $("#submit-videoSelfie4-button").attr("disabled", false)
     $('#video-overlay').fadeIn()
+    $('#video-overlay3').fadeIn()
     $('#uploaded-video').currentTime = 0
 })
 
@@ -1148,6 +1153,7 @@ $('#recorded').on('ended', function(){
     $("#submit-videoSelfie3-button").attr("disabled", false)
     $("#submit-videoSelfie4-button").attr("disabled", false)
     $('#video-overlay2').fadeIn()
+    $('#video-overlay3').fadeIn()
     $('#recorded').currentTime = 0
 })
 
