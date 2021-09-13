@@ -20,7 +20,9 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var result = req.param('result')
         var manual = req.param('manual')
-        res.render('service-access/v24/service-access-connect-gp-working', { uplift: uplift, reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, manual: manual }, function(err, html) {
+        var testing = req.param('testing')
+
+        res.render('service-access/v24/service-access-connect-gp-working', { testing: testing, uplift: uplift, reason: theReason, vouch: vouched, service: service, serviceName: serviceName, terms: terms, resend: resend, mobileNum: mobileNum, emailAddress: emailAddress, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

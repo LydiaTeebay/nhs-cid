@@ -18,8 +18,10 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var drop = req.param('drop')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-offline-triage', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, signedin: signedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, drop: drop, manual: manual }, function(err, html) {
+        res.render('service-access/v24/service-access-offline-triage', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, signedin: signedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, drop: drop, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

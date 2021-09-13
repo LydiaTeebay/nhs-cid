@@ -18,8 +18,10 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var postcode = req.param('postcode')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-offline-2', { manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, signedin: signedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, postcode: postcode }, function(err, html) {
+        res.render('service-access/v24/service-access-offline-2', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, poluser: poluser, signedin: signedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, postcode: postcode }, function(err, html) {
             res.send(html)
         })
     })

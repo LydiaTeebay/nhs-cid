@@ -25,6 +25,8 @@ module.exports = function (router) {
         var isMobileOsV = isMobileOsVer
         var upload = req.param('upload')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         var side = req.param('side')
         var front = req.param('front')
 
@@ -35,7 +37,7 @@ module.exports = function (router) {
         }
 
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-photo-id-camera', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, upload: upload, manual: manual, side: side, front: front }, function(err, html) {
+        res.render('service-access/v24/service-access-photo-id-camera', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, upload: upload, manual: manual, side: side, front: front }, function(err, html) {
             res.send(html)
         })
     })

@@ -15,6 +15,8 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var testing = req.param('testing')
+
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         var isMobileOs = req.useragent.source
@@ -22,6 +24,7 @@ module.exports = function (router) {
         var isMobileOsV = isMobileOsVer
         // re-render the page along with the parameter
         res.render('service-access/v24/service-access-photo-id-camera-rekog', {
+            testing: testing, 
             uplift: uplift, 
             vouch: vouched,
             service: service,

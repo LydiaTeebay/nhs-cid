@@ -23,7 +23,9 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        res.render('patient-online/v24/patient-online-linkage-key-loading', { uplift: uplift, serviceName: serviceName, service: service, system: system, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        var testing = req.param('testing')
+
+        res.render('patient-online/v24/patient-online-linkage-key-loading', { testing: testing, uplift: uplift, serviceName: serviceName, service: service, system: system, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, poluser: poluser, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

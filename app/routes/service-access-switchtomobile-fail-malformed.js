@@ -27,6 +27,8 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var iproov = req.param('iproov')
         var desk = req.param('desk')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
 
         if (changetomobile === 'yes') {
@@ -38,7 +40,7 @@ module.exports = function (router) {
                 .catch(err => console.error(err))
         }
 
-        res.render('service-access/v24/service-access-switchtomobile-fail-malformed', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
+        res.render('service-access/v24/service-access-switchtomobile-fail-malformed', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
             res.send(html)
         })
     })

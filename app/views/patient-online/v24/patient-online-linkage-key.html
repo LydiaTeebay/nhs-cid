@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Enter the details your GP surgery gave you{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID + "&pyiuser=" + pyiuser + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&poluser=" + poluser + "&system=" + system + "&practiceID=" + practiceID + "&pyiuser=" + pyiuser + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle + "&testing=" + testing %}
 
 {% block content %}
 
@@ -95,7 +95,7 @@
       <p>If you do not have these 3 details or your details do not work, you can either:</p>
 
       <ul>
-          <li><a href="/service-access/v24/service-access-what-you-need{ params }}">send a photo of your I.D. online</a> to prove who you are</li>
+          <li><a href="/service-access/v24/service-access-what-you-need{{ params }}">send a photo of your I.D. online</a> to prove who you are</li>
           <li><a href="/service-access/v24/service-access-offline-retrieve{{ params }}">ask your GP surgery for help</a> to get your registration details</a></li>
       </ul>
 

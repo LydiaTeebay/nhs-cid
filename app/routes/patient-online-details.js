@@ -21,7 +21,9 @@ module.exports = function (router) {
     var hideBack = req.param('hideBack')
     var drop = req.param('drop')
     var manual = req.param('manual')
-    res.render('patient-online/v24/patient-online-details', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack, drop: drop, manual: manual }, function(err, html) {
+    var testing = req.param('testing')
+
+    res.render('patient-online/v24/patient-online-details', { testing: testing, uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, hideBack: hideBack, drop: drop, manual: manual }, function(err, html) {
         res.send(html)
     })
 })

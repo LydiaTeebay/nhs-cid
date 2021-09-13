@@ -17,8 +17,10 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-steps_iconsV2', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v24/service-access-steps_iconsV2', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })  

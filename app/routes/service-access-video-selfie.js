@@ -16,15 +16,16 @@ module.exports = function (router) {
         var manual = req.param('manual')
         var enrol = req.param('enrol')
         var iproovFailReason = req.param('iproovFailReason')
+        var testing = req.param('testing')
 
         // re-render the page along with the parameter
         //
         if (manual == 'true') {
-            res.render('service-access/v24/service-access-video-selfie', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
+            res.render('service-access/v24/service-access-video-selfie', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
                 res.send(html)
             })
         } else {
-            res.render('service-access/v24/service-access-iproov-start', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
+            res.render('service-access/v24/service-access-iproov-start', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
                 res.send(html)
             })
         }

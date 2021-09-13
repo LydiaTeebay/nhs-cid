@@ -24,8 +24,10 @@ module.exports = function (router) {
         var isMobileOsVer = parseFloat((req.useragent.source.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.'))
         var isMobileOsV = isMobileOsVer
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-nhs', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, idType: idType, iproovPass: iproovPass, manual: manual }, function(err, html) {
+        res.render('service-access/v24/service-access-nhs', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, loggedin: loggedin, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, idType: idType, iproovPass: iproovPass, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

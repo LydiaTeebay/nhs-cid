@@ -19,10 +19,12 @@ module.exports = function (router) {
         var iproov = req.param('iproov')
         var desk = req.param('desk')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-switchtomobile', { manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
+        res.render('service-access/v24/service-access-switchtomobile', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, isMobile: isMobile, changetomobile: changetomobile, hidehead: hidehead, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk }, function(err, html) {
             res.send(html)
         })
     })

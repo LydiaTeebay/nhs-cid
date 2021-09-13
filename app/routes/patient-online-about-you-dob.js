@@ -18,8 +18,10 @@ module.exports = function (router) {
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-        res.render('patient-online/v24/patient-online-about-you-dob', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, manual: manual }, function(err, html) {
+        res.render('patient-online/v24/patient-online-about-you-dob', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, result: result, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

@@ -23,8 +23,10 @@ module.exports = function (router) {
         var manual = req.param('manual')
         var throttleAlert = req.param('throttleAlert')
         var throttle = req.param('throttle')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-identity-start', { throttle: throttle, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, manual: manual }, function(err, html) {
+        res.render('service-access/v24/service-access-identity-start', { testing: testing, throttle: throttle, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

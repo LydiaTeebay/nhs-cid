@@ -54,9 +54,10 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
         var hideBack = req.param('hideBack')
+        var testing = req.param('testing')
 
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-video-selfie-sign-camera', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v24/service-access-video-selfie-sign-camera', { tesing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, changetomobile: changetomobile, mobile: isMobile, mobileOs: isMobileOs, mobileOsV: isMobileOsV, pinCode: pinCode, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, hideBack: hideBack, returnUrl: returnUrl, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

@@ -13,7 +13,9 @@ module.exports = function (router) {
         var reason = req.param('reason')
         var result = req.param('result')
         var manual = req.param('manual')
-        res.render('service-access/v24/service-access-pol-creds-invalid', { manual: manual, uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
+        var testing = req.param('testing')
+
+        res.render('service-access/v24/service-access-pol-creds-invalid', { testing: testing, manual: manual, uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, result: result, reason: reason }, function(err, html) {
             res.send(html)
         })
     })

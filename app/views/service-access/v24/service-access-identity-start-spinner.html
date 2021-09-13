@@ -1,13 +1,19 @@
 {% import '_macros/_macro_app.html' as backlink with context %}
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
 {% block page_title %}Access {{ serviceName }} - Checking your face and your I.D.{% endblock %}
-{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&idType=" + idType + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&iproovFailReason=" + iproovFailReason + "&iProovSecondAttempt=" + iProovSecondAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle %}
+{% set params = "?serviceName=" + serviceName + "&service=" + service + "&hidehead=" + hidehead + "&idType=" + idType + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&result=" + result + "&reason=" + reason + "&iproovFailReason=" + iproovFailReason + "&iProovSecondAttempt=" + iProovSecondAttempt + "&pyiSecondAttempt=" + pyiSecondAttempt + "&manual=" + manual + "&uplift=" + uplift + "&throttle=" + throttle + "&testing=" + testing %}
 
 
 {% block extrastyles %} 
 
 {% if throttle === 'true' %}
 <meta http-equiv="refresh" content="1.5;url=service-access-throttle-wait{{ params }}">
+{% elif testing === 'v1' %}
+<meta http-equiv="refresh" content="3;url=service-access-photo-id-type{{ params }}">
+{% elif testing === 'v2' %}
+<meta http-equiv="refresh" content="3;url=service-access-photo-id-type-v1{{ params }}">
+{% elif testing === 'v3' %}
+<meta http-equiv="refresh" content="3;url=service-access-photo-id-type-v3{{ params }}">
 {% else %}
 <meta http-equiv="refresh" content="3;url=service-access-photo-id-type{{ params }}">
 {% endif %}

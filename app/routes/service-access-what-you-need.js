@@ -24,8 +24,9 @@ module.exports = function (router) {
         var drop = req.param('drop')
         var manual = req.param('manual')
         var throttle = req.param('throttle')
+        var testing = req.param('testing')
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-what-you-need', { throttle: throttle, serviceAlert: serviceAlert, showWarning: showWarning, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, drop: drop, manual: manual }, function(err, html) {
+        res.render('service-access/v24/service-access-what-you-need', { testing: testing, throttle: throttle, serviceAlert: serviceAlert, showWarning: showWarning, throttleAlert: throttleAlert, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, iproov: iproov, desk: desk, drop: drop, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

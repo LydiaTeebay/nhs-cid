@@ -19,8 +19,10 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
         var throttle = req.param('throttle')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-identity-start-spinner', { throttle: throttle, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, manual: manual }, function(err, html) {
+        res.render('service-access/v24/service-access-identity-start-spinner', { testing: testing, throttle: throttle, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, manual: manual }, function(err, html) {
             res.send(html)
         })
     })

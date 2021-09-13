@@ -18,13 +18,15 @@ module.exports = function (router) {
         var lsStudy = req.param('lsStudy')
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var testing = req.param('testing')
+
         if (loggedin === 'true') {
             var stepurl = 'service-access-nhs'
         } else {
             var stepurl = 'service-access-account'
         }
 
-        res.render('service-access/v24/service-access-triage-2', { manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v24/service-access-triage-2', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, stepurl: stepurl, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

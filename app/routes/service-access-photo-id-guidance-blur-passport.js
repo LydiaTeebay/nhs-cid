@@ -19,10 +19,12 @@ module.exports = function (router) {
         var pinCode = Math.floor(1000 + Math.random() * 9000)
         var devMode = req.param('devMode')
         var returnUrl = req.param('returnUrl')
+        var testing = req.param('testing')
+
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-photo-id-guidance-blur-passport', { manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v24/service-access-photo-id-guidance-blur-passport', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, challenge: challenge, idType: idType, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

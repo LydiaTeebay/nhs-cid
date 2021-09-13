@@ -1,0 +1,280 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
+
+{% set signedin = 'true' %}
+{% set licenceSide = 'back' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&upload=" + upload %}
+
+{% block content %}
+
+
+<div class="first-item">
+
+    <section class="loading-container" id="scan-id-0" style="display:none">
+
+        <h1 id="spinner-heading" style="padding-bottom: 0; display:none;">Uploading your photo</h1>
+
+        <div class="bar_container">
+            <div id="main_container">
+                <div id="pbar" class="progress-spinner" data-percent="0">
+                    <img src="/images/loader-spinner.svg" width="200px" height="200px" id="spinner" class=""/>
+                    <div class="ppc-loading">
+                        <div class="pcc-percents-wrapper">
+                            <span id="spinner-status">Loading</span><span aria-hidden="true">...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="" id="scan-id-1" style="display:block; margin-top: 0;">
+
+        {% if upload === 'file' %}
+        <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Upload a photo of the front of your I.D.</a></p>
+        {% else %}
+        <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Take a photo of the front of your I.D.</a></p>
+        {% endif %}
+
+
+
+        <!--        <div class="callout callout&#45;&#45;alert camera-file-format" style="display:block">-->
+        <!--            <h2 class="h3">There is a problem</h2>-->
+        <!--            <p>You sent a video.</p>-->
+        <!--            <p>Make sure you send a photo or a scan.</p>-->
+        <!--            <p>We cannot accept this file format.</p>-->
+        <!--            <p>You need to send a JPG or JPEG file.</p>-->
+        <!--            <p>The file you sent is is too large.</p>-->
+        <!--            <p>Make sure your file is smaller than 20Mb.</p>-->
+        <!--            <p>Your image resolution is too low.</p>-->
+        <!--            <p>You could take a photo using a different camera, then upload it.</p>-->
+        <!--        </div>-->
+
+        <form>
+            <fieldset class="">
+
+                <legend for="radio-inline-group">
+                    <h1 style="padding-bottom: 0;">
+                        {% if upload === 'file' %}
+                            Upload a photo of the back of your {{ idType }}
+                        {% else %}
+                            Take a photo of the back of your {{ idType }}
+                        {% endif %}
+                    </h1>
+                </legend>
+
+                <p>Make sure:</p>
+                <ul class="list list-bullet">
+                    {% if upload === 'file' %}
+                    <li>you have not covered any of the corners</li>
+                    {% else %}
+                    <li>you do not cover any of the corners</li>
+                    {% endif %}
+                    <li>you can clearly see your face and all the text</li>
+                    <li>there's no shine from a light or window</li>
+                </ul>
+
+                <div class="form-group">
+
+                    {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
+                        {% set instruction = 'Choose a file' %}
+                    {% else %}
+                        {% if mobileOs === 'iPhone' or mobileOs === 'iPad' %}
+                            {% if upload === 'file' %}
+                                {% set instruction = 'Open Photo Library' %}
+                            {% else %}
+                                {% set instruction = 'Open camera' %}
+                            {% endif %}
+                        {% else %}
+                            {% set instruction = 'Open camera' %}
+                        {% endif %}
+                    {% endif %}
+
+                    <label for="photo-id-document-auto" class="camera-button">{{ instruction }}
+                        <input type="file" id="photo-id-document-auto" accept="image/*" {% if mobileOsV === 11.2 and devMode === 'true' %} {% else %}capture="environment" {% endif %} />
+                    </label>
+
+                </div>
+
+            </fieldset>
+
+        </form>
+
+        {% if devMode === 'true' %}
+        <div style="display: inline-block;background-color: #ffb81c;padding: 0.25em 0.5em;">
+            <small>OS version: {{ mobileOsV }}</small>
+        </div>
+        {% endif %}
+
+    </section>
+
+    <section class="uploader-container" id="scan-id-3" style="display:none">
+
+        <h1 style="padding-bottom: 0;">
+            Uploading your photo
+        </h1>
+
+        <div class="bar_container">
+            <div id="main_container">
+                <div id="pbar" class="progress-pie-chart" data-percent="0">
+                    <div class="ppc-progress">
+                        <div class="ppc-progress-fill"></div>
+                    </div>
+                    <div class="ppc-percents">
+                        <div class="pcc-percents-wrapper">
+                            <span>%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <progress style="display: none" id="progress_bar" value="0" max="100"></progress>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="preview-container" id="scan-id-5" style="display:none">
+
+        {% include '_partials/_includes/_check-photo-v2.html' %}
+
+    </section>
+
+
+    {# section to show uploading error #}
+    <section class="preview-container" id="scan-id-6" style="display:none">
+
+        <h1 style="padding-bottom: 0;">Something went wrong</h1>
+
+        <div id="nhs-number" class="has-error form-row-error-active">
+            <p>We could not upload your photo.</p>
+        </div>
+
+        <div class="form-group">
+            <a class="button" href="" id="submit-photoId-back-button">Try again</a>
+            <!--<p><a href="service-access-photo-id-camera{{ params }}" id="">Cancel</a></p>-->
+        </div>
+
+        <div class="callout callout--info" style="margin-top: 28px;">
+            <p>If you keep getting this message, please try again later. It might be a problem with your internet
+                connection.</p>
+        </div>
+
+
+        <p class="small">Reference: CID4001</p>
+
+    </section>
+
+
+    {# section to show the AWS face check validation errors - no face #}
+    <section class="preview-container" id="scan-id-7b" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There is a problem with your photo</h1>
+
+        <p>We cannot see all the information we need.</p>
+        <p>Make sure you follow the photo instructions.</p>
+
+        <div class="form-group">
+            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CID8005</p>
+    </section>
+
+
+    {# section to show the AWS face check validation errors - multiple face #}
+    <section class="preview-container" id="scan-id-7c" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There's a problem with your photo</h1>
+
+        <p>It looks like there is more than 1 face in your photo.</p>
+        <p>Make sure there are no other faces in the photo you send us.</p>
+
+        <div class="form-group">
+            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CID8006</p>
+    </section>
+
+    {# section to show the AWS technical errors or timeouts #}
+    <section class="preview-container" id="scan-id-7d" style="display:none">
+
+        <h1 style="padding-bottom: 0;">Something went wrong</h1>
+
+        <p>There was a technical problem.</p>
+
+        <div class="form-group">
+            <a class="button" href="service-access-start{{ params }}" id="">Back to step 1 - send a photo of your I.D.</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CID8007</p>
+    </section>
+
+
+    {# section to show the file saving and server-side validation errors #}
+    <section class="preview-container" id="scan-id-7d" style="display:none">
+
+        <h1 style="padding-bottom: 0;">There is a problem</h1>
+
+        <p>You might have sent a file format we cannot accept.</p>
+        <p>If this keeps happening, you could take a photo using a different device or mobile phone app, then upload it.</p>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Try again</a>
+        </div>
+        <p class="small" style="margin-top: 28px;">Reference: CID4003</p>
+    </section>
+
+    {# section to show the technical or timeout errors #}
+    <section class="preview-container" id="scan-id-8" style="display:none">
+
+        <h1 style="padding-bottom: 0;">Something went wrong</h1>
+
+        <p>There was a technical problem.</p>
+
+        <div class="form-group">
+            <a class="button" href="service-access-photo-id-camera{{ params }}" id="">Try again</a>
+        </div>
+
+        <div class="" style="margin-top: 28px;">
+            <p>If you keep getting this message, there might be a problem with your internet connection</p>
+        </div>
+
+        <p class="small">Reference: CID4002</p>
+    </section>
+
+    {% if formerror === 'invalid' %}
+    <button id="confirmButton" style="visibility:hidden">Continue to error</button>
+    {% elif formerror === 'invalid' %}
+    <button id="confirmButton" style="visibility:hidden">Continue to error</button>
+    {% else %}
+    <button id="continueButton" style="visibility:hidden;"
+            onclick="fakeClick(event, document.getElementById('continueButton2'))">Continue
+    </button>
+
+    <a id="continueButton2" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue
+    </a>
+
+    {% endif %}
+
+    <script>
+        function fakeClick(event, anchorObj) {
+            if (anchorObj.click) {
+                anchorObj.click()
+            } else if(document.createEvent) {
+                if(event.target !== anchorObj) {
+                    var evt = document.createEvent("MouseEvents");
+                    evt.initMouseEvent("click", true, true, window,
+                        0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    var allowDefault = anchorObj.dispatchEvent(evt);
+                    // you can check allowDefault for false to see if
+                    // any handler called evt.preventDefault().
+                    // Firefox will *not* redirect to anchorObj.href
+                    // for you. However every other browser will.
+                }
+            }
+        }
+    </script>
+
+</div>
+
+{% endblock %}

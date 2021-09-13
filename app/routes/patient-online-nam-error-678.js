@@ -11,7 +11,9 @@ module.exports = function (router) {
         var lsId = req.param('lsId')
         var lsAccess = req.param('lsAccess')
         var lsStudy = req.param('lsStudy')
-        res.render('patient-online/v24/patient-online-nam-error-678', { uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
+        var testing = req.param('testing')
+
+        res.render('patient-online/v24/patient-online-nam-error-678', { testing: testing, uplift: uplift, serviceName: serviceName, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, service: service, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy }, function(err, html) {
             res.send(html)
         })
     })

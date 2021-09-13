@@ -23,18 +23,20 @@ module.exports = function (router) {
         var desk = req.param('desk')
         var linkback = req.param('linkback')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
 
         if (iproov === 'false') {
-            res.redirect('/service-access/v24/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk + '&linkback=' + linkback + '&manual=' + manual + '&uplift=' + uplift )
+            res.redirect('/service-access/v24/service-access-switchtomobile?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk + '&linkback=' + linkback + '&manual=' + manual + '&uplift=' + uplift + '&testing=' + testing )
         }
 
         else if (desk === 'true') {
-            res.redirect('/service-access/v24/service-access-switchtomobile-desktop?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk + '&linkback=' + linkback + '&manual=' + manual + '&uplift=' + uplift)
+            res.redirect('/service-access/v24/service-access-switchtomobile-desktop?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&iproov=' + iproov + '&desk=' + desk + '&linkback=' + linkback + '&manual=' + manual + '&uplift=' + uplift + '&testing=' + testing )
         }
 
         else {
-            res.render('service-access/v24/service-access-routes-question', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, idType: idType, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile, iproov: iproov, desk: desk, linkback: linkback, manual: manual }, function(err, html) {
+            res.render('service-access/v24/service-access-routes-question', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, idType: idType, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile, iproov: iproov, desk: desk, linkback: linkback, manual: manual }, function(err, html) {
                 res.send(html)
             })
         }
@@ -62,11 +64,11 @@ module.exports = function (router) {
         var manual = req.param('manual')
         var side = 'front'
         if (idType === 'passport' || idType === 'UK driving licence' || idType === 'European driving licence' || idType === 'European national identity card' ) {
-            res.redirect('/service-access/v24/service-access-photo-id-instructions?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual  + '&side=' + side + '&uplift=' + uplift)
+            res.redirect('/service-access/v24/service-access-photo-id-instructions?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual  + '&side=' + side + '&uplift=' + uplift + '&testing=' + testing )
         }
 
         else {
-            res.redirect('/service-access/v24/service-access-offline-triage?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual + '&side=' + side + '&uplift=' + uplift)
+            res.redirect('/service-access/v24/service-access-offline-triage?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&idType=' + idType + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual + '&side=' + side + '&uplift=' + uplift + '&testing=' + testing )
         }
     })
     

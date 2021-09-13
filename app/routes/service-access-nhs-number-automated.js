@@ -23,8 +23,10 @@ module.exports = function (router) {
         var desk = req.param('desk')
         var linkback = req.param('linkback')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         // re-render the page along with the parameter
-            res.render('service-access/v24/service-access-nhs-number-automated', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile, iproov: iproov, desk: desk, linkback: linkback, manual: manual }, function(err, html) {
+            res.render('service-access/v24/service-access-nhs-number-automated', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, challenge: challenge, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl, isMobile: isMobile, changetomobile: changetomobile, iproov: iproov, desk: desk, linkback: linkback, manual: manual }, function(err, html) {
                 res.send(html)
             })
     }) 
@@ -52,6 +54,8 @@ module.exports = function (router) {
         var iproov = req.param('iproov')
         var desk = req.param('desk')
         var manual = req.param('manual')
+        var testing = req.param('testing')
+
         var side = 'front'
         if (nhsNumber === 'yes' ) {
             res.redirect('service-access-nhs-number-demographics-dob?emailAddress=' + emailAddress + '&mobileNum=' + mobileNum + '&service=' + service + '&serviceName=' + serviceName + '&hidehead=' + hidehead + '&challenge=' + challenge + '&lsId=' + lsId + '&lsAccess=' + lsAccess + '&lsStudy=' + lsStudy + '&devMode=' + devMode + '&returnUrl=' + returnUrl + '&formerror=' + formerror + '&isMobile=' + isMobile + '&manual=' + manual  + '&side=' + side + '&uplift=' + uplift + '&nhsNumber=' + nhsNumber)
