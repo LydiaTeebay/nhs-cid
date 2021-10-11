@@ -1,0 +1,92 @@
+{% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
+{% block page_title %}Access {{ serviceName }} - What type of ID do you have?{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&formerror=" + formerror + "&idType=" + idType + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&uplift=" + uplift + "&testing=" + testing %}
+
+{% block content %}
+
+<div class="first-item">
+
+{#   {% if linkback === "true" %}
+
+  <p><a href="/patient-online/v24/patient-online-details-2{{ params }}" class="link-back">Back</a></p>
+
+  {% else %}
+
+  <p><a href="service-access-what-you-need{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> How to prove who you are</a></p>
+
+  {% endif %} #}
+
+  <div class="reading-width">
+      
+    <h1 class="heading-large"> 
+    {# <span class="heading-secondary">Step 1 of 3 </span> #} 
+    Do you have a photo ID?</h1>
+
+
+
+
+	  	<form action="service-access-routes-question{{ params }}" method="POST">
+			<fieldset class="">
+				<div class="form-group" method="post">
+
+          <legend for="selection-button-radio">
+              If you have your photo ID with you we will help you take a photo of it.
+          </legend>
+
+					<div class="selection-button-radio" style="margin-top: 32px;">
+						<div class="multiple-choice" data-target="yes">
+							<input id="radio-inline-1" type="radio" name="nhsNumber" value="yes">
+							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I have photo ID</label>
+						</div>
+					</div>
+
+
+					<div class="selection-button-radio" style="margin-top: 0px;">
+						<div class="multiple-choice" data-target="no">
+							<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
+							<label for="radio-inline-2"class="block-label" style="position: static;">No, continue without photo ID</label>
+						</div>
+					</div>
+				
+
+				</fieldset>
+
+				<div class="form-group">
+					<button class="button" id="">Continue</button>
+				  </div>
+	    </form>
+
+        {# <p><a href="/patient-online/v23/patient-online-details{{ params }}&drop=type">How to prove who you are without sending a photo of your I.D.</a></p> #}
+
+      </div>
+
+    </form>
+
+
+    <!--<p class=""><a href="service-access-no-documents{{ params }}">I don't have a photo ID document.</a></p>-->
+
+    {% if devMode === "true" %}
+    <details class="dev-mode" role="group" >
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="details__summary">Reload this page with a testing scenario</span>
+      </summary>
+      <div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+        <div class="reading-width">
+          <p>Photo upload errors</p>
+          <ol>
+            <li><a href="service-access-photo-id-type{{ params }}challenge=undefined">Photo ID upload successfull</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Validation Failure</a></li>
+            <li><a href="service-access-photo-id-type{{ params }}&challenge=invalid">Photo ID Upload Failure</a></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    {% endif %}
+
+  </div>
+
+</div>
+
+{% endblock %}
