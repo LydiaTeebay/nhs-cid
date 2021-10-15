@@ -37,28 +37,17 @@
 
           <legend for="radio-inline-group">
             <h2 class="" style="padding:0.5em 0 0; font-size: 20px; font-weight: 600; line-height: 32px;">
-              What type of photo ID do you have?
+              Choose the ID you want to use
             </h2>
           </legend>
 
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-1">
+              <input id="radio-inline-1" type="radio" name="idType" value="passport">
+              Passport
+            </label>
+          </div>
 
-
-					<div class="selection-button-radio" style="margin-top: 20px;">
-          	<div class="multiple-choice" data-target="yes">
-							<input id="Passport" aria-controls="qanda-1" type="radio" name="nhsNumber" value="Passport">
-							<label for="Passport" class="block-label" style="position: static;" name="idType">Passport
-                {# <span class="form-label__hint" id="hintId">We do not accept Syrian passports</span> #}
-              </label>
-					</div>
-
-						<div class="multiple-choice" data-target="yes" style="margin-top: 20px;">
-							<input id="DL" aria-controls="qanda-2" type="radio" name="nhsNumber" value="yes">
-							<label for="DL" class="block-label" style="position: static;">Driving licence</label>
-						</div>
-					</div>
-
-					<div class="panel panel-border-narrow js-hidden" id="qanda-2" style="margin-top: 0; margin-left: 17.5px">
-					
           <div>
             <label class="block-label selection-button-radio" for="radio-inline-2">
               <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
@@ -68,26 +57,16 @@
 
           <div>
             <label class="block-label selection-button-radio" for="radio-inline-3">
-              <input id="radio-inline-3" aria-controls="qanda-2" type="radio" name="idType" value="European driving licence">
-              European driving licence (full)
+              <input id="radio-inline-3" type="radio" name="idType" value="UK residence card, BRP or BRC">
+              Biometric residence permit (BRP), UK residence card, or EEA biometric residence card (BRC)
             </label>
           </div>
 
-        </div>
-
-        <div class="selection-button-radio" style="margin-top: 20px;">
-						<div class="multiple-choice" data-target="yes">
-							<input id="other-photo-ID" aria-controls="qanda-3" type="radio" name="nhsNumber" value="yes">
-							<label for="other-photo-ID" class="block-label" style="position: static;">Other photo ID</label>
-						</div>
-					</div>
-
-
-					<div class="panel panel-border-narrow js-hidden" id="qanda-3" style="margin-top: 0; margin-left: 17.5px">
           <div>
             <label class="block-label selection-button-radio" for="radio-inline-4">
-              <input id="radio-inline-4" type="radio" name="idType" value="UK residence card, BRP or BRC">
-              Biometric Residence Permit (BRP), UK Residence Card, or EEA Biometric Residence Card (BRC) including temporary pass
+              <input id="radio-inline-4" type="radio" name="idType" value="European driving licence">
+              European driving licence (full)
+              {# <span class="form-label__hint" id="hintId">You will need to send 2 photos - 1 of the front and 1 of the back</span> #}
             </label>
 
           </div>
@@ -100,7 +79,6 @@
             </label>
           </div>
 
-
         </fieldset>
 
         {# <p>You may need to send 2 photos of your ID – 1 of the front and 1 of the back.</p> #}
@@ -109,6 +87,7 @@
           <button class="button" id="">Continue</button>
         </div>
 
+<br>
  <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
                   <span class="details__summary">What to do if your photo ID is not on this list</span>
@@ -118,7 +97,6 @@
 <p>If you do not have an accepted photo ID you can <a href="/patient-online/v24/patient-online-details{{ params }}&drop=type">prove who you are without sending a photo of your ID</a>.</p>
               </div>
         </details>
-
       </div>
 
     </form>

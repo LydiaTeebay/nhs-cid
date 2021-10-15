@@ -27,10 +27,10 @@
       <fieldset class="">
 
         <legend>
-          {% if idType === 'passport' or idType === 'Driving licence' %}
-          <h1 class="h3" style="padding:0.5em 0;">Choose how to send a photo of your {{ idType }}</h1>
+          {% if idType === 'passport' or idType === 'driving licence' %}
+          <h1 class="h3" style="padding:0.5em 0;">Choose how to send a photo of your ID</h1>
           {% else %}
-          <h1 class="h3" style="padding:0.5em 0;">Choose how to send the photos of your {{ idType }}</h1>
+          <h1 class="h3" style="padding:0.5em 0;">Choose how to send the photos of your ID</h1>
           {% endif %}
 
         </legend>
@@ -40,7 +40,7 @@
 
         <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=camera">
 
-          {% if idType === 'passport' or idType === 'Driving licence' %}
+          {% if idType === 'passport' or idType === 'driving licence' %}
           Take a photo now
           {% else %}
           Take photos now
@@ -50,7 +50,7 @@
         <label class="block-label selection-button-radio" for="radio-inline-2">
           <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=file">
 
-          {% if idType === 'passport' or idType === 'Driving licence' %}
+          {% if idType === 'passport' or idType === 'driving licence' %}
           Upload a photo
           {% else %}
           Upload photos

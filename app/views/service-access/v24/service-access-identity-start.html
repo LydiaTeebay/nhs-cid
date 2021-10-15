@@ -5,13 +5,21 @@
 
 {% block extrastyles %}
 
-{% if supported === 'false' %}
+{# {% if supported === 'false' %}
 <meta http-equiv="refresh" content="1.5;url=service-access-switch-to-mobile{{ params }}">
 {% elif throttle === 'true' %}
 <meta http-equiv="refresh" content="1.5;url=service-access-what-you-need{{ params }}&throttleAlert=true">
 {% else %}
 <meta http-equiv="refresh" content="1.5;url=service-access-what-you-need{{ params }}">
+{% endif %} #}
+
+{% if throttle === 'true' %}
+<meta http-equiv="refresh" content="1.5;url=service-access-throttle-wait{{ params }}">
+{% else %}
+<meta http-equiv="refresh" content="1.5;url=service-access-steps_1{{ params }}">
 {% endif %}
+
+
 
 {% endblock %}
 

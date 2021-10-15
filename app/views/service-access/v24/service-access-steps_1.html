@@ -2,7 +2,7 @@
 {% block page_title %}Access {{ serviceName }} - Steps{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual + "&testing=" + testing %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual + "&testing=" + testing + "&uplift=" + uplift + "&throttle=" + throttle %}
 
 {% block content %}
 
@@ -25,12 +25,12 @@
 			<div class="service-access__item__desc">
 				<p>We will use this to confirm your identity.</p>
 			</div>
-			<a href="service-access-nhs-number{{ params }}" class="service-access__item__button button">Continue</a>
+			<a href="service-access-what-you-need{{ params }}" class="service-access__item__button button">Continue</a>
 
 		<li class="service-access__item active">	
 		<span class="service-access__item__title__text__leftandright"><b>Next steps</b>12 mins</span>
-				{# <h3 class="service-access__item__title">Scan your face</h3> #}
-				<h3 class="service-access__item__title">Record a short video</h3>
+				<h3 class="service-access__item__title">Scan your face</h3>
+				{# <h3 class="service-access__item__title">Record a short video</h3> #}
 				<div class="service-access__item__desc">
 					<p>This is to match you to your photo ID.</p>
 				</div>

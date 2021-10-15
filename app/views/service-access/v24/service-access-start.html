@@ -16,7 +16,7 @@
 			{% if uplift === 'true' %}
 			{% if serviceName !== '' %} 
 
-			<p>To access some parts of <b>'{{ serviceName }}'</b> you must first prove who you are.</p>
+			<p>To access some parts of <b>'{{ serviceName or 'NHS App' }}'</b> you must first prove who you are.</p>
 
 			{% else %}
 
@@ -29,7 +29,7 @@
 
 			{% if serviceName !== '' %} 
 
-			<p>Before you can use your NHS login to access <b>'{{ serviceName }}'</b>, you need to prove who you are.</p>
+			<p>Before you can use your NHS login to access <b>'{{ serviceName or 'NHS App' }}'</b>, you need to prove who you are.</p>
 
 			{% else %}
 
@@ -38,13 +38,6 @@
 			{% endif %}
 
 			{% endif %}
-
-			<p> To do this you will be asked to:
-				<ul>
-            		<li> Send your photo ID</li>
-            		<li> Scan your face </li>
-				</ul>
-			</p>
 
 			<p>This helps us keep your information secure.</p>
 
