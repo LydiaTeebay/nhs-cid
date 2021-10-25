@@ -14,89 +14,66 @@
 
   {% else %}
 
-  <p><a href="service-access-what-you-need{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> How to prove who you are</a></p>
+  <p><a href="service-access-what-you-need{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Send a photo of your ID</a></p>
 
   {% endif %}
 
   <div class="reading-width">
-      
-      {% if uplift !== 'true' %}
-
-    <h1 class="heading-large"><span class="heading-secondary">Step 1 of 3 </span>Send a photo of your ID</h1>
-
-			{% else %}
-
-    <h1 class="heading-large"><span class="heading-secondary">Step 1 of 2 </span>Send a photo of your ID</h1>
-
-
-			{% endif %}
 
     <form action="service-access-photo-id-type{{ params }}" method="POST">
       <div class="form-group">
         <fieldset class="">
 
           <legend for="radio-inline-group">
-            <h2 class="" style="padding:0.5em 0 0; font-size: 20px; font-weight: 600; line-height: 32px;">
+            <h1 class="h3" style="padding:0.5em 0;">
               What type of photo ID do you have?
-            </h2>
+            </h1>
           </legend>
 
 
 
 					<div class="selection-button-radio" style="margin-top: 20px;">
           	<div class="multiple-choice" data-target="yes">
-							<input id="Passport" aria-controls="qanda-1" type="radio" name="ID" value="passport">
+							<input id="Passport" aria-controls="qanda-1" type="radio" name="idType" value="passport">
 							<label for="Passport" class="block-label" style="position: static;" name="idType">Passport</label>
 					</div>
 
 						<div class="multiple-choice" data-target="yes" style="margin-top: 20px;">
-							<input id="DL" aria-controls="qanda-2" type="radio" name="ID" value="yes">
-							<label for="DL" class="block-label" style="position: static;">Driving licence</label>
+							<input id="DL" aria-controls="qanda-2" type="radio" name="idType" value="driving licence">
+							<label for="DL" class="block-label" style="position: static;">UK driving licence (full or provisional)</label>
 						</div>
 					</div>
 
-					<div class="panel panel-border-narrow js-hidden" id="qanda-2" style="margin-top: 0; margin-left: 17.5px">
-					
-          <div>
-            <label class="block-label selection-button-radio" for="radio-inline-2">
-              <input id="radio-inline-2" type="radio" name="idType" value="UK driving licence">
-              UK driving licence (full or provisional)
-            </label>
-          </div>
-
-          <div>
-            <label class="block-label selection-button-radio" for="radio-inline-3">
-              <input id="radio-inline-3" aria-controls="qanda-2" type="radio" name="idType" value="European driving licence">
-              European driving licence (full)
-            </label>
-          </div>
-
-        </div>
-
         <div class="selection-button-radio" style="margin-top: 20px;">
 						<div class="multiple-choice" data-target="yes">
-							<input id="other-photo-ID" aria-controls="qanda-3" type="radio" name="ID" value="yes">
+							<input id="other-photo-ID" aria-controls="qanda-3" type="radio" name="idType" value="ID">
 							<label for="other-photo-ID" class="block-label" style="position: static;">Other photo ID</label>
 						</div>
 					</div>
 
 
 					<div class="panel panel-border-narrow js-hidden" id="qanda-3" style="margin-top: 0; margin-left: 17.5px">
-          <div>
-            <label class="block-label selection-button-radio" for="radio-inline-4">
-              <input id="radio-inline-4" type="radio" name="idType" value="UK residence card, BRP or BRC">
-              Biometric Residence Permit (BRP), UK Residence Card, or EEA Biometric Residence Card (BRC) including temporary pass
-            </label>
-
-          </div>
 
           <div>
             <label class="block-label selection-button-radio" for="radio-inline-5">
-              <input id="radio-inline-5" type="radio" name="idType" value="European national identity card">
+              <input id="radio-inline-5" type="radio" name="OtherID" value="EU driving licence">
+              European driving licence (full)
+            </label>
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-6">
+              <input id="radio-inline-6" type="radio" name="OtherID" value="European national identity card">
               European national identity card
             </label>
           </div>
 
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-4">
+              <input id="radio-inline-4" type="radio" name="OtherID" value="UK residence card, BRP or BRC">
+              Biometric Residence Permit (BRP), UK Residence Card, or EEA Biometric Residence Card (BRC) including temporary pass
+            </label>
+          </div>
 
         </fieldset>
 

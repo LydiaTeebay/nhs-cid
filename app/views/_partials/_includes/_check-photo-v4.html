@@ -1,6 +1,6 @@
 <div class="" id="check-intro">
 
-    {% if idType === 'passport' or idType === 'UK driving licence' %}
+    {% if idType === 'passport' or idType === 'driving licence' %}
     <p><a href="#" class="link-back" id="usercheck-back-button2">
         <!--<span class="u-visuallyhidden"><i>Back to:</i></span>-->
         {% if upload === 'file' %}
@@ -33,7 +33,7 @@
 
     <div class="reading-width">
         <div id="scan-id-preview" style="padding-top: 16px;">
-            <img id="uploaded-id" src="#" alt="A preview of your photo of your I.D document" style="height:auto;"/>
+            <img id="uploaded-id" src="#" alt="A preview of your photo of your ID document" style="height:auto;"/>
         </div>
     </div>
 
@@ -46,12 +46,10 @@
         <h2 class="h3 check-title">
             {% if idType === 'passport' %}
                 Can you see all 4 edges of the passport page that has your name on it?
-            {% elif idType === 'European driving licence' %}
+            {% elif idType === 'driving licence' %}
                 Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your driving licence?
-            {% elif idType === 'European national identity card' or idType === 'UK residence card or BRP' %}
-                Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your identity card?
             {% else %}
-                Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your driving licence?
+                Can you see all 4 corners of the {% if side === 'back' %}back{% else %}front{% endif %} of your ID?
             {% endif %}
         </h2>
     </legend>
@@ -82,10 +80,10 @@
         <h2 class="h3 check-title">
             {% if idType === 'passport' %}
                 Have you covered up any part of the passport page that has your name on it?
-            {% elif idType === 'European national identity card' or idType === 'UK residence card or BRP' %}
-                Have you covered up any part of your identity card with hands or fingers?
-            {% else %}
+            {% elif idType === 'driving licence' %}
                 Have you covered up any part of your driving licence with hands or fingers?
+            {% else %}
+                Have you covered up any part of your ID with hands or fingers?
             {% endif %}
         </h2>
     </legend>
@@ -133,15 +131,12 @@
     {% if idType === 'passport' %}
         <h1 id="advice-title-2">Make sure all 4 edges of the passport page are in your photo</h1>
         <p>We need to see the whole page so we can check it's a valid passport.</p>
-    {% elif idType === 'UK driving licence' %}
+    {% elif idType === 'driving licence' %}
         <h1 id="advice-title-2">Make sure all 4 corners of your driving licence are in your photo</h1>
-        <p>We need to see all of the front of your licence, so we can check it's valid.</p>
-    {% elif idType === 'European driving licence' %}
-        <h1 id="advice-title-2">Make sure all 4 corners of your driving licence are in your photo</h1>
-        <p>We need to see all of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your licence, so we can check it's valid.</p>
-    {% elif idType === 'European national identity card' or idType === 'UK residence card or BRP' %}
-        <h1 id="advice-title-2">Make sure all 4 corners of your identity card are in your photo</h1>
-        <p>We need to see all of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card, so we can check it's valid.</p>
+        <p>We need to see all of the front of your driving licence, so we can check it's valid.</p>
+    {% else %}
+        <h1 id="advice-title-2">Make sure all 4 corners of your ID are in your photo</h1>
+        <p>We need to see all of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your ID, so we can check it's valid.</p>
     {% endif %}
 
     <fieldset>
@@ -155,12 +150,10 @@
 
                     {% if idType === 'passport' %}
                         {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my passport
-                    {% elif idType === 'UK driving licence' %}
-                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my licence
-                    {% elif idType === 'European driving licence' %}
-                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my licence
-                    {% elif idType === 'European national identity card' or idType === 'UK residence card or BRP' %}
-                    {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my identity card
+                    {% elif idType === 'driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my driving licence
+                    {% else %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my ID
                     {% endif %}
 
                 </label>
@@ -169,7 +162,7 @@
         <div class="selection-button-radio" style="margin-top: 0;">
             <div class="multiple-choice" data-target="advice-1-no" style="margin-bottom: 0;">
                 <input id="radio-inline-6" type="radio" name="radio-inline-group-3" value="startover">
-                <label for="radio-inline-6"class="block-label" style="position: static;">Choose a different type of I.D.</label>
+                <label for="radio-inline-6"class="block-label" style="position: static;">Choose a different type of ID</label>
             </div>
         </div>
 
@@ -189,15 +182,12 @@
     {% if idType === 'passport' %}
         <h1 id="advice-title-2">Do not cover up any part of the passport page that has your name on it</h1>
         <p>We need to see all the details on the page so we can check it's a valid passport.</p>
-    {% elif idType === 'UK driving licence' %}
-        <h1 id="advice-title-2">Do not cover up any details on the front of your licence</h1>
-        <p>We need to see all the details so we can check it's a valid licence.</p>
-    {% elif idType === 'European driving licence' %}
-        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your licence</h1>
-        <p>We need to see all the details so we can check it's a valid licence.</p>
-    {% elif idType === 'European national identity card' or idType === 'UK residence card or BRP' %}
-        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your identity card</h1>
-        <p>We need to see all the details so we can check it's a valid identity card.</p>
+    {% elif idType === 'driving licence' %}
+        <h1 id="advice-title-2">Do not cover up any details on the front of your driving licence</h1>
+        <p>We need to see all the details so we can check it's a valid driving licence.</p>
+    {% else %}
+        <h1 id="advice-title-2">Do not cover up any details on the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of your ID</h1>
+        <p>We need to see all the details so we can check it's a valid ID.</p>
     {% endif %}
 
     <fieldset>
@@ -211,12 +201,10 @@
 
                     {% if idType === 'passport' %}
                         {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my passport
-                    {% elif idType === 'UK driving licence' %}
-                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my licence
-                    {% elif idType === 'European driving licence' %}
-                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my licence
-                    {% elif idType === 'European national identity card' or idType === 'UK residence card or BRP' %}
-                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my identity card
+                    {% elif idType === 'driving licence' %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of my driving licence
+                    {% else %}
+                        {% if upload === 'file' %}Upload{% else %}Take{% endif %} another photo of the {% if licenceSide === 'back' %}back{% else %}front{% endif %} of my ID
                     {% endif %}
 
                 </label>
@@ -225,7 +213,7 @@
         <div class="selection-button-radio" style="margin-top: 0;">
             <div class="multiple-choice" data-target="advice-2-no" style="margin-bottom: 0;">
                 <input id="radio-inline-8" type="radio" name="radio-inline-group-4" value="startover">
-                <label for="radio-inline-8"class="block-label" style="position: static;">Choose a different type of I.D.</label>
+                <label for="radio-inline-8"class="block-label" style="position: static;">Choose a different type of ID</label>
             </div>
         </div>
 
@@ -277,7 +265,7 @@
 
 
 <a class="u-visuallyhidden" href="" style="visibility:hidden;" id="submit-photoId-button">Yes - continue</a>
-<a href="service-access-photo-id-type{{ params }}&linkback=true" class="u-visuallyhidden" id="startover">Choose the photo I.D. you want to use</a>
+<a href="service-access-photo-id-type{{ params }}&linkback=true" class="u-visuallyhidden" id="startover">Choose the photo ID you want to use</a>
 
 
 

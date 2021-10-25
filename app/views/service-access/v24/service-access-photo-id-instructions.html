@@ -2,14 +2,14 @@
 {% block page_title %}Access {{ serviceName }} - Take a photo of your {{ idType }}{% endblock %}
 
 {% set signedin = 'true' %}
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&side=front" + "&uplift=" + uplift + "&testing=" + testing %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&formerror=" + formerror + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual + "&side=front" + "&uplift=" + uplift %}
 
 {% block content %}
 
 <div class="first-item">
 
   {% if hideBack !== 'true' %}
-  <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose the photo I.D. you want to use</a></p>
+  <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose the photo ID you want to use</a></p>
   {% endif %}
 
   <div class="reading-width">
@@ -28,9 +28,9 @@
 
         <legend>
           {% if idType === 'passport' or idType === 'driving licence' %}
-          <h1 class="h3" style="padding:0.5em 0;">Choose how to send a photo of your ID</h1>
+          <h1 class="h3" style="padding:0.5em 0;">Choose how to send a photo of your {{ idType }}</h1>
           {% else %}
-          <h1 class="h3" style="padding:0.5em 0;">Choose how to send the photos of your ID</h1>
+          <h1 class="h3" style="padding:0.5em 0;">Choose how to send the photos of your {{ idType }}</h1>
           {% endif %}
 
         </legend>

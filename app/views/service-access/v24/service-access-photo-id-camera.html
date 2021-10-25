@@ -75,17 +75,17 @@
         {% if front === 'done' %}
 
             {% if upload === 'file' %}
-            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Upload a photo of the front of your I.D.</a></p>
+            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Upload a photo of the front of your ID</a></p>
             {% else %}
-            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Take a photo of the front of your I.D.</a></p>
+            <p><a href="service-access-photo-id-camera{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Take a photo of the front of your ID</a></p>
             {% endif %}
 
         {% else %}
 
             {% if mobileOs === 'Apple Mac' or mobileOs === 'Microsoft Windows' %}
-                <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Choose the photo I.D. you want to use</a></p>
+                <p><a href="service-access-photo-id-type{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Choose the photo ID you want to use</a></p>
             {% else %}
-                {% if idType === 'passport' or idType === 'UK driving licence' %}
+                {% if idType === 'passport' or idType === 'driving licence' %}
                     <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Choose a different way to send your photo</a></p>
                 {% else %}
                     <p><a href="service-access-photo-id-instructions{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;"></i> Choose a different way to send your photo</a></p>
@@ -99,7 +99,7 @@
                 <legend for="radio-inline-group">
                     <h1 style="padding-bottom: 0;">
 
-                    {% if idType === 'passport' or idType === 'UK driving licence' %}
+                    {% if idType === 'passport' or idType === 'driving licence' %}
 
                         {% if upload === 'file' %}
                             Upload a photo of your {{ idType }}
@@ -122,8 +122,10 @@
 
                 {% if idType === 'passport' %}
                 <p>We need a clear photo of the page in your passport that has your name and face on it.</p>
-                {% else %}
+                {% elif idType ==='driving licence' %}
                 <p>We need a clear photo of your {{ idType }}.</p>
+                {% else %}
+                <p>We need a clear photo of the {% if front === 'done' %}back{% else %}front{% endif %} of your {{ idType }}.</p>
                 {% endif %}
 
                 {% if upload !== 'file' %}
@@ -791,7 +793,7 @@
             onclick="fakeClick(event, document.getElementById('continueButton3'))">Continue
     </button>
 
-    {% if idType === 'European driving licence' or idType === 'European driving licence' %}
+    {% if idType === 'ID' %}
         {% if side === 'back' %}
             <a id="continueButton2" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}">Continue</a>
             <a id="continueButton3" class="u-visuallyhidden" style="visibility:hidden;" href="service-access-video-selfie{{ params }}&manual=true&enrol=fail">Continue</a>
