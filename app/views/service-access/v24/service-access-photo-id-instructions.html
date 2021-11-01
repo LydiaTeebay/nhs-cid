@@ -35,8 +35,10 @@
 
         </legend>
 
-        <label class="block-label selection-button-radio" for="radio-inline-1">
 
+      {% if mobileOs === 'iPhone' or mobileOs === 'iPad' %}
+
+        <label class="block-label selection-button-radio" for="radio-inline-1">
 
         <input id="radio-inline-1" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=camera">
 
@@ -45,8 +47,11 @@
           {% else %}
           Take photos now
           {% endif %}
-
         </label>
+
+      {% endif %}
+
+
         <label class="block-label selection-button-radio" for="radio-inline-2">
           <input id="radio-inline-2" type="radio" name="radio-inline-group" value="service-access-photo-id-camera{{ params }}&upload=file">
 
