@@ -28,7 +28,7 @@
 
 
 	  	<form action="service-access-routes-question{{ params }}" method="POST">
-			<fieldset class="">
+			<fieldset class="photo-id">
 				<div class="form-group" method="post">
 
           <legend for="selection-button-radio">
@@ -37,19 +37,33 @@
 
 					<div class="selection-button-radio" style="margin-top: 32px;">
 						<div class="multiple-choice" data-target="yes">
-							<input id="radio-inline-1" type="radio" name="nhsNumber" value="yes">
-							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I have photo ID</label>
+							<input id="radio-inline-1" type="radio" name="nhsNumber" value="yes-onme">
+							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I have photo ID on me</label>
 						</div>
 					</div>
 
 
 					<div class="selection-button-radio" style="margin-top: 0px;">
 						<div class="multiple-choice" data-target="no">
-							<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
-							<label for="radio-inline-2"class="block-label" style="position: static;">No, continue without photo ID</label>
+							<input id="radio-inline-2" type="radio" name="nhsNumber" value="yes-ondevice">
+							<label for="radio-inline-2"class="block-label" style="position: static;">Yes, I have a photo of my ID on this device</label>
 						</div>
 					</div>
 				
+					<div class="selection-button-radio" style="margin-top: 0px;">
+						<div class="multiple-choice" data-target="no">
+							<input id="radio-inline-2" type="radio" name="nhsNumber" value="yes-nothere">
+							<label for="radio-inline-2"class="block-label" style="position: static;">Yes, but I don't have the photo ID on me</label>
+						</div>
+					</div>
+
+					<div class="selection-button-radio" style="margin-top: 0px;">
+						<div class="multiple-choice" data-target="no">
+							<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
+							<label for="radio-inline-2"class="block-label" style="position: static;">No, I don't have photo ID</label>
+						</div>
+					</div>
+
 
 				</fieldset>
 
