@@ -20,10 +20,7 @@
 
   <div class="reading-width">
       
-    <h1 class="heading-large"> 
-    {# <span class="heading-secondary">Step 1 of 3 </span> #} 
-    Do you have a photo ID?</h1>
-
+    <h1 class="heading-large">Do you have photo ID?</h1>
 
 
 
@@ -31,43 +28,58 @@
 			<fieldset class="photo-id">
 				<div class="form-group" method="post">
 
-          <legend for="selection-button-radio">
-              If you have your photo ID with you we will help you take a photo of it.
-          </legend>
+         <details class="" role="group" >
+              <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                  <span class="details__summary">Types of photo ID</span>
+              </summary>
+              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                  <div class="reading-width">
+        <p>We accept most passports, driving licenses, national identity cards, or residence cards.</p>
 
-					<div class="selection-button-radio" style="margin-top: 32px;">
+        <p>We can accept an expired photo ID if it expired less than 12 months ago.</p>
+              </div>
+        </details>
+
+        <div class="selection-button-radio" style="margin-top: 20px;">
 						<div class="multiple-choice" data-target="yes">
-							<input id="radio-inline-1" type="radio" name="nhsNumber" value="yes-onme">
-							<label for="radio-inline-1" class="block-label" style="position: static;">Yes, I have photo ID on me</label>
+							<input id="other-photo-ID" aria-controls="qanda-3" type="radio" name="idType" value="Yes">
+							<label for="other-photo-ID" class="block-label" style="position: static;">Yes</label>
 						</div>
 					</div>
 
 
-					<div class="selection-button-radio" style="margin-top: 0px;">
-						<div class="multiple-choice" data-target="no">
-							<input id="radio-inline-2" type="radio" name="nhsNumber" value="yes-ondevice">
-							<label for="radio-inline-2"class="block-label" style="position: static;">Yes, I have a photo of my ID on this device</label>
-						</div>
+					<div class="panel panel-border-narrow js-hidden" id="qanda-3" style="margin-top: 0; margin-left: 17.5px">
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-5">
+              <input id="radio-inline-5" type="radio" name="OtherID" value="EU driving licence">
+              I have photo ID with me
+            </label>
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-6">
+              <input id="radio-inline-6" type="radio" name="OtherID" value="European national identity card">
+              I have photo ID but not with me
+            </label>
+          </div>
+
+          <div>
+            <label class="block-label selection-button-radio" for="radio-inline-4">
+              <input id="radio-inline-4" type="radio" name="OtherID" value="UK residence card, BRP or BRC">
+              I have a photo of my ID on this device
+            </label>
+          </div>
+
+</div>
+
+          			<div class="selection-button-radio" style="margin-top: 20px;">
+          	<div class="multiple-choice" data-target="yes">
+							<input id="Passport" aria-controls="qanda-1" type="radio" name="idType" value="passport">
+							<label for="Passport" class="block-label" style="position: static;" name="idType">No, I don’t have photo ID</label>
 					</div>
-				
-					<div class="selection-button-radio" style="margin-top: 0px;">
-						<div class="multiple-choice" data-target="no">
-							<input id="radio-inline-2" type="radio" name="nhsNumber" value="yes-nothere">
-							<label for="radio-inline-2"class="block-label" style="position: static;">Yes, but I don't have the photo ID on me</label>
-						</div>
-					</div>
 
-					<div class="selection-button-radio" style="margin-top: 0px;">
-						<div class="multiple-choice" data-target="no">
-							<input id="radio-inline-2" type="radio" name="nhsNumber" value="no">
-							<label for="radio-inline-2"class="block-label" style="position: static;">No, I don't have photo ID</label>
-						</div>
-					</div>
-
-
-				</fieldset>
-
-        <p>Add explanation about what photo ID we accept</p>
+        </fieldset>
 
 				<div class="form-group">
 					<button class="button" id="">Continue</button>
