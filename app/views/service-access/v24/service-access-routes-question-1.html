@@ -28,19 +28,19 @@
 			<fieldset class="photo-id">
 				<div class="form-group" method="post">
 
-         <details class="" role="group" >
+                <p>This can be a passport, driving licence, national identity card, or residence card.</p>
+
+ <details class="" role="group" >
               <summary data-analytics="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
-                  <span class="details__summary">Types of photo ID</span>
+                  <span class="details__summary">What we mean by photo ID</span>
               </summary>
               <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
                   <div class="reading-width">
-        <p>We accept most passports, driving licenses, national identity cards, or residence cards.</p>
-
-        <p>We can accept an expired photo ID if it expired less than 12 months ago.</p>
+                  <p>We accept most passports, driving licences, national identity cards, or residence cards. We can accept an expired photo ID if it expired less than 12 months ago.</p>
               </div>
         </details>
 
-        <div class="selection-button-radio" style="margin-top: 20px;">
+{#         <div class="selection-button-radio" style="margin-top: 20px;">
 						<div class="multiple-choice" data-target="yes">
 							<input id="other-photo-ID" aria-controls="qanda-3" type="radio" name="idType" value="Yes">
 							<label for="other-photo-ID" class="block-label" style="position: static;">Yes</label>
@@ -71,7 +71,19 @@
             </label>
           </div>
 
-</div>
+</div> #}
+
+          			<div class="selection-button-radio" style="margin-top: 20px;">
+          	<div class="multiple-choice" data-target="yes">
+							<input id="Passport" aria-controls="qanda-1" type="radio" name="idType" value="passport">
+							<label for="Passport" class="block-label" style="position: static;" name="idType">Yes, I have photo ID</label>
+					</div>
+
+                    			<div class="selection-button-radio" style="margin-top: 20px;">
+          	<div class="multiple-choice" data-target="yes">
+							<input id="Passport" aria-controls="qanda-1" type="radio" name="idType" value="passport">
+							<label for="Passport" class="block-label" style="position: static;" name="idType">Yes, I have photo ID but not with me</label>
+					</div>
 
           			<div class="selection-button-radio" style="margin-top: 20px;">
           	<div class="multiple-choice" data-target="yes">

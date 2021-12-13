@@ -1,6 +1,6 @@
 module.exports = function (router) {
 
-    router.get('/service-access/v24/service-access-steps_v1_step4-of-4', function (req, res) {
+    router.get('/service-access/v24/service-access-steps_3', function (req, res) {
         // pull in the url parameters
         var uplift = req.param('uplift')
         var vouched = req.param('vouch')
@@ -21,12 +21,12 @@ module.exports = function (router) {
         var testing = req.param('testing')
 
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-steps_v1_step4-of-4', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v24/service-access-steps_3', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
-    })   
+    })
 
-    router.get('/service-access/v23/service-access-steps_v1_step4-of-4', function (req, res) {
+    router.get('/service-access/v23/service-access-steps_v1_step3-of-4', function (req, res) {
         // pull in the url parameters
         var uplift = req.param('uplift')
         var vouched = req.param('vouch')
@@ -45,7 +45,7 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
         // re-render the page along with the parameter
-        res.render('service-access/v23/service-access-steps_v1_step4-of-4', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v23/service-access-steps_v1_step3-of-4', { uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, hidehead: hidehead, poluser: poluser, loggedin: loggedin, lsId: lsId, lsAccess: lsAccess, lsStudy: lsStudy, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })   

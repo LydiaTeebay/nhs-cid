@@ -14,6 +14,33 @@
 
 	<ol class="service-access">
 
+	{% if uplift === 'true' %}
+
+{# 		<li class="service-access__item completed">
+			<h3 class="service-access__item__title ticked" style="font-size:18px">Help us find your NHS record</h3>
+			<div class="service-access__item__desc">
+				</div>
+		</li> #}
+
+		<li class="service-access__item completed">
+			<h3 class="service-access__item__title ticked" style="font-size:18px">Send your photo ID</h3>
+			<div class="service-access__item__desc">
+				</div>
+		</li>
+
+		<li class="service-access__item active">	
+				<span class="service-access__item__title__text__leftandright"><b>Step 2 of 2</b>{# 3 mins #}</span>
+				<h3 class="service-access__item__title">Record your face</h3>
+				{# <h3 class="service-access__item__title">Record a short video</h3> #}
+				<div class="service-access__item__desc">
+					<p>This is to match you to your photo ID.</p>
+				</div>
+				<a href="service-access-video-selfie{{ params }}" class="service-access__item__button button">Continue</a>
+			</li>
+
+	{% else %}
+
+
 		<li class="service-access__item completed">
 			<h3 class="service-access__item__title ticked" style="font-size:18px">Send your photo ID</h3>
 			<div class="service-access__item__desc">
@@ -37,6 +64,8 @@
 					<p>You will need to tell us some details so that we can connect to your existing health record.</p>
 				</div>
 		</li>
+
+	{% endif %}
 
 	</ol>
 

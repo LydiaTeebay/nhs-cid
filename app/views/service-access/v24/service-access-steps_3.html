@@ -13,7 +13,39 @@
 <section class="service-access-wrapper">
 
 	<ol class="service-access">
+
+		{% if uplift === 'true' %}
+
+
+{# 		<li class="service-access__item completed">
+			<h3 class="service-access__item__title ticked" style="font-size:18px">Help us find your NHS record</h3>
+			<div class="service-access__item__desc">
+				</div>
+		</li> #}
+
 		<li class="service-access__item completed">
+			<h3 class="service-access__item__title ticked" style="font-size:18px">Send your photo ID</h3>
+			<div class="service-access__item__desc">
+				</div>
+		</li>
+
+				<li class="service-access__item completed">	
+				<h3 class="service-access__item__title ticked" style="font-size:18px">Record your face</h3>
+				<div class="service-access__item__desc">
+				</div>
+
+			<li class="service-access__item">
+			<h3 class"service-access__item__title">Please submit your information</h3>
+			<div class="service-access__item__desc">
+	<p>By selecting submit, you agree to send us your personal information, photo and video.</p>
+	<p>Your data will be stored securely. Read our <a href="#">privacy notice</a> to find out what we will do with your data.</p>
+	<a href="service-access-complete{{ params }}" class="service-access__item__button button">Submit information</a>
+	</div>
+</li>
+	
+	{% else %}
+
+			<li class="service-access__item completed">
 			<h3 class="service-access__item__title ticked" style="font-size:18px">Send your photo ID</h3>
 			<div class="service-access__item__desc">
 				</div>
@@ -34,6 +66,7 @@
 				<a href="service-access-nhs-number-automated{{ params }}" class="service-access__item__button button">Continue</a>
 	</li>
 
+{% endif %}
 	</ol>
 
 </section>
