@@ -45,7 +45,10 @@ Access {{ serviceName }} - Step 3 of 3
 			<div class="service-access__item__desc">
 	<p>By selecting submit, you agree to send us your personal information, photo and video.</p>
 	<p>Your data will be stored securely. Read our <a href="#">privacy notice</a> to find out what we will do with your data.</p>
-	<a href="service-access-complete{{ params }}" class="service-access__item__button button">Submit information</a>
+	        <a>
+          <button data-redirect="service-access-complete{{ params }}" class="service-access__item__button button"
+            id="button--save">Submit information</button>
+        </a>
 	</div>
 </li>
 	
