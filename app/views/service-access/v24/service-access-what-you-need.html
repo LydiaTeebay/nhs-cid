@@ -1,5 +1,5 @@
 {% extends '_layouts/_grids/_grid-1-hotjar.html' %}
-{% block page_title %}How to prove who you are{% endblock %}
+{% block page_title %}Send a photo of your ID{% endblock %}
 
 {% set params = "?serviceName=" + serviceName + "&service=" + service + "&lsId=" + lsId + "&lsAccess=" + lsAccess + "&lsStudy=" + lsStudy + "&system=" + system + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&surgery=" + surgery + "&practiceID=" + practiceID + "&supported=" + supported + "&manual=" + manual + "&uplift=" + uplift  + "&showWarning=" + showWarning  + "&throttleAlert=" + throttleAlert + "&serviceAlert=" + serviceAlert + "&throttle=" + throttle + "&manual=" + manual + "&testing=" + testing %}
 
@@ -11,8 +11,10 @@
 
 	{% if drop === "chooseid" %}
 	<p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
+	{% elif uplift === "true" %}
+	<p><a href="service-access-steps_1{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 1 of 2</a></p>
 	{% else %}
-	<p><a href="service-access-start{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> You need to prove who you are</a></p>
+	<p><a href="service-access-steps_1{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 1 of 3</a></p>
 	{% endif %}
 
 	{% endif %}
@@ -40,8 +42,14 @@
 
 	</div>
 
+	<!-- we've removed this spinner now as PYI initilise is starting after the what you need page instead
 	<div class="form-group">
 		<a class="button" href="service-access-identity-start-spinner{{ params }}">Continue</a>
+	</div>
+	-->
+
+	<div class="form-group">
+		<a class="button" href="service-access-photo-id-type{{ params }}">Continue</a>
 	</div>
 
 <br>

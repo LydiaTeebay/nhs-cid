@@ -1,5 +1,11 @@
 {% extends '_layouts/_grids/_grid-2-1-hotjar.html' %}
-{% block page_title %}Access {{ serviceName }} - Record your face{% endblock %}
+{% block page_title %}
+{% if uplift === 'true' %}
+Access {{ serviceName }} - Step 2 of 2
+{% else %}
+Access {{ serviceName }} - Step 2 of 3 
+{% endif %}
+{% endblock %}
 
 {% set signedin = 'true' %}
 {% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual + "&testing=" + testing + "&uplift=" + uplift + "&throttle=" + throttle %}

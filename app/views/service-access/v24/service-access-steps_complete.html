@@ -23,12 +23,16 @@
 				<h3 class="service-access__item__title ticked" style="font-size:18px">Record your face</h3>
 				<div class="service-access__item__desc">
 				</div>
+		</li>
 				
+		{% if uplift === "true" %}
+		{% else %}
 		<li class="service-access__item completed">		
 				<h3 class="service-access__item__title ticked" style="font-size:18px">Help us find your NHS record</h3>
 				<div class="service-access__item__desc">
 				</div>
 		</li>
+		{% endif %}
 
 		<li class="service-access__item">
 			<h3 class"service-access__item__title">Please submit your information</h3>
