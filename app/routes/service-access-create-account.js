@@ -16,8 +16,10 @@ module.exports = function (router) {
     var hidehead = req.param('hidehead')
     var manual = req.param('manual')
     var testing = req.param('testing')
+    var lsId = req.param('lsId')
+    var lsStudy = req.param('lsStudy')
 
-    res.render('service-access/v24/service-access-create-account', { testing: testing, manual: manual, uplift: uplift, service: service, serviceName: serviceName, hidehead: hidehead }, function(err, html) {
+    res.render('service-access/v24/service-access-create-account', { lsId: lsId, lsStudy: lsStudy, testing: testing, manual: manual, uplift: uplift, service: service, serviceName: serviceName, hidehead: hidehead }, function(err, html) {
         res.send(html)
     })
 })

@@ -21,8 +21,10 @@ module.exports = function (router) {
         var iProovThirdAttempt = req.param('iProovThirdAttempt')
         var pyiSecondAttempt = req.param('pyiSecondAttempt')
         var testing = req.param('testing')
+        var lsId = req.param('lsId')
+        var lsStudy = req.param('lsStudy')
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-video-selfie-triage', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovFailReason: iproovFailReason, iProovThirdAttempt: iProovThirdAttempt, pyiSecondAttempt: pyiSecondAttempt }, function(err, html) {
+        res.render('service-access/v24/service-access-video-selfie-triage', { lsId: lsId, lsStudy: lsStudy, testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovFailReason: iproovFailReason, iProovThirdAttempt: iProovThirdAttempt, pyiSecondAttempt: pyiSecondAttempt }, function(err, html) {
             res.send(html)
         })
     })

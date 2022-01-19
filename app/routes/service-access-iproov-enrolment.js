@@ -24,9 +24,11 @@ module.exports = function (router) {
         var iproovFailReason = req.param('iproovFailReason')
         var manual = req.param('manual')
         var testing = req.param('testing')
+        var lsId = req.param('lsId')
+        var lsStudy = req.param('lsStudy')
 
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-iproov-enrolment', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovTokenFailReason: iproovTokenFailReason, iproovEnrolFailReason: iproovEnrolFailReason, iproovFailReason: iproovFailReason }, function(err, html) {
+        res.render('service-access/v24/service-access-iproov-enrolment', { lsId: lsId, lsStudy: lsStudy, testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, idType: idType, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl, iproovTokenFailReason: iproovTokenFailReason, iproovEnrolFailReason: iproovEnrolFailReason, iproovFailReason: iproovFailReason }, function(err, html) {
             res.send(html)
         })
     })

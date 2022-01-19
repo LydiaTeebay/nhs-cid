@@ -1,11 +1,16 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Citizen ID Prototypes{% endblock %}
 
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&lsId=" + lsId + "&lsStudy=" + lsStudy + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual + "&testing=" + testing %}
+
+
 
 {% block topRow %}
 {% endblock %}
 
 {% block content %}
+
+
 
 <h1>Usability Testing November 2021</h1>
 <br>
@@ -17,6 +22,9 @@
 
             <p><a class="button" href="service-access/v24/service-access-routes-question-2{{params}}?serviceName=the%20NHS%20app&testing=v1&manual=true">2</a></p>
 
+{% else %}
+Nothing to see here
+{% endif %}
 
 {% endblock %}
 

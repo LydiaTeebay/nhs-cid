@@ -17,9 +17,11 @@ module.exports = function (router) {
         var returnUrl = req.param('returnUrl')
         var manual = req.param('manual')
         var testing = req.param('testing')
+        var lsId = req.param('lsId')
+        var lsStudy = req.param('lsStudy')
 
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-video-selfie-instructions', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
+        res.render('service-access/v24/service-access-video-selfie-instructions', { lsId: lsId, lsStudy: lsStudy, testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, devMode: devMode, returnUrl: returnUrl }, function(err, html) {
             res.send(html)
         })
     })

@@ -14,6 +14,8 @@ module.exports = function (router) {
         var hidehead = req.param('hidehead')
         var manual = req.param('manual')
         var testing = req.param('testing')
+        var lsId = req.param('lsId')
+        var lsStudy = req.param('lsStudy')
 
         var pinCode1 = Math.floor(0 + (9 - 0) * Math.random())
         var pinCode2 = Math.floor(0 + (9 - 0) * Math.random())
@@ -23,7 +25,7 @@ module.exports = function (router) {
         // is the user on a mobile device?
         var isMobile = req.useragent.isMobile
         // re-render the page along with the parameter
-        res.render('service-access/v24/service-access-photo-id-html5', { testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, idType: idType }, function(err, html) {
+        res.render('service-access/v24/service-access-photo-id-html5', { lsId: lsId, lsStudy: lsStudy, testing: testing, manual: manual, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, formerror: formerror, changetomobile: changetomobile, mobile: isMobile, pinCode: pinCode, hidehead: hidehead, idType: idType }, function(err, html) {
             res.send(html)
         })
     })

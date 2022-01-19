@@ -2,8 +2,12 @@
 {% if lsStudy === 'undefined' %}
 {% set logoLink = '/start' %}
 {% else %}
-{% set logoLink = 'javascript:void(0)' %}
+{% set logoLink = '/testing?{{params}}' %}
+{% if lsId === 'heather' %}
+{% set logoLink = 'https://nhs-login-registration.herokuapp.com/set-up/v-9/enter-email' %}
 {% endif %}
+{% endif %}
+
 
 {% else %}
 {% set logoLink = '/start' %}

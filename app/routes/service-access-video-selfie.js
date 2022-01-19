@@ -17,15 +17,17 @@ module.exports = function (router) {
         var enrol = req.param('enrol')
         var iproovFailReason = req.param('iproovFailReason')
         var testing = req.param('testing')
+        var lsId = req.param('lsId')
+        var lsStudy = req.param('lsStudy')
 
         // re-render the page along with the parameter
         //
         if (manual == 'true') {
-            res.render('service-access/v24/service-access-video-selfie', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
+            res.render('service-access/v24/service-access-video-selfie', { lsId: lsId, lsStudy: lsStudy, testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
                 res.send(html)
             })
         } else {
-            res.render('service-access/v24/service-access-iproov-start', { testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
+            res.render('service-access/v24/service-access-iproov-start', { lsId: lsId, lsStudy: lsStudy, testing: testing, uplift: uplift, vouch: vouched, service: service, serviceName: serviceName, emailAddress: emailAddress, mobileNum: mobileNum, hidehead: hidehead, idType: idType, challenge: challenge, devMode: devMode, returnUrl: returnUrl, genericButton: genericButton, manual: manual, enrol: enrol, iproovFailReason: iproovFailReason }, function(err, html) {
                 res.send(html)
             })
         }
