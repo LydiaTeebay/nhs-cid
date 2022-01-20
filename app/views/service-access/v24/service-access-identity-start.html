@@ -15,8 +15,12 @@
 
 {% if throttle === 'true' %}
 <meta http-equiv="refresh" content="1.5;url=service-access-throttle-wait{{ params }}">
+{% elif lsStudy === 'scenario2a' %}
+<meta http-equiv="refresh" content="1.5;url=service-access-device-transition-nocamerafound{{ params }}">
+{% elif lsStudy === 'scenario2b' %}
+<meta http-equiv="refresh" content="1.5;url=service-access-device-transition-cantaccesscamera{{ params }}">
 {% else %}
-<meta http-equiv="refresh" content="1.5;url=service-access-steps_1{{ params }}">
+<meta http-equiv="refresh" content="1.5;url=service-access-routes-question-1{{ params }}">
 {% endif %}
 
 

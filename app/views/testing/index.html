@@ -1,7 +1,7 @@
 {% extends '_layouts/_grids/_grid-2-1-stacked.html' %}
 {% block page_title %}Citizen ID Prototypes{% endblock %}
 
-{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&lsId=" + lsId + "&lsStudy=" + lsStudy + "&mobileNum=" + mobileNum + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual + "&testing=" + testing %}
+{% set params = "?service=" + service + "&hidehead=" + hidehead + "&loggedin=" + loggedin + "&manual=" + manual + "&testing=" + testing %}
 
 
 
@@ -12,19 +12,18 @@
 
 
 
-<h1>Usability Testing November 2021</h1>
+<h1>Usability Testing February 2022</h1>
 <br>
-            <p><a class="button" href="https://nhs-login-registration.herokuapp.com/set-up/v-9/enter-email">Start</a></p>
+            <p><a class="button" href="service-access/v24/service-access-start{{params}}&lsId=Feb22&lsStudy=scenario1&throttle=true">Scenario 1</a></p>
+            <p><a class="button" href="service-access/v24/service-access-start{{params}}&lsId=Feb22&lsStudy=scenario2a">Scenario 2a</a></p>
+            <p><a class="button" href="service-access/v24/service-access-start{{params}}&lsId=Feb22&lsStudy=scenario2b">Scenario 2b</a></p>
+            <p><a class="button" href="service-access/v24/service-access-start{{params}}&lsId=Feb22&lsStudy=scenario3">Scenario 3</a></p>
+            <p><a class="button" href="service-access/v24/service-access-start{{params}}&lsId=Feb22&lsStudy=scenario4">Scenario 4</a></p>
+            <p><a class="button" href="service-access/v24/service-access-start{{params}}&lsId=Feb22&lsStudy=scenario5">Scenario 5</a></p>
+            <p><a class="button" href="service-access/v24/service-access-start{{params}}&lsId=Feb22&lsStudy=scenario6">Scenario 6</a></p>
 
-            <p><a class="button" href="service-access/v24/service-access-start{{params}}?serviceName=the%20NHS%20app&testing=v1&manual=true">Start</a></p>
-             
-            <p><a class="button" href="service-access/v24/service-access-routes-question-1{{params}}?serviceName=the%20NHS%20app&testing=v1&manual=true">1</a></p>
 
-            <p><a class="button" href="service-access/v24/service-access-routes-question-2{{params}}?serviceName=the%20NHS%20app&testing=v1&manual=true">2</a></p>
 
-{% else %}
-Nothing to see here
-{% endif %}
 
 {% endblock %}
 
