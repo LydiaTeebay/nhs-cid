@@ -9,19 +9,17 @@
 
  <div class="first-item"> 
 
+ 	{% if uplift === "true" %}
+	<p><a href="service-access-steps_2{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 2 of 2</a></p>
+	{% else %}
+	<p><a href="service-access-steps_2{{ params }}" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 2 of 3</a></p>
+	{% endif %}
+
 	<div class="reading-width">
 
 
-      {% if uplift !== 'true' %}
+		<h1 class="heading-large">Record a short video</h1>
 
-		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 3</span>Record a short video</h1>
-
-			{% else %}
-
-		<h1 class="heading-large"><span class="heading-secondary">Step 2 of 2</span>Record a short video</h1>
-
-
-			{% endif %}
 
 
 		<p>Next you need to record a video of your face while you tell us 4 numbers.</p>
